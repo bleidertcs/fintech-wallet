@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "skills": {
+    "183-java-observability-tracing-opentelemetry": {
+      "source": "jabrena/cursor-rules-java",
+      "sourceType": "github",
+      "skillPath": "skills/183-java-observability-tracing-opentelemetry/SKILL.md",
+      "computedHash": "d457bf8099b20fac3fbd9c4ca3f34f61f51c702d8d48bc1a6e648e7467354bc9"
+    },
+    "accessibility": {
+      "source": "addyosmani/web-quality-skills",
+      "sourceType": "autoskills-registry",
+      "computedHash": "bffe3d08cfe92ebad63699f74ce29e35c19850ebfbf474c1463183cfe34d6a09"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "autoskills-registry",
+      "computedHash": "82fb11a63fb1e35ee2469516ed02d54695f783115b1540c0e783197af4240a3a"
+    },
+    "java-pro": {
+      "source": "smithery.ai",
+      "sourceType": "well-known",
+      "computedHash": "fb45d2d618fc01b622c6c8d06abc9fcb538f52085789ee26baacec5fde35ebd6"
+    },
+    "microservices-patterns": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/microservices-patterns/SKILL.md",
+      "computedHash": "b8c2cdd4d30182fab6b1d3c1c6ae147692f1ec75b815d5408298d1e9f6ef622d"
+    },
+    "seo": {
+      "source": "addyosmani/web-quality-skills",
+      "sourceType": "autoskills-registry",
+      "computedHash": "c184da724d1c61ad077f27418ea8e7e88fd54bcdf98165e18be7e4681cbd5e20"
+    },
+    "signoz-creating-alerts": {
+      "source": "signoz/agent-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/signoz/skills/signoz-creating-alerts/SKILL.md",
+      "computedHash": "89fe187720403d08f023207ae69e3763ae5fd0ee9d641339fac184e20ff8e3e2"
+    },
+    "signoz-creating-dashboards": {
+      "source": "signoz/agent-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/signoz/skills/signoz-creating-dashboards/SKILL.md",
+      "computedHash": "f377055247363e5c800867ed2ac28bcb16e4ba99abadfc877eb5bc867921a0dd"
+    },
+    "signoz-generating-queries": {
+      "source": "signoz/agent-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/signoz/skills/signoz-generating-queries/SKILL.md",
+      "computedHash": "f2058b02e16d0d45fe54124ce22a43f8643a9dd7aa3938d457edc54d6a2c81e1"
+    },
+    "signoz-mcp-setup": {
+      "source": "signoz/agent-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/signoz/skills/signoz-mcp-setup/SKILL.md",
+      "computedHash": "ade384840e7e3c5dd36c2a84291f284ae06e62120db5034b37b2d5acf1836b2c"
+    },
+    "signoz-searching-docs": {
+      "source": "signoz/agent-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/signoz/skills/signoz-searching-docs/SKILL.md",
+      "computedHash": "47d25b9cd58c7575baf525ffd2cba12b011ed3c2d41506a46c1e60a698aa6b16"
+    },
+    "signoz-setting-up-observability": {
+      "source": "signoz/agent-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/signoz/skills/signoz-setting-up-observability/SKILL.md",
+      "computedHash": "7ae50b1aa32e8e66f45be669278460fdeb1a378f0fbebd48ea8d9fa62b42cb0b"
+    },
+    "signoz-writing-clickhouse-queries": {
+      "source": "signoz/agent-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/signoz/skills/signoz-writing-clickhouse-queries/SKILL.md",
+      "computedHash": "52623f5bb3fbae652ec2061976cdc81d39fe2a28cbd409f87015a07df8bd5102"
+    },
+    "spring-boot-full-stack": {
+      "source": "mduongvandinh/skills-java-spring",
+      "sourceType": "github",
+      "skillPath": "java-spring-skills/SKILL.md",
+      "computedHash": "e27c3d198b9296b26659a833b0bdbd7dd16a4cbc6ecd04a0e76ef45ba36bf0f0"
+    }
+  }
+}

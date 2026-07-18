@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { userService } from '../services/api';
 import toast from 'react-hot-toast';
 
 export default function Register() {
@@ -17,8 +16,7 @@ export default function Register() {
     e.preventDefault();
     setLoading(true);
     try {
-      await register(email, password);
-      await userService.create({ name, email, balance: 10000 });
+      await register(name, email, password);
       toast.success('Cuenta creada! Bienvenido!');
     } catch (err) {
       toast.error(err.response?.data?.message || 'Error al registrarse');

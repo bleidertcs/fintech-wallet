@@ -12,6 +12,8 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import io.opentelemetry.instrumentation.annotations.WithSpan;
+import io.opentelemetry.instrumentation.annotations.SpanAttribute;
 
 import java.util.UUID;
 
@@ -28,6 +30,7 @@ public class AuthService {
     @Value("${spring.mail.username:noreply@fintechwallet.com}")
     private String mailFrom;
 
+    @WithSpan("auth.register")
     public AuthResponse register(RegisterRequest request) {
         if (userRepository.existsByEmail(request.getEmail())) {
             throw new RuntimeException("Email already registered");
@@ -73,6 +76,7 @@ public class AuthService {
                 .build();
     }
 
+    @WithSpan("auth.login")
     public AuthResponse login(LoginRequest request) {
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new RuntimeException("Invalid credentials"));
@@ -105,6 +109,7 @@ public class AuthService {
                 .build();
     }
 
+    @WithSpan("auth.verifyTotp")
     public AuthResponse verifyTotp(TotpVerifyRequest request) {
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new RuntimeException("User not found"));
@@ -129,6 +134,7 @@ public class AuthService {
                 .build();
     }
 
+    @WithSpan("auth.verifyEmail")
     public void verifyEmail(String verificationToken) {
         User user = userRepository.findAll().stream()
                 .filter(u -> verificationToken.equals(u.getVerificationToken()))
@@ -140,6 +146,7 @@ public class AuthService {
         userRepository.save(user);
     }
 
+    @WithSpan("auth.setupTotp")
     public TotpSetupResponse setupTotp(String email) {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found"));
@@ -156,6 +163,7 @@ public class AuthService {
                 .build();
     }
 
+    @WithSpan("auth.enableTotp")
     public void enableTotp(String email, String code) {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found"));
@@ -172,6 +180,7 @@ public class AuthService {
         userRepository.save(user);
     }
 
+    @WithSpan("auth.disableTotp")
     public void disableTotp(String email) {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found"));
@@ -180,6 +189,7 @@ public class AuthService {
         userRepository.save(user);
     }
 
+    @WithSpan("auth.changePassword")
     public void changePassword(ChangePasswordRequest request) {
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new RuntimeException("User not found"));

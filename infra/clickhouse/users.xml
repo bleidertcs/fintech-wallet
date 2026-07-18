@@ -1,0 +1,17 @@
+<clickhouse>
+    <profiles>
+        <default>
+            <allow_experimental_object_type>1</allow_experimental_object_type>
+            <allow_experimental_json_type>1</allow_experimental_json_type>
+        </default>
+    </profiles>
+
+    <users>
+        <default>
+            <password></password>
+            <networks>
+                <ip>::/0</ip>
+            </networks>
+        </default>
+    </users>
+</clickhouse>

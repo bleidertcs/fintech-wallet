@@ -1,6 +1,5 @@
 package transaction_service.transaction_service.service;
 
-import transaction_service.transaction_service.client.UserServiceClient;
 import transaction_service.transaction_service.dto.*;
 import transaction_service.transaction_service.entity.MoneyRequest;
 import transaction_service.transaction_service.entity.Transaction;
@@ -12,12 +11,14 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import io.opentelemetry.instrumentation.annotations.WithSpan;
+import net.devh.boot.grpc.client.inject.GrpcClient;
+import user_service.grpc.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -26,26 +27,26 @@ public class TransactionService {
 
     private final TransactionRepository transactionRepository;
     private final MoneyRequestRepository moneyRequestRepository;
-    private final UserServiceClient userServiceClient;
     private final TransactionProducer transactionProducer;
 
-    @Transactional
-    public TransferResponse transfer(TransferRequest request) {
-        Map<String, Object> sender = userServiceClient.getUser(request.getFromUserId());
-        userServiceClient.getUser(request.getToUserId());
+    @GrpcClient("user-service")
+    private UserServiceGrpc.UserServiceBlockingStub userServiceStub;
 
-        BigDecimal senderBalance = new BigDecimal(sender.get("balance").toString());
+    @Transactional
+    @WithSpan("transaction.transfer")
+    public TransferResponse transfer(TransferRequest request) {
+        UserResponse sender = userServiceStub.getUser(UserRequest.newBuilder().setId(request.getFromUserId()).build());
+        userServiceStub.getUser(UserRequest.newBuilder().setId(request.getToUserId()).build());
+
+        BigDecimal senderBalance = BigDecimal.valueOf(sender.getBalance());
         if (senderBalance.compareTo(request.getAmount()) < 0) {
             throw new RuntimeException("Saldo insuficiente");
         }
 
         // Check daily limit (0 or null = use default 50000)
         BigDecimal dailyLimit = new BigDecimal("50000");
-        if (sender.get("dailyLimit") != null) {
-            BigDecimal configuredLimit = new BigDecimal(sender.get("dailyLimit").toString());
-            if (configuredLimit.compareTo(BigDecimal.ZERO) > 0) {
-                dailyLimit = configuredLimit;
-            }
+        if (sender.getDailyLimit() > 0) {
+            dailyLimit = BigDecimal.valueOf(sender.getDailyLimit());
         }
 
         BigDecimal todaySent = getDailyTotal(request.getFromUserId());
@@ -54,8 +55,21 @@ public class TransactionService {
                     + ", Enviado hoy: $" + todaySent + ", Disponible: $" + dailyLimit.subtract(todaySent));
         }
 
-        userServiceClient.updateBalance(request.getFromUserId(), request.getAmount().negate());
-        userServiceClient.updateBalance(request.getToUserId(), request.getAmount());
+        UpdateBalanceResponse senderBalRes = userServiceStub.updateBalance(UpdateBalanceRequest.newBuilder()
+                .setId(request.getFromUserId())
+                .setAmount(request.getAmount().negate().doubleValue())
+                .build());
+        if (!senderBalRes.getSuccess()) {
+            throw new RuntimeException("Error actualizando saldo emisor: " + senderBalRes.getMessage());
+        }
+
+        UpdateBalanceResponse receiverBalRes = userServiceStub.updateBalance(UpdateBalanceRequest.newBuilder()
+                .setId(request.getToUserId())
+                .setAmount(request.getAmount().doubleValue())
+                .build());
+        if (!receiverBalRes.getSuccess()) {
+            throw new RuntimeException("Error actualizando saldo receptor: " + receiverBalRes.getMessage());
+        }
 
         Transaction tx = Transaction.builder()
                 .fromUserId(request.getFromUserId())
@@ -80,6 +94,7 @@ public class TransactionService {
         return toTransferResponse(tx);
     }
 
+    @WithSpan("transaction.getTransactionsByUser")
     public List<TransferResponse> getTransactionsByUser(Long userId) {
         return transactionRepository.findByFromUserIdOrToUserId(userId, userId)
                 .stream().map(this::toTransferResponse).toList();
@@ -101,6 +116,7 @@ public class TransactionService {
 
     // ===== Money Requests =====
 
+    @WithSpan("transaction.createMoneyRequest")
     public MoneyRequestDto createMoneyRequest(MoneyRequestDto dto) {
         MoneyRequest req = MoneyRequest.builder()
                 .requesterId(dto.getRequesterId())
@@ -119,6 +135,7 @@ public class TransactionService {
     }
 
     @Transactional
+    @WithSpan("transaction.acceptRequest")
     public MoneyRequestDto acceptRequest(Long requestId) {
         MoneyRequest req = moneyRequestRepository.findById(requestId)
                 .orElseThrow(() -> new RuntimeException("Request not found"));
@@ -139,6 +156,7 @@ public class TransactionService {
         return toMoneyRequestDto(req);
     }
 
+    @WithSpan("transaction.rejectRequest")
     public MoneyRequestDto rejectRequest(Long requestId) {
         MoneyRequest req = moneyRequestRepository.findById(requestId)
                 .orElseThrow(() -> new RuntimeException("Request not found"));

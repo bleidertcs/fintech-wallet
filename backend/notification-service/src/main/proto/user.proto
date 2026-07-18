@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package user;
+
+option java_multiple_files = true;
+option java_package = "user_service.grpc";
+
+service UserService {
+  rpc GetUser (UserRequest) returns (UserResponse);
+  rpc UpdateBalance (UpdateBalanceRequest) returns (UpdateBalanceResponse);
+}
+
+message UserRequest {
+  int64 id = 1;
+}
+
+message UserResponse {
+  int64 id = 1;
+  string name = 2;
+  string email = 3;
+  double balance = 4;
+  double daily_limit = 5;
+}
+
+message UpdateBalanceRequest {
+  int64 id = 1;
+  double amount = 2;
+}
+
+message UpdateBalanceResponse {
+  bool success = 1;
+  string message = 2;
+}

@@ -10,14 +10,14 @@ services:
     image: mysql:8.0
     container_name: fintech-mysql
     environment:
-      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-12345}
     ports:
       - "3307:3306"
     volumes:
       - mysql-data:/var/lib/mysql
-      - ./init-databases.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./infra/mysql/init-databases.sql:/docker-entrypoint-initdb.d/init.sql
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p12345"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "${DB_USERNAME:-root}", "-p${DB_PASSWORD:-12345}"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -50,8 +50,9 @@ services:
     healthcheck:
       test: ["CMD", "kafka-topics", "--bootstrap-server", "localhost:9092", "--list"]
       interval: 10s
-      timeout: 5s
-      retries: 5
+      timeout: 10s
+      retries: 10
+      start_period: 30s
 
   mailpit:
     image: axllent/mailpit:latest
@@ -78,14 +79,20 @@ services:
         condition: service_started
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/authdb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: 12345
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME:-root}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:-12345}
       SPRING_MAIL_HOST: smtp.gmail.com
       SPRING_MAIL_PORT: 587
       SPRING_MAIL_USERNAME: ${GMAIL_USER:-}
       SPRING_MAIL_PASSWORD: ${GMAIL_APP_PASSWORD:-}
       SPRING_MAIL_AUTH: "true"
       SPRING_MAIL_STARTTLS: "true"
+      OTEL_EXPORTER_OTLP_ENDPOINT: ${OTEL_EXPORTER_OTLP_ENDPOINT:-http://otel-collector:4317}
+      OTEL_EXPORTER_OTLP_PROTOCOL: grpc
+      OTEL_TRACES_SAMPLER: ${OTEL_TRACES_SAMPLER:-always_on}
+      OTEL_SERVICE_NAME: auth-service
+      OTEL_METRICS_EXPORTER: ${OTEL_METRICS_EXPORTER:-otlp}
+      OTEL_LOGS_EXPORTER: ${OTEL_LOGS_EXPORTER:-otlp}
 
   user-service:
     build:
@@ -94,13 +101,20 @@ services:
     container_name: fintech-user
     ports:
       - "8082:8082"
+      - "9090:9090"
     depends_on:
       mysql:
         condition: service_healthy
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/userdb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: 12345
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME:-root}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:-12345}
+      OTEL_EXPORTER_OTLP_ENDPOINT: ${OTEL_EXPORTER_OTLP_ENDPOINT:-http://otel-collector:4317}
+      OTEL_EXPORTER_OTLP_PROTOCOL: grpc
+      OTEL_TRACES_SAMPLER: ${OTEL_TRACES_SAMPLER:-always_on}
+      OTEL_SERVICE_NAME: user-service
+      OTEL_METRICS_EXPORTER: ${OTEL_METRICS_EXPORTER:-otlp}
+      OTEL_LOGS_EXPORTER: ${OTEL_LOGS_EXPORTER:-otlp}
 
   transaction-service:
     build:
@@ -116,9 +130,16 @@ services:
         condition: service_healthy
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/transactiondb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: 12345
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME:-root}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:-12345}
       SPRING_APPLICATION_JSON: '{"spring.kafka.bootstrap-servers":"kafka:29092","user.service.url":"http://user-service:8082"}'
+      GRPC_USER_SERVICE_ADDRESS: static://user-service:9090
+      OTEL_EXPORTER_OTLP_ENDPOINT: ${OTEL_EXPORTER_OTLP_ENDPOINT:-http://otel-collector:4317}
+      OTEL_EXPORTER_OTLP_PROTOCOL: grpc
+      OTEL_TRACES_SAMPLER: ${OTEL_TRACES_SAMPLER:-always_on}
+      OTEL_SERVICE_NAME: transaction-service
+      OTEL_METRICS_EXPORTER: ${OTEL_METRICS_EXPORTER:-otlp}
+      OTEL_LOGS_EXPORTER: ${OTEL_LOGS_EXPORTER:-otlp}
 
   notification-service:
     build:
@@ -130,8 +151,26 @@ services:
     depends_on:
       kafka:
         condition: service_healthy
+      mysql:
+        condition: service_healthy
+      mailpit:
+        condition: service_started
     environment:
       SPRING_APPLICATION_JSON: '{"spring.kafka.bootstrap-servers":"kafka:29092"}'
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/notificationdb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME:-root}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:-12345}
+      SPRING_MAIL_HOST: mailpit
+      SPRING_MAIL_PORT: 1025
+      SPRING_MAIL_USERNAME: noreply@fintechwallet.com
+      USER_SERVICE_URL: http://user-service:8082
+      GRPC_USER_SERVICE_ADDRESS: static://user-service:9090
+      OTEL_EXPORTER_OTLP_ENDPOINT: ${OTEL_EXPORTER_OTLP_ENDPOINT:-http://otel-collector:4317}
+      OTEL_EXPORTER_OTLP_PROTOCOL: grpc
+      OTEL_TRACES_SAMPLER: ${OTEL_TRACES_SAMPLER:-always_on}
+      OTEL_SERVICE_NAME: notification-service
+      OTEL_METRICS_EXPORTER: ${OTEL_METRICS_EXPORTER:-otlp}
+      OTEL_LOGS_EXPORTER: ${OTEL_LOGS_EXPORTER:-otlp}
 
   api-gateway:
     build:
@@ -144,8 +183,15 @@ services:
       - auth-service
       - user-service
       - transaction-service
+      - notification-service
     environment:
-      SPRING_APPLICATION_JSON: '{"auth.service.url":"http://auth-service:8081","user.service.url":"http://user-service:8082","transaction.service.url":"http://transaction-service:8083"}'
+      SPRING_APPLICATION_JSON: '{"auth.service.url":"http://auth-service:8081","user.service.url":"http://user-service:8082","transaction.service.url":"http://transaction-service:8083","notification.service.url":"http://notification-service:8084"}'
+      OTEL_EXPORTER_OTLP_ENDPOINT: ${OTEL_EXPORTER_OTLP_ENDPOINT:-http://otel-collector:4317}
+      OTEL_EXPORTER_OTLP_PROTOCOL: grpc
+      OTEL_TRACES_SAMPLER: ${OTEL_TRACES_SAMPLER:-always_on}
+      OTEL_SERVICE_NAME: api-gateway
+      OTEL_METRICS_EXPORTER: ${OTEL_METRICS_EXPORTER:-otlp}
+      OTEL_LOGS_EXPORTER: ${OTEL_LOGS_EXPORTER:-otlp}
 
   # ========================
   # FRONTEND
@@ -160,6 +206,94 @@ services:
       - "3000:80"
     depends_on:
       - api-gateway
+      - otel-collector
+
+  # ========================
+  # SIGNOZ OBSERVABILITY
+  # ========================
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:25.12.5-alpine
+    container_name: fintech-clickhouse
+    volumes:
+      - clickhouse-data:/var/lib/clickhouse
+      - ./infra/clickhouse/cluster.xml:/etc/clickhouse-server/config.d/cluster.xml:ro
+      - ./infra/clickhouse/users.xml:/etc/clickhouse-server/users.d/experimental.xml:ro
+    depends_on:
+      - zookeeper
+    healthcheck:
+      test: ["CMD", "clickhouse-client", "--query", "SELECT 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  signoz-telemetrystore-migrator:
+    image: signoz/signoz-otel-collector:v0.144.6
+    container_name: fintech-signoz-telemetrystore-migrator
+    entrypoint:
+      - /bin/sh
+    command:
+      - -c
+      - |
+        /signoz-otel-collector migrate bootstrap --config /etc/otel-collector-config.yaml && \
+        /signoz-otel-collector migrate sync up --config /etc/otel-collector-config.yaml && \
+        /signoz-otel-collector migrate async up --config /etc/otel-collector-config.yaml
+    volumes:
+      - ./infra/otel/otel-migration-config.yaml:/etc/otel-collector-config.yaml
+    environment:
+      - SIGNOZ_OTEL_COLLECTOR_CLICKHOUSE_DSN=tcp://clickhouse:9000
+    depends_on:
+      clickhouse:
+        condition: service_healthy
+
+  signoz:
+    image: signoz/signoz:v0.132.2
+    container_name: fintech-signoz
+    ports:
+      - "3301:8080"
+    environment:
+      - STORAGE=clickhouse
+      - ClickHouseUrl=tcp://clickhouse:9000
+      - SIGNOZ_SQLSTORE_SQLITE_PATH=/var/lib/signoz/signoz.db
+    volumes:
+      - signoz-sqlite:/var/lib/signoz
+    depends_on:
+      clickhouse:
+        condition: service_healthy
+      signoz-telemetrystore-migrator:
+        condition: service_completed_successfully
+
+  otel-collector:
+    image: signoz/signoz-otel-collector:v0.144.6
+    container_name: fintech-otel-collector
+    command: ["--config=/etc/otel-collector-config.yaml"]
+    user: "0"
+    volumes:
+      - ./infra/otel/otel-collector-config.yaml:/etc/otel-collector-config.yaml
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - "4317:4317" # OTLP gRPC
+      - "4318:4318" # OTLP HTTP
+    depends_on:
+      clickhouse:
+        condition: service_healthy
+      signoz-telemetrystore-migrator:
+        condition: service_completed_successfully
+
+  signoz-mcp-server:
+    image: signoz/signoz-mcp-server:latest
+    container_name: fintech-signoz-mcp-server
+    ports:
+      - "8000:8000"
+    environment:
+      - TRANSPORT_MODE=http
+      - MCP_SERVER_PORT=8000
+      - SIGNOZ_URL=http://signoz:8080
+      - SIGNOZ_API_KEY=${SIGNOZ_API_KEY}
+    depends_on:
+      - signoz
 
 volumes:
   mysql-data:
+  clickhouse-data:
+  signoz-sqlite:

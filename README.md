@@ -4,47 +4,74 @@ Sistema de billetera virtual desarrollado con arquitectura de microservicios. Pe
 
 ## Arquitectura
 
+```mermaid
+graph TD
+    subgraph Client ["Capa Cliente"]
+        Frontend["Frontend (React + Vite)<br>Puerto: 3000"]
+    end
+
+    subgraph Gateway ["Capa de Ruteo"]
+        ApiGateway["API Gateway (Spring Cloud Gateway)<br>Puerto: 8080<br>(Validación JWT)"]
+    end
+
+    subgraph Microservices ["Capa de Negocio"]
+        AuthService["Auth Service<br>Puerto: 8081<br>(Login, Registro, TOTP/2FA)"]
+        UserService["User Service<br>Puerto: 8082<br>gRPC: 9090"]
+        TransactionService["Transaction Service<br>Puerto: 8083"]
+        NotificationService["Notification Service<br>Puerto: 8084"]
+    end
+
+    subgraph Messaging ["Mensajería Asíncrona"]
+        Kafka["Apache Kafka<br>Topic: transfer-events"]
+    end
+
+    subgraph Database ["Capa de Persistencia"]
+        MySQL[("MySQL 8.0<br>Puerto: 3307")]
+        AuthDB[("authdb")]
+        UserDB[("userdb")]
+        TransactionDB[("transactiondb")]
+        NotificationDB[("notificationdb")]
+    end
+
+    subgraph Observability ["Suite de Observabilidad"]
+        OTelCollector["OpenTelemetry Collector<br>Puertos: 4317 (gRPC) / 4318 (HTTP)"]
+        ClickHouse[("ClickHouse DB<br>Puerto: 9000")]
+        SigNoz["SigNoz UI<br>Puerto: 3301"]
+    end
+
+    %% Client and Gateway routing
+    Frontend -->|HTTP Requests| ApiGateway
+    ApiGateway -->|/auth/**| AuthService
+    ApiGateway -->|/users/**| UserService
+    ApiGateway -->|/transactions/**| TransactionService
+    ApiGateway -->|/notifications/**| NotificationService
+
+    %% Databases
+    AuthService -->|Persistencia| AuthDB
+    UserService -->|Persistencia| UserDB
+    TransactionService -->|Persistencia| TransactionDB
+    NotificationService -->|Persistencia| NotificationDB
+    AuthDB & UserDB & TransactionDB & NotificationDB --> MySQL
+
+    %% Inter-service communication (gRPC)
+    TransactionService -.->|gRPC: GetUser / UpdateBalance| UserService
+    NotificationService -.->|gRPC: GetUser| UserService
+
+    %% Async messaging
+    TransactionService -->|Produce transfer-events| Kafka
+    Kafka -->|Consume transfer-events| NotificationService
+
+    %% Email Delivery
+    NotificationService -->|SMTP (Desarrollo)| Mailpit["Mailpit (Mock SMTP)<br>Puerto: 8025 / 1025"]
+
+    %% Telemetry Collection (OTel)
+    Frontend -.->|Browser Telemetry| ApiGateway
+    ApiGateway -.->|OTel Traces| OTelCollector
+    AuthService & UserService & TransactionService & NotificationService -.->|OTel Traces, Metrics & Logs| OTelCollector
+    OTelCollector -.->|Ingesta de Datos| ClickHouse
+    ClickHouse -.->|Lectura de Métricas/Trazas/Logs| SigNoz
 ```
-                         +-------------------+
-                         |     FRONTEND      |
-                         |  React + Vite     |
-                         |    Port: 3000     |
-                         +--------+----------+
-                                  |
-                                  v
-                         +--------+----------+
-                         |   API GATEWAY     |
-                         |   Port: 8080      |
-                         |  (JWT Validation) |
-                         +--------+----------+
-                                  |
-               +------------------+------------------+
-               |                  |                  |
-               v                  v                  v
-     +---------+-----+  +--------+-------+  +-------+-----------+
-     | AUTH SERVICE   |  | USER SERVICE   |  | TRANSACTION       |
-     | Port: 8081     |  | Port: 8082     |  | SERVICE           |
-     |                |  |                |  | Port: 8083        |
-     | - Login/Reg    |  | - Perfiles     |  | - Transferencias  |
-     | - JWT          |  | - Balance      |  | - Solicitudes     |
-     | - 2FA (TOTP)   |  | - Settings     |  | - Limites diarios |
-     | - Email Verif  |  |                |  |                   |
-     +-------+--------+  +-------+--------+  +-------+-----+-----+
-             |                    |                   |     |
-             v                    v                   v     |
-     +-------+--------------------+-------------------+     |
-     |              MySQL 8.0                          |     |
-     |   +--------+ +---------+ +-----------------+   |     | Kafka
-     |   | authdb | | userdb  | | transactiondb   |   |     |
-     |   +--------+ +---------+ +-----------------+   |     |
-     +-------------------------------------------------+     |
-                                                             v
-                                                  +----------+--------+
-                                                  | NOTIFICATION      |
-                                                  | SERVICE           |
-                                                  | Port: 8084        |
-                                                  +-------------------+
-```
+
 
 ## Stack Tecnologico
 
@@ -146,50 +173,51 @@ git clone https://github.com/jara96/fintech-wallet.git
 cd fintech-wallet
 ```
 
-### 2. Configurar email (opcional)
+### 2. Configurar el archivo de entorno (.env)
 
-Si queres que los emails de verificacion lleguen a casillas reales, crea un archivo `.env` en la raiz:
+Crea una copia de del archivo de ejemplo `.env.example` y nómbralo `.env`:
 
-```env
-GMAIL_USER=tu-email@gmail.com
-GMAIL_APP_PASSWORD=xxxx xxxx xxxx xxxx
+```bash
+cp .env.example .env
 ```
 
-Para obtener la App Password de Gmail:
-1. Activa la verificacion en 2 pasos en https://myaccount.google.com/signinoptions/two-step-verification
-2. Genera una contrasena de aplicacion en https://myaccount.google.com/apppasswords
+Abre el archivo `.env` y rellena las siguientes variables:
 
-> Si no configuras el `.env`, los emails se envian a Mailpit (servidor de testing local) y podes verlos en http://localhost:8025
+*   **Configuración de Base de Datos**: Configura el usuario y contraseña para MySQL (por defecto `root` y `12345`).
+*   **Gmail (opcional)**: Para enviar correos de verificación y notificaciones reales. Si no se configura, los correos serán capturados por Mailpit en desarrollo.
+*   **SigNoz API Key**: Necesaria si deseas interactuar con la API de SigNoz para automatizar la creación de dashboards y alertas (la puedes obtener desde la sección Settings -> Service Accounts en SigNoz UI).
 
-### 3. Levantar el proyecto
+### 3. Levantar la aplicación y la infraestructura
+
+Inicia todos los servicios (Base de datos, Kafka, Microservicios Java, Frontend React y la suite de Observabilidad de SigNoz):
 
 ```bash
 docker compose up -d
 ```
 
-Espera unos minutos a que todos los servicios arranquen (la primera vez descarga las imagenes y compila los JARs).
-
-### 4. Verificar que todo esta corriendo
+Espera unos minutos a que todos los servicios arranquen y compilen. Puedes verificar el estado con:
 
 ```bash
 docker compose ps
 ```
 
-Deberias ver 10 contenedores corriendo.
+### 4. Acceder a los servicios
 
-### 5. Acceder a la aplicacion
+Una vez que todo esté corriendo, puedes acceder a las siguientes interfaces:
 
 | Servicio | URL |
 |----------|-----|
-| **Aplicacion Web** | http://localhost:3000 |
-| **API Gateway** | http://localhost:8080 |
-| **Mailpit (emails de testing)** | http://localhost:8025 |
+| **Aplicación Web (Frontend)** | [http://localhost:3000](http://localhost:3000) |
+| **SigNoz (Consola de Observabilidad)** | [http://localhost:3301](http://localhost:3301) |
+| **Mailpit (Correos de prueba locales)** | [http://localhost:8025](http://localhost:8025) |
+| **API Gateway** | [http://localhost:8080](http://localhost:8080) |
 
-### 6. Crear tu primer usuario
+### 5. Crear tu primer usuario
 
-1. Anda a http://localhost:3000/register
-2. Registrate con email y contrasena
-3. Listo! Ya podes usar la app
+1. Ve a [http://localhost:3000/register](http://localhost:3000/register).
+2. Regístrate con nombre, email y contraseña.
+3. Si no configuraste credenciales de Gmail reales, ve a Mailpit ([http://localhost:8025](http://localhost:8025)) para abrir el correo de verificación recibido y activar tu cuenta haciendo clic en el enlace.
+4. ¡Listo! Ya puedes iniciar sesión y usar la billetera virtual.
 
 ## Base de Datos
 

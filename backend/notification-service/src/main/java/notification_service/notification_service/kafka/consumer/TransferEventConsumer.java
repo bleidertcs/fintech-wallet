@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
+import io.opentelemetry.instrumentation.annotations.WithSpan;
 
 @Component
 @RequiredArgsConstructor
@@ -15,6 +16,7 @@ public class TransferEventConsumer {
     private final NotificationService notificationService;
 
     @KafkaListener(topics = "transfer_completed", groupId = "notification-group")
+    @WithSpan("kafka.consume.transfer_completed")
     public void onTransferCompleted(TransferCompletedEvent event) {
         log.info("Received transfer_completed event");
         notificationService.processTransferNotification(event);

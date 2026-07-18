@@ -9,6 +9,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
+import io.opentelemetry.api.trace.Span;
+import io.opentelemetry.instrumentation.annotations.WithSpan;
 
 import javax.crypto.SecretKey;
 import java.io.IOException;
@@ -26,18 +28,22 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     }
 
     @Override
+    @WithSpan("gateway.jwt_auth")
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
         String path = request.getRequestURI();
+        Span.current().setAttribute("gateway.path", path);
 
         if (openPaths.stream().anyMatch(path::startsWith)) {
+            Span.current().setAttribute("gateway.auth.result", "skipped");
             filterChain.doFilter(request, response);
             return;
         }
 
         String authHeader = request.getHeader("Authorization");
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            Span.current().setAttribute("gateway.auth.result", "missing_header");
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             response.getWriter().write("{\"error\": \"Missing or invalid Authorization header\"}");
             return;
@@ -46,7 +52,10 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         String token = authHeader.substring(7);
         try {
             Jwts.parser().verifyWith(key).build().parseSignedClaims(token);
+            Span.current().setAttribute("gateway.auth.result", "success");
         } catch (JwtException e) {
+            Span.current().setAttribute("gateway.auth.result", "invalid_token");
+            Span.current().recordException(e);
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             response.getWriter().write("{\"error\": \"Invalid or expired token\"}");
             return;

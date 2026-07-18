@@ -22,6 +22,9 @@ public class GatewayConfig {
     @Value("${transaction.service.url:http://localhost:8083}")
     private String transactionServiceUrl;
 
+    @Value("${notification.service.url:http://localhost:8084}")
+    private String notificationServiceUrl;
+
     @Bean
     public RouterFunction<ServerResponse> authRoute() {
         return GatewayRouterFunctions.route("auth-service")
@@ -43,6 +46,14 @@ public class GatewayConfig {
         return GatewayRouterFunctions.route("transaction-service")
                 .route(RequestPredicates.path("/transactions/**"), HandlerFunctions.http())
                 .before(BeforeFilterFunctions.uri(transactionServiceUrl))
+                .build();
+    }
+
+    @Bean
+    public RouterFunction<ServerResponse> notificationRoute() {
+        return GatewayRouterFunctions.route("notification-service")
+                .route(RequestPredicates.path("/notifications/**"), HandlerFunctions.http())
+                .before(BeforeFilterFunctions.uri(notificationServiceUrl))
                 .build();
     }
 }

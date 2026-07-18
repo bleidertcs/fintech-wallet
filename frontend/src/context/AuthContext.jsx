@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { authService } from '../services/api';
+import { authService, userService } from '../services/api';
 
 const AuthContext = createContext(null);
 
@@ -42,10 +42,11 @@ export function AuthProvider({ children }) {
     return data;
   };
 
-  const register = async (email, password) => {
+  const register = async (name, email, password) => {
     const res = await authService.register(email, password);
     const data = res.data;
     localStorage.setItem('token', data.token);
+    await userService.create({ name, email, balance: 10000 });
     localStorage.setItem('user', JSON.stringify(data));
     setUser(data);
     return data;

@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const api = axios.create({
   baseURL: '/api',
+  timeout: 15000,
 });
 
 api.interceptors.request.use((config) => {
@@ -60,6 +61,12 @@ export const transactionService = {
   getRequests: (userId) => api.get(`/transactions/requests/${userId}`),
   acceptRequest: (id) => api.put(`/transactions/requests/${id}/accept`),
   rejectRequest: (id) => api.put(`/transactions/requests/${id}/reject`),
+};
+
+export const notificationService = {
+  getByUser: (userId) => api.get(`/notifications/${userId}`),
+  markAsRead: (id) => api.put(`/notifications/${id}/read`),
+  getUnreadCount: (userId) => api.get(`/notifications/${userId}/unread-count`),
 };
 
 // Currency utils

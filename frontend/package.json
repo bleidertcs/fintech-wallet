@@ -22,7 +22,16 @@
     "react-icons": "^5.6.0",
     "react-router-dom": "^7.14.0",
     "recharts": "^3.8.1",
-    "xlsx": "^0.18.5"
+    "xlsx": "^0.18.5",
+    "@opentelemetry/api": "^1.9.0",
+    "@opentelemetry/sdk-trace-web": "^1.25.1",
+    "@opentelemetry/sdk-trace-base": "^1.25.1",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.52.1",
+    "@opentelemetry/auto-instrumentations-web": "^0.41.0",
+    "@opentelemetry/context-zone": "^1.25.1",
+    "@opentelemetry/resources": "^1.25.1",
+    "@opentelemetry/semantic-conventions": "^1.25.1",
+    "@opentelemetry/instrumentation": "^0.52.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",

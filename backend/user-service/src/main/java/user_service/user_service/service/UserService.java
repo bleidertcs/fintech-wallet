@@ -6,6 +6,7 @@ import user_service.user_service.repository.UserProfileRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import io.opentelemetry.instrumentation.annotations.WithSpan;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -16,6 +17,7 @@ public class UserService {
 
     private final UserProfileRepository repository;
 
+    @WithSpan("user.createUser")
     public UserProfileDto createUser(UserProfileDto dto) {
         UserProfile user = UserProfile.builder()
                 .name(dto.getName())
@@ -28,6 +30,7 @@ public class UserService {
         return toDto(user);
     }
 
+    @WithSpan("user.getUserById")
     public UserProfileDto getUserById(Long id) {
         UserProfile user = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found: " + id));
@@ -39,6 +42,7 @@ public class UserService {
     }
 
     @Transactional
+    @WithSpan("user.updateBalance")
     public void updateBalance(Long id, BigDecimal amount) {
         UserProfile user = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found: " + id));
@@ -47,6 +51,7 @@ public class UserService {
     }
 
     @Transactional
+    @WithSpan("user.updateSettings")
     public UserProfileDto updateSettings(Long id, BigDecimal dailyLimit, String currency) {
         UserProfile user = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found: " + id));

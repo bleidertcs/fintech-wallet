@@ -1,0 +1,105 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        cors:
+          allowed_origins:
+            - "http://*"
+            - "https://*"
+        endpoint: 0.0.0.0:4318
+  docker_stats:
+    endpoint: unix:///var/run/docker.sock
+    collection_interval: 15s
+    timeout: 5s
+  kafkametrics:
+    brokers:
+      - kafka:29092
+    protocol_version: "2.0.0"
+    scrapers:
+      - brokers
+      - topics
+      - consumers
+  hostmetrics:
+    collection_interval: 15s
+    scrapers:
+      cpu:
+      memory:
+      disk:
+      network:
+      filesystem:
+
+processors:
+  batch:
+    send_batch_size: 10000
+    timeout: 1s
+    send_batch_max_size: 11000
+  memory_limiter:
+    check_interval: 1s
+    limit_percentage: 75
+    spike_limit_percentage: 15
+  resourcedetection:
+    detectors: [env, system]
+    timeout: 2s
+  signozspanmetrics:
+    metrics_exporter: signozclickhousemetrics
+    latency_histogram_buckets:
+      [
+        100us,
+        1ms,
+        2ms,
+        6ms,
+        10ms,
+        50ms,
+        100ms,
+        250ms,
+        500ms,
+        1s,
+        1.4s,
+        2s,
+        5s,
+        10s,
+        15s,
+        40s,
+      ]
+    dimensions:
+      - name: service.namespace
+        default: default
+      - name: deployment.environment
+        default: default
+
+exporters:
+  clickhousetraces:
+    datasource: tcp://clickhouse:9000/signoz_traces
+    use_new_schema: true
+  signozclickhousemetrics:
+    dsn: tcp://clickhouse:9000/signoz_metrics
+  clickhouselogsexporter:
+    dsn: tcp://clickhouse:9000/signoz_logs
+    use_new_schema: true
+
+service:
+  telemetry:
+    logs:
+      level: "info"
+    metrics:
+      readers:
+        - pull:
+            exporter:
+              prometheus:
+                host: "0.0.0.0"
+                port: 8888
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [memory_limiter, resourcedetection, signozspanmetrics, batch]
+      exporters: [clickhousetraces]
+    metrics:
+      receivers: [otlp, docker_stats, kafkametrics, hostmetrics]
+      processors: [memory_limiter, resourcedetection, batch]
+      exporters: [signozclickhousemetrics]
+    logs:
+      receivers: [otlp]
+      processors: [memory_limiter, batch]
+      exporters: [clickhouselogsexporter]
