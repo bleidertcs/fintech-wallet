@@ -1,642 +1,246 @@
 # FinTech Wallet - Arquitectura del Proyecto
 
+Este documento detalla la arquitectura de software, infraestructura, flujos de datos y diseño de bases de datos del sistema **FinTech Wallet**.
+
+---
+
 ## 1. Arquitectura General del Sistema
 
-```
-                                    SISTEMA FINTECH WALLET
- =============================================================================================
+El sistema está diseñado bajo un patrón de **microservicios**, donde cada servicio tiene una responsabilidad única y su propia persistencia de datos (Database-per-Service).
 
-                              +-------------------+
-                              |     FRONTEND      |
-                              |   React + Vite    |
-                              |    Port: 3000     |
-                              +--------+----------+
-                                       |
-                                       | HTTP (Nginx Proxy /api/)
-                                       v
-                              +-------------------+
-                              |    API GATEWAY    |
-                              |  Spring Cloud     |
-                              |   Port: 8080      |
-                              |  (JWT Validator)  |
-                              +--------+----------+
-                                       |
-                    +------------------+------------------+
-                    |                  |                  |
-                    v                  v                  v
-          +---------+------+  +-------+--------+  +------+-----------+
-          | AUTH SERVICE   |  | USER SERVICE   |  | TRANSACTION      |
-          | Port: 8081     |  | Port: 8082     |  | SERVICE          |
-          |                |  |                |  | Port: 8083       |
-          | - Login/Reg    |  | - Perfiles     |  | - Transferencias |
-          | - JWT          |  | - Balance      |  | - Solicitudes    |
-          | - 2FA (TOTP)   |  | - Settings     |  | - Limites        |
-          | - Email Verif  |  |                |  |                  |
-          +-------+--------+  +-------+--------+  +-------+----+-----+
-                  |                   |                    |        |
-                  v                   v                    v        |
-          +-------+-------------------+------------------------+    |
-          |              MySQL 8.0 (Port: 3307)                |    |
-          |   +----------+  +-----------+  +----------------+  |    |
-          |   |  authdb  |  |  userdb   |  | transactiondb  |  |    |
-          |   +----------+  +-----------+  +----------------+  |    |
-          +----------------------------------------------------+    |
-                                                                    |
-                                                          Kafka     |
-                                                          Event     |
-                                                                    v
-                                                         +----------+---------+
-                                                         | NOTIFICATION       |
-                                                         | SERVICE            |
-                                                         | Port: 8084         |
-                                                         | (Kafka Consumer)   |
-                                                         +--------------------+
+```mermaid
+graph TD
+    subgraph Client ["Capa Cliente"]
+        Frontend["Frontend (React + Vite)<br>Puerto: 3000"]
+    end
 
-  INFRAESTRUCTURA:
-  +-------------+     +-------------+     +-------------+     +-------------+
-  |   MySQL     |     | Zookeeper   |     |   Kafka     |     |   Mailpit   |
-  |  Port:3307  |     | Port:2181   |     |  Port:9092  |     | Port:8025   |
-  +-------------+     +-------------+     +-------------+     +-------------+
+    subgraph Gateway ["Capa de Ruteo"]
+        ApiGateway["API Gateway (Spring Cloud Gateway)<br>Puerto: 8080<br>(Validación JWT)"]
+    end
+
+    subgraph Microservices ["Capa de Negocio"]
+        AuthService["Auth Service<br>Puerto: 8081<br>(Login, Registro, TOTP/2FA)"]
+        UserService["User Service<br>Puerto: 8082<br>gRPC: 9090"]
+        TransactionService["Transaction Service<br>Puerto: 8083"]
+        NotificationService["Notification Service<br>Puerto: 8084"]
+    end
+
+    subgraph Messaging ["Mensajería Asíncrona"]
+        Kafka["Apache Kafka<br>Topic: transfer-events"]
+    end
+
+    subgraph Database ["Capa de Persistencia"]
+        MySQL[("MySQL 8.0<br>Puerto: 3307")]
+        AuthDB[("authdb")]
+        UserDB[("userdb")]
+        TransactionDB[("transactiondb")]
+        NotificationDB[("notificationdb")]
+    end
+
+    subgraph Observability ["Suite de Observabilidad"]
+        OTelCollector["OpenTelemetry Collector<br>Puertos: 4317 (gRPC) / 4318 (HTTP)"]
+        ClickHouse[("ClickHouse DB<br>Puerto: 9000")]
+        SigNoz["SigNoz UI<br>Puerto: 3301"]
+    end
+
+    %% Client and Gateway routing
+    Frontend -->|HTTP Requests| ApiGateway
+    ApiGateway -->|/auth/**| AuthService
+    ApiGateway -->|/users/**| UserService
+    ApiGateway -->|/transactions/**| TransactionService
+    ApiGateway -->|/notifications/**| NotificationService
+
+    %% Databases
+    AuthService -->|Persistencia| AuthDB
+    UserService -->|Persistencia| UserDB
+    TransactionService -->|Persistencia| TransactionDB
+    NotificationService -->|Persistencia| NotificationDB
+    AuthDB & UserDB & TransactionDB & NotificationDB --> MySQL
+
+    %% Inter-service communication (gRPC)
+    TransactionService -.->|gRPC: GetUser / UpdateBalance| UserService
+    NotificationService -.->|gRPC: GetUser| UserService
+
+    %% Async messaging
+    TransactionService -->|Produce transfer-events| Kafka
+    Kafka -->|Consume transfer-events| NotificationService
+
+    %% Email Delivery
+    NotificationService -->|SMTP (Desarrollo)| Mailpit["Mailpit (Mock SMTP)<br>Puerto: 8025 / 1025"]
+
+    %% Telemetry Collection (OTel)
+    Frontend -.->|Browser Telemetry| ApiGateway
+    ApiGateway -.->|OTel Traces| OTelCollector
+    AuthService & UserService & TransactionService & NotificationService -.->|OTel Traces, Metrics & Logs| OTelCollector
+    OTelCollector -.->|Ingesta de Datos| ClickHouse
+    ClickHouse -.->|Lectura de Métricas/Trazas/Logs| SigNoz
 ```
 
 ---
 
-## 2. Stack Tecnologico
+## 2. Stack Tecnológico
 
-```
- +==========================+==========================================+
- |       CAPA               |           TECNOLOGIA                     |
- +==========================+==========================================+
- |                          |  React 19                                |
- |       FRONTEND           |  Vite 8                                  |
- |                          |  Tailwind CSS v4                         |
- |                          |  React Router v6                         |
- |                          |  Axios (HTTP Client)                     |
- |                          |  Recharts (Graficos)                     |
- |                          |  jsPDF + xlsx (Exportaciones)            |
- |                          |  qrcode.react + html5-qrcode (QR)        |
- +--------------------------+------------------------------------------+
- |                          |  Spring Boot 3                           |
- |       BACKEND            |  Spring Data JPA                         |
- |                          |  Spring Cloud Gateway                    |
- |                          |  Spring Kafka                            |
- |                          |  Spring Mail                             |
- |                          |  JJWT (JSON Web Tokens)                  |
- |                          |  Lombok                                  |
- |                          |  Commons Codec (TOTP/2FA)                |
- +--------------------------+------------------------------------------+
- |       BASE DE DATOS      |  MySQL 8.0                               |
- +--------------------------+------------------------------------------+
- |       MENSAJERIA         |  Apache Kafka + Zookeeper                |
- +--------------------------+------------------------------------------+
- |       EMAIL              |  Gmail SMTP (prod) / Mailpit (dev)       |
- +--------------------------+------------------------------------------+
- |       CONTENEDORES       |  Docker + Docker Compose                 |
- +--------------------------+------------------------------------------+
- |       SERVIDOR WEB       |  Nginx (Frontend reverse proxy)          |
- +==========================+==========================================+
-```
+| Capa | Tecnología |
+|------|------------|
+| **Frontend** | React 19, Vite 8, Tailwind CSS v4, React Router v6, Axios, Recharts, jsPDF, xlsx, qrcode.react, html5-qrcode |
+| **Backend** | Spring Boot 3, Spring Data JPA, Spring Cloud Gateway, Spring Kafka, Spring Mail, JJWT, Protobuf (gRPC) |
+| **Base de Datos** | MySQL 8.0, ClickHouse (Almacén de Telemetría) |
+| **Mensajería** | Apache Kafka + Zookeeper |
+| **Email** | Gmail SMTP (Producción) / Mailpit (Desarrollo) |
+| **Contenedores** | Docker + Docker Compose |
+| **Monitoreo/APM** | SigNoz + OpenTelemetry (OTel Collector) |
 
 ---
 
 ## 3. Microservicios - Detalle
 
 ### 3.1 Auth Service (Puerto 8081)
+Maneja el registro, inicio de sesión, hashing de contraseñas (BCrypt), generación y verificación de JWT, y la autenticación de dos factores (2FA/TOTP).
 
-```
- AUTH SERVICE
- +================================================================+
- |                                                                 |
- |  Entidad: User                                                  |
- |  +-----------------------------------------------------------+  |
- |  | id          | Long    | PK, Auto-generated                |  |
- |  | email       | String  | Unique, Not Null                  |  |
- |  | password    | String  | BCrypt encoded                    |  |
- |  | role        | String  | "USER" o "ADMIN"                  |  |
- |  | verified    | boolean | Email verificado (default: false) |  |
- |  | verif.Token | String  | UUID para verificar email         |  |
- |  | totpSecret  | String  | Clave secreta para 2FA            |  |
- |  | totpEnabled | boolean | 2FA activo (default: false)       |  |
- |  +-----------------------------------------------------------+  |
- |                                                                 |
- |  Endpoints:                                                     |
- |  +-----------------------------------------------------------+  |
- |  | POST   /auth/register            | Registrar usuario      |  |
- |  | POST   /auth/login               | Iniciar sesion         |  |
- |  | POST   /auth/verify-totp         | Verificar codigo 2FA   |  |
- |  | GET    /auth/verify-email        | Verificar email (token)|  |
- |  | GET    /auth/me                  | Estado actual usuario  |  |
- |  | POST   /auth/resend-verification | Reenviar verif. email  |  |
- |  | POST   /auth/setup-totp          | Configurar 2FA         |  |
- |  | POST   /auth/enable-totp         | Activar 2FA            |  |
- |  | POST   /auth/disable-totp        | Desactivar 2FA         |  |
- |  | PUT    /auth/change-password     | Cambiar contrasena     |  |
- |  | PUT    /auth/promote-admin       | Promover a admin       |  |
- |  +-----------------------------------------------------------+  |
- |                                                                 |
- |  Base de datos: authdb                                          |
- +================================================================+
-```
+*   **Base de Datos**: `authdb`
+*   **Entidades**: `User` (email, password, role, verified, verificationToken, totpSecret, totpEnabled)
+*   **Endpoints**:
+    *   `POST /auth/register` (Registro)
+    *   `POST /auth/login` (Inicio de sesión)
+    *   `POST /auth/verify-totp` (Verificación de código de 2FA)
+    *   `GET /auth/verify-email` (Activación de cuenta por token de email)
+    *   `GET /auth/me` (Información del usuario autenticado)
+    *   `POST /auth/setup-totp` (Inicializa clave secreta y código QR para 2FA)
+    *   `POST /auth/enable-totp` (Habilita 2FA en el perfil)
+    *   `POST /auth/disable-totp` (Deshabilita 2FA)
 
-### 3.2 User Service (Puerto 8082)
-
-```
- USER SERVICE
- +================================================================+
- |                                                                 |
- |  Entidad: UserProfile                                           |
- |  +-----------------------------------------------------------+  |
- |  | id          | Long       | PK, Auto-generated             |  |
- |  | name        | String     | Not Null                       |  |
- |  | email       | String     | Unique, Not Null               |  |
- |  | balance     | BigDecimal | Saldo actual                   |  |
- |  | dailyLimit  | BigDecimal | Limite diario (default: 50000) |  |
- |  | currency    | String     | Moneda (default: "ARS")        |  |
- |  +-----------------------------------------------------------+  |
- |                                                                 |
- |  Endpoints:                                                     |
- |  +-----------------------------------------------------------+  |
- |  | POST   /users              | Crear usuario                |  |
- |  | GET    /users              | Listar todos                 |  |
- |  | GET    /users/{id}         | Obtener por ID               |  |
- |  | PUT    /users/{id}/balance | Actualizar saldo             |  |
- |  | PUT    /users/{id}/settings| Cambiar moneda/limite        |  |
- |  +-----------------------------------------------------------+  |
- |                                                                 |
- |  Base de datos: userdb                                          |
- +================================================================+
-```
+### 3.2 User Service (Puerto 8082 / gRPC: 9090)
+Maneja los perfiles de usuario, saldos de cuenta, monedas activas y límites de transferencia diaria.
+*   **Base de Datos**: `userdb`
+*   **Entidades**: `UserProfile` (name, email, balance, dailyLimit, currency)
+*   **Protocolo gRPC (user.proto)**:
+    *   `rpc GetUser (UserRequest) returns (UserResponse);`
+    *   `rpc UpdateBalance (UpdateBalanceRequest) returns (UserResponse);`
+*   **Endpoints**:
+    *   `POST /users` (Creación de perfil desde Auth)
+    *   `GET /users/{id}` (Obtener perfil por ID)
+    *   `PUT /users/{id}/settings` (Configurar límite diario y tipo de moneda)
 
 ### 3.3 Transaction Service (Puerto 8083)
-
-```
- TRANSACTION SERVICE
- +================================================================+
- |                                                                 |
- |  Entidad: Transaction                                           |
- |  +-----------------------------------------------------------+  |
- |  | id          | Long       | PK, Auto-generated             |  |
- |  | fromUserId  | Long       | ID del emisor                  |  |
- |  | toUserId    | Long       | ID del receptor                |  |
- |  | amount      | BigDecimal | Monto transferido              |  |
- |  | status      | String     | "COMPLETED"                    |  |
- |  | createdAt   | DateTime   | Fecha/hora automatica          |  |
- |  +-----------------------------------------------------------+  |
- |                                                                 |
- |  Entidad: MoneyRequest                                          |
- |  +-----------------------------------------------------------+  |
- |  | id          | Long       | PK, Auto-generated             |  |
- |  | requesterId | Long       | Quien pide dinero              |  |
- |  | targetId    | Long       | A quien le pide                |  |
- |  | amount      | BigDecimal | Monto solicitado               |  |
- |  | message     | String     | Mensaje (max 255 chars)        |  |
- |  | status      | String     | PENDING / ACCEPTED / REJECTED  |  |
- |  | createdAt   | DateTime   | Fecha/hora automatica          |  |
- |  +-----------------------------------------------------------+  |
- |                                                                 |
- |  Endpoints:                                                     |
- |  +-----------------------------------------------------------+  |
- |  | POST /transactions/transfer           | Transferir         | |
- |  | GET  /transactions/user/{userId}      | Historial usuario  | |
- |  | GET  /transactions/all                | Todas (admin)      | |
- |  | POST /transactions/request            | Solicitar dinero   | |
- |  | GET  /transactions/requests/{userId}  | Mis solicitudes    | |
- |  | PUT  /transactions/requests/{id}/accept| Aceptar solicitud | |
- |  | PUT  /transactions/requests/{id}/reject| Rechazar solicitud| |
- |  +-----------------------------------------------------------+  |
- |                                                                 |
- |  Base de datos: transactiondb                                   |
- |  Kafka Producer: envia TransferCompletedEvent                   |
- +================================================================+
-```
+Procesa transferencias de dinero y solicitudes de fondos, validando balances y límites diarios.
+*   **Base de Datos**: `transactiondb`
+*   **Entidades**:
+    *   `Transaction` (fromUserId, toUserId, amount, status, createdAt)
+    *   `MoneyRequest` (requesterId, targetId, amount, message, status, createdAt)
+*   **Comunicación Síncrona**: Consulta y actualiza el saldo de `user-service` mediante **gRPC**.
+*   **Comunicación Asíncrona**: Envía eventos al topic `transfer-events` de Kafka cuando se completa una transferencia.
+*   **Endpoints**:
+    *   `POST /transactions/transfer` (Efectuar transferencia)
+    *   `GET /transactions/user/{userId}` (Historial de transacciones de un usuario)
+    *   `POST /transactions/request` (Crear solicitud de dinero)
+    *   `PUT /transactions/requests/{id}/accept` (Aceptar y pagar solicitud)
+    *   `PUT /transactions/requests/{id}/reject` (Rechazar solicitud)
 
 ### 3.4 Notification Service (Puerto 8084)
+Consume eventos de transferencias asíncronas desde Kafka para persistir notificaciones de transacciones enviadas/recibidas y enviar correos de confirmación.
+*   **Base de Datos**: `notificationdb`
+*   **Entidades**: `Notification` (userId, type, message, amount, fromUserId, isRead, createdAt)
+*   **Comunicación Síncrona**: Consulta información de perfil en `user-service` mediante **gRPC**.
+*   **Endpoints**:
+    *   `GET /notifications/{userId}` (Listar notificaciones del usuario)
+    *   `PUT /notifications/{id}/read` (Marcar notificación como leída)
+    *   `GET /notifications/{userId}/unread-count` (Cantidad de notificaciones sin leer)
 
+---
+
+## 4. Flujos de Comunicación entre Servicios
+
+### 4.1 Flujo de Autenticación y 2FA
 ```
- NOTIFICATION SERVICE
- +================================================================+
- |                                                                 |
- |  Kafka Consumer: escucha TransferCompletedEvent                 |
- |                                                                 |
- |  Evento: TransferCompletedEvent                                 |
- |  +-----------------------------------------------------------+  |
- |  | fromUser    | Long       | ID del emisor                  |  |
- |  | toUser      | Long       | ID del receptor                |  |
- |  | amount      | BigDecimal | Monto transferido              |  |
- |  +-----------------------------------------------------------+  |
- |                                                                 |
- |  Sin base de datos propia                                       |
- +================================================================+
+Usuario -> Frontend (Login.jsx) -> API Gateway -> Auth Service (Verifica Password y 2FA)
+   Si 2FA Inactivo: Devuelve Token JWT de Acceso Completo.
+   Si 2FA Activo: Devuelve Estado Temporal indicando requerimiento de TOTP -> Usuario ingresa código -> Auth Service valida código y devuelve JWT.
 ```
 
-### 3.5 API Gateway (Puerto 8080)
-
+### 4.2 Flujo de Transferencia y Notificaciones
 ```
- API GATEWAY
- +================================================================+
- |                                                                 |
- |  Funcion: Punto de entrada unico para todos los servicios       |
- |                                                                 |
- |  JWT Filter:                                                    |
- |  +-----------------------------------------------------------+  |
- |  | Rutas publicas (sin token):                                | |
- |  |   - /auth/register                                         | |
- |  |   - /auth/login                                            | |
- |  |   - /auth/verify-email                                     | |
- |  |   - /auth/verify-totp                                      | |
- |  |                                                            | |
- |  | Rutas protegidas (requieren JWT):                          | |
- |  |   - Todas las demas                                        | |
- |  +-----------------------------------------------------------+  |
- |                                                                 |
- |  Ruteo:                                                         |
- |  +-----------------------------------------------------------+  |
- |  | /auth/**           -->  auth-service:8081                  | |
- |  | /users/**          -->  user-service:8082                  | |
- |  | /transactions/**   -->  transaction-service:8083           | |
- |  +-----------------------------------------------------------+  |
- |                                                                 |
- +================================================================+
+Usuario -> Frontend (Transfer.jsx) -> API Gateway -> Transaction Service
+   1. Transaction Service llama a User Service (vía gRPC) para validar fondos del Emisor y verificar el límite diario de transferencias.
+   2. Transaction Service actualiza los balances del Emisor y Receptor en el User Service (vía gRPC).
+   3. Transaction Service registra la transacción como COMPLETED y envía un evento al Broker de Kafka.
+   4. Notification Service (consumidor) lee el evento, registra las notificaciones en notificationdb y envía un correo electrónico al receptor (vía SMTP Mailpit/Gmail).
 ```
 
 ---
 
-## 4. Frontend - Estructura
+## 5. Diseño de Base de Datos (MySQL)
 
-```
- FRONTEND (React + Vite)
- +================================================================+
- |                                                                 |
- |  src/                                                           |
- |  +-----------------------------------------------------------+  |
- |  |                                                            | |
- |  |  context/                                                  | |
- |  |  +------------------------------------------------------+  | |
- |  |  | AuthContext.jsx  | Login, Registro, JWT, 2FA, Estado  | | |
- |  |  | ThemeContext.jsx | Modo oscuro/claro (localStorage)   | | |
- |  |  +------------------------------------------------------+  | |
- |  |                                                            | |
- |  |  services/                                                 | |
- |  |  +------------------------------------------------------+  | |
- |  |  | api.js | Axios + interceptors + todos los endpoints   | | |
- |  |  |        | authService, userService, transactionService | | |
- |  |  |        | CURRENCIES, EXCHANGE_RATES, convertCurrency  | | |
- |  |  +------------------------------------------------------+  | |
- |  |                                                            | |
- |  |  components/layout/                                        | |
- |  |  +------------------------------------------------------+  | |
- |  |  | AppLayout.jsx | Layout protegido con sidebar          | | |
- |  |  | Sidebar.jsx   | Navegacion, tema, logout              | | |
- |  |  +------------------------------------------------------+  | |
- |  |                                                            | |
- |  +-----------------------------------------------------------+  |
- |                                                                 |
- +================================================================+
-```
+El sistema utiliza bases de datos aisladas bajo un mismo servidor MySQL de desarrollo (Puerto `3307`):
 
-```
- PAGINAS (13 paginas)
- +================================================================+
- |                                                                 |
- |  PUBLICAS (sin autenticacion):                                  |
- |  +-----------------------------------------------------------+  |
- |  | Login.jsx        | Inicio de sesion + flujo 2FA            | |
- |  | Register.jsx     | Registro de usuario nuevo               | |
- |  | VerifyEmail.jsx  | Verificacion de email por token         | |
- |  +-----------------------------------------------------------+  |
- |                                                                 |
- |  PROTEGIDAS (requieren JWT):                                    |
- |  +-----------------------------------------------------------+  |
- |  | Dashboard.jsx    | Balance, estadisticas, grafico, ultimas | |
- |  | Wallet.jsx       | Depositar / Retirar dinero              | |
- |  | Transfer.jsx     | Transferir a otro usuario               | |
- |  | History.jsx      | Historial + filtros + export PDF/Excel  | |
- |  | Profile.jsx      | Perfil, 2FA, verificacion, contrasena   | |
- |  | Notifications.jsx| Notificaciones en tiempo real (polling) | |
- |  | Favorites.jsx    | Contactos favoritos (localStorage)      | |
- |  | QRPage.jsx       | Generar y escanear QR de pago           | |
- |  | RequestMoney.jsx | Solicitar dinero (crear/aceptar/rechazar)||
- |  | Admin.jsx        | Panel admin (solo rol ADMIN)            | |
- |  +-----------------------------------------------------------+  |
- |                                                                 |
- +================================================================+
-```
+### 5.1 authdb
+*   **users**:
+    *   `id` (BIGINT, PK, AUTO_INCREMENT)
+    *   `email` (VARCHAR, UNIQUE, NOT NULL)
+    *   `password` (VARCHAR, NOT NULL)
+    *   `role` (VARCHAR, NOT NULL)
+    *   `verified` (BOOLEAN, default false)
+    *   `verification_token` (VARCHAR)
+    *   `totp_secret` (VARCHAR)
+    *   `totp_enabled` (BOOLEAN, default false)
+
+### 5.2 userdb
+*   **user_profiles**:
+    *   `id` (BIGINT, PK, AUTO_INCREMENT)
+    *   `name` (VARCHAR, NOT NULL)
+    *   `email` (VARCHAR, UNIQUE, NOT NULL)
+    *   `balance` (DECIMAL(19,2), NOT NULL)
+    *   `daily_limit` (DECIMAL(19,2), default 50000.00)
+    *   `currency` (VARCHAR(3), default ARS)
+
+### 5.3 transactiondb
+*   **transactions**:
+    *   `id` (BIGINT, PK, AUTO_INCREMENT)
+    *   `from_user_id` (BIGINT, NOT NULL)
+    *   `to_user_id` (BIGINT, NOT NULL)
+    *   `amount` (DECIMAL(19,2), NOT NULL)
+    *   `status` (VARCHAR, NOT NULL)
+    *   `created_at` (DATETIME, NOT NULL)
+*   **money_requests**:
+    *   `id` (BIGINT, PK, AUTO_INCREMENT)
+    *   `requester_id` (BIGINT, NOT NULL)
+    *   `target_id` (BIGINT, NOT NULL)
+    *   `amount` (DECIMAL(19,2), NOT NULL)
+    *   `message` (VARCHAR(255))
+    *   `status` (VARCHAR, NOT NULL)
+    *   `created_at` (DATETIME, NOT NULL)
+
+### 5.4 notificationdb
+*   **notifications**:
+    *   `id` (BIGINT, PK, AUTO_INCREMENT)
+    *   `user_id` (BIGINT, NOT NULL)
+    *   `type` (VARCHAR, NOT NULL) -- 'SENT' / 'RECEIVED'
+    *   `message` (VARCHAR(255), NOT NULL)
+    *   `amount` (DECIMAL(19,2))
+    *   `from_user_id` (BIGINT)
+    *   `is_read` (BOOLEAN, default false)
+    *   `created_at` (DATETIME, NOT NULL)
 
 ---
 
-## 5. Flujos Principales
+## 6. Puertos del Sistema y Contenedores Docker
 
-### 5.1 Flujo de Autenticacion
+El stack se compone de **15 contenedores** ejecutando los siguientes servicios:
 
-```
- +----------+     +----------+     +----------+     +----------+
- | Usuario  | --> | Frontend | --> | Gateway  | --> | Auth     |
- | (email + |     | Login.jsx|     | (valida  |     | Service  |
- |  pass)   |     |          |     |  ruta    |     |          |
- +----------+     +-----+----+     |  publica)|     +-----+----+
-                        |          +----------+           |
-                        |                                 v
-                        |                        +--------+--------+
-                        |                        | 2FA habilitado? |
-                        |                        +--------+--------+
-                        |                       NO |           | SI
-                        |                          v           v
-                        |                   +------+---+ +----+------+
-                        |                   | Devuelve | | Devuelve  |
-                        |                   | JWT      | | totpReq=  |
-                        |                   | Token    | | true      |
-                        |                   +------+---+ +----+------+
-                        |                          |           |
-                        v                          v           v
-                  +-----------+            +-------+--+ +------+------+
-                  | Guarda en |            | Acceso   | | Pide codigo |
-                  | localStorage           | completo | | 6 digitos   |
-                  | (token +  |            +----------+ +------+------+
-                  |  user)    |                                |
-                  +-----------+                                v
-                                                      +-------+------+
-                                                      | Verifica TOTP|
-                                                      | Devuelve JWT |
-                                                      +--------------+
-```
-
-### 5.2 Flujo de Transferencia
-
-```
- +----------+     +-----------+     +-----------+     +------------+
- | Usuario  | --> | Transfer  | --> | Gateway   | --> | Transaction|
- | (destino,|     | .jsx      |     | (valida   |     | Service    |
- |  monto)  |     |           |     |  JWT)     |     |            |
- +----------+     +-----------+     +-----------+     +-----+------+
-                                                            |
-                                          +-----------------+------------------+
-                                          |                                    |
-                                          v                                    v
-                                  +-------+--------+                 +---------+---------+
-                                  | 1. Consulta    |                 | 4. Guarda         |
-                                  |    UserService |                 |    Transaction    |
-                                  |    (saldo +    |                 |    (COMPLETED)    |
-                                  |     limite)    |                 +-------------------+
-                                  +-------+--------+                           |
-                                          |                                    v
-                                          v                          +--------+---------+
-                                  +-------+--------+                 | 5. Kafka Event   |
-                                  | 2. Valida:     |                 |    (best-effort) |
-                                  |  - Saldo >= $  |                 +--------+---------+
-                                  | - Limite diario|                          |
-                                  +-------+--------+                          v
-                                          |                          +--------+---------+
-                                          v                          | Notification     |
-                                  +-------+--------+                 | Service          |
-                                  | 3. Actualiza   |                 | (consume evento) |
-                                  |    balances:   |                 +------------------+
-                                  |  sender: -$    |
-                                  |  receiver: +$  |
-                                  +----------------+
-```
-
-### 5.3 Flujo de Solicitud de Dinero
-
-```
- CREAR SOLICITUD:
- +----------+        +-------------+        +--------------+
- | Requester| -----> | POST        | -----> | MoneyRequest |
- | (pide $) |        | /request    |        | status:      |
- +----------+        +-------------+        | PENDING      |
-                                            +--------------+
-
- ACEPTAR SOLICITUD:
- +----------+        +-------------+        +--------------+
- | Target   | -----> | PUT         | -----> | Ejecuta      |
- | (paga)   |        | /accept     |        | transfer()   |
- +----------+        +-------------+        | target -->   |
-                                            | requester    |
-                                            | status:      |
-                                            | ACCEPTED     |
-                                            +--------------+
-
- RECHAZAR SOLICITUD:
- +----------+        +-------------+        +--------------+
- | Target   | -----> | PUT         | -----> | MoneyRequest |
- | (rechaza)|        | /reject     |        | status:      |
- +----------+        +-------------+        | REJECTED     |
-                                            +--------------+
-```
-
-### 5.4 Flujo de Verificacion de Email
-
-```
- +----------+     +-----------+     +-----------+     +----------+
- | Perfil   | --> | POST      | --> | Auth      | --> | Gmail    |
- | (boton   |     | /resend-  |     | Service   |     | SMTP     |
- | Verificar|     | verification    | (genera   |     | (envia)  |
- +----------+     +-----------+     |  token)   |     +----+-----+
-                                    +-----------+          |
-                                                           v
-                                                    +------+------+
-                                                    | Email llega |
-                                                    | al usuario  |
-                                                    +------+------+
-                                                           |
-                                                           v
-                                                    +------+------+
-                                                    | Click link  |
-                                                    | /verify?    |
-                                                    | token=xxx   |
-                                                    +------+------+
-                                                           |
-                                                           v
-                                                    +------+------+
-                                                    | Auth Service|
-                                                    | verified =  |
-                                                    | true        |
-                                                    +------+------+
-                                                           |
-                                                           v
-                                                    +------+------+
-                                                    | Perfil      |
-                                                    | actualiza a |
-                                                    | VERDE       |
-                                                    +-------------+
-```
-
----
-
-## 6. Docker Compose - Contenedores
-
-```
- DOCKER COMPOSE - 10 CONTENEDORES
- +================================================================+
- |                                                                 |
- |  INFRAESTRUCTURA:                                               |
- |  +------------------+  +------------------+  +----------------+ |
- |  | fintech-mysql    |  | fintech-zookeeper|  | fintech-kafka  | |
- |  | mysql:8.0        |  | cp-zookeeper:7.6 |  | cp-kafka:7.6   | |
- |  | 3307:3306        |  | 2181:2181        |  | 9092:9092      | |
- |  | Vol: mysql-data  |  |                  |  | 29092 (intern) | |
- |  +------------------+  +------------------+  +----------------+ |
- |                                                                 |
- |  +---------------------------------------------------------+    |
- |  | fintech-mailpit  |  axllent/mailpit   | 8025 + 1025     |    |
- |  +---------------------------------------------------------+    |
- |                                                                 |
- |  MICROSERVICIOS:                                                |
- |  +------------------+  +------------------+  +----------------+ |
- |  | fintech-auth     |  | fintech-user     |  | fintech-       | |
- |  | :8081            |  | :8082            |  | transaction    | |
- |  | -> authdb        |  | -> userdb        |  | :8083          | |
- |  | -> Gmail SMTP    |  |                  |  | -> transacdb   | |
- |  +------------------+  +------------------+  | -> kafka       | |
- |                                               +----------------+ |
- |  +------------------+  +------------------+                     |
- |  | fintech-         |  | fintech-gateway  |                     |
- |  | notification     |  | :8080            |                     |
- |  | :8084            |  | -> auth,user,tx  |                     |
- |  | -> kafka         |  |                  |                     |
- |  +------------------+  +------------------+                     |
- |                                                                 |
- |  FRONTEND:                                                      |
- |  +---------------------------------------------------------+    |
- |  | fintech-frontend | React+Nginx | 3000:80 | -> gateway   |    |
- |  +---------------------------------------------------------+    |
- |                                                                 |
- +================================================================+
-```
-
----
-
-## 7. Bases de Datos
-
-```
- MySQL 8.0 (Puerto 3307)
- +================================================================+
- |                                                                 |
- |  authdb                                                         |
- |  +-----------------------------------------------------------+  |
- |  | users                                                      | |
- |  | - id (BIGINT, PK, AUTO_INCREMENT)                          | |
- |  | - email (VARCHAR, UNIQUE)                                  | |
- |  | - password (VARCHAR, BCrypt)                               | |
- |  | - role (VARCHAR: "USER"/"ADMIN")                           | |
- |  | - verified (BOOLEAN)                                       | |
- |  | - verification_token (VARCHAR)                             | |
- |  | - totp_secret (VARCHAR)                                    | |
- |  | - totp_enabled (BOOLEAN)                                   | |
- |  +-----------------------------------------------------------+  |
- |                                                                 |
- |  userdb                                                         |
- |  +-----------------------------------------------------------+  |
- |  | user_profiles                                              | |
- |  | - id (BIGINT, PK, AUTO_INCREMENT)                          | |
- |  | - name (VARCHAR)                                           | |
- |  | - email (VARCHAR, UNIQUE)                                  | |
- |  | - balance (DECIMAL)                                        | |
- |  | - daily_limit (DECIMAL, default 50000)                     | |
- |  | - currency (VARCHAR(3), default "ARS")                     | |
- |  +-----------------------------------------------------------+  |
- |                                                                 |
- |  transactiondb                                                  |
- |  +-----------------------------------------------------------+  |
- |  | transactions                                               | |
- |  | - id (BIGINT, PK, AUTO_INCREMENT)                          | |
- |  | - from_user_id (BIGINT)                                    | |
- |  | - to_user_id (BIGINT)                                      | |
- |  | - amount (DECIMAL)                                         | |
- |  | - status (VARCHAR: "COMPLETED")                            | |
- |  | - created_at (DATETIME)                                    | |
- |  +-----------------------------------------------------------+  |
- |  | money_requests                                             | |
- |  | - id (BIGINT, PK, AUTO_INCREMENT)                          | |
- |  | - requester_id (BIGINT)                                    | |
- |  | - target_id (BIGINT)                                       | |
- |  | - amount (DECIMAL)                                         | |
- |  | - message (VARCHAR(255))                                   | |
- |  | - status (VARCHAR: "PENDING"/"ACCEPTED"/"REJECTED")        | |
- |  | - created_at (DATETIME)                                    | |
- |  +-----------------------------------------------------------+  |
- |                                                                 |
- +================================================================+
-```
-
----
-
-## 8. Funcionalidades Implementadas
-
-```
- +================================================================+
- |  #  | FUNCIONALIDAD                    | ESTADO    | NIVEL      |
- +================================================================+
- |  1  | Depositar / Retirar dinero       | COMPLETO  | Facil      |
- |  2  | Buscar usuarios por nombre/email | COMPLETO  | Facil      |
- |  3  | Modo Oscuro / Claro              | COMPLETO  | Facil      |
- |  4  | Diseno responsive                | COMPLETO  | Facil      |
- +-----+----------------------------------+-----------+------------+
- |  5  | Filtros por fecha en historial   | COMPLETO  | Intermedio |
- |  6  | Exportar historial PDF y Excel   | COMPLETO  | Intermedio |
- |  7  | Graficos en Dashboard            | COMPLETO  | Intermedio |
- |  8  | Notificaciones en tiempo real    | COMPLETO  | Intermedio |
- |  9  | Cambio de contrasena             | COMPLETO  | Intermedio |
- | 10  | Contactos favoritos              | COMPLETO  | Intermedio |
- +-----+----------------------------------+-----------+------------+
- | 11  | Transferencias por QR            | COMPLETO  | Avanzado   |
- | 12  | Solicitar dinero                 | COMPLETO  | Avanzado   |
- | 13  | Limite diario de transferencias  | COMPLETO  | Avanzado   |
- | 14  | Panel de administracion          | COMPLETO  | Avanzado   |
- | 15  | Verificacion de email            | COMPLETO  | Avanzado   |
- | 16  | Autenticacion 2FA (TOTP)         | COMPLETO  | Avanzado   |
- | 17  | Multiples monedas (ARS/USD/EUR)  | COMPLETO  | Avanzado   |
- +================================================================+
-                                           17/17 funcionalidades
-```
-
----
-
-## 9. Puertos del Sistema
-
-```
- +==================+====================+=========================+
- |     PUERTO       |     SERVICIO       |     DESCRIPCION         |
- +==================+====================+=========================+
- |     3000         |  Frontend          |  Aplicacion web React   |
- |     8080         |  API Gateway       |  Punto de entrada API   |
- |     8081         |  Auth Service      |  Autenticacion          |
- |     8082         |  User Service      |  Perfiles de usuario    |
- |     8083         |  Transaction Svc   |  Transferencias         |
- |     8084         |  Notification Svc  |  Notificaciones         |
- |     3307         |  MySQL             |  Base de datos          |
- |     9092         |  Kafka             |  Mensajeria             |
- |     2181         |  Zookeeper         |  Coordinacion Kafka     |
- |     8025         |  Mailpit (Web UI)  |  Testing de emails      |
- |     1025         |  Mailpit (SMTP)    |  SMTP de testing        |
- +==================+====================+=========================+
-```
-
----
-
-## 10. Comunicacion entre Servicios
-
-```
- +================================================================+
- |                                                                 |
- |  SINCRONA (HTTP REST):                                          |
- |  +-----------------------------------------------------------+  |
- |  | Frontend ---[/api/]--> Gateway ----> Auth Service          | |
- |  | Frontend ---[/api/]--> Gateway ----> User Service          | |
- |  | Frontend ---[/api/]--> Gateway ----> Transaction Service   | |
- |  | Transaction Service --[HTTP]--> User Service (saldo/datos) | |
- |  +-----------------------------------------------------------+  |
- |                                                                 |
- |  ASINCRONA (Kafka):                                             |
- |  +-----------------------------------------------------------+  |
- |  | Transaction Service --[produce]--> Topic: transfer-events  | |
- |  | Notification Service <-[consume]-- Topic: transfer-events  | |
- |  +-----------------------------------------------------------+  |
- |                                                                 |
- |  EMAIL (SMTP):                                                  |
- |  +-----------------------------------------------------------+  |
- |  | Auth Service --[SMTP]--> Gmail (smtp.gmail.com:587)        | |
- |  |                          Remitente: fintech.noreply10@gmail| |
- |  +-----------------------------------------------------------+  |
- |                                                                 |
- +================================================================+
-```
+| Puerto | Contenedor | Servicio | Descripción |
+|--------|------------|----------|-------------|
+| **3000** | `fintech-frontend` | Nginx + React Frontend | Interfaz de Usuario Web |
+| **8080** | `fintech-gateway` | Spring Cloud Gateway | Puerta de enlace y filtros de seguridad |
+| **8081** | `fintech-auth` | Auth Service | Gestión de usuarios y credenciales |
+| **8082** | `fintech-user` | User Service | Gestión de saldos y configuraciones de perfil |
+| **9090** | `fintech-user` (gRPC) | User Service | Endpoint gRPC interno para microservicios |
+| **8083** | `fintech-transaction` | Transaction Service | Procesamiento de transferencias y solicitudes |
+| **8084** | `fintech-notification` | Notification Service | Consumo de mensajes Kafka e historial |
+| **3307** | `fintech-mysql` | MySQL Database | Motores de bases de datos relacionales |
+| **9092** | `fintech-kafka` | Apache Kafka Broker | Bus de eventos y mensajería |
+| **2181** | `fintech-zookeeper` | ZooKeeper | Coordinación del broker Kafka |
+| **8025** | `fintech-mailpit` | Mailpit (Web UI) | Panel de lectura de correos locales |
+| **1025** | `fintech-mailpit` | Mailpit (SMTP) | Servidor SMTP para capturar emails de prueba |
+| **3301** | `fintech-signoz` | SigNoz Frontend UI | Panel web de observabilidad |
+| **9000** | `fintech-clickhouse` | ClickHouse DB | Base de datos columnar de telemetría de SigNoz |
+| **4317** | `fintech-otel-collector` | OpenTelemetry Collector | Puerto gRPC de ingesta de métricas/trazas/logs |
+| **8000** | `fintech-signoz-mcp-server` | SigNoz MCP Server | API para interacción externa con SigNoz |
