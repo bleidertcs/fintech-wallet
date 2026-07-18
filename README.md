@@ -221,43 +221,45 @@ Una vez que todo esté corriendo, puedes acceder a las siguientes interfaces:
 
 ## Base de Datos
 
-El sistema usa 3 bases de datos MySQL independientes:
+El sistema usa 4 bases de datos MySQL independientes:
 
 | Base | Servicio | Tablas |
 |------|----------|--------|
-| `authdb` | Auth Service | `users` (credenciales, 2FA, verificacion) |
-| `userdb` | User Service | `user_profiles` (nombre, balance, moneda, limite) |
+| `authdb` | Auth Service | `users` (credenciales, 2FA, verificación) |
+| `userdb` | User Service | `user_profiles` (nombre, balance, moneda, límite) |
 | `transactiondb` | Transaction Service | `transactions`, `money_requests` |
+| `notificationdb` | Notification Service | `notifications` (historial de notificaciones) |
 
-Conexion a MySQL:
+Conexión a MySQL:
 ```
 Host: localhost
 Puerto: 3307
-Usuario: root
-Contrasena: 12345
+Usuario: ${DB_USERNAME} (por defecto: root)
+Contraseña: ${DB_PASSWORD} (por defecto: 12345)
 ```
 
 ## Estructura del Proyecto
 
 ```
 fintech-wallet/
-├── backend/
-│   ├── api-gateway/          # Gateway + JWT filter
-│   ├── auth-service/         # Autenticacion, 2FA, email
-│   ├── user-service/         # Perfiles y balances
-│   ├── transaction-service/  # Transferencias y solicitudes
-│   └── notification-service/ # Kafka consumer
-├── frontend/
-│   ├── src/
-│   │   ├── components/       # Layout (Sidebar, AppLayout)
-│   │   ├── context/          # AuthContext, ThemeContext
-│   │   ├── pages/            # 13 paginas
-│   │   └── services/         # API client (Axios)
-│   ├── Dockerfile            # Multi-stage build
-│   └── nginx.conf            # Reverse proxy config
-├── docker-compose.yml        # 10 contenedores
-├── init-databases.sql        # Creacion de bases de datos
-├── ARQUITECTURA.md           # Diagramas detallados
+├── backend/                  # Microservicios Spring Boot
+│   ├── api-gateway/          # Gateway + Filtro JWT
+│   ├── auth-service/         # Autenticación, 2FA, email
+│   ├── user-service/         # Perfiles y balances (gRPC)
+│   ├── transaction-service/  # Transferencias y solicitudes (gRPC Client)
+│   └── notification-service/ # Consumidor Kafka + notificaciones (gRPC Client)
+├── frontend/                 # Aplicación React + Vite
+├── infra/                    # Archivos de infraestructura
+│   ├── mysql/                # Script de inicialización de MySQL
+│   ├── clickhouse/           # Configuración ClickHouse para SigNoz
+│   └── otel/                 # Configuraciones del colector y migrador de OTel
+├── observability/            # Suite de observabilidad
+│   ├── dashboards/           # Plantillas de dashboards para SigNoz
+│   └── scripts/              # Scripts auxiliares para dashboards y métricas
+├── docs/                     # Reportes y planes de migración
+├── docker-compose.yml        # Stack completo de contenedores
+├── .env.example              # Ejemplo de variables de entorno
+├── ARQUITECTURA.md           # Documentación de arquitectura
 └── README.md
 ```
 
