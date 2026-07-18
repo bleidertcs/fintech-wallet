@@ -66,7 +66,7 @@ graph TD
     Kafka -->|Consume transfer-events| NotificationService
 
     %% Email Delivery
-    NotificationService -->|SMTP (Desarrollo)| Mailpit["Mailpit (Mock SMTP)<br>Puerto: 8025 / 1025"]
+    NotificationService -->|SMTP Desarrollo| Mailpit["Mailpit (Mock SMTP)<br>Puerto: 8025 / 1025"]
 
     %% Telemetry Collection (OTel)
     Frontend -.->|Browser Telemetry| ApiGateway
