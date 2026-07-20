@@ -81,12 +81,12 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/authdb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
       SPRING_DATASOURCE_USERNAME: ${DB_USERNAME:-root}
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:-12345}
-      SPRING_MAIL_HOST: smtp.gmail.com
-      SPRING_MAIL_PORT: 587
-      SPRING_MAIL_USERNAME: ${GMAIL_USER:-}
-      SPRING_MAIL_PASSWORD: ${GMAIL_APP_PASSWORD:-}
-      SPRING_MAIL_AUTH: "true"
-      SPRING_MAIL_STARTTLS: "true"
+      SPRING_MAIL_HOST: ${SPRING_MAIL_HOST:-mailpit}
+      SPRING_MAIL_PORT: ${SPRING_MAIL_PORT:-1025}
+      SPRING_MAIL_USERNAME: ${SPRING_MAIL_USERNAME:-noreply@fintechwallet.com}
+      SPRING_MAIL_PASSWORD: ${SPRING_MAIL_PASSWORD:-}
+      SPRING_MAIL_AUTH: "${SPRING_MAIL_AUTH:-false}"
+      SPRING_MAIL_STARTTLS: "${SPRING_MAIL_STARTTLS:-false}"
       OTEL_EXPORTER_OTLP_ENDPOINT: ${OTEL_EXPORTER_OTLP_ENDPOINT:-http://otel-collector:4317}
       OTEL_EXPORTER_OTLP_PROTOCOL: grpc
       OTEL_TRACES_SAMPLER: ${OTEL_TRACES_SAMPLER:-always_on}
@@ -160,9 +160,12 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/notificationdb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
       SPRING_DATASOURCE_USERNAME: ${DB_USERNAME:-root}
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:-12345}
-      SPRING_MAIL_HOST: mailpit
-      SPRING_MAIL_PORT: 1025
-      SPRING_MAIL_USERNAME: noreply@fintechwallet.com
+      SPRING_MAIL_HOST: ${SPRING_MAIL_HOST:-mailpit}
+      SPRING_MAIL_PORT: ${SPRING_MAIL_PORT:-1025}
+      SPRING_MAIL_USERNAME: ${SPRING_MAIL_USERNAME:-noreply@fintechwallet.com}
+      SPRING_MAIL_PASSWORD: ${SPRING_MAIL_PASSWORD:-}
+      SPRING_MAIL_AUTH: "${SPRING_MAIL_AUTH:-false}"
+      SPRING_MAIL_STARTTLS: "${SPRING_MAIL_STARTTLS:-false}"
       USER_SERVICE_URL: http://user-service:8082
       GRPC_USER_SERVICE_ADDRESS: static://user-service:9090
       OTEL_EXPORTER_OTLP_ENDPOINT: ${OTEL_EXPORTER_OTLP_ENDPOINT:-http://otel-collector:4317}
