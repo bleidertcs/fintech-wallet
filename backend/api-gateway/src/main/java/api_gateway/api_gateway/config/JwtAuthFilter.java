@@ -21,7 +21,18 @@ import java.util.List;
 public class JwtAuthFilter extends OncePerRequestFilter {
 
     private final SecretKey key;
-    private final List<String> openPaths = List.of("/auth/register", "/auth/login", "/auth/verify-email", "/auth/verify-totp");
+    private final List<String> openPaths = List.of(
+            "/auth/register",
+            "/auth/login",
+            "/auth/verify-email",
+            "/auth/verify-totp",
+            "/swagger-ui",
+            "/v3/api-docs",
+            "/auth/v3/api-docs",
+            "/users/v3/api-docs",
+            "/transactions/v3/api-docs",
+            "/notifications/v3/api-docs"
+    );
 
     public JwtAuthFilter(@Value("${jwt.secret}") String secret) {
         this.key = Keys.hmacShaKeyFor(Base64.getDecoder().decode(secret));
