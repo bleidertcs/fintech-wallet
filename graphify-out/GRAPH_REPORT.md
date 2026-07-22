@@ -1,16 +1,16 @@
 # Graph Report - fintech-wallet  (2026-07-22)
 
 ## Corpus Check
-- 210 files · ~108,562 words
+- 210 files · ~108,837 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1757 nodes · 2425 edges · 147 communities (127 shown, 20 thin omitted)
+- 1758 nodes · 2426 edges · 142 communities (123 shown, 19 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 57 edges (avg confidence: 0.78)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8e08e2bd`
+- Built from commit: `e675ffec`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -143,17 +143,12 @@
 - Writing ClickHouse Queries for SigNoz Dashboards
 - RedisTokenBlacklistService
 - mvnw
-- StatementService
 - IdempotencyService
 - PdfGeneratorService
 - Attribute Access Syntax
 - WorkerServiceApplication
 - Mandatory Optimization Patterns
 - Attribute Access Syntax
-- Development Workflow
-- API Conventions
-- Conventions
-- Testing Guidelines
 - worker-service:worker-service
 
 ## God Nodes (most connected - your core abstractions)
@@ -183,7 +178,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (147 total, 20 thin omitted)
+## Communities (142 total, 19 thin omitted)
 
 ### Community 0 - "UserDto"
 Cohesion: 0.07
@@ -239,11 +234,11 @@ Nodes (14): Advanced — Top 10 largest logs for payload auditing, ClickHouse Lo
 
 ### Community 13 - "FinTech Wallet"
 Cohesion: 0.07
-Nodes (27): 1. Clonar el repositorio, 2. Configurar el archivo de entorno (.env), 3. Levantar la aplicación y la infraestructura, 4. Acceder a los servicios, 5. Crear tu primer usuario, API Gateway (Puerto 8080), Arquitectura, Auth Service (Puerto 8081) (+19 more)
+Nodes (28): 1. Clonar el repositorio, 2. Configurar el archivo de entorno (.env), 3. Levantar la aplicación y la infraestructura, 4. Acceder a los servicios, 5. Crear tu primer usuario, API Gateway (Puerto 8080), Arquitectura, Auth Service (Puerto 8081) (+20 more)
 
 ### Community 14 - "Agent Instructions for This Project"
-Cohesion: 0.18
-Nodes (11): Agent Instructions for This Project, Always use:, Enable Modules, Module Selection, Never commit:, OpenSpec Commands, Project Overview, References (+3 more)
+Cohesion: 0.07
+Nodes (27): 1. Spec-First Approach, 2. TDD with Mockito, 3. Code Review Checklist, Agent Instructions for This Project, Always use:, API Conventions, Code Style, Conventions (+19 more)
 
 ### Community 15 - "Workflow"
 Cohesion: 0.08
@@ -302,8 +297,8 @@ Cohesion: 0.12
 Nodes (14): 1. Draft Proposal (Before Coding!), 2. Review & Align, 3. Implement, 4. Ship & Archive, Code Patterns, Controller Pattern, Maven Profiles, Package Structure (+6 more)
 
 ### Community 29 - "AuthController"
-Cohesion: 0.20
-Nodes (7): AuthController, GetMapping, PostMapping, RequestMapping, RequiredArgsConstructor, ResponseEntity, RestController
+Cohesion: 0.18
+Nodes (9): AuthController, GetMapping, PutMapping, RequestMapping, RequiredArgsConstructor, ResponseEntity, RestController, ChangePasswordRequest (+1 more)
 
 ### Community 30 - "Setting Up Observability After Ingestion"
 Cohesion: 0.13
@@ -454,7 +449,7 @@ Cohesion: 0.22
 Nodes (8): application.yml, Full Stack Profile, Maven Modular Architecture, Minimal Profile, Module Flags, Profiles, Spring Configuration, Usage
 
 ### Community 67 - "AuthService"
-Cohesion: 0.39
+Cohesion: 0.31
 Nodes (7): AuthService, JavaMailSender, PasswordEncoder, RequiredArgsConstructor, Service, Slf4j, WithSpan
 
 ### Community 68 - ".transfer"
@@ -545,6 +540,10 @@ Nodes (4): Bean, Configuration, OpenAPI, OpenApiConfig
 Cohesion: 0.60
 Nodes (3): ApiGatewayApplicationTests, SpringBootTest, Test
 
+### Community 91 - ".verifyTotp"
+Cohesion: 0.24
+Nodes (3): PostMapping, Data, TotpVerifyRequest
+
 ### Community 92 - "AuthServiceApplicationTests.java"
 Cohesion: 0.60
 Nodes (3): AuthServiceApplicationTests, SpringBootTest, Test
@@ -621,10 +620,6 @@ Nodes (4): RequiredArgsConstructor, Service, StringRedisTemplate, RedisTokenBlac
 Cohesion: 0.33
 Nodes (6): mvnw script, clean(), die(), exec_maven(), set_java_home(), verbose()
 
-### Community 134 - "StatementService"
-Cohesion: 0.27
-Nodes (3): PutMapping, ChangePasswordRequest, Data
-
 ### Community 135 - "IdempotencyService"
 Cohesion: 0.36
 Nodes (4): IdempotencyService, RequiredArgsConstructor, Service, StringRedisTemplate
@@ -649,38 +644,22 @@ Nodes (5): 1. Resource Filter CTE, 2. Timestamp Bucketing, 3. Use Indexed Column
 Cohesion: 0.50
 Nodes (4): Attribute Access Syntax, Checking attribute existence, Resource attributes in SELECT / GROUP BY, Resource attributes in WHERE (via CTE)
 
-### Community 141 - "Development Workflow"
-Cohesion: 0.50
-Nodes (4): 1. Spec-First Approach, 2. TDD with Mockito, 3. Code Review Checklist, Development Workflow
-
-### Community 142 - "API Conventions"
-Cohesion: 0.50
-Nodes (4): API Conventions, Error Response Format, Response Format, REST Endpoints
-
-### Community 143 - "Conventions"
-Cohesion: 0.50
-Nodes (4): Code Style, Conventions, Naming Conventions, Package Structure
-
-### Community 144 - "Testing Guidelines"
-Cohesion: 0.50
-Nodes (4): Integration Tests, Test Naming, Testing Guidelines, Unit Tests
-
 ## Knowledge Gaps
-- **649 isolated node(s):** `com.company:spring-boot-app`, `start-local.sh script`, `api-gateway:api-gateway`, `auth-service:auth-service`, `notification-service:notification-service` (+644 more)
+- **650 isolated node(s):** `com.company:spring-boot-app`, `start-local.sh script`, `api-gateway:api-gateway`, `auth-service:auth-service`, `notification-service:notification-service` (+645 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **20 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `UserRepository` connect `User` to `AuthService`, `StatementService`, `TransactionService`?**
+- **Why does `UserRepository` connect `User` to `AuthService`, `.verifyTotp`, `TransactionService`?**
   _High betweenness centrality (0.017) - this node is a cross-community bridge._
 - **Why does `NotificationRepository` connect `NotificationService` to `TransactionService`?**
   _High betweenness centrality (0.012) - this node is a cross-community bridge._
 - **Why does `TransactionService` connect `TransactionService` to `TransactionController`, `.transfer`, `IdempotencyService`, `TransferResponse`, `TransferCompletedEvent`, `MoneyRequestDto`?**
   _High betweenness centrality (0.009) - this node is a cross-community bridge._
 - **What connects `com.company:spring-boot-app`, `start-local.sh script`, `api-gateway:api-gateway` to the rest of the system?**
-  _649 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _650 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `UserDto` be split into smaller, more focused modules?**
   _Cohesion score 0.06564364876385337 - nodes in this community are weakly interconnected._
 - **Should `NotificationService` be split into smaller, more focused modules?**

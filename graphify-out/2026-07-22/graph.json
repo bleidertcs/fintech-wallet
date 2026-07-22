@@ -2890,8 +2890,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_java_postmapping",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "postmapping"
     },
     {
@@ -2945,8 +2945,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller_setuptotp",
-      "community": 38,
-      "community_name": "TotpSetupResponse",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".setuptotp()"
     },
     {
@@ -2956,8 +2956,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller_enabletotp",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".enabletotp()"
     },
     {
@@ -2967,8 +2967,8 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller_disabletotp",
-      "community": 67,
-      "community_name": "AuthService",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".disabletotp()"
     },
     {
@@ -2989,8 +2989,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller_resendverification",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".resendverification()"
     },
     {
@@ -3000,8 +3000,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller_changepassword",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 134,
+      "community_name": "StatementService",
       "norm_label": ".changepassword()"
     },
     {
@@ -3011,8 +3011,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_java_putmapping",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 134,
+      "community_name": "StatementService",
       "norm_label": "putmapping"
     },
     {
@@ -3022,8 +3022,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller_promoteadmin",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 134,
+      "community_name": "StatementService",
       "norm_label": ".promoteadmin()"
     },
     {
@@ -3099,8 +3099,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_dto_changepasswordrequest",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 134,
+      "community_name": "StatementService",
       "norm_label": "changepasswordrequest.java"
     },
     {
@@ -3110,8 +3110,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_dto_changepasswordrequest_changepasswordrequest",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 134,
+      "community_name": "StatementService",
       "norm_label": "changepasswordrequest"
     },
     {
@@ -3121,8 +3121,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_dto_changepasswordrequest_java_data",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 134,
+      "community_name": "StatementService",
       "norm_label": "data"
     },
     {
@@ -3528,8 +3528,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_repository_userrepository_userrepository_findbyemail",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 134,
+      "community_name": "StatementService",
       "norm_label": ".findbyemail()"
     },
     {
@@ -3979,8 +3979,8 @@
       "source_location": "L166",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_enabletotp",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".enabletotp()"
     },
     {
@@ -3990,8 +3990,8 @@
       "source_location": "L183",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_disabletotp",
-      "community": 67,
-      "community_name": "AuthService",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".disabletotp()"
     },
     {
@@ -4001,8 +4001,8 @@
       "source_location": "L192",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_changepassword",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 134,
+      "community_name": "StatementService",
       "norm_label": ".changepassword()"
     },
     {
@@ -4012,8 +4012,8 @@
       "source_location": "L205",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_getuserstatus",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 134,
+      "community_name": "StatementService",
       "norm_label": ".getuserstatus()"
     },
     {
@@ -4023,8 +4023,8 @@
       "source_location": "L219",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_resendverification",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".resendverification()"
     },
     {
@@ -4034,8 +4034,8 @@
       "source_location": "L248",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_promotetoadmin",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 134,
+      "community_name": "StatementService",
       "norm_label": ".promotetoadmin()"
     },
     {
@@ -7614,7 +7614,7 @@
       "label": ".getUserById()",
       "file_type": "code",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L35",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "backend_user_service_src_main_java_user_service_user_service_service_userservice_userservice_getuserbyid",
       "community": 2,
@@ -7636,7 +7636,7 @@
       "label": ".getAllUsers()",
       "file_type": "code",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L43",
+      "source_location": "L47",
       "_origin": "ast",
       "id": "backend_user_service_src_main_java_user_service_user_service_service_userservice_userservice_getallusers",
       "community": 2,
@@ -7647,7 +7647,7 @@
       "label": ".updateBalance()",
       "file_type": "code",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L47",
+      "source_location": "L51",
       "_origin": "ast",
       "id": "backend_user_service_src_main_java_user_service_user_service_service_userservice_userservice_updatebalance",
       "community": 2,
@@ -7680,7 +7680,7 @@
       "label": ".updateSettings()",
       "file_type": "code",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L57",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "backend_user_service_src_main_java_user_service_user_service_service_userservice_userservice_updatesettings",
       "community": 2,
@@ -7691,7 +7691,7 @@
       "label": ".toDto()",
       "file_type": "code",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L70",
+      "source_location": "L76",
       "_origin": "ast",
       "id": "backend_user_service_src_main_java_user_service_user_service_service_userservice_userservice_todto",
       "community": 2,
@@ -8045,8 +8045,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_controller_workercontroller_workercontroller_requeststatement",
-      "community": 128,
-      "community_name": "WorkerController",
+      "community": 127,
+      "community_name": "StatementJob",
       "norm_label": ".requeststatement()"
     },
     {
@@ -8067,8 +8067,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_controller_workercontroller_java_postmapping",
-      "community": 128,
-      "community_name": "WorkerController",
+      "community": 127,
+      "community_name": "StatementJob",
       "norm_label": "postmapping"
     },
     {
@@ -8100,8 +8100,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_controller_workercontroller_workercontroller_getstatementsbyuser",
-      "community": 127,
-      "community_name": "StatementJob",
+      "community": 128,
+      "community_name": "WorkerController",
       "norm_label": ".getstatementsbyuser()"
     },
     {
@@ -8716,8 +8716,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_statementservice",
-      "community": 134,
-      "community_name": "StatementService",
+      "community": 127,
+      "community_name": "StatementJob",
       "norm_label": "statementservice.java"
     },
     {
@@ -8727,8 +8727,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_statementservice_statementservice",
-      "community": 134,
-      "community_name": "StatementService",
+      "community": 127,
+      "community_name": "StatementJob",
       "norm_label": "statementservice"
     },
     {
@@ -8738,8 +8738,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_statementservice_java_service",
-      "community": 134,
-      "community_name": "StatementService",
+      "community": 127,
+      "community_name": "StatementJob",
       "norm_label": "service"
     },
     {
@@ -8749,8 +8749,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_statementservice_java_requiredargsconstructor",
-      "community": 134,
-      "community_name": "StatementService",
+      "community": 127,
+      "community_name": "StatementJob",
       "norm_label": "requiredargsconstructor"
     },
     {
@@ -8760,8 +8760,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_statementservice_java_slf4j",
-      "community": 134,
-      "community_name": "StatementService",
+      "community": 127,
+      "community_name": "StatementJob",
       "norm_label": "slf4j"
     },
     {
@@ -8771,8 +8771,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_statementservice_statementservice_requeststatement",
-      "community": 134,
-      "community_name": "StatementService",
+      "community": 127,
+      "community_name": "StatementJob",
       "norm_label": ".requeststatement()"
     },
     {
@@ -8782,8 +8782,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_statementservice_statementservice_processjobasync",
-      "community": 134,
-      "community_name": "StatementService",
+      "community": 127,
+      "community_name": "StatementJob",
       "norm_label": ".processjobasync()"
     },
     {
@@ -8793,8 +8793,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "async",
-      "community": 134,
-      "community_name": "StatementService",
+      "community": 127,
+      "community_name": "StatementJob",
       "norm_label": "async"
     },
     {
@@ -32739,6 +32739,18 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/controller/UserController.java",
+      "source_location": "L34",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "_origin": "ast",
+      "source": "backend_user_service_src_main_java_user_service_user_service_controller_usercontroller_usercontroller_updatebalance",
+      "target": "backend_user_service_src_main_java_user_service_user_service_dto_userprofiledto_userprofiledto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/user-service/src/main/java/user_service/user_service/controller/UserController.java",
       "source_location": "L40",
       "weight": 1.0,
       "context": "attribute",
@@ -32858,7 +32870,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L43",
+      "source_location": "L47",
       "weight": 1.0,
       "context": "generic_arg",
       "_origin": "ast",
@@ -32870,7 +32882,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L35",
+      "source_location": "L39",
       "weight": 1.0,
       "context": "return_type",
       "_origin": "ast",
@@ -32882,7 +32894,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L70",
+      "source_location": "L76",
       "weight": 1.0,
       "context": "return_type",
       "_origin": "ast",
@@ -32894,7 +32906,19 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L57",
+      "source_location": "L51",
+      "weight": 1.0,
+      "context": "return_type",
+      "_origin": "ast",
+      "source": "backend_user_service_src_main_java_user_service_user_service_service_userservice_userservice_updatebalance",
+      "target": "backend_user_service_src_main_java_user_service_user_service_dto_userprofiledto_userprofiledto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
+      "source_location": "L63",
       "weight": 1.0,
       "context": "return_type",
       "_origin": "ast",
@@ -33039,7 +33063,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L24",
+      "source_location": "L28",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_user_service_src_main_java_user_service_user_service_service_userservice_userservice_createuser",
@@ -33049,7 +33073,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L70",
+      "source_location": "L76",
       "weight": 1.0,
       "context": "parameter_type",
       "_origin": "ast",
@@ -33567,7 +33591,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L43",
+      "source_location": "L47",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_user_service_src_main_java_user_service_user_service_service_userservice_userservice",
@@ -33578,7 +33602,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L35",
+      "source_location": "L39",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_user_service_src_main_java_user_service_user_service_service_userservice_userservice",
@@ -33589,7 +33613,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L70",
+      "source_location": "L76",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_user_service_src_main_java_user_service_user_service_service_userservice_userservice",
@@ -33600,7 +33624,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L47",
+      "source_location": "L51",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_user_service_src_main_java_user_service_user_service_service_userservice_userservice",
@@ -33611,7 +33635,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L57",
+      "source_location": "L63",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_user_service_src_main_java_user_service_user_service_service_userservice_userservice",
@@ -33635,7 +33659,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L32",
+      "source_location": "L36",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_user_service_src_main_java_user_service_user_service_service_userservice_userservice_createuser",
@@ -33646,7 +33670,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L35",
+      "source_location": "L39",
       "weight": 1.0,
       "context": "attribute",
       "_origin": "ast",
@@ -33658,7 +33682,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L47",
+      "source_location": "L51",
       "weight": 1.0,
       "context": "attribute",
       "_origin": "ast",
@@ -33670,7 +33694,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L57",
+      "source_location": "L63",
       "weight": 1.0,
       "context": "attribute",
       "_origin": "ast",
@@ -33683,7 +33707,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L40",
+      "source_location": "L44",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_user_service_src_main_java_user_service_user_service_service_userservice_userservice_getuserbyid",
@@ -33694,7 +33718,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L35",
+      "source_location": "L39",
       "weight": 1.0,
       "context": "attribute",
       "_origin": "ast",
@@ -33706,7 +33730,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L47",
+      "source_location": "L51",
       "weight": 1.0,
       "context": "attribute",
       "_origin": "ast",
@@ -33715,10 +33739,22 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
+      "source_location": "L59",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_user_service_src_main_java_user_service_user_service_service_userservice_userservice_updatebalance",
+      "target": "backend_user_service_src_main_java_user_service_user_service_service_userservice_userservice_todto",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L47",
+      "source_location": "L51",
       "weight": 1.0,
       "context": "attribute",
       "_origin": "ast",
@@ -33730,7 +33766,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L57",
+      "source_location": "L63",
       "weight": 1.0,
       "context": "attribute",
       "_origin": "ast",
@@ -33742,7 +33778,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L57",
+      "source_location": "L63",
       "weight": 1.0,
       "context": "attribute",
       "_origin": "ast",
@@ -33755,7 +33791,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/user-service/src/main/java/user_service/user_service/service/UserService.java",
-      "source_location": "L67",
+      "source_location": "L73",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_user_service_src_main_java_user_service_user_service_service_userservice_userservice_updatesettings",
@@ -36118,7 +36154,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/pages/History.jsx",
-      "source_location": "L64",
+      "source_location": "L68",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_pages_history_history",
@@ -36238,7 +36274,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/pages/History.jsx",
-      "source_location": "L109",
+      "source_location": "L113",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_pages_history_history",

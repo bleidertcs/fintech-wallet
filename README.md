@@ -1,6 +1,6 @@
 # FinTech Wallet
 
-Sistema de billetera virtual desarrollado con arquitectura de microservicios. Permite realizar transferencias, solicitar dinero, gestionar contactos favoritos, pagos por QR y mas.
+Sistema de billetera virtual desarrollado con arquitectura de microservicios. Permite realizar transferencias, solicitar dinero, gestionar contactos favoritos, pagos por QR, generación de extractos en PDF y más.
 
 ## Arquitectura
 
@@ -10,24 +10,26 @@ graph TD
         Frontend["Frontend (React + Vite)<br>Puerto: 3000"]
     end
 
-    subgraph Gateway ["Capa de Ruteo"]
-        ApiGateway["API Gateway (Spring Cloud Gateway)<br>Puerto: 8080<br>(Validación JWT & Redis RateLimiter)"]
+    subgraph Gateway ["Capa de Ruteo & Cache"]
+        ApiGateway["API Gateway (Spring Cloud Gateway)<br>Puerto: 8080<br>(Validación JWT & Rate Limiting)"]
     end
 
     subgraph Microservices ["Capa de Negocio"]
-        AuthService["Auth Service<br>Puerto: 8081<br>(Login, Registro, 2FA, JWT Blacklist)"]
-        UserService["User Service<br>Puerto: 8082<br>gRPC: 9090<br>(Saldos con Caché Redis)"]
-        TransactionService["Transaction Service<br>Puerto: 8083<br>(Transferencias & Idempotencia)"]
-        NotificationService["Notification Service<br>Puerto: 8084<br>(Alertas & Email)"]
-        WorkerService["Worker Service<br>Puerto: 8085<br>(Extractos PDF, Auditoría & DLQ)"]
+        AuthService["Auth Service<br>Puerto: 8081<br>(Login, Registro, TOTP/2FA, Blacklist JWT)"]
+        UserService["User Service<br>Puerto: 8082<br>gRPC: 9090<br>(Caché L2 Redis)"]
+        TransactionService["Transaction Service<br>Puerto: 8083<br>(Idempotencia Redis)"]
+        NotificationService["Notification Service<br>Puerto: 8084"]
+        WorkerService["Worker Service<br>Puerto: 8085<br>(Generación PDF & Reintentos DLQ)"]
     end
 
-    subgraph Caching ["Capa de Caché y Rate Limiting"]
-        Redis["Redis Server 7.0<br>Puerto: 6379<br>(Rate Limiting, Cache L2, Idempotencia, Blacklist)"]
+    subgraph CacheLayer ["Capa de Memoria Caching"]
+        Redis["Redis 7 (Alpine)<br>Puerto: 6380 (Host) / 6379 (Internal)<br>(Caché L2, Idempotencia, Blacklist, Rate Limit)"]
     end
 
-    subgraph Messaging ["Mensajería Asíncrona (Kafka)"]
-        Kafka["Apache Kafka<br>Topics: transfer-events, retry, dlq"]
+    subgraph Messaging ["Mensajería Asíncrona (Sin ZooKeeper)"]
+        Kafka["Apache Kafka (Modo KRaft)<br>Topics: transfer_completed, transfer-events-retry, transfer-events-dlq"]
+    end
+
     end
 
     subgraph Database ["Capa de Persistencia"]
@@ -53,11 +55,10 @@ graph TD
     ApiGateway -->|/transactions/**| TransactionService
     ApiGateway -->|/notifications/**| NotificationService
     ApiGateway -->|/worker/**| WorkerService
-
-    %% Microservices to Redis
-    AuthService -.->|Blacklist JWT / 2FA| Redis
-    UserService -.->|Caché de Saldos| Redis
-    TransactionService -.->|Claves Idempotencia| Redis
+    %% Redis Cache Layer
+    UserService -.->|Caché L2 userProfiles| Redis
+    TransactionService -.->|Idempotencia X-Idempotency-Key| Redis
+    AuthService -.->|Token Blacklist & TOTP Throttle| Redis
 
     %% Databases
     AuthService -->|Persistencia| AuthDB
@@ -71,10 +72,11 @@ graph TD
     TransactionService -.->|gRPC: GetUser / UpdateBalance| UserService
     NotificationService -.->|gRPC: GetUser| UserService
 
-    %% Async messaging
-    TransactionService -->|Produce transfer-events| Kafka
-    Kafka -->|Consume transfer-events| NotificationService
-    Kafka -->|Consume transfer-events & DLQ| WorkerService
+    %% Async messaging KRaft
+    TransactionService -->|Produce transfer_completed| Kafka
+    Kafka -->|Consume transfer_completed| NotificationService
+    Kafka -->|Consume & Retry DLQ| WorkerService
+
 
     %% Email Delivery
     NotificationService -->|SMTP Desarrollo| Mailpit["Mailpit (Mock SMTP)<br>Puerto: 8025 / 1025"]
@@ -92,75 +94,78 @@ graph TD
 
 | Capa | Tecnologias |
 |------|-------------|
-| **Frontend** | React 19, Vite 8, Tailwind CSS v4, React Router v6, Axios, Recharts, jsPDF, xlsx, qrcode.react, html5-qrcode |
-| **Backend** | Spring Boot 3, Spring Data JPA, Spring Cloud Gateway, Spring Kafka, Spring Mail, JJWT, Lombok, Commons Codec |
-| **Base de Datos** | MySQL 8.0 |
-| **Mensajeria** | Apache Kafka + Zookeeper |
-| **Email** | Gmail SMTP (produccion) / Mailpit (desarrollo) |
+| **Frontend** | React 19, Vite 8, Tailwind CSS v4, React Router v6, Axios, Recharts, OpenPDF/jsPDF, xlsx, qrcode.react, html5-qrcode |
+| **Backend** | Spring Boot 3, Spring Data JPA, Spring Cloud Gateway, Spring Kafka, Spring Data Redis, Spring Mail, JJWT, Lombok |
+| **Base de Datos** | MySQL 8.0 (`authdb`, `userdb`, `transactiondb`, `notificationdb`, `workerdb`) |
+| **Caché y Rendimiento** | Redis 7 (Caché L2, Idempotencia, Blacklist JWT, Rate Limiting) |
+| **Mensajería** | Apache Kafka en **modo KRaft** (Reintentos automáticos + Dead Letter Queue - DLQ) |
+| **Email** | Gmail SMTP (producción) / Mailpit (desarrollo) |
+| **Observabilidad** | OpenTelemetry Collector, SigNoz APM, ClickHouse, Docker Stats, Kafka Metrics |
 | **Contenedores** | Docker + Docker Compose |
-| **Servidor Web** | Nginx (reverse proxy) |
 
 ## Funcionalidades
 
-### Faciles
-- Depositar y retirar dinero
+### Fáciles
+- Depositar y retirar dinero con saldo inicial de bienvenida
 - Buscar usuarios por nombre o email
 - Modo oscuro / claro
-- Diseno responsive (mobile + desktop)
+- Diseño responsive (mobile + desktop)
 
 ### Intermedias
 - Filtros por fecha en historial de transacciones
-- Exportar historial a PDF y Excel
-- Graficos de transacciones en el Dashboard (Recharts)
-- Notificaciones en tiempo real (polling)
-- Cambio de contrasena
+- Exportar historial a PDF y Excel (Servicio dedicado OpenPDF en `worker-service`)
+- Gráficos de transacciones en el Dashboard (Recharts)
+- Notificaciones en tiempo real (polling + persistencia)
+- Cambio de contraseña
 - Contactos favoritos (localStorage)
 
 ### Avanzadas
-- Transferencias por codigo QR (generar y escanear)
+- Transferencias por código QR (generar y escanear)
 - Solicitar dinero a otros usuarios (crear/aceptar/rechazar)
-- Limite diario de transferencias configurable
-- Panel de administracion (rol ADMIN)
-- Verificacion de email (Gmail SMTP real)
-- Autenticacion de dos factores (2FA/TOTP con Google Authenticator)
-- Multiples monedas (ARS, USD, EUR) con tasas de cambio
+- Límite diario de transferencias configurable
+- Panel de administración (rol ADMIN)
+- Verificación de email (Gmail SMTP real / Mailpit local)
+- Autenticación de dos factores (2FA/TOTP con Google Authenticator)
+- Múltiples monedas (ARS, USD, EUR) con tasas de cambio
+- **Idempotencia de Transferencias** (`X-Idempotency-Key` en Redis)
+- **Reintentos y Cola Muerta (DLQ)** con Apache Kafka KRaft
 
 ## Microservicios
 
 ### Auth Service (Puerto 8081)
-Maneja autenticacion, registro, JWT, verificacion de email y 2FA.
+Maneja autenticación, registro, JWT, verificación de email, 2FA y lista negra de tokens revocados en Redis.
 
-| Metodo | Endpoint | Descripcion |
+| Método | Endpoint | Descripción |
 |--------|----------|-------------|
 | POST | `/auth/register` | Registrar usuario |
-| POST | `/auth/login` | Iniciar sesion |
-| POST | `/auth/verify-totp` | Verificar codigo 2FA |
+| POST | `/auth/login` | Iniciar sesión |
+| POST | `/auth/verify-totp` | Verificar código 2FA |
 | GET | `/auth/verify-email` | Verificar email por token |
 | GET | `/auth/me` | Estado actual del usuario |
-| POST | `/auth/resend-verification` | Reenviar email de verificacion |
+| POST | `/auth/resend-verification` | Reenviar email de verificación |
 | POST | `/auth/setup-totp` | Configurar 2FA |
 | POST | `/auth/enable-totp` | Activar 2FA |
 | POST | `/auth/disable-totp` | Desactivar 2FA |
-| PUT | `/auth/change-password` | Cambiar contrasena |
+| PUT | `/auth/change-password` | Cambiar contraseña |
 | PUT | `/auth/promote-admin` | Promover a administrador |
 
 ### User Service (Puerto 8082)
-Gestiona perfiles de usuario, balances y configuraciones.
+Gestiona perfiles de usuario, balances y configuraciones con almacenamiento en caché L2 de Redis (`userProfiles`).
 
-| Metodo | Endpoint | Descripcion |
+| Método | Endpoint | Descripción |
 |--------|----------|-------------|
 | POST | `/users` | Crear usuario |
 | GET | `/users` | Listar todos los usuarios |
-| GET | `/users/{id}` | Obtener usuario por ID |
-| PUT | `/users/{id}/balance` | Actualizar saldo |
-| PUT | `/users/{id}/settings` | Cambiar moneda y limite diario |
+| GET | `/users/{id}` | Obtener usuario por ID (Cacheable) |
+| PUT | `/users/{id}/balance` | Actualizar saldo (Evicts cache) |
+| PUT | `/users/{id}/settings` | Cambiar moneda y límite diario |
 
 ### Transaction Service (Puerto 8083)
-Procesa transferencias, solicitudes de dinero y valida limites diarios.
+Procesa transferencias, solicitudes de dinero, valida límites diarios y garantiza idempotencia con Redis.
 
-| Metodo | Endpoint | Descripcion |
+| Método | Endpoint | Descripción |
 |--------|----------|-------------|
-| POST | `/transactions/transfer` | Realizar transferencia |
+| POST | `/transactions/transfer` | Realizar transferencia (Idempotente) |
 | GET | `/transactions/user/{userId}` | Historial por usuario |
 | GET | `/transactions/all` | Todas las transacciones (admin) |
 | POST | `/transactions/request` | Crear solicitud de dinero |
@@ -169,17 +174,26 @@ Procesa transferencias, solicitudes de dinero y valida limites diarios.
 | PUT | `/transactions/requests/{id}/reject` | Rechazar solicitud |
 
 ### Notification Service (Puerto 8084)
-Consume eventos de Kafka cuando se completa una transferencia.
+Consume eventos de Kafka cuando se completa una transferencia y gestiona notificaciones por email.
+
+### Worker Service (Puerto 8085)
+Microservicio para la generación de extractos bancarios en PDF (OpenPDF) y el procesamiento desacoplado de reintentos y mensajes en la cola muerta (DLQ) de Kafka.
+
+| Método | Endpoint | Descripción |
+|--------|----------|-------------|
+| POST | `/worker/statements/generate` | Generar extracto en PDF |
+| GET | `/worker/statements/job/{jobId}` | Estado del trabajo de extracto |
+| GET | `/worker/audit/logs` | Logs de auditoría |
 
 ### API Gateway (Puerto 8080)
-Punto de entrada unico. Valida JWT y rutea a los servicios correspondientes.
+Punto de entrada único. Valida JWT, aplica Rate Limiting distribuido con Redis y rutea las peticiones.
 
 ## Requisitos Previos
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) instalado y corriendo
-- Puertos disponibles: 3000, 3307, 8080-8084, 9092, 2181, 8025, 1025
+- Puertos disponibles: 3000, 3307, 6380, 8080-8085, 9092, 8025, 1025
 
-## Instalacion y Ejecucion
+## Instalación y Ejecución
 
 ### 1. Clonar el repositorio
 
@@ -190,7 +204,7 @@ cd fintech-wallet
 
 ### 2. Configurar el archivo de entorno (.env)
 
-Crea una copia de del archivo de ejemplo `.env.example` y nómbralo `.env`:
+Crea una copia del archivo de ejemplo `.env.example` y nómbralo `.env`:
 
 ```bash
 cp .env.example .env
@@ -200,11 +214,11 @@ Abre el archivo `.env` y rellena las siguientes variables:
 
 *   **Configuración de Base de Datos**: Configura el usuario y contraseña para MySQL (por defecto `root` y `12345`).
 *   **Gmail (opcional)**: Para enviar correos de verificación y notificaciones reales. Si no se configura, los correos serán capturados por Mailpit en desarrollo.
-*   **SigNoz API Key**: Necesaria si deseas interactuar con la API de SigNoz para automatizar la creación de dashboards y alertas (la puedes obtener desde la sección Settings -> Service Accounts en SigNoz UI).
+*   **SigNoz API Key**: Necesaria si deseas interactuar con la API de SigNoz para automatizar la creación de dashboards y alertas.
 
 ### 3. Levantar la aplicación y la infraestructura
 
-Inicia todos los servicios (Base de datos, Kafka, Microservicios Java, Frontend React y la suite de Observabilidad de SigNoz):
+Inicia todos los servicios (Base de datos, Redis, Kafka KRaft, Microservicios Java, Frontend React y la suite de Observabilidad de SigNoz):
 
 ```bash
 docker compose up -d
@@ -236,7 +250,7 @@ Una vez que todo esté corriendo, puedes acceder a las siguientes interfaces:
 
 ## Base de Datos
 
-El sistema usa 4 bases de datos MySQL independientes:
+El sistema usa 5 bases de datos MySQL independientes:
 
 | Base | Servicio | Tablas |
 |------|----------|--------|
@@ -244,6 +258,7 @@ El sistema usa 4 bases de datos MySQL independientes:
 | `userdb` | User Service | `user_profiles` (nombre, balance, moneda, límite) |
 | `transactiondb` | Transaction Service | `transactions`, `money_requests` |
 | `notificationdb` | Notification Service | `notifications` (historial de notificaciones) |
+| `workerdb` | Worker Service | `statement_jobs`, `audit_logs` |
 
 Conexión a MySQL:
 ```
@@ -258,11 +273,12 @@ Contraseña: ${DB_PASSWORD} (por defecto: 12345)
 ```
 fintech-wallet/
 ├── backend/                  # Microservicios Spring Boot
-│   ├── api-gateway/          # Gateway + Filtro JWT
-│   ├── auth-service/         # Autenticación, 2FA, email
-│   ├── user-service/         # Perfiles y balances (gRPC)
-│   ├── transaction-service/  # Transferencias y solicitudes (gRPC Client)
-│   └── notification-service/ # Consumidor Kafka + notificaciones (gRPC Client)
+│   ├── api-gateway/          # Gateway + Filtro JWT + Rate Limiting
+│   ├── auth-service/         # Autenticación, 2FA, email, JWT Blacklist
+│   ├── user-service/         # Perfiles y balances (gRPC + Caché Redis)
+│   ├── transaction-service/  # Transferencias y solicitudes (gRPC + Idempotencia Redis)
+│   ├── notification-service/ # Consumidor Kafka + notificaciones email (gRPC Client)
+│   └── worker-service/       # Extractos PDF OpenPDF + Reintentos y DLQ Kafka
 ├── frontend/                 # Aplicación React + Vite
 ├── infra/                    # Archivos de infraestructura
 │   ├── mysql/                # Script de inicialización de MySQL
@@ -288,11 +304,13 @@ fintech-wallet/
 | 8082 | User Service |
 | 8083 | Transaction Service |
 | 8084 | Notification Service |
+| 8085 | Worker Service |
 | 3307 | MySQL |
-| 9092 | Kafka |
-| 2181 | Zookeeper |
+| 6380 | Redis |
+| 9092 | Apache Kafka (Modo KRaft) |
 | 8025 | Mailpit (Web UI) |
 | 1025 | Mailpit (SMTP) |
+
 
 ## Comandos Utiles
 

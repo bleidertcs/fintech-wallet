@@ -3,12 +3,6 @@
         <profile>default</profile>
     </distributed_ddl>
 
-    <zookeeper>
-        <node>
-            <host>zookeeper</host>
-            <port>2181</port>
-        </node>
-    </zookeeper>
 
     <macros>
         <shard>01</shard>

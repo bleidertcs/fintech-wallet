@@ -965,13 +965,13 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1784346862.4843705,
-    "ast_hash": "6a07847573c6cc7344911fb716e9dd19",
+    "mtime": 1784734944.0107284,
+    "ast_hash": "b782db93157561110271f8a7f122a227",
     "semantic_hash": ""
   },
   "docker-compose.yml": {
-    "mtime": 1784732553.9404466,
-    "ast_hash": "f8353cf37c413acdd123871aeb797e85",
+    "mtime": 1784734887.1940413,
+    "ast_hash": "a2a5ecb68e06262b99bd157958bcc12c",
     "semantic_hash": ""
   },
   "docs/grpc_migration_plan.md": {

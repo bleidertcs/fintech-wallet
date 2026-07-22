@@ -133,17 +133,12 @@
   "131": "Writing ClickHouse Queries for SigNoz Dashboards",
   "132": "RedisTokenBlacklistService",
   "133": "mvnw",
-  "134": "StatementService",
   "135": "IdempotencyService",
   "136": "PdfGeneratorService",
   "137": "Attribute Access Syntax",
   "138": "WorkerServiceApplication",
   "139": "Mandatory Optimization Patterns",
   "140": "Attribute Access Syntax",
-  "141": "Development Workflow",
-  "142": "API Conventions",
-  "143": "Conventions",
-  "144": "Testing Guidelines",
   "145": "SKILL.md",
   "146": "worker-service:worker-service"
 }

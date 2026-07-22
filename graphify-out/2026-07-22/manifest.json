@@ -455,8 +455,8 @@
     "semantic_hash": ""
   },
   "backend/user-service/src/main/java/user_service/user_service/controller/UserController.java": {
-    "mtime": 1784124280.5168457,
-    "ast_hash": "88de264a54589a997a363c969c7465e5",
+    "mtime": 1784732998.8128142,
+    "ast_hash": "dd6534f200351aa708605b015f7b039c",
     "semantic_hash": ""
   },
   "backend/user-service/src/main/java/user_service/user_service/dto/UserProfileDto.java": {
@@ -485,8 +485,8 @@
     "semantic_hash": ""
   },
   "backend/user-service/src/main/java/user_service/user_service/service/UserService.java": {
-    "mtime": 1784729928.2786078,
-    "ast_hash": "f5c9a3c91722afef34f38915397c43df",
+    "mtime": 1784732992.8739357,
+    "ast_hash": "52349dbc1fcad2b2836847582891afd8",
     "semantic_hash": ""
   },
   "backend/user-service/src/test/java/user_service/user_service/UserServiceApplicationTests.java": {
@@ -545,13 +545,13 @@
     "semantic_hash": ""
   },
   "frontend/src/pages/Favorites.jsx": {
-    "mtime": 1784124280.5440073,
-    "ast_hash": "a470d279d8cfbd09341d7e726da220ca",
+    "mtime": 1784733164.944881,
+    "ast_hash": "6116f16db18e653257060118d107dc49",
     "semantic_hash": ""
   },
   "frontend/src/pages/History.jsx": {
-    "mtime": 1784124280.5457013,
-    "ast_hash": "eb8e2b8fe076cffcecc2f7d1dec6344f",
+    "mtime": 1784733156.1917396,
+    "ast_hash": "531fdffef8ba6c2bc0c30ea0f981ae19",
     "semantic_hash": ""
   },
   "frontend/src/pages/Login.jsx": {
@@ -560,18 +560,18 @@
     "semantic_hash": ""
   },
   "frontend/src/pages/Notifications.jsx": {
-    "mtime": 1784294583.486824,
-    "ast_hash": "a71284ad975da30215afb1be02d4137f",
+    "mtime": 1784733146.465094,
+    "ast_hash": "fd136b8d45e509aaf032a810df20b3ad",
     "semantic_hash": ""
   },
   "frontend/src/pages/Profile.jsx": {
-    "mtime": 1784124280.5477598,
-    "ast_hash": "0b9d0bbcd9e6cd4a2a47f09003e6abdd",
+    "mtime": 1784733125.2385278,
+    "ast_hash": "0d99b7dfd83079fcad7a0603eb3798fd",
     "semantic_hash": ""
   },
   "frontend/src/pages/QRPage.jsx": {
-    "mtime": 1784124280.5479987,
-    "ast_hash": "4ca7ce4e7c33d49c1a41fe206891ca2c",
+    "mtime": 1784733138.9989836,
+    "ast_hash": "5609975f8811b600a1bb15e5c9365ef5",
     "semantic_hash": ""
   },
   "frontend/src/pages/Register.jsx": {
@@ -580,8 +580,8 @@
     "semantic_hash": ""
   },
   "frontend/src/pages/RequestMoney.jsx": {
-    "mtime": 1784124280.5489984,
-    "ast_hash": "c024b014bd5157c8c8e9827138ba7d03",
+    "mtime": 1784733115.6248555,
+    "ast_hash": "0d8563dddce0f2c6cb27fe374441121c",
     "semantic_hash": ""
   },
   "frontend/src/pages/Transfer.jsx": {
@@ -595,8 +595,8 @@
     "semantic_hash": ""
   },
   "frontend/src/pages/Wallet.jsx": {
-    "mtime": 1784732104.676761,
-    "ast_hash": "16ee4d3928c7e1f7685bfd0f73390ea7",
+    "mtime": 1784733007.8400495,
+    "ast_hash": "5b6a89505c005f355068002ce2d2676f",
     "semantic_hash": ""
   },
   "frontend/src/services/api.js": {
@@ -970,8 +970,8 @@
     "semantic_hash": ""
   },
   "docker-compose.yml": {
-    "mtime": 1784731137.4395967,
-    "ast_hash": "05fe2a43639c761b7f8e9019bfd014e6",
+    "mtime": 1784732553.9404466,
+    "ast_hash": "f8353cf37c413acdd123871aeb797e85",
     "semantic_hash": ""
   },
   "docs/grpc_migration_plan.md": {

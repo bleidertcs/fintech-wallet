@@ -1,11 +1,11 @@
 # Graph Report - fintech-wallet  (2026-07-22)
 
 ## Corpus Check
-- 210 files · ~108,248 words
+- 210 files · ~108,562 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1757 nodes · 2422 edges · 147 communities (128 shown, 19 thin omitted)
+- 1757 nodes · 2425 edges · 147 communities (127 shown, 20 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 57 edges (avg confidence: 0.78)
 - Token cost: 0 input · 0 output
 
@@ -162,9 +162,9 @@
 3. `AuthService` - 21 edges
 4. `TransactionService` - 21 edges
 5. `StatementJob` - 19 edges
-6. `NotificationService` - 17 edges
-7. `AuthController` - 16 edges
-8. `UserProfileDto` - 16 edges
+6. `UserProfileDto` - 18 edges
+7. `NotificationService` - 17 edges
+8. `AuthController` - 16 edges
 9. `AuditLog` - 16 edges
 10. `MoneyRequest` - 15 edges
 
@@ -183,7 +183,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (147 total, 19 thin omitted)
+## Communities (147 total, 20 thin omitted)
 
 ### Community 0 - "UserDto"
 Cohesion: 0.07
@@ -302,8 +302,8 @@ Cohesion: 0.12
 Nodes (14): 1. Draft Proposal (Before Coding!), 2. Review & Align, 3. Implement, 4. Ship & Archive, Code Patterns, Controller Pattern, Maven Profiles, Package Structure (+6 more)
 
 ### Community 29 - "AuthController"
-Cohesion: 0.18
-Nodes (9): AuthController, GetMapping, PutMapping, RequestMapping, RequiredArgsConstructor, ResponseEntity, RestController, ChangePasswordRequest (+1 more)
+Cohesion: 0.20
+Nodes (7): AuthController, GetMapping, PostMapping, RequestMapping, RequiredArgsConstructor, ResponseEntity, RestController
 
 ### Community 30 - "Setting Up Observability After Ingestion"
 Cohesion: 0.13
@@ -454,7 +454,7 @@ Cohesion: 0.22
 Nodes (8): application.yml, Full Stack Profile, Maven Modular Architecture, Minimal Profile, Module Flags, Profiles, Spring Configuration, Usage
 
 ### Community 67 - "AuthService"
-Cohesion: 0.31
+Cohesion: 0.39
 Nodes (7): AuthService, JavaMailSender, PasswordEncoder, RequiredArgsConstructor, Service, Slf4j, WithSpan
 
 ### Community 68 - ".transfer"
@@ -545,10 +545,6 @@ Nodes (4): Bean, Configuration, OpenAPI, OpenApiConfig
 Cohesion: 0.60
 Nodes (3): ApiGatewayApplicationTests, SpringBootTest, Test
 
-### Community 91 - ".verifyTotp"
-Cohesion: 0.24
-Nodes (3): PostMapping, Data, TotpVerifyRequest
-
 ### Community 92 - "AuthServiceApplicationTests.java"
 Cohesion: 0.60
 Nodes (3): AuthServiceApplicationTests, SpringBootTest, Test
@@ -598,12 +594,12 @@ Cohesion: 0.50
 Nodes (3): Expanding the ESLint configuration, React Compiler, React + Vite
 
 ### Community 127 - "StatementJob"
-Cohesion: 0.17
-Nodes (9): AllArgsConstructor, Builder, Data, Entity, NoArgsConstructor, PrePersist, Table, StatementJob (+1 more)
+Cohesion: 0.13
+Nodes (15): Async, PostMapping, AllArgsConstructor, Builder, Data, Entity, NoArgsConstructor, PrePersist (+7 more)
 
 ### Community 128 - "WorkerController"
-Cohesion: 0.24
-Nodes (8): GetMapping, PostMapping, RequestMapping, RequiredArgsConstructor, ResponseEntity, RestController, WorkerController, Resource
+Cohesion: 0.28
+Nodes (7): GetMapping, RequestMapping, RequiredArgsConstructor, ResponseEntity, RestController, WorkerController, Resource
 
 ### Community 129 - "5. Body Text Search — Engaging Skip Indexes"
 Cohesion: 0.17
@@ -626,8 +622,8 @@ Cohesion: 0.33
 Nodes (6): mvnw script, clean(), die(), exec_maven(), set_java_home(), verbose()
 
 ### Community 134 - "StatementService"
-Cohesion: 0.43
-Nodes (5): Async, RequiredArgsConstructor, Service, Slf4j, StatementService
+Cohesion: 0.27
+Nodes (3): PutMapping, ChangePasswordRequest, Data
 
 ### Community 135 - "IdempotencyService"
 Cohesion: 0.36
@@ -672,12 +668,12 @@ Nodes (4): Integration Tests, Test Naming, Testing Guidelines, Unit Tests
 ## Knowledge Gaps
 - **649 isolated node(s):** `com.company:spring-boot-app`, `start-local.sh script`, `api-gateway:api-gateway`, `auth-service:auth-service`, `notification-service:notification-service` (+644 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **20 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `UserRepository` connect `User` to `AuthService`, `.verifyTotp`, `TransactionService`?**
+- **Why does `UserRepository` connect `User` to `AuthService`, `StatementService`, `TransactionService`?**
   _High betweenness centrality (0.017) - this node is a cross-community bridge._
 - **Why does `NotificationRepository` connect `NotificationService` to `TransactionService`?**
   _High betweenness centrality (0.012) - this node is a cross-community bridge._
@@ -690,4 +686,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `NotificationService` be split into smaller, more focused modules?**
   _Cohesion score 0.06265664160401002 - nodes in this community are weakly interconnected._
 - **Should `UserProfileDto` be split into smaller, more focused modules?**
-  _Cohesion score 0.061367621274108705 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06312098188194039 - nodes in this community are weakly interconnected._
