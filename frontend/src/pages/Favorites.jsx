@@ -24,20 +24,24 @@ export default function Favorites() {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    loadUsers();
-  }, []);
+    if (user?.email) {
+      loadUsers();
+    }
+  }, [user]);
 
   useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }, [favorites]);
 
   const loadUsers = async () => {
+    if (!user?.email) return;
     try {
       const res = await userService.getAll();
-      const allUsers = res.data;
-      const me = allUsers.find((u) => u.email === user.email);
+      const allUsers = res.data || [];
+      const me = allUsers.find((u) => u.email?.trim().toLowerCase() === user.email?.trim().toLowerCase());
       setMyProfile(me);
       setUsers(allUsers.filter((u) => u.id !== me?.id));
+
     } catch (err) {
       console.error('Error:', err);
     }

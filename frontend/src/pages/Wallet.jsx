@@ -12,18 +12,35 @@ export default function Wallet() {
   const [mode, setMode] = useState('deposit'); // deposit or withdraw
 
   useEffect(() => {
-    loadProfile();
-  }, []);
+    if (user?.email) {
+      loadProfile();
+    }
+  }, [user]);
 
   const loadProfile = async () => {
+    if (!user?.email) return;
     try {
       const res = await userService.getAll();
-      const me = res.data.find((u) => u.email === user.email);
+      const allUsers = res.data || [];
+      let me = allUsers.find((u) => u.email?.trim().toLowerCase() === user.email?.trim().toLowerCase());
+      if (!me) {
+        try {
+          const createRes = await userService.create({
+            name: user.email.split('@')[0],
+            email: user.email,
+            balance: 10000,
+          });
+          me = createRes.data;
+        } catch (createErr) {
+          console.error('Error auto-creating user profile:', createErr);
+        }
+      }
       setProfile(me);
     } catch (err) {
       console.error('Error:', err);
     }
   };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,11 +58,15 @@ export default function Wallet() {
     setLoading(true);
     try {
       const finalAmount = mode === 'deposit' ? value : -value;
-      await userService.updateBalance(profile.id, finalAmount);
-      toast.success(mode === 'deposit' ? 'Deposito realizado!' : 'Retiro realizado!');
+      const res = await userService.updateBalance(profile.id, finalAmount);
+      if (res.data) {
+        setProfile(res.data);
+      }
+      toast.success(mode === 'deposit' ? '¡Depósito realizado con éxito!' : '¡Retiro realizado con éxito!');
       setAmount('');
       loadProfile();
     } catch (err) {
+
       toast.error(err.response?.data?.message || 'Error en la operacion');
     } finally {
       setLoading(false);

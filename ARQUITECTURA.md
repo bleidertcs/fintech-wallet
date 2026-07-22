@@ -15,18 +15,23 @@ graph TD
     end
 
     subgraph Gateway ["Capa de Ruteo"]
-        ApiGateway["API Gateway (Spring Cloud Gateway)<br>Puerto: 8080<br>(Validación JWT)"]
+        ApiGateway["API Gateway (Spring Cloud Gateway)<br>Puerto: 8080<br>(Validación JWT & Redis RateLimiter)"]
     end
 
     subgraph Microservices ["Capa de Negocio"]
-        AuthService["Auth Service<br>Puerto: 8081<br>(Login, Registro, TOTP/2FA)"]
-        UserService["User Service<br>Puerto: 8082<br>gRPC: 9090"]
-        TransactionService["Transaction Service<br>Puerto: 8083"]
-        NotificationService["Notification Service<br>Puerto: 8084"]
+        AuthService["Auth Service<br>Puerto: 8081<br>(Login, Registro, 2FA, JWT Blacklist)"]
+        UserService["User Service<br>Puerto: 8082<br>gRPC: 9090<br>(Saldos con Caché Redis)"]
+        TransactionService["Transaction Service<br>Puerto: 8083<br>(Transferencias & Idempotencia)"]
+        NotificationService["Notification Service<br>Puerto: 8084<br>(Alertas & Email)"]
+        WorkerService["Worker Service<br>Puerto: 8085<br>(Extractos PDF, Auditoría & DLQ)"]
     end
 
-    subgraph Messaging ["Mensajería Asíncrona"]
-        Kafka["Apache Kafka<br>Topic: transfer-events"]
+    subgraph Caching ["Capa de Caché y Rate Limiting"]
+        Redis["Redis Server 7.0<br>Puerto: 6379<br>(Rate Limiting, Cache L2, Idempotencia, Blacklist)"]
+    end
+
+    subgraph Messaging ["Mensajería Asíncrona (Kafka)"]
+        Kafka["Apache Kafka<br>Topics: transfer-events, retry, dlq"]
     end
 
     subgraph Database ["Capa de Persistencia"]
@@ -35,6 +40,7 @@ graph TD
         UserDB[("userdb")]
         TransactionDB[("transactiondb")]
         NotificationDB[("notificationdb")]
+        WorkerDB[("workerdb")]
     end
 
     subgraph Observability ["Suite de Observabilidad"]
@@ -45,17 +51,25 @@ graph TD
 
     %% Client and Gateway routing
     Frontend -->|HTTP Requests| ApiGateway
+    ApiGateway -->|Rate Limiting| Redis
     ApiGateway -->|/auth/**| AuthService
     ApiGateway -->|/users/**| UserService
     ApiGateway -->|/transactions/**| TransactionService
     ApiGateway -->|/notifications/**| NotificationService
+    ApiGateway -->|/worker/**| WorkerService
+
+    %% Microservices to Redis
+    AuthService -.->|Blacklist JWT / 2FA| Redis
+    UserService -.->|Caché de Saldos| Redis
+    TransactionService -.->|Claves Idempotencia| Redis
 
     %% Databases
     AuthService -->|Persistencia| AuthDB
     UserService -->|Persistencia| UserDB
     TransactionService -->|Persistencia| TransactionDB
     NotificationService -->|Persistencia| NotificationDB
-    AuthDB & UserDB & TransactionDB & NotificationDB --> MySQL
+    WorkerService -->|Persistencia| WorkerDB
+    AuthDB & UserDB & TransactionDB & NotificationDB & WorkerDB --> MySQL
 
     %% Inter-service communication (gRPC)
     TransactionService -.->|gRPC: GetUser / UpdateBalance| UserService
@@ -64,6 +78,7 @@ graph TD
     %% Async messaging
     TransactionService -->|Produce transfer-events| Kafka
     Kafka -->|Consume transfer-events| NotificationService
+    Kafka -->|Consume transfer-events & DLQ| WorkerService
 
     %% Email Delivery
     NotificationService -->|SMTP Desarrollo| Mailpit["Mailpit (Mock SMTP)<br>Puerto: 8025 / 1025"]
@@ -71,7 +86,7 @@ graph TD
     %% Telemetry Collection (OTel)
     Frontend -.->|Browser Telemetry| ApiGateway
     ApiGateway -.->|OTel Traces| OTelCollector
-    AuthService & UserService & TransactionService & NotificationService -.->|OTel Traces, Metrics & Logs| OTelCollector
+    AuthService & UserService & TransactionService & NotificationService & WorkerService -.->|OTel Traces, Metrics & Logs| OTelCollector
     OTelCollector -.->|Ingesta de Datos| ClickHouse
     ClickHouse -.->|Lectura de Métricas/Trazas/Logs| SigNoz
 ```
@@ -83,9 +98,10 @@ graph TD
 | Capa | Tecnología |
 |------|------------|
 | **Frontend** | React 19, Vite 8, Tailwind CSS v4, React Router v6, Axios, Recharts, jsPDF, xlsx, qrcode.react, html5-qrcode |
-| **Backend** | Spring Boot 3, Spring Data JPA, Spring Cloud Gateway, Spring Kafka, Spring Mail, JJWT, Protobuf (gRPC) |
+| **Backend** | Spring Boot 3, Spring Data JPA, Spring Cloud Gateway, Spring Kafka, Spring Data Redis, Spring Mail, JJWT, Protobuf (gRPC), PDFBox/OpenPDF |
 | **Base de Datos** | MySQL 8.0, ClickHouse (Almacén de Telemetría) |
-| **Mensajería** | Apache Kafka + Zookeeper |
+| **Caché / In-Memory** | Redis 7.0 (Rate Limiting, Cache L2, Blacklist JWT, Idempotencia) |
+| **Mensajería** | Apache Kafka + Zookeeper (Topics: `transfer-events`, Retry topics y DLQ) |
 | **Email** | Gmail SMTP (Producción) / Mailpit (Desarrollo) |
 | **Contenedores** | Docker + Docker Compose |
 | **Monitoreo/APM** | SigNoz + OpenTelemetry (OTel Collector) |
@@ -93,6 +109,7 @@ graph TD
 ---
 
 ## 3. Microservicios - Detalle
+
 
 ### 3.1 Auth Service (Puerto 8081)
 Maneja el registro, inicio de sesión, hashing de contraseñas (BCrypt), generación y verificación de JWT, y la autenticación de dos factores (2FA/TOTP).
@@ -146,7 +163,21 @@ Consume eventos de transferencias asíncronas desde Kafka para persistir notific
     *   `PUT /notifications/{id}/read` (Marcar notificación como leída)
     *   `GET /notifications/{userId}/unread-count` (Cantidad de notificaciones sin leer)
 
+### 3.5 Worker Service (Puerto 8085)
+Procesa trabajos asíncronos en segundo plano, genera extractos bancarios PDF, realiza auditoría de transacciones y gestiona mensajes en colas de reintento/DLQ de Kafka.
+*   **Base de Datos**: `workerdb`
+*   **Entidades**:
+    *   `StatementJob` (id, userId, status, pdfPath, createdAt)
+    *   `AuditLog` (id, transactionId, fromUserId, toUserId, amount, eventType, timestamp)
+*   **Comunicación Asíncrona**: Consume eventos de Kafka con Retryable topics y colas muertas (DLQ).
+*   **Endpoints**:
+    *   `POST /worker/statements/request` (Solicitar generación de extracto bancario PDF)
+    *   `GET /worker/statements/{id}` (Consultar estado del trabajo de extracto PDF)
+    *   `GET /worker/statements/{id}/download` (Descargar extracto bancario PDF)
+    *   `GET /worker/audit/user/{userId}` (Consultar registros de auditoría del usuario)
+
 ---
+
 
 ## 4. Flujos de Comunicación entre Servicios
 

@@ -61,9 +61,24 @@ services:
       - "8025:8025"
       - "1025:1025"
 
+  redis:
+    image: redis:7-alpine
+    container_name: fintech-redis
+    ports:
+      - "6380:6379"
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+
   # ========================
   # MICROSERVICIOS
   # ========================
+
 
   auth-service:
     build:
@@ -75,12 +90,16 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
+      redis:
+        condition: service_healthy
       mailpit:
         condition: service_started
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/authdb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
       SPRING_DATASOURCE_USERNAME: ${DB_USERNAME:-root}
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:-12345}
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
       SPRING_MAIL_HOST: ${SPRING_MAIL_HOST:-mailpit}
       SPRING_MAIL_PORT: ${SPRING_MAIL_PORT:-1025}
       SPRING_MAIL_USERNAME: ${SPRING_MAIL_USERNAME:-noreply@fintechwallet.com}
@@ -105,10 +124,14 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
+      redis:
+        condition: service_healthy
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/userdb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
       SPRING_DATASOURCE_USERNAME: ${DB_USERNAME:-root}
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:-12345}
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
       OTEL_EXPORTER_OTLP_ENDPOINT: ${OTEL_EXPORTER_OTLP_ENDPOINT:-http://otel-collector:4317}
       OTEL_EXPORTER_OTLP_PROTOCOL: grpc
       OTEL_TRACES_SAMPLER: ${OTEL_TRACES_SAMPLER:-always_on}
@@ -128,12 +151,17 @@ services:
         condition: service_healthy
       kafka:
         condition: service_healthy
+      redis:
+        condition: service_healthy
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/transactiondb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
       SPRING_DATASOURCE_USERNAME: ${DB_USERNAME:-root}
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:-12345}
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
       SPRING_APPLICATION_JSON: '{"spring.kafka.bootstrap-servers":"kafka:29092","user.service.url":"http://user-service:8082"}'
-      GRPC_USER_SERVICE_ADDRESS: static://user-service:9090
+      GRPC_USER_SERVICE_ADDRESS: dns:///user-service:9090
+
       OTEL_EXPORTER_OTLP_ENDPOINT: ${OTEL_EXPORTER_OTLP_ENDPOINT:-http://otel-collector:4317}
       OTEL_EXPORTER_OTLP_PROTOCOL: grpc
       OTEL_TRACES_SAMPLER: ${OTEL_TRACES_SAMPLER:-always_on}
@@ -167,11 +195,40 @@ services:
       SPRING_MAIL_AUTH: "${SPRING_MAIL_AUTH:-false}"
       SPRING_MAIL_STARTTLS: "${SPRING_MAIL_STARTTLS:-false}"
       USER_SERVICE_URL: http://user-service:8082
-      GRPC_USER_SERVICE_ADDRESS: static://user-service:9090
+      GRPC_USER_SERVICE_ADDRESS: dns:///user-service:9090
+
       OTEL_EXPORTER_OTLP_ENDPOINT: ${OTEL_EXPORTER_OTLP_ENDPOINT:-http://otel-collector:4317}
       OTEL_EXPORTER_OTLP_PROTOCOL: grpc
       OTEL_TRACES_SAMPLER: ${OTEL_TRACES_SAMPLER:-always_on}
       OTEL_SERVICE_NAME: notification-service
+      OTEL_METRICS_EXPORTER: ${OTEL_METRICS_EXPORTER:-otlp}
+      OTEL_LOGS_EXPORTER: ${OTEL_LOGS_EXPORTER:-otlp}
+
+  worker-service:
+    build:
+      context: ./backend/worker-service
+      dockerfile: Dockerfile
+    container_name: fintech-worker
+    ports:
+      - "8085:8085"
+    depends_on:
+      mysql:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/workerdb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME:-root}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:-12345}
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
+      SPRING_APPLICATION_JSON: '{"spring.kafka.bootstrap-servers":"kafka:29092"}'
+      OTEL_EXPORTER_OTLP_ENDPOINT: ${OTEL_EXPORTER_OTLP_ENDPOINT:-http://otel-collector:4317}
+      OTEL_EXPORTER_OTLP_PROTOCOL: grpc
+      OTEL_TRACES_SAMPLER: ${OTEL_TRACES_SAMPLER:-always_on}
+      OTEL_SERVICE_NAME: worker-service
       OTEL_METRICS_EXPORTER: ${OTEL_METRICS_EXPORTER:-otlp}
       OTEL_LOGS_EXPORTER: ${OTEL_LOGS_EXPORTER:-otlp}
 
@@ -187,14 +244,19 @@ services:
       - user-service
       - transaction-service
       - notification-service
+      - worker-service
+      - redis
     environment:
-      SPRING_APPLICATION_JSON: '{"auth.service.url":"http://auth-service:8081","user.service.url":"http://user-service:8082","transaction.service.url":"http://transaction-service:8083","notification.service.url":"http://notification-service:8084"}'
+      SPRING_APPLICATION_JSON: '{"auth.service.url":"http://auth-service:8081","user.service.url":"http://user-service:8082","transaction.service.url":"http://transaction-service:8083","notification.service.url":"http://notification-service:8084","worker.service.url":"http://worker-service:8085"}'
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
       OTEL_EXPORTER_OTLP_ENDPOINT: ${OTEL_EXPORTER_OTLP_ENDPOINT:-http://otel-collector:4317}
       OTEL_EXPORTER_OTLP_PROTOCOL: grpc
       OTEL_TRACES_SAMPLER: ${OTEL_TRACES_SAMPLER:-always_on}
       OTEL_SERVICE_NAME: api-gateway
       OTEL_METRICS_EXPORTER: ${OTEL_METRICS_EXPORTER:-otlp}
       OTEL_LOGS_EXPORTER: ${OTEL_LOGS_EXPORTER:-otlp}
+
 
   # ========================
   # FRONTEND
@@ -216,7 +278,7 @@ services:
   # ========================
 
   clickhouse:
-    image: clickhouse/clickhouse-server:25.12.5-alpine
+    image: clickhouse/clickhouse-server:25.12.5
     container_name: fintech-clickhouse
     volumes:
       - clickhouse-data:/var/lib/clickhouse
@@ -300,3 +362,5 @@ volumes:
   mysql-data:
   clickhouse-data:
   signoz-sqlite:
+  redis-data:
+

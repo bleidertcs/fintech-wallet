@@ -18,19 +18,23 @@ export default function History() {
   const [dateTo, setDateTo] = useState('');
 
   useEffect(() => {
-    loadData();
-  }, []);
+    if (user?.email) {
+      loadData();
+    }
+  }, [user]);
 
   const loadData = async () => {
+    if (!user?.email) return;
     try {
       const usersRes = await userService.getAll();
-      const allUsers = usersRes.data;
+      const allUsers = usersRes.data || [];
       // Build ID -> name map
       const map = {};
       allUsers.forEach((u) => { map[u.id] = u.name || u.email; });
       setUsersMap(map);
 
-      const me = allUsers.find((u) => u.email === user.email);
+      const me = allUsers.find((u) => u.email?.trim().toLowerCase() === user.email?.trim().toLowerCase());
+
       if (me) {
         setProfile(me);
         const txRes = await transactionService.getByUser(me.id);

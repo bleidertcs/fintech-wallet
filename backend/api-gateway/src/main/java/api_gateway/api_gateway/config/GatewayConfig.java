@@ -25,6 +25,9 @@ public class GatewayConfig {
     @Value("${notification.service.url:http://localhost:8084}")
     private String notificationServiceUrl;
 
+    @Value("${worker.service.url:http://localhost:8085}")
+    private String workerServiceUrl;
+
     @Bean
     public RouterFunction<ServerResponse> authRoute() {
         return GatewayRouterFunctions.route("auth-service")
@@ -56,4 +59,13 @@ public class GatewayConfig {
                 .before(BeforeFilterFunctions.uri(notificationServiceUrl))
                 .build();
     }
+
+    @Bean
+    public RouterFunction<ServerResponse> workerRoute() {
+        return GatewayRouterFunctions.route("worker-service")
+                .route(RequestPredicates.path("/worker/**"), HandlerFunctions.http())
+                .before(BeforeFilterFunctions.uri(workerServiceUrl))
+                .build();
+    }
 }
+

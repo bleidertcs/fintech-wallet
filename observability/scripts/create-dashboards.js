@@ -1,22 +1,29 @@
 const fs = require('fs');
+const { resolveDashboardPath, getApiKey, getSigNozBaseUrl } = require('./dashboard-config');
 
 async function main() {
-  const apiKey = 'T+wsBgMnc3VkytFE/HFfW6Rdt6jYR2wIGjHzxFJT8YY=';
-  const rawData = fs.readFileSync('kafka-dashboard.json', 'utf8');
+  const apiKey = getApiKey();
+  if (!apiKey) {
+    throw new Error('SIGNOZ_API_KEY is not configured. Set it in the environment or .env file.');
+  }
+
+  const rawData = fs.readFileSync(resolveDashboardPath('kafka-dashboard.json'), 'utf8');
   const dashboard = JSON.parse(rawData);
 
   // Remove any system-generated fields like id or uuid if they exist to let SigNoz generate a new one
   delete dashboard.id;
   delete dashboard.uuid;
 
-  console.log('Sending request to SigNoz...');
-  const res = await fetch('http://localhost:8085/api/v1/dashboards', {
+  const sigNozUrl = `${getSigNozBaseUrl().replace(/\/$/, '')}/api/v1/dashboards`;
+
+  console.log(`Sending request to SigNoz at ${sigNozUrl}...`);
+  const res = await fetch(sigNozUrl, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'signoz-api-key': apiKey
+      'signoz-api-key': apiKey,
     },
-    body: JSON.stringify(dashboard)
+    body: JSON.stringify(dashboard),
   });
 
   const resText = await res.text();
@@ -24,6 +31,6 @@ async function main() {
   console.log('Response Body:', resText);
 }
 
-main().catch(err => {
+main().catch((err) => {
   console.error('Error:', err);
 });

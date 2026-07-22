@@ -32,10 +32,10 @@ public class UserController {
     }
 
     @PutMapping("/{id}/balance")
-    public ResponseEntity<Void> updateBalance(@PathVariable Long id, @RequestParam BigDecimal amount) {
-        userService.updateBalance(id, amount);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<UserProfileDto> updateBalance(@PathVariable Long id, @RequestParam BigDecimal amount) {
+        return ResponseEntity.ok(userService.updateBalance(id, amount));
     }
+
 
     @PutMapping("/{id}/settings")
     public ResponseEntity<UserProfileDto> updateSettings(

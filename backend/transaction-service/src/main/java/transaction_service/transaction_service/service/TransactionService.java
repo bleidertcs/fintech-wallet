@@ -28,14 +28,26 @@ public class TransactionService {
     private final TransactionRepository transactionRepository;
     private final MoneyRequestRepository moneyRequestRepository;
     private final TransactionProducer transactionProducer;
+    private final IdempotencyService idempotencyService;
 
     @GrpcClient("user-service")
     private UserServiceGrpc.UserServiceBlockingStub userServiceStub;
 
+    public TransferResponse transfer(TransferRequest request) {
+        return transfer(request, null);
+    }
+
     @Transactional
     @WithSpan("transaction.transfer")
-    public TransferResponse transfer(TransferRequest request) {
+    public TransferResponse transfer(TransferRequest request, String idempotencyKey) {
+        if (idempotencyKey != null && !idempotencyKey.isBlank()) {
+            if (idempotencyService.isDuplicateKey(idempotencyKey)) {
+                throw new RuntimeException("Transacción duplicada: la clave de idempotencia ya fue procesada");
+            }
+        }
+
         UserResponse sender = userServiceStub.getUser(UserRequest.newBuilder().setId(request.getFromUserId()).build());
+
         userServiceStub.getUser(UserRequest.newBuilder().setId(request.getToUserId()).build());
 
         BigDecimal senderBalance = BigDecimal.valueOf(sender.getBalance());
@@ -78,6 +90,11 @@ public class TransactionService {
                 .status("COMPLETED")
                 .build();
         tx = transactionRepository.save(tx);
+
+        if (idempotencyKey != null && !idempotencyKey.isBlank()) {
+            idempotencyService.registerKey(idempotencyKey, 24);
+        }
+
 
         // Kafka notification (best-effort)
         try {

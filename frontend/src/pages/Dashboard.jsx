@@ -17,17 +17,33 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    loadData();
-  }, []);
+    if (user?.email) {
+      loadData();
+    }
+  }, [user]);
 
   const loadData = async () => {
+    if (!user?.email) return;
     try {
       const usersRes = await userService.getAll();
-      const users = usersRes.data;
-      const myProfile = users.find((u) => u.email === user.email);
+      const users = usersRes.data || [];
+      let myProfile = users.find((u) => u.email?.trim().toLowerCase() === user.email?.trim().toLowerCase());
+      if (!myProfile) {
+        try {
+          const createRes = await userService.create({
+            name: user.email.split('@')[0],
+            email: user.email,
+            balance: 10000,
+          });
+          myProfile = createRes.data;
+        } catch (createErr) {
+          console.error('Error auto-creating profile:', createErr);
+        }
+      }
       if (myProfile) {
         setProfile(myProfile);
         const txRes = await transactionService.getByUser(myProfile.id);
+
         const allTx = txRes.data;
         setTransactions(allTx.slice(0, 5));
 

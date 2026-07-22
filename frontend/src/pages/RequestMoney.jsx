@@ -23,19 +23,35 @@ export default function RequestMoney() {
   const [tab, setTab] = useState('send'); // send or received
 
   useEffect(() => {
-    loadData();
-  }, []);
+    if (user?.email) {
+      loadData();
+    }
+  }, [user]);
 
   const loadData = async () => {
+    if (!user?.email) return;
     try {
       const usersRes = await userService.getAll();
-      const allUsers = usersRes.data;
-      const me = allUsers.find((u) => u.email === user.email);
+      const allUsers = usersRes.data || [];
+      let me = allUsers.find((u) => u.email?.trim().toLowerCase() === user.email?.trim().toLowerCase());
+      if (!me) {
+        try {
+          const createRes = await userService.create({
+            name: user.email.split('@')[0],
+            email: user.email,
+            balance: 10000,
+          });
+          me = createRes.data;
+          allUsers.push(me);
+        } catch (createErr) {
+          console.error('Error auto-creating profile:', createErr);
+        }
+      }
       setProfile(me);
       setUsers(allUsers.filter((u) => u.id !== me?.id));
       if (me) {
         const reqRes = await transactionService.getRequests(me.id);
-        setRequests(reqRes.data);
+        setRequests(reqRes.data || []);
       }
     } catch (err) {
       console.error(err);
@@ -44,7 +60,15 @@ export default function RequestMoney() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!profile || !targetId) return;
+    if (!profile) {
+      toast.error('No se encontro tu perfil de usuario');
+      return;
+    }
+    if (!targetId) {
+      toast.error('Selecciona un usuario a quien pedirle dinero');
+      return;
+    }
+
     setLoading(true);
     try {
       await transactionService.createRequest({

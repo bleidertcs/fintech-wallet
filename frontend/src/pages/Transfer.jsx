@@ -16,8 +16,10 @@ export default function Transfer() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    loadUsers();
-  }, []);
+    if (user?.email) {
+      loadUsers();
+    }
+  }, [user]);
 
   // Pre-select user from QR scan or other navigation
   useEffect(() => {
@@ -27,16 +29,33 @@ export default function Transfer() {
   }, [location.state]);
 
   const loadUsers = async () => {
+    if (!user?.email) return;
     try {
       const res = await userService.getAll();
-      const allUsers = res.data;
-      const me = allUsers.find((u) => u.email === user.email);
+      const allUsers = res.data || [];
+      let me = allUsers.find((u) => u.email?.trim().toLowerCase() === user.email?.trim().toLowerCase());
+
+      if (!me) {
+        try {
+          const createRes = await userService.create({
+            name: user.email.split('@')[0],
+            email: user.email,
+            balance: 10000,
+          });
+          me = createRes.data;
+          allUsers.push(me);
+        } catch (createErr) {
+          console.error('Error auto-creating user profile:', createErr);
+        }
+      }
+
       setMyProfile(me);
       setUsers(allUsers.filter((u) => u.id !== me?.id));
     } catch (err) {
       console.error('Error loading users:', err);
     }
   };
+
 
   const filteredUsers = users.filter((u) => {
     const q = search.toLowerCase();

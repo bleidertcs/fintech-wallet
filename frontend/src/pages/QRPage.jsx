@@ -37,9 +37,23 @@ export default function QRPage() {
   }, [mode]);
 
   const loadProfile = async () => {
+    if (!user?.email) return;
     try {
       const res = await userService.getAll();
-      const me = res.data.find((u) => u.email === user.email);
+      const allUsers = res.data || [];
+      let me = allUsers.find((u) => u.email?.trim().toLowerCase() === user.email?.trim().toLowerCase());
+      if (!me) {
+        try {
+          const createRes = await userService.create({
+            name: user.email.split('@')[0],
+            email: user.email,
+            balance: 10000,
+          });
+          me = createRes.data;
+        } catch (createErr) {
+          console.error('Error auto-creating profile:', createErr);
+        }
+      }
       setProfile(me);
     } catch (err) {
       console.error(err);

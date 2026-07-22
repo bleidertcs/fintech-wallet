@@ -16,9 +16,11 @@ public class TransactionController {
     private final TransactionService transactionService;
 
     @PostMapping("/transfer")
-    public ResponseEntity<TransferResponse> transfer(@RequestBody TransferRequest request) {
-        return ResponseEntity.ok(transactionService.transfer(request));
+    public ResponseEntity<TransferResponse> transfer(@RequestBody TransferRequest request,
+                                                     @RequestHeader(value = "X-Idempotency-Key", required = false) String idempotencyKey) {
+        return ResponseEntity.ok(transactionService.transfer(request, idempotencyKey));
     }
+
 
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<TransferResponse>> getByUser(@PathVariable Long userId) {

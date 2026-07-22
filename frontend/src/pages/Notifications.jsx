@@ -11,16 +11,20 @@ export default function Notifications() {
   const prevCountRef = useRef(0);
 
   useEffect(() => {
-    loadNotifications();
-    // Polling every 10 seconds for real-time feel
-    const interval = setInterval(loadNotifications, 10000);
-    return () => clearInterval(interval);
-  }, []);
+    if (user?.email) {
+      loadNotifications();
+      const interval = setInterval(loadNotifications, 10000);
+      return () => clearInterval(interval);
+    }
+  }, [user]);
 
   const loadNotifications = async () => {
+    if (!user?.email) return;
     try {
       const usersRes = await userService.getAll();
-      const me = usersRes.data.find((u) => u.email === user.email);
+      const allUsers = usersRes.data || [];
+      const me = allUsers.find((u) => u.email?.trim().toLowerCase() === user.email?.trim().toLowerCase());
+
       if (me) {
         const res = await notificationService.getByUser(me.id);
         const fetched = res.data;

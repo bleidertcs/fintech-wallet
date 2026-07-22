@@ -1,0 +1,1648 @@
+{
+    "description": "Service APM built from span metrics. Overview: P50/P90/P99 latency, request rate, error percentage, and top operations. DB Metrics: calls per second, average duration, and error percentage by db.system. External calls: per-address rate, error percentage, and duration. Filter by deployment.environment, service.name, and top_level_operation.",
+    "layout": [
+        {
+            "h": 1,
+            "i": "5730893b-7b73-42fa-8ceb-cb3731438a44",
+            "moved": false,
+            "static": false,
+            "w": 12,
+            "x": 0,
+            "y": 0
+        },
+        {
+            "h": 6,
+            "i": "02c09a9b-8b9f-45f8-a74c-46cd503ddf5c",
+            "moved": false,
+            "static": false,
+            "w": 6,
+            "x": 0,
+            "y": 1
+        },
+        {
+            "h": 6,
+            "i": "990685be-f055-47e9-90ef-d62198872795",
+            "moved": false,
+            "static": false,
+            "w": 6,
+            "x": 6,
+            "y": 1
+        },
+        {
+            "h": 6,
+            "i": "7bb8374a-de12-4c48-a9c6-7dc14a5eee4b",
+            "moved": false,
+            "static": false,
+            "w": 6,
+            "x": 0,
+            "y": 7
+        },
+        {
+            "h": 6,
+            "i": "f88a9056-ccaf-4275-b4fe-ddb004adb204",
+            "moved": false,
+            "static": false,
+            "w": 6,
+            "x": 6,
+            "y": 7
+        },
+        {
+            "h": 1,
+            "i": "e799d9bf-0dfa-4ee5-b786-9199b7ecd033",
+            "moved": false,
+            "static": false,
+            "w": 12,
+            "x": 0,
+            "y": 13
+        },
+        {
+            "h": 6,
+            "i": "85fd56d5-01bc-4240-b959-c7a107d3d104",
+            "moved": false,
+            "static": false,
+            "w": 4,
+            "x": 0,
+            "y": 14
+        },
+        {
+            "h": 6,
+            "i": "e236ec5f-884c-4019-9976-c52cbd3c427d",
+            "moved": false,
+            "static": false,
+            "w": 4,
+            "x": 4,
+            "y": 14
+        },
+        {
+            "h": 6,
+            "i": "b7d1c2e3-4f5a-4b6c-8d9e-0f1a2b3c4d5e",
+            "moved": false,
+            "static": false,
+            "w": 4,
+            "x": 8,
+            "y": 14
+        },
+        {
+            "h": 1,
+            "i": "2ae2ded9-87fb-42f7-b6ce-56c5ad6abb66",
+            "moved": false,
+            "static": false,
+            "w": 12,
+            "x": 0,
+            "y": 20
+        },
+        {
+            "h": 6,
+            "i": "9e0c2768-2ed6-420a-9ba7-7717d1af9a84",
+            "moved": false,
+            "static": false,
+            "w": 12,
+            "x": 0,
+            "y": 21
+        }
+    ],
+    "panelMap": {
+        "2ae2ded9-87fb-42f7-b6ce-56c5ad6abb66": {
+            "collapsed": false,
+            "widgets": [
+                {
+                    "h": 6,
+                    "i": "9e0c2768-2ed6-420a-9ba7-7717d1af9a84",
+                    "w": 12,
+                    "x": 0,
+                    "y": 723
+                }
+            ]
+        },
+        "5730893b-7b73-42fa-8ceb-cb3731438a44": {
+            "collapsed": false,
+            "widgets": [
+                {
+                    "h": 6,
+                    "i": "02c09a9b-8b9f-45f8-a74c-46cd503ddf5c",
+                    "w": 6,
+                    "x": 0,
+                    "y": 1
+                },
+                {
+                    "h": 6,
+                    "i": "990685be-f055-47e9-90ef-d62198872795",
+                    "w": 6,
+                    "x": 6,
+                    "y": 1
+                },
+                {
+                    "h": 6,
+                    "i": "7bb8374a-de12-4c48-a9c6-7dc14a5eee4b",
+                    "w": 6,
+                    "x": 0,
+                    "y": 7
+                },
+                {
+                    "h": 6,
+                    "i": "f88a9056-ccaf-4275-b4fe-ddb004adb204",
+                    "w": 6,
+                    "x": 6,
+                    "y": 7
+                }
+            ]
+        },
+        "e799d9bf-0dfa-4ee5-b786-9199b7ecd033": {
+            "collapsed": false,
+            "widgets": [
+                {
+                    "h": 6,
+                    "i": "85fd56d5-01bc-4240-b959-c7a107d3d104",
+                    "w": 4,
+                    "x": 0,
+                    "y": 50
+                },
+                {
+                    "h": 6,
+                    "i": "e236ec5f-884c-4019-9976-c52cbd3c427d",
+                    "w": 4,
+                    "x": 4,
+                    "y": 50
+                },
+                {
+                    "h": 6,
+                    "i": "b7d1c2e3-4f5a-4b6c-8d9e-0f1a2b3c4d5e",
+                    "w": 4,
+                    "x": 8,
+                    "y": 50
+                }
+            ]
+        }
+    },
+    "tags": [
+        "apm",
+        "latency",
+        "error rate",
+        "throughput"
+    ],
+    "title": "APM Metrics",
+    "variables": {
+        "5ca550af-d285-4abb-9846-5b18e80d11a6": {
+            "allSelected": true,
+            "description": "The deployment environment of the service",
+            "dynamicVariablesAttribute": "deployment.environment",
+            "dynamicVariablesSource": "All telemetry",
+            "haveCustomValuesSelected": false,
+            "id": "5ca550af-d285-4abb-9846-5b18e80d11a6",
+            "multiSelect": false,
+            "name": "deployment.environment",
+            "order": 0,
+            "queryValue": "SELECT JSONExtractString(labels, 'deployment.environment') AS `deployment.environment`\nFROM signoz_metrics.time_series_v4_1day\nWHERE (metric_name = 'signoz_calls_total') AND (unix_milli >= (toUnixTimestamp(now() - toIntervalDay(1)) * 1000))\nGROUP BY `deployment.environment`",
+            "selectedValue": "default",
+            "showALLOption": false,
+            "sort": "DISABLED",
+            "type": "DYNAMIC"
+        },
+        "8acb5fe1-1b57-4787-8014-4741b2184214": {
+            "description": "The primary operations for the service are defined here. In a web API service, these are the API endpoints. For services that function as consumers, producers, or clients, these are the names of the entry-point spans.",
+            "id": "8acb5fe1-1b57-4787-8014-4741b2184214",
+            "multiSelect": true,
+            "name": "top_level_operation",
+            "order": 2,
+            "queryValue": "SELECT name FROM signoz_traces.top_level_operations WHERE serviceName = $service.name GROUP BY name",
+            "showALLOption": true,
+            "sort": "ASC",
+            "type": "QUERY"
+        },
+        "d23168aa-b80c-4beb-83ce-96d4e7ba0719": {
+            "allSelected": true,
+            "description": "The service.name value for the application",
+            "dynamicVariablesAttribute": "service.name",
+            "dynamicVariablesSource": "All telemetry",
+            "haveCustomValuesSelected": false,
+            "id": "d23168aa-b80c-4beb-83ce-96d4e7ba0719",
+            "multiSelect": false,
+            "name": "service.name",
+            "order": 1,
+            "queryValue": "\nSELECT JSONExtractString(labels, 'service.name') AS `service.name`\nFROM signoz_metrics.time_series_v4_1day\nWHERE (metric_name = 'signoz_calls_total') AND JSONExtractString(labels, 'deployment.environment') = $deployment.environment AND (unix_milli >= (toUnixTimestamp(now() - toIntervalDay(1)) * 1000))\nGROUP BY `service.name`",
+            "selectedValue": "frontend-wallet",
+            "showALLOption": false,
+            "sort": "DISABLED",
+            "type": "DYNAMIC"
+        }
+    },
+    "version": "v5",
+    "widgets": [
+        {
+            "description": "",
+            "id": "5730893b-7b73-42fa-8ceb-cb3731438a44",
+            "panelTypes": "row",
+            "selectedLogFields": null,
+            "selectedTracesFields": null,
+            "softMax": null,
+            "softMin": null,
+            "title": "Overview"
+        },
+        {
+            "bucketCount": 30,
+            "bucketWidth": 0,
+            "description": "",
+            "fillSpans": false,
+            "id": "02c09a9b-8b9f-45f8-a74c-46cd503ddf5c",
+            "mergeAllActiveQueries": false,
+            "nullZeroValues": "zero",
+            "opacity": "1",
+            "panelTypes": "graph",
+            "query": {
+                "builder": {
+                    "queryData": [
+                        {
+                            "aggregations": [
+                                {
+                                    "metricName": "signoz_latency.bucket",
+                                    "reduceTo": "avg",
+                                    "spaceAggregation": "p99",
+                                    "temporality": null,
+                                    "timeAggregation": ""
+                                }
+                            ],
+                            "dataSource": "metrics",
+                            "disabled": false,
+                            "expression": "A",
+                            "filter": {
+                                "expression": ""
+                            },
+                            "functions": [],
+                            "groupBy": [],
+                            "having": [],
+                            "legend": "p99",
+                            "limit": null,
+                            "orderBy": [],
+                            "queryName": "A",
+                            "stepInterval": 60
+                        },
+                        {
+                            "aggregations": [
+                                {
+                                    "metricName": "signoz_latency.bucket",
+                                    "reduceTo": "avg",
+                                    "spaceAggregation": "p90",
+                                    "temporality": null,
+                                    "timeAggregation": ""
+                                }
+                            ],
+                            "dataSource": "metrics",
+                            "disabled": false,
+                            "expression": "B",
+                            "filter": {
+                                "expression": ""
+                            },
+                            "functions": [],
+                            "groupBy": [],
+                            "having": [],
+                            "legend": "p90",
+                            "limit": null,
+                            "orderBy": [],
+                            "queryName": "B",
+                            "stepInterval": 60
+                        },
+                        {
+                            "aggregations": [
+                                {
+                                    "metricName": "signoz_latency.bucket",
+                                    "reduceTo": "avg",
+                                    "spaceAggregation": "p50",
+                                    "temporality": null,
+                                    "timeAggregation": ""
+                                }
+                            ],
+                            "dataSource": "metrics",
+                            "disabled": false,
+                            "expression": "C",
+                            "filter": {
+                                "expression": ""
+                            },
+                            "functions": [],
+                            "groupBy": [],
+                            "having": [],
+                            "legend": "p50",
+                            "limit": null,
+                            "orderBy": [],
+                            "queryName": "C",
+                            "stepInterval": 60
+                        }
+                    ],
+                    "queryFormulas": []
+                },
+                "clickhouse_sql": [
+                    {
+                        "disabled": false,
+                        "legend": "",
+                        "name": "A",
+                        "query": ""
+                    }
+                ],
+                "id": "7de05a44-1e82-4706-a02a-eaab7f52e46f",
+                "promql": [
+                    {
+                        "disabled": false,
+                        "legend": "",
+                        "name": "A",
+                        "query": ""
+                    }
+                ],
+                "queryType": "builder"
+            },
+            "selectedLogFields": [
+                {
+                    "dataType": "string",
+                    "name": "body",
+                    "type": ""
+                },
+                {
+                    "dataType": "string",
+                    "name": "timestamp",
+                    "type": ""
+                }
+            ],
+            "selectedTracesFields": [
+                {
+                    "dataType": "string",
+                    "id": "serviceName--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "serviceName",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "string",
+                    "id": "name--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "name",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "float64",
+                    "id": "durationNano--float64--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "durationNano",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "string",
+                    "id": "httpMethod--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "httpMethod",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "string",
+                    "id": "responseStatusCode--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "responseStatusCode",
+                    "type": "tag"
+                }
+            ],
+            "softMax": 0,
+            "softMin": 0,
+            "stackedBarChart": false,
+            "timePreferance": "GLOBAL_TIME",
+            "title": "Latency",
+            "yAxisUnit": "ms"
+        },
+        {
+            "bucketCount": 30,
+            "bucketWidth": 0,
+            "description": "",
+            "fillSpans": false,
+            "id": "990685be-f055-47e9-90ef-d62198872795",
+            "mergeAllActiveQueries": false,
+            "nullZeroValues": "zero",
+            "opacity": "1",
+            "panelTypes": "graph",
+            "query": {
+                "builder": {
+                    "queryData": [
+                        {
+                            "aggregations": [
+                                {
+                                    "metricName": "signoz_latency.count",
+                                    "reduceTo": "avg",
+                                    "spaceAggregation": "sum",
+                                    "temporality": null,
+                                    "timeAggregation": "rate"
+                                }
+                            ],
+                            "dataSource": "metrics",
+                            "disabled": false,
+                            "expression": "A",
+                            "filter": {
+                                "expression": ""
+                            },
+                            "functions": [],
+                            "groupBy": [],
+                            "having": [],
+                            "legend": "rps",
+                            "limit": null,
+                            "orderBy": [],
+                            "queryName": "A",
+                            "stepInterval": 60
+                        }
+                    ],
+                    "queryFormulas": []
+                },
+                "clickhouse_sql": [
+                    {
+                        "disabled": false,
+                        "legend": "",
+                        "name": "A",
+                        "query": ""
+                    }
+                ],
+                "id": "b28ef855-58d1-45f9-a528-8b00c73aaad7",
+                "promql": [
+                    {
+                        "disabled": false,
+                        "legend": "",
+                        "name": "A",
+                        "query": ""
+                    }
+                ],
+                "queryType": "builder"
+            },
+            "selectedLogFields": [
+                {
+                    "dataType": "string",
+                    "name": "body",
+                    "type": ""
+                },
+                {
+                    "dataType": "string",
+                    "name": "timestamp",
+                    "type": ""
+                }
+            ],
+            "selectedTracesFields": [
+                {
+                    "dataType": "string",
+                    "id": "serviceName--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "serviceName",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "string",
+                    "id": "name--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "name",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "float64",
+                    "id": "durationNano--float64--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "durationNano",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "string",
+                    "id": "httpMethod--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "httpMethod",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "string",
+                    "id": "responseStatusCode--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "responseStatusCode",
+                    "type": "tag"
+                }
+            ],
+            "softMax": 0,
+            "softMin": 0,
+            "stackedBarChart": false,
+            "timePreferance": "GLOBAL_TIME",
+            "title": "Request rate",
+            "yAxisUnit": "reqps"
+        },
+        {
+            "bucketCount": 30,
+            "bucketWidth": 0,
+            "description": "",
+            "fillSpans": false,
+            "id": "7bb8374a-de12-4c48-a9c6-7dc14a5eee4b",
+            "mergeAllActiveQueries": false,
+            "nullZeroValues": "zero",
+            "opacity": "1",
+            "panelTypes": "graph",
+            "query": {
+                "builder": {
+                    "queryData": [
+                        {
+                            "aggregations": [
+                                {
+                                    "metricName": "signoz_calls_total",
+                                    "reduceTo": "avg",
+                                    "spaceAggregation": "sum",
+                                    "temporality": null,
+                                    "timeAggregation": "rate"
+                                }
+                            ],
+                            "dataSource": "metrics",
+                            "disabled": true,
+                            "expression": "A",
+                            "filter": {
+                                "expression": "(deployment.environment = $deployment.environment AND service.name = $service.name AND operation IN $top_level_operation AND status.code = 'STATUS_CODE_ERROR')"
+                            },
+                            "functions": [],
+                            "groupBy": [],
+                            "having": [],
+                            "legend": "",
+                            "limit": null,
+                            "orderBy": [],
+                            "queryName": "A",
+                            "stepInterval": 60
+                        },
+                        {
+                            "aggregations": [
+                                {
+                                    "metricName": "signoz_calls_total",
+                                    "reduceTo": "avg",
+                                    "spaceAggregation": "sum",
+                                    "temporality": null,
+                                    "timeAggregation": "rate"
+                                }
+                            ],
+                            "dataSource": "metrics",
+                            "disabled": true,
+                            "expression": "B",
+                            "filter": {
+                                "expression": ""
+                            },
+                            "functions": [],
+                            "groupBy": [],
+                            "having": [],
+                            "legend": "",
+                            "limit": null,
+                            "orderBy": [],
+                            "queryName": "B",
+                            "stepInterval": 60
+                        }
+                    ],
+                    "queryFormulas": [
+                        {
+                            "disabled": false,
+                            "expression": "A/B",
+                            "legend": "error %",
+                            "queryName": "F1"
+                        }
+                    ]
+                },
+                "clickhouse_sql": [
+                    {
+                        "disabled": false,
+                        "legend": "",
+                        "name": "A",
+                        "query": ""
+                    }
+                ],
+                "id": "8a6d9ea8-d50a-4f1b-8735-788e3cb0d6cd",
+                "promql": [
+                    {
+                        "disabled": false,
+                        "legend": "",
+                        "name": "A",
+                        "query": ""
+                    }
+                ],
+                "queryType": "builder"
+            },
+            "selectedLogFields": [
+                {
+                    "dataType": "string",
+                    "name": "body",
+                    "type": ""
+                },
+                {
+                    "dataType": "string",
+                    "name": "timestamp",
+                    "type": ""
+                }
+            ],
+            "selectedTracesFields": [
+                {
+                    "dataType": "string",
+                    "id": "serviceName--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "serviceName",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "string",
+                    "id": "name--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "name",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "float64",
+                    "id": "durationNano--float64--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "durationNano",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "string",
+                    "id": "httpMethod--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "httpMethod",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "string",
+                    "id": "responseStatusCode--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "responseStatusCode",
+                    "type": "tag"
+                }
+            ],
+            "softMax": 1,
+            "softMin": 0,
+            "stackedBarChart": false,
+            "timePreferance": "GLOBAL_TIME",
+            "title": "Error percentage",
+            "yAxisUnit": "percentunit"
+        },
+        {
+            "bucketCount": 30,
+            "bucketWidth": 0,
+            "columnUnits": {
+                "A": "ns",
+                "B": "ns",
+                "C": "ns",
+                "D": "reqps",
+                "F1": "percent"
+            },
+            "columnWidths": {
+                "A": 145,
+                "B": 145,
+                "C": 145,
+                "D": 145,
+                "F1": 145,
+                "operation": 145
+            },
+            "description": "",
+            "fillSpans": false,
+            "id": "f88a9056-ccaf-4275-b4fe-ddb004adb204",
+            "mergeAllActiveQueries": false,
+            "nullZeroValues": "zero",
+            "opacity": "1",
+            "panelTypes": "table",
+            "query": {
+                "builder": {
+                    "queryData": [
+                        {
+                            "aggregations": [
+                                {
+                                    "metricName": "signoz_latency.bucket",
+                                    "reduceTo": "avg",
+                                    "spaceAggregation": "p99",
+                                    "temporality": null,
+                                    "timeAggregation": ""
+                                }
+                            ],
+                            "dataSource": "metrics",
+                            "disabled": false,
+                            "expression": "A",
+                            "filter": {
+                                "expression": ""
+                            },
+                            "functions": [],
+                            "groupBy": [
+                                {
+                                    "dataType": "string",
+                                    "id": "operation--string--tag--false",
+                                    "isColumn": false,
+                                    "isJSON": false,
+                                    "key": "operation",
+                                    "type": "tag"
+                                }
+                            ],
+                            "having": [],
+                            "legend": "p99",
+                            "limit": null,
+                            "orderBy": [],
+                            "queryName": "A",
+                            "stepInterval": 60
+                        },
+                        {
+                            "aggregations": [
+                                {
+                                    "metricName": "signoz_latency.bucket",
+                                    "reduceTo": "avg",
+                                    "spaceAggregation": "p90",
+                                    "temporality": null,
+                                    "timeAggregation": ""
+                                }
+                            ],
+                            "dataSource": "metrics",
+                            "disabled": false,
+                            "expression": "B",
+                            "filter": {
+                                "expression": ""
+                            },
+                            "functions": [],
+                            "groupBy": [
+                                {
+                                    "dataType": "string",
+                                    "id": "operation--string--tag--false",
+                                    "isColumn": false,
+                                    "isJSON": false,
+                                    "key": "operation",
+                                    "type": "tag"
+                                }
+                            ],
+                            "having": [],
+                            "legend": "p90",
+                            "limit": null,
+                            "orderBy": [],
+                            "queryName": "B",
+                            "stepInterval": 60
+                        },
+                        {
+                            "aggregations": [
+                                {
+                                    "metricName": "signoz_latency.bucket",
+                                    "reduceTo": "avg",
+                                    "spaceAggregation": "p50",
+                                    "temporality": null,
+                                    "timeAggregation": ""
+                                }
+                            ],
+                            "dataSource": "metrics",
+                            "disabled": false,
+                            "expression": "C",
+                            "filter": {
+                                "expression": ""
+                            },
+                            "functions": [],
+                            "groupBy": [
+                                {
+                                    "dataType": "string",
+                                    "id": "operation--string--tag--false",
+                                    "isColumn": false,
+                                    "isJSON": false,
+                                    "key": "operation",
+                                    "type": "tag"
+                                }
+                            ],
+                            "having": [],
+                            "legend": "p50",
+                            "limit": null,
+                            "orderBy": [],
+                            "queryName": "C",
+                            "stepInterval": 60
+                        },
+                        {
+                            "aggregations": [
+                                {
+                                    "metricName": "signoz_calls_total",
+                                    "reduceTo": "avg",
+                                    "spaceAggregation": "sum",
+                                    "temporality": null,
+                                    "timeAggregation": "rate"
+                                }
+                            ],
+                            "dataSource": "metrics",
+                            "disabled": false,
+                            "expression": "D",
+                            "filter": {
+                                "expression": ""
+                            },
+                            "functions": [],
+                            "groupBy": [
+                                {
+                                    "dataType": "string",
+                                    "id": "operation--string--tag--false",
+                                    "isColumn": false,
+                                    "isJSON": false,
+                                    "key": "operation",
+                                    "type": "tag"
+                                }
+                            ],
+                            "having": [],
+                            "legend": "req/s",
+                            "limit": null,
+                            "orderBy": [],
+                            "queryName": "D",
+                            "stepInterval": 60
+                        },
+                        {
+                            "aggregations": [
+                                {
+                                    "metricName": "signoz_calls_total",
+                                    "reduceTo": "avg",
+                                    "spaceAggregation": "sum",
+                                    "temporality": null,
+                                    "timeAggregation": "rate"
+                                }
+                            ],
+                            "dataSource": "metrics",
+                            "disabled": true,
+                            "expression": "E",
+                            "filter": {
+                                "expression": "(deployment.environment = $deployment.environment AND service.name = $service.name AND operation IN $top_level_operation AND status.code = 'STATUS_CODE_ERROR')"
+                            },
+                            "functions": [],
+                            "groupBy": [
+                                {
+                                    "dataType": "string",
+                                    "id": "operation--string--tag--false",
+                                    "isColumn": false,
+                                    "isJSON": false,
+                                    "key": "operation",
+                                    "type": "tag"
+                                }
+                            ],
+                            "having": [],
+                            "legend": "err/s",
+                            "limit": null,
+                            "orderBy": [],
+                            "queryName": "E",
+                            "stepInterval": 60
+                        }
+                    ],
+                    "queryFormulas": [
+                        {
+                            "disabled": false,
+                            "expression": "E/D",
+                            "legend": "error %",
+                            "queryName": "F1"
+                        }
+                    ]
+                },
+                "clickhouse_sql": [
+                    {
+                        "disabled": false,
+                        "legend": "",
+                        "name": "A",
+                        "query": ""
+                    }
+                ],
+                "id": "1ba5fa07-b1d9-4abd-b9c1-7adaaca6f4c7",
+                "promql": [
+                    {
+                        "disabled": false,
+                        "legend": "",
+                        "name": "A",
+                        "query": ""
+                    }
+                ],
+                "queryType": "builder"
+            },
+            "selectedLogFields": [
+                {
+                    "dataType": "string",
+                    "name": "body",
+                    "type": ""
+                },
+                {
+                    "dataType": "string",
+                    "name": "timestamp",
+                    "type": ""
+                }
+            ],
+            "selectedTracesFields": [
+                {
+                    "dataType": "string",
+                    "id": "serviceName--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "serviceName",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "string",
+                    "id": "name--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "name",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "float64",
+                    "id": "durationNano--float64--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "durationNano",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "string",
+                    "id": "httpMethod--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "httpMethod",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "string",
+                    "id": "responseStatusCode--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "responseStatusCode",
+                    "type": "tag"
+                }
+            ],
+            "softMax": 0,
+            "softMin": 0,
+            "stackedBarChart": false,
+            "timePreferance": "GLOBAL_TIME",
+            "title": "Top operations",
+            "yAxisUnit": "none"
+        },
+        {
+            "description": "",
+            "id": "e799d9bf-0dfa-4ee5-b786-9199b7ecd033",
+            "panelTypes": "row",
+            "selectedLogFields": null,
+            "selectedTracesFields": null,
+            "softMax": null,
+            "softMin": null,
+            "title": "DB Metrics"
+        },
+        {
+            "bucketCount": 30,
+            "bucketWidth": 0,
+            "description": "",
+            "fillSpans": false,
+            "id": "85fd56d5-01bc-4240-b959-c7a107d3d104",
+            "mergeAllActiveQueries": false,
+            "nullZeroValues": "zero",
+            "opacity": "1",
+            "panelTypes": "graph",
+            "query": {
+                "builder": {
+                    "queryData": [
+                        {
+                            "aggregations": [
+                                {
+                                    "metricName": "signoz_db_latency_count",
+                                    "reduceTo": "avg",
+                                    "spaceAggregation": "sum",
+                                    "temporality": null,
+                                    "timeAggregation": "rate"
+                                }
+                            ],
+                            "dataSource": "metrics",
+                            "disabled": false,
+                            "expression": "A",
+                            "filter": {
+                                "expression": "(deployment.environment = $deployment.environment AND service.name = $service.name)"
+                            },
+                            "functions": [],
+                            "groupBy": [
+                                {
+                                    "dataType": "string",
+                                    "id": "db.system--string--tag--false",
+                                    "isColumn": false,
+                                    "isJSON": false,
+                                    "key": "db.system",
+                                    "type": "tag"
+                                }
+                            ],
+                            "having": [],
+                            "legend": "{{db.system}}",
+                            "limit": null,
+                            "orderBy": [],
+                            "queryName": "A",
+                            "stepInterval": 60
+                        }
+                    ],
+                    "queryFormulas": []
+                },
+                "clickhouse_sql": [
+                    {
+                        "disabled": false,
+                        "legend": "",
+                        "name": "A",
+                        "query": ""
+                    }
+                ],
+                "id": "46e2b4da-575a-4309-9be3-3c6f27bbc0b4",
+                "promql": [
+                    {
+                        "disabled": false,
+                        "legend": "",
+                        "name": "A",
+                        "query": ""
+                    }
+                ],
+                "queryType": "builder"
+            },
+            "selectedLogFields": [
+                {
+                    "dataType": "string",
+                    "name": "body",
+                    "type": ""
+                },
+                {
+                    "dataType": "string",
+                    "name": "timestamp",
+                    "type": ""
+                }
+            ],
+            "selectedTracesFields": [
+                {
+                    "dataType": "string",
+                    "id": "serviceName--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "serviceName",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "string",
+                    "id": "name--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "name",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "float64",
+                    "id": "durationNano--float64--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "durationNano",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "string",
+                    "id": "httpMethod--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "httpMethod",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "string",
+                    "id": "responseStatusCode--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "responseStatusCode",
+                    "type": "tag"
+                }
+            ],
+            "softMax": 0,
+            "softMin": 0,
+            "stackedBarChart": false,
+            "timePreferance": "GLOBAL_TIME",
+            "title": "DB Calls RPS",
+            "yAxisUnit": "reqps"
+        },
+        {
+            "bucketCount": 30,
+            "bucketWidth": 0,
+            "description": "",
+            "fillSpans": false,
+            "id": "e236ec5f-884c-4019-9976-c52cbd3c427d",
+            "mergeAllActiveQueries": false,
+            "nullZeroValues": "zero",
+            "opacity": "1",
+            "panelTypes": "graph",
+            "query": {
+                "builder": {
+                    "queryData": [
+                        {
+                            "aggregations": [
+                                {
+                                    "metricName": "signoz_db_latency_sum",
+                                    "reduceTo": "avg",
+                                    "spaceAggregation": "sum",
+                                    "temporality": null,
+                                    "timeAggregation": "rate"
+                                }
+                            ],
+                            "dataSource": "metrics",
+                            "disabled": true,
+                            "expression": "A",
+                            "filter": {
+                                "expression": "(deployment.environment = $deployment.environment AND service.name = $service.name)"
+                            },
+                            "functions": [],
+                            "groupBy": [
+                                {
+                                    "dataType": "string",
+                                    "id": "db.system--string--tag--false",
+                                    "isColumn": false,
+                                    "isJSON": false,
+                                    "key": "db.system",
+                                    "type": "tag"
+                                }
+                            ],
+                            "having": [],
+                            "legend": "",
+                            "limit": null,
+                            "orderBy": [],
+                            "queryName": "A",
+                            "stepInterval": 60
+                        },
+                        {
+                            "aggregations": [
+                                {
+                                    "metricName": "signoz_db_latency_count",
+                                    "reduceTo": "avg",
+                                    "spaceAggregation": "sum",
+                                    "temporality": null,
+                                    "timeAggregation": "rate"
+                                }
+                            ],
+                            "dataSource": "metrics",
+                            "disabled": true,
+                            "expression": "B",
+                            "filter": {
+                                "expression": "(deployment.environment = $deployment.environment AND service.name = $service.name)"
+                            },
+                            "functions": [],
+                            "groupBy": [
+                                {
+                                    "dataType": "string",
+                                    "id": "db.system--string--tag--false",
+                                    "isColumn": false,
+                                    "isJSON": false,
+                                    "key": "db.system",
+                                    "type": "tag"
+                                }
+                            ],
+                            "having": [],
+                            "legend": "",
+                            "limit": null,
+                            "orderBy": [],
+                            "queryName": "B",
+                            "stepInterval": 60
+                        }
+                    ],
+                    "queryFormulas": [
+                        {
+                            "disabled": false,
+                            "expression": "A/B",
+                            "legend": "{{db.system}}",
+                            "queryName": "F1"
+                        }
+                    ]
+                },
+                "clickhouse_sql": [
+                    {
+                        "disabled": false,
+                        "legend": "",
+                        "name": "A",
+                        "query": ""
+                    }
+                ],
+                "id": "da5ede50-14e5-4cfa-9e39-377a773a6886",
+                "promql": [
+                    {
+                        "disabled": false,
+                        "legend": "",
+                        "name": "A",
+                        "query": ""
+                    }
+                ],
+                "queryType": "builder"
+            },
+            "selectedLogFields": [
+                {
+                    "dataType": "string",
+                    "name": "body",
+                    "type": ""
+                },
+                {
+                    "dataType": "string",
+                    "name": "timestamp",
+                    "type": ""
+                }
+            ],
+            "selectedTracesFields": [
+                {
+                    "dataType": "string",
+                    "id": "serviceName--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "serviceName",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "string",
+                    "id": "name--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "name",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "float64",
+                    "id": "durationNano--float64--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "durationNano",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "string",
+                    "id": "httpMethod--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "httpMethod",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "string",
+                    "id": "responseStatusCode--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "responseStatusCode",
+                    "type": "tag"
+                }
+            ],
+            "softMax": 0,
+            "softMin": 0,
+            "stackedBarChart": false,
+            "timePreferance": "GLOBAL_TIME",
+            "title": "Database Calls Avg Duration",
+            "yAxisUnit": "ms"
+        },
+        {
+            "bucketCount": 30,
+            "bucketWidth": 0,
+            "description": "",
+            "fillSpans": false,
+            "id": "b7d1c2e3-4f5a-4b6c-8d9e-0f1a2b3c4d5e",
+            "mergeAllActiveQueries": false,
+            "nullZeroValues": "zero",
+            "opacity": "1",
+            "panelTypes": "graph",
+            "query": {
+                "builder": {
+                    "queryData": [
+                        {
+                            "aggregations": [
+                                {
+                                    "metricName": "signoz_db_latency_count",
+                                    "reduceTo": "avg",
+                                    "spaceAggregation": "sum",
+                                    "temporality": null,
+                                    "timeAggregation": "rate"
+                                }
+                            ],
+                            "dataSource": "metrics",
+                            "disabled": true,
+                            "expression": "A",
+                            "filter": {
+                                "expression": "(deployment.environment = $deployment.environment AND service.name = $service.name AND status.code = 'STATUS_CODE_ERROR')"
+                            },
+                            "functions": [],
+                            "groupBy": [
+                                {
+                                    "dataType": "string",
+                                    "id": "db.system--string--tag--false",
+                                    "isColumn": false,
+                                    "isJSON": false,
+                                    "key": "db.system",
+                                    "type": "tag"
+                                }
+                            ],
+                            "having": [],
+                            "legend": "",
+                            "limit": null,
+                            "orderBy": [],
+                            "queryName": "A",
+                            "stepInterval": 60
+                        },
+                        {
+                            "aggregations": [
+                                {
+                                    "metricName": "signoz_db_latency_count",
+                                    "reduceTo": "avg",
+                                    "spaceAggregation": "sum",
+                                    "temporality": null,
+                                    "timeAggregation": "rate"
+                                }
+                            ],
+                            "dataSource": "metrics",
+                            "disabled": true,
+                            "expression": "B",
+                            "filter": {
+                                "expression": "(deployment.environment = $deployment.environment AND service.name = $service.name)"
+                            },
+                            "functions": [],
+                            "groupBy": [
+                                {
+                                    "dataType": "string",
+                                    "id": "db.system--string--tag--false",
+                                    "isColumn": false,
+                                    "isJSON": false,
+                                    "key": "db.system",
+                                    "type": "tag"
+                                }
+                            ],
+                            "having": [],
+                            "legend": "",
+                            "limit": null,
+                            "orderBy": [],
+                            "queryName": "B",
+                            "stepInterval": 60
+                        }
+                    ],
+                    "queryFormulas": [
+                        {
+                            "disabled": false,
+                            "expression": "A/B",
+                            "legend": "{{db.system}}",
+                            "queryName": "F1"
+                        }
+                    ]
+                },
+                "clickhouse_sql": [
+                    {
+                        "disabled": false,
+                        "legend": "",
+                        "name": "A",
+                        "query": ""
+                    }
+                ],
+                "id": "c8e2d3f4-5a6b-4c7d-9e0f-1a2b3c4d5e6f",
+                "promql": [
+                    {
+                        "disabled": false,
+                        "legend": "",
+                        "name": "A",
+                        "query": ""
+                    }
+                ],
+                "queryType": "builder"
+            },
+            "selectedLogFields": [
+                {
+                    "dataType": "string",
+                    "name": "body",
+                    "type": ""
+                },
+                {
+                    "dataType": "string",
+                    "name": "timestamp",
+                    "type": ""
+                }
+            ],
+            "selectedTracesFields": [],
+            "softMax": 1,
+            "softMin": 0,
+            "stackedBarChart": false,
+            "timePreferance": "GLOBAL_TIME",
+            "title": "DB Error percentage",
+            "yAxisUnit": "percentunit"
+        },
+        {
+            "description": "",
+            "id": "2ae2ded9-87fb-42f7-b6ce-56c5ad6abb66",
+            "panelTypes": "row",
+            "selectedLogFields": null,
+            "selectedTracesFields": null,
+            "softMax": null,
+            "softMin": null,
+            "title": "External calls"
+        },
+        {
+            "bucketCount": 30,
+            "bucketWidth": 0,
+            "columnUnits": {
+                "B": "reqps",
+                "F1": "percent",
+                "F2": "ms"
+            },
+            "columnWidths": {
+                "B": 145,
+                "F1": 145,
+                "F2": 145,
+                "address": 145
+            },
+            "description": "",
+            "fillSpans": false,
+            "id": "9e0c2768-2ed6-420a-9ba7-7717d1af9a84",
+            "mergeAllActiveQueries": false,
+            "nullZeroValues": "zero",
+            "opacity": "1",
+            "panelTypes": "table",
+            "query": {
+                "builder": {
+                    "queryData": [
+                        {
+                            "aggregations": [
+                                {
+                                    "metricName": "signoz_external_call_latency_sum",
+                                    "reduceTo": "avg",
+                                    "spaceAggregation": "sum",
+                                    "temporality": null,
+                                    "timeAggregation": "rate"
+                                }
+                            ],
+                            "dataSource": "metrics",
+                            "disabled": true,
+                            "expression": "A",
+                            "filter": {
+                                "expression": "(deployment.environment = $deployment.environment AND service.name = $service.name)"
+                            },
+                            "functions": [],
+                            "groupBy": [
+                                {
+                                    "dataType": "string",
+                                    "id": "address--string--tag--false",
+                                    "isColumn": false,
+                                    "isJSON": false,
+                                    "key": "address",
+                                    "type": "tag"
+                                }
+                            ],
+                            "having": [],
+                            "legend": "rps",
+                            "limit": null,
+                            "orderBy": [],
+                            "queryName": "A",
+                            "stepInterval": 60
+                        },
+                        {
+                            "aggregations": [
+                                {
+                                    "metricName": "signoz_external_call_latency_count",
+                                    "reduceTo": "avg",
+                                    "spaceAggregation": "sum",
+                                    "temporality": null,
+                                    "timeAggregation": "rate"
+                                }
+                            ],
+                            "dataSource": "metrics",
+                            "disabled": false,
+                            "expression": "B",
+                            "filter": {
+                                "expression": "(deployment.environment = $deployment.environment AND service.name = $service.name)"
+                            },
+                            "functions": [],
+                            "groupBy": [
+                                {
+                                    "dataType": "string",
+                                    "id": "address--string--tag--false",
+                                    "isColumn": false,
+                                    "isJSON": false,
+                                    "key": "address",
+                                    "type": "tag"
+                                }
+                            ],
+                            "having": [],
+                            "legend": "rps",
+                            "limit": null,
+                            "orderBy": [],
+                            "queryName": "B",
+                            "stepInterval": 60
+                        },
+                        {
+                            "aggregations": [
+                                {
+                                    "metricName": "signoz_external_call_latency_count",
+                                    "reduceTo": "avg",
+                                    "spaceAggregation": "sum",
+                                    "temporality": null,
+                                    "timeAggregation": "rate"
+                                }
+                            ],
+                            "dataSource": "metrics",
+                            "disabled": true,
+                            "expression": "C",
+                            "filter": {
+                                "expression": "(deployment.environment = $deployment.environment AND service.name = $service.name AND status.code = 'STATUS_CODE_ERROR')"
+                            },
+                            "functions": [],
+                            "groupBy": [
+                                {
+                                    "dataType": "string",
+                                    "id": "address--string--tag--false",
+                                    "isColumn": false,
+                                    "isJSON": false,
+                                    "key": "address",
+                                    "type": "tag"
+                                }
+                            ],
+                            "having": [],
+                            "legend": "rps",
+                            "limit": null,
+                            "orderBy": [],
+                            "queryName": "C",
+                            "stepInterval": 60
+                        }
+                    ],
+                    "queryFormulas": [
+                        {
+                            "disabled": false,
+                            "expression": "(C/B)*100",
+                            "legend": "error %",
+                            "queryName": "F1"
+                        },
+                        {
+                            "disabled": false,
+                            "expression": "A/B",
+                            "legend": "avg duration",
+                            "queryName": "F2"
+                        }
+                    ]
+                },
+                "clickhouse_sql": [
+                    {
+                        "disabled": false,
+                        "legend": "",
+                        "name": "A",
+                        "query": ""
+                    }
+                ],
+                "id": "c785943a-491f-4bf5-baed-f7a6ed0b6a8c",
+                "promql": [
+                    {
+                        "disabled": false,
+                        "legend": "",
+                        "name": "A",
+                        "query": ""
+                    }
+                ],
+                "queryType": "builder"
+            },
+            "selectedLogFields": [
+                {
+                    "dataType": "string",
+                    "name": "body",
+                    "type": ""
+                },
+                {
+                    "dataType": "string",
+                    "name": "timestamp",
+                    "type": ""
+                }
+            ],
+            "selectedTracesFields": [
+                {
+                    "dataType": "string",
+                    "id": "serviceName--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "serviceName",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "string",
+                    "id": "name--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "name",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "float64",
+                    "id": "durationNano--float64--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "durationNano",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "string",
+                    "id": "httpMethod--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "httpMethod",
+                    "type": "tag"
+                },
+                {
+                    "dataType": "string",
+                    "id": "responseStatusCode--string--tag--true",
+                    "isColumn": true,
+                    "isJSON": false,
+                    "key": "responseStatusCode",
+                    "type": "tag"
+                }
+            ],
+            "softMax": 0,
+            "softMin": 0,
+            "stackedBarChart": false,
+            "timePreferance": "GLOBAL_TIME",
+            "title": "By external address stats",
+            "yAxisUnit": "none"
+        }
+    ]
+}

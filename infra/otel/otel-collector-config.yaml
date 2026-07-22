@@ -11,8 +11,8 @@ receivers:
         endpoint: 0.0.0.0:4318
   docker_stats:
     endpoint: unix:///var/run/docker.sock
-    collection_interval: 15s
-    timeout: 5s
+    collection_interval: 20s
+    timeout: 15s
   kafkametrics:
     brokers:
       - kafka:29092
@@ -29,6 +29,9 @@ receivers:
       disk:
       network:
       filesystem:
+      load:
+      paging:
+      process:
 
 processors:
   batch:

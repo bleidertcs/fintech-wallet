@@ -30,17 +30,36 @@ export default function Profile() {
   const [dailyLimit, setDailyLimit] = useState('');
   const [currency, setCurrency] = useState('');
 
-  useEffect(() => { loadProfile(); }, []);
+  useEffect(() => {
+    if (user?.email) {
+      loadProfile();
+    }
+  }, [user]);
 
   const loadProfile = async () => {
+    if (!user?.email) return;
     try {
       const res = await userService.getAll();
-      const me = res.data.find((u) => u.email === user.email);
+      const allUsers = res.data || [];
+      let me = allUsers.find((u) => u.email?.trim().toLowerCase() === user.email?.trim().toLowerCase());
+      if (!me) {
+        try {
+          const createRes = await userService.create({
+            name: user.email.split('@')[0],
+            email: user.email,
+            balance: 10000,
+          });
+          me = createRes.data;
+        } catch (createErr) {
+          console.error('Error auto-creating profile:', createErr);
+        }
+      }
       setProfile(me);
       if (me) {
         setDailyLimit(me.dailyLimit?.toString() || '50000');
         setCurrency(me.currency || 'ARS');
       }
+
       // Refresh auth status (verified, totpEnabled) from backend
       try {
         const authRes = await authService.getMe(user.email);

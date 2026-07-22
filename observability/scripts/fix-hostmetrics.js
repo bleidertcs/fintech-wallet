@@ -1,8 +1,13 @@
 const fs = require('fs');
+const { resolveDashboardPath, getApiKey, getSigNozBaseUrl } = require('./dashboard-config');
 
 async function main() {
-  const apiKey = 'T+wsBgMnc3VkytFE/HFfW6Rdt6jYR2wIGjHzxFJT8YY=';
-  const rawData = fs.readFileSync('hostmetrics-dashboard.json', 'utf8');
+  const apiKey = getApiKey();
+  if (!apiKey) {
+    throw new Error('SIGNOZ_API_KEY is not configured. Set it in the environment or .env file.');
+  }
+
+  const rawData = fs.readFileSync(resolveDashboardPath('hostmetrics-dashboard.json'), 'utf8');
   const dashboard = JSON.parse(rawData);
 
   // Remove system fields
@@ -10,12 +15,12 @@ async function main() {
   delete dashboard.uuid;
 
   // Fix panelMap: keep only referenced widgets that actually exist in the widgets array
-  const validWidgetIds = new Set(dashboard.widgets.map(w => w.id));
+  const validWidgetIds = new Set(dashboard.widgets.map((w) => w.id));
   if (dashboard.panelMap) {
     for (const rowId of Object.keys(dashboard.panelMap)) {
       const row = dashboard.panelMap[rowId];
       if (row && Array.isArray(row.widgets)) {
-        row.widgets = row.widgets.filter(ref => validWidgetIds.has(ref.i));
+        row.widgets = row.widgets.filter((ref) => validWidgetIds.has(ref.i));
       }
     }
   }
@@ -25,14 +30,16 @@ async function main() {
   content = content.replaceAll('"op":""', '"op":"AND"').replaceAll('"op": ""', '"op": "AND"');
   const cleanedDashboard = JSON.parse(content);
 
-  console.log('Sending HostMetrics to SigNoz...');
-  const res = await fetch('http://localhost:3301/api/v1/dashboards', {
+  const sigNozUrl = `${getSigNozBaseUrl().replace(/\/$/, '')}/api/v1/dashboards`;
+
+  console.log(`Sending HostMetrics to SigNoz at ${sigNozUrl}...`);
+  const res = await fetch(sigNozUrl, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'signoz-api-key': apiKey
+      'signoz-api-key': apiKey,
     },
-    body: JSON.stringify(cleanedDashboard)
+    body: JSON.stringify(cleanedDashboard),
   });
 
   const resText = await res.text();
@@ -40,6 +47,6 @@ async function main() {
   console.log('Response Body:', resText);
 }
 
-main().catch(err => {
+main().catch((err) => {
   console.error('Error:', err);
 });
