@@ -32,6 +32,9 @@ receivers:
       load:
       paging:
       process:
+  redis:
+    endpoint: "redis:6379"
+    collection_interval: 15s
 
 processors:
   batch:
@@ -99,7 +102,7 @@ service:
       processors: [memory_limiter, resourcedetection, signozspanmetrics, batch]
       exporters: [clickhousetraces]
     metrics:
-      receivers: [otlp, docker_stats, kafkametrics, hostmetrics]
+      receivers: [otlp, docker_stats, kafkametrics, hostmetrics, redis]
       processors: [memory_limiter, resourcedetection, batch]
       exporters: [signozclickhousemetrics]
     logs:

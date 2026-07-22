@@ -692,8 +692,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_main_java_com_company_app_controller_usercontroller",
-      "community": 0,
-      "community_name": "UserDto",
+      "community": 18,
+      "community_name": "UserControllerTest.java",
       "norm_label": "usercontroller.java"
     },
     {
@@ -703,8 +703,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_main_java_com_company_app_controller_usercontroller_usercontroller",
-      "community": 0,
-      "community_name": "UserDto",
+      "community": 18,
+      "community_name": "UserControllerTest.java",
       "norm_label": "usercontroller"
     },
     {
@@ -714,8 +714,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_main_java_com_company_app_controller_usercontroller_java_restcontroller",
-      "community": 0,
-      "community_name": "UserDto",
+      "community": 18,
+      "community_name": "UserControllerTest.java",
       "norm_label": "restcontroller"
     },
     {
@@ -725,8 +725,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_main_java_com_company_app_controller_usercontroller_java_requestmapping",
-      "community": 0,
-      "community_name": "UserDto",
+      "community": 18,
+      "community_name": "UserControllerTest.java",
       "norm_label": "requestmapping"
     },
     {
@@ -736,8 +736,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_main_java_com_company_app_controller_usercontroller_java_requiredargsconstructor",
-      "community": 0,
-      "community_name": "UserDto",
+      "community": 18,
+      "community_name": "UserControllerTest.java",
       "norm_label": "requiredargsconstructor"
     },
     {
@@ -747,8 +747,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_main_java_com_company_app_controller_usercontroller_usercontroller_getallusers",
-      "community": 0,
-      "community_name": "UserDto",
+      "community": 18,
+      "community_name": "UserControllerTest.java",
       "norm_label": ".getallusers()"
     },
     {
@@ -758,8 +758,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_main_java_com_company_app_controller_usercontroller_java_responseentity",
-      "community": 0,
-      "community_name": "UserDto",
+      "community": 18,
+      "community_name": "UserControllerTest.java",
       "norm_label": "responseentity"
     },
     {
@@ -769,8 +769,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_main_java_com_company_app_controller_usercontroller_java_getmapping",
-      "community": 0,
-      "community_name": "UserDto",
+      "community": 18,
+      "community_name": "UserControllerTest.java",
       "norm_label": "getmapping"
     },
     {
@@ -780,8 +780,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_main_java_com_company_app_controller_usercontroller_usercontroller_getuserbyid",
-      "community": 0,
-      "community_name": "UserDto",
+      "community": 18,
+      "community_name": "UserControllerTest.java",
       "norm_label": ".getuserbyid()"
     },
     {
@@ -791,8 +791,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_main_java_com_company_app_controller_usercontroller_usercontroller_createuser",
-      "community": 0,
-      "community_name": "UserDto",
+      "community": 18,
+      "community_name": "UserControllerTest.java",
       "norm_label": ".createuser()"
     },
     {
@@ -802,8 +802,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_main_java_com_company_app_controller_usercontroller_java_postmapping",
-      "community": 0,
-      "community_name": "UserDto",
+      "community": 18,
+      "community_name": "UserControllerTest.java",
       "norm_label": "postmapping"
     },
     {
@@ -813,8 +813,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_main_java_com_company_app_controller_usercontroller_usercontroller_updateuser",
-      "community": 0,
-      "community_name": "UserDto",
+      "community": 18,
+      "community_name": "UserControllerTest.java",
       "norm_label": ".updateuser()"
     },
     {
@@ -824,8 +824,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_main_java_com_company_app_controller_usercontroller_java_putmapping",
-      "community": 0,
-      "community_name": "UserDto",
+      "community": 18,
+      "community_name": "UserControllerTest.java",
       "norm_label": "putmapping"
     },
     {
@@ -835,8 +835,8 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_main_java_com_company_app_controller_usercontroller_usercontroller_deleteuser",
-      "community": 0,
-      "community_name": "UserDto",
+      "community": 18,
+      "community_name": "UserControllerTest.java",
       "norm_label": ".deleteuser()"
     },
     {
@@ -846,8 +846,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "deletemapping",
-      "community": 0,
-      "community_name": "UserDto",
+      "community": 18,
+      "community_name": "UserControllerTest.java",
       "norm_label": "deletemapping"
     },
     {
@@ -857,8 +857,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_main_java_com_company_app_dto_apiresponse",
-      "community": 0,
-      "community_name": "UserDto",
+      "community": 18,
+      "community_name": "UserControllerTest.java",
       "norm_label": "apiresponse.java"
     },
     {
@@ -868,8 +868,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_main_java_com_company_app_dto_apiresponse_apiresponse",
-      "community": 0,
-      "community_name": "UserDto",
+      "community": 18,
+      "community_name": "UserControllerTest.java",
       "norm_label": "apiresponse"
     },
     {
@@ -879,8 +879,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_main_java_com_company_app_dto_apiresponse_java_data",
-      "community": 0,
-      "community_name": "UserDto",
+      "community": 18,
+      "community_name": "UserControllerTest.java",
       "norm_label": "data"
     },
     {
@@ -890,8 +890,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_main_java_com_company_app_dto_apiresponse_java_builder",
-      "community": 0,
-      "community_name": "UserDto",
+      "community": 18,
+      "community_name": "UserControllerTest.java",
       "norm_label": "builder"
     },
     {
@@ -901,8 +901,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_main_java_com_company_app_dto_apiresponse_java_noargsconstructor",
-      "community": 0,
-      "community_name": "UserDto",
+      "community": 18,
+      "community_name": "UserControllerTest.java",
       "norm_label": "noargsconstructor"
     },
     {
@@ -912,8 +912,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_main_java_com_company_app_dto_apiresponse_java_allargsconstructor",
-      "community": 0,
-      "community_name": "UserDto",
+      "community": 18,
+      "community_name": "UserControllerTest.java",
       "norm_label": "allargsconstructor"
     },
     {
@@ -923,8 +923,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "jsoninclude",
-      "community": 0,
-      "community_name": "UserDto",
+      "community": 18,
+      "community_name": "UserControllerTest.java",
       "norm_label": "jsoninclude"
     },
     {
@@ -934,8 +934,8 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_main_java_com_company_app_dto_apiresponse_apiresponse_success",
-      "community": 0,
-      "community_name": "UserDto",
+      "community": 18,
+      "community_name": "UserControllerTest.java",
       "norm_label": ".success()"
     },
     {
@@ -945,8 +945,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_main_java_com_company_app_dto_apiresponse_apiresponse_error",
-      "community": 0,
-      "community_name": "UserDto",
+      "community": 18,
+      "community_name": "UserControllerTest.java",
       "norm_label": ".error()"
     },
     {
@@ -1539,8 +1539,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_test_java_com_company_app_controller_usercontrollertest",
-      "community": 18,
-      "community_name": "UserControllerTest.java",
+      "community": 0,
+      "community_name": "UserDto",
       "norm_label": "usercontrollertest.java"
     },
     {
@@ -1550,8 +1550,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_test_java_com_company_app_controller_usercontrollertest_usercontrollertest",
-      "community": 18,
-      "community_name": "UserControllerTest.java",
+      "community": 0,
+      "community_name": "UserDto",
       "norm_label": "usercontrollertest"
     },
     {
@@ -1561,8 +1561,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "webmvctest",
-      "community": 18,
-      "community_name": "UserControllerTest.java",
+      "community": 0,
+      "community_name": "UserDto",
       "norm_label": "webmvctest"
     },
     {
@@ -1572,8 +1572,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_test_java_com_company_app_controller_usercontrollertest_java_activeprofiles",
-      "community": 18,
-      "community_name": "UserControllerTest.java",
+      "community": 0,
+      "community_name": "UserDto",
       "norm_label": "activeprofiles"
     },
     {
@@ -1583,8 +1583,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_test_java_com_company_app_controller_usercontrollertest_java_displayname",
-      "community": 18,
-      "community_name": "UserControllerTest.java",
+      "community": 0,
+      "community_name": "UserDto",
       "norm_label": "displayname"
     },
     {
@@ -1594,8 +1594,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "mockmvc",
-      "community": 18,
-      "community_name": "UserControllerTest.java",
+      "community": 0,
+      "community_name": "UserDto",
       "norm_label": "mockmvc"
     },
     {
@@ -1605,8 +1605,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_test_java_com_company_app_controller_usercontrollertest_java_objectmapper",
-      "community": 18,
-      "community_name": "UserControllerTest.java",
+      "community": 0,
+      "community_name": "UserDto",
       "norm_label": "objectmapper"
     },
     {
@@ -1616,8 +1616,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_test_java_com_company_app_controller_usercontrollertest_getallusers",
-      "community": 18,
-      "community_name": "UserControllerTest.java",
+      "community": 0,
+      "community_name": "UserDto",
       "norm_label": "getallusers"
     },
     {
@@ -1627,8 +1627,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_test_java_com_company_app_controller_usercontrollertest_java_nested",
-      "community": 18,
-      "community_name": "UserControllerTest.java",
+      "community": 0,
+      "community_name": "UserDto",
       "norm_label": "nested"
     },
     {
@@ -1638,8 +1638,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_test_java_com_company_app_controller_usercontrollertest_getallusers_shouldreturnlistofusers",
-      "community": 18,
-      "community_name": "UserControllerTest.java",
+      "community": 0,
+      "community_name": "UserDto",
       "norm_label": ".shouldreturnlistofusers()"
     },
     {
@@ -1649,8 +1649,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_test_java_com_company_app_controller_usercontrollertest_java_test",
-      "community": 18,
-      "community_name": "UserControllerTest.java",
+      "community": 0,
+      "community_name": "UserDto",
       "norm_label": "test"
     },
     {
@@ -1660,8 +1660,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "withmockuser",
-      "community": 18,
-      "community_name": "UserControllerTest.java",
+      "community": 0,
+      "community_name": "UserDto",
       "norm_label": "withmockuser"
     },
     {
@@ -1671,8 +1671,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_test_java_com_company_app_controller_usercontrollertest_getuserbyid",
-      "community": 18,
-      "community_name": "UserControllerTest.java",
+      "community": 0,
+      "community_name": "UserDto",
       "norm_label": "getuserbyid"
     },
     {
@@ -1682,8 +1682,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_test_java_com_company_app_controller_usercontrollertest_getuserbyid_shouldreturnuserwhenfound",
-      "community": 18,
-      "community_name": "UserControllerTest.java",
+      "community": 0,
+      "community_name": "UserDto",
       "norm_label": ".shouldreturnuserwhenfound()"
     },
     {
@@ -1693,8 +1693,8 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_test_java_com_company_app_controller_usercontrollertest_getuserbyid_shouldreturn404whennotfound",
-      "community": 18,
-      "community_name": "UserControllerTest.java",
+      "community": 0,
+      "community_name": "UserDto",
       "norm_label": ".shouldreturn404whennotfound()"
     },
     {
@@ -1704,8 +1704,8 @@
       "source_location": "L105",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_test_java_com_company_app_controller_usercontrollertest_createuser",
-      "community": 18,
-      "community_name": "UserControllerTest.java",
+      "community": 0,
+      "community_name": "UserDto",
       "norm_label": "createuser"
     },
     {
@@ -1715,8 +1715,8 @@
       "source_location": "L109",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_test_java_com_company_app_controller_usercontrollertest_createuser_shouldcreateuserandreturn201",
-      "community": 18,
-      "community_name": "UserControllerTest.java",
+      "community": 0,
+      "community_name": "UserDto",
       "norm_label": ".shouldcreateuserandreturn201()"
     },
     {
@@ -1726,8 +1726,8 @@
       "source_location": "L137",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_test_java_com_company_app_controller_usercontrollertest_createuser_shouldreturn400forinvalidinput",
-      "community": 18,
-      "community_name": "UserControllerTest.java",
+      "community": 0,
+      "community_name": "UserDto",
       "norm_label": ".shouldreturn400forinvalidinput()"
     },
     {
@@ -1737,8 +1737,8 @@
       "source_location": "L156",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_test_java_com_company_app_controller_usercontrollertest_updateuser",
-      "community": 18,
-      "community_name": "UserControllerTest.java",
+      "community": 0,
+      "community_name": "UserDto",
       "norm_label": "updateuser"
     },
     {
@@ -1748,8 +1748,8 @@
       "source_location": "L160",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_test_java_com_company_app_controller_usercontrollertest_updateuser_shouldupdateuserwhenfound",
-      "community": 18,
-      "community_name": "UserControllerTest.java",
+      "community": 0,
+      "community_name": "UserDto",
       "norm_label": ".shouldupdateuserwhenfound()"
     },
     {
@@ -1759,8 +1759,8 @@
       "source_location": "L186",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_test_java_com_company_app_controller_usercontrollertest_deleteuser",
-      "community": 18,
-      "community_name": "UserControllerTest.java",
+      "community": 0,
+      "community_name": "UserDto",
       "norm_label": "deleteuser"
     },
     {
@@ -1770,8 +1770,8 @@
       "source_location": "L190",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_test_java_com_company_app_controller_usercontrollertest_deleteuser_shoulddeleteuserandreturn200",
-      "community": 18,
-      "community_name": "UserControllerTest.java",
+      "community": 0,
+      "community_name": "UserDto",
       "norm_label": ".shoulddeleteuserandreturn200()"
     },
     {
@@ -1781,8 +1781,8 @@
       "source_location": "L203",
       "_origin": "ast",
       "id": "agents_skills_spring_boot_full_stack_src_test_java_com_company_app_controller_usercontrollertest_deleteuser_shouldreturn404whennotfound",
-      "community": 18,
-      "community_name": "UserControllerTest.java",
+      "community": 0,
+      "community_name": "UserDto",
       "norm_label": ".shouldreturn404whennotfound()"
     },
     {
@@ -2890,8 +2890,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_java_postmapping",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "postmapping"
     },
     {
@@ -2945,8 +2945,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller_setuptotp",
-      "community": 38,
-      "community_name": "TotpSetupResponse",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".setuptotp()"
     },
     {
@@ -2956,8 +2956,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller_enabletotp",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".enabletotp()"
     },
     {
@@ -2967,8 +2967,8 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller_disabletotp",
-      "community": 67,
-      "community_name": "AuthService",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".disabletotp()"
     },
     {
@@ -2989,8 +2989,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller_resendverification",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".resendverification()"
     },
     {
@@ -3000,8 +3000,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller_changepassword",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": ".changepassword()"
     },
     {
@@ -3011,8 +3011,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_java_putmapping",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": "putmapping"
     },
     {
@@ -3022,8 +3022,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller_promoteadmin",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": ".promoteadmin()"
     },
     {
@@ -3099,8 +3099,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_dto_changepasswordrequest",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": "changepasswordrequest.java"
     },
     {
@@ -3110,8 +3110,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_dto_changepasswordrequest_changepasswordrequest",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": "changepasswordrequest"
     },
     {
@@ -3121,8 +3121,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_dto_changepasswordrequest_java_data",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": "data"
     },
     {
@@ -3517,8 +3517,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "jparepository",
-      "community": 23,
-      "community_name": "TransactionService",
+      "community": 49,
+      "community_name": ".findByEmail",
       "norm_label": "jparepository"
     },
     {
@@ -3528,8 +3528,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_repository_userrepository_userrepository_findbyemail",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": ".findbyemail()"
     },
     {
@@ -3979,8 +3979,8 @@
       "source_location": "L166",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_enabletotp",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".enabletotp()"
     },
     {
@@ -3990,8 +3990,8 @@
       "source_location": "L183",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_disabletotp",
-      "community": 67,
-      "community_name": "AuthService",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".disabletotp()"
     },
     {
@@ -4001,8 +4001,8 @@
       "source_location": "L192",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_changepassword",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": ".changepassword()"
     },
     {
@@ -4012,8 +4012,8 @@
       "source_location": "L205",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_getuserstatus",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": ".getuserstatus()"
     },
     {
@@ -4023,8 +4023,8 @@
       "source_location": "L219",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_resendverification",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".resendverification()"
     },
     {
@@ -4034,8 +4034,8 @@
       "source_location": "L248",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_promotetoadmin",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": ".promotetoadmin()"
     },
     {
@@ -4053,7 +4053,7 @@
       "label": "RedisTokenBlacklistService",
       "file_type": "code",
       "source_file": "backend/auth-service/src/main/java/auth_service/auth_service/service/RedisTokenBlacklistService.java",
-      "source_location": "L9",
+      "source_location": "L10",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice_redistokenblacklistservice",
       "community": 132,
@@ -4097,7 +4097,7 @@
       "label": ".blacklistToken()",
       "file_type": "code",
       "source_file": "backend/auth-service/src/main/java/auth_service/auth_service/service/RedisTokenBlacklistService.java",
-      "source_location": "L20",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice_redistokenblacklistservice_blacklisttoken",
       "community": 132,
@@ -4105,10 +4105,21 @@
       "norm_label": ".blacklisttoken()"
     },
     {
+      "label": "WithSpan",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice_java_withspan",
+      "community": 132,
+      "community_name": "RedisTokenBlacklistService",
+      "norm_label": "withspan"
+    },
+    {
       "label": ".isTokenBlacklisted()",
       "file_type": "code",
       "source_file": "backend/auth-service/src/main/java/auth_service/auth_service/service/RedisTokenBlacklistService.java",
-      "source_location": "L26",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice_redistokenblacklistservice_istokenblacklisted",
       "community": 132,
@@ -4119,7 +4130,7 @@
       "label": ".isTotpLocked()",
       "file_type": "code",
       "source_file": "backend/auth-service/src/main/java/auth_service/auth_service/service/RedisTokenBlacklistService.java",
-      "source_location": "L30",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice_redistokenblacklistservice_istotplocked",
       "community": 132,
@@ -4130,7 +4141,7 @@
       "label": ".recordFailedTotpAttempt()",
       "file_type": "code",
       "source_file": "backend/auth-service/src/main/java/auth_service/auth_service/service/RedisTokenBlacklistService.java",
-      "source_location": "L40",
+      "source_location": "L44",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice_redistokenblacklistservice_recordfailedtotpattempt",
       "community": 132,
@@ -4141,7 +4152,7 @@
       "label": ".resetTotpAttempts()",
       "file_type": "code",
       "source_file": "backend/auth-service/src/main/java/auth_service/auth_service/service/RedisTokenBlacklistService.java",
-      "source_location": "L48",
+      "source_location": "L53",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice_redistokenblacklistservice_resettotpattempts",
       "community": 132,
@@ -5583,8 +5594,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_controller_transactioncontroller_java_postmapping",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 35,
+      "community_name": "TransactionController",
       "norm_label": "postmapping"
     },
     {
@@ -5594,8 +5605,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_controller_transactioncontroller_transactioncontroller_getbyuser",
-      "community": 35,
-      "community_name": "TransactionController",
+      "community": 134,
+      "community_name": "TransferResponse",
       "norm_label": ".getbyuser()"
     },
     {
@@ -5605,8 +5616,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_controller_transactioncontroller_java_getmapping",
-      "community": 35,
-      "community_name": "TransactionController",
+      "community": 134,
+      "community_name": "TransferResponse",
       "norm_label": "getmapping"
     },
     {
@@ -5616,8 +5627,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_controller_transactioncontroller_transactioncontroller_getall",
-      "community": 35,
-      "community_name": "TransactionController",
+      "community": 134,
+      "community_name": "TransferResponse",
       "norm_label": ".getall()"
     },
     {
@@ -5627,8 +5638,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_controller_transactioncontroller_transactioncontroller_createrequest",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 35,
+      "community_name": "TransactionController",
       "norm_label": ".createrequest()"
     },
     {
@@ -5682,8 +5693,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_dto_moneyrequestdto",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 35,
+      "community_name": "TransactionController",
       "norm_label": "moneyrequestdto.java"
     },
     {
@@ -5693,8 +5704,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_dto_moneyrequestdto_moneyrequestdto",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 35,
+      "community_name": "TransactionController",
       "norm_label": "moneyrequestdto"
     },
     {
@@ -5704,8 +5715,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_dto_moneyrequestdto_java_data",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 35,
+      "community_name": "TransactionController",
       "norm_label": "data"
     },
     {
@@ -5715,8 +5726,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_dto_moneyrequestdto_java_noargsconstructor",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 35,
+      "community_name": "TransactionController",
       "norm_label": "noargsconstructor"
     },
     {
@@ -5726,8 +5737,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_dto_moneyrequestdto_java_allargsconstructor",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 35,
+      "community_name": "TransactionController",
       "norm_label": "allargsconstructor"
     },
     {
@@ -5737,8 +5748,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_dto_moneyrequestdto_java_builder",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 35,
+      "community_name": "TransactionController",
       "norm_label": "builder"
     },
     {
@@ -5803,8 +5814,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_dto_transferresponse",
-      "community": 35,
-      "community_name": "TransactionController",
+      "community": 134,
+      "community_name": "TransferResponse",
       "norm_label": "transferresponse.java"
     },
     {
@@ -5814,8 +5825,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_dto_transferresponse_transferresponse",
-      "community": 35,
-      "community_name": "TransactionController",
+      "community": 134,
+      "community_name": "TransferResponse",
       "norm_label": "transferresponse"
     },
     {
@@ -5825,8 +5836,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_dto_transferresponse_java_data",
-      "community": 35,
-      "community_name": "TransactionController",
+      "community": 134,
+      "community_name": "TransferResponse",
       "norm_label": "data"
     },
     {
@@ -5836,8 +5847,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_dto_transferresponse_java_noargsconstructor",
-      "community": 35,
-      "community_name": "TransactionController",
+      "community": 134,
+      "community_name": "TransferResponse",
       "norm_label": "noargsconstructor"
     },
     {
@@ -5847,8 +5858,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_dto_transferresponse_java_allargsconstructor",
-      "community": 35,
-      "community_name": "TransactionController",
+      "community": 134,
+      "community_name": "TransferResponse",
       "norm_label": "allargsconstructor"
     },
     {
@@ -5858,8 +5869,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_dto_transferresponse_java_builder",
-      "community": 35,
-      "community_name": "TransactionController",
+      "community": 134,
+      "community_name": "TransferResponse",
       "norm_label": "builder"
     },
     {
@@ -6287,8 +6298,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_repository_moneyrequestrepository",
-      "community": 23,
-      "community_name": "TransactionService",
+      "community": 33,
+      "community_name": "MoneyRequest",
       "norm_label": "moneyrequestrepository.java"
     },
     {
@@ -6298,8 +6309,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_repository_moneyrequestrepository_moneyrequestrepository",
-      "community": 23,
-      "community_name": "TransactionService",
+      "community": 33,
+      "community_name": "MoneyRequest",
       "norm_label": "moneyrequestrepository"
     },
     {
@@ -6309,8 +6320,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_repository_moneyrequestrepository_moneyrequestrepository_findbyrequesteridortargetid",
-      "community": 23,
-      "community_name": "TransactionService",
+      "community": 35,
+      "community_name": "TransactionController",
       "norm_label": ".findbyrequesteridortargetid()"
     },
     {
@@ -6331,8 +6342,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_repository_transactionrepository",
-      "community": 23,
-      "community_name": "TransactionService",
+      "community": 74,
+      "community_name": "TransferResponse",
       "norm_label": "transactionrepository.java"
     },
     {
@@ -6342,8 +6353,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_repository_transactionrepository_transactionrepository",
-      "community": 23,
-      "community_name": "TransactionService",
+      "community": 74,
+      "community_name": "TransferResponse",
       "norm_label": "transactionrepository"
     },
     {
@@ -6353,8 +6364,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_repository_transactionrepository_transactionrepository_findbyfromuseridortouserid",
-      "community": 23,
-      "community_name": "TransactionService",
+      "community": 74,
+      "community_name": "TransferResponse",
       "norm_label": ".findbyfromuseridortouserid()"
     },
     {
@@ -6372,7 +6383,7 @@
       "label": "IdempotencyService",
       "file_type": "code",
       "source_file": "backend/transaction-service/src/main/java/transaction_service/transaction_service/service/IdempotencyService.java",
-      "source_location": "L9",
+      "source_location": "L10",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_idempotencyservice_idempotencyservice",
       "community": 135,
@@ -6416,7 +6427,7 @@
       "label": ".isDuplicateKey()",
       "file_type": "code",
       "source_file": "backend/transaction-service/src/main/java/transaction_service/transaction_service/service/IdempotencyService.java",
-      "source_location": "L16",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_idempotencyservice_idempotencyservice_isduplicatekey",
       "community": 135,
@@ -6424,10 +6435,21 @@
       "norm_label": ".isduplicatekey()"
     },
     {
+      "label": "WithSpan",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_idempotencyservice_java_withspan",
+      "community": 135,
+      "community_name": "IdempotencyService",
+      "norm_label": "withspan"
+    },
+    {
       "label": ".registerKey()",
       "file_type": "code",
       "source_file": "backend/transaction-service/src/main/java/transaction_service/transaction_service/service/IdempotencyService.java",
-      "source_location": "L23",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_idempotencyservice_idempotencyservice_registerkey",
       "community": 135,
@@ -6438,7 +6460,7 @@
       "label": ".removeKey()",
       "file_type": "code",
       "source_file": "backend/transaction-service/src/main/java/transaction_service/transaction_service/service/IdempotencyService.java",
-      "source_location": "L29",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_idempotencyservice_idempotencyservice_removekey",
       "community": 135,
@@ -6518,8 +6540,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_transactionservice_transfer",
-      "community": 68,
-      "community_name": ".transfer",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": ".transfer()"
     },
     {
@@ -6529,8 +6551,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_java_transactional",
-      "community": 68,
-      "community_name": ".transfer",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": "transactional"
     },
     {
@@ -6540,8 +6562,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_java_withspan",
-      "community": 68,
-      "community_name": ".transfer",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": "withspan"
     },
     {
@@ -6551,8 +6573,8 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_transactionservice_gettransactionsbyuser",
-      "community": 35,
-      "community_name": "TransactionController",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": ".gettransactionsbyuser()"
     },
     {
@@ -6562,8 +6584,8 @@
       "source_location": "L120",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_transactionservice_getalltransactions",
-      "community": 35,
-      "community_name": "TransactionController",
+      "community": 134,
+      "community_name": "TransferResponse",
       "norm_label": ".getalltransactions()"
     },
     {
@@ -6584,8 +6606,8 @@
       "source_location": "L136",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_transactionservice_createmoneyrequest",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 35,
+      "community_name": "TransactionController",
       "norm_label": ".createmoneyrequest()"
     },
     {
@@ -6595,8 +6617,8 @@
       "source_location": "L149",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_transactionservice_getrequestsbyuser",
-      "community": 23,
-      "community_name": "TransactionService",
+      "community": 35,
+      "community_name": "TransactionController",
       "norm_label": ".getrequestsbyuser()"
     },
     {
@@ -6606,8 +6628,8 @@
       "source_location": "L154",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_transactionservice_acceptrequest",
-      "community": 68,
-      "community_name": ".transfer",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": ".acceptrequest()"
     },
     {
@@ -6617,8 +6639,8 @@
       "source_location": "L176",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_transactionservice_rejectrequest",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": ".rejectrequest()"
     },
     {
@@ -6628,8 +6650,8 @@
       "source_location": "L190",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_transactionservice_totransferresponse",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": ".totransferresponse()"
     },
     {
@@ -6639,8 +6661,8 @@
       "source_location": "L201",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_transactionservice_tomoneyrequestdto",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": ".tomoneyrequestdto()"
     },
     {
@@ -8045,8 +8067,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_controller_workercontroller_workercontroller_requeststatement",
-      "community": 127,
-      "community_name": "StatementJob",
+      "community": 128,
+      "community_name": "WorkerController",
       "norm_label": ".requeststatement()"
     },
     {
@@ -8067,8 +8089,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_controller_workercontroller_java_postmapping",
-      "community": 127,
-      "community_name": "StatementJob",
+      "community": 128,
+      "community_name": "WorkerController",
       "norm_label": "postmapping"
     },
     {
@@ -8518,8 +8540,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_repository_statementjobrepository",
-      "community": 127,
-      "community_name": "StatementJob",
+      "community": 49,
+      "community_name": ".findByEmail",
       "norm_label": "statementjobrepository.java"
     },
     {
@@ -8529,8 +8551,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_repository_statementjobrepository_statementjobrepository",
-      "community": 127,
-      "community_name": "StatementJob",
+      "community": 49,
+      "community_name": ".findByEmail",
       "norm_label": "statementjobrepository"
     },
     {
@@ -8551,8 +8573,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_auditservice",
-      "community": 49,
-      "community_name": ".findByEmail",
+      "community": 142,
+      "community_name": "AuditService",
       "norm_label": "auditservice.java"
     },
     {
@@ -8562,8 +8584,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_auditservice_auditservice",
-      "community": 49,
-      "community_name": ".findByEmail",
+      "community": 142,
+      "community_name": "AuditService",
       "norm_label": "auditservice"
     },
     {
@@ -8573,8 +8595,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_auditservice_java_service",
-      "community": 49,
-      "community_name": ".findByEmail",
+      "community": 142,
+      "community_name": "AuditService",
       "norm_label": "service"
     },
     {
@@ -8584,8 +8606,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_auditservice_java_requiredargsconstructor",
-      "community": 49,
-      "community_name": ".findByEmail",
+      "community": 142,
+      "community_name": "AuditService",
       "norm_label": "requiredargsconstructor"
     },
     {
@@ -8595,8 +8617,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_auditservice_java_slf4j",
-      "community": 49,
-      "community_name": ".findByEmail",
+      "community": 142,
+      "community_name": "AuditService",
       "norm_label": "slf4j"
     },
     {
@@ -8716,8 +8738,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_statementservice",
-      "community": 127,
-      "community_name": "StatementJob",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": "statementservice.java"
     },
     {
@@ -8727,8 +8749,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_statementservice_statementservice",
-      "community": 127,
-      "community_name": "StatementJob",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": "statementservice"
     },
     {
@@ -8738,8 +8760,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_statementservice_java_service",
-      "community": 127,
-      "community_name": "StatementJob",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": "service"
     },
     {
@@ -8749,8 +8771,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_statementservice_java_requiredargsconstructor",
-      "community": 127,
-      "community_name": "StatementJob",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": "requiredargsconstructor"
     },
     {
@@ -8760,8 +8782,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_statementservice_java_slf4j",
-      "community": 127,
-      "community_name": "StatementJob",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": "slf4j"
     },
     {
@@ -8771,8 +8793,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_statementservice_statementservice_requeststatement",
-      "community": 127,
-      "community_name": "StatementJob",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": ".requeststatement()"
     },
     {
@@ -8782,8 +8804,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_statementservice_statementservice_processjobasync",
-      "community": 127,
-      "community_name": "StatementJob",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": ".processjobasync()"
     },
     {
@@ -8793,8 +8815,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "async",
-      "community": 127,
-      "community_name": "StatementJob",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": "async"
     },
     {
@@ -18327,7 +18349,7 @@
       "label": "Stack Tecnologico",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L91",
+      "source_location": "L93",
       "_origin": "ast",
       "id": "readme_stack_tecnologico",
       "community": 13,
@@ -18338,7 +18360,7 @@
       "label": "Funcionalidades",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L104",
+      "source_location": "L106",
       "_origin": "ast",
       "id": "readme_funcionalidades",
       "community": 13,
@@ -18349,7 +18371,7 @@
       "label": "F\u00e1ciles",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L106",
+      "source_location": "L108",
       "_origin": "ast",
       "id": "readme_f\u00e1ciles",
       "community": 13,
@@ -18360,7 +18382,7 @@
       "label": "Intermedias",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L112",
+      "source_location": "L114",
       "_origin": "ast",
       "id": "readme_intermedias",
       "community": 13,
@@ -18371,7 +18393,7 @@
       "label": "Avanzadas",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L120",
+      "source_location": "L122",
       "_origin": "ast",
       "id": "readme_avanzadas",
       "community": 13,
@@ -18382,7 +18404,7 @@
       "label": "Microservicios",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L131",
+      "source_location": "L133",
       "_origin": "ast",
       "id": "readme_microservicios",
       "community": 13,
@@ -18393,7 +18415,7 @@
       "label": "Auth Service (Puerto 8081)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L133",
+      "source_location": "L135",
       "_origin": "ast",
       "id": "readme_auth_service_puerto_8081",
       "community": 13,
@@ -18404,7 +18426,7 @@
       "label": "User Service (Puerto 8082)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L150",
+      "source_location": "L152",
       "_origin": "ast",
       "id": "readme_user_service_puerto_8082",
       "community": 13,
@@ -18415,7 +18437,7 @@
       "label": "Transaction Service (Puerto 8083)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L161",
+      "source_location": "L163",
       "_origin": "ast",
       "id": "readme_transaction_service_puerto_8083",
       "community": 13,
@@ -18426,7 +18448,7 @@
       "label": "Notification Service (Puerto 8084)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L174",
+      "source_location": "L176",
       "_origin": "ast",
       "id": "readme_notification_service_puerto_8084",
       "community": 13,
@@ -18437,7 +18459,7 @@
       "label": "Worker Service (Puerto 8085)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L177",
+      "source_location": "L179",
       "_origin": "ast",
       "id": "readme_worker_service_puerto_8085",
       "community": 13,
@@ -18448,7 +18470,7 @@
       "label": "API Gateway (Puerto 8080)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L186",
+      "source_location": "L188",
       "_origin": "ast",
       "id": "readme_api_gateway_puerto_8080",
       "community": 13,
@@ -18459,7 +18481,7 @@
       "label": "Requisitos Previos",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L189",
+      "source_location": "L191",
       "_origin": "ast",
       "id": "readme_requisitos_previos",
       "community": 13,
@@ -18470,7 +18492,7 @@
       "label": "Instalaci\u00f3n y Ejecuci\u00f3n",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L194",
+      "source_location": "L196",
       "_origin": "ast",
       "id": "readme_instalaci\u00f3n_y_ejecuci\u00f3n",
       "community": 13,
@@ -18481,7 +18503,7 @@
       "label": "1. Clonar el repositorio",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L196",
+      "source_location": "L198",
       "_origin": "ast",
       "id": "readme_1_clonar_el_repositorio",
       "community": 13,
@@ -18492,7 +18514,7 @@
       "label": "2. Configurar el archivo de entorno (.env)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L203",
+      "source_location": "L205",
       "_origin": "ast",
       "id": "readme_2_configurar_el_archivo_de_entorno_env",
       "community": 13,
@@ -18503,7 +18525,7 @@
       "label": "3. Levantar la aplicaci\u00f3n y la infraestructura",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L217",
+      "source_location": "L219",
       "_origin": "ast",
       "id": "readme_3_levantar_la_aplicaci\u00f3n_y_la_infraestructura",
       "community": 13,
@@ -18514,7 +18536,7 @@
       "label": "4. Acceder a los servicios",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L231",
+      "source_location": "L233",
       "_origin": "ast",
       "id": "readme_4_acceder_a_los_servicios",
       "community": 13,
@@ -18525,7 +18547,7 @@
       "label": "5. Crear tu primer usuario",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L242",
+      "source_location": "L244",
       "_origin": "ast",
       "id": "readme_5_crear_tu_primer_usuario",
       "community": 13,
@@ -18536,7 +18558,7 @@
       "label": "Base de Datos",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L249",
+      "source_location": "L251",
       "_origin": "ast",
       "id": "readme_base_de_datos",
       "community": 13,
@@ -18547,7 +18569,7 @@
       "label": "Estructura del Proyecto",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L269",
+      "source_location": "L271",
       "_origin": "ast",
       "id": "readme_estructura_del_proyecto",
       "community": 13,
@@ -18558,7 +18580,7 @@
       "label": "Puertos",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L295",
+      "source_location": "L297",
       "_origin": "ast",
       "id": "readme_puertos",
       "community": 13,
@@ -18569,7 +18591,7 @@
       "label": "Comandos Utiles",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L313",
+      "source_location": "L315",
       "_origin": "ast",
       "id": "readme_comandos_utiles",
       "community": 13,
@@ -18580,7 +18602,7 @@
       "label": "Tecnologias Detalladas",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L332",
+      "source_location": "L334",
       "_origin": "ast",
       "id": "readme_tecnologias_detalladas",
       "community": 13,
@@ -18591,7 +18613,7 @@
       "label": "Frontend",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L334",
+      "source_location": "L336",
       "_origin": "ast",
       "id": "readme_frontend",
       "community": 13,
@@ -18602,7 +18624,7 @@
       "label": "Backend",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L347",
+      "source_location": "L349",
       "_origin": "ast",
       "id": "readme_backend",
       "community": 13,
@@ -27716,10 +27738,22 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/auth-service/src/main/java/auth_service/auth_service/service/RedisTokenBlacklistService.java",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice",
+      "target": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice_java_withspan",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/auth-service/src/main/java/auth_service/auth_service/service/RedisTokenBlacklistService.java",
-      "source_location": "L9",
+      "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice",
@@ -27730,7 +27764,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/auth-service/src/main/java/auth_service/auth_service/service/RedisTokenBlacklistService.java",
-      "source_location": "L9",
+      "source_location": "L10",
       "weight": 1.0,
       "context": "attribute",
       "_origin": "ast",
@@ -27742,7 +27776,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/auth-service/src/main/java/auth_service/auth_service/service/RedisTokenBlacklistService.java",
-      "source_location": "L9",
+      "source_location": "L10",
       "weight": 1.0,
       "context": "attribute",
       "_origin": "ast",
@@ -27754,7 +27788,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/auth-service/src/main/java/auth_service/auth_service/service/RedisTokenBlacklistService.java",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0,
       "context": "field",
       "_origin": "ast",
@@ -27766,7 +27800,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/auth-service/src/main/java/auth_service/auth_service/service/RedisTokenBlacklistService.java",
-      "source_location": "L20",
+      "source_location": "L21",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice_redistokenblacklistservice",
@@ -27777,7 +27811,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/auth-service/src/main/java/auth_service/auth_service/service/RedisTokenBlacklistService.java",
-      "source_location": "L26",
+      "source_location": "L28",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice_redistokenblacklistservice",
@@ -27788,7 +27822,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/auth-service/src/main/java/auth_service/auth_service/service/RedisTokenBlacklistService.java",
-      "source_location": "L30",
+      "source_location": "L33",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice_redistokenblacklistservice",
@@ -27799,7 +27833,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/auth-service/src/main/java/auth_service/auth_service/service/RedisTokenBlacklistService.java",
-      "source_location": "L40",
+      "source_location": "L44",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice_redistokenblacklistservice",
@@ -27810,11 +27844,71 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/auth-service/src/main/java/auth_service/auth_service/service/RedisTokenBlacklistService.java",
-      "source_location": "L48",
+      "source_location": "L53",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice_redistokenblacklistservice",
       "target": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice_redistokenblacklistservice_resettotpattempts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/auth-service/src/main/java/auth_service/auth_service/service/RedisTokenBlacklistService.java",
+      "source_location": "L21",
+      "weight": 1.0,
+      "context": "attribute",
+      "_origin": "ast",
+      "source": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice_redistokenblacklistservice_blacklisttoken",
+      "target": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice_java_withspan",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/auth-service/src/main/java/auth_service/auth_service/service/RedisTokenBlacklistService.java",
+      "source_location": "L28",
+      "weight": 1.0,
+      "context": "attribute",
+      "_origin": "ast",
+      "source": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice_redistokenblacklistservice_istokenblacklisted",
+      "target": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice_java_withspan",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/auth-service/src/main/java/auth_service/auth_service/service/RedisTokenBlacklistService.java",
+      "source_location": "L33",
+      "weight": 1.0,
+      "context": "attribute",
+      "_origin": "ast",
+      "source": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice_redistokenblacklistservice_istotplocked",
+      "target": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice_java_withspan",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/auth-service/src/main/java/auth_service/auth_service/service/RedisTokenBlacklistService.java",
+      "source_location": "L44",
+      "weight": 1.0,
+      "context": "attribute",
+      "_origin": "ast",
+      "source": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice_redistokenblacklistservice_recordfailedtotpattempt",
+      "target": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice_java_withspan",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/auth-service/src/main/java/auth_service/auth_service/service/RedisTokenBlacklistService.java",
+      "source_location": "L53",
+      "weight": 1.0,
+      "context": "attribute",
+      "_origin": "ast",
+      "source": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice_redistokenblacklistservice_resettotpattempts",
+      "target": "backend_auth_service_src_main_java_auth_service_auth_service_service_redistokenblacklistservice_java_withspan",
       "confidence_score": 1.0
     },
     {
@@ -31502,7 +31596,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/transaction-service/src/main/java/transaction_service/transaction_service/service/IdempotencyService.java",
-      "source_location": "L9",
+      "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_idempotencyservice",
@@ -31546,10 +31640,22 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/transaction-service/src/main/java/transaction_service/transaction_service/service/IdempotencyService.java",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_idempotencyservice",
+      "target": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_idempotencyservice_java_withspan",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/transaction-service/src/main/java/transaction_service/transaction_service/service/IdempotencyService.java",
-      "source_location": "L16",
+      "source_location": "L17",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_idempotencyservice_idempotencyservice",
@@ -31560,7 +31666,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/transaction-service/src/main/java/transaction_service/transaction_service/service/IdempotencyService.java",
-      "source_location": "L23",
+      "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_idempotencyservice_idempotencyservice",
@@ -31571,7 +31677,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend/transaction-service/src/main/java/transaction_service/transaction_service/service/IdempotencyService.java",
-      "source_location": "L29",
+      "source_location": "L32",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_idempotencyservice_idempotencyservice",
@@ -31582,7 +31688,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/transaction-service/src/main/java/transaction_service/transaction_service/service/IdempotencyService.java",
-      "source_location": "L9",
+      "source_location": "L10",
       "weight": 1.0,
       "context": "attribute",
       "_origin": "ast",
@@ -31594,7 +31700,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/transaction-service/src/main/java/transaction_service/transaction_service/service/IdempotencyService.java",
-      "source_location": "L9",
+      "source_location": "L10",
       "weight": 1.0,
       "context": "attribute",
       "_origin": "ast",
@@ -31606,7 +31712,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/transaction-service/src/main/java/transaction_service/transaction_service/service/IdempotencyService.java",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0,
       "context": "field",
       "_origin": "ast",
@@ -31627,6 +31733,18 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/transaction-service/src/main/java/transaction_service/transaction_service/service/IdempotencyService.java",
+      "source_location": "L17",
+      "weight": 1.0,
+      "context": "attribute",
+      "_origin": "ast",
+      "source": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_idempotencyservice_idempotencyservice_isduplicatekey",
+      "target": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_idempotencyservice_java_withspan",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "INFERRED",
@@ -31637,6 +31755,30 @@
       "_origin": "ast",
       "source": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_transactionservice_transfer",
       "target": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_idempotencyservice_idempotencyservice_isduplicatekey"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/transaction-service/src/main/java/transaction_service/transaction_service/service/IdempotencyService.java",
+      "source_location": "L25",
+      "weight": 1.0,
+      "context": "attribute",
+      "_origin": "ast",
+      "source": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_idempotencyservice_idempotencyservice_registerkey",
+      "target": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_idempotencyservice_java_withspan",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/transaction-service/src/main/java/transaction_service/transaction_service/service/IdempotencyService.java",
+      "source_location": "L32",
+      "weight": 1.0,
+      "context": "attribute",
+      "_origin": "ast",
+      "source": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_idempotencyservice_idempotencyservice_removekey",
+      "target": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_idempotencyservice_java_withspan",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -46283,7 +46425,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L249",
+      "source_location": "L251",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_fintech_wallet",
@@ -46294,7 +46436,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L313",
+      "source_location": "L315",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_fintech_wallet",
@@ -46305,7 +46447,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L269",
+      "source_location": "L271",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_fintech_wallet",
@@ -46316,7 +46458,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L104",
+      "source_location": "L106",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_fintech_wallet",
@@ -46327,7 +46469,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L194",
+      "source_location": "L196",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_fintech_wallet",
@@ -46338,7 +46480,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L131",
+      "source_location": "L133",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_fintech_wallet",
@@ -46349,7 +46491,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L295",
+      "source_location": "L297",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_fintech_wallet",
@@ -46360,7 +46502,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L189",
+      "source_location": "L191",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_fintech_wallet",
@@ -46371,7 +46513,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L91",
+      "source_location": "L93",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_fintech_wallet",
@@ -46382,7 +46524,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L332",
+      "source_location": "L334",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_fintech_wallet",
@@ -46393,7 +46535,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L120",
+      "source_location": "L122",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_funcionalidades",
@@ -46404,7 +46546,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L106",
+      "source_location": "L108",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_funcionalidades",
@@ -46415,7 +46557,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L112",
+      "source_location": "L114",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_funcionalidades",
@@ -46426,7 +46568,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L186",
+      "source_location": "L188",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_microservicios",
@@ -46437,7 +46579,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L133",
+      "source_location": "L135",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_microservicios",
@@ -46448,7 +46590,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L174",
+      "source_location": "L176",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_microservicios",
@@ -46459,7 +46601,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L161",
+      "source_location": "L163",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_microservicios",
@@ -46470,7 +46612,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L150",
+      "source_location": "L152",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_microservicios",
@@ -46481,7 +46623,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L177",
+      "source_location": "L179",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_microservicios",
@@ -46492,7 +46634,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L196",
+      "source_location": "L198",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_instalaci\u00f3n_y_ejecuci\u00f3n",
@@ -46503,7 +46645,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L203",
+      "source_location": "L205",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_instalaci\u00f3n_y_ejecuci\u00f3n",
@@ -46514,7 +46656,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L217",
+      "source_location": "L219",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_instalaci\u00f3n_y_ejecuci\u00f3n",
@@ -46525,7 +46667,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L231",
+      "source_location": "L233",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_instalaci\u00f3n_y_ejecuci\u00f3n",
@@ -46536,7 +46678,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L242",
+      "source_location": "L244",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_instalaci\u00f3n_y_ejecuci\u00f3n",
@@ -46547,7 +46689,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L347",
+      "source_location": "L349",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_tecnologias_detalladas",
@@ -46558,7 +46700,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L334",
+      "source_location": "L336",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_tecnologias_detalladas",
@@ -47502,5 +47644,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "e675ffec3d683e7a14dfde45db34c66e4b64821b"
+  "built_at_commit": "4f7190fc1d1f5fd59470c6d8d5796fec8dbe5f29"
 }

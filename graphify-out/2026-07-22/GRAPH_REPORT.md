@@ -1,16 +1,16 @@
 # Graph Report - fintech-wallet  (2026-07-22)
 
 ## Corpus Check
-- 210 files · ~108,837 words
+- 210 files · ~108,865 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1758 nodes · 2426 edges · 142 communities (123 shown, 19 thin omitted)
+- 1760 nodes · 2436 edges · 145 communities (125 shown, 20 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 57 edges (avg confidence: 0.78)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `e675ffec`
+- Built from commit: `4f7190fc`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -143,12 +143,15 @@
 - Writing ClickHouse Queries for SigNoz Dashboards
 - RedisTokenBlacklistService
 - mvnw
+- TransferResponse
 - IdempotencyService
 - PdfGeneratorService
 - Attribute Access Syntax
 - WorkerServiceApplication
 - Mandatory Optimization Patterns
 - Attribute Access Syntax
+- StatementService
+- AuditService
 - worker-service:worker-service
 
 ## God Nodes (most connected - your core abstractions)
@@ -164,8 +167,8 @@
 10. `MoneyRequest` - 15 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `UserControllerTest` --references--> `UserService`  [EXTRACTED]
-  .agents/skills/spring-boot-full-stack/src/test/java/com/company/app/controller/UserControllerTest.java → .agents/skills/spring-boot-full-stack/src/main/java/com/company/app/service/UserService.java
+- `UserController` --references--> `UserService`  [EXTRACTED]
+  .agents/skills/spring-boot-full-stack/src/main/java/com/company/app/controller/UserController.java → .agents/skills/spring-boot-full-stack/src/main/java/com/company/app/service/UserService.java
 - `AuthController` --references--> `AuthService`  [EXTRACTED]
   backend/auth-service/src/main/java/auth_service/auth_service/controller/AuthController.java → backend/auth-service/src/main/java/auth_service/auth_service/service/AuthService.java
 - `AuthService` --references--> `UserRepository`  [EXTRACTED]
@@ -178,11 +181,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (142 total, 19 thin omitted)
+## Communities (145 total, 20 thin omitted)
 
 ### Community 0 - "UserDto"
-Cohesion: 0.07
-Nodes (35): GetMapping, PostMapping, PutMapping, RequestMapping, RequiredArgsConstructor, ResponseEntity, RestController, UserController (+27 more)
+Cohesion: 0.08
+Nodes (34): AllArgsConstructor, Builder, Data, NoArgsConstructor, UserDto, UserService, Override, Service (+26 more)
 
 ### Community 1 - "NotificationService"
 Cohesion: 0.06
@@ -253,8 +256,8 @@ Cohesion: 0.09
 Nodes (22): 1. Service Decomposition Strategies, 2. Communication Patterns, 3. Data Management, 4. Resilience Patterns, Best Practices, Circuit Breaker Pattern, Common Pitfalls, Communication Patterns (+14 more)
 
 ### Community 18 - "UserControllerTest.java"
-Cohesion: 0.24
-Nodes (14): CreateUser, DeleteUser, GetAllUsers, GetUserById, ActiveProfiles, DisplayName, Nested, ObjectMapper (+6 more)
+Cohesion: 0.16
+Nodes (15): GetMapping, PostMapping, PutMapping, RequestMapping, RequiredArgsConstructor, ResponseEntity, RestController, UserController (+7 more)
 
 ### Community 19 - "Proposed Changes"
 Cohesion: 0.09
@@ -273,8 +276,8 @@ Cohesion: 0.10
 Nodes (20): Behavioral Traits, Capabilities, Cloud-Native Development, Database & Persistence, Do not use this skill when, Enterprise Architecture Patterns, Example Interactions, Instructions (+12 more)
 
 ### Community 23 - "TransactionService"
-Cohesion: 0.23
-Nodes (8): MoneyRequestRepository, TransactionRepository, RequiredArgsConstructor, Service, Slf4j, UserServiceBlockingStub, TransactionService, JpaRepository
+Cohesion: 0.27
+Nodes (7): RequiredArgsConstructor, Service, Slf4j, Transactional, UserServiceBlockingStub, WithSpan, TransactionService
 
 ### Community 24 - "dashboard-config.js"
 Cohesion: 0.19
@@ -297,8 +300,8 @@ Cohesion: 0.12
 Nodes (14): 1. Draft Proposal (Before Coding!), 2. Review & Align, 3. Implement, 4. Ship & Archive, Code Patterns, Controller Pattern, Maven Profiles, Package Structure (+6 more)
 
 ### Community 29 - "AuthController"
-Cohesion: 0.18
-Nodes (9): AuthController, GetMapping, PutMapping, RequestMapping, RequiredArgsConstructor, ResponseEntity, RestController, ChangePasswordRequest (+1 more)
+Cohesion: 0.20
+Nodes (7): AuthController, GetMapping, PostMapping, RequestMapping, RequiredArgsConstructor, ResponseEntity, RestController
 
 ### Community 30 - "Setting Up Observability After Ingestion"
 Cohesion: 0.13
@@ -314,7 +317,7 @@ Nodes (15): Overview, Requirement: Exception Testing, Requirement: Integration T
 
 ### Community 33 - "MoneyRequest"
 Cohesion: 0.18
-Nodes (8): AllArgsConstructor, Builder, Data, Entity, NoArgsConstructor, PrePersist, Table, MoneyRequest
+Nodes (9): AllArgsConstructor, Builder, Data, Entity, NoArgsConstructor, PrePersist, Table, MoneyRequest (+1 more)
 
 ### Community 34 - "ADDED Requirements"
 Cohesion: 0.14
@@ -322,7 +325,7 @@ Nodes (13): ADDED Requirements, Registration Specification (Delta), Requirement:
 
 ### Community 35 - "TransactionController"
 Cohesion: 0.15
-Nodes (12): GetMapping, PutMapping, RequestMapping, RequiredArgsConstructor, ResponseEntity, RestController, TransactionController, AllArgsConstructor (+4 more)
+Nodes (12): PostMapping, PutMapping, RequestMapping, RequiredArgsConstructor, ResponseEntity, RestController, TransactionController, AllArgsConstructor (+4 more)
 
 ### Community 36 - "Overview"
 Cohesion: 0.15
@@ -377,12 +380,12 @@ Cohesion: 0.29
 Nodes (9): ConditionalOnModuleEnabled, Override, OnModuleEnabledCondition, AnnotatedTypeMetadata, Condition, Conditional, ConditionContext, Retention (+1 more)
 
 ### Community 49 - ".findByEmail"
-Cohesion: 0.16
-Nodes (13): AuditLog, AllArgsConstructor, Builder, Data, Entity, NoArgsConstructor, PrePersist, Table (+5 more)
+Cohesion: 0.15
+Nodes (11): AuditLog, AllArgsConstructor, Builder, Data, Entity, NoArgsConstructor, PrePersist, Table (+3 more)
 
 ### Community 50 - "MoneyRequestDto"
-Cohesion: 0.24
-Nodes (6): PostMapping, AllArgsConstructor, Builder, Data, NoArgsConstructor, MoneyRequestDto
+Cohesion: 0.27
+Nodes (3): PutMapping, ChangePasswordRequest, Data
 
 ### Community 51 - "Accessibility (a11y)"
 Cohesion: 0.20
@@ -449,12 +452,12 @@ Cohesion: 0.22
 Nodes (8): application.yml, Full Stack Profile, Maven Modular Architecture, Minimal Profile, Module Flags, Profiles, Spring Configuration, Usage
 
 ### Community 67 - "AuthService"
-Cohesion: 0.31
+Cohesion: 0.39
 Nodes (7): AuthService, JavaMailSender, PasswordEncoder, RequiredArgsConstructor, Service, Slf4j, WithSpan
 
 ### Community 68 - ".transfer"
-Cohesion: 0.31
-Nodes (6): AllArgsConstructor, Data, NoArgsConstructor, TransferRequest, Transactional, WithSpan
+Cohesion: 0.40
+Nodes (4): AllArgsConstructor, Data, NoArgsConstructor, TransferRequest
 
 ### Community 69 - "Common ARIA patterns"
 Cohesion: 0.25
@@ -478,7 +481,7 @@ Nodes (5): HealthController, GetMapping, RequestMapping, ResponseEntity, RestCon
 
 ### Community 74 - "TransferResponse"
 Cohesion: 0.18
-Nodes (8): AllArgsConstructor, Builder, Data, Entity, NoArgsConstructor, PrePersist, Table, Transaction
+Nodes (9): AllArgsConstructor, Builder, Data, Entity, NoArgsConstructor, PrePersist, Table, Transaction (+1 more)
 
 ### Community 75 - "Reporte de Error en SigNoz: "Request failed with status code 500""
 Cohesion: 0.25
@@ -540,10 +543,6 @@ Nodes (4): Bean, Configuration, OpenAPI, OpenApiConfig
 Cohesion: 0.60
 Nodes (3): ApiGatewayApplicationTests, SpringBootTest, Test
 
-### Community 91 - ".verifyTotp"
-Cohesion: 0.24
-Nodes (3): PostMapping, Data, TotpVerifyRequest
-
 ### Community 92 - "AuthServiceApplicationTests.java"
 Cohesion: 0.60
 Nodes (3): AuthServiceApplicationTests, SpringBootTest, Test
@@ -593,12 +592,12 @@ Cohesion: 0.50
 Nodes (3): Expanding the ESLint configuration, React Compiler, React + Vite
 
 ### Community 127 - "StatementJob"
-Cohesion: 0.13
-Nodes (15): Async, PostMapping, AllArgsConstructor, Builder, Data, Entity, NoArgsConstructor, PrePersist (+7 more)
+Cohesion: 0.18
+Nodes (8): AllArgsConstructor, Builder, Data, Entity, NoArgsConstructor, PrePersist, Table, StatementJob
 
 ### Community 128 - "WorkerController"
-Cohesion: 0.28
-Nodes (7): GetMapping, RequestMapping, RequiredArgsConstructor, ResponseEntity, RestController, WorkerController, Resource
+Cohesion: 0.24
+Nodes (8): GetMapping, PostMapping, RequestMapping, RequiredArgsConstructor, ResponseEntity, RestController, WorkerController, Resource
 
 ### Community 129 - "5. Body Text Search — Engaging Skip Indexes"
 Cohesion: 0.17
@@ -613,16 +612,20 @@ Cohesion: 0.18
 Nodes (11): Key Variables by Signal, Logs, Query Attribution, Quick Reference, Reference Routing, Signal Detection, Top Anti-Patterns, Traces (+3 more)
 
 ### Community 132 - "RedisTokenBlacklistService"
-Cohesion: 0.27
-Nodes (4): RequiredArgsConstructor, Service, StringRedisTemplate, RedisTokenBlacklistService
+Cohesion: 0.33
+Nodes (5): RequiredArgsConstructor, Service, StringRedisTemplate, WithSpan, RedisTokenBlacklistService
 
 ### Community 133 - "mvnw"
 Cohesion: 0.33
 Nodes (6): mvnw script, clean(), die(), exec_maven(), set_java_home(), verbose()
 
+### Community 134 - "TransferResponse"
+Cohesion: 0.24
+Nodes (6): GetMapping, AllArgsConstructor, Builder, Data, NoArgsConstructor, TransferResponse
+
 ### Community 135 - "IdempotencyService"
-Cohesion: 0.36
-Nodes (4): IdempotencyService, RequiredArgsConstructor, Service, StringRedisTemplate
+Cohesion: 0.39
+Nodes (5): IdempotencyService, RequiredArgsConstructor, Service, StringRedisTemplate, WithSpan
 
 ### Community 136 - "PdfGeneratorService"
 Cohesion: 0.39
@@ -644,24 +647,32 @@ Nodes (5): 1. Resource Filter CTE, 2. Timestamp Bucketing, 3. Use Indexed Column
 Cohesion: 0.50
 Nodes (4): Attribute Access Syntax, Checking attribute existence, Resource attributes in SELECT / GROUP BY, Resource attributes in WHERE (via CTE)
 
+### Community 141 - "StatementService"
+Cohesion: 0.43
+Nodes (5): Async, RequiredArgsConstructor, Service, Slf4j, StatementService
+
+### Community 142 - "AuditService"
+Cohesion: 0.70
+Nodes (4): AuditService, RequiredArgsConstructor, Service, Slf4j
+
 ## Knowledge Gaps
 - **650 isolated node(s):** `com.company:spring-boot-app`, `start-local.sh script`, `api-gateway:api-gateway`, `auth-service:auth-service`, `notification-service:notification-service` (+645 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **20 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `UserRepository` connect `User` to `AuthService`, `.verifyTotp`, `TransactionService`?**
-  _High betweenness centrality (0.017) - this node is a cross-community bridge._
-- **Why does `NotificationRepository` connect `NotificationService` to `TransactionService`?**
+- **Why does `UserRepository` connect `User` to `.findByEmail`, `MoneyRequestDto`, `AuthService`?**
+  _High betweenness centrality (0.018) - this node is a cross-community bridge._
+- **Why does `NotificationRepository` connect `NotificationService` to `.findByEmail`?**
   _High betweenness centrality (0.012) - this node is a cross-community bridge._
-- **Why does `TransactionService` connect `TransactionService` to `TransactionController`, `.transfer`, `IdempotencyService`, `TransferResponse`, `TransferCompletedEvent`, `MoneyRequestDto`?**
-  _High betweenness centrality (0.009) - this node is a cross-community bridge._
+- **Why does `TransactionService` connect `TransactionService` to `MoneyRequest`, `TransactionController`, `TransferResponse`, `IdempotencyService`, `TransferResponse`, `TransferCompletedEvent`?**
+  _High betweenness centrality (0.011) - this node is a cross-community bridge._
 - **What connects `com.company:spring-boot-app`, `start-local.sh script`, `api-gateway:api-gateway` to the rest of the system?**
   _650 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `UserDto` be split into smaller, more focused modules?**
-  _Cohesion score 0.06564364876385337 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07506584723441616 - nodes in this community are weakly interconnected._
 - **Should `NotificationService` be split into smaller, more focused modules?**
   _Cohesion score 0.06265664160401002 - nodes in this community are weakly interconnected._
 - **Should `UserProfileDto` be split into smaller, more focused modules?**

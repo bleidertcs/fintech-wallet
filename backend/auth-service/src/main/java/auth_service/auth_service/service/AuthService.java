@@ -78,12 +78,19 @@ public class AuthService {
 
     @WithSpan("auth.login")
     public AuthResponse login(LoginRequest request) {
-        User user = userRepository.findByEmail(request.getEmail())
-                .orElseThrow(() -> new RuntimeException("Invalid credentials"));
+        String inputEmail = request.getEmail() != null ? request.getEmail().trim() : "";
+        User user = userRepository.findByEmail(inputEmail)
+                .orElseGet(() -> userRepository.findByEmail(inputEmail.toLowerCase())
+                .orElseThrow(() -> {
+                    log.warn("Login failed: user not found for email '{}'", request.getEmail());
+                    return new RuntimeException("Invalid credentials");
+                }));
 
         if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
+            log.warn("Login failed: password mismatch for user '{}'", user.getEmail());
             throw new RuntimeException("Invalid credentials");
         }
+
 
         // If 2FA is enabled, return totpRequired=true without a real token
         if (user.isTotpEnabled()) {

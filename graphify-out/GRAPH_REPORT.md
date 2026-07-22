@@ -1,16 +1,16 @@
 # Graph Report - fintech-wallet  (2026-07-22)
 
 ## Corpus Check
-- 210 files · ~108,865 words
+- 210 files · ~108,904 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1760 nodes · 2436 edges · 145 communities (125 shown, 20 thin omitted)
+- 1760 nodes · 2436 edges · 144 communities (125 shown, 19 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 57 edges (avg confidence: 0.78)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `4f7190fc`
+- Built from commit: `909097e2`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -143,7 +143,6 @@
 - Writing ClickHouse Queries for SigNoz Dashboards
 - RedisTokenBlacklistService
 - mvnw
-- TransferResponse
 - IdempotencyService
 - PdfGeneratorService
 - Attribute Access Syntax
@@ -181,7 +180,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (145 total, 20 thin omitted)
+## Communities (144 total, 19 thin omitted)
 
 ### Community 0 - "UserDto"
 Cohesion: 0.08
@@ -276,7 +275,7 @@ Cohesion: 0.10
 Nodes (20): Behavioral Traits, Capabilities, Cloud-Native Development, Database & Persistence, Do not use this skill when, Enterprise Architecture Patterns, Example Interactions, Instructions (+12 more)
 
 ### Community 23 - "TransactionService"
-Cohesion: 0.27
+Cohesion: 0.29
 Nodes (7): RequiredArgsConstructor, Service, Slf4j, Transactional, UserServiceBlockingStub, WithSpan, TransactionService
 
 ### Community 24 - "dashboard-config.js"
@@ -300,8 +299,8 @@ Cohesion: 0.12
 Nodes (14): 1. Draft Proposal (Before Coding!), 2. Review & Align, 3. Implement, 4. Ship & Archive, Code Patterns, Controller Pattern, Maven Profiles, Package Structure (+6 more)
 
 ### Community 29 - "AuthController"
-Cohesion: 0.20
-Nodes (7): AuthController, GetMapping, PostMapping, RequestMapping, RequiredArgsConstructor, ResponseEntity, RestController
+Cohesion: 0.18
+Nodes (9): AuthController, GetMapping, PutMapping, RequestMapping, RequiredArgsConstructor, ResponseEntity, RestController, ChangePasswordRequest (+1 more)
 
 ### Community 30 - "Setting Up Observability After Ingestion"
 Cohesion: 0.13
@@ -316,7 +315,7 @@ Cohesion: 0.13
 Nodes (15): Overview, Requirement: Exception Testing, Requirement: Integration Tests, Requirement: Mockito Verification, Requirement: TDD Workflow, Requirement: Test Coverage, Requirement: Test Naming, Requirement: Unit Test Structure (+7 more)
 
 ### Community 33 - "MoneyRequest"
-Cohesion: 0.18
+Cohesion: 0.15
 Nodes (9): AllArgsConstructor, Builder, Data, Entity, NoArgsConstructor, PrePersist, Table, MoneyRequest (+1 more)
 
 ### Community 34 - "ADDED Requirements"
@@ -325,7 +324,7 @@ Nodes (13): ADDED Requirements, Registration Specification (Delta), Requirement:
 
 ### Community 35 - "TransactionController"
 Cohesion: 0.15
-Nodes (12): PostMapping, PutMapping, RequestMapping, RequiredArgsConstructor, ResponseEntity, RestController, TransactionController, AllArgsConstructor (+4 more)
+Nodes (13): GetMapping, PostMapping, PutMapping, RequestMapping, RequiredArgsConstructor, ResponseEntity, RestController, TransactionController (+5 more)
 
 ### Community 36 - "Overview"
 Cohesion: 0.15
@@ -385,7 +384,7 @@ Nodes (11): AuditLog, AllArgsConstructor, Builder, Data, Entity, NoArgsConstruct
 
 ### Community 50 - "MoneyRequestDto"
 Cohesion: 0.27
-Nodes (3): PutMapping, ChangePasswordRequest, Data
+Nodes (5): AllArgsConstructor, Builder, Data, NoArgsConstructor, MoneyRequestDto
 
 ### Community 51 - "Accessibility (a11y)"
 Cohesion: 0.20
@@ -452,7 +451,7 @@ Cohesion: 0.22
 Nodes (8): application.yml, Full Stack Profile, Maven Modular Architecture, Minimal Profile, Module Flags, Profiles, Spring Configuration, Usage
 
 ### Community 67 - "AuthService"
-Cohesion: 0.39
+Cohesion: 0.31
 Nodes (7): AuthService, JavaMailSender, PasswordEncoder, RequiredArgsConstructor, Service, Slf4j, WithSpan
 
 ### Community 68 - ".transfer"
@@ -543,6 +542,10 @@ Nodes (4): Bean, Configuration, OpenAPI, OpenApiConfig
 Cohesion: 0.60
 Nodes (3): ApiGatewayApplicationTests, SpringBootTest, Test
 
+### Community 91 - ".verifyTotp"
+Cohesion: 0.24
+Nodes (3): PostMapping, Data, TotpVerifyRequest
+
 ### Community 92 - "AuthServiceApplicationTests.java"
 Cohesion: 0.60
 Nodes (3): AuthServiceApplicationTests, SpringBootTest, Test
@@ -619,10 +622,6 @@ Nodes (5): RequiredArgsConstructor, Service, StringRedisTemplate, WithSpan, Redi
 Cohesion: 0.33
 Nodes (6): mvnw script, clean(), die(), exec_maven(), set_java_home(), verbose()
 
-### Community 134 - "TransferResponse"
-Cohesion: 0.24
-Nodes (6): GetMapping, AllArgsConstructor, Builder, Data, NoArgsConstructor, TransferResponse
-
 ### Community 135 - "IdempotencyService"
 Cohesion: 0.39
 Nodes (5): IdempotencyService, RequiredArgsConstructor, Service, StringRedisTemplate, WithSpan
@@ -658,16 +657,16 @@ Nodes (4): AuditService, RequiredArgsConstructor, Service, Slf4j
 ## Knowledge Gaps
 - **650 isolated node(s):** `com.company:spring-boot-app`, `start-local.sh script`, `api-gateway:api-gateway`, `auth-service:auth-service`, `notification-service:notification-service` (+645 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **20 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `UserRepository` connect `User` to `.findByEmail`, `MoneyRequestDto`, `AuthService`?**
+- **Why does `UserRepository` connect `User` to `.findByEmail`, `AuthService`, `.verifyTotp`?**
   _High betweenness centrality (0.018) - this node is a cross-community bridge._
 - **Why does `NotificationRepository` connect `NotificationService` to `.findByEmail`?**
   _High betweenness centrality (0.012) - this node is a cross-community bridge._
-- **Why does `TransactionService` connect `TransactionService` to `MoneyRequest`, `TransactionController`, `TransferResponse`, `IdempotencyService`, `TransferResponse`, `TransferCompletedEvent`?**
+- **Why does `TransactionService` connect `TransactionService` to `MoneyRequest`, `TransactionController`, `IdempotencyService`, `TransferResponse`, `TransferCompletedEvent`, `MoneyRequestDto`?**
   _High betweenness centrality (0.011) - this node is a cross-community bridge._
 - **What connects `com.company:spring-boot-app`, `start-local.sh script`, `api-gateway:api-gateway` to the rest of the system?**
   _650 weakly-connected nodes found - possible documentation gaps or missing edges._
