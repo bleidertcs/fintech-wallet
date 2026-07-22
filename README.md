@@ -30,7 +30,7 @@ graph TD
         Kafka["Apache Kafka (Modo KRaft)<br>Topics: transfer_completed, transfer-events-retry, transfer-events-dlq"]
     end
 
-    end
+
 
     subgraph Database ["Capa de Persistencia"]
         MySQL[("MySQL 8.0<br>Puerto: 3307")]
