@@ -6,7 +6,7 @@ Esta carpeta contiene la documentación y guías para monitorear y analizar el r
 
 ## 🚀 Acceso a SigNoz UI
 
-Una vez levantado el stack de Docker, puedes acceder a la interfaz de usuario de SigNoz:
+Una vez levantado el stack de servicios (vía Rancher Desktop / k3s o Docker Compose), puedes acceder a la interfaz de usuario de SigNoz:
 
 *   **URL**: [http://localhost:3301](http://localhost:3301)
 *   **Primer inicio**: Te pedirá crear una cuenta de administrador local. Los datos se almacenan de forma segura de manera local en el volumen de ClickHouse.

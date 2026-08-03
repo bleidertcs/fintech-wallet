@@ -19,7 +19,7 @@ export default function Register() {
       await register(name, email, password);
       toast.success('Cuenta creada! Bienvenido!');
     } catch (err) {
-      toast.error(err.response?.data?.message || 'Error al registrarse');
+      toast.error(err.response?.data?.error || err.response?.data?.message || 'Error al registrarse');
     } finally {
       setLoading(false);
     }

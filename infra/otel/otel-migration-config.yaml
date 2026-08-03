@@ -8,12 +8,26 @@ processors:
   batch:
 
 exporters:
-  debug:
-    verbosity: detailed
+  clickhousetraces:
+    datasource: tcp://clickhouse:9000/signoz_traces
+    use_new_schema: true
+  signozclickhousemetrics:
+    dsn: tcp://clickhouse:9000/signoz_metrics
+  clickhouselogsexporter:
+    dsn: tcp://clickhouse:9000/signoz_logs
+    use_new_schema: true
 
 service:
   pipelines:
     traces:
       receivers: [otlp]
       processors: [batch]
-      exporters: [debug]
+      exporters: [clickhousetraces]
+    metrics:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [signozclickhousemetrics]
+    logs:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [clickhouselogsexporter]

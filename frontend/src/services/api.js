@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_URL || '/api',
   timeout: 15000,
 });
 
@@ -16,7 +16,10 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401) {
+    const isAuthRoute = error.config?.url?.includes('/auth/');
+    const isRegisterPage = typeof window !== 'undefined' && window.location?.pathname === '/register';
+    const isLoginPage = typeof window !== 'undefined' && window.location?.pathname === '/login';
+    if (error.response?.status === 401 && !isAuthRoute && !isRegisterPage && !isLoginPage && !error.config?.skipAuthRedirect) {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
       window.location.href = '/login';
@@ -26,7 +29,7 @@ api.interceptors.response.use(
 );
 
 export const authService = {
-  register: (email, password) => api.post('/auth/register', { email, password }),
+  register: (email, password, name) => api.post('/auth/register', { email, password, name }),
   login: (email, password) => api.post('/auth/login', { email, password }),
   verifyTotp: (email, code) => api.post('/auth/verify-totp', { email, code }),
   verifyEmail: (token) => api.get(`/auth/verify-email?token=${token}`),

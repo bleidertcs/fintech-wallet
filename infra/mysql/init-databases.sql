@@ -4,3 +4,7 @@ CREATE DATABASE IF NOT EXISTS transactiondb;
 CREATE DATABASE IF NOT EXISTS notificationdb;
 CREATE DATABASE IF NOT EXISTS workerdb;
 
+-- Asegurar acceso desde cualquier host de la red del clúster de Kubernetes
+CREATE USER IF NOT EXISTS 'root'@'%' IDENTIFIED BY '12345';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;

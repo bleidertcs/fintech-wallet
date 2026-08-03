@@ -27,8 +27,34 @@ public class AuthService {
     private final JwtUtil jwtUtil;
     private final JavaMailSender mailSender;
 
-    @Value("${spring.mail.username:noreply@fintechwallet.com}")
+    @Value("${spring.mail.from:${spring.mail.username:noreply@fintechwallet.com}}")
     private String mailFrom;
+
+    @Value("${app.frontend.url:http://localhost:3000}")
+    private String frontendUrl;
+
+    private String getFromAddress() {
+        return (mailFrom != null && !mailFrom.isBlank()) ? mailFrom : "noreply@fintechwallet.com";
+    }
+
+    private void sendVerificationEmail(String toEmail, String verificationToken) {
+        try {
+            SimpleMailMessage message = new SimpleMailMessage();
+            message.setTo(toEmail);
+            message.setSubject("FinTech Wallet - Verifica tu email");
+            message.setFrom(getFromAddress());
+            message.setText("Hola!\n\nTu codigo de verificacion es: " + verificationToken
+                    + "\n\nO usa este link: " + frontendUrl + "/verify?token=" + verificationToken
+                    + "\n\nFinTech Wallet");
+            mailSender.send(message);
+            log.info("Verification email sent to {}", toEmail);
+        } catch (Exception e) {
+            log.warn("Failed to send verification email to {}: {}", toEmail, e.getMessage());
+        }
+    }
+
+    @Value("${user.service.url:http://user-service:8080}")
+    private String userServiceUrl;
 
     @WithSpan("auth.register")
     public AuthResponse register(RegisterRequest request) {
@@ -50,21 +76,31 @@ public class AuthService {
         userRepository.save(user);
 
         // Send verification email (best-effort)
-        try {
-            SimpleMailMessage message = new SimpleMailMessage();
-            message.setTo(user.getEmail());
-            message.setSubject("FinTech Wallet - Verifica tu email");
-            message.setFrom(mailFrom);
-            message.setText("Hola!\n\nTu codigo de verificacion es: " + verificationToken
-                    + "\n\nO usa este link: http://localhost:3000/verify?token=" + verificationToken
-                    + "\n\nFinTech Wallet");
-            mailSender.send(message);
-            log.info("Verification email sent to {}", user.getEmail());
-        } catch (Exception e) {
-            log.warn("Failed to send verification email: {}", e.getMessage());
-        }
+        sendVerificationEmail(user.getEmail(), verificationToken);
 
         String token = jwtUtil.generateToken(user.getEmail(), user.getRole());
+
+        // Create user profile in user-service (best-effort)
+        try {
+            org.springframework.web.client.RestTemplate restTemplate = new org.springframework.web.client.RestTemplate();
+            org.springframework.http.HttpHeaders headers = new org.springframework.http.HttpHeaders();
+            headers.setContentType(org.springframework.http.MediaType.APPLICATION_JSON);
+            headers.setBearerAuth(token);
+
+            java.util.Map<String, Object> profileReq = new java.util.HashMap<>();
+            profileReq.put("name", request.getName() != null && !request.getName().isBlank() 
+                    ? request.getName() 
+                    : request.getEmail().split("@")[0]);
+            profileReq.put("email", request.getEmail());
+            profileReq.put("balance", new java.math.BigDecimal("10000.00"));
+
+            org.springframework.http.HttpEntity<java.util.Map<String, Object>> entity = new org.springframework.http.HttpEntity<>(profileReq, headers);
+            String url = (userServiceUrl.endsWith("/")) ? userServiceUrl + "users" : userServiceUrl + "/users";
+            restTemplate.postForEntity(url, entity, java.util.Map.class);
+            log.info("User profile automatically created in user-service for email {}", user.getEmail());
+        } catch (Exception e) {
+            log.warn("Failed to create profile in user-service during registration: {}", e.getMessage());
+        }
 
         return AuthResponse.builder()
                 .token(token)
@@ -143,9 +179,7 @@ public class AuthService {
 
     @WithSpan("auth.verifyEmail")
     public void verifyEmail(String verificationToken) {
-        User user = userRepository.findAll().stream()
-                .filter(u -> verificationToken.equals(u.getVerificationToken()))
-                .findFirst()
+        User user = userRepository.findByVerificationToken(verificationToken)
                 .orElseThrow(() -> new RuntimeException("Token de verificacion invalido"));
 
         user.setVerified(true);
@@ -236,20 +270,7 @@ public class AuthService {
         user.setVerificationToken(verificationToken);
         userRepository.save(user);
 
-        try {
-            SimpleMailMessage message = new SimpleMailMessage();
-            message.setTo(user.getEmail());
-            message.setSubject("FinTech Wallet - Verifica tu email");
-            message.setFrom(mailFrom);
-            message.setText("Hola!\n\nTu codigo de verificacion es: " + verificationToken
-                    + "\n\nO usa este link: http://localhost:3000/verify?token=" + verificationToken
-                    + "\n\nFinTech Wallet");
-            mailSender.send(message);
-            log.info("Verification email resent to {}", user.getEmail());
-        } catch (Exception e) {
-            log.warn("Failed to resend verification email: {}", e.getMessage());
-            throw new RuntimeException("Error al enviar el email de verificacion");
-        }
+        sendVerificationEmail(user.getEmail(), verificationToken);
     }
 
     public void promoteToAdmin(String email) {

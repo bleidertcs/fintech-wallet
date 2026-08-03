@@ -24,7 +24,7 @@ export default function Login() {
         toast.success('Bienvenido!');
       }
     } catch (err) {
-      toast.error(err.response?.data?.message || 'Credenciales incorrectas');
+      toast.error(err.response?.data?.error || err.response?.data?.message || 'Credenciales incorrectas');
     } finally {
       setLoading(false);
     }
@@ -37,7 +37,7 @@ export default function Login() {
       await verifyTotp(pendingTotp, totpCode);
       toast.success('Bienvenido!');
     } catch (err) {
-      toast.error(err.response?.data?.message || 'Codigo invalido');
+      toast.error(err.response?.data?.error || err.response?.data?.message || 'Codigo invalido');
     } finally {
       setLoading(false);
     }

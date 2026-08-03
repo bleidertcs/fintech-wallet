@@ -49,6 +49,13 @@ graph TD
         SigNoz["SigNoz UI<br>Puerto: 3301"]
     end
 
+    subgraph Runtime ["Plataforma de Ejecución & Orquestación"]
+        Engine["containerd Engine + nerdctl<br>(Rancher Desktop - k3s Kubernetes) / Docker Compose"]
+    end
+
+    %% Infrastructure Platform
+    Microservices & Gateway & Database & Caching & Messaging & Observability & Client -.-> Engine
+
     %% Client and Gateway routing
     Frontend -->|HTTP Requests| ApiGateway
     ApiGateway -->|Rate Limiting| Redis
@@ -101,9 +108,9 @@ graph TD
 | **Backend** | Spring Boot 3, Spring Data JPA, Spring Cloud Gateway, Spring Kafka, Spring Data Redis, Spring Mail, JJWT, Protobuf (gRPC), PDFBox/OpenPDF |
 | **Base de Datos** | MySQL 8.0, ClickHouse (Almacén de Telemetría) |
 | **Caché / In-Memory** | Redis 7.0 (Rate Limiting, Cache L2, Blacklist JWT, Idempotencia) |
-| **Mensajería** | Apache Kafka + Zookeeper (Topics: `transfer-events`, Retry topics y DLQ) |
+| **Mensajería** | Apache Kafka en **modo KRaft** (Topics: `transfer-events`, Retry topics y DLQ) |
 | **Email** | Gmail SMTP (Producción) / Mailpit (Desarrollo) |
-| **Contenedores** | Docker + Docker Compose |
+| **Contenedores & Orquestación** | Rancher Desktop + containerd + `nerdctl` + Kubernetes (k3s) / Docker Compose |
 | **Monitoreo/APM** | SigNoz + OpenTelemetry (OTel Collector) |
 
 ---
@@ -253,9 +260,9 @@ El sistema utiliza bases de datos aisladas bajo un mismo servidor MySQL de desar
 
 ---
 
-## 6. Puertos del Sistema y Contenedores Docker
+## 6. Puertos del Sistema y Contenedores (containerd / Docker Compose)
 
-El stack se compone de **15 contenedores** ejecutando los siguientes servicios:
+El stack se compone de **15 servicios/contenedores** ejecutando los siguientes componentes:
 
 | Puerto | Contenedor | Servicio | Descripción |
 |--------|------------|----------|-------------|

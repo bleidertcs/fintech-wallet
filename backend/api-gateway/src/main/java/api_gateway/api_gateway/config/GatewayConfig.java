@@ -6,12 +6,19 @@ import org.springframework.cloud.gateway.server.mvc.handler.GatewayRouterFunctio
 import org.springframework.cloud.gateway.server.mvc.handler.HandlerFunctions;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.function.HandlerFilterFunction;
 import org.springframework.web.servlet.function.RequestPredicates;
 import org.springframework.web.servlet.function.RouterFunction;
 import org.springframework.web.servlet.function.ServerResponse;
 
 @Configuration
 public class GatewayConfig {
+
+    private final HandlerFilterFunction<ServerResponse, ServerResponse> gatewayRetryFilter;
+
+    public GatewayConfig(HandlerFilterFunction<ServerResponse, ServerResponse> gatewayRetryFilter) {
+        this.gatewayRetryFilter = gatewayRetryFilter;
+    }
 
     @Value("${auth.service.url:http://localhost:8081}")
     private String authServiceUrl;
@@ -33,6 +40,7 @@ public class GatewayConfig {
         return GatewayRouterFunctions.route("auth-service")
                 .route(RequestPredicates.path("/auth/**"), HandlerFunctions.http())
                 .before(BeforeFilterFunctions.uri(authServiceUrl))
+                .filter(gatewayRetryFilter)
                 .build();
     }
 
@@ -41,6 +49,7 @@ public class GatewayConfig {
         return GatewayRouterFunctions.route("user-service")
                 .route(RequestPredicates.path("/users/**"), HandlerFunctions.http())
                 .before(BeforeFilterFunctions.uri(userServiceUrl))
+                .filter(gatewayRetryFilter)
                 .build();
     }
 
@@ -49,6 +58,7 @@ public class GatewayConfig {
         return GatewayRouterFunctions.route("transaction-service")
                 .route(RequestPredicates.path("/transactions/**"), HandlerFunctions.http())
                 .before(BeforeFilterFunctions.uri(transactionServiceUrl))
+                .filter(gatewayRetryFilter)
                 .build();
     }
 
@@ -57,6 +67,7 @@ public class GatewayConfig {
         return GatewayRouterFunctions.route("notification-service")
                 .route(RequestPredicates.path("/notifications/**"), HandlerFunctions.http())
                 .before(BeforeFilterFunctions.uri(notificationServiceUrl))
+                .filter(gatewayRetryFilter)
                 .build();
     }
 
@@ -65,6 +76,7 @@ public class GatewayConfig {
         return GatewayRouterFunctions.route("worker-service")
                 .route(RequestPredicates.path("/worker/**"), HandlerFunctions.http())
                 .before(BeforeFilterFunctions.uri(workerServiceUrl))
+                .filter(gatewayRetryFilter)
                 .build();
     }
 }

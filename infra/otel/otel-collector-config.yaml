@@ -46,7 +46,7 @@ processors:
     limit_percentage: 75
     spike_limit_percentage: 15
   resourcedetection:
-    detectors: [env, system]
+    detectors: [env, system, docker]
     timeout: 2s
   signozspanmetrics:
     metrics_exporter: signozclickhousemetrics
@@ -107,5 +107,5 @@ service:
       exporters: [signozclickhousemetrics]
     logs:
       receivers: [otlp]
-      processors: [memory_limiter, batch]
+      processors: [memory_limiter, batch, resourcedetection]
       exporters: [clickhouselogsexporter]

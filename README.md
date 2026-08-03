@@ -30,8 +30,6 @@ graph TD
         Kafka["Apache Kafka (Modo KRaft)<br>Topics: transfer_completed, transfer-events-retry, transfer-events-dlq"]
     end
 
-
-
     subgraph Database ["Capa de Persistencia"]
         MySQL[("MySQL 8.0<br>Puerto: 3307")]
         AuthDB[("authdb")]
@@ -46,6 +44,13 @@ graph TD
         ClickHouse[("ClickHouse DB<br>Puerto: 9000")]
         SigNoz["SigNoz UI<br>Puerto: 3301"]
     end
+
+    subgraph Runtime ["Plataforma de Ejecución & Orquestación"]
+        Engine["containerd Engine + nerdctl<br>(Rancher Desktop - k3s Kubernetes) / Docker Compose"]
+    end
+
+    %% Infrastructure Platform
+    Microservices & Gateway & Database & CacheLayer & Messaging & Observability & Client -.-> Engine
 
     %% Client and Gateway routing
     Frontend -->|HTTP Requests| ApiGateway
@@ -77,7 +82,6 @@ graph TD
     Kafka -->|Consume transfer_completed| NotificationService
     Kafka -->|Consume & Retry DLQ| WorkerService
 
-
     %% Email Delivery
     NotificationService -->|SMTP Desarrollo| Mailpit["Mailpit (Mock SMTP)<br>Puerto: 8025 / 1025"]
 
@@ -100,8 +104,8 @@ graph TD
 | **Caché y Rendimiento** | Redis 7 (Caché L2, Idempotencia, Blacklist JWT, Rate Limiting) |
 | **Mensajería** | Apache Kafka en **modo KRaft** (Reintentos automáticos + Dead Letter Queue - DLQ) |
 | **Email** | Gmail SMTP (producción) / Mailpit (desarrollo) |
-| **Observabilidad** | OpenTelemetry Collector, SigNoz APM, ClickHouse, Docker Stats, Kafka Metrics |
-| **Contenedores** | Docker + Docker Compose |
+| **Observabilidad** | OpenTelemetry Collector, SigNoz APM, ClickHouse, Kafka Metrics |
+| **Contenedores & Orquestación** | Rancher Desktop + containerd + `nerdctl` + Kubernetes (k3s) / Docker Compose |
 
 ## Funcionalidades
 
@@ -190,39 +194,32 @@ Punto de entrada único. Valida JWT, aplica Rate Limiting distribuido con Redis 
 
 ## Requisitos Previos
 
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) instalado y corriendo
-- Puertos disponibles: 3000, 3307, 6380, 8080-8085, 9092, 8025, 1025
+- [Rancher Desktop](https://rancherdesktop.io/) con containerd y Kubernetes habilitados
+- `nerdctl` y `kubectl` instalados (incluidos con Rancher Desktop)
+- Puertos disponibles: 80, 3000, 3307, 6380, 8080-8085, 9092, 8025, 30301
 
-## Instalación y Ejecución
+## Instalación y Ejecución con Kubernetes (Rancher Desktop) - Recomendado
 
-### 1. Clonar el repositorio
+Para la guía detallada de despliegue en Kubernetes con Rancher Desktop, consulta [README_RANCHER.md](README_RANCHER.md).
 
+### Despliegue en 1 Solo Paso:
+
+- **En Windows (PowerShell):**
+  ```powershell
+  .\deploy-rancher.ps1
+  ```
+- **En Linux / macOS / Git Bash:**
+  ```bash
+  chmod +x deploy-rancher.sh
+  ./deploy-rancher.sh
+  ```
+
+### Verificar Estado del Clúster:
 ```bash
-git clone https://github.com/jara96/fintech-wallet.git
-cd fintech-wallet
+kubectl get pods -n fintech
 ```
 
-### 2. Configurar el archivo de entorno (.env)
-
-Crea una copia del archivo de ejemplo `.env.example` y nómbralo `.env`:
-
-```bash
-cp .env.example .env
-```
-
-Abre el archivo `.env` y rellena las siguientes variables:
-
-*   **Configuración de Base de Datos**: Configura el usuario y contraseña para MySQL (por defecto `root` y `12345`).
-*   **Gmail (opcional)**: Para enviar correos de verificación y notificaciones reales. Si no se configura, los correos serán capturados por Mailpit en desarrollo.
-*   **SigNoz API Key**: Necesaria si deseas interactuar con la API de SigNoz para automatizar la creación de dashboards y alertas.
-
-### 3. Levantar la aplicación y la infraestructura
-
-Inicia todos los servicios (Base de datos, Redis, Kafka KRaft, Microservicios Java, Frontend React y la suite de Observabilidad de SigNoz):
-
-```bash
-docker compose up -d
-```
+## Instalación y Ejecución con Docker Compose
 
 Espera unos minutos a que todos los servicios arranquen y compilen. Puedes verificar el estado con:
 
@@ -312,23 +309,46 @@ fintech-wallet/
 | 1025 | Mailpit (SMTP) |
 
 
-## Comandos Utiles
+## 🚀 Despliegue y Comandos Útiles
+
+### 📦 Kubernetes (Rancher Desktop) - Entorno Recomendado
+Para desplegar la aplicación completa en Kubernetes con Rancher Desktop y containerd:
+
+```powershell
+# En Windows (PowerShell)
+.\deploy-rancher.ps1
+
+# En Linux / macOS / Git Bash
+chmod +x deploy-rancher.sh
+./deploy-rancher.sh
+```
+
+Para ver la guía completa de despliegue manual, ruteo por Ingress y la **Guía Completa de Comandos Kubernetes (Cheat Sheet)**, consulta [`README_RANCHER.md`](./README_RANCHER.md).
 
 ```bash
-# Levantar todo
+# Ver estado de los Pods
+kubectl get pods -n fintech
+
+# Ver logs en tiempo real
+kubectl logs -n fintech -l app=transaction-service --tail=50 -f
+
+# Reiniciar un microservicio
+kubectl rollout restart deployment transaction-service -n fintech
+```
+
+---
+
+### 🐳 Docker Compose (Desarrollo Local Directo)
+
+```bash
+# Levantar el entorno local con Docker Compose
 docker compose up -d
 
 # Ver logs de un servicio
 docker compose logs -f auth-service
 
-# Detener todo
+# Detener todos los contenedores
 docker compose down
-
-# Reconstruir un servicio especifico
-docker compose up -d --build auth-service
-
-# Ver estado de los contenedores
-docker compose ps
 ```
 
 ## Tecnologias Detalladas

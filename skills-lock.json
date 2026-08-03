@@ -12,6 +12,12 @@
       "sourceType": "autoskills-registry",
       "computedHash": "bffe3d08cfe92ebad63699f74ce29e35c19850ebfbf474c1463183cfe34d6a09"
     },
+    "docker-best-practices": {
+      "source": "josiahsiegel/claude-plugin-marketplace",
+      "sourceType": "github",
+      "skillPath": "plugins/docker-master/skills/docker-best-practices/SKILL.md",
+      "computedHash": "cba601e13f539041216007fbd2bd929b5b335b57ea0cdd8ab8ab54406febfc3d"
+    },
     "frontend-design": {
       "source": "anthropics/skills",
       "sourceType": "autoskills-registry",
@@ -21,6 +27,12 @@
       "source": "smithery.ai",
       "sourceType": "well-known",
       "computedHash": "fb45d2d618fc01b622c6c8d06abc9fcb538f52085789ee26baacec5fde35ebd6"
+    },
+    "kubernetes-specialist": {
+      "source": "jeffallan/claude-skills",
+      "sourceType": "github",
+      "skillPath": "skills/kubernetes-specialist/SKILL.md",
+      "computedHash": "7a8183bfb9230dc6800b911470d0ac8b8aefe77518f74f75b268e6f49afa58da"
     },
     "microservices-patterns": {
       "source": "sickn33/antigravity-awesome-skills",

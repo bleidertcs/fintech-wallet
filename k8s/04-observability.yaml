@@ -1,0 +1,534 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: otel-collector
+  namespace: fintech
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: otel-collector-k8s-role
+rules:
+  - apiGroups: [""]
+    resources:
+      - events
+      - namespaces
+      - namespaces/status
+      - nodes
+      - nodes/spec
+      - nodes/stats
+      - nodes/proxy
+      - pods
+      - pods/status
+      - persistentvolumeclaims
+      - persistentvolumes
+      - services
+      - endpoints
+      - configmaps
+      - replicationcontrollers
+      - resourcequotas
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["apps"]
+    resources:
+      - daemonsets
+      - deployments
+      - replicasets
+      - statefulsets
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["batch"]
+    resources:
+      - jobs
+      - cronjobs
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["autoscaling"]
+    resources:
+      - horizontalpodautoscalers
+    verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: otel-collector-k8s-binding
+subjects:
+  - kind: ServiceAccount
+    name: otel-collector
+    namespace: fintech
+roleRef:
+  kind: ClusterRole
+  name: otel-collector-k8s-role
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: clickhouse-config
+  namespace: fintech
+data:
+  cluster.xml: |
+    <clickhouse>
+        <distributed_ddl>
+            <profile>default</profile>
+            <task_max_lifetime>0</task_max_lifetime>
+        </distributed_ddl>
+        <macros>
+            <shard>01</shard>
+            <replica>127.0.0.1</replica>
+        </macros>
+        <remote_servers>
+            <cluster>
+                <shard>
+                    <replica>
+                        <host>127.0.0.1</host>
+                        <port>9000</port>
+                    </replica>
+                </shard>
+            </cluster>
+        </remote_servers>
+        <zookeeper>
+            <node index="1">
+                <host>127.0.0.1</host>
+                <port>9181</port>
+            </node>
+        </zookeeper>
+        <keeper_server>
+            <tcp_port>9181</tcp_port>
+            <server_id>1</server_id>
+            <log_storage_path>/var/lib/clickhouse/coordination/log</log_storage_path>
+            <snapshot_storage_path>/var/lib/clickhouse/coordination/snapshots</snapshot_storage_path>
+            <coordination_settings>
+                <operation_timeout_ms>10000</operation_timeout_ms>
+                <session_timeout_ms>30000</session_timeout_ms>
+                <raft_logs_level>warning</raft_logs_level>
+            </coordination_settings>
+            <raft_configuration>
+                <server>
+                    <id>1</id>
+                    <hostname>127.0.0.1</hostname>
+                    <port>9234</port>
+                </server>
+            </raft_configuration>
+        </keeper_server>
+    </clickhouse>
+  users.xml: |
+    <clickhouse>
+        <profiles>
+            <default>
+                <allow_experimental_object_type>1</allow_experimental_object_type>
+                <allow_experimental_json_type>1</allow_experimental_json_type>
+                <distributed_ddl_task_timeout>0</distributed_ddl_task_timeout>
+            </default>
+        </profiles>
+        <users>
+            <default>
+                <password></password>
+                <networks>
+                    <ip>::/0</ip>
+                </networks>
+            </default>
+        </users>
+    </clickhouse>
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: otel-collector-config
+  namespace: fintech
+data:
+  otel-collector-config.yaml: |
+    receivers:
+      otlp:
+        protocols:
+          grpc:
+            endpoint: 0.0.0.0:4317
+          http:
+            cors:
+              allowed_origins:
+                - "http://*"
+                - "https://*"
+            endpoint: 0.0.0.0:4318
+      kafkametrics:
+        brokers:
+          - kafka:29092
+        protocol_version: "2.0.0"
+        scrapers:
+          - brokers
+          - topics
+          - consumers
+      redis:
+        endpoint: "redis:6379"
+        collection_interval: 15s
+      k8s_cluster:
+        collection_interval: 10s
+        node_conditions_to_report: [Ready, MemoryPressure, DiskPressure]
+        allocatable_types_to_report: [cpu, memory]
+      k8s_events:
+        auth_type: serviceAccount
+    processors:
+      batch:
+        send_batch_size: 10000
+        timeout: 1s
+        send_batch_max_size: 11000
+      memory_limiter:
+        check_interval: 1s
+        limit_percentage: 75
+        spike_limit_percentage: 15
+      k8sattributes:
+        auth_type: "serviceAccount"
+        passthrough: false
+        extract:
+          metadata:
+            - k8s.pod.name
+            - k8s.pod.uid
+            - k8s.deployment.name
+            - k8s.statefulset.name
+            - k8s.namespace.name
+            - k8s.node.name
+            - k8s.pod.start_time
+      signozspanmetrics:
+        metrics_exporter: signozclickhousemetrics
+        latency_histogram_buckets:
+          [100us, 1ms, 2ms, 6ms, 10ms, 50ms, 100ms, 250ms, 500ms, 1s, 1.4s, 2s, 5s, 10s, 15s, 40s]
+        dimensions:
+          - name: service.namespace
+            default: default
+          - name: deployment.environment
+            default: default
+    exporters:
+      clickhousetraces:
+        datasource: tcp://clickhouse:9000/signoz_traces
+        use_new_schema: true
+      signozclickhousemetrics:
+        dsn: tcp://clickhouse:9000/signoz_metrics
+      clickhouselogsexporter:
+        dsn: tcp://clickhouse:9000/signoz_logs
+        use_new_schema: true
+    service:
+      pipelines:
+        traces:
+          receivers: [otlp]
+          processors: [k8sattributes, memory_limiter, batch]
+          exporters: [clickhousetraces]
+        metrics:
+          receivers: [otlp, kafkametrics, redis, k8s_cluster]
+          processors: [k8sattributes, memory_limiter, batch]
+          exporters: [signozclickhousemetrics]
+        logs:
+          receivers: [otlp, k8s_events]
+          processors: [k8sattributes, memory_limiter, batch]
+          exporters: [clickhouselogsexporter]
+  otel-migration-config.yaml: |
+    receivers:
+      otlp:
+        protocols:
+          grpc:
+            endpoint: 0.0.0.0:4317
+    processors:
+      batch:
+    exporters:
+      clickhousetraces:
+        datasource: tcp://clickhouse:9000/signoz_traces
+        use_new_schema: true
+      signozclickhousemetrics:
+        dsn: tcp://clickhouse:9000/signoz_metrics
+      clickhouselogsexporter:
+        dsn: tcp://clickhouse:9000/signoz_logs
+        use_new_schema: true
+    service:
+      pipelines:
+        traces:
+          receivers: [otlp]
+          processors: [batch]
+          exporters: [clickhousetraces]
+        metrics:
+          receivers: [otlp]
+          processors: [batch]
+          exporters: [signozclickhousemetrics]
+        logs:
+          receivers: [otlp]
+          processors: [batch]
+          exporters: [clickhouselogsexporter]
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: clickhouse
+  namespace: fintech
+  labels:
+    app: clickhouse
+spec:
+  serviceName: clickhouse
+  replicas: 1
+  selector:
+    matchLabels:
+      app: clickhouse
+  template:
+    metadata:
+      labels:
+        app: clickhouse
+    spec:
+      containers:
+        - name: clickhouse
+          image: clickhouse/clickhouse-server:25.12.5
+          ports:
+            - containerPort: 9000
+              name: native
+            - containerPort: 8123
+              name: http
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "200m"
+            limits:
+              memory: "2Gi"
+              cpu: "1000m"
+          livenessProbe:
+            httpGet:
+              path: /ping
+              port: 8123
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /ping
+              port: 8123
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          volumeMounts:
+            - name: clickhouse-data
+              mountPath: /var/lib/clickhouse
+            - name: cluster-config
+              mountPath: /etc/clickhouse-server/config.d/cluster.xml
+              subPath: cluster.xml
+            - name: users-config
+              mountPath: /etc/clickhouse-server/users.d/experimental.xml
+              subPath: users.xml
+      volumes:
+        - name: cluster-config
+          configMap:
+            name: clickhouse-config
+        - name: users-config
+          configMap:
+            name: clickhouse-config
+  volumeClaimTemplates:
+    - metadata:
+        name: clickhouse-data
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        storageClassName: "local-path"
+        resources:
+          requests:
+            storage: 5Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clickhouse
+  namespace: fintech
+spec:
+  type: ClusterIP
+  ports:
+    - port: 9000
+      targetPort: 9000
+      name: native
+    - port: 8123
+      targetPort: 8123
+      name: http
+  selector:
+    app: clickhouse
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: signoz-migrator
+  namespace: fintech
+spec:
+  template:
+    spec:
+      containers:
+        - name: migrator
+          image: signoz/signoz-otel-collector:v0.144.6
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+          command:
+            - /bin/sh
+            - -c
+            - |
+              /signoz-otel-collector migrate bootstrap --config /etc/otel-collector-config.yaml --clickhouse-replication=false && \
+              /signoz-otel-collector migrate sync up --config /etc/otel-collector-config.yaml --clickhouse-replication=false && \
+              /signoz-otel-collector migrate async up --config /etc/otel-collector-config.yaml --clickhouse-replication=false
+          env:
+            - name: SIGNOZ_LOCAL_DB
+              value: "true"
+            - name: SIGNOZ_OTEL_COLLECTOR_CLICKHOUSE_DSN
+              value: "tcp://clickhouse:9000"
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "50m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          volumeMounts:
+            - name: otel-migration-volume
+              mountPath: /etc/otel-collector-config.yaml
+              subPath: otel-migration-config.yaml
+      restartPolicy: OnFailure
+      volumes:
+        - name: otel-migration-volume
+          configMap:
+            name: otel-collector-config
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: signoz
+  namespace: fintech
+  labels:
+    app: signoz
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: signoz
+  template:
+    metadata:
+      labels:
+        app: signoz
+    spec:
+      containers:
+        - name: signoz
+          image: signoz/signoz:v0.132.2
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+          ports:
+            - containerPort: 8080
+              name: ui
+          env:
+            - name: STORAGE
+              value: "clickhouse"
+            - name: ClickHouseUrl
+              value: "tcp://clickhouse:9000"
+            - name: SIGNOZ_SQLSTORE_SQLITE_PATH
+              value: "/tmp/signoz.db"
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "50m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          livenessProbe:
+            httpGet:
+              path: /api/v1/healthz
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /api/v1/healthz
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: signoz
+  namespace: fintech
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30301
+      name: ui
+  selector:
+    app: signoz
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: otel-collector
+  namespace: fintech
+  labels:
+    app: otel-collector
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: otel-collector
+  template:
+    metadata:
+      labels:
+        app: otel-collector
+    spec:
+      serviceAccountName: otel-collector
+      containers:
+        - name: otel-collector
+          image: signoz/signoz-otel-collector:v0.144.6
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+          args: ["--config=/etc/otel-collector-config.yaml"]
+          ports:
+            - containerPort: 4317
+              name: otlp-grpc
+            - containerPort: 4318
+              name: otlp-http
+          env:
+            - name: SIGNOZ_LOCAL_DB
+              value: "true"
+            - name: K8S_NODE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "50m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          livenessProbe:
+            tcpSocket:
+              port: 4318
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          readinessProbe:
+            tcpSocket:
+              port: 4318
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          volumeMounts:
+            - name: otel-config-volume
+              mountPath: /etc/otel-collector-config.yaml
+              subPath: otel-collector-config.yaml
+      volumes:
+        - name: otel-config-volume
+          configMap:
+            name: otel-collector-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: otel-collector
+  namespace: fintech
+spec:
+  type: ClusterIP
+  ports:
+    - port: 4317
+      targetPort: 4317
+      name: otlp-grpc
+    - port: 4318
+      targetPort: 4318
+      name: otlp-http
+  selector:
+    app: otel-collector

@@ -27,6 +27,17 @@ export function AuthProvider({ children }) {
     }
 
     localStorage.setItem('token', data.token);
+    try {
+      const usersRes = await userService.getAll();
+      const profile = usersRes.data?.find(u => u.email?.toLowerCase() === email?.toLowerCase());
+      if (profile) {
+        data.id = profile.id;
+        data.name = profile.name;
+        data.balance = profile.balance;
+      }
+    } catch (e) {
+      console.warn("No se pudo obtener el perfil de usuario en login:", e);
+    }
     localStorage.setItem('user', JSON.stringify(data));
     setUser(data);
     return data;
@@ -36,6 +47,17 @@ export function AuthProvider({ children }) {
     const res = await authService.verifyTotp(email, code);
     const data = res.data;
     localStorage.setItem('token', data.token);
+    try {
+      const usersRes = await userService.getAll();
+      const profile = usersRes.data?.find(u => u.email?.toLowerCase() === email?.toLowerCase());
+      if (profile) {
+        data.id = profile.id;
+        data.name = profile.name;
+        data.balance = profile.balance;
+      }
+    } catch (e) {
+      console.warn("No se pudo obtener el perfil de usuario en verifyTotp:", e);
+    }
     localStorage.setItem('user', JSON.stringify(data));
     setUser(data);
     setPendingTotp(null);
@@ -43,10 +65,11 @@ export function AuthProvider({ children }) {
   };
 
   const register = async (name, email, password) => {
-    const res = await authService.register(email, password);
+    const res = await authService.register(email, password, name);
     const data = res.data;
-    localStorage.setItem('token', data.token);
-    await userService.create({ name, email, balance: 10000 });
+    if (data.token) {
+      localStorage.setItem('token', data.token);
+    }
     localStorage.setItem('user', JSON.stringify(data));
     setUser(data);
     return data;
