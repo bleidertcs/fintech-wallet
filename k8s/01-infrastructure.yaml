@@ -54,6 +54,12 @@ spec:
             limits:
               memory: "384Mi"
               cpu: "400m"
+          startupProbe:
+            exec:
+              command: ["mysqladmin", "ping", "-h", "localhost"]
+            initialDelaySeconds: 15
+            periodSeconds: 5
+            failureThreshold: 30
           livenessProbe:
             exec:
               command: ["mysqladmin", "ping", "-h", "localhost"]
@@ -149,6 +155,12 @@ spec:
             limits:
               memory: "384Mi"
               cpu: "400m"
+          startupProbe:
+            exec:
+              command: ["mysqladmin", "ping", "-h", "localhost"]
+            initialDelaySeconds: 15
+            periodSeconds: 5
+            failureThreshold: 30
           livenessProbe:
             exec:
               command: ["mysqladmin", "ping", "-h", "localhost"]
@@ -244,6 +256,12 @@ spec:
             limits:
               memory: "384Mi"
               cpu: "400m"
+          startupProbe:
+            exec:
+              command: ["mysqladmin", "ping", "-h", "localhost"]
+            initialDelaySeconds: 15
+            periodSeconds: 5
+            failureThreshold: 30
           livenessProbe:
             exec:
               command: ["mysqladmin", "ping", "-h", "localhost"]
@@ -339,6 +357,12 @@ spec:
             limits:
               memory: "384Mi"
               cpu: "400m"
+          startupProbe:
+            exec:
+              command: ["mysqladmin", "ping", "-h", "localhost"]
+            initialDelaySeconds: 15
+            periodSeconds: 5
+            failureThreshold: 30
           livenessProbe:
             exec:
               command: ["mysqladmin", "ping", "-h", "localhost"]
@@ -434,6 +458,12 @@ spec:
             limits:
               memory: "384Mi"
               cpu: "400m"
+          startupProbe:
+            exec:
+              command: ["mysqladmin", "ping", "-h", "localhost"]
+            initialDelaySeconds: 15
+            periodSeconds: 5
+            failureThreshold: 30
           livenessProbe:
             exec:
               command: ["mysqladmin", "ping", "-h", "localhost"]

@@ -106,6 +106,9 @@ kubectl apply -f k8s/03-frontend.yaml
 kubectl apply -f k8s/04-observability.yaml
 kubectl apply -f k8s/05-ingress.yaml
 kubectl apply -f k8s/06-networkpolicy.yaml
+kubectl apply -f k8s/07-kafka-connect.yaml
+kubectl apply -f k8s/08-hpa.yaml
+kubectl apply -f k8s/09-pdb.yaml
 
 echo -e "\n======================================================================"
 echo "[$(timestamp)] ¡Despliegue completado! Estado actual de los Pods en namespace 'fintech':"

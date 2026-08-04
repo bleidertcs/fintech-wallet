@@ -13,12 +13,15 @@ El sistema utiliza la arquitectura **Database-per-Service** en **Kubernetes (k3s
   * `worker-service` (puerto 8085) — BD: `worker-mysql` (`workerdb`)
 * **Frontend**:
   * `frontend` (React 19 + Vite 8 + Tailwind v4, puerto 3000 / NodePort 30000)
-* **Infraestructura**:
+* **Infraestructura & Hardening**:
   * 5 StatefulSets independientes de MySQL 8.0 con usuarios dedicados por microservicio.
-  * Redis 7.0 (Rate Limiting, Caché L2, Idempotencia, Blacklist JWT)
-  * Apache Kafka en modo KRaft (Mensajería asíncrona)
-  * Kafka Connect + Debezium CDC (Captura de eventos Outbox)
-  * Mailpit (Servidor SMTP de pruebas)
+  * Isolation Zero-Trust con **NetworkPolicies** por servicio y base de datos.
+  * Autoescalado de pod con **HorizontalPodAutoscaler (HPA)** (min 1, max 5).
+  * Alta disponibilidad durante mantenimientos con **PodDisruptionBudgets (PDB)** (`minAvailable: 1`).
+  * Redis 7.0 (Rate Limiting, Caché L2, Idempotencia, Blacklist JWT).
+  * Apache Kafka en modo KRaft (Mensajería asíncrona).
+  * Kafka Connect + Debezium CDC (Captura de eventos Outbox).
+  * Mailpit (Servidor SMTP de pruebas).
 * **Suite de Observabilidad**:
   * SigNoz APM UI (puerto 3301 / NodePort 30301) + OpenTelemetry Collector + ClickHouse
 
@@ -29,7 +32,7 @@ El sistema utiliza la arquitectura **Database-per-Service** en **Kubernetes (k3s
 ```mermaid
 graph TD
     Fase1["✅ Fase 1: Flyway + Usuarios BD + Cleanup Docker"] --> Fase2["✅ Fase 2: Outbox Pattern + Saga Orchestration"]
-    Fase2 --> Fase3["⏳ Fase 3: Hardening K8s (NetworkPolicies + HPA)"]
+    Fase2 --> Fase3["✅ Fase 3: Hardening K8s (NetworkPolicies + HPA + PDB)"]
     Fase3 --> Fase4["⏳ Fase 4: Observabilidad Avanzada (JDBC/Saga/Alertas)"]
     Fase4 --> Fase5["⏳ Fase 5: Tests Comprehensivos (Testcontainers)"]
 ```
@@ -38,50 +41,32 @@ graph TD
 
 ### ✅ FASE 1: Versionado de Esquemas, Seguridad BD y Entorno Nativo K8s (COMPLETADO)
 
-* [x] **Flyway Baseline**: Creados scripts `V1__init_*.sql` para los 5 microservicios backend:
-  * `auth-service`: `V1__init_authdb.sql` (tabla `users`)
-  * `user-service`: `V1__init_userdb.sql` (tabla `user_profiles`)
-  * `transaction-service`: `V1__init_transactiondb.sql` (tablas `transactions` y `money_requests`)
-  * `notification-service`: `V1__init_notificationdb.sql` (tabla `notifications`)
-  * `worker-service`: `V1__init_workerdb.sql` (tablas `audit_logs` y `statement_jobs`)
-* [x] **Spring Boot & JPA**:
-  * Inclusión de dependencias `flyway-core` y `flyway-mysql` en los 5 `pom.xml`.
-  * Cambio de `hibernate.ddl-auto=update` a `hibernate.ddl-auto=validate`.
-  * Activación de `spring.flyway.enabled=true` y `baseline-on-migrate=true`.
-* [x] **Seguridad de BD en K8s**:
-  * Creación de usuarios de aplicación dedicados (`auth_user`, `user_user`, `tx_user`, `notif_user`, `worker_user`) y passwords root aislados en `k8s/00-namespace-config.yaml`.
-  * Inyección de `MYSQL_USER` y `MYSQL_PASSWORD` en los StatefulSets de `k8s/01-infrastructure.yaml`.
-* [x] **Eliminación Legacy**:
-  * Eliminación definitiva de `docker-compose.yml` e `infra/mysql/init-databases.sql`.
+* [x] **Flyway Baseline**: Creados scripts `V1__init_*.sql` para los 5 microservicios backend.
+* [x] **Spring Boot & JPA**: Dependencias `flyway-core` y `flyway-mysql` agregadas; `hibernate.ddl-auto=validate`.
+* [x] **Seguridad de BD en K8s**: Usuarios de aplicación dedicados e inyección de credenciales por servicio.
+* [x] **Eliminación Legacy**: Eliminación definitiva de `docker-compose.yml` e `infra/mysql/init-databases.sql`.
 
 ---
 
 ### ✅ FASE 2: Consistencia Distribuida (Outbox Pattern & Saga con Orquestación) (COMPLETADO)
 
-* [x] **Transactional Outbox Table**:
-  * Script Flyway `V2__outbox_events_table.sql` en `transaction-service`.
-  * Entidad `OutboxEvent`, `OutboxRepository` y `OutboxService`.
-  * Registro de eventos outbox en la misma transacción local (`@Transactional`) que la transferencia.
-* [x] **Debezium CDC + Kafka Connect**:
-  * Manifiesto K8s `k8s/07-kafka-connect.yaml` para desplegar Kafka Connect con `debezium/connect:2.5`.
-  * Job de inicialización para registrar el conector Debezium MySQL escuchando la tabla `outbox_events` de `tx-mysql` y enviando a Kafka.
-* [x] **Saga Orchestrator en Transferencias**:
-  * Orquestador `TransferSagaOrchestrator` implementado en `transaction-service`.
-  * Tabla `saga_instances` (`V3__saga_instances_table.sql`) y repositorio para persistir el estado de la Saga (`STARTED`, `DEBIT_COMPLETED`, `CREDIT_COMPLETED`, `COMPENSATING`, `COMPENSATED`, `COMPLETED`, `FAILED`).
-  * **Transacciones Compensatorias**: Si el paso de crédito falla, el orquestador revierte automáticamente el débito devolviendo los fondos al emisor vía gRPC.
+* [x] **Transactional Outbox Table**: Script `V2__outbox_events_table.sql`, `OutboxEvent` y `OutboxService`.
+* [x] **Debezium CDC + Kafka Connect**: Manifiesto `k8s/07-kafka-connect.yaml` para captura CDC near-real-time.
+* [x] **Saga Orchestrator en Transferencias**: `TransferSagaOrchestrator` con máquina de estados y **Transacciones Compensatorias** automáticas en caso de fallo.
 
 ---
 
-### ⏳ FASE 3: Hardening de Infraestructura en Kubernetes
+### ✅ FASE 3: Hardening de Infraestructura en Kubernetes (COMPLETADO)
 
-* [ ] **Network Policies Restrictivas**:
-  * Manifiesto `k8s/06-networkpolicy.yaml` con aislamiento estricto (denegar todo por defecto).
-  * Permitir únicamente tráfico legítimo (ej. `api-gateway` -> microservicios; microservicios -> su propia BD; `transaction-service` -> `user-service` gRPC).
-* [ ] **Horizontal Pod Autoscaling (HPA)**:
-  * Manifiesto `k8s/08-hpa.yaml` para autoescalar pods de microservicios según uso de CPU/memoria (mínimo 1, máximo 3 replicas).
-* [ ] **Ajuste de Recursos & PodDisruptionBudgets**:
-  * Definición estricta de `requests` y `limits` de CPU/memoria para prevenir OOMKilled.
-  * Creación de `PodDisruptionBudget` para evitar caídas durante desalertas o mantenimientos del clúster.
+* [x] **Network Policies Restrictivas (Zero-Trust)**:
+  * Manifiesto `k8s/06-networkpolicy.yaml` reescrito con `default-deny-all` y reglas ingress explícitas puerto a puerto.
+  * Aislamiento total de las 5 bases de datos MySQL permitiendo conexión únicamente a su respectivo microservicio.
+* [x] **Horizontal Pod Autoscaling (HPA)**:
+  * Manifiesto `k8s/08-hpa.yaml` con reglas de autoescalado basado en consumo de CPU (70%) y Memoria (80%) para los 6 microservicios.
+* [x] **PodDisruptionBudgets (PDB)**:
+  * Manifiesto `k8s/09-pdb.yaml` que exige `minAvailable: 1` para todos los microservicios y StatefulSets de MySQL durante drains o mantenimientos del clúster.
+* [x] **Scripts de Despliegue**:
+  * Actualización de `deploy-rancher.ps1` y `deploy-rancher.sh` para aplicar automáticamente todos los nuevos manifiestos (`06-networkpolicy.yaml`, `07-kafka-connect.yaml`, `08-hpa.yaml`, `09-pdb.yaml`).
 
 ---
 
@@ -118,14 +103,8 @@ Para recompilar y desplegar todo el sistema en Kubernetes con 1 solo comando:
 .\deploy-rancher.ps1
 ```
 
-Para verificar el estado de los pods en Kubernetes:
+Para verificar HPA y NetworkPolicies en Kubernetes:
 
 ```powershell
-kubectl get pods -n fintech
-```
-
-Para revisar logs de la Saga y Outbox:
-
-```powershell
-kubectl logs -n fintech deployment/transaction-service
+kubectl get hpa,pdb,netpol -n fintech
 ```

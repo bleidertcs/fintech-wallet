@@ -22,7 +22,8 @@ Log-Msg "======================================================================"
 
 # 1. Verificar disponibilidad de nerdctl CLI
 Log-Msg "`nVerificando conexión con Rancher Desktop (containerd via nerdctl)..." Yellow
-$nerdctlCmd = if (Get-Command nerdctl -ErrorAction SilentlyContinue) { "nerdctl" } elseif (Get-Command nerdctl.exe -ErrorAction SilentlyContinue) { "nerdctl.exe" } else { "nerdctl" }
+$rdBin = "C:\Program Files\Rancher Desktop\resources\resources\win32\bin\nerdctl.exe"
+$nerdctlCmd = if (Get-Command nerdctl -ErrorAction SilentlyContinue) { "nerdctl" } elseif (Get-Command nerdctl.exe -ErrorAction SilentlyContinue) { "nerdctl.exe" } elseif (Test-Path $rdBin) { $rdBin } else { "nerdctl" }
 
 $nerdctlOk = $false
 for ($i = 1; $i -le 3; $i++) {
@@ -117,6 +118,9 @@ kubectl apply -f k8s/03-frontend.yaml
 kubectl apply -f k8s/04-observability.yaml
 kubectl apply -f k8s/05-ingress.yaml
 kubectl apply -f k8s/06-networkpolicy.yaml
+kubectl apply -f k8s/07-kafka-connect.yaml
+kubectl apply -f k8s/08-hpa.yaml
+kubectl apply -f k8s/09-pdb.yaml
 
 Log-Msg "`n======================================================================" Green
 Log-Msg "¡Despliegue completado! Estado actual de los Pods en namespace 'fintech':" Green
