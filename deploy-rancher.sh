@@ -76,9 +76,9 @@ if [ "$RECREATE" = false ] && [ "$NON_INTERACTIVE" = false ] && [ -t 0 ]; then
 fi
 
 if [ "$RECREATE" = true ]; then
-  echo -e "\n[$(timestamp)] Eliminando namespace 'fintech' para recreación completa..."
-  kubectl delete namespace fintech --ignore-not-found || true
-  sleep 3
+  echo -e "\n[$(timestamp)] Eliminando todos los recursos del namespace 'fintech' para recreación..."
+  kubectl delete deployments,statefulsets,services,pvc,configmaps,secrets --all -n fintech --ignore-not-found || true
+  sleep 5
 fi
 
 # 3. Construir imágenes en el namespace k8s.io de containerd

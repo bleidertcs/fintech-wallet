@@ -34,13 +34,12 @@ graph TD
         Kafka["Apache Kafka<br>Topics: transfer-events, retry, dlq"]
     end
 
-    subgraph Database ["Capa de Persistencia"]
-        MySQL[("MySQL 8.0<br>Puerto: 3307")]
-        AuthDB[("authdb")]
-        UserDB[("userdb")]
-        TransactionDB[("transactiondb")]
-        NotificationDB[("notificationdb")]
-        WorkerDB[("workerdb")]
+    subgraph Database ["Capa de Persistencia (Database-per-Service)"]
+        AuthDB[("auth-mysql<br>authdb")]
+        UserDB[("user-mysql<br>userdb")]
+        TransactionDB[("tx-mysql<br>transactiondb")]
+        NotificationDB[("notif-mysql<br>notificationdb")]
+        WorkerDB[("worker-mysql<br>workerdb")]
     end
 
     subgraph Observability ["Suite de Observabilidad"]
@@ -70,13 +69,12 @@ graph TD
     UserService -.->|Caché de Saldos| Redis
     TransactionService -.->|Claves Idempotencia| Redis
 
-    %% Databases
-    AuthService -->|Persistencia| AuthDB
-    UserService -->|Persistencia| UserDB
-    TransactionService -->|Persistencia| TransactionDB
-    NotificationService -->|Persistencia| NotificationDB
-    WorkerService -->|Persistencia| WorkerDB
-    AuthDB & UserDB & TransactionDB & NotificationDB & WorkerDB --> MySQL
+    %% Isolated Databases (Database-per-Service)
+    AuthService -->|Persistencia Aislada| AuthDB
+    UserService -->|Persistencia Aislada| UserDB
+    TransactionService -->|Persistencia Aislada| TransactionDB
+    NotificationService -->|Persistencia Aislada| NotificationDB
+    WorkerService -->|Persistencia Aislada| WorkerDB
 
     %% Inter-service communication (gRPC)
     TransactionService -.->|gRPC: GetUser / UpdateBalance| UserService
@@ -106,7 +104,7 @@ graph TD
 |------|------------|
 | **Frontend** | React 19, Vite 8, Tailwind CSS v4, React Router v6, Axios, Recharts, jsPDF, xlsx, qrcode.react, html5-qrcode |
 | **Backend** | Spring Boot 3, Spring Data JPA, Spring Cloud Gateway, Spring Kafka, Spring Data Redis, Spring Mail, JJWT, Protobuf (gRPC), PDFBox/OpenPDF |
-| **Base de Datos** | MySQL 8.0, ClickHouse (Almacén de Telemetría) |
+| **Base de Datos** | MySQL 8.0 (5 instancias independientes en Kubernetes, Database-per-Service), ClickHouse (Almacén de Telemetría) |
 | **Caché / In-Memory** | Redis 7.0 (Rate Limiting, Cache L2, Blacklist JWT, Idempotencia) |
 | **Mensajería** | Apache Kafka en **modo KRaft** (Topics: `transfer-events`, Retry topics y DLQ) |
 | **Email** | Gmail SMTP (Producción) / Mailpit (Desarrollo) |
@@ -206,9 +204,9 @@ Usuario -> Frontend (Transfer.jsx) -> API Gateway -> Transaction Service
 
 ---
 
-## 5. Diseño de Base de Datos (MySQL)
+## 5. Diseño de Base de Datos (MySQL - Database-per-Service)
 
-El sistema utiliza bases de datos aisladas bajo un mismo servidor MySQL de desarrollo (Puerto `3307`):
+En Kubernetes, el sistema aplica el patrón **Database-per-Service** con **5 instancias MySQL 8.0 totalmente aisladas** (`auth-mysql`, `user-mysql`, `tx-mysql`, `notif-mysql`, `worker-mysql`), evitando la saturación cruzada de recursos (CPU, RAM, disk I/O y pools de conexiones):
 
 ### 5.1 authdb
 *   **users**:
@@ -260,25 +258,28 @@ El sistema utiliza bases de datos aisladas bajo un mismo servidor MySQL de desar
 
 ---
 
-## 6. Puertos del Sistema y Contenedores (containerd / Docker Compose)
+## 6. Puertos del Sistema y Servicios/Contenedores
 
-El stack se compone de **15 servicios/contenedores** ejecutando los siguientes componentes:
+El stack se compone de **19 servicios/contenedores** en Kubernetes ejecutando los siguientes componentes:
 
-| Puerto | Contenedor | Servicio | Descripción |
-|--------|------------|----------|-------------|
-| **3000** | `fintech-frontend` | Nginx + React Frontend | Interfaz de Usuario Web |
-| **8080** | `fintech-gateway` | Spring Cloud Gateway | Puerta de enlace y filtros de seguridad |
-| **8081** | `fintech-auth` | Auth Service | Gestión de usuarios y credenciales |
-| **8082** | `fintech-user` | User Service | Gestión de saldos y configuraciones de perfil |
-| **9090** | `fintech-user` (gRPC) | User Service | Endpoint gRPC interno para microservicios |
-| **8083** | `fintech-transaction` | Transaction Service | Procesamiento de transferencias y solicitudes |
-| **8084** | `fintech-notification` | Notification Service | Consumo de mensajes Kafka e historial |
-| **3307** | `fintech-mysql` | MySQL Database | Motores de bases de datos relacionales |
-| **9092** | `fintech-kafka` | Apache Kafka Broker | Bus de eventos y mensajería |
-| **2181** | `fintech-zookeeper` | ZooKeeper | Coordinación del broker Kafka |
-| **8025** | `fintech-mailpit` | Mailpit (Web UI) | Panel de lectura de correos locales |
-| **1025** | `fintech-mailpit` | Mailpit (SMTP) | Servidor SMTP para capturar emails de prueba |
-| **3301** | `fintech-signoz` | SigNoz Frontend UI | Panel web de observabilidad |
-| **9000** | `fintech-clickhouse` | ClickHouse DB | Base de datos columnar de telemetría de SigNoz |
-| **4317** | `fintech-otel-collector` | OpenTelemetry Collector | Puerto gRPC de ingesta de métricas/trazas/logs |
-| **8000** | `fintech-signoz-mcp-server` | SigNoz MCP Server | API para interacción externa con SigNoz |
+| Puerto Interno | Pod / Service | Componente | Descripción |
+|----------------|---------------|------------|-------------|
+| **3000** | `frontend` | Nginx + React Frontend | Interfaz de Usuario Web |
+| **8080** | `api-gateway` | Spring Cloud Gateway | Puerta de enlace y filtros de seguridad |
+| **8081** | `auth-service` | Auth Service | Gestión de usuarios y credenciales |
+| **8082** | `user-service` | User Service | Gestión de saldos y configuraciones de perfil |
+| **9090** | `user-service` (gRPC) | User Service | Endpoint gRPC interno para microservicios |
+| **8083** | `transaction-service` | Transaction Service | Procesamiento de transferencias y solicitudes |
+| **8084** | `notification-service` | Notification Service | Consumo de mensajes Kafka e historial |
+| **8085** | `worker-service` | Worker Service | Generación de extractos PDF y auditoría |
+| **3306** | `auth-mysql` | MySQL 8.0 | Instancia física de BD aislada para `authdb` |
+| **3306** | `user-mysql` | MySQL 8.0 | Instancia física de BD aislada para `userdb` |
+| **3306** | `tx-mysql` | MySQL 8.0 | Instancia física de BD aislada para `transactiondb` |
+| **3306** | `notif-mysql` | MySQL 8.0 | Instancia física de BD aislada para `notificationdb` |
+| **3306** | `worker-mysql` | MySQL 8.0 | Instancia física de BD aislada para `workerdb` |
+| **6379** | `redis` | Redis Server 7.0 | Caché L2, Rate Limiting e Idempotencia |
+| **9092 / 29092** | `kafka` | Apache Kafka | Bus de eventos y mensajería en modo KRaft |
+| **8025 / 1025** | `mailpit` | Mailpit (Mock SMTP) | Servidor SMTP y Web UI de correos locales |
+| **3301 / 30301** | `signoz` | SigNoz Frontend UI | Panel web de observabilidad APM |
+| **9000** | `clickhouse` | ClickHouse DB | Almacén columnar de telemetría de SigNoz |
+| **4317 / 4318** | `otel-collector` | OpenTelemetry Collector | Puerto gRPC/HTTP de ingesta de telemetría |

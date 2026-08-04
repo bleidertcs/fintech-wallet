@@ -4,28 +4,56 @@ metadata:
   name: fintech
 ---
 apiVersion: v1
-kind: ConfigMap
+kind: Secret
 metadata:
-  name: mysql-init-sql
+  name: auth-mysql-secret
   namespace: fintech
-data:
-  init.sql: |
-    CREATE DATABASE IF NOT EXISTS authdb;
-    CREATE DATABASE IF NOT EXISTS userdb;
-    CREATE DATABASE IF NOT EXISTS transactiondb;
-    CREATE DATABASE IF NOT EXISTS notificationdb;
-    CREATE DATABASE IF NOT EXISTS workerdb;
-
-    CREATE USER IF NOT EXISTS 'root'@'%' IDENTIFIED BY '12345';
-    GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
-    FLUSH PRIVILEGES;
+type: Opaque
+stringData:
+  DB_USERNAME: "auth_user"
+  DB_PASSWORD: "auth_password_123"
+  MYSQL_ROOT_PASSWORD: "auth_root_password_123"
 ---
 apiVersion: v1
 kind: Secret
 metadata:
-  name: fintech-secrets
+  name: user-mysql-secret
   namespace: fintech
 type: Opaque
 stringData:
-  DB_USERNAME: "root"
-  DB_PASSWORD: "12345"
+  DB_USERNAME: "user_user"
+  DB_PASSWORD: "user_password_123"
+  MYSQL_ROOT_PASSWORD: "user_root_password_123"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: tx-mysql-secret
+  namespace: fintech
+type: Opaque
+stringData:
+  DB_USERNAME: "tx_user"
+  DB_PASSWORD: "tx_password_123"
+  MYSQL_ROOT_PASSWORD: "tx_root_password_123"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: notif-mysql-secret
+  namespace: fintech
+type: Opaque
+stringData:
+  DB_USERNAME: "notif_user"
+  DB_PASSWORD: "notif_password_123"
+  MYSQL_ROOT_PASSWORD: "notif_root_password_123"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: worker-mysql-secret
+  namespace: fintech
+type: Opaque
+stringData:
+  DB_USERNAME: "worker_user"
+  DB_PASSWORD: "worker_password_123"
+  MYSQL_ROOT_PASSWORD: "worker_root_password_123"

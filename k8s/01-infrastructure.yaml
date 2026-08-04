@@ -1,26 +1,29 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: mysql
+  name: auth-mysql
   namespace: fintech
   labels:
-    app: mysql
+    app: auth-mysql
+    tier: database
 spec:
-  serviceName: mysql
+  serviceName: auth-mysql
   replicas: 1
   selector:
     matchLabels:
-      app: mysql
+      app: auth-mysql
   template:
     metadata:
       labels:
-        app: mysql
+        app: auth-mysql
+        tier: database
     spec:
       securityContext:
         fsGroup: 999
       containers:
         - name: mysql
           image: mysql:8.0
+          args: ["--innodb-buffer-pool-size=64M", "--performance-schema=OFF", "--max-connections=50"]
           ports:
             - containerPort: 3306
               name: mysql
@@ -28,15 +31,29 @@ spec:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: fintech-secrets
+                  name: auth-mysql-secret
+                  key: MYSQL_ROOT_PASSWORD
+            - name: MYSQL_DATABASE
+              value: authdb
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: auth-mysql-secret
+                  key: DB_USERNAME
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: auth-mysql-secret
                   key: DB_PASSWORD
+            - name: MYSQL_ROOT_HOST
+              value: "%"
           resources:
             requests:
-              memory: "256Mi"
+              memory: "192Mi"
               cpu: "100m"
             limits:
-              memory: "512Mi"
-              cpu: "500m"
+              memory: "384Mi"
+              cpu: "400m"
           livenessProbe:
             exec:
               command: ["mysqladmin", "ping", "-h", "localhost"]
@@ -50,29 +67,22 @@ spec:
             periodSeconds: 10
             timeoutSeconds: 5
           volumeMounts:
-            - name: mysql-data
+            - name: auth-mysql-data
               mountPath: /var/lib/mysql
-            - name: mysql-init-volume
-              mountPath: /docker-entrypoint-initdb.d/init.sql
-              subPath: init.sql
-      volumes:
-        - name: mysql-init-volume
-          configMap:
-            name: mysql-init-sql
   volumeClaimTemplates:
     - metadata:
-        name: mysql-data
+        name: auth-mysql-data
       spec:
         accessModes: [ "ReadWriteOnce" ]
         storageClassName: "local-path"
         resources:
           requests:
-            storage: 5Gi
+            storage: 2Gi
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql
+  name: auth-mysql
   namespace: fintech
 spec:
   type: ClusterIP
@@ -81,7 +91,387 @@ spec:
       targetPort: 3306
       name: mysql
   selector:
-    app: mysql
+    app: auth-mysql
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: user-mysql
+  namespace: fintech
+  labels:
+    app: user-mysql
+    tier: database
+spec:
+  serviceName: user-mysql
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-mysql
+  template:
+    metadata:
+      labels:
+        app: user-mysql
+        tier: database
+    spec:
+      securityContext:
+        fsGroup: 999
+      containers:
+        - name: mysql
+          image: mysql:8.0
+          args: ["--innodb-buffer-pool-size=64M", "--performance-schema=OFF", "--max-connections=50"]
+          ports:
+            - containerPort: 3306
+              name: mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: user-mysql-secret
+                  key: MYSQL_ROOT_PASSWORD
+            - name: MYSQL_DATABASE
+              value: userdb
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: user-mysql-secret
+                  key: DB_USERNAME
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: user-mysql-secret
+                  key: DB_PASSWORD
+            - name: MYSQL_ROOT_HOST
+              value: "%"
+          resources:
+            requests:
+              memory: "192Mi"
+              cpu: "100m"
+            limits:
+              memory: "384Mi"
+              cpu: "400m"
+          livenessProbe:
+            exec:
+              command: ["mysqladmin", "ping", "-h", "localhost"]
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            timeoutSeconds: 5
+          readinessProbe:
+            exec:
+              command: ["mysqladmin", "ping", "-h", "localhost"]
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+          volumeMounts:
+            - name: user-mysql-data
+              mountPath: /var/lib/mysql
+  volumeClaimTemplates:
+    - metadata:
+        name: user-mysql-data
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        storageClassName: "local-path"
+        resources:
+          requests:
+            storage: 2Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-mysql
+  namespace: fintech
+spec:
+  type: ClusterIP
+  ports:
+    - port: 3306
+      targetPort: 3306
+      name: mysql
+  selector:
+    app: user-mysql
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: tx-mysql
+  namespace: fintech
+  labels:
+    app: tx-mysql
+    tier: database
+spec:
+  serviceName: tx-mysql
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tx-mysql
+  template:
+    metadata:
+      labels:
+        app: tx-mysql
+        tier: database
+    spec:
+      securityContext:
+        fsGroup: 999
+      containers:
+        - name: mysql
+          image: mysql:8.0
+          args: ["--innodb-buffer-pool-size=64M", "--performance-schema=OFF", "--max-connections=50"]
+          ports:
+            - containerPort: 3306
+              name: mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: tx-mysql-secret
+                  key: MYSQL_ROOT_PASSWORD
+            - name: MYSQL_DATABASE
+              value: transactiondb
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: tx-mysql-secret
+                  key: DB_USERNAME
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: tx-mysql-secret
+                  key: DB_PASSWORD
+            - name: MYSQL_ROOT_HOST
+              value: "%"
+          resources:
+            requests:
+              memory: "192Mi"
+              cpu: "100m"
+            limits:
+              memory: "384Mi"
+              cpu: "400m"
+          livenessProbe:
+            exec:
+              command: ["mysqladmin", "ping", "-h", "localhost"]
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            timeoutSeconds: 5
+          readinessProbe:
+            exec:
+              command: ["mysqladmin", "ping", "-h", "localhost"]
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+          volumeMounts:
+            - name: tx-mysql-data
+              mountPath: /var/lib/mysql
+  volumeClaimTemplates:
+    - metadata:
+        name: tx-mysql-data
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        storageClassName: "local-path"
+        resources:
+          requests:
+            storage: 2Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tx-mysql
+  namespace: fintech
+spec:
+  type: ClusterIP
+  ports:
+    - port: 3306
+      targetPort: 3306
+      name: mysql
+  selector:
+    app: tx-mysql
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: notif-mysql
+  namespace: fintech
+  labels:
+    app: notif-mysql
+    tier: database
+spec:
+  serviceName: notif-mysql
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notif-mysql
+  template:
+    metadata:
+      labels:
+        app: notif-mysql
+        tier: database
+    spec:
+      securityContext:
+        fsGroup: 999
+      containers:
+        - name: mysql
+          image: mysql:8.0
+          args: ["--innodb-buffer-pool-size=64M", "--performance-schema=OFF", "--max-connections=50"]
+          ports:
+            - containerPort: 3306
+              name: mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: notif-mysql-secret
+                  key: MYSQL_ROOT_PASSWORD
+            - name: MYSQL_DATABASE
+              value: notificationdb
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: notif-mysql-secret
+                  key: DB_USERNAME
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: notif-mysql-secret
+                  key: DB_PASSWORD
+            - name: MYSQL_ROOT_HOST
+              value: "%"
+          resources:
+            requests:
+              memory: "192Mi"
+              cpu: "100m"
+            limits:
+              memory: "384Mi"
+              cpu: "400m"
+          livenessProbe:
+            exec:
+              command: ["mysqladmin", "ping", "-h", "localhost"]
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            timeoutSeconds: 5
+          readinessProbe:
+            exec:
+              command: ["mysqladmin", "ping", "-h", "localhost"]
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+          volumeMounts:
+            - name: notif-mysql-data
+              mountPath: /var/lib/mysql
+  volumeClaimTemplates:
+    - metadata:
+        name: notif-mysql-data
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        storageClassName: "local-path"
+        resources:
+          requests:
+            storage: 2Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: notif-mysql
+  namespace: fintech
+spec:
+  type: ClusterIP
+  ports:
+    - port: 3306
+      targetPort: 3306
+      name: mysql
+  selector:
+    app: notif-mysql
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: worker-mysql
+  namespace: fintech
+  labels:
+    app: worker-mysql
+    tier: database
+spec:
+  serviceName: worker-mysql
+  replicas: 1
+  selector:
+    matchLabels:
+      app: worker-mysql
+  template:
+    metadata:
+      labels:
+        app: worker-mysql
+        tier: database
+    spec:
+      securityContext:
+        fsGroup: 999
+      containers:
+        - name: mysql
+          image: mysql:8.0
+          args: ["--innodb-buffer-pool-size=64M", "--performance-schema=OFF", "--max-connections=50"]
+          ports:
+            - containerPort: 3306
+              name: mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: worker-mysql-secret
+                  key: MYSQL_ROOT_PASSWORD
+            - name: MYSQL_DATABASE
+              value: workerdb
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: worker-mysql-secret
+                  key: DB_USERNAME
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: worker-mysql-secret
+                  key: DB_PASSWORD
+            - name: MYSQL_ROOT_HOST
+              value: "%"
+          resources:
+            requests:
+              memory: "192Mi"
+              cpu: "100m"
+            limits:
+              memory: "384Mi"
+              cpu: "400m"
+          livenessProbe:
+            exec:
+              command: ["mysqladmin", "ping", "-h", "localhost"]
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            timeoutSeconds: 5
+          readinessProbe:
+            exec:
+              command: ["mysqladmin", "ping", "-h", "localhost"]
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+          volumeMounts:
+            - name: worker-mysql-data
+              mountPath: /var/lib/mysql
+  volumeClaimTemplates:
+    - metadata:
+        name: worker-mysql-data
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        storageClassName: "local-path"
+        resources:
+          requests:
+            storage: 2Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: worker-mysql
+  namespace: fintech
+spec:
+  type: ClusterIP
+  ports:
+    - port: 3306
+      targetPort: 3306
+      name: mysql
+  selector:
+    app: worker-mysql
 ---
 apiVersion: apps/v1
 kind: StatefulSet

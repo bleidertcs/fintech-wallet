@@ -30,13 +30,12 @@ graph TD
         Kafka["Apache Kafka (Modo KRaft)<br>Topics: transfer_completed, transfer-events-retry, transfer-events-dlq"]
     end
 
-    subgraph Database ["Capa de Persistencia"]
-        MySQL[("MySQL 8.0<br>Puerto: 3307")]
-        AuthDB[("authdb")]
-        UserDB[("userdb")]
-        TransactionDB[("transactiondb")]
-        NotificationDB[("notificationdb")]
-        WorkerDB[("workerdb")]
+    subgraph Database ["Capa de Persistencia (Database-per-Service)"]
+        AuthDB[("auth-mysql<br>authdb")]
+        UserDB[("user-mysql<br>userdb")]
+        TransactionDB[("tx-mysql<br>transactiondb")]
+        NotificationDB[("notif-mysql<br>notificationdb")]
+        WorkerDB[("worker-mysql<br>workerdb")]
     end
 
     subgraph Observability ["Suite de Observabilidad"]
@@ -65,13 +64,12 @@ graph TD
     TransactionService -.->|Idempotencia X-Idempotency-Key| Redis
     AuthService -.->|Token Blacklist & TOTP Throttle| Redis
 
-    %% Databases
-    AuthService -->|Persistencia| AuthDB
-    UserService -->|Persistencia| UserDB
-    TransactionService -->|Persistencia| TransactionDB
-    NotificationService -->|Persistencia| NotificationDB
-    WorkerService -->|Persistencia| WorkerDB
-    AuthDB & UserDB & TransactionDB & NotificationDB & WorkerDB --> MySQL
+    %% Isolated Databases (Database-per-Service)
+    AuthService -->|Persistencia Aislada| AuthDB
+    UserService -->|Persistencia Aislada| UserDB
+    TransactionService -->|Persistencia Aislada| TransactionDB
+    NotificationService -->|Persistencia Aislada| NotificationDB
+    WorkerService -->|Persistencia Aislada| WorkerDB
 
     %% Inter-service communication (gRPC)
     TransactionService -.->|gRPC: GetUser / UpdateBalance| UserService
@@ -245,25 +243,18 @@ Una vez que todo esté corriendo, puedes acceder a las siguientes interfaces:
 3. Si no configuraste credenciales de Gmail reales, ve a Mailpit ([http://localhost:8025](http://localhost:8025)) para abrir el correo de verificación recibido y activar tu cuenta haciendo clic en el enlace.
 4. ¡Listo! Ya puedes iniciar sesión y usar la billetera virtual.
 
-## Base de Datos
+## Base de Datos (Database-per-Service)
 
-El sistema usa 5 bases de datos MySQL independientes:
+En Kubernetes, el sistema implementa el patrón **Database-per-Service** con **5 instancias MySQL 8.0 físicas e independientes** (StatefulSets), garantizando el aislamiento total de recursos (CPU, RAM, disk I/O y pools de conexión):
 
-| Base | Servicio | Tablas |
-|------|----------|--------|
-| `authdb` | Auth Service | `users` (credenciales, 2FA, verificación) |
-| `userdb` | User Service | `user_profiles` (nombre, balance, moneda, límite) |
-| `transactiondb` | Transaction Service | `transactions`, `money_requests` |
-| `notificationdb` | Notification Service | `notifications` (historial de notificaciones) |
-| `workerdb` | Worker Service | `statement_jobs`, `audit_logs` |
+| Instancia (Pod/Service) | Base de Datos | Servicio | Tablas Principales | Storage / Secret |
+|-------------------------|---------------|----------|-------------------|------------------|
+| `auth-mysql` | `authdb` | Auth Service | `users` (credenciales, 2FA, verificación) | PVC 2Gi / `auth-mysql-secret` |
+| `user-mysql` | `userdb` | User Service | `user_profiles` (nombre, balance, moneda, límite) | PVC 2Gi / `user-mysql-secret` |
+| `tx-mysql` | `transactiondb` | Transaction Service | `transactions`, `money_requests` | PVC 2Gi / `tx-mysql-secret` |
+| `notif-mysql` | `notificationdb` | Notification Service | `notifications` (historial de notificaciones) | PVC 2Gi / `notif-mysql-secret` |
+| `worker-mysql` | `workerdb` | Worker Service | `statement_jobs`, `audit_logs` | PVC 2Gi / `worker-mysql-secret` |
 
-Conexión a MySQL:
-```
-Host: localhost
-Puerto: 3307
-Usuario: ${DB_USERNAME} (por defecto: root)
-Contraseña: ${DB_PASSWORD} (por defecto: 12345)
-```
 
 ## Estructura del Proyecto
 

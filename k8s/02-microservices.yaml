@@ -29,16 +29,16 @@ spec:
               name: http
           env:
             - name: SPRING_DATASOURCE_URL
-              value: "jdbc:mysql://mysql:3306/authdb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true"
+              value: "jdbc:mysql://auth-mysql:3306/authdb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true"
             - name: SPRING_DATASOURCE_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: fintech-secrets
+                  name: auth-mysql-secret
                   key: DB_USERNAME
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: fintech-secrets
+                  name: auth-mysql-secret
                   key: DB_PASSWORD
             - name: SPRING_DATA_REDIS_HOST
               value: "redis"
@@ -149,16 +149,16 @@ spec:
               name: grpc
           env:
             - name: SPRING_DATASOURCE_URL
-              value: "jdbc:mysql://mysql:3306/userdb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true"
+              value: "jdbc:mysql://user-mysql:3306/userdb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true"
             - name: SPRING_DATASOURCE_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: fintech-secrets
+                  name: user-mysql-secret
                   key: DB_USERNAME
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: fintech-secrets
+                  name: user-mysql-secret
                   key: DB_PASSWORD
             - name: SPRING_DATA_REDIS_HOST
               value: "redis"
@@ -264,16 +264,16 @@ spec:
               name: http
           env:
             - name: SPRING_DATASOURCE_URL
-              value: "jdbc:mysql://mysql:3306/transactiondb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true"
+              value: "jdbc:mysql://tx-mysql:3306/transactiondb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true"
             - name: SPRING_DATASOURCE_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: fintech-secrets
+                  name: tx-mysql-secret
                   key: DB_USERNAME
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: fintech-secrets
+                  name: tx-mysql-secret
                   key: DB_PASSWORD
             - name: SPRING_DATA_REDIS_HOST
               value: "redis"
@@ -382,16 +382,16 @@ spec:
             - name: SPRING_APPLICATION_JSON
               value: '{"spring.kafka.bootstrap-servers":"kafka:29092"}'
             - name: SPRING_DATASOURCE_URL
-              value: "jdbc:mysql://mysql:3306/notificationdb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true"
+              value: "jdbc:mysql://notif-mysql:3306/notificationdb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true"
             - name: SPRING_DATASOURCE_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: fintech-secrets
+                  name: notif-mysql-secret
                   key: DB_USERNAME
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: fintech-secrets
+                  name: notif-mysql-secret
                   key: DB_PASSWORD
             - name: SPRING_MAIL_HOST
               value: "mailpit"
@@ -500,16 +500,16 @@ spec:
               name: http
           env:
             - name: SPRING_DATASOURCE_URL
-              value: "jdbc:mysql://mysql:3306/workerdb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true"
+              value: "jdbc:mysql://worker-mysql:3306/workerdb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true"
             - name: SPRING_DATASOURCE_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: fintech-secrets
+                  name: worker-mysql-secret
                   key: DB_USERNAME
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: fintech-secrets
+                  name: worker-mysql-secret
                   key: DB_PASSWORD
             - name: SPRING_DATA_REDIS_HOST
               value: "redis"

@@ -72,9 +72,9 @@ if (-not $Recreate -and -not $NonInteractive -and $Host.Name -notmatch "ServerRe
 }
 
 if ($Recreate) {
-    Log-Msg "`nEliminando deployments y servicios del namespace 'fintech' para recreación..." Yellow
-    kubectl delete namespace fintech --ignore-not-found 2>&1 | Out-Null
-    Start-Sleep -Seconds 3
+    Log-Msg "`nEliminando deployments, statefulsets, pvc y secrets del namespace 'fintech' para recreación..." Yellow
+    kubectl delete deployments,statefulsets,services,pvc,configmaps,secrets --all -n fintech --ignore-not-found 2>&1 | Out-Null
+    Start-Sleep -Seconds 5
 }
 
 # 3. Construir imágenes en el namespace k8s.io de containerd

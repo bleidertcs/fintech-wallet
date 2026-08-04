@@ -16,8 +16,8 @@ Este documento detalla el procedimiento completo para desplegar la arquitectura 
 
 ## 📁 Estructura de Manifiestos DevSecOps (`k8s/`)
 
-- [`00-namespace-config.yaml`](./k8s/00-namespace-config.yaml): Namespace `fintech`, ConfigMap `mysql-init-sql` y Secret `fintech-secrets`.
-- [`01-infrastructure.yaml`](./k8s/01-infrastructure.yaml): **StatefulSets** con PVCs (`local-path`) para MySQL 8.0, Redis 7 y Apache Kafka KRaft; y Deployment para Mailpit.
+- [`00-namespace-config.yaml`](./k8s/00-namespace-config.yaml): Namespace `fintech` y 5 **Secrets** individuales por cada instancia MySQL (`auth-mysql-secret`, `user-mysql-secret`, `tx-mysql-secret`, `notif-mysql-secret`, `worker-mysql-secret`).
+- [`01-infrastructure.yaml`](./k8s/01-infrastructure.yaml): **StatefulSets** con PVCs (`local-path`) para las 5 instancias MySQL 8.0 independientes (Database-per-Service: `auth-mysql`, `user-mysql`, `tx-mysql`, `notif-mysql`, `worker-mysql`), Redis 7 y Apache Kafka KRaft; y Deployment para Mailpit.
 - [`02-microservices.yaml`](./k8s/02-microservices.yaml): Deployments y Services endurecidos para `auth-service`, `user-service`, `transaction-service`, `notification-service`, `worker-service` y `api-gateway` (SecurityContext, Probes y Limits/Requests).
 - [`03-frontend.yaml`](./k8s/03-frontend.yaml): Deployment y Service para el frontend web React.
 - [`04-observability.yaml`](./k8s/04-observability.yaml): **StatefulSet** para ClickHouse DB con PVC (`local-path`), SigNoz UI (NodePort 30301) y OpenTelemetry Collector.
