@@ -29,6 +29,7 @@ public class TransactionService {
     private final MoneyRequestRepository moneyRequestRepository;
     private final TransactionProducer transactionProducer;
     private final IdempotencyService idempotencyService;
+    private final transaction_service.transaction_service.saga.TransferSagaOrchestrator transferSagaOrchestrator;
 
     @GrpcClient("user-service")
     private UserServiceGrpc.UserServiceBlockingStub userServiceStub;
@@ -46,66 +47,11 @@ public class TransactionService {
             }
         }
 
-        UserResponse sender = userServiceStub.getUser(UserRequest.newBuilder().setId(request.getFromUserId()).build());
-
-        userServiceStub.getUser(UserRequest.newBuilder().setId(request.getToUserId()).build());
-
-        BigDecimal senderBalance = BigDecimal.valueOf(sender.getBalance());
-        if (senderBalance.compareTo(request.getAmount()) < 0) {
-            throw new RuntimeException("Saldo insuficiente");
-        }
-
-        // Check daily limit (0 or null = use default 50000)
-        BigDecimal dailyLimit = new BigDecimal("50000");
-        if (sender.getDailyLimit() > 0) {
-            dailyLimit = BigDecimal.valueOf(sender.getDailyLimit());
-        }
-
         BigDecimal todaySent = getDailyTotal(request.getFromUserId());
-        if (todaySent.add(request.getAmount()).compareTo(dailyLimit) > 0) {
-            throw new RuntimeException("Limite diario excedido. Limite: $" + dailyLimit
-                    + ", Enviado hoy: $" + todaySent + ", Disponible: $" + dailyLimit.subtract(todaySent));
-        }
-
-        UpdateBalanceResponse senderBalRes = userServiceStub.updateBalance(UpdateBalanceRequest.newBuilder()
-                .setId(request.getFromUserId())
-                .setAmount(request.getAmount().negate().doubleValue())
-                .build());
-        if (!senderBalRes.getSuccess()) {
-            throw new RuntimeException("Error actualizando saldo emisor: " + senderBalRes.getMessage());
-        }
-
-        UpdateBalanceResponse receiverBalRes = userServiceStub.updateBalance(UpdateBalanceRequest.newBuilder()
-                .setId(request.getToUserId())
-                .setAmount(request.getAmount().doubleValue())
-                .build());
-        if (!receiverBalRes.getSuccess()) {
-            throw new RuntimeException("Error actualizando saldo receptor: " + receiverBalRes.getMessage());
-        }
-
-        Transaction tx = Transaction.builder()
-                .fromUserId(request.getFromUserId())
-                .toUserId(request.getToUserId())
-                .amount(request.getAmount())
-                .status("COMPLETED")
-                .build();
-        tx = transactionRepository.save(tx);
+        Transaction tx = transferSagaOrchestrator.executeTransferSaga(request, todaySent);
 
         if (idempotencyKey != null && !idempotencyKey.isBlank()) {
             idempotencyService.registerKey(idempotencyKey, 24);
-        }
-
-
-        // Kafka notification (best-effort)
-        try {
-            TransferCompletedEvent event = TransferCompletedEvent.builder()
-                    .fromUser(request.getFromUserId())
-                    .toUser(request.getToUserId())
-                    .amount(request.getAmount())
-                    .build();
-            transactionProducer.sendTransferCompleted(event);
-        } catch (Exception e) {
-            log.warn("Kafka notification failed: {}", e.getMessage());
         }
 
         return toTransferResponse(tx);

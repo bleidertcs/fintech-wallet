@@ -17,6 +17,7 @@ El sistema utiliza la arquitectura **Database-per-Service** en **Kubernetes (k3s
   * 5 StatefulSets independientes de MySQL 8.0 con usuarios dedicados por microservicio.
   * Redis 7.0 (Rate Limiting, Caché L2, Idempotencia, Blacklist JWT)
   * Apache Kafka en modo KRaft (Mensajería asíncrona)
+  * Kafka Connect + Debezium CDC (Captura de eventos Outbox)
   * Mailpit (Servidor SMTP de pruebas)
 * **Suite de Observabilidad**:
   * SigNoz APM UI (puerto 3301 / NodePort 30301) + OpenTelemetry Collector + ClickHouse
@@ -27,7 +28,7 @@ El sistema utiliza la arquitectura **Database-per-Service** en **Kubernetes (k3s
 
 ```mermaid
 graph TD
-    Fase1["✅ Fase 1: Flyway + Usuarios BD + Cleanup Docker"] --> Fase2["⏳ Fase 2: Outbox Pattern + Saga Orchestration"]
+    Fase1["✅ Fase 1: Flyway + Usuarios BD + Cleanup Docker"] --> Fase2["✅ Fase 2: Outbox Pattern + Saga Orchestration"]
     Fase2 --> Fase3["⏳ Fase 3: Hardening K8s (NetworkPolicies + HPA)"]
     Fase3 --> Fase4["⏳ Fase 4: Observabilidad Avanzada (JDBC/Saga/Alertas)"]
     Fase4 --> Fase5["⏳ Fase 5: Tests Comprehensivos (Testcontainers)"]
@@ -55,19 +56,19 @@ graph TD
 
 ---
 
-### ⏳ FASE 2: Consistencia Distribuida (Outbox Pattern & Saga con Orquestación)
+### ✅ FASE 2: Consistencia Distribuida (Outbox Pattern & Saga con Orquestación) (COMPLETADO)
 
-* [ ] **Transactional Outbox Table**:
-  * Script Flyway `V2__create_outbox_table.sql` en `transaction-service`.
-  * Entidad `OutboxEvent` y `OutboxRepository`.
-  * Modificación de `TransactionService.transfer()` para guardar la transacción y el `OutboxEvent` en la misma transacción local (`@Transactional`).
-* [ ] **Debezium CDC + Kafka Connect**:
-  * Manifiesto K8s `k8s/07-kafka-connect.yaml` para desplegar Kafka Connect con el conector Debezium MySQL.
-  * Configuración del conector para escuchar la tabla `outbox_events` de `tx-mysql` y publicar eventos a Kafka.
-* [ ] **Saga Orchestrator en Transferencias**:
-  * Implementación de la máquina de estados `TransferSaga` en `transaction-service`.
-  * Adición del método gRPC `CompensateBalance` en `user-service` para revertir débitos/créditos en caso de fallo.
-  * Tabla `saga_instances` (`V3__create_saga_instances.sql`) para persistencia del estado de cada Saga.
+* [x] **Transactional Outbox Table**:
+  * Script Flyway `V2__outbox_events_table.sql` en `transaction-service`.
+  * Entidad `OutboxEvent`, `OutboxRepository` y `OutboxService`.
+  * Registro de eventos outbox en la misma transacción local (`@Transactional`) que la transferencia.
+* [x] **Debezium CDC + Kafka Connect**:
+  * Manifiesto K8s `k8s/07-kafka-connect.yaml` para desplegar Kafka Connect con `debezium/connect:2.5`.
+  * Job de inicialización para registrar el conector Debezium MySQL escuchando la tabla `outbox_events` de `tx-mysql` y enviando a Kafka.
+* [x] **Saga Orchestrator en Transferencias**:
+  * Orquestador `TransferSagaOrchestrator` implementado en `transaction-service`.
+  * Tabla `saga_instances` (`V3__saga_instances_table.sql`) y repositorio para persistir el estado de la Saga (`STARTED`, `DEBIT_COMPLETED`, `CREDIT_COMPLETED`, `COMPENSATING`, `COMPENSATED`, `COMPLETED`, `FAILED`).
+  * **Transacciones Compensatorias**: Si el paso de crédito falla, el orquestador revierte automáticamente el débito devolviendo los fondos al emisor vía gRPC.
 
 ---
 
@@ -100,7 +101,7 @@ graph TD
 ### ⏳ FASE 5: Suite de Pruebas Automáticas
 
 * [ ] **Unit Testing**:
-  * Tests de unidad para `TransferSaga`, `OutboxService` y coordinadores de servicio usando JUnit 5 + Mockito.
+  * Tests de unidad para `TransferSagaOrchestrator`, `OutboxService` y `TransactionService` usando JUnit 5 + Mockito.
 * [ ] **Integration Testing con Testcontainers**:
   * Pruebas de integración reales levantando contenedores MySQL 8.0 y Kafka con Testcontainers.
   * Pruebas de verificación de ejecuciones Flyway sobre MySQL limpio.
@@ -123,8 +124,8 @@ Para verificar el estado de los pods en Kubernetes:
 kubectl get pods -n fintech
 ```
 
-Para revisar logs con Flyway activo:
+Para revisar logs de la Saga y Outbox:
 
 ```powershell
-kubectl logs -n fintech deployment/auth-service
+kubectl logs -n fintech deployment/transaction-service
 ```
