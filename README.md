@@ -99,7 +99,7 @@ graph TD
 | Capa | Tecnologias |
 |------|-------------|
 | **Frontend** | React 19, Vite 8, Tailwind CSS v4, React Router v6, Axios, Recharts, OpenPDF/jsPDF, xlsx, qrcode.react, html5-qrcode |
-| **Backend** | **NestJS 11 + TypeScript + Prisma ORM** (`auth-service`, `user-service`), **Spring Boot 3 + Spring Data JPA** (`transaction-service`, `notification-service`, `worker-service`, `api-gateway`) |
+| **Backend** | **NestJS 11 + TypeScript + Prisma ORM** (`auth-service`, `user-service`, `transaction-service`), **Spring Boot 3 + Spring Data JPA** (`notification-service`, `worker-service`) |
 | **Base de Datos** | MySQL 8.0 (`authdb`, `userdb`, `transactiondb`, `notificationdb`, `workerdb`) |
 | **Caché y Rendimiento** | Redis 7 (Caché L2, Idempotencia, Blacklist JWT, Rate Limiting) |
 | **Mensajería** | Apache Kafka en **modo KRaft** (Reintentos automáticos + Dead Letter Queue - DLQ) |

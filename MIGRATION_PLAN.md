@@ -42,6 +42,9 @@ Cada microservicio migrado debe cumplir obligatoriamente con los siguientes 6 pi
      - Modos de ejecución (Local standalone, Docker, Kubernetes).
      - Enlace directo a Swagger UI.
 
+7. **Pruebas Unitarias y E2E Obligatorias (Jest & Supertest)**:
+   - Todo microservicio migrado debe incluir su suite de pruebas unitarias (`pnpm test`) con Jest y Mocks para los adaptadores hexagonales, verificando la lógica de los Casos de Uso y Controladores REST con paso 100% exitoso.
+
 ---
 
 ## Decisiones Arquitectónicas Confirmadas
@@ -70,7 +73,7 @@ Cada microservicio migrado debe cumplir obligatoriamente con los siguientes 6 pi
 | api-gateway | 8080 | — | — | 🗑️ Eliminado (Reemplazado por Traefik Ingress) |
 | auth-service | 3001 | — | authdb | ✅ Migrado a NestJS 11 |
 | user-service | 3002 | 50051 | userdb | ✅ Migrado a NestJS 11 |
-| transaction-service | 3003 | — | transactiondb | ⏳ Pendiente (FASE 4) |
+| transaction-service | 3003 | — | transactiondb | ✅ Migrado a NestJS 11 |
 | notification-service | 3004 | — | notificationdb | ⏳ Pendiente (FASE 5) |
 | worker-service | 3005 | — | workerdb | ⏳ Pendiente (FASE 6) |
 
@@ -89,17 +92,18 @@ Cada microservicio migrado debe cumplir obligatoriamente con los siguientes 6 pi
 
 ## FASE 4: Transaction Service NestJS Migration (Hexagonal Architecture + gRPC Client + Prisma + Redis + Kafka)
 
-- [ ] **Tarea 4.1**: Inicializar `backend-nestjs/transaction-service` con Hexagonal Architecture y eliminar subcarpetas `.git` internas.
-- [ ] **Tarea 4.2**: Configurar Prisma ORM 7 (`transactiondb`) con `@prisma/adapter-mariadb`.
-- [ ] **Tarea 4.3**: Implementar Adaptador Outbound gRPC Client conectando a `user-service:50051` (`UserService.GetUserProfile`).
-- [ ] **Tarea 4.4**: Implementar Idempotencia de Transferencias con adaptador Redis (`ioredis` en `X-Idempotency-Key`).
-- [ ] **Tarea 4.5**: Implementar Adaptador Outbound Kafka Producer (`kafkajs`) emitiendo eventos `transfer_completed`.
-- [ ] **Tarea 4.6**: Implementar controladores REST HTTP + DTOs con validaciones `class-validator`.
-- [ ] **Tarea 4.7**: Configurar Swagger UI en `/transactions/docs` y `/api-docs`.
-- [ ] **Tarea 4.8**: Configurar Winston OTLP Logger (con metadatos K8s) y OpenTelemetry Tracing/Metrics hacia SigNoz.
-- [ ] **Tarea 4.9**: Crear `Dockerfile` multi-stage optimizado para `transaction-service`.
-- [ ] **Tarea 4.10**: Construir imagen con `nerdctl` y actualizar `k8s/02-microservices.yaml` (puerto 3003) y `k8s/05-ingress.yaml` (`/transactions`).
-- [ ] **Tarea 4.11**: Generar documentación individual `backend-nestjs/transaction-service/README.md` con arquitectura de carpetas, env vars, endpoints y cURL.
+- [x] **Tarea 4.1**: Inicializar `backend-nestjs/transaction-service` con Hexagonal Architecture y eliminar subcarpetas `.git` internas.
+- [x] **Tarea 4.2**: Configurar Prisma ORM 7 (`transactiondb`) con `@prisma/adapter-mariadb`.
+- [x] **Tarea 4.3**: Implementar Adaptador Outbound gRPC Client conectando a `user-service:50051` (`UserService.GetUserProfile`).
+- [x] **Tarea 4.4**: Implementar Idempotencia de Transferencias con adaptador Redis (`ioredis` en `X-Idempotency-Key`).
+- [x] **Tarea 4.5**: Implementar Adaptador Outbound Kafka Producer (`kafkajs`) emitiendo eventos `transfer_completed`.
+- [x] **Tarea 4.6**: Implementar controladores REST HTTP + DTOs con validaciones `class-validator`.
+- [x] **Tarea 4.7**: Configurar Swagger UI en `/transactions/docs` y `/api-docs`.
+- [x] **Tarea 4.8**: Configurar Winston OTLP Logger (con metadatos K8s) y OpenTelemetry Tracing/Metrics hacia SigNoz.
+- [x] **Tarea 4.9**: Crear `Dockerfile` multi-stage optimizado para `transaction-service`.
+- [x] **Tarea 4.10**: Construir imagen con `nerdctl` y actualizar `k8s/02-microservices.yaml` (puerto 3003) y `k8s/05-ingress.yaml` (`/transactions`).
+- [x] **Tarea 4.11**: Creación y ejecución de Pruebas Unitarias y E2E con Jest (`pnpm test`).
+- [x] **Tarea 4.12**: Generar documentación individual `backend-nestjs/transaction-service/README.md` con arquitectura de carpetas, env vars, endpoints y cURL.
 
 ---
 
@@ -112,7 +116,8 @@ Cada microservicio migrado debe cumplir obligatoriamente con los siguientes 6 pi
 - [ ] **Tarea 5.5**: Configurar Swagger UI en `/notifications/docs` y `/api-docs`.
 - [ ] **Tarea 5.6**: Configurar Winston OTLP Logger con correlación `trace_id` y atributos K8s para SigNoz.
 - [ ] **Tarea 5.7**: Crear `Dockerfile` multi-stage y desplegar en Kubernetes (puerto 3004).
-- [ ] **Tarea 5.8**: Generar documentación individual `backend-nestjs/notification-service/README.md` con árbol de carpetas.
+- [ ] **Tarea 5.8**: Creación y ejecución de Pruebas Unitarias y E2E con Jest (`pnpm test`).
+- [ ] **Tarea 5.9**: Generar documentación individual `backend-nestjs/notification-service/README.md` con árbol de carpetas.
 
 ---
 
@@ -125,7 +130,8 @@ Cada microservicio migrado debe cumplir obligatoriamente con los siguientes 6 pi
 - [ ] **Tarea 6.5**: Configurar Swagger UI en `/worker/docs` y `/api-docs`.
 - [ ] **Tarea 6.6**: Configurar Winston OTLP Logger + OpenTelemetry para SigNoz.
 - [ ] **Tarea 6.7**: Crear `Dockerfile` multi-stage y actualizar manifiestos de Kubernetes (puerto 3005).
-- [ ] **Tarea 6.8**: Generar documentación individual `backend-nestjs/worker-service/README.md` con árbol de carpetas.
+- [ ] **Tarea 6.8**: Creación y ejecución de Pruebas Unitarias y E2E con Jest (`pnpm test`).
+- [ ] **Tarea 6.9**: Generar documentación individual `backend-nestjs/worker-service/README.md` con árbol de carpetas.
 
 ---
 

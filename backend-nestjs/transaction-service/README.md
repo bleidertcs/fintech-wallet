@@ -1,98 +1,235 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Transaction Service (NestJS) 💸
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Microservicio de Procesamiento de Transferencias, Solicitudes de Dinero e Idempotencia del sistema **FinTech Wallet**, desarrollado sobre **NestJS 11 + Hexagonal Architecture + gRPC Client + REST + Prisma ORM + Redis + Kafka + OpenTelemetry**.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+---
 
-## Description
+## 🚀 Arquitectura y Características
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- **Arquitectura Hexagonal (Ports & Adapters)**: Separación estricta entre Dominio, Casos de Uso y Adaptadores de Entrada (REST API) / Salida (Prisma MySQL, Redis, Kafka Producer, gRPC Client).
+- **Integración gRPC Inter-Service**: Cliente gRPC de alto rendimiento conectando a `user-service:50051` (`UserService.GetUserProfile` y `UpdateUserBalance`) mediante el contrato proto compartido (`user.proto`).
+- **Garantía de Idempotencia con Redis**: Uso del encabezado HTTP `X-Idempotency-Key` en Redis (`ioredis`) con TTL de 24 horas para evitar dobles transferencias financieras en red o reintentos del cliente.
+- **Event-Driven Architecture con Kafka**: Adaptador de salida Kafka Producer (`kafkajs`) emitiendo eventos `transfer_completed` al cluster Apache Kafka en cada transferencia exitosa para ser procesados asincrónicamente por `notification-service`.
+- **Base de Datos Dedicada**: Persistencia en MySQL (`transactiondb.transactions` y `transactiondb.money_requests`) gestionada con Prisma ORM 7 (`@prisma/adapter-mariadb`).
+- **Documentación OpenAPI / Swagger UI**: Disponible en vivo en `/transactions/docs` y `/api-docs`.
+- **Observabilidad SigNoz & OpenTelemetry**:
+  - **Trazas OTLP**: Rastreabilidad distribuida de transacciones cruzando llamados HTTP, gRPC y publicación en Kafka.
+  - **Logs Winston OTLP**: Envío estructurado de logs en JSON con correlación `trace_id` / `span_id` y metadatos nativos de Kubernetes (`k8s.pod.name`, `k8s.namespace.name`).
+  - **Métricas OTLP**: Monitoreo de tasa de transferencias, tiempos de respuesta e idempotencia.
 
-## Project setup
+---
 
-```bash
-$ pnpm install
+## 📁 Arquitectura de Carpetas (Hexagonal / Ports & Adapters)
+
+```text
+backend-nestjs/transaction-service/
+├── prisma/
+│   └── schema.prisma             # Esquema Prisma ORM (Base de datos MySQL transactiondb)
+├── src/
+│   ├── adapters/                 # Adaptadores Hexagonales (Interface Adapters)
+│   │   ├── inbound/              # Adaptadores de Entrada (Driving / Primary)
+│   │   │   └── rest/             # Controladores REST HTTP (TransactionController, HealthController, DTOs)
+│   │   └── outbound/             # Adaptadores de Salida (Driven / Secondary)
+│   │       ├── grpc/             # Cliente gRPC hacia user-service (user.proto, UserServiceClientAdapter)
+│   │       ├── kafka/            # Kafka Producer (KafkaProducerService emitiendo transfer_completed)
+│   │       ├── persistence/      # Repositorio de persistencia Prisma ORM (prisma-transaction.repository.ts)
+│   │       └── redis/            # Idempotencia con Redis (IdempotencyService)
+│   ├── application/              # Casos de Uso de Aplicación
+│   │   └── use-cases/            # TransactionUseCases (Transfer, CreateMoneyRequest, Accept/RejectRequest)
+│   ├── domain/                   # Dominio Principal (Core de Negocio)
+│   │   ├── entities/             # Entidades Transaction y MoneyRequest
+│   │   └── ports/                # Interfaces de Puertos Inbound & Outbound
+│   │       ├── inbound/          # TransactionServicePort
+│   │       └── outbound/         # TransactionRepositoryPort, UserServiceClientPort
+│   ├── infrastructure/           # Componentes de Infraestructura
+│   │   ├── logger/               # Winston Logger OTLP contextual
+│   │   └── telemetry/            # OpenTelemetry SDK (Traces, Metrics y Winston Logs OTLP)
+│   ├── app.module.ts             # Módulo Raíz de NestJS
+│   └── main.ts                   # Bootstrap (Servidor REST puerto :3003 y Swagger UI en /transactions/docs)
+├── test/                         # Pruebas Unitarias y E2E con Jest
+├── .dockerignore                 # Exclusiones de construcción Docker
+├── .gitignore                    # Control de versiones Git
+├── Dockerfile                    # Multi-stage Dockerfile para producción (Node 22 Alpine)
+├── package.json                  # Dependencias y scripts pnpm
+└── README.md                     # Documentación oficial del microservicio
 ```
 
-## Compile and run the project
+---
 
-```bash
-# development
-$ pnpm run start
+## 🛠️ Requisitos Previos
 
-# watch mode
-$ pnpm run start:dev
+- **Node.js**: `>= 20.x`
+- **pnpm**: `>= 9.x`
+- **MySQL**: `8.x` (Base de datos `transactiondb`)
+- **Redis**: `7.x` (Servidor de caché para idempotencia)
+- **Apache Kafka**: `3.x` (Broker de mensajería)
+- **User Service (NestJS)**: Ejecutándose en puerto gRPC `50051`.
 
-# production mode
-$ pnpm run start:prod
+---
+
+## ⚙️ Variables de Entorno (`.env`)
+
+Crea un archivo `.env` en la raíz de `backend-nestjs/transaction-service`:
+
+```env
+PORT=3003
+NODE_ENV=development
+
+# Base de Datos MySQL
+DATABASE_URL="mysql://root:12345@localhost:3306/transactiondb"
+
+# Redis Cache (Idempotencia)
+REDIS_HOST="localhost"
+REDIS_PORT=6379
+
+# Kafka Broker
+KAFKA_BROKERS="localhost:9092"
+
+# User Service gRPC Client
+USER_SERVICE_GRPC_URL="localhost:50051"
+
+# Telemetría SigNoz / OpenTelemetry Collector
+OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4318"
+OTEL_SERVICE_NAME="transaction-service"
 ```
 
-## Run tests
+---
+
+## 🚀 Ejecución y Pruebas
+
+### 1. Instalación de Dependencias
 
 ```bash
-# unit tests
-$ pnpm run test
-
-# e2e tests
-$ pnpm run test:e2e
-
-# test coverage
-$ pnpm run test:cov
+cd backend-nestjs/transaction-service
+pnpm install
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### 2. Generación del Cliente Prisma y Migraciones
 
 ```bash
-$ pnpm install -g @nestjs/mau
-$ mau deploy
+pnpm dlx prisma generate
+pnpm dlx prisma db push
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### 3. Ejecución en Desarrollo Local
 
-## Resources
+```bash
+pnpm run start:dev
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+El servidor estará escuchando en `http://localhost:3003`.
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+### 4. Pruebas Unitarias con Jest
 
-## Support
+```bash
+pnpm test
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+---
 
-## Stay in touch
+## 🐳 Despliegue con Docker y Kubernetes
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### Construir Imagen con `nerdctl` / Docker
 
-## License
+```bash
+nerdctl --namespace k8s.io build -t fintech/transaction-service:nestjs ./backend-nestjs/transaction-service
+```
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+### Aplicar Manifiesto Kubernetes
+
+```bash
+kubectl apply -f k8s/02-microservices.yaml -f k8s/05-ingress.yaml
+```
+
+- **Servidor K8s**: Puerto `8083` (TargetPort `3003`)
+- **Ingress Traefik**: Ruta `/transactions` accesible a través del API Ingress (`http://localhost/transactions/docs/`).
+
+---
+
+## 📖 Swagger UI / Documentación OpenAPI
+
+Accede a la documentación interactiva en:
+- **Local**: [http://localhost:3003/transactions/docs](http://localhost:3003/transactions/docs)
+- **Kubernetes Ingress**: [http://localhost/transactions/docs/](http://localhost/transactions/docs/)
+
+---
+
+## 🔌 Guía de Endpoints API REST y Ejemplos `curl`
+
+### 1. Realizar Transferencia de Dinero (con Idempotencia)
+
+```bash
+curl -X POST http://localhost/transactions/transfer \
+  -H "Content-Type: application/json" \
+  -H "X-Idempotency-Key: TX-882910-AAA" \
+  -d '{
+    "fromUserId": 1,
+    "toUserId": 2,
+    "amount": 150.00
+  }'
+```
+
+**Respuesta Exitosa (201 Created)**:
+
+```json
+{
+  "id": 1,
+  "fromUserId": 1,
+  "toUserId": 2,
+  "amount": 150,
+  "status": "SUCCESS",
+  "createdAt": "2026-08-06T14:30:00.000Z"
+}
+```
+
+### 2. Consultar Transacciones de un Usuario
+
+```bash
+curl -X GET http://localhost/transactions/user/1
+```
+
+### 3. Consultar Historial Global de Transacciones
+
+```bash
+curl -X GET http://localhost/transactions
+```
+
+### 4. Crear Solicitud de Dinero (Money Request)
+
+```bash
+curl -X POST http://localhost/transactions/request-money \
+  -H "Content-Type: application/json" \
+  -d '{
+    "requesterId": 2,
+    "targetUserId": 1,
+    "amount": 75.50
+  }'
+```
+
+### 5. Aceptar Solicitud de Dinero
+
+```bash
+curl -X POST http://localhost/transactions/money-requests/1/accept
+```
+
+### 6. Rechazar Solicitud de Dinero
+
+```bash
+curl -X POST http://localhost/transactions/money-requests/1/reject
+```
+
+### 7. Health Check / Probes K8s
+
+```bash
+curl -X GET http://localhost/transactions/health
+```
+
+**Respuesta**:
+
+```json
+{
+  "status": "ok",
+  "service": "transaction-service",
+  "timestamp": "2026-08-06T14:30:00.000Z"
+}
+```

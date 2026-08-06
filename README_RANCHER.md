@@ -78,7 +78,7 @@ nerdctl --namespace k8s.io build -t fintech/frontend:latest ./frontend
 nerdctl --namespace k8s.io build -t fintech/api-gateway:latest ./backend/api-gateway
 nerdctl --namespace k8s.io build -t fintech/auth-service:nestjs ./backend-nestjs/auth-service
 nerdctl --namespace k8s.io build -t fintech/user-service:nestjs ./backend-nestjs/user-service
-nerdctl --namespace k8s.io build -t fintech/transaction-service:latest ./backend/transaction-service
+nerdctl --namespace k8s.io build -t fintech/transaction-service:nestjs ./backend-nestjs/transaction-service
 nerdctl --namespace k8s.io build -t fintech/notification-service:latest ./backend/notification-service
 nerdctl --namespace k8s.io build -t fintech/worker-service:latest ./backend/worker-service
 ```
@@ -102,6 +102,8 @@ kubectl apply -f k8s/06-networkpolicy.yaml
 | Servicio | URL Local | Descripción |
 |---|---|---|
 | **Frontend Web** | [http://localhost](http://localhost) | Aplicación React (vía Ingress /) |
-| **API Gateway** | [http://localhost/api](http://localhost/api) | API Gateway (vía Ingress /api) |
+| **Auth Service Swagger** | [http://localhost/auth/docs/](http://localhost/auth/docs/) | OpenAPI Swagger UI de Auth Service |
+| **User Service Swagger** | [http://localhost/users/docs/](http://localhost/users/docs/) | OpenAPI Swagger UI de User Service |
+| **Transaction Service Swagger** | [http://localhost/transactions/docs/](http://localhost/transactions/docs/) | OpenAPI Swagger UI de Transaction Service |
 | **Mailpit UI (Correos)** | [http://localhost/mailpit](http://localhost/mailpit) o [http://localhost:30025](http://localhost:30025) | UI de testing de correos (Ingress /mailpit o NodePort 30025) |
-| **SigNoz Observability** | [http://localhost:30301](http://localhost:30301) | Dashboard de métricas, trazas y logs |
+| **SigNoz Observability** | [http://localhost:30301](http://localhost:30301) o Port-Forward [http://localhost:3301](http://localhost:3301) | Dashboard de métricas, trazas OTLP y logs contextuales K8s |
