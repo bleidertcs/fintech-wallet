@@ -1,28 +1,57 @@
+# ==========================================
+# FinTech Wallet - Git Ignore (Best Practices)
+# ==========================================
+
 # Dependencies
 node_modules/
-frontend/node_modules/
+**/node_modules/
 
-# Build output
-frontend/dist/
+# Build Output
+dist/
+**/dist/
+build/
 **/target/
+*.tsbuildinfo
 
-# IDE
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.p12
+
+# IDE & Code Editors
 .idea/
-.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 *.iml
 *.class
+*.sublime-workspace
 
-# Environment
-.env
-
-# OS
+# Operating System Files
 .DS_Store
 Thumbs.db
 desktop.ini
 
-# Docker volumes
+# Docker & Database Local Volumes
 mysql-data/
+data/
 
-# Logs
+# Logs & Temporary Files
 *.log
+logs/
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 .claude/
+.tmp/
+.temp/
+
+# Testing & Coverage
+coverage/
+.nyc_output/

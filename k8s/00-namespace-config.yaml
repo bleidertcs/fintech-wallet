@@ -29,3 +29,4 @@ type: Opaque
 stringData:
   DB_USERNAME: "root"
   DB_PASSWORD: "12345"
+  JWT_SECRET: "dGhpc2lzYXNlY3JldGtleWZvcmp3dHRva2VudmFsaWRhdGlvbmZpbnRlYch3YWxsZXQ="

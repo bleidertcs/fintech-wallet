@@ -1,0 +1,55 @@
+# ==========================================
+# FinTech Wallet - Docker Ignore (Best Practices)
+# ==========================================
+
+# Version Control
+.git/
+.gitignore
+
+# Dependencies (Installed inside Docker multi-stage build)
+node_modules/
+**/node_modules/
+
+# Local Build Output
+dist/
+**/dist/
+build/
+**/target/
+*.tsbuildinfo
+
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# IDEs & Editors
+.idea/
+.vscode/
+*.iml
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Docker Data Volumes & Local Storage
+mysql-data/
+data/
+
+# Logs & Temporary Files
+*.log
+logs/
+.claude/
+.tmp/
+.temp/
+
+# Testing & Coverage
+coverage/
+.nyc_output/
+
+# Documentation & Markdown
+README.md
+MIGRATION_PLAN.md
+docs/

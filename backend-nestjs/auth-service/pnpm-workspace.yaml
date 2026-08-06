@@ -1,0 +1,14 @@
+allowBuilds:
+  '@prisma/engines': true
+  '@scarf/scarf': true
+  '@swc/core': true
+  bcrypt: true
+  prisma: true
+  protobufjs: true
+onlyBuiltDependencies:
+  - '@prisma/engines'
+  - '@scarf/scarf'
+  - '@swc/core'
+  - 'bcrypt'
+  - 'prisma'
+  - 'protobufjs'

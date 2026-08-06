@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model User {
+  id                BigInt   @id @default(autoincrement())
+  email             String   @unique
+  password          String
+  role              String   @default("USER")
+  verified          Boolean  @default(false)
+  verificationToken String?  @map("verification_token")
+  totpSecret        String?  @map("totp_secret")
+  totpEnabled       Boolean  @default(false) @map("totp_enabled")
+
+  @@map("users")
+}

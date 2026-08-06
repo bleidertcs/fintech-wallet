@@ -40,6 +40,24 @@
       "skillPath": "skills/microservices-patterns/SKILL.md",
       "computedHash": "b8c2cdd4d30182fab6b1d3c1c6ae147692f1ec75b815d5408298d1e9f6ef622d"
     },
+    "nestjs-best-practices": {
+      "source": "kadajett/agent-nestjs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/nestjs-best-practices/SKILL.md",
+      "computedHash": "29c326e77d1462ed9526996acae5da0cf4003146982abc8c67378f5dbad6b181"
+    },
+    "nestjs-expert": {
+      "source": "davila7/claude-code-templates",
+      "sourceType": "github",
+      "skillPath": "cli-tool/components/skills/development/nestjs-expert/SKILL.md",
+      "computedHash": "77f3e03f10c5147a4c57c208ebd41f7cac6dbe39ca31c2e8f5af374af8e39229"
+    },
+    "nestjs-patterns": {
+      "source": "affaan-m/everything-claude-code",
+      "sourceType": "github",
+      "skillPath": "skills/nestjs-patterns/SKILL.md",
+      "computedHash": "b0ba81185468f7c6e950b4de91fae8004a5d56501a31ea63caa5f7cc3854e6a7"
+    },
     "seo": {
       "source": "addyosmani/web-quality-skills",
       "sourceType": "autoskills-registry",

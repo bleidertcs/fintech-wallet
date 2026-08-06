@@ -346,7 +346,7 @@ spec:
     spec:
       containers:
         - name: migrator
-          image: signoz/signoz-otel-collector:v0.144.6
+          image: signoz/signoz-otel-collector:v0.144.7
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
@@ -469,9 +469,21 @@ spec:
         app: otel-collector
     spec:
       serviceAccountName: otel-collector
+      initContainers:
+        - name: wait-for-clickhouse-and-migration
+          image: busybox:1.36
+          command:
+            - sh
+            - -c
+            - |
+              echo "Esperando ClickHouse TCP 9000..."
+              until nc -z clickhouse 9000; do sleep 3; done
+              echo "ClickHouse listo. Esperando 120s para que el migrator complete el schema..."
+              sleep 120
+              echo "Listo para iniciar otel-collector."
       containers:
         - name: otel-collector
-          image: signoz/signoz-otel-collector:v0.144.6
+          image: signoz/signoz-otel-collector:v0.144.7
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
