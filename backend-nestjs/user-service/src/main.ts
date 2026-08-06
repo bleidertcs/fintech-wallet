@@ -39,6 +39,7 @@ async function bootstrap() {
     .build();
 
   const document = SwaggerModule.createDocument(app, swaggerConfig);
+  SwaggerModule.setup('users/docs', app, document);
   SwaggerModule.setup('api-docs', app, document);
 
   await app.startAllMicroservices();
@@ -46,7 +47,7 @@ async function bootstrap() {
   await app.listen(httpPort);
 
   logger.log(`User Service iniciado exitosamente (REST: http://localhost:${httpPort}, gRPC: 0.0.0.0:${grpcPort})`);
-  logger.log(`Documentación Swagger disponible en http://localhost:${httpPort}/api-docs`);
+  logger.log(`Documentación Swagger disponible en http://localhost/users/docs o http://localhost:${httpPort}/users/docs`);
 }
 
 bootstrap();

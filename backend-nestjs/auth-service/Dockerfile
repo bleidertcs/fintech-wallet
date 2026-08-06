@@ -7,11 +7,11 @@ WORKDIR /app
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
 # Copiar archivos de dependencias y workspace
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
+COPY package.json pnpm-workspace.yaml .npmrc ./
 COPY prisma ./prisma/
 
 # Instalar dependencias
-RUN pnpm install --frozen-lockfile
+RUN pnpm install
 
 # Generar Prisma Client
 RUN npx prisma generate
@@ -32,12 +32,12 @@ ENV PORT=3001
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
 # Copiar package, lockfile y workspace
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
+COPY package.json pnpm-workspace.yaml .npmrc ./
 COPY prisma ./prisma/
 
 # Instalar solo dependencias de producción
-RUN pnpm install --prod --frozen-lockfile
-RUN npx prisma generate
+RUN pnpm install --prod
+RUN pnpm dlx prisma generate
 
 # Copiar el build compilado
 COPY --from=builder /app/dist ./dist

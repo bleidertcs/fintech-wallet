@@ -32,11 +32,12 @@ async function bootstrap() {
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('auth/docs', app, document);
   SwaggerModule.setup('api-docs', app, document);
 
   const port = process.env.PORT || 3001;
   await app.listen(port);
-  logger.log(`Auth Service iniciado exitosamente en http://localhost:${port}`);
-  logger.log(`Documentación Swagger disponible en http://localhost:${port}/api-docs`);
+  logger.log(`Auth Service iniciado exitosamente en puerto ${port}`);
+  logger.log(`Documentación Swagger disponible en http://localhost/auth/docs o http://localhost:${port}/auth/docs`);
 }
 bootstrap();

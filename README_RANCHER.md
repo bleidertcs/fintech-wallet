@@ -76,8 +76,8 @@ chmod +x deploy-rancher.sh
 ```bash
 nerdctl --namespace k8s.io build -t fintech/frontend:latest ./frontend
 nerdctl --namespace k8s.io build -t fintech/api-gateway:latest ./backend/api-gateway
-nerdctl --namespace k8s.io build -t fintech/auth-service:latest ./backend/auth-service
-nerdctl --namespace k8s.io build -t fintech/user-service:latest ./backend/user-service
+nerdctl --namespace k8s.io build -t fintech/auth-service:nestjs ./backend-nestjs/auth-service
+nerdctl --namespace k8s.io build -t fintech/user-service:nestjs ./backend-nestjs/user-service
 nerdctl --namespace k8s.io build -t fintech/transaction-service:latest ./backend/transaction-service
 nerdctl --namespace k8s.io build -t fintech/notification-service:latest ./backend/notification-service
 nerdctl --namespace k8s.io build -t fintech/worker-service:latest ./backend/worker-service

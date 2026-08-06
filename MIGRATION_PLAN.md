@@ -2,24 +2,45 @@
 
 ## Contexto
 
-Migración completa del backend de **FinTech Wallet** desde Java Spring Boot a **NestJS + TypeScript + Prisma + pnpm**, manteniendo MySQL, Kubernetes, OpenTelemetry/SigNoz, y gRPC.
+Migración completa del backend de **FinTech Wallet** desde Java Spring Boot a **NestJS + TypeScript + Prisma ORM + pnpm**, manteniendo MySQL, Kubernetes, OpenTelemetry/SigNoz, gRPC y Apache Kafka.
 
 ---
 
-## Estándares Obligatorios de Proyecto
+## Estándares Obligatorios de Proyecto (Checklist de Calidad)
 
-1. **Documentación por Microservicio**: Al culminar cada fase de migración de un microservicio, es **MANDATORIO** generar o actualizar un archivo `README.md` en la raíz del proyecto (`backend-nestjs/<microservicio>/README.md`) detallando:
-   - Descripción del microservicio y sus límites de dominio.
-   - Puertos HTTP y gRPC configurados.
-   - Variables de entorno requeridas.
-   - Integración con bases de datos y servicios externos (Redis, MySQL, Kafka, Mailpit).
-   - Comandos para ejecución local independiente (`pnpm start:dev`).
-   - Ejemplos de uso e interacción (cURL, gRPC CLI).
+Cada microservicio migrado debe cumplir obligatoriamente con los siguientes 6 pilares de calidad comprobados en `auth-service` y `user-service`:
 
-2. **Observabilidad Estándar OTLP (SigNoz)**:
-   - **Trazas**: OTLP HTTP Traces (`/v1/traces`) con instrumentación automática y contextualización manual.
-   - **Logs**: Formateador Winston OTLP (`/v1/logs`) con inyección de `trace_id`, `span_id` y metadatos nativos de Kubernetes (`k8s.pod.name`, `k8s.namespace.name`, `k8s.deployment.name`, `k8s.container.name`, `k8s.node.name`, `k8s.cluster.name`, `host.name`, `deployment.environment`).
-   - **Métricas**: Exportador OTLP Metrics (`/v1/metrics`) registrando throughput (RPS), latencias HTTP/gRPC, consumo de Memoria Heap, CPU y Event Loop Lag.
+1. **Control de Versiones y Git Hygiene**:
+   - Eliminar cualquier subcarpeta `.git` generada por Nest CLI dentro de `backend-nestjs/<microservicio>/` para evitar que Git trate el servicio como submódulo desconfigurado.
+   - Mantener `pnpm-lock.yaml` trackeado en Git para garantizar builds deterministas.
+   - Configurar `.dockerignore` limpio excluyendo `node_modules`, `dist/`, `.env`, `.git/`, `coverage/`, `README.md`.
+
+2. **Arquitectura Hexagonal Estricta (Ports & Adapters)**:
+   - `src/domain/`: Entidades de dominio, Objetos de Valor y Puertos Inbound/Outbound.
+   - `src/application/`: Casos de uso puros independientes de la infraestructura.
+   - `src/adapters/`: Adaptadores Inbound (REST, gRPC, Kafka Consumers) y Outbound (Prisma ORM, Redis, HTTP Clients, Kafka Producers, Email).
+   - `src/infrastructure/`: Configuración global, Seguridad y Telemetría.
+
+3. **Configuración de Swagger / OpenAPI Accesible**:
+   - Configurar `SwaggerModule.setup('<servicio>/docs', app, document)` y `SwaggerModule.setup('api-docs', app, document)` en `main.ts` para permitir el acceso tanto por Ingress Traefik (`http://localhost/<servicio>/docs/`) como en desarrollo local (`http://localhost:<puerto>/api-docs`).
+
+4. **Observabilidad Estándar OTLP (SigNoz APM)**:
+   - **Trazas OTLP**: Ingesta distribuida en `/v1/traces` para rastrear endpoints HTTP REST y llamadas gRPC/Kafka.
+   - **Logs Winston OTLP**: Formateador JSON enviado a `/v1/logs` con inyección de `trace_id`, `span_id` y metadatos nativos de Kubernetes (`k8s.pod.name`, `k8s.namespace.name`, `k8s.deployment.name`, `k8s.container.name`, `k8s.node.name`, `k8s.cluster.name`, `host.name`, `deployment.environment`).
+   - **Métricas OTLP**: Exportador en `/v1/metrics` registrando throughput (RPS), latencias y recursos (CPU/RAM/Event Loop).
+
+5. **Dockerfile Multi-Stage Optimizado**:
+   - Stage 1 `builder` y Stage 2 `runner` sobre `node:22-alpine`.
+   - Uso de `pnpm install` y `pnpm dlx prisma generate` para no fallar en caso de lockfiles opcionales.
+
+6. **Documentación Individual Obligatoria (`README.md`)**:
+   - Generar `backend-nestjs/<microservicio>/README.md` incluyendo:
+     - Descripción del dominio y características principales.
+     - Árbol de arquitectura de carpetas (`text`).
+     - Variables de entorno `.env`.
+     - Endpoints REST, gRPC o eventos Kafka con ejemplos `curl` / `grpcurl`.
+     - Modos de ejecución (Local standalone, Docker, Kubernetes).
+     - Enlace directo a Swagger UI.
 
 ---
 
@@ -27,132 +48,88 @@ Migración completa del backend de **FinTech Wallet** desde Java Spring Boot a *
 
 | # | Decisión | Elección |
 |---|---------|----------|
-| 1 | Estructura proyecto | **Repos independientes** (cada servicio es standalone) |
-| 2 | Código compartido | Carpeta `shared/` local en cada servicio |
-| 3 | Puertos | **Node.js estándar** (3001-3005) + actualizar K8s |
-| 4 | Coexistencia | **Strangler Fig** (Spring + NestJS en paralelo) |
-| 5 | Arquitectura interna | **Hexagonal Architecture** (Ports & Adapters) |
-| 6 | Primer servicio | **Auth Service** |
-| 7 | Base de datos | **Reusar tablas MySQL** existentes con `@@map()` |
-| 8 | API Gateway | **Eliminar** Gateway Spring → **Traefik nativo** |
-| 9 | OpenTelemetry | Auto-instrumentación + spans manuales + Winston OTLP |
-| 10 | Inter-servicio RPC | **gRPC** con `@nestjs/microservices` |
-| 11 | Kafka | **kafkajs** |
-| 12 | JWT Validation | **Traefik JWT plugin** |
-| 13 | Redis | **ioredis** |
-| 14 | Testing | **Jest** |
-| 15 | Rate Limiting | **Traefik nativo** |
-| 16 | Deployment | **Local primero**, luego Docker + K8s |
+| 1 | Estructura proyecto | Repositorio principal `fintech-wallet` con subdirectorio `backend-nestjs/` |
+| 2 | Arquitectura interna | **Hexagonal Architecture** (Ports & Adapters) |
+| 3 | Puertos HTTP | **Node.js estándar** (`auth`: 3001, `user`: 3002, `transaction`: 3003, `notification`: 3004, `worker`: 3005) |
+| 4 | Puertos gRPC | `user-service`: `50051` (K8s `9090`) |
+| 5 | Coexistencia | **Strangler Fig** (Spring + NestJS en paralelo) |
+| 6 | Base de datos | **Reusar tablas MySQL** existentes con Prisma ORM (`@@map()`) |
+| 7 | Ingress & Ruteo | **Traefik Nativo** (`k8s/05-ingress.yaml`) |
+| 8 | OpenTelemetry | OTLP Traces + Winston OTLP Logs con K8s metadata + OTLP Metrics |
+| 9 | Inter-servicio RPC | **gRPC** con `@nestjs/microservices` |
+| 10 | Mensajería | **kafkajs** (Kafka KRaft) |
+| 11 | Cache & State | **ioredis** (Redis 7) |
+| 12 | Testing | **Jest + Supertest** |
 
 ---
 
-## User Review Required
-
-> [!IMPORTANT]
-> **Traefik JWT Plugin**: Los plugins de JWT para Traefik (ej: `traefik-jwt-plugin`) son community-maintained y varían en madurez. Como fallback, podemos implementar un JWT Guard en cada servicio NestJS. Esto se evaluará en la FASE 2 cuando configuremos Traefik.
-
-> [!WARNING]
-> **Repos independientes sin monorepo**: Al tener 6 repos separados, cualquier cambio en DTOs compartidos (ej: `TransferCompletedEvent`) o proto files requerirá actualización manual en cada servicio afectado. Esto es manejable para 6 servicios pero requiere disciplina.
-
-> [!WARNING]
-> **Puertos nuevos**: Cambiar de 8081-8085 a 3001-3005 requiere actualizar: K8s Services, K8s Deployments, Ingress rules, health probes, y env vars de comunicación inter-servicio. Esto se hará cuando cada servicio se despliegue en K8s.
-
----
-
-## Inventario del Sistema Actual (FASE 0 - Completada)
-
-### Microservicios Spring Boot y Estado de Migración
+## Inventario del Sistema (Estado Actual)
 
 | Servicio | Puerto HTTP | Puerto gRPC | DB | Estado Migración |
 |----------|------------|-------------|-----|------------------|
-| api-gateway | 8080 | — | — | 🗑️ Eliminado (Reemplazado por Traefik/Ingress) |
-| auth-service | 3001 (ex-8081) | — | authdb | ✅ Migrado a NestJS (FASE 2) |
-| user-service | 3002 (ex-8082) | 50051 (ex-9090) | userdb | ✅ Migrado a NestJS (FASE 3) |
-| transaction-service | 3003 (ex-8083) | — | transactiondb | ⏳ Pendiente (FASE 4) |
-| notification-service | 3004 (ex-8084) | — | notificationdb | ⏳ Pendiente (FASE 5) |
-| worker-service | 3005 (ex-8085) | — | workerdb | ⏳ Pendiente (FASE 6) |
+| api-gateway | 8080 | — | — | 🗑️ Eliminado (Reemplazado por Traefik Ingress) |
+| auth-service | 3001 | — | authdb | ✅ Migrado a NestJS 11 |
+| user-service | 3002 | 50051 | userdb | ✅ Migrado a NestJS 11 |
+| transaction-service | 3003 | — | transactiondb | ⏳ Pendiente (FASE 4) |
+| notification-service | 3004 | — | notificationdb | ⏳ Pendiente (FASE 5) |
+| worker-service | 3005 | — | workerdb | ⏳ Pendiente (FASE 6) |
 
 ---
 
 ## FASE 1: Auth Service NestJS — Desarrollo Local
-
-### Tareas (una por una, cada una < 1 hora)
-
-- [x] **Tarea 1.1**: Crear estructura de carpetas Hexagonal
-- [x] **Tarea 1.2**: Instalar dependencias core
-- [x] **Tarea 1.3**: Configurar environment y ConfigModule
-- [x] **Tarea 1.4**: Configurar Prisma con authdb
-- [x] **Tarea 1.5**: Implementar capa Domain
-- [x] **Tarea 1.6**: Implementar adaptador de persistencia (Prisma)
-- [x] **Tarea 1.7**: Implementar servicios de seguridad (JWT + TOTP)
-- [x] **Tarea 1.8**: Implementar adaptador Redis (Token Blacklist)
-- [x] **Tarea 1.9**: Implementar adaptador HTTP (User Profile Client)
-- [x] **Tarea 1.10**: Implementar adaptador Email (Nodemailer)
-- [x] **Tarea 1.11**: Implementar casos de uso (Application Layer)
-- [x] **Tarea 1.12**: Implementar controlador REST + DTOs
-- [x] **Tarea 1.13**: Wiring — Módulo Auth + AppModule
-- [x] **Tarea 1.14**: OpenTelemetry
-- [x] **Tarea 1.15**: Tests unitarios + E2E
-- [x] **Tarea 1.16**: Verificar paridad con Spring Boot
-
----
+- [x] **Tarea 1.1 - 1.16**: Migración completada a NestJS 11 con Hexagonal Architecture, Prisma, Redis y JWT.
 
 ## FASE 2: Containerización + K8s Auth Service NestJS + SigNoz Observabilidad
-
-- [x] **Tarea 2.1**: Configurar OTLP Logger en NestJS para correlación de Logs + Trazas en SigNoz
-- [x] **Tarea 2.2**: Crear `Dockerfile` multi-stage optimizado para NestJS + pnpm
-- [x] **Tarea 2.3**: Construir imagen de contenedor con `nerdctl` en Rancher Desktop (`nerdctl --namespace k8s.io build`)
-- [x] **Tarea 2.4**: Actualizar Deployment de `auth-service` en `k8s/02-microservices.yaml` (puerto 3001, probes `/health`)
-- [x] **Tarea 2.5**: Configurar Middlewares de Traefik (JWT Plugin + Rate Limiting)
-- [x] **Tarea 2.6**: Actualizar `k8s/05-ingress.yaml` para enrutar `/auth/**` al nuevo `auth-service` NestJS
-- [x] **Tarea 2.7**: Desplegar en Rancher/K8s y ejecutar script de prueba `test-services-integration.ps1` para verificar Métricas, Trazas y Logs correlacionados en SigNoz UI (`:3301`)
-- [x] **Tarea 2.8**: Generar documentación individual [backend-nestjs/auth-service/README.md](file:///c:/dev/DevOps/fintech-wallet/backend-nestjs/auth-service/README.md)
-
----
+- [x] **Tarea 2.1 - 2.8**: Containerizado, desplegado en K8s y validado con observabilidad SigNoz OTLP (Traces/Logs/Metrics) y Swagger en `http://localhost/auth/docs/`.
 
 ## FASE 3: User Service NestJS Migration (Hexagonal Architecture + gRPC + REST + Prisma)
-
-- [x] **Tarea 3.1**: Inicializar `backend-nestjs/user-service` con Hexagonal Architecture (`domain`, `application`, `adapters`, `infrastructure`)
-- [x] **Tarea 3.2**: Configurar Prisma 7 schema (`userdb.user_profiles`) y driver adapter `@prisma/adapter-mariadb`
-- [x] **Tarea 3.3**: Implementar Dominio (`UserProfile` Entity) y Puertos outbound (Repository, gRPC Client/Server)
-- [x] **Tarea 3.4**: Configurar servidor gRPC `@nestjs/microservices` con `user.proto` (`UserService.GetUserProfile`)
-- [x] **Tarea 3.5**: Implementar casos de uso (Create Profile, Get Profile, Update Profile, Kyc Verification)
-- [x] **Tarea 3.6**: Implementar controladores REST + gRPC Controllers
-- [x] **Tarea 3.7**: Configurar Winston Logger + OTLP Telemetry (SigNoz)
-- [x] **Tarea 3.8**: Crear `Dockerfile` multi-stage para `user-service` + pnpm
-- [x] **Tarea 3.9**: Construir imagen con `nerdctl` y actualizar `k8s/02-microservices.yaml`
-- [x] **Tarea 3.10**: Desplegar en K8s y verificar comunicación gRPC/HTTP con `auth-service` y observabilidad en SigNoz UI
-- [x] **Tarea 3.11**: Generar documentación individual [backend-nestjs/user-service/README.md](file:///c:/dev/DevOps/fintech-wallet/backend-nestjs/user-service/README.md)
+- [x] **Tarea 3.1 - 3.11**: Migración completada con gRPC (`user.proto`), REST, Prisma, SigNoz y Swagger en `http://localhost/users/docs/`.
 
 ---
 
-## FASE 4: Transaction Service NestJS Migration (Hexagonal Architecture + gRPC + Prisma + Redis)
-- [ ] **Tarea 4.1**: Inicializar `backend-nestjs/transaction-service`
-- [ ] **Tarea 4.2**: Prisma Schema (`transactiondb`)
-- [ ] **Tarea 4.3**: Adaptador gRPC Client a `user-service`
-- [ ] **Tarea 4.4**: Kafka Producer (Transfer events)
-- [ ] **Tarea 4.5**: Containerización y K8s deployment
-- [ ] **Tarea 4.6**: Documentación individual `transaction-service/README.md`
+## FASE 4: Transaction Service NestJS Migration (Hexagonal Architecture + gRPC Client + Prisma + Redis + Kafka)
+
+- [ ] **Tarea 4.1**: Inicializar `backend-nestjs/transaction-service` con Hexagonal Architecture y eliminar subcarpetas `.git` internas.
+- [ ] **Tarea 4.2**: Configurar Prisma ORM 7 (`transactiondb`) con `@prisma/adapter-mariadb`.
+- [ ] **Tarea 4.3**: Implementar Adaptador Outbound gRPC Client conectando a `user-service:50051` (`UserService.GetUserProfile`).
+- [ ] **Tarea 4.4**: Implementar Idempotencia de Transferencias con adaptador Redis (`ioredis` en `X-Idempotency-Key`).
+- [ ] **Tarea 4.5**: Implementar Adaptador Outbound Kafka Producer (`kafkajs`) emitiendo eventos `transfer_completed`.
+- [ ] **Tarea 4.6**: Implementar controladores REST HTTP + DTOs con validaciones `class-validator`.
+- [ ] **Tarea 4.7**: Configurar Swagger UI en `/transactions/docs` y `/api-docs`.
+- [ ] **Tarea 4.8**: Configurar Winston OTLP Logger (con metadatos K8s) y OpenTelemetry Tracing/Metrics hacia SigNoz.
+- [ ] **Tarea 4.9**: Crear `Dockerfile` multi-stage optimizado para `transaction-service`.
+- [ ] **Tarea 4.10**: Construir imagen con `nerdctl` y actualizar `k8s/02-microservices.yaml` (puerto 3003) y `k8s/05-ingress.yaml` (`/transactions`).
+- [ ] **Tarea 4.11**: Generar documentación individual `backend-nestjs/transaction-service/README.md` con arquitectura de carpetas, env vars, endpoints y cURL.
 
 ---
 
-## FASE 5: Notification Service NestJS Migration (RabbitMQ/Kafka + Nodemailer)
-- [ ] **Tarea 5.1**: Inicializar `backend-nestjs/notification-service`
-- [ ] **Tarea 5.2**: Kafka Consumer & SMTP Adapter
-- [ ] **Tarea 5.3**: Containerización y K8s deployment
-- [ ] **Tarea 5.4**: Documentación individual `notification-service/README.md`
+## FASE 5: Notification Service NestJS Migration (Hexagonal Architecture + Kafka Consumer + SMTP)
+
+- [ ] **Tarea 5.1**: Inicializar `backend-nestjs/notification-service` con Hexagonal Architecture y Git hygiene.
+- [ ] **Tarea 5.2**: Configurar Prisma ORM (`notificationdb`) para registrar notificaciones persistidas.
+- [ ] **Tarea 5.3**: Implementar Adaptador Inbound Kafka Consumer (`kafkajs`) consumiendo del topic `transfer_completed`.
+- [ ] **Tarea 5.4**: Implementar Adaptador Outbound Email (Nodemailer / Mailpit).
+- [ ] **Tarea 5.5**: Configurar Swagger UI en `/notifications/docs` y `/api-docs`.
+- [ ] **Tarea 5.6**: Configurar Winston OTLP Logger con correlación `trace_id` y atributos K8s para SigNoz.
+- [ ] **Tarea 5.7**: Crear `Dockerfile` multi-stage y desplegar en Kubernetes (puerto 3004).
+- [ ] **Tarea 5.8**: Generar documentación individual `backend-nestjs/notification-service/README.md` con árbol de carpetas.
 
 ---
 
-## FASE 6: Worker Service NestJS Migration (Cron Jobs + Outbox Pattern)
-- [ ] **Tarea 6.1**: Inicializar `backend-nestjs/worker-service`
-- [ ] **Tarea 6.2**: Outbox Consumer & Cron tasks
-- [ ] **Tarea 6.3**: Containerización y K8s deployment
-- [ ] **Tarea 6.4**: Documentación individual `worker-service/README.md`
+## FASE 6: Worker Service NestJS Migration (Hexagonal Architecture + PDF Generation + Kafka DLQ)
+
+- [ ] **Tarea 6.1**: Inicializar `backend-nestjs/worker-service` con Hexagonal Architecture.
+- [ ] **Tarea 6.2**: Configurar Prisma ORM (`workerdb`) para `statement_jobs` y `audit_logs`.
+- [ ] **Tarea 6.3**: Implementar servicio de generación de extractos bancarios en PDF.
+- [ ] **Tarea 6.4**: Implementar procesamiento de reintentos y Dead Letter Queue (DLQ) Kafka.
+- [ ] **Tarea 6.5**: Configurar Swagger UI en `/worker/docs` y `/api-docs`.
+- [ ] **Tarea 6.6**: Configurar Winston OTLP Logger + OpenTelemetry para SigNoz.
+- [ ] **Tarea 6.7**: Crear `Dockerfile` multi-stage y actualizar manifiestos de Kubernetes (puerto 3005).
+- [ ] **Tarea 6.8**: Generar documentación individual `backend-nestjs/worker-service/README.md` con árbol de carpetas.
 
 ---
 
-## ANEXO FINAL: Configuración de Reglas de Alerta en SigNoz (Opcional)
+## ANEXO FINAL: Configuración de Reglas de Alerta en SigNoz
 
 Para configurar las reglas de monitoreo en **SigNoz UI (`http://localhost:3301`) -> Alerts**:
 
@@ -168,5 +145,5 @@ Para configurar las reglas de monitoreo en **SigNoz UI (`http://localhost:3301`)
 
 3. **Alerta de Ausencia de Datos (Absent Data Alert)**:
    - **Métrica**: `rate(http_requests_total[10m])`
-   - **Condición**: == 0 por más de 10 minutos en horario laboral.
+   - **Condición**: == 0 por más de 10 minutos.
    - **Severidad**: `CRITICAL`.

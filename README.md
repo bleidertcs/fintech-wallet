@@ -99,7 +99,7 @@ graph TD
 | Capa | Tecnologias |
 |------|-------------|
 | **Frontend** | React 19, Vite 8, Tailwind CSS v4, React Router v6, Axios, Recharts, OpenPDF/jsPDF, xlsx, qrcode.react, html5-qrcode |
-| **Backend** | Spring Boot 3, Spring Data JPA, Spring Cloud Gateway, Spring Kafka, Spring Data Redis, Spring Mail, JJWT, Lombok |
+| **Backend** | **NestJS 11 + TypeScript + Prisma ORM** (`auth-service`, `user-service`), **Spring Boot 3 + Spring Data JPA** (`transaction-service`, `notification-service`, `worker-service`, `api-gateway`) |
 | **Base de Datos** | MySQL 8.0 (`authdb`, `userdb`, `transactiondb`, `notificationdb`, `workerdb`) |
 | **Caché y Rendimiento** | Redis 7 (Caché L2, Idempotencia, Blacklist JWT, Rate Limiting) |
 | **Mensajería** | Apache Kafka en **modo KRaft** (Reintentos automáticos + Dead Letter Queue - DLQ) |
@@ -136,33 +136,34 @@ graph TD
 
 ## Microservicios
 
-### Auth Service (Puerto 8081)
-Maneja autenticación, registro, JWT, verificación de email, 2FA y lista negra de tokens revocados en Redis.
+### Auth Service (NestJS 11 - Puerto 3001 / K8s 8081)
+Maneja autenticación, registro de usuarios, JWT (bcrypt), verificación de email (Nodemailer/Mailpit), 2FA/TOTP y lista negra de tokens revocados en Redis.
+- **Swagger UI**: [http://localhost/auth/docs/](http://localhost/auth/docs/)
 
 | Método | Endpoint | Descripción |
 |--------|----------|-------------|
-| POST | `/auth/register` | Registrar usuario |
-| POST | `/auth/login` | Iniciar sesión |
-| POST | `/auth/verify-totp` | Verificar código 2FA |
+| POST | `/auth/register` | Registrar usuario y crear perfil financiero |
+| POST | `/auth/login` | Iniciar sesión (Retorna JWT) |
+| POST | `/auth/verify-totp` | Verificar código 2FA / TOTP |
 | GET | `/auth/verify-email` | Verificar email por token |
-| GET | `/auth/me` | Estado actual del usuario |
+| GET | `/auth/me` | Estado actual del usuario autenticado |
 | POST | `/auth/resend-verification` | Reenviar email de verificación |
-| POST | `/auth/setup-totp` | Configurar 2FA |
+| POST | `/auth/setup-totp` | Configurar 2FA (Genera QR / Secreto) |
 | POST | `/auth/enable-totp` | Activar 2FA |
 | POST | `/auth/disable-totp` | Desactivar 2FA |
 | PUT | `/auth/change-password` | Cambiar contraseña |
-| PUT | `/auth/promote-admin` | Promover a administrador |
 
-### User Service (Puerto 8082)
-Gestiona perfiles de usuario, balances y configuraciones con almacenamiento en caché L2 de Redis (`userProfiles`).
+### User Service (NestJS 11 - REST: Puerto 3002 / K8s 8082 - gRPC: Puerto 50051 / K8s 9090)
+Gestiona perfiles de usuario, saldos, verificación KYC y expone un servidor gRPC de alto rendimiento (`user.proto`).
+- **Swagger UI**: [http://localhost/users/docs/](http://localhost/users/docs/)
 
-| Método | Endpoint | Descripción |
-|--------|----------|-------------|
-| POST | `/users` | Crear usuario |
-| GET | `/users` | Listar todos los usuarios |
-| GET | `/users/{id}` | Obtener usuario por ID (Cacheable) |
-| PUT | `/users/{id}/balance` | Actualizar saldo (Evicts cache) |
-| PUT | `/users/{id}/settings` | Cambiar moneda y límite diario |
+| Método | Endpoint / RPC | Descripción |
+|--------|----------------|-------------|
+| POST | `/users` | Crear perfil de usuario (Rest) |
+| GET | `/users/profile/{id}` | Obtener perfil por ID (Rest) |
+| PUT | `/users/profile/{id}/balance` | Actualizar saldo (Rest) |
+| PUT | `/users/profile/{id}/kyc` | Actualizar estado KYC (Rest) |
+| RPC | `UserService.GetUserProfile` | Consulta gRPC de perfil por ID (gRPC :50051) |
 
 ### Transaction Service (Puerto 8083)
 Procesa transferencias, solicitudes de dinero, valida límites diarios y garantiza idempotencia con Redis.
@@ -234,6 +235,8 @@ Una vez que todo esté corriendo, puedes acceder a las siguientes interfaces:
 | Servicio | URL |
 |----------|-----|
 | **Aplicación Web (Frontend)** | [http://localhost:3000](http://localhost:3000) |
+| **Auth Service Swagger UI** | [http://localhost/auth/docs/](http://localhost/auth/docs/) |
+| **User Service Swagger UI** | [http://localhost/users/docs/](http://localhost/users/docs/) |
 | **SigNoz (Consola de Observabilidad)** | [http://localhost:3301](http://localhost:3301) |
 | **Mailpit (Correos de prueba locales)** | [http://localhost:8025](http://localhost:8025) |
 | **API Gateway** | [http://localhost:8080](http://localhost:8080) |
@@ -267,28 +270,24 @@ Contraseña: ${DB_PASSWORD} (por defecto: 12345)
 
 ## Estructura del Proyecto
 
-```
+```text
 fintech-wallet/
-├── backend/                  # Microservicios Spring Boot
-│   ├── api-gateway/          # Gateway + Filtro JWT + Rate Limiting
-│   ├── auth-service/         # Autenticación, 2FA, email, JWT Blacklist
-│   ├── user-service/         # Perfiles y balances (gRPC + Caché Redis)
-│   ├── transaction-service/  # Transferencias y solicitudes (gRPC + Idempotencia Redis)
-│   ├── notification-service/ # Consumidor Kafka + notificaciones email (gRPC Client)
-│   └── worker-service/       # Extractos PDF OpenPDF + Reintentos y DLQ Kafka
-├── frontend/                 # Aplicación React + Vite
-├── infra/                    # Archivos de infraestructura
-│   ├── mysql/                # Script de inicialización de MySQL
-│   ├── clickhouse/           # Configuración ClickHouse para SigNoz
-│   └── otel/                 # Configuraciones del colector y migrador de OTel
-├── observability/            # Suite de observabilidad
-│   ├── dashboards/           # Plantillas de dashboards para SigNoz
-│   └── scripts/              # Scripts auxiliares para dashboards y métricas
-├── docs/                     # Reportes y planes de migración
-├── docker-compose.yml        # Stack completo de contenedores
-├── .env.example              # Ejemplo de variables de entorno
-├── ARQUITECTURA.md           # Documentación de arquitectura
-└── README.md
+├── backend-nestjs/           # Microservicios en NestJS 11 + TypeScript (Arquitectura Hexagonal)
+│   ├── auth-service/         # Autenticación, JWT, 2FA/TOTP, Mailpit, Prisma ORM, OpenTelemetry
+│   └── user-service/         # Perfiles de usuario, KYC, Saldos, Servidor gRPC (:50051), Prisma ORM
+├── backend/                  # Microservicios Java Spring Boot 3
+│   ├── api-gateway/          # Spring Cloud Gateway + Filtro JWT + Rate Limiting Redis
+│   ├── transaction-service/  # Transferencias y solicitudes (Cliente gRPC + Idempotencia Redis)
+│   ├── notification-service/ # Consumidor Kafka + notificaciones por email
+│   └── worker-service/       # Generación de extractos PDF (OpenPDF) + DLQ Kafka
+├── frontend/                 # Aplicación Web Frontend (React 19 + Vite 8 + Tailwind CSS v4)
+├── k8s/                      # Manifiestos de Kubernetes (Deployments, Services, Ingress Traefik, NetworkPolicy)
+├── scripts/                  # Scripts de automatización y pruebas de integración (PowerShell)
+├── infra/                    # Configuraciones de MySQL, ClickHouse y OpenTelemetry Collector
+├── observability/            # Plantillas de dashboards y vistas guardadas para SigNoz APM
+├── docker-compose.yml        # Orquestación para entorno de desarrollo local con Docker
+├── README_RANCHER.md         # Guía de despliegue detallada en Rancher Desktop (k3s Kubernetes)
+└── README.md                 # Documentación principal del sistema
 ```
 
 ## Puertos

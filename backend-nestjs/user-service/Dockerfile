@@ -8,7 +8,7 @@ ENV PNPM_CONFIG_IGNORE_SCRIPTS=true
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
 # Copiar archivos de dependencias y workspace
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
+COPY package.json pnpm-workspace.yaml .npmrc ./
 COPY prisma ./prisma/
 
 # Instalar dependencias
@@ -35,7 +35,7 @@ ENV PNPM_CONFIG_IGNORE_SCRIPTS=true
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
 # Copiar package, lockfile y workspace
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
+COPY package.json pnpm-workspace.yaml .npmrc ./
 COPY prisma ./prisma/
 
 # Instalar solo dependencias de producción
