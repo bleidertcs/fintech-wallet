@@ -163,6 +163,31 @@ data:
         allocatable_types_to_report: [cpu, memory]
       k8s_events:
         auth_type: serviceAccount
+      kubeletstats:
+        collection_interval: 10s
+        auth_type: "serviceAccount"
+        endpoint: "https://${env:K8S_NODE_NAME}:10250"
+        insecure_skip_verify: true
+      hostmetrics:
+        collection_interval: 10s
+        scrapers:
+          cpu:
+          memory:
+          load:
+          disk:
+          filesystem:
+          network:
+      filelog:
+        include:
+          - /var/log/pods/*/*/*.log
+        exclude:
+          - /var/log/pods/fintech_otel-collector-*/*/*.log
+        start_at: end
+        include_file_path: true
+        include_file_name: false
+        operators:
+          - type: container
+            id: container-parser
     processors:
       batch:
         send_batch_size: 10000
@@ -209,11 +234,11 @@ data:
           processors: [k8sattributes, memory_limiter, batch]
           exporters: [clickhousetraces]
         metrics:
-          receivers: [otlp, kafkametrics, redis, k8s_cluster]
+          receivers: [otlp, kubeletstats, hostmetrics, kafkametrics, redis, k8s_cluster]
           processors: [k8sattributes, memory_limiter, batch]
           exporters: [signozclickhousemetrics]
         logs:
-          receivers: [otlp, k8s_events]
+          receivers: [otlp, filelog, k8s_events]
           processors: [k8sattributes, memory_limiter, batch]
           exporters: [clickhouselogsexporter]
   otel-migration-config.yaml: |
@@ -224,6 +249,8 @@ data:
             endpoint: 0.0.0.0:4317
     processors:
       batch:
+        send_batch_size: 5000
+        timeout: 2s
     exporters:
       clickhousetraces:
         datasource: tcp://clickhouse:9000/signoz_traces
@@ -523,10 +550,16 @@ spec:
             - name: otel-config-volume
               mountPath: /etc/otel-collector-config.yaml
               subPath: otel-collector-config.yaml
+            - name: varlogpods
+              mountPath: /var/log/pods
+              readOnly: true
       volumes:
         - name: otel-config-volume
           configMap:
             name: otel-collector-config
+        - name: varlogpods
+          hostPath:
+            path: /var/log/pods
 ---
 apiVersion: v1
 kind: Service

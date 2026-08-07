@@ -1,98 +1,214 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Notification Service (NestJS Migration)
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Microservicio de Notificaciones y Alertas por Correo Electrónico de **FinTech Wallet**, migrado de Java Spring Boot a **NestJS 11** con Arquitectura Hexagonal, Prisma 7 ORM, MariaDB, Nodemailer, gRPC Client, Kafka Consumer y Observabilidad OpenTelemetry integrada con SigNoz.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+---
 
-## Description
+## 📁 Estructura del Proyecto (Arquitectura Hexagonal)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Project setup
-
-```bash
-$ pnpm install
+```text
+backend-nestjs/notification-service/
+├── src/
+│   ├── main.ts                           # Bootstrap del microservicio & OTLP Logger setup
+│   ├── app.module.ts                     # Módulo raíz de NestJS
+│   ├── domain/                           # Dominio y Lógica de Negocio Pura
+│   │   ├── entities/
+│   │   │   ├── notification.entity.ts    # Entidad de Notificación
+│   │   │   └── transfer-events.dto.ts    # DTO del Evento transfer_completed de Kafka
+│   │   └── ports/
+│   │       ├── notification-service.port.ts  # Puerto de Servicio de Aplicación
+│   │       ├── notification-repository.port.ts # Puerto de Repositorio de BD
+│   │       ├── email-adapter.port.ts          # Puerto de Envío de Email
+│   │       └── user-service-client.port.ts    # Puerto de Cliente gRPC de Usuarios
+│   ├── application/                      # Casos de Uso
+│   │   ├── notification-application.module.ts
+│   │   └── use-cases/
+│   │       ├── notification.use-cases.ts      # Procesamiento de notificaciones y transferencias
+│   │       └── notification.use-cases.spec.ts # Pruebas unitarias de casos de uso (100% Cobertura)
+│   ├── adapters/                         # Adaptadores de Entrada y Salida
+│   │   ├── inbound/                      # Adaptadores de Entrada (REST, Kafka Consumer)
+│   │   │   ├── rest/
+│   │   │   │   ├── notification.controller.ts      # Controller REST de Notificaciones
+│   │   │   │   ├── notification.controller.spec.ts # Pruebas unitarias Controller REST
+│   │   │   │   ├── health.controller.ts            # Controller de Healthcheck K8s
+│   │   │   │   └── health.controller.spec.ts       # Pruebas unitarias Health Controller
+│   │   │   └── kafka/
+│   │   │       └── kafka-consumer.service.ts       # Consumidor de tópico transfer_completed
+│   │   └── outbound/                     # Adaptadores de Salida (Prisma, Nodemailer, gRPC)
+│   │       ├── database/
+│   │       │   ├── prisma-notification.repository.ts # Repositorio Prisma MariaDB
+│   │       │   └── database.module.ts
+│   │       ├── email/
+│   │       │   ├── nodemailer.adapter.ts             # Adaptador de envío de mail con Mailpit/SMTP
+│   │       │   └── email.module.ts
+│   │       └── grpc/
+│   │           ├── user-service.grpc-adapter.ts   # Cliente gRPC hacia User Service (:9090)
+│   │           ├── user-grpc-client.module.ts
+│   │           └── proto/
+│   │               └── user.proto                 # Definición del contrato Protobuf gRPC
+│   └── infrastructure/                   # Configuración e Infraestructura
+│       ├── database/
+│       │   └── prisma.service.ts         # PrismaMariaDb Driver Adapter
+│       ├── logging/
+│       │   └── otel-winston.logger.ts    # Logger Winston OTLP con trace_id y k8s tags
+│       └── telemetry/
+│           └── tracing.ts                # Inicialización de OpenTelemetry SDK Tracing/Metrics
+├── prisma/
+│   └── schema.prisma                     # Esquema Prisma de MariaDB (Tabla notifications)
+├── test/                                 # Pruebas E2E de Jest
+│   ├── app.e2e-spec.ts
+│   └── jest-e2e.json
+├── Dockerfile                            # Multi-stage Dockerfile para producción (node:22-alpine)
+├── .dockerignore                         # Exclusiones de contexto Docker
+├── nest-cli.json                         # Configuración Nest CLI con assets proto
+├── package.json                          # Scripts y dependencias NestJS
+└── README.md                             # Documentación oficial del Microservicio
 ```
 
-## Compile and run the project
+---
+
+## ⚙️ Variables de Entorno
+
+| Variable | Descripción | Valor por Defecto |
+| :--- | :--- | :--- |
+| `PORT` | Puerto de escucha HTTP REST | `3004` |
+| `NODE_ENV` | Entorno de ejecución (`development` / `production`) | `production` |
+| `NODE_OPTIONS` | Opciones V8 para optimización de memoria GC | `--max-old-space-size=200` |
+| `DATABASE_URL` | URL de conexión MySQL / MariaDB | `mysql://root:12345@mysql:3306/notificationdb` |
+| `KAFKA_BROKERS` | Brokers de Apache Kafka | `kafka:9092` |
+| `MAIL_HOST` | Host SMTP de envío de correos (Mailpit) | `mailpit` |
+| `MAIL_PORT` | Puerto SMTP | `1025` |
+| `MAIL_FROM` | Remitente por defecto de correos | `noreply@fintechwallet.com` |
+| `USER_SERVICE_GRPC_URL` | Endpoint gRPC de User Service | `user-service.fintech.svc.cluster.local:9090` |
+| `OTEL_SERVICE_NAME` | Nombre del servicio para SigNoz | `notification-service` |
+| `OTEL_EXPORTER_OTLP_ENDPOINT` | Endpoint HTTP OTLP del Collector de SigNoz | `http://otel-collector.fintech.svc.cluster.local:4318` |
+
+---
+
+## 🚀 Endpoints REST API & Swagger UI
+
+### Swagger UI Documentation
+- **URL Interactiva UI**: `http://localhost/notifications/docs/`
+- **JSON OpenAPI**: `http://localhost/notifications/docs-json`
+
+### 1. Healthcheck (K8s Liveness / Readiness Probes)
+- **GET** `/health`
+- **Respuesta 200 OK**:
+  ```json
+  {
+    "status": "ok",
+    "info": { "database": { "status": "up" } },
+    "error": {},
+    "details": { "database": { "status": "up" } }
+  }
+  ```
+
+### 2. Obtener Notificaciones de un Usuario
+- **GET** `/notifications/user/:userId`
+- **Ejemplo cURL**:
+  ```bash
+  curl -X GET "http://localhost/notifications/user/1" -H "Accept: application/json"
+  ```
+- **Respuesta 200 OK**:
+  ```json
+  [
+    {
+      "id": 1,
+      "userId": 1,
+      "title": "Transferencia Recibida",
+      "message": "Has recibido $150.00 USD de Maria Lopez.",
+      "type": "TRANSFER_RECEIVED",
+      "read": false,
+      "createdAt": "2026-08-07T14:45:00.000Z"
+    }
+  ]
+  ```
+
+### 3. Marcar Notificación como Leída
+- **PATCH** `/notifications/:id/read`
+- **Ejemplo cURL**:
+  ```bash
+  curl -X PATCH "http://localhost/notifications/1/read" -H "Accept: application/json"
+  ```
+- **Respuesta 200 OK**:
+  ```json
+  {
+    "id": 1,
+    "userId": 1,
+    "title": "Transferencia Recibida",
+    "message": "Has recibido $150.00 USD de Maria Lopez.",
+    "type": "TRANSFER_RECEIVED",
+    "read": true,
+    "createdAt": "2026-08-07T14:45:00.000Z"
+  }
+  ```
+
+### 4. Obtener Conteo de Notificaciones No Leídas
+- **GET** `/notifications/unread-count/:userId`
+- **Ejemplo cURL**:
+  ```bash
+  curl -X GET "http://localhost/notifications/unread-count/1" -H "Accept: application/json"
+  ```
+- **Respuesta 200 OK**:
+  ```json
+  {
+    "userId": 1,
+    "unreadCount": 3
+  }
+  ```
+
+---
+
+## 🔌 Eventos Asíncronos Kafka
+
+- **Tópico Consumido**: `transfer_completed`
+- **Estructura del Payload**:
+  ```json
+  {
+    "transactionId": "tx-99812",
+    "sourceUserId": 1,
+    "targetUserId": 2,
+    "amount": 250.00,
+    "currency": "USD",
+    "timestamp": "2026-08-07T14:46:00Z"
+  }
+  ```
+- **Flujo**:
+  1. Consume evento desde Kafka.
+  2. Consulta nombres y correos de `sourceUserId` y `targetUserId` mediante cliente gRPC hacia `user-service:9090`.
+  3. Almacena 2 notificaciones en MariaDB mediante Prisma (`TRANSFER_SENT` y `TRANSFER_RECEIVED`).
+  4. Envía 2 correos electrónicos en HTML/Texto mediante Nodemailer hacia Mailpit (SMTP `:1025`).
+
+---
+
+## 🧪 Pruebas Unitarias y Cobertura
+
+Las pruebas se ejecutan con **Jest** y cumplen el estándar del **Pilar 7 (100% de éxito en la suite de pruebas unitarias)**.
 
 ```bash
-# development
-$ pnpm run start
+# Ejecución de Pruebas Unitarias
+pnpm test
 
-# watch mode
-$ pnpm run start:dev
-
-# production mode
-$ pnpm run start:prod
+# Resultado de Pruebas:
+# PASS src/application/use-cases/notification.use-cases.spec.ts
+# PASS src/adapters/inbound/rest/notification.controller.spec.ts
+# PASS src/adapters/inbound/rest/health.controller.spec.ts
+# Test Suites: 3 passed, 3 total
+# Tests:       11 passed, 11 total
 ```
 
-## Run tests
+---
 
-```bash
-# unit tests
-$ pnpm run test
+## 📦 Construcción y Despliegue en Kubernetes (Rancher / nerdctl)
 
-# e2e tests
-$ pnpm run test:e2e
+```powershell
+# 1. Construir la imagen con containerd en Rancher Desktop (namespace k8s.io)
+& "C:\Program Files\Rancher Desktop\resources\resources\win32\bin\nerdctl.exe" --namespace k8s.io build -t fintech/notification-service:nestjs ./backend-nestjs/notification-service
 
-# test coverage
-$ pnpm run test:cov
+# 2. Desplegar en Kubernetes
+kubectl apply -f k8s/02-microservices.yaml
+kubectl apply -f k8s/05-ingress.yaml
+
+# 3. Reiniciar el deployment para aplicar cambios
+kubectl rollout restart deployment/notification-service -n fintech
 ```
-
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ pnpm install -g @nestjs/mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).

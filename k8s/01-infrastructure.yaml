@@ -21,6 +21,9 @@ spec:
       containers:
         - name: mysql
           image: mysql:8.0
+          args:
+            - "--innodb_buffer_pool_size=134217728"
+            - "--max_connections=100"
           ports:
             - containerPort: 3306
               name: mysql
@@ -108,6 +111,12 @@ spec:
       containers:
         - name: redis
           image: redis:7-alpine
+          args:
+            - "redis-server"
+            - "--maxmemory"
+            - "256mb"
+            - "--maxmemory-policy"
+            - "volatile-lru"
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:

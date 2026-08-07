@@ -1,6 +1,6 @@
 {
   "title": "FinTech Wallet - NestJS Microservices RED Metrics",
-  "description": "Dashboard de Rendimiento, Latencia (RED Metrics) y Métricas de Sistema para auth-service y user-service en SigNoz",
+  "description": "Dashboard de Rendimiento, Latencia (RED Metrics) y Métricas de Sistema para auth-service, user-service y transaction-service en SigNoz",
   "tags": ["nestjs", "fintech", "red-metrics", "kubernetes"],
   "widgets": [
     {

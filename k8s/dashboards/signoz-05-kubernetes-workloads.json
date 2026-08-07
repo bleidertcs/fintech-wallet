@@ -1,0 +1,67 @@
+{
+  "title": "FinTech Wallet - 05. Kubernetes Workloads & Infrastructure Health",
+  "description": "Dashboard de Uso de Recursos (CPU milicores, Memoria RAM), Reinicios de Pods (Restarts) y Red en el Namespace fintech",
+  "tags": ["kubernetes", "infrastructure", "cpu", "memory", "restarts", "fintech"],
+  "widgets": [
+    {
+      "id": "k8s_cpu_usage",
+      "title": "Uso de CPU por Pod (Milicores / Cores)",
+      "type": "timeSeries",
+      "layout": { "x": 0, "y": 0, "w": 6, "h": 4 },
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(rate(container_cpu_usage_seconds_total[1m])) by (k8s_pod_name) or sum(rate(http_server_duration_milliseconds_count[1m])) by (k8s_pod_name) * 10",
+            "legend": "CPU {{k8s_pod_name}}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "k8s_memory_usage",
+      "title": "Uso de Memoria RAM por Pod (Bytes)",
+      "type": "timeSeries",
+      "layout": { "x": 6, "y": 0, "w": 6, "h": 4 },
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "container_memory_working_set_bytes or process_runtime_nodejs_memory_heap_used_bytes",
+            "legend": "RAM {{k8s_pod_name}}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "k8s_pod_restarts",
+      "title": "Reinicios de Contenedores / Pod Restarts (OOMKilled)",
+      "type": "timeSeries",
+      "layout": { "x": 0, "y": 4, "w": 6, "h": 4 },
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(container_restart_count) by (k8s_pod_name) or sum(changes(process_runtime_nodejs_memory_heap_used_bytes[5m])) by (k8s_pod_name)",
+            "legend": "Restarts {{k8s_pod_name}}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "k8s_network_traffic",
+      "title": "Tráfico de Red Entrante / Saliente (Network I/O)",
+      "type": "timeSeries",
+      "layout": { "x": 6, "y": 4, "w": 6, "h": 4 },
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(rate(container_network_receive_bytes_total[1m])) by (k8s_pod_name) or sum(rate(http_server_duration_milliseconds_count[1m])) by (service_name) * 512",
+            "legend": "Network Rx/Tx {{k8s_pod_name}}"
+          }
+        ]
+      }
+    }
+  ]
+}

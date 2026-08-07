@@ -92,6 +92,26 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
+  name: notification-ingress
+  namespace: fintech
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  ingressClassName: traefik
+  rules:
+  - http:
+      paths:
+      - path: /notifications
+        pathType: Prefix
+        backend:
+          service:
+            name: notification-service
+            port:
+              number: 8084
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
   name: fintech-ingress
   namespace: fintech
   annotations:

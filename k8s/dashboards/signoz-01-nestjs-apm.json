@@ -1,0 +1,105 @@
+{
+  "title": "FinTech Wallet - 01. NestJS Microservices RED Metrics & APM",
+  "description": "Dashboard de Rendimiento, Latencia (P50/P95/P99), Tasa de Errores y Métricas de Runtime (Node.js Heap, Event Loop) para auth-service, user-service y transaction-service en SigNoz",
+  "tags": ["nestjs", "fintech", "red-metrics", "kubernetes", "apm"],
+  "widgets": [
+    {
+      "id": "rps_by_service",
+      "title": "Throughput (Solicitudes por Segundo - RPS)",
+      "type": "timeSeries",
+      "layout": { "x": 0, "y": 0, "w": 6, "h": 4 },
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(rate(http_server_duration_milliseconds_count[1m])) by (service_name)",
+            "legend": "{{service_name}}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p99_p95_p50_latency",
+      "title": "Latencias HTTP / gRPC (ms) [P50, P95, P99]",
+      "type": "timeSeries",
+      "layout": { "x": 6, "y": 0, "w": 6, "h": 4 },
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "histogram_quantile(0.99, sum(rate(http_server_duration_milliseconds_bucket[1m])) by (le, service_name))",
+            "legend": "P99 {{service_name}}"
+          },
+          {
+            "query": "histogram_quantile(0.95, sum(rate(http_server_duration_milliseconds_bucket[1m])) by (le, service_name))",
+            "legend": "P95 {{service_name}}"
+          },
+          {
+            "query": "histogram_quantile(0.50, sum(rate(http_server_duration_milliseconds_bucket[1m])) by (le, service_name))",
+            "legend": "P50 {{service_name}}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "error_rate_http",
+      "title": "Tasa de Errores HTTP (4xx / 5xx %)",
+      "type": "timeSeries",
+      "layout": { "x": 0, "y": 4, "w": 6, "h": 4 },
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(rate(http_server_duration_milliseconds_count{http_status_code=~\"5..|4..\"}[1m])) by (service_name) / sum(rate(http_server_duration_milliseconds_count[1m])) by (service_name) * 100",
+            "legend": "Error Rate % {{service_name}}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "nodejs_heap_memory",
+      "title": "Uso de Memoria Heap de Node.js (Bytes)",
+      "type": "timeSeries",
+      "layout": { "x": 6, "y": 4, "w": 6, "h": 4 },
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "process_runtime_nodejs_memory_heap_used_bytes",
+            "legend": "Heap Used {{k8s_pod_name}}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "nodejs_event_loop_lag",
+      "title": "Lag del Event Loop de Node.js (ms)",
+      "type": "timeSeries",
+      "layout": { "x": 0, "y": 8, "w": 6, "h": 4 },
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "process_runtime_nodejs_event_loop_lag_seconds * 1000",
+            "legend": "Event Loop Lag {{k8s_pod_name}}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "idempotency_blocked_keys",
+      "title": "Transferencias Idempotentes Procesadas / Bloqueadas",
+      "type": "timeSeries",
+      "layout": { "x": 6, "y": 8, "w": 6, "h": 4 },
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(rate(http_server_duration_milliseconds_count{http_target=\"/transactions/transfer\"}[1m]))",
+            "legend": "Transacciones procesadas/min"
+          }
+        ]
+      }
+    }
+  ]
+}

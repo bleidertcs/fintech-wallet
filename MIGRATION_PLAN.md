@@ -109,15 +109,15 @@ Cada microservicio migrado debe cumplir obligatoriamente con los siguientes 6 pi
 
 ## FASE 5: Notification Service NestJS Migration (Hexagonal Architecture + Kafka Consumer + SMTP)
 
-- [ ] **Tarea 5.1**: Inicializar `backend-nestjs/notification-service` con Hexagonal Architecture y Git hygiene.
-- [ ] **Tarea 5.2**: Configurar Prisma ORM (`notificationdb`) para registrar notificaciones persistidas.
-- [ ] **Tarea 5.3**: Implementar Adaptador Inbound Kafka Consumer (`kafkajs`) consumiendo del topic `transfer_completed`.
-- [ ] **Tarea 5.4**: Implementar Adaptador Outbound Email (Nodemailer / Mailpit).
-- [ ] **Tarea 5.5**: Configurar Swagger UI en `/notifications/docs` y `/api-docs`.
-- [ ] **Tarea 5.6**: Configurar Winston OTLP Logger con correlación `trace_id` y atributos K8s para SigNoz.
-- [ ] **Tarea 5.7**: Crear `Dockerfile` multi-stage y desplegar en Kubernetes (puerto 3004).
-- [ ] **Tarea 5.8**: Creación y ejecución de Pruebas Unitarias y E2E con Jest (`pnpm test`).
-- [ ] **Tarea 5.9**: Generar documentación individual `backend-nestjs/notification-service/README.md` con árbol de carpetas.
+- [x] **Tarea 5.1**: Inicializar `backend-nestjs/notification-service` con Hexagonal Architecture y Git hygiene.
+- [x] **Tarea 5.2**: Configurar Prisma ORM (`notificationdb`) para registrar notificaciones persistidas.
+- [x] **Tarea 5.3**: Implementar Adaptador Inbound Kafka Consumer (`kafkajs`) consumiendo del topic `transfer_completed`.
+- [x] **Tarea 5.4**: Implementar Adaptador Outbound Email (Nodemailer / Mailpit).
+- [x] **Tarea 5.5**: Configurar Swagger UI en `/notifications/docs` y `/api-docs`.
+- [x] **Tarea 5.6**: Configurar Winston OTLP Logger con correlación `trace_id` y atributos K8s para SigNoz.
+- [x] **Tarea 5.7**: Crear `Dockerfile` multi-stage y desplegar en Kubernetes (puerto 3004).
+- [x] **Tarea 5.8**: Creación y ejecución de Pruebas Unitarias y E2E con Jest (`pnpm test`).
+- [x] **Tarea 5.9**: Generar documentación individual `backend-nestjs/notification-service/README.md` con árbol de carpetas.
 
 ---
 
@@ -132,6 +132,18 @@ Cada microservicio migrado debe cumplir obligatoriamente con los siguientes 6 pi
 - [ ] **Tarea 6.7**: Crear `Dockerfile` multi-stage y actualizar manifiestos de Kubernetes (puerto 3005).
 - [ ] **Tarea 6.8**: Creación y ejecución de Pruebas Unitarias y E2E con Jest (`pnpm test`).
 - [ ] **Tarea 6.9**: Generar documentación individual `backend-nestjs/worker-service/README.md` con árbol de carpetas.
+
+---
+
+## ANEXO: Dashboards de Observabilidad Completa en SigNoz (`k8s/dashboards/`)
+
+El sistema cuenta con **5 Dashboards Modulares en formato JSON Nactivo** listos para ser importados vía UI (`http://localhost:3301`) o mediante los scripts bajo demanda `.\import-signoz-dashboards.ps1` / `./import-signoz-dashboards.sh`:
+
+1. **`01. NestJS Microservices RED Metrics & APM`** (`signoz-01-nestjs-apm.json`): Solicitudes/sec (RPS), Latencias P50/P95/P99, Tasa de Errores % 4xx/5xx y Métricas de Node.js Runtime (Heap Used/Total, Event Loop Lag).
+2. **`02. MySQL Database Health & Performance`** (`signoz-02-mysql-health.json`): QPS de lectura/escritura en `authdb`, `userdb`, `transactiondb`, Consultas Lentas (>200ms) y Pool de Conexiones.
+3. **`03. Redis Cache & Idempotency Operations`** (`signoz-03-redis-cache.json`): Tasa de acierto de caché (Hit Rate %), Operaciones/sec por comando (GET/SET/DEL), Memoria usada e Idempotencia.
+4. **`04. Apache Kafka KRaft & Event Streaming`** (`signoz-04-kafka-streaming.json`): Throughput de mensajes producidos/consumidos en `transfer_completed`, Consumer Lag de Notificaciones y cola Dead Letter Queue (`transfer-events-dlq`).
+5. **`05. Kubernetes Workloads & Infrastructure Health`** (`signoz-05-kubernetes-workloads.json`): Consumo de CPU (milicores), Memoria RAM (Residente vs Límites), Reinicios de Pods (Restarts / OOMKilled) y Red (Rx/Tx) en el namespace `fintech`.
 
 ---
 
