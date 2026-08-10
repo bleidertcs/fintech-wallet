@@ -12,6 +12,12 @@ export class UserController {
     private readonly userService: IUserServicePort,
   ) {}
 
+  @Get('health')
+  @ApiOperation({ summary: 'Healthcheck para Ingress' })
+  getHealth() {
+    return { status: 'OK', service: 'user-service', timestamp: new Date().toISOString() };
+  }
+
   @Post()
   @Post('profile')
   @ApiOperation({ summary: 'Crear o registrar perfil de usuario' })

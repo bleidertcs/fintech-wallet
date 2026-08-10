@@ -14,6 +14,12 @@ export class NotificationController {
     private readonly notificationService: NotificationServicePort,
   ) {}
 
+  @Get('health')
+  @ApiOperation({ summary: 'Healthcheck para Ingress' })
+  getHealth() {
+    return { status: 'OK', service: 'notification-service', timestamp: new Date().toISOString() };
+  }
+
   @Get('user/:userId')
   @ApiOperation({ summary: 'Obtener notificaciones de un usuario por su ID' })
   @ApiParam({ name: 'userId', type: Number, description: 'ID del usuario' })

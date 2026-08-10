@@ -1,16 +1,74 @@
-# React + Vite
+# Frontend (React + Vite + TailwindCSS)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación Web Single-Page Application (SPA) para **FinTech Wallet**, construida con **React 19**, **Vite**, **TailwindCSS**, **React Router v7** y **OpenTelemetry Web SDK** para rastreo distribuido de peticiones HTTP en SigNoz APM.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📁 Estructura del Proyecto
 
-## React Compiler
+```text
+frontend/
+├── src/
+│   ├── main.jsx                          # Punto de entrada de React con Telemetría
+│   ├── App.jsx                           # Enrutamiento principal y Layout
+│   ├── telemetry.js                      # Configuración de OpenTelemetry Web SDK (/otlp/v1/traces)
+│   ├── index.css                         # Estilos TailwindCSS globales
+│   ├── components/                       # Componentes reutilizables (Navbar, Cards, Modals)
+│   ├── context/                          # Estado global (AuthContext, ThemeContext)
+│   ├── pages/                            # Páginas del Frontend (Dashboard, Transfer, History, etc.)
+│   └── services/                         # Clientes API Axios (auth, users, transactions, notifications)
+│       └── api.js                        # Configuración Axios con Interceptores JWT
+├── public/                               # Recursos estáticos
+├── nginx.conf                            # Configuración de Nginx para SPA (try_files index.html)
+├── Dockerfile                            # Multi-stage Dockerfile (node:22-alpine + nginx:alpine)
+├── .dockerignore                         # Exclusiones de contexto Docker
+├── vite.config.js                        # Configuración del empaquetador Vite
+├── package.json                          # Scripts y dependencias React/Vite
+└── README.md                             # Documentación oficial del Frontend
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ⚙️ Integración con Microservicios NestJS & Traefik Ingress
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+El cliente API en `src/services/api.js` utiliza rutas relativas (`baseURL: import.meta.env.VITE_API_URL || '/api'`), permitiendo que el Ingress Controller **Traefik** en Kubernetes enrute de forma transparente:
+
+- `/` → **Frontend (Nginx :80)**
+- `/auth` → **Auth Service (NestJS :3001)**
+- `/users` → **User Service (NestJS :8082 / gRPC :9090)**
+- `/transactions` → **Transaction Service (NestJS :8083)**
+- `/notifications` → **Notification Service (NestJS :8084)**
+
+---
+
+## 🧪 Comandos de Desarrollo
+
+```bash
+# Instalar dependencias
+npm install
+
+# Ejecutar servidor de desarrollo local (http://localhost:5173)
+npm run dev
+
+# Compilar para producción (genera frontend/dist)
+npm run build
+
+# Vista previa de la build local
+npm run preview
+```
+
+---
+
+## 📦 Construcción y Despliegue en Kubernetes (Rancher Desktop)
+
+```powershell
+# 1. Construir la imagen en containerd con nerdctl (namespace k8s.io)
+& "C:\Program Files\Rancher Desktop\resources\resources\win32\bin\nerdctl.exe" --namespace k8s.io build -t fintech/frontend:latest ./frontend
+
+# 2. Desplegar en Kubernetes
+kubectl apply -f k8s/03-frontend.yaml
+kubectl apply -f k8s/05-ingress.yaml
+
+# 3. Reiniciar el deployment para aplicar la nueva versión
+kubectl rollout restart deployment/frontend -n fintech
+```

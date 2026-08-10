@@ -1140,13 +1140,13 @@
     "semantic_hash": ""
   },
   "k8s/01-infrastructure.yaml": {
-    "mtime": 1785872801.7071257,
-    "ast_hash": "eb325dde33fc3fba77b983426b88065a",
+    "mtime": 1786111021.925818,
+    "ast_hash": "8cb61c6b8fc5501e1c904de85b5e5584",
     "semantic_hash": ""
   },
   "k8s/02-microservices.yaml": {
-    "mtime": 1786026531.3926668,
-    "ast_hash": "fc27811582c65b36920fd6b09082a26a",
+    "mtime": 1786111037.942775,
+    "ast_hash": "70dee684708c02a24832342d2d11f5c6",
     "semantic_hash": ""
   },
   "k8s/03-frontend.yaml": {
@@ -1155,8 +1155,8 @@
     "semantic_hash": ""
   },
   "k8s/04-observability.yaml": {
-    "mtime": 1786045912.0616083,
-    "ast_hash": "929f2fbee5a8af36fb543ad250ecd097",
+    "mtime": 1786111053.9357142,
+    "ast_hash": "d98b8a8065c5dcbae44971b4f0b34453",
     "semantic_hash": ""
   },
   "k8s/05-ingress.yaml": {
@@ -1605,8 +1605,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/notification-service/package.json": {
-    "mtime": 1785873514.9785678,
-    "ast_hash": "6e1eba9e7f0b02dbd476f7afb80aa215",
+    "mtime": 1786109948.770028,
+    "ast_hash": "5436b0a6fc37b76f20f7d43bb6bf884c",
     "semantic_hash": ""
   },
   "backend-nestjs/notification-service/src/app.controller.spec.ts": {
@@ -1620,8 +1620,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/notification-service/src/app.module.ts": {
-    "mtime": 1785873514.983569,
-    "ast_hash": "97d51467c8acb83d4379da2cebfb9d63",
+    "mtime": 1786110101.6340406,
+    "ast_hash": "8798930e0357f7c121f6d1962a62cfe5",
     "semantic_hash": ""
   },
   "backend-nestjs/notification-service/src/app.service.ts": {
@@ -1630,8 +1630,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/notification-service/src/main.ts": {
-    "mtime": 1785873514.9865692,
-    "ast_hash": "513b1a8ccb913e8454d526755795b56e",
+    "mtime": 1786110117.1022356,
+    "ast_hash": "84767c5865d29e15141906af74002f6e",
     "semantic_hash": ""
   },
   "backend-nestjs/notification-service/test/app.e2e-spec.ts": {
@@ -2335,8 +2335,8 @@
     "semantic_hash": ""
   },
   "MIGRATION_PLAN.md": {
-    "mtime": 1786042335.568035,
-    "ast_hash": "79f6b4b523c0486ef3813af2d991a1f3",
+    "mtime": 1786110503.755693,
+    "ast_hash": "7830e3c3044367cf35fe39fb4c42c2fa",
     "semantic_hash": ""
   },
   "backend-nestjs/api-gateway/README.md": {
@@ -2365,8 +2365,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/notification-service/pnpm-workspace.yaml": {
-    "mtime": 1785873551.7661245,
-    "ast_hash": "21ff52d7ac1d9eade17f33f377723d34",
+    "mtime": 1786110370.891374,
+    "ast_hash": "96b3d931005af2b64300c6590bed21d7",
     "semantic_hash": ""
   },
   "backend-nestjs/transaction-service/README.md": {
@@ -2432,6 +2432,106 @@
   "k8s/dashboards/signoz-05-kubernetes-workloads.json": {
     "mtime": 1786045921.5542195,
     "ast_hash": "5c94ea8259f939d4bb60efc5b5067fe5",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/notification-service/src/adapters/inbound/kafka/kafka-consumer.service.ts": {
+    "mtime": 1786110061.5969336,
+    "ast_hash": "3c322e3728a3d3a6e80b2df9c375fcd9",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/notification-service/src/adapters/inbound/rest/health.controller.ts": {
+    "mtime": 1786110072.5535603,
+    "ast_hash": "1241def2bd57502465cdc9cf77bba5c8",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/notification-service/src/adapters/inbound/rest/notification.controller.ts": {
+    "mtime": 1786110066.8904443,
+    "ast_hash": "c64b6443f2c7e895aea0262157c13be2",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/notification-service/src/adapters/outbound/database/database.module.ts": {
+    "mtime": 1786110077.1545067,
+    "ast_hash": "382ad836b6cde6281156f1fe27b523a3",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/notification-service/src/adapters/outbound/database/prisma-notification.repository.ts": {
+    "mtime": 1786110034.5518098,
+    "ast_hash": "6946b9e63a69ecc93a0bcfd221cd29a1",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/notification-service/src/adapters/outbound/email/email.module.ts": {
+    "mtime": 1786110083.1258776,
+    "ast_hash": "59acdd45a0f7080cc85938b2238eafc6",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/notification-service/src/adapters/outbound/email/nodemailer.adapter.ts": {
+    "mtime": 1786110039.9549272,
+    "ast_hash": "9457802b8014de1adcda39b671ade99e",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-grpc-client.module.ts": {
+    "mtime": 1786110089.5927403,
+    "ast_hash": "f7a1208bf89367df35c4de0989fe6d92",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-service.grpc-adapter.ts": {
+    "mtime": 1786110055.8697057,
+    "ast_hash": "5ae402bc4321a15d07bd937f929a7956",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/notification-service/src/application/notification-application.module.ts": {
+    "mtime": 1786110095.9278803,
+    "ast_hash": "7ae32dc421fc2fd5c17713fe98aa845e",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/notification-service/src/application/use-cases/notification.use-cases.ts": {
+    "mtime": 1786110444.108079,
+    "ast_hash": "f50a8d0dbbe5ab4c9c18e3420bc4f99d",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/notification-service/src/domain/entities/notification.entity.ts": {
+    "mtime": 1786109978.7468903,
+    "ast_hash": "1528bb4bea65aea1debd205375a9f954",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/notification-service/src/domain/events/transfer-completed.event.ts": {
+    "mtime": 1786109987.8676949,
+    "ast_hash": "680deacf73b16c4cef6eba88e2683d9c",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/notification-service/src/domain/ports/inbound/notification-service.port.ts": {
+    "mtime": 1786110019.3277185,
+    "ast_hash": "013a4842770c1e772a76febb0a780696",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/notification-service/src/domain/ports/outbound/email-adapter.port.ts": {
+    "mtime": 1786110003.1469529,
+    "ast_hash": "08110cff89507e398cee689412946479",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/notification-service/src/domain/ports/outbound/notification-repository.port.ts": {
+    "mtime": 1786109996.6356728,
+    "ast_hash": "542e47be0940100ec04b17cf97cf7992",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/notification-service/src/domain/ports/outbound/user-service-client.port.ts": {
+    "mtime": 1786110011.785118,
+    "ast_hash": "4c567f319091d6721b847918d79f2b4e",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/notification-service/src/infrastructure/database/prisma.service.ts": {
+    "mtime": 1786110476.9808347,
+    "ast_hash": "25672f52c9a7886dc59e204e45702ff9",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/notification-service/src/infrastructure/logger/winston.logger.ts": {
+    "mtime": 1786110111.412463,
+    "ast_hash": "3601689b76238de42950c987dc7a1d20",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/notification-service/src/infrastructure/telemetry/tracing.ts": {
+    "mtime": 1786110106.6316493,
+    "ast_hash": "fbcb54efaf92312fde7e5ed31d4d80fb",
     "semantic_hash": ""
   }
 }

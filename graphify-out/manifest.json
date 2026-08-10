@@ -990,8 +990,8 @@
     "semantic_hash": ""
   },
   "frontend/README.md": {
-    "mtime": 1784124280.527077,
-    "ast_hash": "abfa161e3e5434e3e85394bf03d387a4",
+    "mtime": 1786128102.023157,
+    "ast_hash": "7a55b62df2367e80029c253a56c5ba9b",
     "semantic_hash": ""
   },
   "frontend/index.html": {
@@ -1145,8 +1145,8 @@
     "semantic_hash": ""
   },
   "k8s/02-microservices.yaml": {
-    "mtime": 1786111037.942775,
-    "ast_hash": "70dee684708c02a24832342d2d11f5c6",
+    "mtime": 1786129857.460219,
+    "ast_hash": "1a42221429db21d43d8fadf35bf59cae",
     "semantic_hash": ""
   },
   "k8s/03-frontend.yaml": {
@@ -1160,8 +1160,8 @@
     "semantic_hash": ""
   },
   "k8s/05-ingress.yaml": {
-    "mtime": 1786026546.356542,
-    "ast_hash": "b791e346d1d320affb90bd22f9a96b6c",
+    "mtime": 1786128520.617035,
+    "ast_hash": "a3d9584c686ea1136b68e7c9280bc9ad",
     "semantic_hash": ""
   },
   "deploy-rancher.ps1": {
@@ -1600,8 +1600,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/notification-service/nest-cli.json": {
-    "mtime": 1785873514.9775846,
-    "ast_hash": "fa439650fa28a1a7aa8c2b6d81c8cc20",
+    "mtime": 1786113892.8291957,
+    "ast_hash": "24e20628b74141f2b39de7a6445bfd33",
     "semantic_hash": ""
   },
   "backend-nestjs/notification-service/package.json": {
@@ -1990,8 +1990,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/worker-service/package.json": {
-    "mtime": 1785873590.5340815,
-    "ast_hash": "46b263a12c00a2d7c67d0543a19b9f1e",
+    "mtime": 1786128294.6139622,
+    "ast_hash": "121b861f6b62c8a4964a3837b22d71d7",
     "semantic_hash": ""
   },
   "backend-nestjs/worker-service/src/app.controller.spec.ts": {
@@ -2005,8 +2005,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/worker-service/src/app.module.ts": {
-    "mtime": 1785873590.5410817,
-    "ast_hash": "97d51467c8acb83d4379da2cebfb9d63",
+    "mtime": 1786128477.6191318,
+    "ast_hash": "23e951da1baa1f58ad38460ecd63b70e",
     "semantic_hash": ""
   },
   "backend-nestjs/worker-service/src/app.service.ts": {
@@ -2015,8 +2015,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/worker-service/src/main.ts": {
-    "mtime": 1785873590.5450826,
-    "ast_hash": "513b1a8ccb913e8454d526755795b56e",
+    "mtime": 1786128484.1409109,
+    "ast_hash": "67aec17c4c901dc0c02004a057e51558",
     "semantic_hash": ""
   },
   "backend-nestjs/worker-service/test/app.e2e-spec.ts": {
@@ -2335,8 +2335,8 @@
     "semantic_hash": ""
   },
   "MIGRATION_PLAN.md": {
-    "mtime": 1786110503.755693,
-    "ast_hash": "7830e3c3044367cf35fe39fb4c42c2fa",
+    "mtime": 1786130081.8004446,
+    "ast_hash": "af36d3006a19e8753ab46e3eea4fd974",
     "semantic_hash": ""
   },
   "backend-nestjs/api-gateway/README.md": {
@@ -2360,13 +2360,13 @@
     "semantic_hash": ""
   },
   "backend-nestjs/notification-service/README.md": {
-    "mtime": 1785873514.9795685,
-    "ast_hash": "1fbfe4d5175bf7e12686ebe25353b4e0",
+    "mtime": 1786120563.5579593,
+    "ast_hash": "4b380babd442b80e5b1f6b9b1d6f3135",
     "semantic_hash": ""
   },
   "backend-nestjs/notification-service/pnpm-workspace.yaml": {
-    "mtime": 1786110370.891374,
-    "ast_hash": "96b3d931005af2b64300c6590bed21d7",
+    "mtime": 1786122999.8352518,
+    "ast_hash": "2995f357abbd9a83c970184d26c8e310",
     "semantic_hash": ""
   },
   "backend-nestjs/transaction-service/README.md": {
@@ -2390,8 +2390,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/worker-service/README.md": {
-    "mtime": 1785873590.5360804,
-    "ast_hash": "1fbfe4d5175bf7e12686ebe25353b4e0",
+    "mtime": 1786130073.2074234,
+    "ast_hash": "87baba58b9a11e03673dc84fd2b5c5b2",
     "semantic_hash": ""
   },
   "backend-nestjs/worker-service/pnpm-workspace.yaml": {
@@ -2532,6 +2532,126 @@
   "backend-nestjs/notification-service/src/infrastructure/telemetry/tracing.ts": {
     "mtime": 1786110106.6316493,
     "ast_hash": "fbcb54efaf92312fde7e5ed31d4d80fb",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/notification-service/src/adapters/inbound/rest/health.controller.spec.ts": {
+    "mtime": 1786112432.6713262,
+    "ast_hash": "5d77b163dec8b5af180872dbeb62a374",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/notification-service/src/adapters/inbound/rest/notification.controller.spec.ts": {
+    "mtime": 1786112423.122252,
+    "ast_hash": "8b912f8c31c7664f1fd3cf2dc012c67b",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/notification-service/src/application/use-cases/notification.use-cases.spec.ts": {
+    "mtime": 1786112391.3594265,
+    "ast_hash": "dfde826d0b113a29f8f74cf0b3190066",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/worker-service/src/adapters/inbound/kafka/kafka-consumer.service.ts": {
+    "mtime": 1786129555.590418,
+    "ast_hash": "cd9fd53fa9370a13f93f827d09345901",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/worker-service/src/adapters/inbound/rest/health.controller.spec.ts": {
+    "mtime": 1786129993.5794063,
+    "ast_hash": "f4522e66333f648075059d4f8d921fbf",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/worker-service/src/adapters/inbound/rest/health.controller.ts": {
+    "mtime": 1786129550.8194332,
+    "ast_hash": "4f4eb5936ceeaf97cc9a404ed482aab6",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/worker-service/src/adapters/inbound/rest/worker.controller.spec.ts": {
+    "mtime": 1786128437.1724968,
+    "ast_hash": "b90303671c5dab02facd65b5ea915eb4",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/worker-service/src/adapters/inbound/rest/worker.controller.ts": {
+    "mtime": 1786128428.5503979,
+    "ast_hash": "7e81bac809d1f98ea5ca39f7c1317302",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/worker-service/src/adapters/outbound/database/database.module.ts": {
+    "mtime": 1786128403.7516944,
+    "ast_hash": "56e9fdbb1539288feceff12caa124c89",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/worker-service/src/adapters/outbound/database/prisma-worker.repository.ts": {
+    "mtime": 1786128396.9801362,
+    "ast_hash": "4720b464b8e4074b5a8d8d52ec8638a2",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/worker-service/src/adapters/outbound/pdf/pdf.module.ts": {
+    "mtime": 1786128420.2193313,
+    "ast_hash": "e66d4e25ec2ff9a2e522f65acbb8d29c",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/worker-service/src/adapters/outbound/pdf/pdfkit.adapter.ts": {
+    "mtime": 1786128412.6095498,
+    "ast_hash": "452d69a9a1a4e5b04a6c0d57ca552b20",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/worker-service/src/application/use-cases/worker.use-cases.spec.ts": {
+    "mtime": 1786128375.51308,
+    "ast_hash": "c522124c27ef9659b6305922d6ea8f79",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/worker-service/src/application/use-cases/worker.use-cases.ts": {
+    "mtime": 1786128367.5278091,
+    "ast_hash": "8c7d8a6ded7b994c46c849c0d2daa826",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/worker-service/src/application/worker-application.module.ts": {
+    "mtime": 1786128383.0296576,
+    "ast_hash": "2fa43c5c0d880600d853a41f1b714958",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/worker-service/src/domain/entities/audit-log.entity.ts": {
+    "mtime": 1786128328.3943167,
+    "ast_hash": "384340ad5d4048ed4a4e421dd46ef11b",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/worker-service/src/domain/entities/statement-job.entity.ts": {
+    "mtime": 1786128320.0699894,
+    "ast_hash": "0f53b61b210221f043a7fb6f19cbb2ed",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/worker-service/src/domain/entities/transfer-event.dto.ts": {
+    "mtime": 1786128336.943843,
+    "ast_hash": "9b82f7ebe64ec2a9713ac802fdf8441b",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/worker-service/src/domain/ports/pdf-generator.port.ts": {
+    "mtime": 1786128360.3624635,
+    "ast_hash": "78ab811d2cb7df99effe5fbcb65df6ee",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/worker-service/src/domain/ports/worker-repository.port.ts": {
+    "mtime": 1786128352.8847933,
+    "ast_hash": "c35fb8326292036cad2fbfa7ec23db99",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/worker-service/src/domain/ports/worker-service.port.ts": {
+    "mtime": 1786128346.083776,
+    "ast_hash": "8e39c77703901edc0fba6c671700239a",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/worker-service/src/infrastructure/database/prisma.service.ts": {
+    "mtime": 1786128389.125996,
+    "ast_hash": "2b1408f227744d9ef6f0008451cab654",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/worker-service/src/infrastructure/logging/otel-winston.logger.ts": {
+    "mtime": 1786128462.8517313,
+    "ast_hash": "a65dc8f68f73b6b71a68c66c841728e9",
+    "semantic_hash": ""
+  },
+  "backend-nestjs/worker-service/src/infrastructure/telemetry/tracing.ts": {
+    "mtime": 1786128471.4928513,
+    "ast_hash": "b71ca478ef4401dca27c0e37be6460a1",
     "semantic_hash": ""
   }
 }

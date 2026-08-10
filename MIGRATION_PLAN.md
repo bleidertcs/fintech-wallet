@@ -123,15 +123,27 @@ Cada microservicio migrado debe cumplir obligatoriamente con los siguientes 6 pi
 
 ## FASE 6: Worker Service NestJS Migration (Hexagonal Architecture + PDF Generation + Kafka DLQ)
 
-- [ ] **Tarea 6.1**: Inicializar `backend-nestjs/worker-service` con Hexagonal Architecture.
-- [ ] **Tarea 6.2**: Configurar Prisma ORM (`workerdb`) para `statement_jobs` y `audit_logs`.
-- [ ] **Tarea 6.3**: Implementar servicio de generación de extractos bancarios en PDF.
-- [ ] **Tarea 6.4**: Implementar procesamiento de reintentos y Dead Letter Queue (DLQ) Kafka.
-- [ ] **Tarea 6.5**: Configurar Swagger UI en `/worker/docs` y `/api-docs`.
-- [ ] **Tarea 6.6**: Configurar Winston OTLP Logger + OpenTelemetry para SigNoz.
-- [ ] **Tarea 6.7**: Crear `Dockerfile` multi-stage y actualizar manifiestos de Kubernetes (puerto 3005).
-- [ ] **Tarea 6.8**: Creación y ejecución de Pruebas Unitarias y E2E con Jest (`pnpm test`).
-- [ ] **Tarea 6.9**: Generar documentación individual `backend-nestjs/worker-service/README.md` con árbol de carpetas.
+- [x] **Tarea 6.1**: Inicializar `backend-nestjs/worker-service` con Hexagonal Architecture.
+- [x] **Tarea 6.2**: Configurar Prisma ORM (`workerdb`) para `statement_jobs` y `audit_logs`.
+- [x] **Tarea 6.3**: Implementar servicio de generación de extractos bancarios en PDF.
+- [x] **Tarea 6.4**: Implementar procesamiento de reintentos y Dead Letter Queue (DLQ) Kafka.
+- [x] **Tarea 6.5**: Configurar Swagger UI en `/worker/docs` y `/api-docs`.
+- [x] **Tarea 6.6**: Configurar Winston OTLP Logger + OpenTelemetry para SigNoz.
+- [x] **Tarea 6.7**: Crear `Dockerfile` multi-stage y actualizar manifiestos de Kubernetes (puerto 3005).
+- [x] **Tarea 6.8**: Creación y ejecución de Pruebas Unitarias y E2E con Jest (`pnpm test`).
+- [x] **Tarea 6.9**: Generar documentación individual `backend-nestjs/worker-service/README.md` con árbol de carpetas.
+---
+
+## FASE 7: Frontend React Application Containerization & Ingress Integration (Nginx + Traefik Ingress)
+
+- [x] **Tarea 7.1**: Configurar servidor Nginx `frontend/nginx.conf` con soporte para SPA (`try_files index.html`) y proxied endpoints.
+- [x] **Tarea 7.2**: Crear `frontend/Dockerfile` Multi-Stage (`node:22-alpine` builder y `nginx:alpine` runner).
+- [x] **Tarea 7.3**: Crear `frontend/.dockerignore` excluyendo `node_modules`, `dist` y temporales.
+- [x] **Tarea 7.4**: Configurar manifiesto `k8s/03-frontend.yaml` con contenedor en puerto 80, NodePort 30000, Liveness/Readiness probes y límites de recursos.
+- [x] **Tarea 7.5**: Configurar enrutamiento Ingress en Traefik (`k8s/05-ingress.yaml`) vinculando la ruta `/` al servicio `frontend:80`.
+- [x] **Tarea 7.6**: Integrar telemetría OpenTelemetry Web SDK (`frontend/src/telemetry.js`) hacia SigNoz APM.
+- [x] **Tarea 7.7**: Compilar la imagen con `nerdctl` en Rancher Desktop (`k8s.io` namespace) y desplegar en Kubernetes (**Pod 1/1 Running**).
+- [x] **Tarea 7.8**: Generar la documentación técnica individual `frontend/README.md`.
 
 ---
 

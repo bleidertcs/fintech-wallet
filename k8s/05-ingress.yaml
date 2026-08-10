@@ -112,6 +112,26 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
+  name: worker-ingress
+  namespace: fintech
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  ingressClassName: traefik
+  rules:
+  - http:
+      paths:
+      - path: /worker
+        pathType: Prefix
+        backend:
+          service:
+            name: worker-service
+            port:
+              number: 8085
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
   name: fintech-ingress
   namespace: fintech
   annotations:

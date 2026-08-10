@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model StatementJob {
+  id           BigInt    @id @default(autoincrement())
+  userId       BigInt    @map("user_id")
+  status       String    @default("PENDING") @db.VarChar(50)
+  pdfPath      String?   @map("pdf_path") @db.VarChar(255)
+  errorMessage String?   @map("error_message") @db.Text
+  createdAt    DateTime  @default(now()) @map("created_at")
+  completedAt  DateTime? @map("completed_at")
+
+  @@map("statement_jobs")
+}
+
+model AuditLog {
+  id         BigInt   @id @default(autoincrement())
+  fromUserId BigInt?  @map("from_user_id")
+  toUserId   BigInt?  @map("to_user_id")
+  amount     Decimal  @default(0.00) @db.Decimal(15, 2)
+  eventType  String   @map("event_type") @db.VarChar(100)
+  details    String?  @db.Text
+  timestamp  DateTime @default(now())
+
+  @@map("audit_logs")
+}

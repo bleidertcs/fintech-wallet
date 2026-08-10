@@ -296,7 +296,7 @@ services:
       retries: 5
 
   signoz-telemetrystore-migrator:
-    image: signoz/signoz-otel-collector:v0.144.6
+    image: signoz/signoz-otel-collector:v0.144.7
     container_name: fintech-signoz-telemetrystore-migrator
     entrypoint:
       - /bin/sh
@@ -315,7 +315,7 @@ services:
         condition: service_healthy
 
   signoz:
-    image: signoz/signoz:v0.132.2
+    image: signoz/signoz:v0.136.1
     container_name: fintech-signoz
     ports:
       - "3301:8080"
@@ -332,7 +332,7 @@ services:
         condition: service_completed_successfully
 
   otel-collector:
-    image: signoz/signoz-otel-collector:v0.144.6
+    image: signoz/signoz-otel-collector:v0.144.7
     container_name: fintech-otel-collector
     command: ["--config=/etc/otel-collector-config.yaml"]
     user: "0"
@@ -349,7 +349,7 @@ services:
         condition: service_completed_successfully
 
   signoz-mcp-server:
-    image: signoz/signoz-mcp-server:latest
+    image: signoz/signoz-mcp-server:v0.11.0
     container_name: fintech-signoz-mcp-server
     ports:
       - "8000:8000"

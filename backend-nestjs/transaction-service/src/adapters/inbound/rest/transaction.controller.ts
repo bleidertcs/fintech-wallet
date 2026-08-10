@@ -34,6 +34,12 @@ export class TransactionController {
     private readonly transactionService: TransactionServicePort,
   ) {}
 
+  @Get('health')
+  @ApiOperation({ summary: 'Healthcheck para Ingress' })
+  getHealth() {
+    return { status: 'OK', service: 'transaction-service', timestamp: new Date().toISOString() };
+  }
+
   @Post('transfer')
   @HttpCode(HttpStatus.OK)
   @ApiOperation({ summary: 'Realizar transferencia entre usuarios (Idempotente)' })

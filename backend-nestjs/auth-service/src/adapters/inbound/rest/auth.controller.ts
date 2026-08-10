@@ -31,6 +31,12 @@ export class AuthController {
     private readonly authService: AuthServicePort,
   ) {}
 
+  @Get('health')
+  @ApiOperation({ summary: 'Healthcheck para Ingress' })
+  getHealth() {
+    return { status: 'OK', service: 'auth-service', timestamp: new Date().toISOString() };
+  }
+
   @Post('register')
   @ApiOperation({ summary: 'Registro de usuario' })
   @ApiResponse({ status: 200, type: AuthResponseDto })

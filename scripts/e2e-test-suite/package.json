@@ -1,0 +1,19 @@
+{
+  "name": "fintech-e2e-test-suite",
+  "version": "1.0.0",
+  "description": "Suite de Pruebas de Integracion End-to-End para el ecosistema Fintech Wallet en Kubernetes",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --runInBand --verbose"
+  },
+  "dependencies": {
+    "axios": "^1.8.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.13.1",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.7.3"
+  }
+}
