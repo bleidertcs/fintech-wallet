@@ -2771,8 +2771,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_axios",
-      "community": 327,
-      "community_name": "nodemailer",
+      "community": 321,
+      "community_name": "class-validator",
       "norm_label": "axios"
     },
     {
@@ -2782,8 +2782,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_axios",
-      "community": 327,
-      "community_name": "nodemailer",
+      "community": 321,
+      "community_name": "class-validator",
       "norm_label": "axios"
     },
     {
@@ -2837,8 +2837,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_class_validator",
-      "community": 321,
-      "community_name": "class-validator",
+      "community": 327,
+      "community_name": "nodemailer",
       "norm_label": "class-validator"
     },
     {
@@ -2848,8 +2848,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_class_validator",
-      "community": 321,
-      "community_name": "class-validator",
+      "community": 327,
+      "community_name": "nodemailer",
       "norm_label": "class-validator"
     },
     {
@@ -4058,8 +4058,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_inject",
-      "community": 150,
-      "community_name": "Docker Swarm Guide",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": "inject"
     },
     {
@@ -4146,8 +4146,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_constructor",
-      "community": 150,
-      "community_name": "Docker Swarm Guide",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".constructor()"
     },
     {
@@ -5994,8 +5994,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_entities_user_entity_user_password",
-      "community": 3,
-      "community_name": "App.jsx",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".password()"
     },
     {
@@ -6170,8 +6170,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport",
-      "community": 150,
-      "community_name": "Docker Swarm Guide",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": "authserviceport"
     },
     {
@@ -6181,8 +6181,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport_register",
-      "community": 150,
-      "community_name": "Docker Swarm Guide",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".register()"
     },
     {
@@ -6192,8 +6192,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport_login",
-      "community": 150,
-      "community_name": "Docker Swarm Guide",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".login()"
     },
     {
@@ -6203,8 +6203,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport_verifyemail",
-      "community": 150,
-      "community_name": "Docker Swarm Guide",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".verifyemail()"
     },
     {
@@ -6214,8 +6214,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport_getme",
-      "community": 150,
-      "community_name": "Docker Swarm Guide",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".getme()"
     },
     {
@@ -6225,8 +6225,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport_setuptotp",
-      "community": 150,
-      "community_name": "Docker Swarm Guide",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".setuptotp()"
     },
     {
@@ -6236,8 +6236,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport_verifytotp",
-      "community": 150,
-      "community_name": "Docker Swarm Guide",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".verifytotp()"
     },
     {
@@ -6247,8 +6247,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport_enabletotp",
-      "community": 150,
-      "community_name": "Docker Swarm Guide",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".enabletotp()"
     },
     {
@@ -6258,8 +6258,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport_disabletotp",
-      "community": 150,
-      "community_name": "Docker Swarm Guide",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".disabletotp()"
     },
     {
@@ -6269,8 +6269,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport_getuserbyemail",
-      "community": 150,
-      "community_name": "Docker Swarm Guide",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".getuserbyemail()"
     },
     {
@@ -6280,8 +6280,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport_resendverification",
-      "community": 150,
-      "community_name": "Docker Swarm Guide",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".resendverification()"
     },
     {
@@ -6291,8 +6291,8 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport_changepassword",
-      "community": 150,
-      "community_name": "Docker Swarm Guide",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".changepassword()"
     },
     {
@@ -6302,8 +6302,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport_promotetoadmin",
-      "community": 150,
-      "community_name": "Docker Swarm Guide",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".promotetoadmin()"
     },
     {
@@ -6731,8 +6731,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": "env.validation.ts"
     },
     {
@@ -6742,8 +6742,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation_environment",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": "environment"
     },
     {
@@ -6753,8 +6753,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation_environmentvariables",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": "environmentvariables"
     },
     {
@@ -6764,8 +6764,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "isenum",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": "isenum"
     },
     {
@@ -6775,8 +6775,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation_ts_isoptional",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": "isoptional"
     },
     {
@@ -6786,8 +6786,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation_ts_isnumber",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": "isnumber"
     },
     {
@@ -6797,8 +6797,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation_ts_isstring",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": "isstring"
     },
     {
@@ -6808,8 +6808,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation_validateenv",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": "validateenv()"
     },
     {
@@ -6819,8 +6819,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_index",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": "index.ts"
     },
     {
@@ -8370,8 +8370,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_dependencies_class_transformer",
-      "community": 371,
-      "community_name": "@nestjs/config",
+      "community": 389,
+      "community_name": "@prisma/adapter-mariadb",
       "norm_label": "class-transformer"
     },
     {
@@ -8381,8 +8381,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_class_transformer",
-      "community": 371,
-      "community_name": "@nestjs/config",
+      "community": 389,
+      "community_name": "@prisma/adapter-mariadb",
       "norm_label": "class-transformer"
     },
     {
@@ -8502,8 +8502,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_dependencies_reflect_metadata",
-      "community": 492,
-      "community_name": "reflect-metadata",
+      "community": 371,
+      "community_name": "@nestjs/config",
       "norm_label": "reflect-metadata"
     },
     {
@@ -8513,8 +8513,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_reflect_metadata",
-      "community": 492,
-      "community_name": "reflect-metadata",
+      "community": 371,
+      "community_name": "@nestjs/config",
       "norm_label": "reflect-metadata"
     },
     {
@@ -8821,8 +8821,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_devdependencies_eslint",
-      "community": 318,
-      "community_name": "@types/supertest",
+      "community": 152,
+      "community_name": "swarm-init.sh",
       "norm_label": "eslint"
     },
     {
@@ -8832,8 +8832,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_eslint",
-      "community": 318,
-      "community_name": "@types/supertest",
+      "community": 152,
+      "community_name": "swarm-init.sh",
       "norm_label": "eslint"
     },
     {
@@ -8997,8 +8997,8 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_devdependencies_supertest",
-      "community": 152,
-      "community_name": "swarm-init.sh",
+      "community": 427,
+      "community_name": "class-validator",
       "norm_label": "supertest"
     },
     {
@@ -9008,8 +9008,8 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_supertest",
-      "community": 152,
-      "community_name": "swarm-init.sh",
+      "community": 427,
+      "community_name": "class-validator",
       "norm_label": "supertest"
     },
     {
@@ -11923,8 +11923,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_dependencies_prisma_adapter_mariadb",
-      "community": 389,
-      "community_name": "@prisma/adapter-mariadb",
+      "community": 170,
+      "community_name": "dependencies",
       "norm_label": "@prisma/adapter-mariadb"
     },
     {
@@ -11934,8 +11934,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_prisma_adapter_mariadb",
-      "community": 389,
-      "community_name": "@prisma/adapter-mariadb",
+      "community": 170,
+      "community_name": "dependencies",
       "norm_label": "@prisma/adapter-mariadb"
     },
     {
@@ -12033,8 +12033,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_dependencies_class_validator",
-      "community": 170,
-      "community_name": "dependencies",
+      "community": 459,
+      "community_name": "eslint",
       "norm_label": "class-validator"
     },
     {
@@ -12044,8 +12044,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_class_validator",
-      "community": 170,
-      "community_name": "dependencies",
+      "community": 459,
+      "community_name": "eslint",
       "norm_label": "class-validator"
     },
     {
@@ -14596,8 +14596,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_use_cases_concurrency_spec",
-      "community": 213,
-      "community_name": "TransactionUseCases",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": "concurrency.spec.ts"
     },
     {
@@ -14629,8 +14629,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_use_cases_transaction_use_cases_transactionusecases",
-      "community": 213,
-      "community_name": "TransactionUseCases",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": "transactionusecases"
     },
     {
@@ -14640,8 +14640,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_use_cases_transaction_use_cases_ts_injectable",
-      "community": 213,
-      "community_name": "TransactionUseCases",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": "injectable"
     },
     {
@@ -14673,8 +14673,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_use_cases_transaction_use_cases_transactionusecases_transfer",
-      "community": 213,
-      "community_name": "TransactionUseCases",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": ".transfer()"
     },
     {
@@ -14684,8 +14684,8 @@
       "source_location": "L125",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_use_cases_transaction_use_cases_transactionusecases_getusertransactions",
-      "community": 213,
-      "community_name": "TransactionUseCases",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": ".getusertransactions()"
     },
     {
@@ -14695,8 +14695,8 @@
       "source_location": "L129",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_use_cases_transaction_use_cases_transactionusecases_getalltransactions",
-      "community": 213,
-      "community_name": "TransactionUseCases",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": ".getalltransactions()"
     },
     {
@@ -14706,8 +14706,8 @@
       "source_location": "L133",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_use_cases_transaction_use_cases_transactionusecases_createmoneyrequest",
-      "community": 213,
-      "community_name": "TransactionUseCases",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": ".createmoneyrequest()"
     },
     {
@@ -14728,8 +14728,8 @@
       "source_location": "L159",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_use_cases_transaction_use_cases_transactionusecases_acceptmoneyrequest",
-      "community": 213,
-      "community_name": "TransactionUseCases",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": ".acceptmoneyrequest()"
     },
     {
@@ -14860,8 +14860,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_ports_inbound_transaction_service_port_transferparams",
-      "community": 213,
-      "community_name": "TransactionUseCases",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": "transferparams"
     },
     {
@@ -14871,8 +14871,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_ports_inbound_transaction_service_port_moneyrequestparams",
-      "community": 213,
-      "community_name": "TransactionUseCases",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": "moneyrequestparams"
     },
     {
@@ -16202,8 +16202,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_nestjs_platform_express",
-      "community": 232,
-      "community_name": "dependencies",
+      "community": 461,
+      "community_name": "@nestjs/core",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -16213,8 +16213,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_platform_express",
-      "community": 232,
-      "community_name": "dependencies",
+      "community": 461,
+      "community_name": "@nestjs/core",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -16664,8 +16664,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_class_validator",
-      "community": 427,
-      "community_name": "class-validator",
+      "community": 232,
+      "community_name": "dependencies",
       "norm_label": "class-validator"
     },
     {
@@ -16675,8 +16675,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_class_validator",
-      "community": 427,
-      "community_name": "class-validator",
+      "community": 232,
+      "community_name": "dependencies",
       "norm_label": "class-validator"
     },
     {
@@ -19557,8 +19557,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_nestjs_core",
-      "community": 461,
-      "community_name": "@nestjs/core",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@nestjs/core"
     },
     {
@@ -19568,8 +19568,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nestjs_core",
-      "community": 461,
-      "community_name": "@nestjs/core",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@nestjs/core"
     },
     {
@@ -19975,8 +19975,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_class_validator",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 463,
+      "community_name": "class-validator",
       "norm_label": "class-validator"
     },
     {
@@ -19986,8 +19986,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_class_validator",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 463,
+      "community_name": "class-validator",
       "norm_label": "class-validator"
     },
     {
@@ -20426,8 +20426,8 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_eslint",
-      "community": 459,
-      "community_name": "eslint",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "eslint"
     },
     {
@@ -20437,8 +20437,8 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_eslint",
-      "community": 459,
-      "community_name": "eslint",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "eslint"
     },
     {
@@ -20448,8 +20448,8 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_eslint_config_prettier",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 464,
+      "community_name": "eslint-config-prettier",
       "norm_label": "eslint-config-prettier"
     },
     {
@@ -20459,8 +20459,8 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_eslint_config_prettier",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 464,
+      "community_name": "eslint-config-prettier",
       "norm_label": "eslint-config-prettier"
     },
     {
@@ -23526,8 +23526,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "authcontroller.java"
     },
     {
@@ -23537,8 +23537,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "authcontroller"
     },
     {
@@ -23548,8 +23548,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_java_restcontroller",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "restcontroller"
     },
     {
@@ -23559,8 +23559,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_java_requestmapping",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "requestmapping"
     },
     {
@@ -23570,8 +23570,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_java_requiredargsconstructor",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "requiredargsconstructor"
     },
     {
@@ -23581,8 +23581,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller_register",
-      "community": 231,
-      "community_name": "WithSpan",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": ".register()"
     },
     {
@@ -23592,8 +23592,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_java_responseentity",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "responseentity"
     },
     {
@@ -23614,7 +23614,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller_login",
-      "community": 37,
+      "community": 151,
       "community_name": "AuthResponse",
       "norm_label": ".login()"
     },
@@ -23636,8 +23636,8 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller_verifyemail",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": ".verifyemail()"
     },
     {
@@ -23647,8 +23647,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_java_getmapping",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "getmapping"
     },
     {
@@ -23658,8 +23658,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller_setuptotp",
-      "community": 38,
-      "community_name": "TotpSetupResponse",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": ".setuptotp()"
     },
     {
@@ -23691,8 +23691,8 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller_getme",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": ".getme()"
     },
     {
@@ -23724,8 +23724,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_java_putmapping",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": "putmapping"
     },
     {
@@ -23735,8 +23735,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller_promoteadmin",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": ".promoteadmin()"
     },
     {
@@ -23845,8 +23845,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_dto_loginrequest",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 318,
+      "community_name": "@types/supertest",
       "norm_label": "loginrequest.java"
     },
     {
@@ -23856,8 +23856,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_dto_loginrequest_loginrequest",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 318,
+      "community_name": "@types/supertest",
       "norm_label": "loginrequest"
     },
     {
@@ -23867,8 +23867,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_dto_loginrequest_java_data",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 318,
+      "community_name": "@types/supertest",
       "norm_label": "data"
     },
     {
@@ -23878,8 +23878,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_dto_loginrequest_java_noargsconstructor",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 318,
+      "community_name": "@types/supertest",
       "norm_label": "noargsconstructor"
     },
     {
@@ -23889,8 +23889,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_dto_loginrequest_java_allargsconstructor",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 318,
+      "community_name": "@types/supertest",
       "norm_label": "allargsconstructor"
     },
     {
@@ -24241,8 +24241,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_repository_userrepository_userrepository_findbyemail",
-      "community": 151,
-      "community_name": "AuthResponse",
+      "community": 67,
+      "community_name": "AuthService",
       "norm_label": ".findbyemail()"
     },
     {
@@ -24252,8 +24252,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_repository_userrepository_userrepository_existsbyemail",
-      "community": 25,
-      "community_name": "User",
+      "community": 231,
+      "community_name": "WithSpan",
       "norm_label": ".existsbyemail()"
     },
     {
@@ -24263,8 +24263,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_repository_userrepository_userrepository_findbyverificationtoken",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 25,
+      "community_name": "User",
       "norm_label": ".findbyverificationtoken()"
     },
     {
@@ -24670,8 +24670,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_java_withspan",
-      "community": 151,
-      "community_name": "AuthResponse",
+      "community": 67,
+      "community_name": "AuthService",
       "norm_label": "withspan"
     },
     {
@@ -24681,8 +24681,8 @@
       "source_location": "L115",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_login",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 67,
+      "community_name": "AuthService",
       "norm_label": ".login()"
     },
     {
@@ -24692,8 +24692,8 @@
       "source_location": "L155",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_verifytotp",
-      "community": 151,
-      "community_name": "AuthResponse",
+      "community": 67,
+      "community_name": "AuthService",
       "norm_label": ".verifytotp()"
     },
     {
@@ -24703,8 +24703,8 @@
       "source_location": "L180",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_verifyemail",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": ".verifyemail()"
     },
     {
@@ -24714,8 +24714,8 @@
       "source_location": "L190",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_setuptotp",
-      "community": 38,
-      "community_name": "TotpSetupResponse",
+      "community": 67,
+      "community_name": "AuthService",
       "norm_label": ".setuptotp()"
     },
     {
@@ -24725,8 +24725,8 @@
       "source_location": "L207",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_enabletotp",
-      "community": 151,
-      "community_name": "AuthResponse",
+      "community": 67,
+      "community_name": "AuthService",
       "norm_label": ".enabletotp()"
     },
     {
@@ -24736,8 +24736,8 @@
       "source_location": "L224",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_disabletotp",
-      "community": 151,
-      "community_name": "AuthResponse",
+      "community": 67,
+      "community_name": "AuthService",
       "norm_label": ".disabletotp()"
     },
     {
@@ -24758,8 +24758,8 @@
       "source_location": "L246",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_getuserstatus",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": ".getuserstatus()"
     },
     {
@@ -24769,8 +24769,8 @@
       "source_location": "L260",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_resendverification",
-      "community": 151,
-      "community_name": "AuthResponse",
+      "community": 67,
+      "community_name": "AuthService",
       "norm_label": ".resendverification()"
     },
     {
@@ -24780,8 +24780,8 @@
       "source_location": "L276",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_promotetoadmin",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": ".promotetoadmin()"
     },
     {
@@ -27297,8 +27297,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": "transactionservice.java"
     },
     {
@@ -27308,8 +27308,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_transactionservice",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": "transactionservice"
     },
     {
@@ -27319,8 +27319,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_java_service",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": "service"
     },
     {
@@ -27330,8 +27330,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_java_requiredargsconstructor",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": "requiredargsconstructor"
     },
     {
@@ -27341,8 +27341,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_java_slf4j",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": "slf4j"
     },
     {
@@ -27352,8 +27352,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_java_userserviceblockingstub",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": "userserviceblockingstub"
     },
     {
@@ -27363,8 +27363,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_transactionservice_transfer",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": ".transfer()"
     },
     {
@@ -27374,8 +27374,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_java_transactional",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": "transactional"
     },
     {
@@ -27396,8 +27396,8 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_transactionservice_gettransactionsbyuser",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 68,
+      "community_name": ".transfer",
       "norm_label": ".gettransactionsbyuser()"
     },
     {
@@ -27418,8 +27418,8 @@
       "source_location": "L125",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_transactionservice_getdailytotal",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": ".getdailytotal()"
     },
     {
@@ -27484,8 +27484,8 @@
       "source_location": "L190",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_transactionservice_totransferresponse",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": ".totransferresponse()"
     },
     {
@@ -29914,8 +29914,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "frontend_package_dependencies_html5_qrcode",
-      "community": 6,
-      "community_name": "dependencies",
+      "community": 465,
+      "community_name": "html5-qrcode",
       "norm_label": "html5-qrcode"
     },
     {
@@ -29925,8 +29925,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "html5_qrcode",
-      "community": 6,
-      "community_name": "dependencies",
+      "community": 465,
+      "community_name": "html5-qrcode",
       "norm_label": "html5-qrcode"
     },
     {
@@ -30046,8 +30046,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "frontend_package_dependencies_react_hot_toast",
-      "community": 587,
-      "community_name": "react-hot-toast",
+      "community": 6,
+      "community_name": "dependencies",
       "norm_label": "react-hot-toast"
     },
     {
@@ -30057,8 +30057,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "react_hot_toast",
-      "community": 587,
-      "community_name": "react-hot-toast",
+      "community": 6,
+      "community_name": "dependencies",
       "norm_label": "react-hot-toast"
     },
     {
@@ -46661,7 +46661,7 @@
       "label": "\ud83d\ude80 Despliegue Automatizado en Kubernetes / Rancher Desktop",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L95",
+      "source_location": "L96",
       "_origin": "ast",
       "id": "readme_despliegue_automatizado_en_kubernetes_rancher_desktop",
       "community": 359,
@@ -46672,7 +46672,7 @@
       "label": "Requisitos Previos",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L97",
+      "source_location": "L98",
       "_origin": "ast",
       "id": "readme_requisitos_previos",
       "community": 359,
@@ -46683,7 +46683,7 @@
       "label": "Ejecutar Despliegue Completo",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L102",
+      "source_location": "L103",
       "_origin": "ast",
       "id": "readme_ejecutar_despliegue_completo",
       "community": 359,
@@ -46694,7 +46694,7 @@
       "label": "\ud83e\uddea Ejecuci\u00f3n de la Suite de Pruebas (`scripts/`)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L113",
+      "source_location": "L114",
       "_origin": "ast",
       "id": "readme_ejecuci\u00f3n_de_la_suite_de_pruebas_scripts",
       "community": 359,
@@ -46705,7 +46705,7 @@
       "label": "\ud83c\udf10 Puertos y Endpoints del Sistema",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L131",
+      "source_location": "L132",
       "_origin": "ast",
       "id": "readme_puertos_y_endpoints_del_sistema",
       "community": 359,
@@ -47679,6 +47679,270 @@
       "community": 227,
       "community_name": "README.md",
       "norm_label": "\ud83d\udc33 docker & kubernetes deployment"
+    },
+    {
+      "label": "crear-nuevo-microservicio.md",
+      "file_type": "document",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_crear_nuevo_microservicio",
+      "community": 150,
+      "community_name": "Docker Swarm Guide",
+      "norm_label": "crear-nuevo-microservicio.md"
+    },
+    {
+      "label": "Gu\u00eda Paso a Paso: Creaci\u00f3n e Integraci\u00f3n de un Nuevo Microservicio \ud83d\ude80\ud83c\udfd7\ufe0f",
+      "file_type": "document",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_crear_nuevo_microservicio_gu\u00eda_paso_a_paso_creaci\u00f3n_e_integraci\u00f3n_de_un_nuevo_microservicio",
+      "community": 150,
+      "community_name": "Docker Swarm Guide",
+      "norm_label": "guia paso a paso: creacion e integracion de un nuevo microservicio \ud83d\ude80\ud83c\udfd7\ufe0f"
+    },
+    {
+      "label": "\ud83d\udccb \u00cdndice del Flujo de Trabajo",
+      "file_type": "document",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "docs_crear_nuevo_microservicio_\u00edndice_del_flujo_de_trabajo",
+      "community": 150,
+      "community_name": "Docker Swarm Guide",
+      "norm_label": "\ud83d\udccb indice del flujo de trabajo"
+    },
+    {
+      "label": "Fase 1: Definici\u00f3n del Dominio y Asignaci\u00f3n de Recursos",
+      "file_type": "document",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "docs_crear_nuevo_microservicio_fase_1_definici\u00f3n_del_dominio_y_asignaci\u00f3n_de_recursos",
+      "community": 150,
+      "community_name": "Docker Swarm Guide",
+      "norm_label": "fase 1: definicion del dominio y asignacion de recursos"
+    },
+    {
+      "label": "Fase 2: Estructura de Carpetas y Scaffolding Hexagonal",
+      "file_type": "document",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "docs_crear_nuevo_microservicio_fase_2_estructura_de_carpetas_y_scaffolding_hexagonal",
+      "community": 150,
+      "community_name": "Docker Swarm Guide",
+      "norm_label": "fase 2: estructura de carpetas y scaffolding hexagonal"
+    },
+    {
+      "label": "Estructura de Directorios Hexagonal (Ports & Adapters)",
+      "file_type": "document",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L48",
+      "_origin": "ast",
+      "id": "docs_crear_nuevo_microservicio_estructura_de_directorios_hexagonal_ports_adapters",
+      "community": 150,
+      "community_name": "Docker Swarm Guide",
+      "norm_label": "estructura de directorios hexagonal (ports & adapters)"
+    },
+    {
+      "label": "Fase 3: Persistencia y Esquema Prisma (Database-per-Service)",
+      "file_type": "document",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L108",
+      "_origin": "ast",
+      "id": "docs_crear_nuevo_microservicio_fase_3_persistencia_y_esquema_prisma_database_per_service",
+      "community": 150,
+      "community_name": "Docker Swarm Guide",
+      "norm_label": "fase 3: persistencia y esquema prisma (database-per-service)"
+    },
+    {
+      "label": "1. Registrar la Base de Datos en MySQL",
+      "file_type": "document",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L110",
+      "_origin": "ast",
+      "id": "docs_crear_nuevo_microservicio_1_registrar_la_base_de_datos_en_mysql",
+      "community": 150,
+      "community_name": "Docker Swarm Guide",
+      "norm_label": "1. registrar la base de datos en mysql"
+    },
+    {
+      "label": "2. Definir el Esquema Prisma (`prisma/schema.prisma`)",
+      "file_type": "document",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L119",
+      "_origin": "ast",
+      "id": "docs_crear_nuevo_microservicio_2_definir_el_esquema_prisma_prisma_schema_prisma",
+      "community": 150,
+      "community_name": "Docker Swarm Guide",
+      "norm_label": "2. definir el esquema prisma (`prisma/schema.prisma`)"
+    },
+    {
+      "label": "Fase 4: Comunicaci\u00f3n Inter-Servicio (tRPC y Apache Kafka)",
+      "file_type": "document",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L169",
+      "_origin": "ast",
+      "id": "docs_crear_nuevo_microservicio_fase_4_comunicaci\u00f3n_inter_servicio_trpc_y_apache_kafka",
+      "community": 150,
+      "community_name": "Docker Swarm Guide",
+      "norm_label": "fase 4: comunicacion inter-servicio (trpc y apache kafka)"
+    },
+    {
+      "label": "1. Comunicaci\u00f3n S\u00edncrona mediante tRPC",
+      "file_type": "document",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L171",
+      "_origin": "ast",
+      "id": "docs_crear_nuevo_microservicio_1_comunicaci\u00f3n_s\u00edncrona_mediante_trpc",
+      "community": 150,
+      "community_name": "Docker Swarm Guide",
+      "norm_label": "1. comunicacion sincrona mediante trpc"
+    },
+    {
+      "label": "2. Productor de Kafka con Reconexi\u00f3n Resiliente (`ensureConnected`)",
+      "file_type": "document",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L192",
+      "_origin": "ast",
+      "id": "docs_crear_nuevo_microservicio_2_productor_de_kafka_con_reconexi\u00f3n_resiliente_ensureconnected",
+      "community": 150,
+      "community_name": "Docker Swarm Guide",
+      "norm_label": "2. productor de kafka con reconexion resiliente (`ensureconnected`)"
+    },
+    {
+      "label": "Fase 5: Observabilidad OTLP y Endpoints de Salud K8s",
+      "file_type": "document",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L247",
+      "_origin": "ast",
+      "id": "docs_crear_nuevo_microservicio_fase_5_observabilidad_otlp_y_endpoints_de_salud_k8s",
+      "community": 150,
+      "community_name": "Docker Swarm Guide",
+      "norm_label": "fase 5: observabilidad otlp y endpoints de salud k8s"
+    },
+    {
+      "label": "1. Inicializaci\u00f3n de OpenTelemetry (`src/tracing.ts`)",
+      "file_type": "document",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L249",
+      "_origin": "ast",
+      "id": "docs_crear_nuevo_microservicio_1_inicializaci\u00f3n_de_opentelemetry_src_tracing_ts",
+      "community": 150,
+      "community_name": "Docker Swarm Guide",
+      "norm_label": "1. inicializacion de opentelemetry (`src/tracing.ts`)"
+    },
+    {
+      "label": "2. Probes de Kubernetes (`src/adapters/inbound/rest/health.controller.ts`)",
+      "file_type": "document",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L281",
+      "_origin": "ast",
+      "id": "docs_crear_nuevo_microservicio_2_probes_de_kubernetes_src_adapters_inbound_rest_health_controller_ts",
+      "community": 150,
+      "community_name": "Docker Swarm Guide",
+      "norm_label": "2. probes de kubernetes (`src/adapters/inbound/rest/health.controller.ts`)"
+    },
+    {
+      "label": "Fase 6: Containerizaci\u00f3n Multi-Stage con Dockerfile",
+      "file_type": "document",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L319",
+      "_origin": "ast",
+      "id": "docs_crear_nuevo_microservicio_fase_6_containerizaci\u00f3n_multi_stage_con_dockerfile",
+      "community": 150,
+      "community_name": "Docker Swarm Guide",
+      "norm_label": "fase 6: containerizacion multi-stage con dockerfile"
+    },
+    {
+      "label": "Fase 7: Manifiestos de Kubernetes, Traefik Ingress y NetworkPolicies",
+      "file_type": "document",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L365",
+      "_origin": "ast",
+      "id": "docs_crear_nuevo_microservicio_fase_7_manifiestos_de_kubernetes_traefik_ingress_y_networkpolicies",
+      "community": 150,
+      "community_name": "Docker Swarm Guide",
+      "norm_label": "fase 7: manifiestos de kubernetes, traefik ingress y networkpolicies"
+    },
+    {
+      "label": "1. Agregar Deployment y Service en [`k8s/02-microservices.yaml`](file:///c:/dev/DevOps/fintech-wallet/k8s/02-microservices.yaml)",
+      "file_type": "document",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L367",
+      "_origin": "ast",
+      "id": "docs_crear_nuevo_microservicio_1_agregar_deployment_y_service_en_k8s_02_microservices_yaml_file_c_dev_devops_fintech_wallet_k8s_02_microservices_yaml",
+      "community": 150,
+      "community_name": "Docker Swarm Guide",
+      "norm_label": "1. agregar deployment y service en [`k8s/02-microservices.yaml`](file:///c:/dev/devops/fintech-wallet/k8s/02-microservices.yaml)"
+    },
+    {
+      "label": "2. Configurar Ruteo en [`k8s/05-ingress.yaml`](file:///c:/dev/DevOps/fintech-wallet/k8s/05-ingress.yaml)",
+      "file_type": "document",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L464",
+      "_origin": "ast",
+      "id": "docs_crear_nuevo_microservicio_2_configurar_ruteo_en_k8s_05_ingress_yaml_file_c_dev_devops_fintech_wallet_k8s_05_ingress_yaml",
+      "community": 150,
+      "community_name": "Docker Swarm Guide",
+      "norm_label": "2. configurar ruteo en [`k8s/05-ingress.yaml`](file:///c:/dev/devops/fintech-wallet/k8s/05-ingress.yaml)"
+    },
+    {
+      "label": "Fase 8: Automatizaci\u00f3n de Despliegue y Pruebas Automatizadas",
+      "file_type": "document",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L481",
+      "_origin": "ast",
+      "id": "docs_crear_nuevo_microservicio_fase_8_automatizaci\u00f3n_de_despliegue_y_pruebas_automatizadas",
+      "community": 150,
+      "community_name": "Docker Swarm Guide",
+      "norm_label": "fase 8: automatizacion de despliegue y pruebas automatizadas"
+    },
+    {
+      "label": "1. Registrar en los Scripts de Despliegue",
+      "file_type": "document",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L483",
+      "_origin": "ast",
+      "id": "docs_crear_nuevo_microservicio_1_registrar_en_los_scripts_de_despliegue",
+      "community": 150,
+      "community_name": "Docker Swarm Guide",
+      "norm_label": "1. registrar en los scripts de despliegue"
+    },
+    {
+      "label": "2. Agregar Verificaci\u00f3n en [`scripts/smoke-test.ps1`](file:///c:/dev/DevOps/fintech-wallet/scripts/smoke-test.ps1)",
+      "file_type": "document",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L491",
+      "_origin": "ast",
+      "id": "docs_crear_nuevo_microservicio_2_agregar_verificaci\u00f3n_en_scripts_smoke_test_ps1_file_c_dev_devops_fintech_wallet_scripts_smoke_test_ps1",
+      "community": 150,
+      "community_name": "Docker Swarm Guide",
+      "norm_label": "2. agregar verificacion en [`scripts/smoke-test.ps1`](file:///c:/dev/devops/fintech-wallet/scripts/smoke-test.ps1)"
+    },
+    {
+      "label": "3. Ejecutar y Validar el Despliegue",
+      "file_type": "document",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L498",
+      "_origin": "ast",
+      "id": "docs_crear_nuevo_microservicio_3_ejecutar_y_validar_el_despliegue",
+      "community": 150,
+      "community_name": "Docker Swarm Guide",
+      "norm_label": "3. ejecutar y validar el despliegue"
+    },
+    {
+      "label": "Checklist de Verificaci\u00f3n Final \u2705",
+      "file_type": "document",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L512",
+      "_origin": "ast",
+      "id": "docs_crear_nuevo_microservicio_checklist_de_verificaci\u00f3n_final",
+      "community": 150,
+      "community_name": "Docker Swarm Guide",
+      "norm_label": "checklist de verificacion final \u2705"
     },
     {
       "label": "grpc_migration_plan.md",
@@ -114337,7 +114601,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L95",
+      "source_location": "L96",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_fintech_wallet",
@@ -114359,7 +114623,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L113",
+      "source_location": "L114",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_fintech_wallet",
@@ -114370,7 +114634,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L131",
+      "source_location": "L132",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_fintech_wallet",
@@ -114381,7 +114645,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L102",
+      "source_location": "L103",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_despliegue_automatizado_en_kubernetes_rancher_desktop",
@@ -114392,7 +114656,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L97",
+      "source_location": "L98",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_despliegue_automatizado_en_kubernetes_rancher_desktop",
@@ -115299,6 +115563,259 @@
       "_origin": "ast",
       "source": "backend_nestjs_worker_service_readme_worker_service_nestjs",
       "target": "backend_nestjs_worker_service_readme_docker_kubernetes_deployment",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_crear_nuevo_microservicio",
+      "target": "docs_crear_nuevo_microservicio_gu\u00eda_paso_a_paso_creaci\u00f3n_e_integraci\u00f3n_de_un_nuevo_microservicio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L512",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_crear_nuevo_microservicio_gu\u00eda_paso_a_paso_creaci\u00f3n_e_integraci\u00f3n_de_un_nuevo_microservicio",
+      "target": "docs_crear_nuevo_microservicio_checklist_de_verificaci\u00f3n_final",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_crear_nuevo_microservicio_gu\u00eda_paso_a_paso_creaci\u00f3n_e_integraci\u00f3n_de_un_nuevo_microservicio",
+      "target": "docs_crear_nuevo_microservicio_fase_1_definici\u00f3n_del_dominio_y_asignaci\u00f3n_de_recursos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L38",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_crear_nuevo_microservicio_gu\u00eda_paso_a_paso_creaci\u00f3n_e_integraci\u00f3n_de_un_nuevo_microservicio",
+      "target": "docs_crear_nuevo_microservicio_fase_2_estructura_de_carpetas_y_scaffolding_hexagonal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L108",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_crear_nuevo_microservicio_gu\u00eda_paso_a_paso_creaci\u00f3n_e_integraci\u00f3n_de_un_nuevo_microservicio",
+      "target": "docs_crear_nuevo_microservicio_fase_3_persistencia_y_esquema_prisma_database_per_service",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L169",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_crear_nuevo_microservicio_gu\u00eda_paso_a_paso_creaci\u00f3n_e_integraci\u00f3n_de_un_nuevo_microservicio",
+      "target": "docs_crear_nuevo_microservicio_fase_4_comunicaci\u00f3n_inter_servicio_trpc_y_apache_kafka",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L247",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_crear_nuevo_microservicio_gu\u00eda_paso_a_paso_creaci\u00f3n_e_integraci\u00f3n_de_un_nuevo_microservicio",
+      "target": "docs_crear_nuevo_microservicio_fase_5_observabilidad_otlp_y_endpoints_de_salud_k8s",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L319",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_crear_nuevo_microservicio_gu\u00eda_paso_a_paso_creaci\u00f3n_e_integraci\u00f3n_de_un_nuevo_microservicio",
+      "target": "docs_crear_nuevo_microservicio_fase_6_containerizaci\u00f3n_multi_stage_con_dockerfile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L365",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_crear_nuevo_microservicio_gu\u00eda_paso_a_paso_creaci\u00f3n_e_integraci\u00f3n_de_un_nuevo_microservicio",
+      "target": "docs_crear_nuevo_microservicio_fase_7_manifiestos_de_kubernetes_traefik_ingress_y_networkpolicies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L481",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_crear_nuevo_microservicio_gu\u00eda_paso_a_paso_creaci\u00f3n_e_integraci\u00f3n_de_un_nuevo_microservicio",
+      "target": "docs_crear_nuevo_microservicio_fase_8_automatizaci\u00f3n_de_despliegue_y_pruebas_automatizadas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_crear_nuevo_microservicio_gu\u00eda_paso_a_paso_creaci\u00f3n_e_integraci\u00f3n_de_un_nuevo_microservicio",
+      "target": "docs_crear_nuevo_microservicio_\u00edndice_del_flujo_de_trabajo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L48",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_crear_nuevo_microservicio_fase_2_estructura_de_carpetas_y_scaffolding_hexagonal",
+      "target": "docs_crear_nuevo_microservicio_estructura_de_directorios_hexagonal_ports_adapters",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L110",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_crear_nuevo_microservicio_fase_3_persistencia_y_esquema_prisma_database_per_service",
+      "target": "docs_crear_nuevo_microservicio_1_registrar_la_base_de_datos_en_mysql",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L119",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_crear_nuevo_microservicio_fase_3_persistencia_y_esquema_prisma_database_per_service",
+      "target": "docs_crear_nuevo_microservicio_2_definir_el_esquema_prisma_prisma_schema_prisma",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L171",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_crear_nuevo_microservicio_fase_4_comunicaci\u00f3n_inter_servicio_trpc_y_apache_kafka",
+      "target": "docs_crear_nuevo_microservicio_1_comunicaci\u00f3n_s\u00edncrona_mediante_trpc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L192",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_crear_nuevo_microservicio_fase_4_comunicaci\u00f3n_inter_servicio_trpc_y_apache_kafka",
+      "target": "docs_crear_nuevo_microservicio_2_productor_de_kafka_con_reconexi\u00f3n_resiliente_ensureconnected",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L249",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_crear_nuevo_microservicio_fase_5_observabilidad_otlp_y_endpoints_de_salud_k8s",
+      "target": "docs_crear_nuevo_microservicio_1_inicializaci\u00f3n_de_opentelemetry_src_tracing_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L281",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_crear_nuevo_microservicio_fase_5_observabilidad_otlp_y_endpoints_de_salud_k8s",
+      "target": "docs_crear_nuevo_microservicio_2_probes_de_kubernetes_src_adapters_inbound_rest_health_controller_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L367",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_crear_nuevo_microservicio_fase_7_manifiestos_de_kubernetes_traefik_ingress_y_networkpolicies",
+      "target": "docs_crear_nuevo_microservicio_1_agregar_deployment_y_service_en_k8s_02_microservices_yaml_file_c_dev_devops_fintech_wallet_k8s_02_microservices_yaml",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L464",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_crear_nuevo_microservicio_fase_7_manifiestos_de_kubernetes_traefik_ingress_y_networkpolicies",
+      "target": "docs_crear_nuevo_microservicio_2_configurar_ruteo_en_k8s_05_ingress_yaml_file_c_dev_devops_fintech_wallet_k8s_05_ingress_yaml",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L483",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_crear_nuevo_microservicio_fase_8_automatizaci\u00f3n_de_despliegue_y_pruebas_automatizadas",
+      "target": "docs_crear_nuevo_microservicio_1_registrar_en_los_scripts_de_despliegue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L491",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_crear_nuevo_microservicio_fase_8_automatizaci\u00f3n_de_despliegue_y_pruebas_automatizadas",
+      "target": "docs_crear_nuevo_microservicio_2_agregar_verificaci\u00f3n_en_scripts_smoke_test_ps1_file_c_dev_devops_fintech_wallet_scripts_smoke_test_ps1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/crear-nuevo-microservicio.md",
+      "source_location": "L498",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_crear_nuevo_microservicio_fase_8_automatizaci\u00f3n_de_despliegue_y_pruebas_automatizadas",
+      "target": "docs_crear_nuevo_microservicio_3_ejecutar_y_validar_el_despliegue",
       "confidence_score": 1.0
     },
     {

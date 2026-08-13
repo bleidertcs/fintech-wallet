@@ -955,8 +955,8 @@
     "semantic_hash": ""
   },
   "ARQUITECTURA.md": {
-    "mtime": 1786648170.109177,
-    "ast_hash": "e4dc4477330a9f324f48ab5f6bfc91e6",
+    "mtime": 1786648313.6930637,
+    "ast_hash": "dba278605f9a39657a1b85042586e63b",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -965,8 +965,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1786646609.7675018,
-    "ast_hash": "0b5a8b5e0191073d954c57d52e2f2474",
+    "mtime": 1786648303.4188027,
+    "ast_hash": "24eef917f5d7c972ba1411c83c08a403",
     "semantic_hash": ""
   },
   "docker-compose.yml": {
@@ -2867,6 +2867,11 @@
   "k8s/helm/fintech-wallet/values.yaml": {
     "mtime": 1786463065.449821,
     "ast_hash": "2679d644e04d58f3c487bfca7ad1f19a",
+    "semantic_hash": ""
+  },
+  "docs/crear-nuevo-microservicio.md": {
+    "mtime": 1786648296.0128462,
+    "ast_hash": "84fb6b55439eac3dc624b2d57cf71cc0",
     "semantic_hash": ""
   }
 }

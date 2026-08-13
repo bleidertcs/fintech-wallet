@@ -460,6 +460,8 @@
   "458": "@nestjs/schematics",
   "459": "eslint",
   "460": "source-map-support",
+  "461": "@nestjs/core",
+  "462": "axios",
   "466": "@types/node",
   "468": "@eslint/js",
   "470": "import-signoz-dashboards.sh script",

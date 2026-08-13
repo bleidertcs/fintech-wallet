@@ -2771,8 +2771,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_axios",
-      "community": 233,
-      "community_name": "exclude",
+      "community": 327,
+      "community_name": "nodemailer",
       "norm_label": "axios"
     },
     {
@@ -2782,8 +2782,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_axios",
-      "community": 233,
-      "community_name": "exclude",
+      "community": 327,
+      "community_name": "nodemailer",
       "norm_label": "axios"
     },
     {
@@ -2859,8 +2859,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_ioredis",
-      "community": 327,
-      "community_name": "nodemailer",
+      "community": 312,
+      "community_name": "@swc/cli",
       "norm_label": "ioredis"
     },
     {
@@ -2870,8 +2870,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_ioredis",
-      "community": 327,
-      "community_name": "nodemailer",
+      "community": 312,
+      "community_name": "@swc/cli",
       "norm_label": "ioredis"
     },
     {
@@ -8370,8 +8370,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_dependencies_class_transformer",
-      "community": 219,
-      "community_name": "dependencies",
+      "community": 371,
+      "community_name": "@nestjs/config",
       "norm_label": "class-transformer"
     },
     {
@@ -8381,8 +8381,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_class_transformer",
-      "community": 219,
-      "community_name": "dependencies",
+      "community": 371,
+      "community_name": "@nestjs/config",
       "norm_label": "class-transformer"
     },
     {
@@ -8392,8 +8392,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_dependencies_class_validator",
-      "community": 371,
-      "community_name": "@nestjs/config",
+      "community": 313,
+      "community_name": "@swc/core",
       "norm_label": "class-validator"
     },
     {
@@ -8403,8 +8403,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_class_validator",
-      "community": 371,
-      "community_name": "@nestjs/config",
+      "community": 313,
+      "community_name": "@swc/core",
       "norm_label": "class-validator"
     },
     {
@@ -8821,8 +8821,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_devdependencies_eslint",
-      "community": 152,
-      "community_name": "swarm-init.sh",
+      "community": 318,
+      "community_name": "@types/supertest",
       "norm_label": "eslint"
     },
     {
@@ -8832,8 +8832,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_eslint",
-      "community": 152,
-      "community_name": "swarm-init.sh",
+      "community": 318,
+      "community_name": "@types/supertest",
       "norm_label": "eslint"
     },
     {
@@ -8997,8 +8997,8 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_devdependencies_supertest",
-      "community": 312,
-      "community_name": "@swc/cli",
+      "community": 152,
+      "community_name": "swarm-init.sh",
       "norm_label": "supertest"
     },
     {
@@ -9008,8 +9008,8 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_supertest",
-      "community": 312,
-      "community_name": "@swc/cli",
+      "community": 152,
+      "community_name": "swarm-init.sh",
       "norm_label": "supertest"
     },
     {
@@ -12033,8 +12033,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_dependencies_class_validator",
-      "community": 318,
-      "community_name": "@types/supertest",
+      "community": 170,
+      "community_name": "dependencies",
       "norm_label": "class-validator"
     },
     {
@@ -12044,8 +12044,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_class_validator",
-      "community": 318,
-      "community_name": "@types/supertest",
+      "community": 170,
+      "community_name": "dependencies",
       "norm_label": "class-validator"
     },
     {
@@ -12099,8 +12099,8 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_dependencies_mariadb",
-      "community": 170,
-      "community_name": "dependencies",
+      "community": 417,
+      "community_name": "axios",
       "norm_label": "mariadb"
     },
     {
@@ -12110,8 +12110,8 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_mariadb",
-      "community": 170,
-      "community_name": "dependencies",
+      "community": 417,
+      "community_name": "axios",
       "norm_label": "mariadb"
     },
     {
@@ -12528,8 +12528,8 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_devdependencies_jest",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 420,
+      "community_name": "prisma",
       "norm_label": "jest"
     },
     {
@@ -12539,8 +12539,8 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_jest",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 420,
+      "community_name": "prisma",
       "norm_label": "jest"
     },
     {
@@ -12572,8 +12572,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_devdependencies_prisma",
-      "community": 420,
-      "community_name": "prisma",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": "prisma"
     },
     {
@@ -12583,8 +12583,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_prisma",
-      "community": 420,
-      "community_name": "prisma",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": "prisma"
     },
     {
@@ -16202,8 +16202,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_nestjs_platform_express",
-      "community": 460,
-      "community_name": "source-map-support",
+      "community": 232,
+      "community_name": "dependencies",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -16213,8 +16213,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_platform_express",
-      "community": 460,
-      "community_name": "source-map-support",
+      "community": 232,
+      "community_name": "dependencies",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -16686,8 +16686,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_mariadb",
-      "community": 232,
-      "community_name": "dependencies",
+      "community": 460,
+      "community_name": "source-map-support",
       "norm_label": "mariadb"
     },
     {
@@ -16697,8 +16697,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_mariadb",
-      "community": 232,
-      "community_name": "dependencies",
+      "community": 460,
+      "community_name": "source-map-support",
       "norm_label": "mariadb"
     },
     {
@@ -19557,8 +19557,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_nestjs_core",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 461,
+      "community_name": "@nestjs/core",
       "norm_label": "@nestjs/core"
     },
     {
@@ -19568,8 +19568,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nestjs_core",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 461,
+      "community_name": "@nestjs/core",
       "norm_label": "@nestjs/core"
     },
     {
@@ -19975,8 +19975,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_class_validator",
-      "community": 313,
-      "community_name": "@swc/core",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "class-validator"
     },
     {
@@ -19986,8 +19986,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_class_validator",
-      "community": 313,
-      "community_name": "@swc/core",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "class-validator"
     },
     {
@@ -23526,8 +23526,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller",
-      "community": 151,
-      "community_name": "AuthResponse",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": "authcontroller.java"
     },
     {
@@ -23537,8 +23537,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller",
-      "community": 151,
-      "community_name": "AuthResponse",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": "authcontroller"
     },
     {
@@ -23548,8 +23548,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_java_restcontroller",
-      "community": 151,
-      "community_name": "AuthResponse",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": "restcontroller"
     },
     {
@@ -23559,8 +23559,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_java_requestmapping",
-      "community": 151,
-      "community_name": "AuthResponse",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": "requestmapping"
     },
     {
@@ -23570,8 +23570,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_java_requiredargsconstructor",
-      "community": 151,
-      "community_name": "AuthResponse",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": "requiredargsconstructor"
     },
     {
@@ -23581,8 +23581,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller_register",
-      "community": 151,
-      "community_name": "AuthResponse",
+      "community": 231,
+      "community_name": "WithSpan",
       "norm_label": ".register()"
     },
     {
@@ -23592,8 +23592,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_java_responseentity",
-      "community": 151,
-      "community_name": "AuthResponse",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": "responseentity"
     },
     {
@@ -23614,7 +23614,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller_login",
-      "community": 151,
+      "community": 37,
       "community_name": "AuthResponse",
       "norm_label": ".login()"
     },
@@ -23636,8 +23636,8 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller_verifyemail",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": ".verifyemail()"
     },
     {
@@ -23647,8 +23647,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_java_getmapping",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": "getmapping"
     },
     {
@@ -23658,8 +23658,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller_setuptotp",
-      "community": 151,
-      "community_name": "AuthResponse",
+      "community": 38,
+      "community_name": "TotpSetupResponse",
       "norm_label": ".setuptotp()"
     },
     {
@@ -23691,8 +23691,8 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller_getme",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": ".getme()"
     },
     {
@@ -23724,8 +23724,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_java_putmapping",
-      "community": 141,
-      "community_name": "StatementService",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": "putmapping"
     },
     {
@@ -23735,8 +23735,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_controller_authcontroller_authcontroller_promoteadmin",
-      "community": 141,
-      "community_name": "StatementService",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": ".promoteadmin()"
     },
     {
@@ -23845,8 +23845,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_dto_loginrequest",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "loginrequest.java"
     },
     {
@@ -23856,8 +23856,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_dto_loginrequest_loginrequest",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "loginrequest"
     },
     {
@@ -23867,8 +23867,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_dto_loginrequest_java_data",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "data"
     },
     {
@@ -23878,8 +23878,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_dto_loginrequest_java_noargsconstructor",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "noargsconstructor"
     },
     {
@@ -23889,8 +23889,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_dto_loginrequest_java_allargsconstructor",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "allargsconstructor"
     },
     {
@@ -24230,8 +24230,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "jparepository",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 49,
+      "community_name": ".findByEmail",
       "norm_label": "jparepository"
     },
     {
@@ -24241,8 +24241,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_repository_userrepository_userrepository_findbyemail",
-      "community": 67,
-      "community_name": "AuthService",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": ".findbyemail()"
     },
     {
@@ -24252,8 +24252,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_repository_userrepository_userrepository_existsbyemail",
-      "community": 231,
-      "community_name": "WithSpan",
+      "community": 25,
+      "community_name": "User",
       "norm_label": ".existsbyemail()"
     },
     {
@@ -24263,8 +24263,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_repository_userrepository_userrepository_findbyverificationtoken",
-      "community": 25,
-      "community_name": "User",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": ".findbyverificationtoken()"
     },
     {
@@ -24670,8 +24670,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_java_withspan",
-      "community": 67,
-      "community_name": "AuthService",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "withspan"
     },
     {
@@ -24681,8 +24681,8 @@
       "source_location": "L115",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_login",
-      "community": 67,
-      "community_name": "AuthService",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": ".login()"
     },
     {
@@ -24692,8 +24692,8 @@
       "source_location": "L155",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_verifytotp",
-      "community": 67,
-      "community_name": "AuthService",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": ".verifytotp()"
     },
     {
@@ -24703,8 +24703,8 @@
       "source_location": "L180",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_verifyemail",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": ".verifyemail()"
     },
     {
@@ -24714,8 +24714,8 @@
       "source_location": "L190",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_setuptotp",
-      "community": 67,
-      "community_name": "AuthService",
+      "community": 38,
+      "community_name": "TotpSetupResponse",
       "norm_label": ".setuptotp()"
     },
     {
@@ -24725,8 +24725,8 @@
       "source_location": "L207",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_enabletotp",
-      "community": 67,
-      "community_name": "AuthService",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": ".enabletotp()"
     },
     {
@@ -24736,8 +24736,8 @@
       "source_location": "L224",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_disabletotp",
-      "community": 67,
-      "community_name": "AuthService",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": ".disabletotp()"
     },
     {
@@ -24758,8 +24758,8 @@
       "source_location": "L246",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_getuserstatus",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": ".getuserstatus()"
     },
     {
@@ -24769,8 +24769,8 @@
       "source_location": "L260",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_resendverification",
-      "community": 67,
-      "community_name": "AuthService",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": ".resendverification()"
     },
     {
@@ -24780,8 +24780,8 @@
       "source_location": "L276",
       "_origin": "ast",
       "id": "backend_auth_service_src_main_java_auth_service_auth_service_service_authservice_authservice_promotetoadmin",
-      "community": 141,
-      "community_name": "StatementService",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": ".promotetoadmin()"
     },
     {
@@ -26417,8 +26417,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_controller_transactioncontroller_transactioncontroller_getbyuser",
-      "community": 35,
-      "community_name": "TransactionController",
+      "community": 68,
+      "community_name": ".transfer",
       "norm_label": ".getbyuser()"
     },
     {
@@ -26428,8 +26428,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_controller_transactioncontroller_java_getmapping",
-      "community": 35,
-      "community_name": "TransactionController",
+      "community": 68,
+      "community_name": ".transfer",
       "norm_label": "getmapping"
     },
     {
@@ -26439,8 +26439,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_controller_transactioncontroller_transactioncontroller_getall",
-      "community": 35,
-      "community_name": "TransactionController",
+      "community": 68,
+      "community_name": ".transfer",
       "norm_label": ".getall()"
     },
     {
@@ -27143,8 +27143,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_repository_moneyrequestrepository_moneyrequestrepository_findbyrequesteridortargetid",
-      "community": 33,
-      "community_name": "MoneyRequest",
+      "community": 35,
+      "community_name": "TransactionController",
       "norm_label": ".findbyrequesteridortargetid()"
     },
     {
@@ -27297,8 +27297,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice",
-      "community": 23,
-      "community_name": "TransactionService",
+      "community": 74,
+      "community_name": "TransferResponse",
       "norm_label": "transactionservice.java"
     },
     {
@@ -27308,8 +27308,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_transactionservice",
-      "community": 23,
-      "community_name": "TransactionService",
+      "community": 74,
+      "community_name": "TransferResponse",
       "norm_label": "transactionservice"
     },
     {
@@ -27319,8 +27319,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_java_service",
-      "community": 23,
-      "community_name": "TransactionService",
+      "community": 74,
+      "community_name": "TransferResponse",
       "norm_label": "service"
     },
     {
@@ -27330,8 +27330,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_java_requiredargsconstructor",
-      "community": 23,
-      "community_name": "TransactionService",
+      "community": 74,
+      "community_name": "TransferResponse",
       "norm_label": "requiredargsconstructor"
     },
     {
@@ -27341,8 +27341,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_java_slf4j",
-      "community": 23,
-      "community_name": "TransactionService",
+      "community": 74,
+      "community_name": "TransferResponse",
       "norm_label": "slf4j"
     },
     {
@@ -27352,8 +27352,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_java_userserviceblockingstub",
-      "community": 23,
-      "community_name": "TransactionService",
+      "community": 74,
+      "community_name": "TransferResponse",
       "norm_label": "userserviceblockingstub"
     },
     {
@@ -27363,8 +27363,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_transactionservice_transfer",
-      "community": 23,
-      "community_name": "TransactionService",
+      "community": 74,
+      "community_name": "TransferResponse",
       "norm_label": ".transfer()"
     },
     {
@@ -27374,8 +27374,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_java_transactional",
-      "community": 23,
-      "community_name": "TransactionService",
+      "community": 74,
+      "community_name": "TransferResponse",
       "norm_label": "transactional"
     },
     {
@@ -27418,8 +27418,8 @@
       "source_location": "L125",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_transactionservice_getdailytotal",
-      "community": 23,
-      "community_name": "TransactionService",
+      "community": 74,
+      "community_name": "TransferResponse",
       "norm_label": ".getdailytotal()"
     },
     {
@@ -27451,8 +27451,8 @@
       "source_location": "L149",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_transactionservice_getrequestsbyuser",
-      "community": 23,
-      "community_name": "TransactionService",
+      "community": 35,
+      "community_name": "TransactionController",
       "norm_label": ".getrequestsbyuser()"
     },
     {
@@ -27484,8 +27484,8 @@
       "source_location": "L190",
       "_origin": "ast",
       "id": "backend_transaction_service_src_main_java_transaction_service_transaction_service_service_transactionservice_transactionservice_totransferresponse",
-      "community": 23,
-      "community_name": "TransactionService",
+      "community": 74,
+      "community_name": "TransferResponse",
       "norm_label": ".totransferresponse()"
     },
     {
@@ -28945,8 +28945,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_controller_workercontroller_workercontroller_getstatementsbyuser",
-      "community": 127,
-      "community_name": "StatementJob",
+      "community": 128,
+      "community_name": "WorkerController",
       "norm_label": ".getstatementsbyuser()"
     },
     {
@@ -28978,8 +28978,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_controller_workercontroller_workercontroller_getauditlogsbyuser",
-      "community": 49,
-      "community_name": ".findByEmail",
+      "community": 128,
+      "community_name": "WorkerController",
       "norm_label": ".getauditlogsbyuser()"
     },
     {
@@ -29363,8 +29363,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_repository_statementjobrepository",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 49,
+      "community_name": ".findByEmail",
       "norm_label": "statementjobrepository.java"
     },
     {
@@ -29374,8 +29374,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_repository_statementjobrepository_statementjobrepository",
-      "community": 127,
-      "community_name": "StatementJob",
+      "community": 49,
+      "community_name": ".findByEmail",
       "norm_label": "statementjobrepository"
     },
     {
@@ -29396,8 +29396,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_auditservice",
-      "community": 49,
-      "community_name": ".findByEmail",
+      "community": 233,
+      "community_name": "exclude",
       "norm_label": "auditservice.java"
     },
     {
@@ -29407,8 +29407,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_auditservice_auditservice",
-      "community": 49,
-      "community_name": ".findByEmail",
+      "community": 233,
+      "community_name": "exclude",
       "norm_label": "auditservice"
     },
     {
@@ -29418,8 +29418,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_auditservice_java_service",
-      "community": 49,
-      "community_name": ".findByEmail",
+      "community": 233,
+      "community_name": "exclude",
       "norm_label": "service"
     },
     {
@@ -29429,8 +29429,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_auditservice_java_requiredargsconstructor",
-      "community": 49,
-      "community_name": ".findByEmail",
+      "community": 233,
+      "community_name": "exclude",
       "norm_label": "requiredargsconstructor"
     },
     {
@@ -29440,8 +29440,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_auditservice_java_slf4j",
-      "community": 49,
-      "community_name": ".findByEmail",
+      "community": 233,
+      "community_name": "exclude",
       "norm_label": "slf4j"
     },
     {
@@ -29561,8 +29561,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_statementservice",
-      "community": 127,
-      "community_name": "StatementJob",
+      "community": 219,
+      "community_name": "dependencies",
       "norm_label": "statementservice.java"
     },
     {
@@ -29572,8 +29572,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_statementservice_statementservice",
-      "community": 127,
-      "community_name": "StatementJob",
+      "community": 219,
+      "community_name": "dependencies",
       "norm_label": "statementservice"
     },
     {
@@ -29583,8 +29583,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_statementservice_java_service",
-      "community": 127,
-      "community_name": "StatementJob",
+      "community": 219,
+      "community_name": "dependencies",
       "norm_label": "service"
     },
     {
@@ -29594,8 +29594,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_statementservice_java_requiredargsconstructor",
-      "community": 127,
-      "community_name": "StatementJob",
+      "community": 219,
+      "community_name": "dependencies",
       "norm_label": "requiredargsconstructor"
     },
     {
@@ -29605,8 +29605,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_statementservice_java_slf4j",
-      "community": 127,
-      "community_name": "StatementJob",
+      "community": 219,
+      "community_name": "dependencies",
       "norm_label": "slf4j"
     },
     {
@@ -29616,8 +29616,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_statementservice_statementservice_requeststatement",
-      "community": 127,
-      "community_name": "StatementJob",
+      "community": 219,
+      "community_name": "dependencies",
       "norm_label": ".requeststatement()"
     },
     {
@@ -29627,8 +29627,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "backend_worker_service_src_main_java_worker_service_worker_service_service_statementservice_statementservice_processjobasync",
-      "community": 127,
-      "community_name": "StatementJob",
+      "community": 219,
+      "community_name": "dependencies",
       "norm_label": ".processjobasync()"
     },
     {
@@ -29638,8 +29638,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "async",
-      "community": 127,
-      "community_name": "StatementJob",
+      "community": 219,
+      "community_name": "dependencies",
       "norm_label": "async"
     },
     {
@@ -29870,8 +29870,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "frontend_package_dependencies_axios",
-      "community": 6,
-      "community_name": "dependencies",
+      "community": 462,
+      "community_name": "axios",
       "norm_label": "axios"
     },
     {
@@ -29881,8 +29881,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "frontend_package_json_axios",
-      "community": 6,
-      "community_name": "dependencies",
+      "community": 462,
+      "community_name": "axios",
       "norm_label": "axios"
     },
     {
@@ -29914,8 +29914,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "frontend_package_dependencies_html5_qrcode",
-      "community": 417,
-      "community_name": "axios",
+      "community": 6,
+      "community_name": "dependencies",
       "norm_label": "html5-qrcode"
     },
     {
@@ -29925,8 +29925,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "html5_qrcode",
-      "community": 417,
-      "community_name": "axios",
+      "community": 6,
+      "community_name": "dependencies",
       "norm_label": "html5-qrcode"
     },
     {
@@ -44931,136 +44931,235 @@
       "norm_label": "1. arquitectura general del sistema"
     },
     {
-      "label": "2. Stack Tecnol\u00f3gico",
+      "label": "2. Diagramas del Modelo C4 (C4 Architecture Model) \ud83d\udcd0",
       "file_type": "document",
       "source_file": "ARQUITECTURA.md",
       "source_location": "L93",
       "_origin": "ast",
-      "id": "arquitectura_2_stack_tecnol\u00f3gico",
+      "id": "arquitectura_2_diagramas_del_modelo_c4_c4_architecture_model",
       "community": 27,
       "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "2. stack tecnologico"
+      "norm_label": "2. diagramas del modelo c4 (c4 architecture model) \ud83d\udcd0"
     },
     {
-      "label": "3. Detalle de los Microservicios",
+      "label": "2.1 C4 Nivel 1: Diagrama de Contexto del Sistema (System Context)",
       "file_type": "document",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L111",
+      "source_location": "L97",
       "_origin": "ast",
-      "id": "arquitectura_3_detalle_de_los_microservicios",
+      "id": "arquitectura_2_1_c4_nivel_1_diagrama_de_contexto_del_sistema_system_context",
       "community": 27,
       "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "3. detalle de los microservicios"
+      "norm_label": "2.1 c4 nivel 1: diagrama de contexto del sistema (system context)"
     },
     {
-      "label": "3.1 Auth Service (Puerto 3001)",
+      "label": "2.2 C4 Nivel 2: Diagrama de Contenedores (Containers Diagram)",
       "file_type": "document",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L113",
+      "source_location": "L122",
       "_origin": "ast",
-      "id": "arquitectura_3_1_auth_service_puerto_3001",
+      "id": "arquitectura_2_2_c4_nivel_2_diagrama_de_contenedores_containers_diagram",
       "community": 27,
       "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "3.1 auth service (puerto 3001)"
+      "norm_label": "2.2 c4 nivel 2: diagrama de contenedores (containers diagram)"
     },
     {
-      "label": "3.2 User Service (Puerto 3002 / Servicio K8s: 8082)",
+      "label": "2.3 C4 Nivel 3: Diagrama de Componentes (Component Diagram - Transaction Service)",
       "file_type": "document",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L125",
+      "source_location": "L194",
       "_origin": "ast",
-      "id": "arquitectura_3_2_user_service_puerto_3002_servicio_k8s_8082",
+      "id": "arquitectura_2_3_c4_nivel_3_diagrama_de_componentes_component_diagram_transaction_service",
       "community": 27,
       "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "3.2 user service (puerto 3002 / servicio k8s: 8082)"
+      "norm_label": "2.3 c4 nivel 3: diagrama de componentes (component diagram - transaction service)"
     },
     {
-      "label": "3.3 Transaction Service (Puerto 3003 / Servicio K8s: 8083)",
+      "label": "3. Stack Tecnol\u00f3gico",
       "file_type": "document",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L137",
+      "source_location": "L241",
       "_origin": "ast",
-      "id": "arquitectura_3_3_transaction_service_puerto_3003_servicio_k8s_8083",
+      "id": "arquitectura_3_stack_tecnol\u00f3gico",
       "community": 27,
       "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "3.3 transaction service (puerto 3003 / servicio k8s: 8083)"
+      "norm_label": "3. stack tecnologico"
     },
     {
-      "label": "3.4 Notification Service (Puerto 3004 / Servicio K8s: 8084)",
+      "label": "4. Detalle de los Microservicios",
       "file_type": "document",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L151",
+      "source_location": "L259",
       "_origin": "ast",
-      "id": "arquitectura_3_4_notification_service_puerto_3004_servicio_k8s_8084",
+      "id": "arquitectura_4_detalle_de_los_microservicios",
       "community": 27,
       "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "3.4 notification service (puerto 3004 / servicio k8s: 8084)"
+      "norm_label": "4. detalle de los microservicios"
     },
     {
-      "label": "3.5 Worker Service (Puerto 3005 / Servicio K8s: 8085)",
+      "label": "4.1 Auth Service (Puerto 3001)",
       "file_type": "document",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L164",
+      "source_location": "L261",
       "_origin": "ast",
-      "id": "arquitectura_3_5_worker_service_puerto_3005_servicio_k8s_8085",
+      "id": "arquitectura_4_1_auth_service_puerto_3001",
       "community": 27,
       "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "3.5 worker service (puerto 3005 / servicio k8s: 8085)"
+      "norm_label": "4.1 auth service (puerto 3001)"
     },
     {
-      "label": "4. Patrones de Dise\u00f1o y Flujos Transaccionales",
+      "label": "4.2 User Service (Puerto 3002 / Servicio K8s: 8082)",
       "file_type": "document",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L178",
+      "source_location": "L273",
       "_origin": "ast",
-      "id": "arquitectura_4_patrones_de_dise\u00f1o_y_flujos_transaccionales",
+      "id": "arquitectura_4_2_user_service_puerto_3002_servicio_k8s_8082",
       "community": 27,
       "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "4. patrones de diseno y flujos transaccionales"
+      "norm_label": "4.2 user service (puerto 3002 / servicio k8s: 8082)"
     },
     {
-      "label": "4.1 Patr\u00f3n SAGA Coreografiado (Transferencia de Fondos)",
+      "label": "4.3 Transaction Service (Puerto 3003 / Servicio K8s: 8083)",
       "file_type": "document",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L180",
+      "source_location": "L285",
       "_origin": "ast",
-      "id": "arquitectura_4_1_patr\u00f3n_saga_coreografiado_transferencia_de_fondos",
+      "id": "arquitectura_4_3_transaction_service_puerto_3003_servicio_k8s_8083",
       "community": 27,
       "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "4.1 patron saga coreografiado (transferencia de fondos)"
+      "norm_label": "4.3 transaction service (puerto 3003 / servicio k8s: 8083)"
     },
     {
-      "label": "5. Dise\u00f1o de Bases de Datos (MySQL 8.0)",
+      "label": "4.4 Notification Service (Puerto 3004 / Servicio K8s: 8084)",
       "file_type": "document",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L228",
+      "source_location": "L299",
       "_origin": "ast",
-      "id": "arquitectura_5_dise\u00f1o_de_bases_de_datos_mysql_8_0",
+      "id": "arquitectura_4_4_notification_service_puerto_3004_servicio_k8s_8084",
       "community": 27,
       "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "5. diseno de bases de datos (mysql 8.0)"
+      "norm_label": "4.4 notification service (puerto 3004 / servicio k8s: 8084)"
     },
     {
-      "label": "6. Observabilidad y Monitoreo (SigNoz + OpenTelemetry)",
+      "label": "4.5 Worker Service (Puerto 3005 / Servicio K8s: 8085)",
       "file_type": "document",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L252",
+      "source_location": "L312",
       "_origin": "ast",
-      "id": "arquitectura_6_observabilidad_y_monitoreo_signoz_opentelemetry",
+      "id": "arquitectura_4_5_worker_service_puerto_3005_servicio_k8s_8085",
       "community": 27,
       "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "6. observabilidad y monitoreo (signoz + opentelemetry)"
+      "norm_label": "4.5 worker service (puerto 3005 / servicio k8s: 8085)"
     },
     {
-      "label": "7. Enlaces a Documentaci\u00f3n de Soporte (`docs/`)",
+      "label": "5. Patrones de Dise\u00f1o y Flujos Transaccionales",
       "file_type": "document",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L260",
+      "source_location": "L326",
       "_origin": "ast",
-      "id": "arquitectura_7_enlaces_a_documentaci\u00f3n_de_soporte_docs",
+      "id": "arquitectura_5_patrones_de_dise\u00f1o_y_flujos_transaccionales",
       "community": 27,
       "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "7. enlaces a documentacion de soporte (`docs/`)"
+      "norm_label": "5. patrones de diseno y flujos transaccionales"
+    },
+    {
+      "label": "5.1 Patr\u00f3n SAGA Coreografiado (Transferencia de Fondos)",
+      "file_type": "document",
+      "source_file": "ARQUITECTURA.md",
+      "source_location": "L328",
+      "_origin": "ast",
+      "id": "arquitectura_5_1_patr\u00f3n_saga_coreografiado_transferencia_de_fondos",
+      "community": 27,
+      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
+      "norm_label": "5.1 patron saga coreografiado (transferencia de fondos)"
+    },
+    {
+      "label": "6. Seguridad, Hardening y DevSecOps \ud83d\udd10\ud83d\udee1\ufe0f",
+      "file_type": "document",
+      "source_file": "ARQUITECTURA.md",
+      "source_location": "L376",
+      "_origin": "ast",
+      "id": "arquitectura_6_seguridad_hardening_y_devsecops",
+      "community": 27,
+      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
+      "norm_label": "6. seguridad, hardening y devsecops \ud83d\udd10\ud83d\udee1\ufe0f"
+    },
+    {
+      "label": "6.1 Hardening de Contenedores en Kubernetes (`SecurityContext`)",
+      "file_type": "document",
+      "source_file": "ARQUITECTURA.md",
+      "source_location": "L416",
+      "_origin": "ast",
+      "id": "arquitectura_6_1_hardening_de_contenedores_en_kubernetes_securitycontext",
+      "community": 27,
+      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
+      "norm_label": "6.1 hardening de contenedores en kubernetes (`securitycontext`)"
+    },
+    {
+      "label": "6.2 Seguridad en la Capa de Identidad y Autenticaci\u00f3n",
+      "file_type": "document",
+      "source_file": "ARQUITECTURA.md",
+      "source_location": "L425",
+      "_origin": "ast",
+      "id": "arquitectura_6_2_seguridad_en_la_capa_de_identidad_y_autenticaci\u00f3n",
+      "community": 27,
+      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
+      "norm_label": "6.2 seguridad en la capa de identidad y autenticacion"
+    },
+    {
+      "label": "7. Pol\u00edticas de Red en Kubernetes (Network Policies) \ud83d\udea6\ud83c\udf10",
+      "file_type": "document",
+      "source_file": "ARQUITECTURA.md",
+      "source_location": "L438",
+      "_origin": "ast",
+      "id": "arquitectura_7_pol\u00edticas_de_red_en_kubernetes_network_policies",
+      "community": 27,
+      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
+      "norm_label": "7. politicas de red en kubernetes (network policies) \ud83d\udea6\ud83c\udf10"
+    },
+    {
+      "label": "7.1 Reglas de Aislamiento de Tr\u00e1fico",
+      "file_type": "document",
+      "source_file": "ARQUITECTURA.md",
+      "source_location": "L490",
+      "_origin": "ast",
+      "id": "arquitectura_7_1_reglas_de_aislamiento_de_tr\u00e1fico",
+      "community": 27,
+      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
+      "norm_label": "7.1 reglas de aislamiento de trafico"
+    },
+    {
+      "label": "8. Dise\u00f1o de Bases de Datos (MySQL 8.0)",
+      "file_type": "document",
+      "source_file": "ARQUITECTURA.md",
+      "source_location": "L501",
+      "_origin": "ast",
+      "id": "arquitectura_8_dise\u00f1o_de_bases_de_datos_mysql_8_0",
+      "community": 27,
+      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
+      "norm_label": "8. diseno de bases de datos (mysql 8.0)"
+    },
+    {
+      "label": "9. Observabilidad y Monitoreo (SigNoz + OpenTelemetry)",
+      "file_type": "document",
+      "source_file": "ARQUITECTURA.md",
+      "source_location": "L525",
+      "_origin": "ast",
+      "id": "arquitectura_9_observabilidad_y_monitoreo_signoz_opentelemetry",
+      "community": 27,
+      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
+      "norm_label": "9. observabilidad y monitoreo (signoz + opentelemetry)"
+    },
+    {
+      "label": "10. Enlaces a Documentaci\u00f3n de Soporte (`docs/`)",
+      "file_type": "document",
+      "source_file": "ARQUITECTURA.md",
+      "source_location": "L533",
+      "_origin": "ast",
+      "id": "arquitectura_10_enlaces_a_documentaci\u00f3n_de_soporte_docs",
+      "community": 27,
+      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
+      "norm_label": "10. enlaces a documentacion de soporte (`docs/`)"
     },
     {
       "label": "Analisis.md",
@@ -112566,6 +112665,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ARQUITECTURA.md",
+      "source_location": "L533",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "arquitectura_fintech_wallet_arquitectura_del_sistema",
+      "target": "arquitectura_10_enlaces_a_documentaci\u00f3n_de_soporte_docs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ARQUITECTURA.md",
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
@@ -112581,128 +112691,216 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "arquitectura_fintech_wallet_arquitectura_del_sistema",
-      "target": "arquitectura_2_stack_tecnol\u00f3gico",
+      "target": "arquitectura_2_diagramas_del_modelo_c4_c4_architecture_model",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L111",
+      "source_location": "L241",
       "weight": 1.0,
       "_origin": "ast",
       "source": "arquitectura_fintech_wallet_arquitectura_del_sistema",
-      "target": "arquitectura_3_detalle_de_los_microservicios",
+      "target": "arquitectura_3_stack_tecnol\u00f3gico",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L178",
+      "source_location": "L259",
       "weight": 1.0,
       "_origin": "ast",
       "source": "arquitectura_fintech_wallet_arquitectura_del_sistema",
-      "target": "arquitectura_4_patrones_de_dise\u00f1o_y_flujos_transaccionales",
+      "target": "arquitectura_4_detalle_de_los_microservicios",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L228",
+      "source_location": "L326",
       "weight": 1.0,
       "_origin": "ast",
       "source": "arquitectura_fintech_wallet_arquitectura_del_sistema",
-      "target": "arquitectura_5_dise\u00f1o_de_bases_de_datos_mysql_8_0",
+      "target": "arquitectura_5_patrones_de_dise\u00f1o_y_flujos_transaccionales",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L252",
+      "source_location": "L376",
       "weight": 1.0,
       "_origin": "ast",
       "source": "arquitectura_fintech_wallet_arquitectura_del_sistema",
-      "target": "arquitectura_6_observabilidad_y_monitoreo_signoz_opentelemetry",
+      "target": "arquitectura_6_seguridad_hardening_y_devsecops",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L260",
+      "source_location": "L438",
       "weight": 1.0,
       "_origin": "ast",
       "source": "arquitectura_fintech_wallet_arquitectura_del_sistema",
-      "target": "arquitectura_7_enlaces_a_documentaci\u00f3n_de_soporte_docs",
+      "target": "arquitectura_7_pol\u00edticas_de_red_en_kubernetes_network_policies",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L113",
+      "source_location": "L501",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "arquitectura_3_detalle_de_los_microservicios",
-      "target": "arquitectura_3_1_auth_service_puerto_3001",
+      "source": "arquitectura_fintech_wallet_arquitectura_del_sistema",
+      "target": "arquitectura_8_dise\u00f1o_de_bases_de_datos_mysql_8_0",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L125",
+      "source_location": "L525",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "arquitectura_3_detalle_de_los_microservicios",
-      "target": "arquitectura_3_2_user_service_puerto_3002_servicio_k8s_8082",
+      "source": "arquitectura_fintech_wallet_arquitectura_del_sistema",
+      "target": "arquitectura_9_observabilidad_y_monitoreo_signoz_opentelemetry",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L137",
+      "source_location": "L97",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "arquitectura_3_detalle_de_los_microservicios",
-      "target": "arquitectura_3_3_transaction_service_puerto_3003_servicio_k8s_8083",
+      "source": "arquitectura_2_diagramas_del_modelo_c4_c4_architecture_model",
+      "target": "arquitectura_2_1_c4_nivel_1_diagrama_de_contexto_del_sistema_system_context",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L151",
+      "source_location": "L122",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "arquitectura_3_detalle_de_los_microservicios",
-      "target": "arquitectura_3_4_notification_service_puerto_3004_servicio_k8s_8084",
+      "source": "arquitectura_2_diagramas_del_modelo_c4_c4_architecture_model",
+      "target": "arquitectura_2_2_c4_nivel_2_diagrama_de_contenedores_containers_diagram",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L164",
+      "source_location": "L194",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "arquitectura_3_detalle_de_los_microservicios",
-      "target": "arquitectura_3_5_worker_service_puerto_3005_servicio_k8s_8085",
+      "source": "arquitectura_2_diagramas_del_modelo_c4_c4_architecture_model",
+      "target": "arquitectura_2_3_c4_nivel_3_diagrama_de_componentes_component_diagram_transaction_service",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L180",
+      "source_location": "L261",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "arquitectura_4_patrones_de_dise\u00f1o_y_flujos_transaccionales",
-      "target": "arquitectura_4_1_patr\u00f3n_saga_coreografiado_transferencia_de_fondos",
+      "source": "arquitectura_4_detalle_de_los_microservicios",
+      "target": "arquitectura_4_1_auth_service_puerto_3001",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ARQUITECTURA.md",
+      "source_location": "L273",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "arquitectura_4_detalle_de_los_microservicios",
+      "target": "arquitectura_4_2_user_service_puerto_3002_servicio_k8s_8082",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ARQUITECTURA.md",
+      "source_location": "L285",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "arquitectura_4_detalle_de_los_microservicios",
+      "target": "arquitectura_4_3_transaction_service_puerto_3003_servicio_k8s_8083",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ARQUITECTURA.md",
+      "source_location": "L299",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "arquitectura_4_detalle_de_los_microservicios",
+      "target": "arquitectura_4_4_notification_service_puerto_3004_servicio_k8s_8084",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ARQUITECTURA.md",
+      "source_location": "L312",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "arquitectura_4_detalle_de_los_microservicios",
+      "target": "arquitectura_4_5_worker_service_puerto_3005_servicio_k8s_8085",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ARQUITECTURA.md",
+      "source_location": "L328",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "arquitectura_5_patrones_de_dise\u00f1o_y_flujos_transaccionales",
+      "target": "arquitectura_5_1_patr\u00f3n_saga_coreografiado_transferencia_de_fondos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ARQUITECTURA.md",
+      "source_location": "L416",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "arquitectura_6_seguridad_hardening_y_devsecops",
+      "target": "arquitectura_6_1_hardening_de_contenedores_en_kubernetes_securitycontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ARQUITECTURA.md",
+      "source_location": "L425",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "arquitectura_6_seguridad_hardening_y_devsecops",
+      "target": "arquitectura_6_2_seguridad_en_la_capa_de_identidad_y_autenticaci\u00f3n",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ARQUITECTURA.md",
+      "source_location": "L490",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "arquitectura_7_pol\u00edticas_de_red_en_kubernetes_network_policies",
+      "target": "arquitectura_7_1_reglas_de_aislamiento_de_tr\u00e1fico",
       "confidence_score": 1.0
     },
     {
