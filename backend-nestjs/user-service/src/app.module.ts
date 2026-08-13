@@ -4,9 +4,11 @@ import { appConfig } from './infrastructure/config/app.config';
 import { PrismaModule } from './adapters/outbound/persistence/prisma.module';
 import { UserUseCases } from './application/use-cases/user.use-cases';
 import { UserController } from './adapters/inbound/rest/user.controller';
-import { UserGrpcController } from './adapters/inbound/grpc/user.grpc.controller';
+import { HealthController } from './adapters/inbound/rest/health.controller';
 import { AppController } from './app.controller';
 import { USER_SERVICE_PORT } from './domain/ports/inbound/user.service.port';
+
+import { UserTrpcRouter } from './adapters/inbound/trpc/user-trpc.router';
 
 @Module({
   imports: [
@@ -16,8 +18,9 @@ import { USER_SERVICE_PORT } from './domain/ports/inbound/user.service.port';
     }),
     PrismaModule,
   ],
-  controllers: [AppController, UserController, UserGrpcController],
+  controllers: [AppController, UserController, HealthController],
   providers: [
+    UserTrpcRouter,
     {
       provide: USER_SERVICE_PORT,
       useClass: UserUseCases,

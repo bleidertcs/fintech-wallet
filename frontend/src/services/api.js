@@ -45,14 +45,10 @@ export const authService = {
 export const userService = {
   create: (data) => api.post('/users', data),
   getAll: () => api.get('/users'),
-  getById: (id) => api.get(`/users/${id}`),
-  updateBalance: (id, amount) => api.put(`/users/${id}/balance?amount=${amount}`),
-  updateSettings: (id, params) => {
-    const query = new URLSearchParams();
-    if (params.dailyLimit) query.append('dailyLimit', params.dailyLimit);
-    if (params.currency) query.append('currency', params.currency);
-    return api.put(`/users/${id}/settings?${query.toString()}`);
-  },
+  getProfileByEmail: (email) => api.get(`/users/profile/by-email/${email}`),
+  getById: (id) => api.get(`/users/profile/${id}`),
+  updateBalance: (id, amount) => api.put(`/users/profile/${id}/balance`, { amount }),
+  updateSettings: (id, params) => api.put(`/users/profile/${id}/settings`, params),
 };
 
 export const transactionService = {

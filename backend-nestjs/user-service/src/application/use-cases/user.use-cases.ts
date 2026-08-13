@@ -56,4 +56,16 @@ export class UserUseCases implements IUserServicePort {
     }
     return { success: false, message: 'Error al actualizar saldo en la base de datos' };
   }
+
+  async getAllProfiles(): Promise<UserProfileEntity[]> {
+    return this.userRepository.findAll();
+  }
+
+  async updateSettings(id: number, dailyLimit?: number, currency?: string): Promise<UserProfileEntity> {
+    const updated = await this.userRepository.updateSettings(id, dailyLimit, currency);
+    if (!updated) {
+      throw new NotFoundException(`Perfil con ID ${id} no encontrado para actualizar configuracion`);
+    }
+    return updated;
+  }
 }

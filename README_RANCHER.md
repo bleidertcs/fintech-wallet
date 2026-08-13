@@ -17,11 +17,11 @@ Este documento detalla el procedimiento completo para desplegar la arquitectura 
 ## 📁 Estructura de Manifiestos DevSecOps (`k8s/`)
 
 - [`00-namespace-config.yaml`](./k8s/00-namespace-config.yaml): Namespace `fintech`, ConfigMap `mysql-init-sql` y Secret `fintech-secrets`.
-- [`01-infrastructure.yaml`](./k8s/01-infrastructure.yaml): **StatefulSets** con PVCs (`local-path`) para MySQL 8.0, Redis 7 y Apache Kafka KRaft; y Deployment para Mailpit.
-- [`02-microservices.yaml`](./k8s/02-microservices.yaml): Deployments y Services endurecidos para `auth-service`, `user-service`, `transaction-service`, `notification-service`, `worker-service` y `api-gateway` (SecurityContext, Probes y Limits/Requests).
-- [`03-frontend.yaml`](./k8s/03-frontend.yaml): Deployment y Service para el frontend web React.
+- [`01-infrastructure.yaml`](./k8s/01-infrastructure.yaml): **StatefulSets** con PVCs (`local-path`) para MySQL 8.0, Redis 7 y Apache Kafka KRaft; y Deployment para MailDev 2.1.0.
+- [`02-microservices.yaml`](./k8s/02-microservices.yaml): Deployments y Services endurecidos para los 5 microservicios NestJS (`auth`, `user`, `transaction`, `notification`, `worker`) con SecurityContext, Probes y Requests para el Scheduler.
+- [`03-frontend.yaml`](./k8s/03-frontend.yaml): Deployment y Service para el frontend web React (Vite + Nginx).
 - [`04-observability.yaml`](./k8s/04-observability.yaml): **StatefulSet** para ClickHouse DB con PVC (`local-path`), SigNoz UI (NodePort 30301) y OpenTelemetry Collector.
-- [`05-ingress.yaml`](./k8s/05-ingress.yaml): Recurso Ingress y Middleware Traefik (`strip-api-prefix`) para ruteo nativo en Rancher Desktop.
+- [`05-ingress.yaml`](./k8s/05-ingress.yaml): Recurso Ingress y Middleware Traefik (`strip-api-prefix`, `auth-ratelimit`) para ruteo nativo en Rancher Desktop.
 - [`06-networkpolicy.yaml`](./k8s/06-networkpolicy.yaml): Políticas de red NetworkPolicy para seguridad y control de tráfico interno.
 
 ---
@@ -32,10 +32,10 @@ Este documento detalla el procedimiento completo para desplegar la arquitectura 
    - MySQL, Redis, Kafka y ClickHouse utilizan `StatefulSets` vinculados a la StorageClass `local-path` de Rancher Desktop, asegurando la persistencia de datos ante reinicios de pods.
 2. **Hardening de Seguridad (SecurityContext)**:
    - `allowPrivilegeEscalation: false` y restricción de `capabilities` activada en contenedores.
-3. **Gestión de Recursos (Requests & Limits)**:
-   - Cuotas de CPU y Memoria (RAM) configuradas explícitamente en todos los Pods para evitar agotamiento de recursos del nodo (OOMKilled).
+3. **Gestión de Recursos (Requests)**:
+   - Cuotas de CPU y Memoria (RAM) `requests` configuradas para garantizar el agendamiento del Kubernetes Scheduler sin CFS Throttling.
 4. **Resiliencia & Salud (Probes)**:
-   - Configuración de `startupProbe`, `livenessProbe` y `readinessProbe` en los endpoints de Actuator `/actuator/health` y servicios de infraestructura.
+   - Configuración de `startupProbe`, `livenessProbe` y `readinessProbe` en los endpoints `/health` de NestJS y servicios de infraestructura.
 5. **Aislamiento de Red (NetworkPolicy)**:
    - Control de tráfico interno en el namespace `fintech`.
 
@@ -75,12 +75,11 @@ chmod +x deploy-rancher.sh
 
 ```bash
 nerdctl --namespace k8s.io build -t fintech/frontend:latest ./frontend
-nerdctl --namespace k8s.io build -t fintech/api-gateway:latest ./backend/api-gateway
 nerdctl --namespace k8s.io build -t fintech/auth-service:nestjs ./backend-nestjs/auth-service
 nerdctl --namespace k8s.io build -t fintech/user-service:nestjs ./backend-nestjs/user-service
 nerdctl --namespace k8s.io build -t fintech/transaction-service:nestjs ./backend-nestjs/transaction-service
-nerdctl --namespace k8s.io build -t fintech/notification-service:latest ./backend/notification-service
-nerdctl --namespace k8s.io build -t fintech/worker-service:latest ./backend/worker-service
+nerdctl --namespace k8s.io build -t fintech/notification-service:nestjs ./backend-nestjs/notification-service
+nerdctl --namespace k8s.io build -t fintech/worker-service:nestjs ./backend-nestjs/worker-service
 ```
 
 ### Paso 2: Aplicar Manifiestos en Orden
@@ -97,6 +96,36 @@ kubectl apply -f k8s/06-networkpolicy.yaml
 
 ---
 
+## 🧪 Ejecución de Scripts de Pruebas y Validación
+
+La suite de pruebas permite validar el estado del clúster, la comunicación inter-servicio tRPC, la consistencia financiera e idempotencia, y el rendimiento:
+
+### 1. Prueba de Humo (Smoke Test)
+Valida la salud de todos los Pods en `fintech`, la respuesta HTTP 200 de Traefik API Gateway en todas las rutas, la disponibilidad de Swagger UI y la conectividad a MySQL/Redis/Kafka:
+```powershell
+powershell -ExecutionPolicy Bypass -File ./scripts/smoke-test.ps1
+```
+
+### 2. Prueba de Integración E2E (auth-service ↔ user-service ↔ tRPC)
+Simula el flujo completo de registro de un usuario en `auth-service`, verificación de la creación automática de perfil en `user-service` vía tRPC, autenticación (login) y actualización de saldo:
+```powershell
+powershell -ExecutionPolicy Bypass -File ./scripts/test-services-integration.ps1
+```
+
+### 3. Prueba de Concurrencia e Idempotencia (transaction-service)
+Dispara peticiones HTTP concurrentes con la misma clave `X-Idempotency-Key` a `POST /transactions/transfer` para comprobar que **solo 1 transacción es procesada (HTTP 200)** y las solicitudes duplicadas son **bloqueadas (HTTP 400)**, garantizando que el saldo no sufra cobros dobles:
+```powershell
+powershell -ExecutionPolicy Bypass -File ./scripts/concurrency-test.ps1
+```
+
+### 4. Prueba de Carga y Rendimiento (Performance Test)
+Mide el Throughput (RPS), latencias P95/P99 y tasa de errores HTTP mediante `k6` o el motor nativo de benchmark:
+```powershell
+powershell -ExecutionPolicy Bypass -File ./scripts/performance-test.ps1
+```
+
+---
+
 ## 🌐 URLs de Acceso
 
 | Servicio | URL Local | Descripción |
@@ -105,5 +134,7 @@ kubectl apply -f k8s/06-networkpolicy.yaml
 | **Auth Service Swagger** | [http://localhost/auth/docs/](http://localhost/auth/docs/) | OpenAPI Swagger UI de Auth Service |
 | **User Service Swagger** | [http://localhost/users/docs/](http://localhost/users/docs/) | OpenAPI Swagger UI de User Service |
 | **Transaction Service Swagger** | [http://localhost/transactions/docs/](http://localhost/transactions/docs/) | OpenAPI Swagger UI de Transaction Service |
-| **Mailpit UI (Correos)** | [http://localhost/mailpit](http://localhost/mailpit) o [http://localhost:30025](http://localhost:30025) | UI de testing de correos (Ingress /mailpit o NodePort 30025) |
-| **SigNoz Observability** | [http://localhost:30301](http://localhost:30301) o Port-Forward [http://localhost:3301](http://localhost:3301) | Dashboard de métricas, trazas OTLP y logs contextuales K8s |
+| **Notification Service Swagger** | [http://localhost/notifications/docs/](http://localhost/notifications/docs/) | OpenAPI Swagger UI de Notification Service |
+| **Worker Service Swagger** | [http://localhost/worker/docs/](http://localhost/worker/docs/) | OpenAPI Swagger UI de Worker Service |
+| **Maildev UI (Correos)** | [http://localhost/maildev/](http://localhost/maildev/) | UI de testing de correos |
+| **SigNoz Observability** | [http://localhost:30301](http://localhost:30301) | Dashboard de métricas RED, trazas OTLP y logs contextuales K8s |

@@ -8,12 +8,13 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 COPY package.json pnpm-workspace.yaml pnpm-lock.yaml* ./
 COPY prisma ./prisma/
 
-RUN pnpm install --frozen-lockfile || pnpm install
+RUN pnpm install --frozen-lockfile --ignore-scripts || pnpm install --ignore-scripts
 
 RUN npx prisma generate
 
 COPY . .
 RUN pnpm run build
+RUN pnpm prune --prod --ignore-scripts
 
 # Stage 2: Production
 FROM node:22-alpine AS runner
@@ -23,14 +24,8 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=3002
 
-RUN corepack enable && corepack prepare pnpm@latest --activate
-
-COPY package.json pnpm-workspace.yaml pnpm-lock.yaml* ./
-COPY prisma ./prisma/
-
-RUN pnpm install --prod --frozen-lockfile || pnpm install --prod
-RUN npx prisma generate
-
+COPY package.json ./
+COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
 
 USER node

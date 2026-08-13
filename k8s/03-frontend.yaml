@@ -1,3 +1,14 @@
+# ==============================================================================
+# 03-FRONTEND.YAML - DESPLIEGUE DEL FRONTEND WEB REACT (VITE + NGINX)
+# Contenedor servidor de la aplicación Single Page Application (SPA) en React
+#
+# NOTA ARQUITECTÓNICA DE RECURSOS:
+# Se define 'requests' liviano (64Mi RAM / 50m CPU) y se omiten límites restrictivos.
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. DEPLOYMENT: frontend
+# ------------------------------------------------------------------------------
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -28,9 +39,6 @@ spec:
             requests:
               memory: "64Mi"
               cpu: "50m"
-            limits:
-              memory: "128Mi"
-              cpu: "200m"
           livenessProbe:
             httpGet:
               path: /
@@ -44,6 +52,9 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 10
 ---
+# ------------------------------------------------------------------------------
+# 2. SERVICIO KUBERNETES: frontend (NodePort 30000)
+# ------------------------------------------------------------------------------
 apiVersion: v1
 kind: Service
 metadata:

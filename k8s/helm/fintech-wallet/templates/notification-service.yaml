@@ -1,0 +1,101 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification-service
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: notification-service
+spec:
+  replicas: {{ .Values.notificationService.replicaCount }}
+  selector:
+    matchLabels:
+      app: notification-service
+  template:
+    metadata:
+      labels:
+        app: notification-service
+    spec:
+      containers:
+        - name: notification-service
+          image: "{{ .Values.notificationService.image.repository }}:{{ .Values.notificationService.image.tag }}"
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+          ports:
+            - containerPort: 3004
+              name: http
+          env:
+            - name: PORT
+              value: "3004"
+            - name: NODE_ENV
+              value: {{ .Values.global.environment | quote }}
+            - name: NODE_OPTIONS
+              value: "--max-old-space-size=200"
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: NODE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+            - name: CLUSTER_NAME
+              value: {{ .Values.global.clusterName | quote }}
+            - name: OTEL_SERVICE_NAME
+              value: "notification-service"
+            - name: DATABASE_URL
+              value: "mysql://{{ .Values.global.dbUsername }}:{{ .Values.global.dbPassword }}@mysql:3306/notificationdb?allowPublicKeyRetrieval=true"
+            - name: KAFKA_BROKERS
+              value: "kafka:29092"
+            - name: MAIL_HOST
+              value: "maildev"
+            - name: MAIL_PORT
+              value: "1025"
+            - name: MAIL_FROM
+              value: "noreply@fintechwallet.com"
+            - name: USER_SERVICE_GRPC_URL
+              value: "user-service.{{ .Release.Namespace }}.svc.cluster.local:9090"
+            - name: OTEL_EXPORTER_OTLP_ENDPOINT
+              value: {{ tpl .Values.global.otelEndpoint . | quote }}
+          resources:
+            {{- toYaml .Values.notificationService.resources | nindent 12 }}
+          startupProbe:
+            httpGet:
+              path: /health
+              port: 3004
+            initialDelaySeconds: 5
+            periodSeconds: 3
+            failureThreshold: 20
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3004
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3004
+            initialDelaySeconds: 5
+            periodSeconds: 5
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: notification-service
+  namespace: {{ .Release.Namespace }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8084
+      targetPort: 3004
+      name: http
+  selector:
+    app: notification-service

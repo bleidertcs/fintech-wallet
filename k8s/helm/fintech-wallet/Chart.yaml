@@ -1,0 +1,6 @@
+apiVersion: v2
+name: fintech-wallet
+description: Helm chart para el ecosistema FinTech Wallet (Frontend, NestJS microservices, MySQL, Redis, Kafka, Mailpit y SigNoz APM)
+type: application
+version: 1.0.0
+appVersion: "1.0.0"

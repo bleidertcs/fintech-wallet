@@ -22,6 +22,7 @@ import { TransactionEntity } from '../../domain/entities/transaction.entity';
 import { MoneyRequestEntity } from '../../domain/entities/money-request.entity';
 import { IdempotencyService } from '../../adapters/outbound/redis/idempotency.service';
 import { KafkaProducerService } from '../../adapters/outbound/kafka/kafka-producer.service';
+import { OutboxService } from '../../infrastructure/outbox/outbox.service';
 
 @Injectable()
 export class TransactionUseCases implements TransactionServicePort {
@@ -34,6 +35,7 @@ export class TransactionUseCases implements TransactionServicePort {
     private readonly userServiceClient: UserServiceClientPort,
     private readonly idempotencyService: IdempotencyService,
     private readonly kafkaProducerService: KafkaProducerService,
+    private readonly outboxService: OutboxService,
   ) {}
 
   async transfer(params: TransferParams): Promise<TransactionEntity> {
@@ -94,16 +96,27 @@ export class TransactionUseCases implements TransactionServicePort {
       }),
     );
 
-    // 7. Publicar evento transfer_completed en Kafka
-    await this.kafkaProducerService.sendTransferCompleted({
-      fromUser: fromUserId,
-      toUser: toUserId,
-      amount,
-    });
+    // 7. Transactional Outbox: guardar evento y despachar
+    try {
+      await this.outboxService.createOutboxEvent(
+        'Transaction',
+        transaction.id.toString(),
+        'TRANSFER_COMPLETED',
+        { fromUser: fromUserId, toUser: toUserId, amount },
+      );
+      await this.outboxService.processPendingEvents();
+    } catch (outboxErr: any) {
+      this.logger.warn(`Fallback directo a Kafka por error en outbox: ${outboxErr.message}`);
+      await this.kafkaProducerService.sendTransferCompleted({
+        fromUser: fromUserId,
+        toUser: toUserId,
+        amount,
+      });
+    }
 
     // 8. Registrar la clave de idempotencia en Redis con TTL de 24 horas
     if (idempotencyKey) {
-      await this.idempotencyService.registerKey(idempotencyKey, 24);
+      await this.idempotencyService.registerKey(idempotencyKey, BigInt(fromUserId), 24);
     }
 
     return transaction;

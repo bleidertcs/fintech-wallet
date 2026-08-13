@@ -1,19 +1,19 @@
 # User Service (NestJS) 👤
 
-Microservicio de Gestión de Perfiles de Usuario, Saldos y Verificación KYC del sistema **FinTech Wallet**, desarrollado sobre **NestJS 11 + Hexagonal Architecture + gRPC + REST + Prisma ORM + OpenTelemetry**.
+Microservicio de Gestión de Perfiles de Usuario, Saldos y Verificación KYC del sistema **FinTech Wallet**, desarrollado sobre **NestJS 11 + Hexagonal Architecture + tRPC + REST + Prisma ORM + OpenTelemetry**.
 
 ---
 
 ## 🚀 Arquitectura y Características
 
-- **Arquitectura Hexagonal (Ports & Adapters)**: Separación clara entre Dominio, Casos de Uso y Adaptadores de Entrada (REST y gRPC) / Salida (Prisma MySQL).
+- **Arquitectura Hexagonal (Ports & Adapters)**: Separación clara entre Dominio, Casos de Uso y Adaptadores de Entrada (REST y tRPC) / Salida (Prisma MySQL).
 - **Doble Interfaz de Comunicación**:
   - **REST API** (Puerto `3002`): Endpoints HTTP para consultar perfiles, crear usuarios, actualizar saldos y estado KYC.
-  - **gRPC Server** (Puerto `50051`): Servidor gRPC de alto rendimiento mediante el contrato `user.proto` (`UserService.GetUserProfile`) utilizado para la comunicación interna entre microservicios (`auth-service`, `transaction-service`).
-- **Base de Datos Dedicada**: Persistencia en MySQL (`userdb.user_profiles`) gestionada con Prisma ORM.
+  - **tRPC Router** (Endpoint `/trpc`): Router tRPC de alto rendimiento type-safe (`getUserById`, `getUserByEmail`, `updateBalance`) para comunicación inter-servicio síncrona entre microservicios (`auth-service`, `transaction-service`, `notification-service`).
+- **Base de Datos Dedicada**: Persistencia en MySQL (`userdb.user_profiles`) gestionada con Prisma ORM 7 (`@prisma/adapter-mariadb`).
 - **Documentación OpenAPI / Swagger UI**: Disponible en vivo en `/users/docs`.
 - **Observabilidad SigNoz & OpenTelemetry**:
-  - **Trazas OTLP**: Rastreabilidad distribuida de endpoints HTTP REST y llamadas gRPC.
+  - **Trazas OTLP**: Rastreabilidad distribuida de endpoints HTTP REST y llamadas tRPC.
   - **Logs Winston OTLP**: Envío estructurado de logs en JSON con correlación `trace_id` y metadatos nativos de Kubernetes (`k8s.pod.name`, `k8s.namespace.name`).
   - **Métricas OTLP**: Monitoreo de latencia, tasa de peticiones y recursos consumidos.
 
@@ -28,23 +28,23 @@ backend-nestjs/user-service/
 ├── src/
 │   ├── adapters/                 # Adaptadores Hexagonales (Interface Adapters)
 │   │   ├── inbound/              # Adaptadores de Entrada (Driving / Primary)
-│   │   │   ├── grpc/             # Servidor gRPC (Contrato user.proto y UserGrpcController)
-│   │   │   └── rest/             # Controladores REST HTTP (UserController, DTOs de validación)
+│   │   │   ├── trpc/             # Router tRPC inter-servicio (user-trpc.router.ts)
+│   │   │   └── rest/             # Controladores REST HTTP (UserController, HealthController)
 │   │   └── outbound/             # Adaptadores de Salida (Driven / Secondary)
 │   │       └── persistence/      # Repositorio de persistencia Prisma ORM (prisma-user.repository.ts)
 │   ├── application/              # Casos de Uso de Aplicación
 │   │   └── use-cases/            # UserUseCases (CreateUser, GetProfile, UpdateBalance, UpdateKYC)
 │   ├── domain/                   # Dominio Principal (Core de Negocio)
 │   │   ├── entities/             # Entidad UserProfile
-│   │   └── ports/                # Interfaces de Puertos Inbound & Outbound
-│   │       ├── inbound/          # UserServicePort
-│   │       └── outbound/         # UserRepositoryPort
+      └── ports/                # Interfaces de Puertos Inbound & Outbound
+│           ├── inbound/          # UserServicePort
+│           └── outbound/         # UserRepositoryPort
 │   ├── infrastructure/           # Componentes de Infraestructura
 │   │   ├── config/               # Configuración global y validaciones (.env)
 │   │   ├── logger/               # Winston Logger contextual
 │   │   └── telemetry/            # OpenTelemetry (Trazas OTLP, Métricas y Winston OTLP Logs)
 │   ├── app.module.ts             # Módulo Raíz de NestJS
-│   └── main.ts                   # Bootstrap (Inicia servidor REST :3002, gRPC :50051 y Swagger UI /users/docs)
+│   └── main.ts                   # Bootstrap (Inicia servidor REST/tRPC puerto :3002 y Swagger UI /users/docs)
 ├── test/                         # Pruebas Unitarias y E2E (Jest)
 ├── .dockerignore                 # Exclusiones de construcción Docker
 ├── .gitignore                    # Control de versiones Git
@@ -60,7 +60,6 @@ backend-nestjs/user-service/
 - **Node.js**: `>= 20.x`
 - **pnpm**: `>= 9.x`
 - **MySQL**: `8.x` (Base de datos `userdb`)
-- **grpcurl**: Herramienta CLI opcional para probar llamadas gRPC desde la terminal.
 
 ---
 
@@ -70,7 +69,6 @@ Crea un archivo `.env` en la raíz de `backend-nestjs/user-service`:
 
 ```env
 PORT=3002
-GRPC_PORT=50051
 NODE_ENV=development
 
 # Base de Datos MySQL
@@ -105,7 +103,7 @@ pnpm dlx prisma db push
 # Ejecutar con recarga en vivo (Watch Mode)
 pnpm start:dev
 ```
-- Inicia el servidor REST en `http://localhost:3002` y el servidor gRPC en `0.0.0.0:50051`.
+- Inicia el servidor REST/tRPC en `http://localhost:3002`.
 - Swagger UI disponible en: **`http://localhost:3002/users/docs`** o `http://localhost:3002/api-docs`.
 
 ### 2. Producción Local
@@ -120,7 +118,7 @@ pnpm start:prod
 ### 3. En Kubernetes / Rancher Desktop (k3s)
 ```bash
 # Construir imagen en containerd
-nerdctl --namespace k8s.io build -t fintech/user-service:nestjs .
+nerdctl --namespace k8s.io build -t fintech/user-service:nestjs ./backend-nestjs/user-service
 
 # Reiniciar deployment en Kubernetes
 kubectl rollout restart deployment/user-service -n fintech
@@ -129,7 +127,7 @@ kubectl rollout restart deployment/user-service -n fintech
 
 ---
 
-## 🧪 Guía de Pruebas e Interacción (REST & gRPC)
+## 🧪 Guía de Pruebas e Interacción (REST & tRPC)
 
 ### 1. Consultar Perfil de Usuario por ID (`GET /users/profile/:id`)
 ```bash
@@ -157,19 +155,21 @@ curl -X PUT http://localhost:3002/users/profile/1/balance \
   }'
 ```
 
-### 4. Probar Servidor gRPC con `grpcurl` (`:50051`)
+### 4. Probar Router tRPC (`POST /trpc`)
 ```bash
-grpcurl -plaintext -d '{"userId": 1}' localhost:50051 user.UserService/GetUserProfile
+curl -X POST http://localhost:3002/trpc/getUserById \
+  -H "Content-Type: application/json" \
+  -d '{"id": 1}'
 ```
 
-### 5. Health Check (`GET /health`)
+### 5. Health Check (`GET /users/health`)
 ```bash
-curl -X GET http://localhost:3002/health
+curl -X GET http://localhost:3002/users/health
 ```
 
 ---
 
 ## 📊 Integración con SigNoz & Observabilidad
 
-- **Trazabilidad Distribuida**: Las peticiones entrantes REST y gRPC generan tramos con atributos de contexto.
+- **Trazabilidad Distribuida**: Las peticiones entrantes REST y tRPC generan tramos con atributos de contexto.
 - **Correlación de Logs**: Winston captura los logs y los adjunta con la traza correspondiente para facilitar el depurado directo en SigNoz APM.

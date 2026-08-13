@@ -25,10 +25,11 @@ export default function Dashboard() {
   const loadData = async () => {
     if (!user?.email) return;
     try {
-      const usersRes = await userService.getAll();
-      const users = usersRes.data || [];
-      let myProfile = users.find((u) => u.email?.trim().toLowerCase() === user.email?.trim().toLowerCase());
-      if (!myProfile) {
+      let myProfile = null;
+      try {
+        const res = await userService.getProfileByEmail(user.email);
+        myProfile = res.data;
+      } catch (err) {
         try {
           const createRes = await userService.create({
             name: user.email.split('@')[0],

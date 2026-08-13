@@ -46,11 +46,11 @@ services:
       start_period: 30s
 
 
-  mailpit:
-    image: axllent/mailpit:latest
-    container_name: fintech-mailpit
+  maildev:
+    image: maildev/maildev:3.0.0-rc.1
+    container_name: fintech-maildev
     ports:
-      - "8025:8025"
+      - "1080:1080"
       - "1025:1025"
 
   redis:
@@ -84,7 +84,7 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
-      mailpit:
+      maildev:
         condition: service_started
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/authdb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
@@ -92,7 +92,7 @@ services:
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:-12345}
       SPRING_DATA_REDIS_HOST: redis
       SPRING_DATA_REDIS_PORT: 6379
-      SPRING_MAIL_HOST: ${SPRING_MAIL_HOST:-mailpit}
+      SPRING_MAIL_HOST: ${SPRING_MAIL_HOST:-maildev}
       SPRING_MAIL_PORT: ${SPRING_MAIL_PORT:-1025}
       SPRING_MAIL_USERNAME: ${SPRING_MAIL_USERNAME:-noreply@fintechwallet.com}
       SPRING_MAIL_PASSWORD: ${SPRING_MAIL_PASSWORD:-}
@@ -182,14 +182,14 @@ services:
         condition: service_healthy
       mysql:
         condition: service_healthy
-      mailpit:
+      maildev:
         condition: service_started
     environment:
       SPRING_APPLICATION_JSON: '{"spring.kafka.bootstrap-servers":"kafka:29092"}'
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/notificationdb?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
       SPRING_DATASOURCE_USERNAME: ${DB_USERNAME:-root}
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:-12345}
-      SPRING_MAIL_HOST: ${SPRING_MAIL_HOST:-mailpit}
+      SPRING_MAIL_HOST: ${SPRING_MAIL_HOST:-maildev}
       SPRING_MAIL_PORT: ${SPRING_MAIL_PORT:-1025}
       SPRING_MAIL_USERNAME: ${SPRING_MAIL_USERNAME:-noreply@fintechwallet.com}
       SPRING_MAIL_PASSWORD: ${SPRING_MAIL_PASSWORD:-}

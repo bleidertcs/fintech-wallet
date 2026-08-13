@@ -1,0 +1,163 @@
+global:
+  storageClass: "local-path"
+  environment: "production"
+  dbUsername: "root"
+  dbPassword: "12345"
+  jwtSecret: "dGhpc2lzYXNlY3JldGtleWZvcmp3dHRva2VudmFsaWRhdGlvbmZpbnRlYch3YWxsZXQ="
+  otelEndpoint: "http://otel-collector.{{ .Release.Namespace }}.svc.cluster.local:4318"
+  otelCollectorGrpcHost: "otel-collector"
+  clusterName: "fintech-k8s-cluster"
+
+mysql:
+  image: "mysql:8.0"
+  storage: "5Gi"
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "100m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+
+redis:
+  image: "redis:7-alpine"
+  storage: "1Gi"
+  resources:
+    requests:
+      memory: "64Mi"
+      cpu: "50m"
+    limits:
+      memory: "256Mi"
+      cpu: "200m"
+
+kafka:
+  image: "apache/kafka:3.7.0"
+  storage: "5Gi"
+  resources:
+    requests:
+      memory: "384Mi"
+      cpu: "150m"
+    limits:
+      memory: "768Mi"
+      cpu: "500m"
+
+maildev:
+  replicaCount: 1
+  image: "maildev/maildev:3.0.0-rc.1"
+  resources:
+    requests:
+      memory: "32Mi"
+      cpu: "25m"
+    limits:
+      memory: "128Mi"
+      cpu: "100m"
+
+frontend:
+  replicaCount: 1
+  image:
+    repository: "fintech/frontend"
+    tag: "latest"
+  resources:
+    requests:
+      memory: "64Mi"
+      cpu: "50m"
+    limits:
+      memory: "128Mi"
+      cpu: "200m"
+
+authService:
+  replicaCount: 1
+  image:
+    repository: "fintech/auth-service"
+    tag: "nestjs"
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
+    limits:
+      memory: "256Mi"
+      cpu: "500m"
+
+userService:
+  replicaCount: 1
+  image:
+    repository: "fintech/user-service"
+    tag: "nestjs"
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
+    limits:
+      memory: "256Mi"
+      cpu: "500m"
+
+transactionService:
+  replicaCount: 1
+  image:
+    repository: "fintech/transaction-service"
+    tag: "nestjs"
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
+    limits:
+      memory: "256Mi"
+      cpu: "500m"
+
+notificationService:
+  replicaCount: 1
+  image:
+    repository: "fintech/notification-service"
+    tag: "nestjs"
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
+    limits:
+      memory: "256Mi"
+      cpu: "500m"
+
+workerService:
+  replicaCount: 1
+  image:
+    repository: "fintech/worker-service"
+    tag: "nestjs"
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
+    limits:
+      memory: "256Mi"
+      cpu: "500m"
+
+observability:
+  clickhouse:
+    image: "clickhouse/clickhouse-server:25.12.5"
+    storage: "5Gi"
+    resources:
+      requests:
+        memory: "512Mi"
+        cpu: "200m"
+      limits:
+        memory: "2Gi"
+        cpu: "1000m"
+
+  signoz:
+    image: "signoz/signoz:v0.136.1"
+    resources:
+      requests:
+        memory: "128Mi"
+        cpu: "50m"
+      limits:
+        memory: "512Mi"
+        cpu: "500m"
+
+  collector:
+    image: "signoz/signoz-otel-collector:v0.144.7"
+    resources:
+      requests:
+        memory: "128Mi"
+        cpu: "50m"
+      limits:
+        memory: "512Mi"
+        cpu: "500m"

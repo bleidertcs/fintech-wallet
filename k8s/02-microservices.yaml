@@ -1,3 +1,20 @@
+# ==============================================================================
+# 02-MICROSERVICES.YAML - DESPLIEGUE DE LOS 5 MICROSERVICIOS NESTJS
+# Incluye Deployments y ClusterIP Services para:
+# 1. auth-service         (Autenticación JWT, BCrypt, 2FA/TOTP) - Puerto 3001
+# 2. user-service         (Perfiles de Usuario, Saldos, tRPC Router) - Puerto 8082 -> 3002
+# 3. transaction-service  (Transferencias, Idempotencia, CQRS, Outbox) - Puerto 8083 -> 3003
+# 4. notification-service (Consumidor Kafka, Email Maildev, tRPC Client) - Puerto 8084 -> 3004
+# 5. worker-service       (Extractos Bancarios PDFKit, DLQ Kafka) - Puerto 8085 -> 3005
+#
+# NOTA ARQUITECTÓNICA DE RECURSOS (Best Practices K8s / K3s):
+# Se definen 'requests' (128Mi RAM / 100m CPU) para garantizar el agendamiento (Scheduler QoS).
+# Se eliminan los 'limits.cpu' para evitar el CFS Bandwidth Throttling (congelamiento de hilos Node.js).
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. AUTH-SERVICE DEPLOYMENT & SERVICE
+# ------------------------------------------------------------------------------
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -33,7 +50,7 @@ spec:
             - name: NODE_ENV
               value: "production"
             - name: NODE_OPTIONS
-              value: "--max-old-space-size=200"
+              value: "--max-old-space-size=256"
             - name: POD_NAME
               valueFrom:
                 fieldRef:
@@ -55,7 +72,7 @@ spec:
             - name: REDIS_PORT
               value: "6379"
             - name: MAIL_HOST
-              value: "mailpit"
+              value: "maildev"
             - name: MAIL_PORT
               value: "1025"
             - name: MAIL_FROM
@@ -67,6 +84,8 @@ spec:
                   key: JWT_SECRET
             - name: USER_SERVICE_URL
               value: "http://user-service:8082"
+            - name: APP_FRONTEND_URL
+              value: "http://localhost"
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
               value: "http://otel-collector.fintech.svc.cluster.local:4318"
             - name: OTEL_SERVICE_NAME
@@ -75,25 +94,22 @@ spec:
             requests:
               memory: "128Mi"
               cpu: "100m"
-            limits:
-              memory: "256Mi"
-              cpu: "500m"
           startupProbe:
             httpGet:
-              path: /health
+              path: /health/startup
               port: 3001
             initialDelaySeconds: 5
             periodSeconds: 3
             failureThreshold: 20
           livenessProbe:
             httpGet:
-              path: /health
+              path: /health/live
               port: 3001
             initialDelaySeconds: 10
             periodSeconds: 10
           readinessProbe:
             httpGet:
-              path: /health
+              path: /health/ready
               port: 3001
             initialDelaySeconds: 5
             periodSeconds: 5
@@ -112,6 +128,9 @@ spec:
   selector:
     app: auth-service
 ---
+# ------------------------------------------------------------------------------
+# 2. USER-SERVICE DEPLOYMENT & SERVICE
+# ------------------------------------------------------------------------------
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -141,17 +160,13 @@ spec:
           ports:
             - containerPort: 3002
               name: http
-            - containerPort: 50051
-              name: grpc
           env:
             - name: PORT
               value: "3002"
-            - name: GRPC_PORT
-              value: "50051"
             - name: NODE_ENV
               value: "production"
             - name: NODE_OPTIONS
-              value: "--max-old-space-size=200"
+              value: "--max-old-space-size=256"
             - name: POD_NAME
               valueFrom:
                 fieldRef:
@@ -176,25 +191,22 @@ spec:
             requests:
               memory: "128Mi"
               cpu: "100m"
-            limits:
-              memory: "256Mi"
-              cpu: "500m"
           startupProbe:
             httpGet:
-              path: /health
+              path: /health/startup
               port: 3002
             initialDelaySeconds: 5
             periodSeconds: 3
             failureThreshold: 20
           livenessProbe:
             httpGet:
-              path: /health
+              path: /health/live
               port: 3002
             initialDelaySeconds: 10
             periodSeconds: 10
           readinessProbe:
             httpGet:
-              path: /health
+              path: /health/ready
               port: 3002
             initialDelaySeconds: 5
             periodSeconds: 5
@@ -210,12 +222,12 @@ spec:
     - port: 8082
       targetPort: 3002
       name: http
-    - port: 9090
-      targetPort: 50051
-      name: grpc
   selector:
     app: user-service
 ---
+# ------------------------------------------------------------------------------
+# 3. TRANSACTION-SERVICE DEPLOYMENT & SERVICE
+# ------------------------------------------------------------------------------
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -251,7 +263,7 @@ spec:
             - name: NODE_ENV
               value: "production"
             - name: NODE_OPTIONS
-              value: "--max-old-space-size=200"
+              value: "--max-old-space-size=256"
             - name: POD_NAME
               valueFrom:
                 fieldRef:
@@ -274,8 +286,8 @@ spec:
               value: "redis"
             - name: REDIS_PORT
               value: "6379"
-            - name: USER_SERVICE_GRPC_URL
-              value: "user-service.fintech.svc.cluster.local:9090"
+            - name: USER_SERVICE_URL
+              value: "http://user-service:8082"
             - name: KAFKA_BROKERS
               value: "kafka:29092"
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
@@ -284,25 +296,22 @@ spec:
             requests:
               memory: "128Mi"
               cpu: "100m"
-            limits:
-              memory: "256Mi"
-              cpu: "500m"
           startupProbe:
             httpGet:
-              path: /health
+              path: /health/startup
               port: 3003
             initialDelaySeconds: 5
             periodSeconds: 3
             failureThreshold: 20
           livenessProbe:
             httpGet:
-              path: /health
+              path: /health/live
               port: 3003
             initialDelaySeconds: 10
             periodSeconds: 10
           readinessProbe:
             httpGet:
-              path: /health
+              path: /health/ready
               port: 3003
             initialDelaySeconds: 5
             periodSeconds: 5
@@ -321,6 +330,9 @@ spec:
   selector:
     app: transaction-service
 ---
+# ------------------------------------------------------------------------------
+# 4. NOTIFICATION-SERVICE DEPLOYMENT & SERVICE
+# ------------------------------------------------------------------------------
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -356,7 +368,7 @@ spec:
             - name: NODE_ENV
               value: "production"
             - name: NODE_OPTIONS
-              value: "--max-old-space-size=200"
+              value: "--max-old-space-size=256"
             - name: POD_NAME
               valueFrom:
                 fieldRef:
@@ -378,38 +390,35 @@ spec:
             - name: KAFKA_BROKERS
               value: "kafka:29092"
             - name: MAIL_HOST
-              value: "mailpit"
+              value: "maildev"
             - name: MAIL_PORT
               value: "1025"
             - name: MAIL_FROM
               value: "noreply@fintechwallet.com"
-            - name: USER_SERVICE_GRPC_URL
-              value: "user-service.fintech.svc.cluster.local:9090"
+            - name: USER_SERVICE_URL
+              value: "http://user-service:8082"
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
               value: "http://otel-collector.fintech.svc.cluster.local:4318"
           resources:
             requests:
               memory: "128Mi"
               cpu: "100m"
-            limits:
-              memory: "256Mi"
-              cpu: "500m"
           startupProbe:
             httpGet:
-              path: /health
+              path: /health/startup
               port: 3004
             initialDelaySeconds: 5
             periodSeconds: 3
             failureThreshold: 20
           livenessProbe:
             httpGet:
-              path: /health
+              path: /health/live
               port: 3004
             initialDelaySeconds: 10
             periodSeconds: 10
           readinessProbe:
             httpGet:
-              path: /health
+              path: /health/ready
               port: 3004
             initialDelaySeconds: 5
             periodSeconds: 5
@@ -428,6 +437,9 @@ spec:
   selector:
     app: notification-service
 ---
+# ------------------------------------------------------------------------------
+# 5. WORKER-SERVICE DEPLOYMENT & SERVICE
+# ------------------------------------------------------------------------------
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -463,7 +475,7 @@ spec:
             - name: NODE_ENV
               value: "production"
             - name: NODE_OPTIONS
-              value: "--max-old-space-size=200"
+              value: "--max-old-space-size=256"
             - name: POD_NAME
               valueFrom:
                 fieldRef:
@@ -492,9 +504,6 @@ spec:
             requests:
               memory: "128Mi"
               cpu: "100m"
-            limits:
-              memory: "256Mi"
-              cpu: "500m"
           startupProbe:
             httpGet:
               path: /health
@@ -528,4 +537,3 @@ spec:
       name: http
   selector:
     app: worker-service
-

@@ -6,6 +6,7 @@ import { PrismaModule } from './adapters/outbound/persistence';
 import { RedisModule } from './adapters/outbound/redis';
 import { AuthModule } from './auth.module';
 import { GlobalExceptionFilter } from './adapters/inbound/rest';
+import { HealthController } from './adapters/inbound/rest/health.controller';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
@@ -21,7 +22,7 @@ import { AppService } from './app.service';
     RedisModule,
     AuthModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController, HealthController],
   providers: [
     AppService,
     {

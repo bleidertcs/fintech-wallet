@@ -1,0 +1,152 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: clickhouse-config
+  namespace: {{ .Release.Namespace }}
+data:
+  cluster.xml: |
+    <clickhouse>
+        <distributed_ddl>
+            <profile>default</profile>
+            <task_max_lifetime>0</task_max_lifetime>
+        </distributed_ddl>
+        <macros>
+            <shard>01</shard>
+            <replica>127.0.0.1</replica>
+        </macros>
+        <remote_servers>
+            <cluster>
+                <shard>
+                    <replica>
+                        <host>127.0.0.1</host>
+                        <port>9000</port>
+                    </replica>
+                </shard>
+            </cluster>
+        </remote_servers>
+        <zookeeper>
+            <node index="1">
+                <host>127.0.0.1</host>
+                <port>9181</port>
+            </node>
+        </zookeeper>
+        <keeper_server>
+            <tcp_port>9181</tcp_port>
+            <server_id>1</server_id>
+            <log_storage_path>/var/lib/clickhouse/coordination/log</log_storage_path>
+            <snapshot_storage_path>/var/lib/clickhouse/coordination/snapshots</snapshot_storage_path>
+            <coordination_settings>
+                <operation_timeout_ms>10000</operation_timeout_ms>
+                <session_timeout_ms>30000</session_timeout_ms>
+                <raft_logs_level>warning</raft_logs_level>
+            </coordination_settings>
+            <raft_configuration>
+                <server>
+                    <id>1</id>
+                    <hostname>127.0.0.1</hostname>
+                    <port>9234</port>
+                </server>
+            </raft_configuration>
+        </keeper_server>
+    </clickhouse>
+  users.xml: |
+    <clickhouse>
+        <profiles>
+            <default>
+                <allow_experimental_object_type>1</allow_experimental_object_type>
+                <allow_experimental_json_type>1</allow_experimental_json_type>
+                <distributed_ddl_task_timeout>0</distributed_ddl_task_timeout>
+            </default>
+        </profiles>
+        <users>
+            <default>
+                <password></password>
+                <networks>
+                    <ip>::/0</ip>
+                </networks>
+            </default>
+        </users>
+    </clickhouse>
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: clickhouse
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: clickhouse
+spec:
+  serviceName: clickhouse
+  replicas: 1
+  selector:
+    matchLabels:
+      app: clickhouse
+  template:
+    metadata:
+      labels:
+        app: clickhouse
+    spec:
+      containers:
+        - name: clickhouse
+          image: {{ .Values.observability.clickhouse.image | quote }}
+          ports:
+            - containerPort: 9000
+              name: native
+            - containerPort: 8123
+              name: http
+          resources:
+            {{- toYaml .Values.observability.clickhouse.resources | nindent 12 }}
+          livenessProbe:
+            httpGet:
+              path: /ping
+              port: 8123
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /ping
+              port: 8123
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          volumeMounts:
+            - name: clickhouse-data
+              mountPath: /var/lib/clickhouse
+            - name: cluster-config
+              mountPath: /etc/clickhouse-server/config.d/cluster.xml
+              subPath: cluster.xml
+            - name: users-config
+              mountPath: /etc/clickhouse-server/users.d/experimental.xml
+              subPath: users.xml
+      volumes:
+        - name: cluster-config
+          configMap:
+            name: clickhouse-config
+        - name: users-config
+          configMap:
+            name: clickhouse-config
+  volumeClaimTemplates:
+    - metadata:
+        name: clickhouse-data
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        storageClassName: {{ .Values.global.storageClass | quote }}
+        resources:
+          requests:
+            storage: {{ .Values.observability.clickhouse.storage | quote }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clickhouse
+  namespace: {{ .Release.Namespace }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: 9000
+      targetPort: 9000
+      name: native
+    - port: 8123
+      targetPort: 8123
+      name: http
+  selector:
+    app: clickhouse

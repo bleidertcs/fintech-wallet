@@ -1,3 +1,13 @@
+# ==============================================================================
+# 04-OBSERVABILITY.YAML - SUITE DE OBSERVABILIDAD COMPLETA EN KUBERNETES
+# Despliega OpenTelemetry Collector, ClickHouse DB (Almacenamiento columnar),
+# Job de Migración de Esquemas y la interfaz web de SigNoz (NodePort 30301).
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. RBAC: SERVICE ACCOUNT, CLUSTER ROLE & BINDING PARA OPENTELEMETRY
+# Otorga permisos al Collector para leer metadatos de Kubernetes (Pods, Nodos)
+# ------------------------------------------------------------------------------
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -58,6 +68,10 @@ roleRef:
   name: otel-collector-k8s-role
   apiGroup: rbac.authorization.k8s.io
 ---
+# ------------------------------------------------------------------------------
+# 2. CONFIGMAP: clickhouse-config
+# Configuración XML para el motor de base de datos columnar ClickHouse
+# ------------------------------------------------------------------------------
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -128,6 +142,10 @@ data:
         </users>
     </clickhouse>
 ---
+# ------------------------------------------------------------------------------
+# 3. CONFIGMAP: otel-collector-config
+# Pipelines de recepción, procesamiento y exportación de Trazas, Métricas y Logs
+# ------------------------------------------------------------------------------
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -139,13 +157,13 @@ data:
       otlp:
         protocols:
           grpc:
-            endpoint: 0.0.0.0:4317
+            endpoint: 0.0.0.0:4317 # Puerto gRPC OTLP
           http:
             cors:
               allowed_origins:
                 - "http://*"
                 - "https://*"
-            endpoint: 0.0.0.0:4318
+            endpoint: 0.0.0.0:4318 # Puerto HTTP OTLP
       kafkametrics:
         brokers:
           - kafka:29092
@@ -275,6 +293,10 @@ data:
           processors: [batch]
           exporters: [clickhouselogsexporter]
 ---
+# ------------------------------------------------------------------------------
+# 4. STATEFULSET & SERVICE: ClickHouse DB 25.12
+# Motor de almacenamiento analítico columnar para telemetría
+# ------------------------------------------------------------------------------
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -305,9 +327,6 @@ spec:
             requests:
               memory: "512Mi"
               cpu: "200m"
-            limits:
-              memory: "2Gi"
-              cpu: "1000m"
           livenessProbe:
             httpGet:
               path: /ping
@@ -363,6 +382,10 @@ spec:
   selector:
     app: clickhouse
 ---
+# ------------------------------------------------------------------------------
+# 5. JOB: signoz-migrator
+# Ejecuta la inicialización de tablas y esquemas en ClickHouse antes de arrancar SigNoz
+# ------------------------------------------------------------------------------
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -395,9 +418,6 @@ spec:
             requests:
               memory: "128Mi"
               cpu: "50m"
-            limits:
-              memory: "512Mi"
-              cpu: "500m"
           volumeMounts:
             - name: otel-migration-volume
               mountPath: /etc/otel-collector-config.yaml
@@ -408,6 +428,10 @@ spec:
           configMap:
             name: otel-collector-config
 ---
+# ------------------------------------------------------------------------------
+# 6. DEPLOYMENT & SERVICE: SigNoz UI (NodePort 30301)
+# Dashboard de visualización APM, Métricas y Logs
+# ------------------------------------------------------------------------------
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -447,9 +471,6 @@ spec:
             requests:
               memory: "128Mi"
               cpu: "50m"
-            limits:
-              memory: "512Mi"
-              cpu: "500m"
           livenessProbe:
             httpGet:
               path: /api/v1/healthz
@@ -469,7 +490,7 @@ metadata:
   name: signoz
   namespace: fintech
 spec:
-  type: NodePort
+  type: NodePort # Expone SigNoz UI en el puerto 30301 (http://localhost:30301)
   ports:
     - port: 8080
       targetPort: 8080
@@ -478,6 +499,10 @@ spec:
   selector:
     app: signoz
 ---
+# ------------------------------------------------------------------------------
+# 7. DEPLOYMENT & SERVICE: otel-collector
+# Agente concentrador de trazas, métricas y logs con initContainer de espera
+# ------------------------------------------------------------------------------
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -533,9 +558,6 @@ spec:
             requests:
               memory: "128Mi"
               cpu: "50m"
-            limits:
-              memory: "512Mi"
-              cpu: "500m"
           livenessProbe:
             tcpSocket:
               port: 4318

@@ -21,9 +21,8 @@ export default function Notifications() {
   const loadNotifications = async () => {
     if (!user?.email) return;
     try {
-      const usersRes = await userService.getAll();
-      const allUsers = usersRes.data || [];
-      const me = allUsers.find((u) => u.email?.trim().toLowerCase() === user.email?.trim().toLowerCase());
+      const profileRes = await userService.getProfileByEmail(user.email);
+      const me = profileRes.data;
 
       if (me) {
         const res = await notificationService.getByUser(me.id);

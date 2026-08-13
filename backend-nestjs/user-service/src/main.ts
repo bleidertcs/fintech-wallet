@@ -9,6 +9,9 @@ import { AppModule } from './app.module';
 import { WinstonLogger } from './infrastructure/logger/winston.logger';
 import { join } from 'path';
 
+import * as trpcExpress from '@trpc/server/adapters/express';
+import { UserTrpcRouter } from './adapters/inbound/trpc/user-trpc.router';
+
 async function bootstrap() {
   const logger = new WinstonLogger('Bootstrap');
   const app = await NestFactory.create(AppModule, { logger });
@@ -21,15 +24,13 @@ async function bootstrap() {
     }),
   );
 
-  const grpcPort = process.env.GRPC_PORT || '50051';
-  app.connectMicroservice<MicroserviceOptions>({
-    transport: Transport.GRPC,
-    options: {
-      package: 'user',
-      protoPath: join(__dirname, 'adapters/inbound/grpc/proto/user.proto'),
-      url: `0.0.0.0:${grpcPort}`,
-    },
-  });
+  const trpcRouter = app.get(UserTrpcRouter);
+  app.use(
+    '/trpc',
+    trpcExpress.createExpressMiddleware({
+      router: trpcRouter.createRouter(),
+    }),
+  );
 
   const swaggerConfig = new DocumentBuilder()
     .setTitle('User Service API')
@@ -42,11 +43,10 @@ async function bootstrap() {
   SwaggerModule.setup('users/docs', app, document);
   SwaggerModule.setup('api-docs', app, document);
 
-  await app.startAllMicroservices();
   const httpPort = process.env.PORT || 3002;
   await app.listen(httpPort);
 
-  logger.log(`User Service iniciado exitosamente (REST: http://localhost:${httpPort}, gRPC: 0.0.0.0:${grpcPort})`);
+  logger.log(`User Service iniciado exitosamente (REST + tRPC: http://localhost:${httpPort})`);
   logger.log(`Documentación Swagger disponible en http://localhost/users/docs o http://localhost:${httpPort}/users/docs`);
 }
 

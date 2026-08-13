@@ -22,7 +22,7 @@ export class NodemailerEmailAdapter implements EmailServicePort {
 
   async sendVerificationEmail(to: string, token: string): Promise<void> {
     try {
-      const frontendUrl = process.env.APP_FRONTEND_URL || 'http://localhost:3000';
+      const frontendUrl = process.env.APP_FRONTEND_URL || 'http://localhost';
       const mailOptions = {
         from: 'noreply@fintechwallet.com',
         to,

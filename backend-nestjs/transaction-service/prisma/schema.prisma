@@ -30,3 +30,29 @@ model MoneyRequest {
 
   @@map("money_requests")
 }
+
+model OutboxEvent {
+  id            String    @id @default(uuid())
+  aggregateType String    @map("aggregate_type") @db.VarChar(100)
+  aggregateId   String    @map("aggregate_id") @db.VarChar(100)
+  eventType     String    @map("event_type") @db.VarChar(100)
+  payload       Json
+  status        String    @default("PENDING") @db.VarChar(50)
+  createdAt     DateTime  @default(now()) @map("created_at")
+  processedAt   DateTime? @map("processed_at")
+
+  @@map("outbox_events")
+}
+
+model IdempotencyRecord {
+  id          String   @id @default(uuid())
+  userId      BigInt   @map("user_id")
+  key         String   @db.VarChar(255)
+  requestHash String?  @map("request_hash") @db.VarChar(255)
+  response    Json?
+  status      String   @default("COMPLETED") @db.VarChar(50)
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@unique([userId, key], name: "user_key_unique")
+  @@map("idempotency_records")
+}

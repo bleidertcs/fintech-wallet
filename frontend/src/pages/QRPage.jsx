@@ -39,10 +39,11 @@ export default function QRPage() {
   const loadProfile = async () => {
     if (!user?.email) return;
     try {
-      const res = await userService.getAll();
-      const allUsers = res.data || [];
-      let me = allUsers.find((u) => u.email?.trim().toLowerCase() === user.email?.trim().toLowerCase());
-      if (!me) {
+      let me = null;
+      try {
+        const res = await userService.getProfileByEmail(user.email);
+        me = res.data;
+      } catch (err) {
         try {
           const createRes = await userService.create({
             name: user.email.split('@')[0],

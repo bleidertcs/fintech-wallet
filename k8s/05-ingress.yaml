@@ -1,3 +1,14 @@
+# ==============================================================================
+# 05-INGRESS.YAML - CONFIGURACIÓN DE TRAEFIK API GATEWAY & ROUTING
+# Define los Middlewares (StripPrefix, RateLimiting), las reglas de Ingress HTTP
+# para la API y la consola gráfica del Dashboard de Traefik.
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. MIDDLEWARE TRAEFIK: strip-api-prefix
+# Remueve el prefijo '/api' de las peticiones entrantes antes de reenviarlas a los microservicios
+# Ejemplo: GET /api/auth/login -> GET /auth/login en auth-service
+# ------------------------------------------------------------------------------
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
@@ -6,18 +17,27 @@ metadata:
 spec:
   stripPrefixRegex:
     regex:
-      - "^/api"
+      - "^/api" # Expresión regular que remueve /api al inicio de la URL
 ---
+# ------------------------------------------------------------------------------
+# 2. MIDDLEWARE TRAEFIK: strip-maildev-prefix
+# Remueve el prefijo '/maildev' para redirigir la interfaz gráfica al puerto 1080
+# ------------------------------------------------------------------------------
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: strip-mailpit-prefix
+  name: strip-maildev-prefix
   namespace: fintech
 spec:
   stripPrefixRegex:
     regex:
-      - "^/mailpit"
+      - "^/maildev"
 ---
+# ------------------------------------------------------------------------------
+# 3. MIDDLEWARE TRAEFIK: auth-ratelimit
+# Control de flujo de tráfico (Rate Limiting) para prevenir ataques de fuerza bruta
+# Permite un promedio de 100 req/s con ráfagas de hasta 50 solicitudes
+# ------------------------------------------------------------------------------
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
@@ -25,9 +45,12 @@ metadata:
   namespace: fintech
 spec:
   rateLimit:
-    average: 100
-    burst: 50
+    average: 100 # Tasa promedio sostenida
+    burst: 50    # Ráfaga máxima permitida
 ---
+# ------------------------------------------------------------------------------
+# 4. INGRESS RECURSOS: Enrutamiento por servicio y Swagger Docs
+# ------------------------------------------------------------------------------
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -37,17 +60,17 @@ metadata:
     ingress.kubernetes.io/ssl-redirect: "false"
     traefik.ingress.kubernetes.io/router.middlewares: fintech-auth-ratelimit@kubernetescrd
 spec:
-  ingressClassName: traefik
+  ingressClassName: traefik # Utiliza el Ingress Controller nativo Traefik de K3s
   rules:
-  - http:
-      paths:
-      - path: /auth
-        pathType: Prefix
-        backend:
-          service:
-            name: auth-service
-            port:
-              number: 3001
+    - http:
+        paths:
+          - path: /auth
+            pathType: Prefix
+            backend:
+              service:
+                name: auth-service
+                port:
+                  number: 3001
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -59,15 +82,15 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-  - http:
-      paths:
-      - path: /users
-        pathType: Prefix
-        backend:
-          service:
-            name: user-service
-            port:
-              number: 8082
+    - http:
+        paths:
+          - path: /users
+            pathType: Prefix
+            backend:
+              service:
+                name: user-service
+                port:
+                  number: 8082
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -79,15 +102,15 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-  - http:
-      paths:
-      - path: /transactions
-        pathType: Prefix
-        backend:
-          service:
-            name: transaction-service
-            port:
-              number: 8083
+    - http:
+        paths:
+          - path: /transactions
+            pathType: Prefix
+            backend:
+              service:
+                name: transaction-service
+                port:
+                  number: 8083
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -99,15 +122,15 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-  - http:
-      paths:
-      - path: /notifications
-        pathType: Prefix
-        backend:
-          service:
-            name: notification-service
-            port:
-              number: 8084
+    - http:
+        paths:
+          - path: /notifications
+            pathType: Prefix
+            backend:
+              service:
+                name: notification-service
+                port:
+                  number: 8084
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -119,16 +142,20 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-  - http:
-      paths:
-      - path: /worker
-        pathType: Prefix
-        backend:
-          service:
-            name: worker-service
-            port:
-              number: 8085
+    - http:
+        paths:
+          - path: /worker
+            pathType: Prefix
+            backend:
+              service:
+                name: worker-service
+                port:
+                  number: 8085
 ---
+# ------------------------------------------------------------------------------
+# 5. INGRESS GLOBAL: fintech-ingress (API Router principal + Frontend)
+# Aplica el Middleware strip-api-prefix para llamadas bajo /api/*
+# ------------------------------------------------------------------------------
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -140,68 +167,108 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-  - http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: frontend
-            port:
-              number: 80
-      - path: /api/auth
-        pathType: Prefix
-        backend:
-          service:
-            name: auth-service
-            port:
-              number: 3001
-      - path: /api/users
-        pathType: Prefix
-        backend:
-          service:
-            name: user-service
-            port:
-              number: 8082
-      - path: /api/transactions
-        pathType: Prefix
-        backend:
-          service:
-            name: transaction-service
-            port:
-              number: 8083
-      - path: /api/notifications
-        pathType: Prefix
-        backend:
-          service:
-            name: notification-service
-            port:
-              number: 8084
-      - path: /api/worker
-        pathType: Prefix
-        backend:
-          service:
-            name: worker-service
-            port:
-              number: 8085
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend
+                port:
+                  number: 80
+          - path: /api/auth
+            pathType: Prefix
+            backend:
+              service:
+                name: auth-service
+                port:
+                  number: 3001
+          - path: /api/users
+            pathType: Prefix
+            backend:
+              service:
+                name: user-service
+                port:
+                  number: 8082
+          - path: /api/transactions
+            pathType: Prefix
+            backend:
+              service:
+                name: transaction-service
+                port:
+                  number: 8083
+          - path: /api/notifications
+            pathType: Prefix
+            backend:
+              service:
+                name: notification-service
+                port:
+                  number: 8084
+          - path: /api/worker
+            pathType: Prefix
+            backend:
+              service:
+                name: worker-service
+                port:
+                  number: 8085
 ---
+# ------------------------------------------------------------------------------
+# 6. INGRESS MAILDEV: maildev-ingress
+# ------------------------------------------------------------------------------
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: mailpit-ingress
+  name: maildev-ingress
   namespace: fintech
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
-    traefik.ingress.kubernetes.io/router.middlewares: fintech-strip-mailpit-prefix@kubernetescrd
 spec:
   ingressClassName: traefik
   rules:
-  - http:
-      paths:
-      - path: /mailpit
-        pathType: Prefix
-        backend:
-          service:
-            name: mailpit
-            port:
-              number: 8025
+    - host: maildev.localhost
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: maildev
+                port:
+                  number: 1080
+    - host: mail.localhost
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: maildev
+                port:
+                  number: 1080
+    - http:
+        paths:
+          - path: /maildev
+            pathType: Prefix
+            backend:
+              service:
+                name: maildev
+                port:
+                  number: 1080
+---
+# ------------------------------------------------------------------------------
+# 7. INGRESS ROUTE CRD: Dashboard de Traefik (traefik.localhost)
+# ------------------------------------------------------------------------------
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-dashboard
+  namespace: kube-system
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`traefik.localhost`)
+      kind: Rule
+      services:
+        - name: api@internal
+          kind: TraefikService

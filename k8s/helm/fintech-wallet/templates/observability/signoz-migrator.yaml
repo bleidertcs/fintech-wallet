@@ -1,0 +1,44 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: signoz-migrator
+  namespace: {{ .Release.Namespace }}
+spec:
+  template:
+    spec:
+      containers:
+        - name: migrator
+          image: {{ .Values.observability.collector.image | quote }}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+          command:
+            - /bin/sh
+            - -c
+            - |
+              /signoz-otel-collector migrate bootstrap --config /etc/otel-collector-config.yaml --clickhouse-replication=false && \
+              /signoz-otel-collector migrate sync up --config /etc/otel-collector-config.yaml --clickhouse-replication=false && \
+              /signoz-otel-collector migrate async up --config /etc/otel-collector-config.yaml --clickhouse-replication=false
+          env:
+            - name: SIGNOZ_LOCAL_DB
+              value: "true"
+            - name: SIGNOZ_OTEL_COLLECTOR_CLICKHOUSE_DSN
+              value: "tcp://clickhouse:9000"
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "50m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          volumeMounts:
+            - name: otel-migration-volume
+              mountPath: /etc/otel-collector-config.yaml
+              subPath: otel-migration-config.yaml
+      restartPolicy: OnFailure
+      volumes:
+        - name: otel-migration-volume
+          configMap:
+            name: otel-collector-config

@@ -81,21 +81,19 @@ if [ "$RECREATE" = true ]; then
   sleep 3
 fi
 
-# 3. Construir imágenes en el namespace k8s.io de containerd
+# 3. Construir imágenes en el namespace k8s.io de containerd (NestJS Microservices)
 echo -e "\n[$(timestamp)] [1/3] Construyendo imágenes de contenedor con nerdctl (namespace k8s.io)..."
 nerdctl --namespace k8s.io build -t fintech/frontend:latest ./frontend
-nerdctl --namespace k8s.io build -t fintech/api-gateway:latest ./backend/api-gateway
-nerdctl --namespace k8s.io build -t fintech/auth-service:latest ./backend/auth-service
-nerdctl --namespace k8s.io build -t fintech/user-service:latest ./backend/user-service
-nerdctl --namespace k8s.io build -t fintech/transaction-service:latest ./backend/transaction-service
-nerdctl --namespace k8s.io build -t fintech/notification-service:latest ./backend/notification-service
-nerdctl --namespace k8s.io build -t fintech/worker-service:latest ./backend/worker-service
+nerdctl --namespace k8s.io build -t fintech/auth-service:nestjs ./backend-nestjs/auth-service
+nerdctl --namespace k8s.io build -t fintech/user-service:nestjs ./backend-nestjs/user-service
+nerdctl --namespace k8s.io build -t fintech/transaction-service:nestjs ./backend-nestjs/transaction-service
+nerdctl --namespace k8s.io build -t fintech/notification-service:nestjs ./backend-nestjs/notification-service
+nerdctl --namespace k8s.io build -t fintech/worker-service:nestjs ./backend-nestjs/worker-service
 echo "[$(timestamp)] Imágenes construidas e importadas a containerd (k8s.io) exitosamente."
 
-# 4. Verificar e instalar NGINX Ingress Controller
-echo -e "\n[$(timestamp)] [2/3] Instalando NGINX Ingress Controller..."
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.0/deploy/static/provider/cloud/deploy.yaml
-kubectl delete validatingwebhookconfiguration ingress-nginx-admission --ignore-not-found >/dev/null 2>&1 || true
+# 4. Verificación de Traefik Ingress Controller
+echo -e "\n[$(timestamp)] [2/3] Verificando Ingress Controller Traefik nativo en Rancher Desktop..."
+kubectl get pods -n kube-system -l app.kubernetes.io/name=traefik || true
 
 # 5. Aplicar Manifiestos de Kubernetes
 echo -e "\n[$(timestamp)] [3/3] Aplicando manifiestos de Kubernetes..."

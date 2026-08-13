@@ -77,17 +77,16 @@ if ($Recreate) {
     Start-Sleep -Seconds 3
 }
 
-# 3. Construir imágenes en el namespace k8s.io de containerd
+# 3. Construir imágenes en el namespace k8s.io de containerd (NestJS Microservices)
 Log-Msg "`n[1/3] Construyendo imágenes de contenedor con nerdctl (namespace k8s.io)..." Cyan
 
 $services = @(
     @{ Name = "frontend"; Path = "./frontend"; Image = "fintech/frontend:latest" },
-    @{ Name = "api-gateway"; Path = "./backend/api-gateway"; Image = "fintech/api-gateway:latest" },
-    @{ Name = "auth-service"; Path = "./backend/auth-service"; Image = "fintech/auth-service:latest" },
-    @{ Name = "user-service"; Path = "./backend/user-service"; Image = "fintech/user-service:latest" },
-    @{ Name = "transaction-service"; Path = "./backend/transaction-service"; Image = "fintech/transaction-service:latest" },
-    @{ Name = "notification-service"; Path = "./backend/notification-service"; Image = "fintech/notification-service:latest" },
-    @{ Name = "worker-service"; Path = "./backend/worker-service"; Image = "fintech/worker-service:latest" }
+    @{ Name = "auth-service"; Path = "./backend-nestjs/auth-service"; Image = "fintech/auth-service:nestjs" },
+    @{ Name = "user-service"; Path = "./backend-nestjs/user-service"; Image = "fintech/user-service:nestjs" },
+    @{ Name = "transaction-service"; Path = "./backend-nestjs/transaction-service"; Image = "fintech/transaction-service:nestjs" },
+    @{ Name = "notification-service"; Path = "./backend-nestjs/notification-service"; Image = "fintech/notification-service:nestjs" },
+    @{ Name = "worker-service"; Path = "./backend-nestjs/worker-service"; Image = "fintech/worker-service:nestjs" }
 )
 
 foreach ($s in $services) {
@@ -101,12 +100,14 @@ foreach ($s in $services) {
 }
 Log-Msg "Imágenes construidas e importadas a containerd (k8s.io) exitosamente." Green
 
-# 4. Verificar e instalar NGINX Ingress Controller
-Log-Msg "`n[2/3] Instalando / Verificando NGINX Ingress Controller..." Cyan
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.0/deploy/static/provider/cloud/deploy.yaml
-
-# Limpiar webhook de admisión de Ingress si causa demoras
-kubectl delete validatingwebhookconfiguration ingress-nginx-admission --ignore-not-found 2>&1 | Out-Null
+# 4. Verificación de Ingress Controller (Traefik Nativo k3s)
+Log-Msg "`n[2/3] Verificando Ingress Controller Traefik nativo en Rancher Desktop..." Cyan
+$traefikPod = kubectl get pods -n kube-system -l app.kubernetes.io/name=traefik --no-headers 2>&1
+if ($traefikPod -match "Running") {
+    Log-Msg "Traefik Ingress Controller está activo y funcionando." Green
+} else {
+    Log-Msg "Aviso: Traefik Ingress en kube-system está inicializando..." Yellow
+}
 
 # 5. Aplicar Manifiestos de Kubernetes
 Log-Msg "`n[3/3] Aplicando manifiestos de Kubernetes en namespace 'fintech'..." Cyan

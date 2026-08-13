@@ -28,8 +28,8 @@ export function AuthProvider({ children }) {
 
     localStorage.setItem('token', data.token);
     try {
-      const usersRes = await userService.getAll();
-      const profile = usersRes.data?.find(u => u.email?.toLowerCase() === email?.toLowerCase());
+      const profileRes = await userService.getProfileByEmail(email);
+      const profile = profileRes.data;
       if (profile) {
         data.id = profile.id;
         data.name = profile.name;
@@ -48,8 +48,8 @@ export function AuthProvider({ children }) {
     const data = res.data;
     localStorage.setItem('token', data.token);
     try {
-      const usersRes = await userService.getAll();
-      const profile = usersRes.data?.find(u => u.email?.toLowerCase() === email?.toLowerCase());
+      const profileRes = await userService.getProfileByEmail(email);
+      const profile = profileRes.data;
       if (profile) {
         data.id = profile.id;
         data.name = profile.name;

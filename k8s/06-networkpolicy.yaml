@@ -1,15 +1,25 @@
+# ==============================================================================
+# 06-NETWORKPOLICY.YAML - POLÍTICAS DE SEGURIDAD Y AISLAMIENTO DE RED EN K8S
+# Controla el tráfico entrante (Ingress) y saliente (Egress) entre Pods del clúster
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# POLÍTICA DE RED: allow-internal-namespace-ingress
+# Permite comunicación abierta entre todos los Pods dentro del namespace 'fintech'
+# y acepta conexiones entrantes controladas desde el Ingress Controller Traefik.
+# ------------------------------------------------------------------------------
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: allow-internal-namespace-ingress
+  name: allow-internal-namespace-ingress # Nombre de la regla de aislamiento de red
   namespace: fintech
 spec:
-  podSelector: {}
+  podSelector: {} # Aplica a TODOS los Pods dentro del namespace 'fintech' ({})
   policyTypes:
-    - Ingress
+    - Ingress     # Controla el tráfico entrante
   ingress:
     - from:
-        - podSelector: {}
-        - namespaceSelector: {}
+        - podSelector: {}       # Permite tráfico proveniente de cualquier Pod del mismo namespace
+        - namespaceSelector: {} # Permite tráfico de otros namespaces (ej. kube-system con Traefik)
         - ipBlock:
-            cidr: 0.0.0.0/0
+            cidr: 0.0.0.0/0     # Permite tráfico desde el bloque IP global del clúster

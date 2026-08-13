@@ -23,6 +23,11 @@ export class PrismaUserRepository implements IUserRepositoryPort {
     return this.mapToEntity(record);
   }
 
+  async findAll(): Promise<UserProfileEntity[]> {
+    const records = await this.prisma.userProfile.findMany();
+    return records.map((record) => this.mapToEntity(record));
+  }
+
   async save(profile: Partial<UserProfileEntity>): Promise<UserProfileEntity> {
     const record = await this.prisma.userProfile.upsert({
       where: { email: profile.email || '' },
@@ -45,17 +50,43 @@ export class PrismaUserRepository implements IUserRepositoryPort {
 
   async updateBalance(id: number, amount: number): Promise<boolean> {
     try {
-      await this.prisma.userProfile.update({
-        where: { id: BigInt(id) },
-        data: {
-          balance: {
-            increment: amount,
+      if (amount < 0) {
+        const absAmount = Math.abs(amount);
+        const count = await this.prisma.$executeRaw`
+          UPDATE user_profiles 
+          SET balance = balance - ${absAmount} 
+          WHERE id = ${BigInt(id)} AND balance >= ${absAmount}
+        `;
+        return count > 0;
+      } else {
+        await this.prisma.userProfile.update({
+          where: { id: BigInt(id) },
+          data: {
+            balance: {
+              increment: amount,
+            },
           },
-        },
-      });
-      return true;
+        });
+        return true;
+      }
     } catch {
       return false;
+    }
+  }
+
+  async updateSettings(id: number, dailyLimit?: number, currency?: string): Promise<UserProfileEntity | null> {
+    try {
+      const data: any = {};
+      if (dailyLimit !== undefined) data.dailyLimit = dailyLimit;
+      if (currency !== undefined) data.currency = currency;
+
+      const record = await this.prisma.userProfile.update({
+        where: { id: BigInt(id) },
+        data,
+      });
+      return this.mapToEntity(record);
+    } catch {
+      return null;
     }
   }
 

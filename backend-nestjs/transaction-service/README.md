@@ -1,21 +1,23 @@
 # Transaction Service (NestJS) 💸
 
-Microservicio de Procesamiento de Transferencias, Solicitudes de Dinero e Idempotencia del sistema **FinTech Wallet**, desarrollado sobre **NestJS 11 + Hexagonal Architecture + gRPC Client + REST + Prisma ORM + Redis + Kafka + OpenTelemetry**.
+Microservicio de Procesamiento de Transferencias, Solicitudes de Dinero e Idempotencia del sistema **FinTech Wallet**, desarrollado sobre **NestJS 11 + Hexagonal Architecture + tRPC Client + REST + CQRS + Prisma ORM + Redis + Kafka + OpenTelemetry**.
 
 ---
 
 ## 🚀 Arquitectura y Características
 
-- **Arquitectura Hexagonal (Ports & Adapters)**: Separación estricta entre Dominio, Casos de Uso y Adaptadores de Entrada (REST API) / Salida (Prisma MySQL, Redis, Kafka Producer, gRPC Client).
-- **Integración gRPC Inter-Service**: Cliente gRPC de alto rendimiento conectando a `user-service:50051` (`UserService.GetUserProfile` y `UpdateUserBalance`) mediante el contrato proto compartido (`user.proto`).
-- **Garantía de Idempotencia con Redis**: Uso del encabezado HTTP `X-Idempotency-Key` en Redis (`ioredis`) con TTL de 24 horas para evitar dobles transferencias financieras en red o reintentos del cliente.
-- **Event-Driven Architecture con Kafka**: Adaptador de salida Kafka Producer (`kafkajs`) emitiendo eventos `transfer_completed` al cluster Apache Kafka en cada transferencia exitosa para ser procesados asincrónicamente por `notification-service`.
-- **Base de Datos Dedicada**: Persistencia en MySQL (`transactiondb.transactions` y `transactiondb.money_requests`) gestionada con Prisma ORM 7 (`@prisma/adapter-mariadb`).
+- **Arquitectura Hexagonal (Ports & Adapters)**: Separación estricta entre Dominio, Casos de Uso (CQRS) y Adaptadores de Entrada (REST API) / Salida (Prisma MySQL, Redis, Kafka Outbox, tRPC Client).
+- **Integración tRPC Inter-Service**: Cliente tRPC type-safe conectando a `user-service:8082/trpc` (`getUserById`, `getUserByEmail`, `updateBalance`) mediante el adaptador `UserServiceTrpcAdapter`.
+- **Garantía de Idempotencia Durable (Redis + MySQL)**: Uso del encabezado HTTP `X-Idempotency-Key` verificado en Redis (`ioredis`) para respuesta ultrarrápida y respaldado en la tabla MySQL `idempotency_records` con TTL de 24 horas para evitar cobros dobles en red.
+- **Transactional Outbox & Event-Driven Architecture**:
+  - Los eventos de transferencias completadas se registran en la tabla `outbox_events` de forma atómica con la transferencia.
+  - `OutboxPublisherService` publica asincrónicamente el evento `TRANSFER_COMPLETED` a Apache Kafka (`kafka:29092`) garantizando entrega *at-least-once*.
+- **Base de Datos Dedicada**: Persistencia en MySQL (`transactiondb.transactions`, `transactiondb.money_requests`, `transactiondb.outbox_events`, `transactiondb.idempotency_records`) gestionada con Prisma ORM 7 (`@prisma/adapter-mariadb`).
 - **Documentación OpenAPI / Swagger UI**: Disponible en vivo en `/transactions/docs` y `/api-docs`.
 - **Observabilidad SigNoz & OpenTelemetry**:
-  - **Trazas OTLP**: Rastreabilidad distribuida de transacciones cruzando llamados HTTP, gRPC y publicación en Kafka.
-  - **Logs Winston OTLP**: Envío estructurado de logs en JSON con correlación `trace_id` / `span_id` y metadatos nativos de Kubernetes (`k8s.pod.name`, `k8s.namespace.name`).
-  - **Métricas OTLP**: Monitoreo de tasa de transferencias, tiempos de respuesta e idempotencia.
+  - **Trazas OTLP**: Rastreabilidad distribuida de transacciones cruzando llamados HTTP REST, tRPC y publicación en Kafka.
+  - **Logs Winston OTLP**: Envío estructurado de logs en JSON con correlación `trace_id` / `span_id` y metadatos nativos de Kubernetes.
+  - **Métricas OTLP**: Monitoreo de RED Metrics (Rate, Errors, Duration) e idempotencia.
 
 ---
 
@@ -30,14 +32,16 @@ backend-nestjs/transaction-service/
 │   │   ├── inbound/              # Adaptadores de Entrada (Driving / Primary)
 │   │   │   └── rest/             # Controladores REST HTTP (TransactionController, HealthController, DTOs)
 │   │   └── outbound/             # Adaptadores de Salida (Driven / Secondary)
-│   │       ├── grpc/             # Cliente gRPC hacia user-service (user.proto, UserServiceClientAdapter)
-│   │       ├── kafka/            # Kafka Producer (KafkaProducerService emitiendo transfer_completed)
+│   │       ├── trpc/             # Cliente tRPC hacia user-service (user-service.trpc-adapter.ts)
+│   │       ├── kafka/            # Kafka Producer (outbox-publisher.service.ts emitiendo TRANSFER_COMPLETED)
 │   │       ├── persistence/      # Repositorio de persistencia Prisma ORM (prisma-transaction.repository.ts)
-│   │       └── redis/            # Idempotencia con Redis (IdempotencyService)
-│   ├── application/              # Casos de Uso de Aplicación
+│   │       └── redis/            # Idempotencia con Redis (idempotency.service.ts)
+│   ├── application/              # Casos de Uso de Aplicación (CQRS)
+│   │   ├── commands/             # TransferMoneyCommand & Handler
+│   │   ├── queries/              # GetTransactionHistoryQuery & Handler
 │   │   └── use-cases/            # TransactionUseCases (Transfer, CreateMoneyRequest, Accept/RejectRequest)
 │   ├── domain/                   # Dominio Principal (Core de Negocio)
-│   │   ├── entities/             # Entidades Transaction y MoneyRequest
+│   │   ├── entities/             # Entidades TransactionEntity y MoneyRequestEntity
 │   │   └── ports/                # Interfaces de Puertos Inbound & Outbound
 │   │       ├── inbound/          # TransactionServicePort
 │   │       └── outbound/         # TransactionRepositoryPort, UserServiceClientPort
@@ -61,9 +65,9 @@ backend-nestjs/transaction-service/
 - **Node.js**: `>= 20.x`
 - **pnpm**: `>= 9.x`
 - **MySQL**: `8.x` (Base de datos `transactiondb`)
-- **Redis**: `7.x` (Servidor de caché para idempotencia)
+- **Redis**: `7.x` (Servidor de caché e idempotencia)
 - **Apache Kafka**: `3.x` (Broker de mensajería)
-- **User Service (NestJS)**: Ejecutándose en puerto gRPC `50051`.
+- **User Service (NestJS)**: Ejecutándose en puerto `8082`.
 
 ---
 
@@ -85,8 +89,8 @@ REDIS_PORT=6379
 # Kafka Broker
 KAFKA_BROKERS="localhost:9092"
 
-# User Service gRPC Client
-USER_SERVICE_GRPC_URL="localhost:50051"
+# User Service tRPC Client URL
+USER_SERVICE_URL="http://localhost:3002"
 
 # Telemetría SigNoz / OpenTelemetry Collector
 OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4318"
@@ -107,8 +111,8 @@ pnpm install
 ### 2. Generación del Cliente Prisma y Migraciones
 
 ```bash
-pnpm dlx prisma generate
-pnpm dlx prisma db push
+pnpm exec prisma generate
+pnpm exec prisma db push
 ```
 
 ### 3. Ejecución en Desarrollo Local
@@ -129,7 +133,7 @@ pnpm test
 
 ## 🐳 Despliegue con Docker y Kubernetes
 
-### Construir Imagen con `nerdctl` / Docker
+### Construir Imagen con `nerdctl`
 
 ```bash
 nerdctl --namespace k8s.io build -t fintech/transaction-service:nestjs ./backend-nestjs/transaction-service
@@ -169,7 +173,7 @@ curl -X POST http://localhost/transactions/transfer \
   }'
 ```
 
-**Respuesta Exitosa (201 Created)**:
+**Respuesta Exitosa (200 OK)**:
 
 ```json
 {
@@ -177,12 +181,12 @@ curl -X POST http://localhost/transactions/transfer \
   "fromUserId": 1,
   "toUserId": 2,
   "amount": 150,
-  "status": "SUCCESS",
-  "createdAt": "2026-08-06T14:30:00.000Z"
+  "status": "COMPLETED",
+  "createdAt": "2026-08-13T14:30:00.000Z"
 }
 ```
 
-### 2. Consultar Transacciones de un Usuario
+### 2. Consultar Transacciones de un Usuario (CQRS Query)
 
 ```bash
 curl -X GET http://localhost/transactions/user/1
@@ -191,45 +195,11 @@ curl -X GET http://localhost/transactions/user/1
 ### 3. Consultar Historial Global de Transacciones
 
 ```bash
-curl -X GET http://localhost/transactions
+curl -X GET http://localhost/transactions/all
 ```
 
-### 4. Crear Solicitud de Dinero (Money Request)
-
-```bash
-curl -X POST http://localhost/transactions/request-money \
-  -H "Content-Type: application/json" \
-  -d '{
-    "requesterId": 2,
-    "targetUserId": 1,
-    "amount": 75.50
-  }'
-```
-
-### 5. Aceptar Solicitud de Dinero
-
-```bash
-curl -X POST http://localhost/transactions/money-requests/1/accept
-```
-
-### 6. Rechazar Solicitud de Dinero
-
-```bash
-curl -X POST http://localhost/transactions/money-requests/1/reject
-```
-
-### 7. Health Check / Probes K8s
+### 4. Health Check / Probes K8s
 
 ```bash
 curl -X GET http://localhost/transactions/health
-```
-
-**Respuesta**:
-
-```json
-{
-  "status": "ok",
-  "service": "transaction-service",
-  "timestamp": "2026-08-06T14:30:00.000Z"
-}
 ```

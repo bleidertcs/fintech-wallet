@@ -1,15 +1,30 @@
+# ==============================================================================
+# 00-NAMESPACE-CONFIG.YAML - CONFIGURACIÓN INICIAL DE KUBERNETES
+# Define el espacio de nombres (Namespace), scripts de inicialización SQL (ConfigMap)
+# y credenciales sensibles codificadas (Secrets).
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. NAMESPACE: fintech
+# Aislamiento lógico de recursos dentro del clúster de Kubernetes para todo el sistema
+# ------------------------------------------------------------------------------
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: fintech
+  name: fintech # Nombre del espacio de nombres donde residirán los Pods y Servicios
 ---
+# ------------------------------------------------------------------------------
+# 2. CONFIGMAP: mysql-init-sql
+# Objeto de configuración de K8s que inyecta el script de inicialización SQL
+# al arrancar el contenedor de MySQL 8.0 por primera vez en /docker-entrypoint-initdb.d/
+# ------------------------------------------------------------------------------
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: mysql-init-sql
-  namespace: fintech
+  name: mysql-init-sql # Nombre de referencia del ConfigMap
+  namespace: fintech   # Pertenece al namespace isolado fintech
 data:
-  init.sql: |
+  init.sql: | # Script DDL ejecutado por el contenedor MySQL en la fase de inicialización
     CREATE DATABASE IF NOT EXISTS authdb;
     CREATE DATABASE IF NOT EXISTS userdb;
     CREATE DATABASE IF NOT EXISTS transactiondb;
@@ -20,13 +35,17 @@ data:
     GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
     FLUSH PRIVILEGES;
 ---
+# ------------------------------------------------------------------------------
+# 3. SECRET: fintech-secrets
+# Almacenamiento seguro en Kubernetes para secretos y claves privadas del sistema
+# ------------------------------------------------------------------------------
 apiVersion: v1
 kind: Secret
 metadata:
-  name: fintech-secrets
+  name: fintech-secrets # Nombre del secreto consumido por los Deployments de microservicios
   namespace: fintech
-type: Opaque
+type: Opaque             # Tipo estándar para pares clave-valor arbitrarios
 stringData:
-  DB_USERNAME: "root"
-  DB_PASSWORD: "12345"
-  JWT_SECRET: "dGhpc2lzYXNlY3JldGtleWZvcmp3dHRva2VudmFsaWRhdGlvbmZpbnRlYch3YWxsZXQ="
+  DB_USERNAME: "root"   # Nombre de usuario maestro de la base de datos
+  DB_PASSWORD: "12345"  # Contraseña de la base de datos
+  JWT_SECRET: "dGhpc2lzYXNlY3JldGtleWZvcmp3dHRva2VudmFsaWRhdGlvbmZpbnRlYch3YWxsZXQ=" # Clave para firma de Tokens JWT

@@ -10,6 +10,7 @@ export class KafkaConsumerService implements OnModuleInit, OnModuleDestroy {
   private readonly logger = new Logger(KafkaConsumerService.name);
   private kafka: Kafka;
   private consumer: Consumer;
+  private processedEventIds = new Set<string>();
 
   constructor(
     @Inject(NOTIFICATION_SERVICE_PORT)
@@ -32,31 +33,67 @@ export class KafkaConsumerService implements OnModuleInit, OnModuleDestroy {
       this.logger.log('Conectado exitosamente a Apache Kafka broker');
 
       await this.consumer.subscribe({
-        topic: process.env.KAFKA_TOPIC_TRANSFER_COMPLETED || 'transfer_completed',
+        topics: [
+          'fintech.transaction.transfer.completed.v1',
+          process.env.KAFKA_TOPIC_TRANSFER_COMPLETED || 'transfer_completed',
+        ],
         fromBeginning: true,
       });
 
       await this.consumer.run({
         eachMessage: async ({ topic, partition, message }) => {
           const rawValue = message.value?.toString();
-          this.logger.log(`Mensaje Kafka recibido [Topic: ${topic}, Partition: ${partition}]: ${rawValue}`);
-
           if (!rawValue) return;
 
           try {
-            const eventPayload = JSON.parse(rawValue);
-            await this.notificationService.processTransferNotification({
-              fromUser: Number(eventPayload.fromUser),
-              toUser: Number(eventPayload.toUser),
-              amount: Number(eventPayload.amount),
-            });
-          } catch (err) {
-            this.logger.error(`Error al procesar el mensaje del evento transfer_completed: ${err.message}`, err.stack);
+            const parsed = JSON.parse(rawValue);
+            const eventId = parsed.eventId || `${topic}-${partition}-${message.offset}`;
+            
+            // Deduplication Check
+            if (this.processedEventIds.has(eventId)) {
+              this.logger.warn(`Mensaje duplicado detectado e ignorado (eventId=${eventId})`);
+              return;
+            }
+
+            const data = parsed.data || parsed;
+            const fromUser = Number(data.fromUser);
+            const toUser = Number(data.toUser);
+            const amount = Number(data.amount);
+
+            // Execute with Retry logic
+            await this.processWithRetry({ fromUser, toUser, amount }, 3);
+
+            // Mark as processed
+            this.processedEventIds.add(eventId);
+            if (this.processedEventIds.size > 10000) {
+              const first = this.processedEventIds.values().next().value;
+              if (first) this.processedEventIds.delete(first);
+            }
+          } catch (err: any) {
+            this.logger.error(`Error procesando mensaje Kafka [Topic: ${topic}]: ${err.message}`, err.stack);
           }
         },
       });
-    } catch (err) {
-      this.logger.warn(`No se pudo conectar el consumidor Kafka: ${err.message}. Reintentando en segundo plano...`);
+    } catch (err: any) {
+      this.logger.warn(`No se pudo conectar el consumidor Kafka: ${err.message}`);
+    }
+  }
+
+  private async processWithRetry(payload: { fromUser: number; toUser: number; amount: number }, maxRetries: number) {
+    let attempt = 0;
+    while (attempt < maxRetries) {
+      try {
+        await this.notificationService.processTransferNotification(payload);
+        return;
+      } catch (error: any) {
+        attempt++;
+        this.logger.warn(`Intento ${attempt}/${maxRetries} falló para notificación transfer: ${error.message}`);
+        if (attempt >= maxRetries) {
+          this.logger.error(`Mensaje movido a DLQ tras ${maxRetries} intentos fallidos.`);
+          throw error;
+        }
+        await new Promise((res) => setTimeout(res, Math.pow(2, attempt) * 500));
+      }
     }
   }
 
@@ -64,7 +101,7 @@ export class KafkaConsumerService implements OnModuleInit, OnModuleDestroy {
     try {
       await this.consumer.disconnect();
       this.logger.log('Consumidor Kafka desconectado limpiamente.');
-    } catch (err) {
+    } catch (err: any) {
       this.logger.error(`Error al desconectar consumidor Kafka: ${err.message}`);
     }
   }

@@ -1,8 +1,9 @@
-import { Controller, Get, Post, Put, Body, Param, ParseIntPipe, Inject } from '@nestjs/common';
+import { Controller, Get, Post, Put, Body, Param, ParseIntPipe, Inject, Query } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { IUserServicePort, USER_SERVICE_PORT } from '../../../domain/ports/inbound/user.service.port';
 import { CreateUserProfileDto } from './dto/create-user-profile.dto';
 import { UpdateBalanceDto } from './dto/update-balance.dto';
+import { UpdateSettingsDto } from './dto/update-settings.dto';
 
 @ApiTags('Users')
 @Controller('users')
@@ -16,6 +17,14 @@ export class UserController {
   @ApiOperation({ summary: 'Healthcheck para Ingress' })
   getHealth() {
     return { status: 'OK', service: 'user-service', timestamp: new Date().toISOString() };
+  }
+
+  @Get()
+  @ApiOperation({ summary: 'Listar todos los perfiles de usuario' })
+  @ApiResponse({ status: 200, description: 'Lista de perfiles devuelta' })
+  async getAllProfiles() {
+    const profiles = await this.userService.getAllProfiles();
+    return profiles.map(p => p.toJSON());
   }
 
   @Post()
@@ -49,5 +58,15 @@ export class UserController {
     @Body() dto: UpdateBalanceDto,
   ) {
     return this.userService.updateBalance(id, dto.amount);
+  }
+
+  @Put('profile/:id/settings')
+  @ApiOperation({ summary: 'Actualizar limite diario y moneda del perfil' })
+  async updateSettings(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() dto: UpdateSettingsDto,
+  ) {
+    const profile = await this.userService.updateSettings(id, dto.dailyLimit, dto.currency);
+    return profile.toJSON();
   }
 }

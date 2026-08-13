@@ -11,6 +11,7 @@ import {
   HttpCode,
   HttpStatus,
 } from '@nestjs/common';
+import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import {
   ApiTags,
   ApiOperation,
@@ -25,11 +26,15 @@ import {
 import { TransferRequestDto } from './dto/transfer-request.dto';
 import { TransferResponseDto } from './dto/transfer-response.dto';
 import { MoneyRequestDto } from './dto/money-request.dto';
+import { TransferMoneyCommand } from '../../../application/commands/transfer-money.command';
+import { GetTransactionHistoryQuery } from '../../../application/queries/get-transaction-history.query';
 
 @ApiTags('Transactions')
 @Controller('transactions')
 export class TransactionController {
   constructor(
+    private readonly commandBus: CommandBus,
+    private readonly queryBus: QueryBus,
     @Inject(TRANSACTION_SERVICE_PORT)
     private readonly transactionService: TransactionServicePort,
   ) {}
@@ -42,7 +47,7 @@ export class TransactionController {
 
   @Post('transfer')
   @HttpCode(HttpStatus.OK)
-  @ApiOperation({ summary: 'Realizar transferencia entre usuarios (Idempotente)' })
+  @ApiOperation({ summary: 'Realizar transferencia entre usuarios (Idempotente + CQRS)' })
   @ApiHeader({
     name: 'X-Idempotency-Key',
     required: false,
@@ -54,39 +59,28 @@ export class TransactionController {
     @Body() dto: TransferRequestDto,
     @Headers('x-idempotency-key') idempotencyKey?: string,
   ): Promise<TransferResponseDto> {
-    const result = await this.transactionService.transfer({
-      fromUserId: dto.fromUserId,
-      toUserId: dto.toUserId,
-      amount: dto.amount,
-      idempotencyKey,
-    });
+    const result = await this.commandBus.execute(
+      new TransferMoneyCommand(dto.fromUserId, dto.toUserId, dto.amount, idempotencyKey),
+    );
 
     return {
-      id: result.id!,
+      id: result.id,
       fromUserId: result.fromUserId,
       toUserId: result.toUserId,
       amount: result.amount,
       status: result.status,
-      createdAt: result.createdAt!,
+      createdAt: result.createdAt,
     };
   }
 
   @Get('user/:userId')
-  @ApiOperation({ summary: 'Obtener historial de transacciones por usuario' })
+  @ApiOperation({ summary: 'Obtener historial de transacciones por usuario (CQRS Query)' })
   @ApiParam({ name: 'userId', description: 'ID del usuario' })
   @ApiResponse({ status: 200, type: [TransferResponseDto] })
   async getByUser(
     @Param('userId', ParseIntPipe) userId: number,
   ): Promise<TransferResponseDto[]> {
-    const list = await this.transactionService.getUserTransactions(userId);
-    return list.map((t) => ({
-      id: t.id!,
-      fromUserId: t.fromUserId,
-      toUserId: t.toUserId,
-      amount: t.amount,
-      status: t.status,
-      createdAt: t.createdAt!,
-    }));
+    return this.queryBus.execute(new GetTransactionHistoryQuery(userId));
   }
 
   @Get('all')
