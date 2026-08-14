@@ -83,6 +83,7 @@ graph TD
 Para profundizar en la arquitectura y patrones implementados, consulta los siguientes documentos en la carpeta [`docs/`](file:///c:/dev/DevOps/fintech-wallet/docs/):
 
 - ☸️ **[Kubernetes & CLI Cheat Sheet](file:///c:/dev/DevOps/fintech-wallet/docs/kubernetes.md)**: Arquitectura K8s, pods, statefulsets, services y la guía completa de comandos `kubectl`.
+- 🗄️ **[Bases de Datos Transaccionales & PgBouncer](file:///c:/dev/DevOps/fintech-wallet/docs/database.md)**: Topología PostgreSQL 16, Connection Pooling con PgBouncer, ACID, Outbox Pattern, ERD y Disaster Recovery.
 - 🔄 **[Patrón SAGA & CQRS](file:///c:/dev/DevOps/fintech-wallet/docs/saga.md)**: Transacciones distribuidas, acciones de compensación, consistencia eventual y comandos/consultas CQRS.
 - 📩 **[Apache Kafka & Outbox Pattern](file:///c:/dev/DevOps/fintech-wallet/docs/kafka.md)**: Broker KRaft, Transactional Outbox, Event Envelope estándar y estrategia DLQ.
 - ⚡ **[Redis & Idempotencia Durable](file:///c:/dev/DevOps/fintech-wallet/docs/redis.md)**: Garantía de no duplicidad con TTL de 24h, Token Blacklist y Caché L2.

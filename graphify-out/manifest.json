@@ -620,8 +620,8 @@
     "semantic_hash": ""
   },
   "ARQUITECTURA.md": {
-    "mtime": 1786723163.045876,
-    "ast_hash": "22f5fecc408391d42e40046f70811c28",
+    "mtime": 1786730256.4090776,
+    "ast_hash": "c0d84aafe7a176b8e2bfe5de5d8266cf",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -630,8 +630,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1786721708.610054,
-    "ast_hash": "0d9684c262f02afc69cdcf9ad24f4cce",
+    "mtime": 1786730245.4828258,
+    "ast_hash": "3eb06e23d30a6153f52669f0826f6739",
     "semantic_hash": ""
   },
   "docker-compose.yml": {
@@ -2527,6 +2527,11 @@
   "backend-nestjs/worker-service/src/infrastructure/telemetry/logger.config.ts": {
     "mtime": 1786717529.952961,
     "ast_hash": "e2a155c8b85215e77c3bba5ceb5c9bb1",
+    "semantic_hash": ""
+  },
+  "docs/database.md": {
+    "mtime": 1786730328.7430298,
+    "ast_hash": "bb07198ed1a1154da9c3188f7a065ad8",
     "semantic_hash": ""
   }
 }

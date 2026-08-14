@@ -673,6 +673,7 @@ En una arquitectura de microservicios con **Database-per-Service**, no existen c
 
 Para detalles operativos y comandos específicos, consulta las guías dedicadas:
 - ☸️ [Guía de Kubernetes & Kubectl Cheat Sheet](file:///c:/dev/DevOps/fintech-wallet/docs/kubernetes.md)
+- 🗄️ [Guía de Bases de Datos Transaccionales & PgBouncer](file:///c:/dev/DevOps/fintech-wallet/docs/database.md)
 - 🔄 [Guía de Patrón SAGA & CQRS](file:///c:/dev/DevOps/fintech-wallet/docs/saga.md)
 - 📩 [Guía de Apache Kafka & Transactional Outbox](file:///c:/dev/DevOps/fintech-wallet/docs/kafka.md)
 - ⚡ [Guía de Redis & Idempotencia](file:///c:/dev/DevOps/fintech-wallet/docs/redis.md)
