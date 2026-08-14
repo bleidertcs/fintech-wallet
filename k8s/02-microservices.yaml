@@ -66,7 +66,7 @@ spec:
             - name: CLUSTER_NAME
               value: "fintech-k8s-cluster"
             - name: DATABASE_URL
-              value: "mysql://root:12345@mysql:3306/authdb?allowPublicKeyRetrieval=true"
+              value: "postgresql://postgres:12345@pgbouncer-core:6432/authdb?schema=public&pgbouncer=true"
             - name: REDIS_HOST
               value: "redis"
             - name: REDIS_PORT
@@ -184,7 +184,7 @@ spec:
             - name: OTEL_SERVICE_NAME
               value: "user-service"
             - name: DATABASE_URL
-              value: "mysql://root:12345@mysql:3306/userdb?allowPublicKeyRetrieval=true"
+              value: "postgresql://postgres:12345@pgbouncer-core:6432/userdb?schema=public&pgbouncer=true"
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
               value: "http://otel-collector.fintech.svc.cluster.local:4318"
           resources:
@@ -281,7 +281,7 @@ spec:
             - name: OTEL_SERVICE_NAME
               value: "transaction-service"
             - name: DATABASE_URL
-              value: "mysql://root:12345@mysql:3306/transactiondb?allowPublicKeyRetrieval=true"
+              value: "postgresql://postgres:12345@pgbouncer-core:6432/transactiondb?schema=public&pgbouncer=true"
             - name: REDIS_HOST
               value: "redis"
             - name: REDIS_PORT
@@ -386,7 +386,7 @@ spec:
             - name: OTEL_SERVICE_NAME
               value: "notification-service"
             - name: DATABASE_URL
-              value: "mysql://root:12345@mysql:3306/notificationdb?allowPublicKeyRetrieval=true"
+              value: "postgresql://postgres:12345@postgres-support:5432/notificationdb?schema=public"
             - name: KAFKA_BROKERS
               value: "kafka:29092"
             - name: MAIL_HOST
@@ -493,7 +493,7 @@ spec:
             - name: OTEL_SERVICE_NAME
               value: "worker-service"
             - name: DATABASE_URL
-              value: "mysql://root:12345@mysql:3306/workerdb?allowPublicKeyRetrieval=true"
+              value: "postgresql://postgres:12345@postgres-support:5432/workerdb?schema=public"
             - name: KAFKA_BROKERS
               value: "kafka:29092"
             - name: STATEMENTS_DIR

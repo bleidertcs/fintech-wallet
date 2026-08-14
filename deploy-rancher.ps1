@@ -115,9 +115,11 @@ kubectl apply -f k8s/00-namespace-config.yaml
 kubectl apply -f k8s/01-infrastructure.yaml
 kubectl apply -f k8s/02-microservices.yaml
 kubectl apply -f k8s/03-frontend.yaml
+kubectl delete job signoz-migrator -n fintech --ignore-not-found 2>&1 | Out-Null
 kubectl apply -f k8s/04-observability.yaml
 kubectl apply -f k8s/05-ingress.yaml
 kubectl apply -f k8s/06-networkpolicy.yaml
+kubectl apply -f k8s/07-backup-cronjob.yaml
 
 Log-Msg "`n======================================================================" Green
 Log-Msg "¡Despliegue completado! Estado actual de los Pods en namespace 'fintech':" Green

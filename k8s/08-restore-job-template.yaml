@@ -1,0 +1,121 @@
+# ==============================================================================
+# 08-RESTORE-JOB-TEMPLATE.YAML - PLANTILLA DE RESTAURACIÓN DE DESASTRES (DR)
+# Utiliza este Job de Kubernetes para restaurar una base de datos específica o todo el clúster
+# a partir de un backup existente en el PVC 'postgres-backups-pvc'.
+#
+# Uso:
+# 1. Edita el parámetro TARGET_BACKUP_TIMESTAMP (ej. 20260814_093000) o TARGET_DB
+# 2. kubectl apply -f k8s/08-restore-job-template.yaml
+# ==============================================================================
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: postgres-restore-job
+  namespace: fintech
+  labels:
+    app: postgres-restore
+spec:
+  ttlSecondsAfterFinished: 3600
+  template:
+    metadata:
+      labels:
+        app: postgres-restore
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: pg-restore
+          image: postgres:16-alpine
+          env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: fintech-secrets
+                  key: DB_PASSWORD
+            # Deja TARGET_TIMESTAMP vacío para restaurar automáticamente el backup más reciente
+            - name: TARGET_TIMESTAMP
+              value: ""
+            # Opciones: ALL, authdb, userdb, transactiondb, notificationdb, workerdb
+            - name: TARGET_DB
+              value: "ALL"
+          command:
+            - /bin/sh
+            - -c
+            - |
+              set -e
+              export PGPASSWORD="${POSTGRES_PASSWORD}"
+
+              # Seleccionar el directorio de backup
+              if [ -z "${TARGET_TIMESTAMP}" ]; then
+                LATEST_DIR=$(ls -td /backups/20* 2>/dev/null | head -n 1)
+                if [ -z "${LATEST_DIR}" ]; then
+                  echo "ERROR: No se encontraron directorios de backup en /backups"
+                  exit 1
+                fi
+                BACKUP_DIR="${LATEST_DIR}"
+              else
+                BACKUP_DIR="/backups/${TARGET_TIMESTAMP}"
+              fi
+
+              echo "=========================================="
+              echo "Iniciando Restauración DR desde: ${BACKUP_DIR}"
+              echo "Objetivo: ${TARGET_DB}"
+              echo "=========================================="
+
+              # Verificar Checksums
+              if [ -f "${BACKUP_DIR}/checksums.sha256" ]; then
+                echo "Verificando integridad SHA256 de los archivos..."
+                cd "${BACKUP_DIR}"
+                sha256sum -c checksums.sha256
+              fi
+
+              restore_core_db() {
+                DB=$1
+                FILE=$(ls "${BACKUP_DIR}"/core_${DB}_*.sql.gz 2>/dev/null | head -n 1)
+                if [ -f "${FILE}" ]; then
+                  echo "Restaurando ${DB} en postgres-core desde ${FILE}..."
+                  gunzip -c "${FILE}" | psql -h postgres-core -U postgres -d "${DB}"
+                  echo "${DB} restaurado con éxito."
+                else
+                  echo "Advertencia: Archivo para ${DB} no encontrado en ${BACKUP_DIR}"
+                fi
+              }
+
+              restore_support_db() {
+                DB=$1
+                FILE=$(ls "${BACKUP_DIR}"/support_${DB}_*.sql.gz 2>/dev/null | head -n 1)
+                if [ -f "${FILE}" ]; then
+                  echo "Restaurando ${DB} en postgres-support desde ${FILE}..."
+                  gunzip -c "${FILE}" | psql -h postgres-support -U postgres -d "${DB}"
+                  echo "${DB} restaurado con éxito."
+                else
+                  echo "Advertencia: Archivo para ${DB} no encontrado en ${BACKUP_DIR}"
+                fi
+              }
+
+              if [ "${TARGET_DB}" = "ALL" ] || [ "${TARGET_DB}" = "authdb" ]; then
+                restore_core_db "authdb"
+              fi
+              if [ "${TARGET_DB}" = "ALL" ] || [ "${TARGET_DB}" = "userdb" ]; then
+                restore_core_db "userdb"
+              fi
+              if [ "${TARGET_DB}" = "ALL" ] || [ "${TARGET_DB}" = "transactiondb" ]; then
+                restore_core_db "transactiondb"
+              fi
+              if [ "${TARGET_DB}" = "ALL" ] || [ "${TARGET_DB}" = "notificationdb" ]; then
+                restore_support_db "notificationdb"
+              fi
+              if [ "${TARGET_DB}" = "ALL" ] || [ "${TARGET_DB}" = "workerdb" ]; then
+                restore_support_db "workerdb"
+              fi
+
+              echo "=========================================="
+              echo "Proceso de Restauración DR finalizado."
+              echo "=========================================="
+          volumeMounts:
+            - name: backup-storage
+              mountPath: /backups
+      volumes:
+        - name: backup-storage
+          persistentVolumeClaim:
+            claimName: postgres-backups-pvc

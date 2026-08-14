@@ -94,6 +94,20 @@ kubectl apply -f k8s/05-ingress.yaml
 kubectl apply -f k8s/06-networkpolicy.yaml
 ```
 
+```bash
+kubectl rollout restart deployment/transaction-service -n fintech
+kubectl rollout restart deployment/user-service -n fintech
+kubectl rollout restart deployment/auth-service -n fintech
+kubectl rollout restart deployment/notification-service -n fintech
+kubectl rollout restart deployment/worker-service -n fintech
+
+kubectl rollout status deployment/transaction-service -n fintech
+kubectl rollout status deployment/user-service -n fintech
+kubectl rollout status deployment/auth-service -n fintech
+kubectl rollout status deployment/notification-service -n fintech
+kubectl rollout status deployment/worker-service -n fintech
+```
+
 ---
 
 ## 🧪 Ejecución de Scripts de Pruebas y Validación

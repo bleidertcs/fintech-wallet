@@ -1,20 +1,21 @@
-import { initTracing } from './infrastructure/telemetry/tracing';
-initTracing();
+import { startTelemetry, createWinstonLogger } from './infrastructure/telemetry';
+startTelemetry();
 
 import { NestFactory } from '@nestjs/core';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
-import { ValidationPipe } from '@nestjs/common';
+import { ValidationPipe, Logger } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
-import { WinstonLogger } from './infrastructure/logger/winston.logger';
 import { join } from 'path';
 
 import * as trpcExpress from '@trpc/server/adapters/express';
 import { UserTrpcRouter } from './adapters/inbound/trpc/user-trpc.router';
 
 async function bootstrap() {
-  const logger = new WinstonLogger('Bootstrap');
-  const app = await NestFactory.create(AppModule, { logger });
+  const app = await NestFactory.create(AppModule, {
+    logger: createWinstonLogger(),
+  });
+  const logger = new Logger('Bootstrap');
 
   app.useGlobalPipes(
     new ValidationPipe({

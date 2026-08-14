@@ -392,6 +392,7 @@ metadata:
   name: signoz-migrator
   namespace: fintech
 spec:
+  ttlSecondsAfterFinished: 120
   template:
     spec:
       containers:

@@ -1,20 +1,16 @@
-import { initTracing } from './infrastructure/telemetry/tracing';
-
-// Inicializar trazado de OpenTelemetry antes de cargar NestJS
-initTracing();
+import { startTelemetry, createWinstonLogger } from './infrastructure/telemetry';
+startTelemetry();
 
 import { NestFactory } from '@nestjs/core';
-import { ValidationPipe } from '@nestjs/common';
+import { ValidationPipe, Logger } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-import { WinstonModule } from 'nest-winston';
 import { AppModule } from './app.module';
-import { createWinstonLogger } from './infrastructure/logger/winston.logger';
 
 async function bootstrap() {
-  const winstonLogger = createWinstonLogger();
   const app = await NestFactory.create(AppModule, {
-    logger: WinstonModule.createLogger({ instance: winstonLogger }),
+    logger: createWinstonLogger(),
   });
+  const logger = new Logger('Bootstrap');
 
   app.enableCors();
   app.useGlobalPipes(
@@ -42,7 +38,7 @@ async function bootstrap() {
 
   const port = process.env.PORT || 3004;
   await app.listen(port);
-  winstonLogger.info(`[Notification Service] corriendo en el puerto ${port}`);
-  winstonLogger.info(`[Swagger UI] disponible en http://localhost:${port}/notifications/docs`);
+  logger.log(`[Notification Service] corriendo en el puerto ${port}`);
+  logger.log(`[Swagger UI] disponible en http://localhost:${port}/notifications/docs`);
 }
 bootstrap();

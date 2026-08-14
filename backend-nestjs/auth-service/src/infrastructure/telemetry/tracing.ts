@@ -3,7 +3,7 @@ import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentation
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
 import { OTLPMetricExporter } from '@opentelemetry/exporter-metrics-otlp-http';
 import { PeriodicExportingMetricReader } from '@opentelemetry/sdk-metrics';
-import { resourceFromAttributes } from '@opentelemetry/resources';
+import * as resources from '@opentelemetry/resources';
 import { ATTR_SERVICE_NAME } from '@opentelemetry/semantic-conventions';
 import { Logger } from '@nestjs/common';
 
@@ -17,6 +17,13 @@ const nodeName = process.env.NODE_NAME || 'k8s-node';
 const clusterName = process.env.CLUSTER_NAME || 'fintech-k8s-cluster';
 const environment = process.env.NODE_ENV || 'production';
 
+const createResource = (attrs: Record<string, any>) => {
+  if (typeof (resources as any).resourceFromAttributes === 'function') {
+    return (resources as any).resourceFromAttributes(attrs);
+  }
+  return new (resources as any).Resource(attrs);
+};
+
 const traceExporter = new OTLPTraceExporter({
   url: `${otelEndpoint.replace(/\/$/, '')}/v1/traces`,
 });
@@ -26,7 +33,7 @@ const metricExporter = new OTLPMetricExporter({
 });
 
 export const otelSDK = new NodeSDK({
-  resource: resourceFromAttributes({
+  resource: createResource({
     [ATTR_SERVICE_NAME]: serviceName,
     'service.version': '1.0.0',
     'deployment.environment': environment,
@@ -47,6 +54,12 @@ export const otelSDK = new NodeSDK({
     getNodeAutoInstrumentations({
       '@opentelemetry/instrumentation-fs': { enabled: false },
       '@opentelemetry/instrumentation-dns': { enabled: false },
+      '@opentelemetry/instrumentation-http': {
+        ignoreIncomingRequestHook: (req) => {
+          const url = req.url || '';
+          return url.includes('/health') || url.includes('/metrics');
+        },
+      },
     }),
   ],
 });
@@ -59,9 +72,12 @@ export function startTelemetry() {
     logger.warn(`No se pudo inicializar OpenTelemetry: ${error.message}`);
   }
 
-  process.on('SIGTERM', () => {
+  const shutdown = () => {
     otelSDK.shutdown()
       .then(() => logger.log('OpenTelemetry terminado limpiamente'))
       .catch((err) => logger.error('Error terminando OpenTelemetry', err));
-  });
+  };
+
+  process.on('SIGTERM', shutdown);
+  process.on('SIGINT', shutdown);
 }

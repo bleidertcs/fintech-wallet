@@ -1,13 +1,19 @@
 import { Injectable, OnModuleInit, OnModuleDestroy } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
-import { PrismaMariaDb } from '@prisma/adapter-mariadb';
+import { PrismaPg } from '@prisma/adapter-pg';
+import { Pool } from 'pg';
 
 @Injectable()
 export class PrismaService extends PrismaClient implements OnModuleInit, OnModuleDestroy {
+  private pool: Pool;
+
   constructor() {
-    const databaseUrl = process.env.DATABASE_URL || 'mysql://root:12345@mysql:3306/authdb';
-    const adapter = new PrismaMariaDb(databaseUrl);
+    const connectionString =
+      process.env.DATABASE_URL || 'postgresql://postgres:12345@postgres-core:5432/authdb?schema=public';
+    const pool = new Pool({ connectionString });
+    const adapter = new PrismaPg(pool);
     super({ adapter });
+    this.pool = pool;
   }
 
   async onModuleInit() {
@@ -16,5 +22,8 @@ export class PrismaService extends PrismaClient implements OnModuleInit, OnModul
 
   async onModuleDestroy() {
     await this.$disconnect();
+    await this.pool.end();
   }
 }
+
+

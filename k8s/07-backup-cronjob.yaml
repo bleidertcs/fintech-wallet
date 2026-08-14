@@ -1,0 +1,130 @@
+# ==============================================================================
+# 07-BACKUP-CRONJOB.YAML - SOLUCIÓN AUTOMATIZADA DE BACKUPS Y DISASTER RECOVERY
+# Ejecuta un CronJob periódico (02:00 AM diario) para respaldar las bases de datos
+# de postgres-core y postgres-support con compresión gzip, retención de 7 días y checksums.
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. PVC: postgres-backups-pvc
+# Almacenamiento persistente dedicado para retención de copias de seguridad
+# ------------------------------------------------------------------------------
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-backups-pvc
+  namespace: fintech
+  labels:
+    app: postgres-backup
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: local-path
+  resources:
+    requests:
+      storage: 10Gi
+---
+# ------------------------------------------------------------------------------
+# 2. CONFIGMAP: postgres-backup-script
+# Script bash automatizado con verificación de integridad y rotación
+# ------------------------------------------------------------------------------
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-backup-script
+  namespace: fintech
+data:
+  backup.sh: |
+    #!/bin/sh
+    set -e
+
+    TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+    BACKUP_DIR="/backups/${TIMESTAMP}"
+    mkdir -p "${BACKUP_DIR}"
+
+    echo "=========================================="
+    echo "Iniciando Backup Automatizado: ${TIMESTAMP}"
+    echo "=========================================="
+
+    export PGPASSWORD="${POSTGRES_PASSWORD}"
+
+    # 1. Respaldo de postgres-core (authdb, userdb, transactiondb)
+    CORE_DBS="authdb userdb transactiondb"
+    for DB in ${CORE_DBS}; do
+      echo "[Core] Exportando ${DB} desde postgres-core..."
+      pg_dump -h postgres-core -U postgres -d "${DB}" --clean --if-exists --no-owner --no-privileges | gzip -9 > "${BACKUP_DIR}/core_${DB}_${TIMESTAMP}.sql.gz"
+      echo "[Core] ${DB} completado: $(du -h "${BACKUP_DIR}/core_${DB}_${TIMESTAMP}.sql.gz" | cut -f1)"
+    done
+
+    # 2. Respaldo de postgres-support (notificationdb, workerdb)
+    SUPPORT_DBS="notificationdb workerdb"
+    for DB in ${SUPPORT_DBS}; do
+      echo "[Support] Exportando ${DB} desde postgres-support..."
+      pg_dump -h postgres-support -U postgres -d "${DB}" --clean --if-exists --no-owner --no-privileges | gzip -9 > "${BACKUP_DIR}/support_${DB}_${TIMESTAMP}.sql.gz"
+      echo "[Support] ${DB} completado: $(du -h "${BACKUP_DIR}/support_${DB}_${TIMESTAMP}.sql.gz" | cut -f1)"
+    done
+
+    # 3. Generar Checksums SHA256 para verificación de integridad
+    cd "${BACKUP_DIR}"
+    sha256sum *.sql.gz > checksums.sha256
+    echo "Checksums SHA256 generados exitosamente:"
+    cat checksums.sha256
+
+    # 4. Política de Retención: Eliminar backups con más de 7 días de antigüedad
+    echo "Aplicando política de retención (7 días)..."
+    find /backups -maxdepth 1 -type d -mtime +7 -exec rm -rf {} + 2>/dev/null || true
+
+    echo "=========================================="
+    echo "Backup finalizado exitosamente."
+    echo "=========================================="
+---
+# ------------------------------------------------------------------------------
+# 3. CRONJOB: postgres-backup-cronjob
+# Ejecución periódica programada
+# ------------------------------------------------------------------------------
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: postgres-backup-cronjob
+  namespace: fintech
+  labels:
+    app: postgres-backup
+spec:
+  schedule: "0 2 * * *" # Diario a las 02:00 AM UTC
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: postgres-backup
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: pg-backup
+              image: postgres:16-alpine
+              command: ["/bin/sh", "/scripts/backup.sh"]
+              env:
+                - name: POSTGRES_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: fintech-secrets
+                      key: DB_PASSWORD
+              resources:
+                requests:
+                  memory: "64Mi"
+                  cpu: "50m"
+              volumeMounts:
+                - name: backup-storage
+                  mountPath: /backups
+                - name: script-volume
+                  mountPath: /scripts
+          volumes:
+            - name: backup-storage
+              persistentVolumeClaim:
+                claimName: postgres-backups-pvc
+            - name: script-volume
+              configMap:
+                name: postgres-backup-script
+                defaultMode: 0755

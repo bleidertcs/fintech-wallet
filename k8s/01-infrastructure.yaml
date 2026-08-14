@@ -1,80 +1,85 @@
 # ==============================================================================
 # 01-INFRASTRUCTURE.YAML - INFRAESTRUCTURA CON ESTADO (STATEFULSETS) Y SERVICIOS
-# Despliega MySQL 8.0, Redis 7, Apache Kafka (KRaft) y Maildev en Kubernetes.
-#
-# NOTA ARQUITECTÓNICA DE RECURSOS (Best Practices K8s / K3s):
-# Se definen 'requests' para guiar al Kubernetes Scheduler en la reserva de memoria/CPU.
-# Se omiten 'limits.cpu' para evitar el CFS Bandwidth Throttling (congelamiento de hilos)
-# y permitir a los contenedores aprovechar toda la capacidad ociosa del Host en ráfagas.
+# Despliega PostgreSQL 16 (postgres-core y postgres-support), Redis 7, Apache Kafka (KRaft) y Maildev en Kubernetes.
 # ==============================================================================
 
 # ------------------------------------------------------------------------------
-# 1. STATEFULSET: MySQL 8.0 (Base de Datos Relacional)
+# 1. STATEFULSET: postgres-core (Camino Crítico: authdb, userdb, transactiondb)
 # ------------------------------------------------------------------------------
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: mysql
+  name: postgres-core
   namespace: fintech
   labels:
-    app: mysql
+    app: postgres-core
 spec:
-  serviceName: mysql
+  serviceName: postgres-core
   replicas: 1
   selector:
     matchLabels:
-      app: mysql
+      app: postgres-core
   template:
     metadata:
       labels:
-        app: mysql
+        app: postgres-core
     spec:
       securityContext:
         fsGroup: 999
       containers:
-        - name: mysql
-          image: mysql:8.0
+        - name: postgres
+          image: postgres:16-alpine
           args:
-            - "--innodb_buffer_pool_size=134217728"
-            - "--max_connections=100"
+            - "-c"
+            - "max_connections=150"
+            - "-c"
+            - "shared_buffers=128MB"
+            - "-c"
+            - "work_mem=8MB"
           ports:
-            - containerPort: 3306
-              name: mysql
+            - containerPort: 5432
+              name: postgres
           env:
-            - name: MYSQL_ROOT_PASSWORD
+            - name: POSTGRES_USER
+              value: "postgres"
+            - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: fintech-secrets
                   key: DB_PASSWORD
+            - name: POSTGRES_DB
+              value: "authdb"
+            - name: PGDATA
+              value: "/var/lib/postgresql/data/pgdata"
           resources:
             requests:
               memory: "256Mi"
               cpu: "100m"
           livenessProbe:
             exec:
-              command: ["mysqladmin", "ping", "-h", "localhost"]
+              command: ["pg_isready", "-U", "postgres", "-d", "authdb"]
             initialDelaySeconds: 20
             periodSeconds: 10
             timeoutSeconds: 5
           readinessProbe:
             exec:
-              command: ["mysqladmin", "ping", "-h", "localhost"]
+              command: ["pg_isready", "-U", "postgres", "-d", "authdb"]
             initialDelaySeconds: 10
             periodSeconds: 10
             timeoutSeconds: 5
           volumeMounts:
-            - name: mysql-data
-              mountPath: /var/lib/mysql
-            - name: mysql-init-volume
-              mountPath: /docker-entrypoint-initdb.d/init.sql
-              subPath: init.sql
+            - name: postgres-core-data
+              mountPath: /var/lib/postgresql/data
+            - name: postgres-core-init-volume
+              mountPath: /docker-entrypoint-initdb.d/init-core.sql
+              subPath: init-core.sql
       volumes:
-        - name: mysql-init-volume
+        - name: postgres-core-init-volume
           configMap:
-            name: mysql-init-sql
+            name: postgres-core-init-sql
   volumeClaimTemplates:
     - metadata:
-        name: mysql-data
+        name: postgres-core-data
       spec:
         accessModes: [ "ReadWriteOnce" ]
         storageClassName: "local-path"
@@ -82,20 +87,201 @@ spec:
           requests:
             storage: 5Gi
 ---
-# SERVICIO KUBERNETES: mysql
+# SERVICIO KUBERNETES: postgres-core
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql
+  name: postgres-core
   namespace: fintech
 spec:
   type: ClusterIP
   ports:
-    - port: 3306
-      targetPort: 3306
-      name: mysql
+    - port: 5432
+      targetPort: 5432
+      name: postgres
   selector:
-    app: mysql
+    app: postgres-core
+---
+# ------------------------------------------------------------------------------
+# 1.2. DEPLOYMENT & SERVICE: pgbouncer-core (Connection Pooler en modo Transaction)
+# Multiplexa conexiones para auth-service, user-service y transaction-service
+# ------------------------------------------------------------------------------
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pgbouncer-core
+  namespace: fintech
+  labels:
+    app: pgbouncer-core
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pgbouncer-core
+  template:
+    metadata:
+      labels:
+        app: pgbouncer-core
+    spec:
+      containers:
+        - name: pgbouncer
+          image: edoburu/pgbouncer:latest
+          ports:
+            - containerPort: 6432
+              name: pgbouncer
+          env:
+            - name: LISTEN_PORT
+              value: "6432"
+            - name: DB_HOST
+              value: "postgres-core"
+            - name: DB_PORT
+              value: "5432"
+            - name: DB_USER
+              value: "postgres"
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: fintech-secrets
+                  key: DB_PASSWORD
+            - name: POOL_MODE
+              value: "transaction"
+            - name: MAX_CLIENT_CONN
+              value: "1000"
+            - name: DEFAULT_POOL_SIZE
+              value: "25"
+            - name: RESERVE_POOL_SIZE
+              value: "5"
+            - name: ADMIN_USERS
+              value: "postgres"
+            - name: AUTH_TYPE
+              value: "scram-sha-256"
+            - name: IGNORE_STARTUP_PARAMETERS
+              value: "extra_float_digits,options"
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+          livenessProbe:
+            tcpSocket:
+              port: 6432
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          readinessProbe:
+            tcpSocket:
+              port: 6432
+            initialDelaySeconds: 5
+            periodSeconds: 5
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pgbouncer-core
+  namespace: fintech
+spec:
+  type: ClusterIP
+  ports:
+    - port: 6432
+      targetPort: 6432
+      name: pgbouncer
+  selector:
+    app: pgbouncer-core
+---
+# ------------------------------------------------------------------------------
+# 1.1. STATEFULSET: postgres-support (Servicios de Soporte: notificationdb, workerdb)
+# ------------------------------------------------------------------------------
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres-support
+  namespace: fintech
+  labels:
+    app: postgres-support
+spec:
+  serviceName: postgres-support
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres-support
+  template:
+    metadata:
+      labels:
+        app: postgres-support
+    spec:
+      securityContext:
+        fsGroup: 999
+      containers:
+        - name: postgres
+          image: postgres:16-alpine
+          args:
+            - "-c"
+            - "max_connections=100"
+            - "-c"
+            - "shared_buffers=64MB"
+          ports:
+            - containerPort: 5432
+              name: postgres
+          env:
+            - name: POSTGRES_USER
+              value: "postgres"
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: fintech-secrets
+                  key: DB_PASSWORD
+            - name: POSTGRES_DB
+              value: "notificationdb"
+            - name: PGDATA
+              value: "/var/lib/postgresql/data/pgdata"
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "50m"
+          livenessProbe:
+            exec:
+              command: ["pg_isready", "-U", "postgres", "-d", "notificationdb"]
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            timeoutSeconds: 5
+          readinessProbe:
+            exec:
+              command: ["pg_isready", "-U", "postgres", "-d", "notificationdb"]
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+          volumeMounts:
+            - name: postgres-support-data
+              mountPath: /var/lib/postgresql/data
+            - name: postgres-support-init-volume
+              mountPath: /docker-entrypoint-initdb.d/init-support.sql
+              subPath: init-support.sql
+      volumes:
+        - name: postgres-support-init-volume
+          configMap:
+            name: postgres-support-init-sql
+  volumeClaimTemplates:
+    - metadata:
+        name: postgres-support-data
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        storageClassName: "local-path"
+        resources:
+          requests:
+            storage: 5Gi
+---
+# SERVICIO KUBERNETES: postgres-support
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-support
+  namespace: fintech
+spec:
+  type: ClusterIP
+  ports:
+    - port: 5432
+      targetPort: 5432
+      name: postgres
+  selector:
+    app: postgres-support
 ---
 # ------------------------------------------------------------------------------
 # 2. STATEFULSET: Redis 7 (Caché en Memoria e Idempotencia)

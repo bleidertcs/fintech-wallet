@@ -1,13 +1,16 @@
-import './infrastructure/telemetry/tracing';
+import { startTelemetry, createWinstonLogger } from './infrastructure/telemetry';
+startTelemetry();
+
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { ValidationPipe } from '@nestjs/common';
+import { ValidationPipe, Logger } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { createOtelWinstonLogger } from './infrastructure/logging/otel-winston.logger';
 
 async function bootstrap() {
-  const logger = createOtelWinstonLogger();
-  const app = await NestFactory.create(AppModule, { logger });
+  const app = await NestFactory.create(AppModule, {
+    logger: createWinstonLogger(),
+  });
+  const logger = new Logger('Bootstrap');
 
   app.useGlobalPipes(
     new ValidationPipe({
