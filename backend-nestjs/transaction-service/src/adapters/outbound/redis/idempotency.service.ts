@@ -37,6 +37,47 @@ export class IdempotencyService implements OnModuleInit, OnModuleDestroy {
     this.redisClient?.disconnect();
   }
 
+  async acquireLock(idempotencyKey?: string, userId?: bigint, lockTtlSeconds: number = 60): Promise<boolean> {
+    if (!idempotencyKey || idempotencyKey.trim() === '') {
+      return true;
+    }
+
+    // 1. Check persistent DB record first
+    if (userId) {
+      try {
+        const record = await this.prisma.idempotencyRecord.findUnique({
+          where: {
+            user_key_unique: {
+              userId,
+              key: idempotencyKey,
+            },
+          },
+        });
+        if (record) {
+          return false;
+        }
+      } catch (err: any) {
+        // Fallback to Redis
+      }
+    }
+
+    // 2. Atomic SET NX in Redis
+    try {
+      const result = await this.redisClient.set(
+        this.IDEMPOTENCY_PREFIX + idempotencyKey,
+        'PROCESSING',
+        'EX',
+        lockTtlSeconds,
+        'NX',
+      );
+
+      return result === 'OK';
+    } catch (err: any) {
+      this.logger.warn(`Redis lock fallback: ${err.message}`);
+      return true;
+    }
+  }
+
   async isDuplicateKey(idempotencyKey?: string, userId?: bigint): Promise<boolean> {
     if (!idempotencyKey || idempotencyKey.trim() === '') {
       return false;

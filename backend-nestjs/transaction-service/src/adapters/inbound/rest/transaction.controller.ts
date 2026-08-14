@@ -59,8 +59,9 @@ export class TransactionController {
     @Body() dto: TransferRequestDto,
     @Headers('x-idempotency-key') idempotencyKey?: string,
   ): Promise<TransferResponseDto> {
+    const finalIdempotencyKey = idempotencyKey || dto.idempotencyKey;
     const result = await this.commandBus.execute(
-      new TransferMoneyCommand(dto.fromUserId, dto.toUserId, dto.amount, idempotencyKey),
+      new TransferMoneyCommand(dto.fromUserId, dto.toUserId, dto.amount, finalIdempotencyKey),
     );
 
     return {

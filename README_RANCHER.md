@@ -135,18 +135,24 @@ powershell -ExecutionPolicy Bypass -File ./scripts/test-services-integration.ps1
 ```
 
 ### 3. Prueba de Concurrencia e Idempotencia (transaction-service)
-Dispara peticiones HTTP concurrentes con la misma clave `X-Idempotency-Key` a `POST /transactions/transfer` para comprobar que **solo 1 transacción es procesada (HTTP 200)** y las solicitudes duplicadas son **bloqueadas (HTTP 400)**, garantizando que el saldo no sufra cobros dobles:
+Dispara peticiones HTTP simultáneas en paralelo (con hilos asíncronos reales) con la misma clave `X-Idempotency-Key` a `POST /transactions/transfer` para comprobar que **solo 1 transacción es procesada (HTTP 200)** y las solicitudes duplicadas son **bloqueadas atómicamente por Redis (HTTP 400)**:
 ```powershell
-powershell -ExecutionPolicy Bypass -File ./scripts/concurrency-test.ps1
+powershell -ExecutionPolicy Bypass -File ./scripts/concurrency-test.ps1 -Mode Idempotency -Concurrency 10
 ```
 
-### 4. Prueba de Carga y Rendimiento (Performance Test)
+### 4. Benchmark de Concurrencia con K6 (run-k6.ps1)
+Ejecuta la prueba de carga de 50 Virtual Users concurrentes con `k6` (si tienes el binario local lo usa; de lo contrario, levanta automáticamente la imagen oficial `grafana/k6` en un contenedor con `nerdctl` o `docker`):
+```powershell
+powershell -ExecutionPolicy Bypass -File ./scripts/run-k6.ps1
+```
+
+### 5. Prueba de Carga y Rendimiento (Performance Test)
 Mide el Throughput (RPS), latencias P95/P99 y tasa de errores HTTP mediante `k6` o el motor nativo de benchmark:
 ```powershell
 powershell -ExecutionPolicy Bypass -File ./scripts/performance-test.ps1
 ```
 
-### 5. Respaldo y Recuperación de Desastres (DevOps Backup & DR)
+### 6. Respaldo y Recuperación de Desastres (DevOps Backup & DR)
 Ejecuta una copia de seguridad en caliente de las 5 bases de datos de PostgreSQL, genera compresión gzip `.sql.gz` y valida sumas de verificación criptográficas SHA-256:
 ```powershell
 # Ejecutar backup manual contra el clúster de Kubernetes (k3s / Rancher Desktop)

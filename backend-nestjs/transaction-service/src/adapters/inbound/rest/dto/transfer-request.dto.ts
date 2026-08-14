@@ -1,5 +1,5 @@
-import { ApiProperty } from '@nestjs/swagger';
-import { IsNumber, IsPositive } from 'class-validator';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { IsNumber, IsOptional, IsPositive, IsString } from 'class-validator';
 
 export class TransferRequestDto {
   @ApiProperty({ description: 'ID del usuario emisor', example: 1 })
@@ -14,4 +14,9 @@ export class TransferRequestDto {
   @IsNumber()
   @IsPositive()
   amount: number;
+
+  @ApiPropertyOptional({ description: 'Clave única para garantizar la idempotencia de la transferencia' })
+  @IsOptional()
+  @IsString()
+  idempotencyKey?: string;
 }

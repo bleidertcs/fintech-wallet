@@ -620,7 +620,7 @@
     "semantic_hash": ""
   },
   "ARQUITECTURA.md": {
-    "mtime": 1786731180.8440628,
+    "mtime": 1786731626.7899778,
     "ast_hash": "f60f3152a1f72817d76dfcc6ad747805",
     "semantic_hash": ""
   },
@@ -1150,8 +1150,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/transaction-service/src/adapters/inbound/rest/dto/transfer-request.dto.ts": {
-    "mtime": 1786025520.748153,
-    "ast_hash": "cf7d8048c2250f7e52d67dc8e53eeed1",
+    "mtime": 1786733960.6697905,
+    "ast_hash": "4e714ae5f17555a19c019a829113cb4d",
     "semantic_hash": ""
   },
   "backend-nestjs/transaction-service/src/adapters/inbound/rest/dto/transfer-response.dto.ts": {
@@ -1170,8 +1170,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/transaction-service/src/adapters/inbound/rest/transaction.controller.ts": {
-    "mtime": 1786559158.782724,
-    "ast_hash": "a36899dcf39d697451ef69033b012b43",
+    "mtime": 1786733966.913388,
+    "ast_hash": "7c12641f9b2be99265f5c4de26449926",
     "semantic_hash": ""
   },
   "backend-nestjs/transaction-service/src/adapters/outbound/grpc/user-grpc-client.module.ts": {
@@ -1210,8 +1210,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/transaction-service/src/adapters/outbound/redis/idempotency.service.ts": {
-    "mtime": 1786631019.2321885,
-    "ast_hash": "c727c1bbd3c75f5935e0f63b09bb6c20",
+    "mtime": 1786734023.5680788,
+    "ast_hash": "1facfe90f71d425a8fcc443de3871ac4",
     "semantic_hash": ""
   },
   "backend-nestjs/transaction-service/src/adapters/outbound/redis/redis.module.ts": {
@@ -1340,13 +1340,13 @@
     "semantic_hash": ""
   },
   "backend-nestjs/user-service/src/adapters/inbound/rest/dto/update-balance.dto.ts": {
-    "mtime": 1785959040.3497274,
-    "ast_hash": "d8de28b35fe49a4bb2bd441af4e6e2f1",
+    "mtime": 1786732114.6747906,
+    "ast_hash": "682cfb6ed99479a8a27badc0c81e9437",
     "semantic_hash": ""
   },
   "backend-nestjs/user-service/src/adapters/inbound/rest/user.controller.ts": {
-    "mtime": 1786545246.949483,
-    "ast_hash": "d91afe6f8d2baeac605cffed82b7fc01",
+    "mtime": 1786731715.4762719,
+    "ast_hash": "e0042adecb65aa15b26e49e6a29a35dd",
     "semantic_hash": ""
   },
   "backend-nestjs/user-service/src/adapters/outbound/persistence/prisma-user.repository.ts": {
@@ -2125,8 +2125,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/transaction-service/src/application/commands/transfer-money.handler.ts": {
-    "mtime": 1786630994.991946,
-    "ast_hash": "065148bf7c5395052fe602a3a7280297",
+    "mtime": 1786733982.0350542,
+    "ast_hash": "d125111953b480fb5bd924189e18ddd5",
     "semantic_hash": ""
   },
   "backend-nestjs/transaction-service/src/application/queries/get-transaction-history.handler.ts": {
@@ -2195,8 +2195,8 @@
     "semantic_hash": ""
   },
   "scripts/concurrency-test.ps1": {
-    "mtime": 1786635860.4786708,
-    "ast_hash": "3808419074e19724a02a125130a4390e",
+    "mtime": 1786734253.1236885,
+    "ast_hash": "b6118241ecf773e0f599e6962527e97a",
     "semantic_hash": ""
   },
   "scripts/e2e-test-suite/full-ecosystem.e2e-spec.ts": {
@@ -2230,8 +2230,8 @@
     "semantic_hash": ""
   },
   "scripts/performance-test.ps1": {
-    "mtime": 1786635632.2582257,
-    "ast_hash": "33660de803ba6d756c3aae5b72306e6f",
+    "mtime": 1786733542.4260256,
+    "ast_hash": "de4143ca3e510f3094738e8b096ffb59",
     "semantic_hash": ""
   },
   "scripts/smoke-test.ps1": {
@@ -2340,8 +2340,8 @@
     "semantic_hash": ""
   },
   "k8s/05-ingress.yaml": {
-    "mtime": 1786645928.6357865,
-    "ast_hash": "4c9ef63730ebc9adbc60d1426616a5e5",
+    "mtime": 1786731835.6037676,
+    "ast_hash": "bbdaa3f16dd4c7d835eee27095064035",
     "semantic_hash": ""
   },
   "k8s/06-networkpolicy.yaml": {
@@ -2530,8 +2530,13 @@
     "semantic_hash": ""
   },
   "docs/database.md": {
-    "mtime": 1786731180.8915386,
+    "mtime": 1786731626.790974,
     "ast_hash": "941008fb4ea4c36b1b99d9c563bef230",
+    "semantic_hash": ""
+  },
+  "scripts/run-k6.ps1": {
+    "mtime": 1786734269.0596917,
+    "ast_hash": "d87e4a6c84adf316d5e11923396856ee",
     "semantic_hash": ""
   }
 }

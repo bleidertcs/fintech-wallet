@@ -19,7 +19,7 @@ if ($k6Path) {
     Write-Host "[INFO] k6 no detectado en PATH. Ejecutando test de carga nativo con PowerShell..." -ForegroundColor Yellow
     
     $targetUrl = "http://localhost/users/health"
-    $iterations = 100
+    $iterations = 10000
     $startTime = Get-Date
 
     Write-Host "Enviando $iterations peticiones HTTP a $targetUrl..." -ForegroundColor Gray

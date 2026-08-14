@@ -41,22 +41,28 @@ export class TransferMoneyCommandHandler implements ICommandHandler<TransferMone
       throw new BadRequestException('No puedes realizar una transferencia a ti mismo');
     }
 
-    if (idempotencyKey && (await this.idempotencyService.isDuplicateKey(idempotencyKey, senderId.toBigInt()))) {
-      this.logger.warn(`Solicitud duplicada para idempotencyKey=${idempotencyKey}`);
-      throw new BadRequestException('Solicitud duplicada procesada previamente');
+    if (idempotencyKey) {
+      const lockAcquired = await this.idempotencyService.acquireLock(idempotencyKey, senderId.toBigInt());
+      if (!lockAcquired) {
+        this.logger.warn(`Solicitud concurrente o duplicada para idempotencyKey=${idempotencyKey}`);
+        throw new BadRequestException('Solicitud duplicada procesada previamente');
+      }
     }
 
     const senderProfile = await this.userServiceClient.getUser(senderId.toNumber());
     if (!senderProfile) {
+      if (idempotencyKey) await this.idempotencyService.removeKey(idempotencyKey, senderId.toBigInt());
       throw new NotFoundException(`Usuario origen id=${fromUserId} no encontrado`);
     }
 
     if (senderProfile.balance < money.amount) {
+      if (idempotencyKey) await this.idempotencyService.removeKey(idempotencyKey, senderId.toBigInt());
       throw new BadRequestException(`Saldo insuficiente (${senderProfile.balance} ARS)`);
     }
 
     const receiverProfile = await this.userServiceClient.getUser(receiverId.toNumber());
     if (!receiverProfile) {
+      if (idempotencyKey) await this.idempotencyService.removeKey(idempotencyKey, senderId.toBigInt());
       throw new NotFoundException(`Usuario destino id=${toUserId} no encontrado`);
     }
 

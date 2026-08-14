@@ -112,7 +112,7 @@ Para profundizar en la arquitectura y patrones implementados, consulta los sigui
 
 ---
 
-## 🧪 Ejecución de la Suite de Pruebas (`scripts/`)
+## 🧪 Ejecución de la Suite de Pruebas y Operaciones (`scripts/`)
 
 ```powershell
 # 1. Prueba de Humo y Sanidad General (Validación de Pods, Ingress, BD, Redis y Swagger UIs)
@@ -121,11 +121,18 @@ Para profundizar en la arquitectura y patrones implementados, consulta los sigui
 # 2. Prueba E2E de Integración de Servicios (Registro -> Login -> Perfil -> Saldo)
 .\scripts\test-services-integration.ps1
 
-# 3. Prueba de Concurrencia e Idempotencia (5 solicitudes simultáneas con X-Idempotency-Key)
-.\scripts\concurrency-test.ps1
+# 3. Prueba de Concurrencia e Idempotencia (10 solicitudes paralelas multihilo con X-Idempotency-Key)
+.\scripts\concurrency-test.ps1 -Mode Idempotency -Concurrency 10
 
-# 4. Benchmark de Rendimiento y Latencias P95/P99
+# 4. Benchmark de Concurrencia y Carga con K6 (Local o en contenedor nerdctl/docker)
+.\scripts\run-k6.ps1
+
+# 5. Benchmark de Rendimiento y Latencias P95/P99
 .\scripts\performance-test.ps1
+
+# 6. Respaldo Manual y Recuperación de Desastres (DevOps Backup & DR)
+.\scripts\backup-databases.ps1 -Target k8s
+.\scripts\restore-database.ps1 -Target k8s -DatabaseName transactiondb -BackupFile ./backups/...
 ```
 
 ---
