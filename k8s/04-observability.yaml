@@ -249,7 +249,7 @@ data:
       pipelines:
         traces:
           receivers: [otlp]
-          processors: [k8sattributes, memory_limiter, batch]
+          processors: [signozspanmetrics, k8sattributes, memory_limiter, batch]
           exporters: [clickhousetraces]
         metrics:
           receivers: [otlp, kubeletstats, hostmetrics, kafkametrics, redis, k8s_cluster]

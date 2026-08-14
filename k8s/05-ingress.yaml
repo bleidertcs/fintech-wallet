@@ -37,7 +37,6 @@ spec:
 # 3. MIDDLEWARE TRAEFIK: auth-ratelimit
 # Control de flujo de tráfico (Rate Limiting) para prevenir ataques de fuerza bruta
 # Permite un promedio de 100 req/s con ráfagas de hasta 50 solicitudes
-# ------------------------------------------------------------------------------
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
@@ -49,7 +48,45 @@ spec:
     burst: 50    # Ráfaga máxima permitida
 ---
 # ------------------------------------------------------------------------------
-# 4. INGRESS RECURSOS: Enrutamiento por servicio y Swagger Docs
+# 4. MIDDLEWARE TRAEFIK: strip-otlp-prefix
+# Remueve el prefijo '/otlp' para llamadas de telemetría hacia otel-collector:4318
+# ------------------------------------------------------------------------------
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: strip-otlp-prefix
+  namespace: fintech
+spec:
+  stripPrefixRegex:
+    regex:
+      - "^/otlp"
+---
+# ------------------------------------------------------------------------------
+# 5. INGRESS OTLP: otlp-ingress (Browser Web Telemetry a OpenTelemetry Collector)
+# ------------------------------------------------------------------------------
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: otlp-ingress
+  namespace: fintech
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "false"
+    traefik.ingress.kubernetes.io/router.middlewares: fintech-strip-otlp-prefix@kubernetescrd
+spec:
+  ingressClassName: traefik
+  rules:
+    - http:
+        paths:
+          - path: /otlp
+            pathType: Prefix
+            backend:
+              service:
+                name: otel-collector
+                port:
+                  number: 4318
+---
+# ------------------------------------------------------------------------------
+# 6. INGRESS RECURSOS: Enrutamiento por servicio y Swagger Docs
 # ------------------------------------------------------------------------------
 apiVersion: networking.k8s.io/v1
 kind: Ingress

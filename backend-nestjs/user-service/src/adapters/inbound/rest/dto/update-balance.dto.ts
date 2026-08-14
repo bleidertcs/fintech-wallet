@@ -1,9 +1,11 @@
-import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsNumber } from 'class-validator';
+import { ApiPropertyOptional } from '@nestjs/swagger';
+import { IsNumber, IsOptional } from 'class-validator';
+import { Type } from 'class-transformer';
 
 export class UpdateBalanceDto {
-  @ApiProperty({ example: 500.0 })
+  @ApiPropertyOptional({ example: 500.0, description: 'Monto a actualizar/recargar' })
+  @IsOptional()
+  @Type(() => Number)
   @IsNumber()
-  @IsNotEmpty()
-  amount: number;
+  amount?: number;
 }

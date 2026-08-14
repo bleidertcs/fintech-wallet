@@ -1,7 +1,7 @@
 # Graph Report - fintech-wallet  (2026-08-14)
 
 ## Corpus Check
-- 461 files · ~194,837 words
+- 461 files · ~194,865 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `66a07b77`
+- Built from commit: `9687528d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -419,6 +419,7 @@
 - reflect-metadata
 - rxjs
 - winston
+- @opentelemetry/sdk-trace-base
 - axios
 - supertest
 - @swc/cli
@@ -531,7 +532,6 @@
 - @opentelemetry/instrumentation-express
 - @opentelemetry/resources
 - reflect-metadata
-- @trpc/client
 - zod
 - jest
 - source-map-support
@@ -601,7 +601,7 @@ Nodes (10): BusinessException, GlobalExceptionHandler, ResponseEntity, Slf4j, Re
 
 ### Community 6 - "dependencies"
 Cohesion: 0.10
-Nodes (21): file-saver, dependencies, file-saver, jspdf, jspdf-autotable, @opentelemetry/api, @opentelemetry/instrumentation, @opentelemetry/resources (+13 more)
+Nodes (21): file-saver, dependencies, axios, file-saver, jspdf, jspdf-autotable, @opentelemetry/api, @opentelemetry/instrumentation (+13 more)
 
 ### Community 7 - "Writing ClickHouse Queries for SigNoz Dashboards"
 Cohesion: 0.15
@@ -753,7 +753,7 @@ Nodes (9): ConditionalOnModuleEnabled, Override, OnModuleEnabledCondition, Annot
 
 ### Community 50 - "MoneyRequestDto"
 Cohesion: 0.10
-Nodes (21): devDependencies, eslint-config-prettier, eslint-plugin-prettier, prettier, supertest, @swc/core, ts-jest, ts-node (+13 more)
+Nodes (21): devDependencies, eslint, eslint-config-prettier, eslint-plugin-prettier, prettier, supertest, ts-jest, ts-node (+13 more)
 
 ### Community 51 - "Accessibility (a11y)"
 Cohesion: 0.20
@@ -937,7 +937,7 @@ Nodes (23): 1. Agregar Deployment y Service en [`k8s/02-microservices.yaml`](fil
 
 ### Community 152 - "swarm-init.sh"
 Cohesion: 0.09
-Nodes (23): devDependencies, eslint-plugin-prettier, globals, jest, @nestjs/cli, prettier, source-map-support, @swc/cli (+15 more)
+Nodes (23): devDependencies, eslint, eslint-plugin-prettier, globals, jest, @nestjs/cli, prettier, source-map-support (+15 more)
 
 ### Community 153 - "Microservicios"
 Cohesion: 0.50
@@ -949,7 +949,7 @@ Nodes (4): Integration Tests, Test Naming, Testing Guidelines, Unit Tests
 
 ### Community 155 - "Funcionalidades"
 Cohesion: 0.10
-Nodes (21): devDependencies, eslint, eslint-config-prettier, @eslint/eslintrc, globals, @nestjs/schematics, prisma, source-map-support (+13 more)
+Nodes (21): devDependencies, eslint, eslint-config-prettier, @eslint/eslintrc, eslint-plugin-prettier, globals, @nestjs/schematics, prisma (+13 more)
 
 ### Community 156 - "Helm Charts"
 Cohesion: 0.08
@@ -985,7 +985,7 @@ Nodes (12): AppModule, Module, NotificationApplicationModule, Module, createWins
 
 ### Community 170 - "dependencies"
 Cohesion: 0.22
-Nodes (9): dependencies, class-validator, ioredis, @nestjs/microservices, @opentelemetry/exporter-metrics-otlp-http, class-validator, ioredis, @nestjs/microservices (+1 more)
+Nodes (9): dependencies, ioredis, @nestjs/microservices, @opentelemetry/exporter-metrics-otlp-http, @trpc/client, ioredis, @nestjs/microservices, @opentelemetry/exporter-metrics-otlp-http (+1 more)
 
 ### Community 171 - "Transaction Service (NestJS) 💸"
 Cohesion: 0.10
@@ -1305,7 +1305,7 @@ Nodes (13): Module, UserGrpcClientModule, Injectable, UserServiceGrpcAdapter, Us
 
 ### Community 327 - "nodemailer"
 Cohesion: 0.18
-Nodes (11): dependencies, class-transformer, nest-winston, @nestjs/common, @opentelemetry/exporter-logs-otlp-http, @trpc/client, class-transformer, nest-winston (+3 more)
+Nodes (11): dependencies, class-transformer, class-validator, @nestjs/common, @opentelemetry/exporter-logs-otlp-http, @trpc/client, class-transformer, class-validator (+3 more)
 
 ### Community 329 - "@opentelemetry/exporter-logs-otlp-http"
 Cohesion: 0.22
@@ -1365,7 +1365,7 @@ Nodes (7): 1. Rol de Redis 7 en la Arquitectura, 2. Idempotencia Durable (Redis 
 
 ### Community 371 - "@nestjs/config"
 Cohesion: 0.22
-Nodes (9): dependencies, class-transformer, rxjs, @trpc/client, @trpc/server, class-transformer, rxjs, @trpc/client (+1 more)
+Nodes (9): dependencies, kafkajs, rxjs, @trpc/client, @trpc/server, kafkajs, rxjs, @trpc/client (+1 more)
 
 ### Community 373 - "@nestjs/platform-express"
 Cohesion: 0.23

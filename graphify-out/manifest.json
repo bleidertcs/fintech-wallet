@@ -620,7 +620,7 @@
     "semantic_hash": ""
   },
   "ARQUITECTURA.md": {
-    "mtime": 1786730752.5898468,
+    "mtime": 1786731626.7899778,
     "ast_hash": "f60f3152a1f72817d76dfcc6ad747805",
     "semantic_hash": ""
   },
@@ -1340,13 +1340,13 @@
     "semantic_hash": ""
   },
   "backend-nestjs/user-service/src/adapters/inbound/rest/dto/update-balance.dto.ts": {
-    "mtime": 1785959040.3497274,
-    "ast_hash": "d8de28b35fe49a4bb2bd441af4e6e2f1",
+    "mtime": 1786732114.6747906,
+    "ast_hash": "682cfb6ed99479a8a27badc0c81e9437",
     "semantic_hash": ""
   },
   "backend-nestjs/user-service/src/adapters/inbound/rest/user.controller.ts": {
-    "mtime": 1786545246.949483,
-    "ast_hash": "d91afe6f8d2baeac605cffed82b7fc01",
+    "mtime": 1786731715.4762719,
+    "ast_hash": "e0042adecb65aa15b26e49e6a29a35dd",
     "semantic_hash": ""
   },
   "backend-nestjs/user-service/src/adapters/outbound/persistence/prisma-user.repository.ts": {
@@ -2335,13 +2335,13 @@
     "semantic_hash": ""
   },
   "k8s/04-observability.yaml": {
-    "mtime": 1786720064.7442205,
-    "ast_hash": "ee9ad6cb456cc9475bd1a7b7294370d2",
+    "mtime": 1786731235.3571343,
+    "ast_hash": "56c5081fccdd4522c2176ed087c49720",
     "semantic_hash": ""
   },
   "k8s/05-ingress.yaml": {
-    "mtime": 1786645928.6357865,
-    "ast_hash": "4c9ef63730ebc9adbc60d1426616a5e5",
+    "mtime": 1786731835.6037676,
+    "ast_hash": "bbdaa3f16dd4c7d835eee27095064035",
     "semantic_hash": ""
   },
   "k8s/06-networkpolicy.yaml": {
@@ -2530,7 +2530,7 @@
     "semantic_hash": ""
   },
   "docs/database.md": {
-    "mtime": 1786730766.3359613,
+    "mtime": 1786731626.790974,
     "ast_hash": "941008fb4ea4c36b1b99d9c563bef230",
     "semantic_hash": ""
   }
