@@ -109,11 +109,11 @@ graph TD
     MailSystem["📧 Servidor SMTP / MailDev<br>[External System]<br>Envío y entrega de correos de confirmación y alertas 2FA"]
     ObservabilitySystem["📊 SigNoz & ClickHouse APM<br>[External Platform]<br>Ingesta OTLP, visualización de trazas W3C y logs de auditoría"]
 
-    User -->|Consulta saldo y efectúa transferencias [HTTPS]| FintechSystem
-    Admin -->|Inspecciona trazas, rendimiento y seguridad [HTTPS]| ObservabilitySystem
-    Admin -->|Descarga extractos bancarios de auditoría [HTTPS]| FintechSystem
-    FintechSystem -->|Envía notificaciones de transacciones [SMTP]| MailSystem
-    FintechSystem -->|Exporta telemetría distribuida OTLP [gRPC / HTTP]| ObservabilitySystem
+    User -->|"Consulta saldo y efectúa transferencias (HTTPS)"| FintechSystem
+    Admin -->|"Inspecciona trazas, rendimiento y seguridad (HTTPS)"| ObservabilitySystem
+    Admin -->|"Descarga extractos bancarios de auditoría (HTTPS)"| FintechSystem
+    FintechSystem -->|"Envía notificaciones de transacciones (SMTP)"| MailSystem
+    FintechSystem -->|"Exporta telemetría distribuida OTLP (gRPC / HTTP)"| ObservabilitySystem
 ```
 
 ---
@@ -142,48 +142,52 @@ graph TD
         end
 
         subgraph DataStores ["Persistencia & Mensajería"]
-            RedisStore["Redis 7 Server<br>[Container: StatefulSet]<br>Caché L2, Idempotency TTL y Token Blacklist"]
-            KafkaBroker["Apache Kafka KRaft<br>[Container: StatefulSet]<br>Bus de eventos distribuidos de alta velocidad"]
-            MySQLStore[("MySQL 8.0 Database<br>[Container: StatefulSet]<br>Esquemas: authdb, userdb, transactiondb, notificationdb, workerdb")]
-            MaildevApp["MailDev 2.1.0<br>[Container: Deployment]<br>Servidor SMTP mock y Web UI de correos"]
+            PgBouncerApp["PgBouncer Core<br>[Container: Deployment :6432]<br>Pooler en modo Transaction"]
+            PostgresCoreApp[("Postgres Core DB<br>[Container: StatefulSet :5432]<br>authdb, userdb, transactiondb")]
+            PostgresSupportApp[("Postgres Support DB<br>[Container: StatefulSet :5433]<br>notificationdb, workerdb")]
+            RedisStore["Redis 7 Server<br>[Container: StatefulSet :6379]<br>Caché L2, Idempotency TTL y Token Blacklist"]
+            KafkaBroker["Apache Kafka KRaft<br>[Container: StatefulSet :29092]<br>Bus de eventos distribuidos de alta velocidad"]
+            MaildevApp["MailDev 2.1.0<br>[Container: Deployment :1080]<br>Servidor SMTP mock y Web UI de correos"]
         end
 
         subgraph APM ["Suite de Observabilidad"]
-            OTelApp["OpenTelemetry Collector<br>[Container: Deployment]<br>Pipeline de recolección de trazas y logs"]
-            CHApp[("ClickHouse DB 25.12<br>[Container: StatefulSet]<br>Almacén columnar de telemetría")]
-            SigNozApp["SigNoz APM Dashboard<br>[Container: Deployment]<br>UI web de monitoreo y alertas"]
+            OTelApp["OpenTelemetry Collector<br>[Container: Deployment :4317/:4318]<br>Pipeline de recolección de trazas y logs"]
+            CHApp[("ClickHouse DB 25.12<br>[Container: StatefulSet :9000]<br>Almacén columnar de telemetría")]
+            SigNozApp["SigNoz APM Dashboard<br>[Container: Deployment :30301]<br>UI web de monitoreo y alertas"]
         end
     end
 
-    User -->|Interactúa con la UI| SPA
-    SPA -->|Peticiones HTTP/JSON [Puerto 80/443]| Ingress
-    Ingress -->|Ruteo /auth| AuthApp
-    Ingress -->|Ruteo /users| UserApp
-    Ingress -->|Ruteo /transactions| TxApp
-    Ingress -->|Ruteo /notifications| NotifApp
-    Ingress -->|Ruteo /worker| WorkerApp
-    Ingress -->|Ruteo /maildev| MaildevApp
+    User -->|"Interactúa con la UI"| SPA
+    SPA -->|"Peticiones HTTP/JSON (Puerto 80/443)"| Ingress
+    Ingress -->|"Ruteo /auth"| AuthApp
+    Ingress -->|"Ruteo /users"| UserApp
+    Ingress -->|"Ruteo /transactions"| TxApp
+    Ingress -->|"Ruteo /notifications"| NotifApp
+    Ingress -->|"Ruteo /worker"| WorkerApp
+    Ingress -->|"Ruteo /maildev"| MaildevApp
 
-    TxApp -.->|tRPC Sync RPC| UserApp
-    NotifApp -.->|tRPC Sync RPC| UserApp
+    TxApp -.->|"tRPC Sync RPC"| UserApp
+    NotifApp -.->|"tRPC Sync RPC"| UserApp
 
-    AuthApp --> MySQLStore
-    UserApp --> MySQLStore
-    TxApp --> MySQLStore
-    NotifApp --> MySQLStore
-    WorkerApp --> MySQLStore
+    AuthApp -->|"authdb"| PgBouncerApp
+    UserApp -->|"userdb"| PgBouncerApp
+    TxApp -->|"transactiondb"| PgBouncerApp
+    PgBouncerApp --> PostgresCoreApp
+
+    NotifApp -->|"notificationdb"| PostgresSupportApp
+    WorkerApp -->|"workerdb"| PostgresSupportApp
 
     AuthApp -.-> RedisStore
     UserApp -.-> RedisStore
     TxApp -.-> RedisStore
 
-    TxApp -->|Publica eventos| KafkaBroker
-    KafkaBroker -->|Consume eventos| NotifApp
-    KafkaBroker -->|Consume eventos & DLQ| WorkerApp
+    TxApp -->|"Publica eventos"| KafkaBroker
+    KafkaBroker -->|"Consume eventos"| NotifApp
+    KafkaBroker -->|"Consume eventos & DLQ"| WorkerApp
 
-    NotifApp -->|Envía correos SMTP :1025| MaildevApp
+    NotifApp -->|"Envía correos SMTP :1025"| MaildevApp
 
-    AuthApp & UserApp & TxApp & NotifApp & WorkerApp -.->|Exporta OTLP :4317/:4318| OTelApp
+    AuthApp & UserApp & TxApp & NotifApp & WorkerApp -.->|"Exporta OTLP :4317/:4318"| OTelApp
     OTelApp --> CHApp
     CHApp --> SigNozApp
 ```
@@ -458,7 +462,9 @@ graph TD
         end
 
         subgraph InfraTier ["Capa de Datos y Middleware"]
-            MySQLPod[("MySQL 8.0 Pod (:3306)")]
+            PgBouncerPod["PgBouncer Core Pod (:6432)"]
+            PostgresCorePod[("Postgres Core Pod (:5432)")]
+            PostgresSupportPod[("Postgres Support Pod (:5433)")]
             RedisPod["Redis 7 Pod (:6379)"]
             KafkaPod["Kafka Pod (:29092)"]
             MaildevPod["MailDev Pod (:1025 / :1080)"]
@@ -466,58 +472,192 @@ graph TD
         end
     end
 
-    TraefikPod -->|Ingress Permitido HTTP| FrontendPod
-    TraefikPod -->|Ingress Permitido HTTP| AuthPod
-    TraefikPod -->|Ingress Permitido HTTP| UserPod
-    TraefikPod -->|Ingress Permitido HTTP| TxPod
-    TraefikPod -->|Ingress Permitido HTTP| NotifPod
-    TraefikPod -->|Ingress Permitido HTTP| WorkerPod
-    TraefikPod -->|Ingress Permitido HTTP| MaildevPod
+    TraefikPod -->|"Ingress Permitido HTTP"| FrontendPod
+    TraefikPod -->|"Ingress Permitido HTTP"| AuthPod
+    TraefikPod -->|"Ingress Permitido HTTP"| UserPod
+    TraefikPod -->|"Ingress Permitido HTTP"| TxPod
+    TraefikPod -->|"Ingress Permitido HTTP"| NotifPod
+    TraefikPod -->|"Ingress Permitido HTTP"| WorkerPod
+    TraefikPod -->|"Ingress Permitido HTTP"| MaildevPod
 
     %% Inter-microservice
-    TxPod -->|tRPC :3002| UserPod
-    NotifPod -->|tRPC :3002| UserPod
+    TxPod -->|"tRPC :8082"| UserPod
+    NotifPod -->|"tRPC :8082"| UserPod
 
     %% Microservices to Data
-    AuthPod & UserPod & TxPod & NotifPod & WorkerPod -->|TCP :3306| MySQLPod
-    AuthPod & UserPod & TxPod -->|TCP :6379| RedisPod
-    TxPod & NotifPod & WorkerPod -->|TCP :29092| KafkaPod
-    NotifPod -->|TCP :1025| MaildevPod
-    AuthPod & UserPod & TxPod & NotifPod & WorkerPod -->|gRPC :4317 / HTTP :4318| OTelPod
+    AuthPod & UserPod & TxPod -->|"TCP :6432"| PgBouncerPod
+    PgBouncerPod -->|"TCP :5432"| PostgresCorePod
+    NotifPod & WorkerPod -->|"TCP :5433"| PostgresSupportPod
+    AuthPod & UserPod & TxPod -->|"TCP :6379"| RedisPod
+    TxPod & NotifPod & WorkerPod -->|"TCP :29092"| KafkaPod
+    NotifPod -->|"TCP :1025"| MaildevPod
+    AuthPod & UserPod & TxPod & NotifPod & WorkerPod -->|"gRPC :4317 / HTTP :4318"| OTelPod
 ```
 
 ### 7.1 Reglas de Aislamiento de Tráfico
 
 1. **Aislamiento Ingress (Entrada)**:
    - Los microservicios backend **solo aceptan tráfico HTTP/tRPC** proveniente del Ingress Controller Traefik o de Pods autorizados del mismo namespace `fintech`.
-2. **Aislamiento de la Base de Datos (MySQL / Redis / Kafka)**:
-   - No poseen puertos expuestos a internet ni NodePorts públicos. Únicamente son accesibles mediante DNS interno del clúster (`mysql.fintech.svc.cluster.local`, `redis.fintech.svc.cluster.local`, `kafka.fintech.svc.cluster.local`).
+2. **Aislamiento de la Base de Datos (PostgreSQL / PgBouncer / Redis / Kafka)**:
+   - No poseen puertos expuestos a internet ni NodePorts públicos. Únicamente son accesibles mediante DNS interno del clúster (`pgbouncer-core.fintech.svc.cluster.local`, `postgres-core.fintech.svc.cluster.local`, `postgres-support.fintech.svc.cluster.local`, `redis.fintech.svc.cluster.local`, `kafka.fintech.svc.cluster.local`).
 3. **Aislamiento Egress (Salida)**:
-   - Los microservicios solo pueden establecer conexiones salientes hacia los puertos estrictamente necesarios: MySQL (`3306`), Redis (`6379`), Kafka (`29092`), MailDev (`1025`), OpenTelemetry Collector (`4317/4318`) y tRPC (`3002`).
+   - Los microservicios solo pueden establecer conexiones salientes hacia los puertos estrictamente necesarios: PgBouncer (`6432`), PostgreSQL Support (`5433`), Redis (`6379`), Kafka (`29092`), MailDev (`1025`), OpenTelemetry Collector (`4317/4318`) y tRPC (`8082`).
 
 ---
 
-## 8. Diseño de Bases de Datos (MySQL 8.0)
+## 8. Modelado de Datos y Relaciones entre Bases de Datos (ERD & Data Architecture) 🗄️📊
 
-El sistema implementa **Database-per-Service** con 5 esquemas independientes en MySQL 8.0:
+El sistema implementa el principio **Database-per-Service** distribuido en **2 instancias físicas independientes de PostgreSQL 16**:
+1. **`postgres-core`** (Puerto 5432, protegido por **`pgbouncer-core:6432`**): Aloja las bases de datos transaccionales del camino crítico de dinero (`authdb`, `userdb`, `transactiondb`).
+2. **`postgres-support`** (Puerto 5433 / 5432 interno): Aloja los servicios auxiliares asíncronos (`notificationdb`, `workerdb`), protegiendo el motor transaccional de bloqueos o sobrecarga por consultas pesadas.
 
-```text
-MySQL 8.0 (:3306)
-├── authdb
-│   └── users (id, email, password, role, is_active, two_factor_secret, two_factor_enabled, created_at, updated_at)
-├── userdb
-│   └── user_profiles (id, user_id, email, name, balance, daily_limit, currency, created_at, updated_at)
-├── transactiondb
-│   ├── transactions (id, from_user_id, to_user_id, amount, status, created_at)
-│   ├── money_requests (id, requester_id, target_id, amount, message, status, created_at)
-│   ├── outbox_events (id, aggregate_type, aggregate_id, event_type, payload, status, created_at, processed_at)
-│   └── idempotency_records (id, idempotency_key, user_id, response, created_at, expires_at)
-├── notificationdb
-│   └── notifications (id, user_id, type, title, message, is_read, metadata, created_at)
-└── workerdb
-    ├── statement_jobs (id, user_id, status, file_path, start_date, end_date, created_at, completed_at)
-    └── audit_logs (id, event_type, aggregate_id, user_id, payload, ip_address, created_at)
+### 8.1 Diagrama Entidad-Relación (ERD)
+
+```mermaid
+erDiagram
+    %% =========================================================================
+    %% INSTANCIA: POSTGRES-CORE (Camino Crítico de Dinero vía PgBouncer:6432)
+    %% =========================================================================
+    
+    %% Base de datos: authdb
+    AUTH_USERS {
+        bigint id PK "Identificador único de cuenta"
+        varchar email UK "Correo electrónico único de autenticación"
+        varchar password "Hash BCrypt (10 rondas de salting)"
+        varchar role "Rol del usuario (USER, ADMIN)"
+        boolean verified "Estado de verificación de email"
+        varchar verification_token "Token seguro de verificación"
+        varchar totp_secret "Secreto Base32 para TOTP 2FA"
+        boolean totp_enabled "Indicador si 2FA está activo"
+    }
+
+    %% Base de datos: userdb
+    USER_PROFILES {
+        bigint id PK "Identificador financiero del usuario"
+        varchar name "Nombre y apellido del titular"
+        varchar email UK "Correo electrónico (Clave de enlace con authdb)"
+        decimal balance "Saldo disponible (CHECK: balance >= 0)"
+        decimal daily_limit "Límite máximo de transferencia diario (ARS)"
+        varchar currency "Código de moneda ISO (ej. ARS, USD)"
+    }
+
+    %% Base de datos: transactiondb
+    TRANSACTIONS {
+        bigint id PK "Identificador único de transferencia"
+        bigint from_user_id "ID del emisor (Referencia a USER_PROFILES)"
+        bigint to_user_id "ID del receptor (Referencia a USER_PROFILES)"
+        decimal amount "Monto transferido con precisión (15,2)"
+        varchar status "Estado (SUCCESS, FAILED, COMPENSATED)"
+        timestamptz created_at "Marca de tiempo UTC de la operación"
+    }
+
+    MONEY_REQUESTS {
+        bigint id PK "Identificador de solicitud de dinero"
+        bigint requester_id "ID del solicitante (Referencia a USER_PROFILES)"
+        bigint target_id "ID del pagador requerido (Referencia a USER_PROFILES)"
+        decimal amount "Monto solicitado"
+        varchar message "Mensaje o concepto del cobro"
+        varchar status "Estado (PENDING, ACCEPTED, REJECTED)"
+        timestamptz created_at "Marca de tiempo de solicitud"
+    }
+
+    IDEMPOTENCY_RECORDS {
+        varchar id PK "UUID del registro de idempotencia"
+        bigint user_id "ID del usuario emisor"
+        varchar key "Clave única X-Idempotency-Key"
+        varchar request_hash "Hash SHA-256 del payload de la solicitud"
+        jsonb response "Copia exacta de la respuesta HTTP cacheada"
+        varchar status "Estado (PENDING, COMPLETED, FAILED)"
+        timestamptz created_at "Fecha de registro (TTL 24h)"
+    }
+
+    OUTBOX_EVENTS {
+        varchar id PK "UUID del evento transaccional"
+        varchar aggregate_type "Tipo de agregado (Transaction, User, Auth)"
+        varchar aggregate_id "ID de la entidad modificada"
+        varchar event_type "Nombre del evento (TRANSFER_COMPLETED, USER_CREATED)"
+        jsonb payload "Datos completos del evento en JSON"
+        varchar status "Estado de publicación (PENDING, PUBLISHED)"
+        timestamptz created_at "Momento de inserción en BD"
+        timestamptz processed_at "Momento de publicación a Kafka"
+    }
+
+    %% =========================================================================
+    %% INSTANCIA: POSTGRES-SUPPORT (Servicios de Soporte y Background)
+    %% =========================================================================
+
+    %% Base de datos: notificationdb
+    NOTIFICATIONS {
+        bigint id PK "Identificador único de notificación"
+        bigint user_id "ID del destinatario (Referencia a USER_PROFILES)"
+        varchar type "Tipo de alerta (TRANSFER_RECEIVED, TRANSFER_SENT, 2FA)"
+        text message "Contenido del mensaje de la notificación"
+        decimal amount "Monto asociado al movimiento"
+        bigint from_user_id "ID del usuario que originó el movimiento"
+        boolean is_read "Indicador de lectura"
+        timestamptz created_at "Fecha y hora de emisión"
+    }
+
+    %% Base de datos: workerdb
+    STATEMENT_JOBS {
+        bigint id PK "Identificador de trabajo de extracto"
+        bigint user_id "ID del titular (Referencia a USER_PROFILES)"
+        varchar status "Estado del trabajo (PENDING, COMPLETED, FAILED)"
+        varchar pdf_path "Ruta de almacenamiento del extracto PDF generado"
+        text error_message "Detalle de error si el job falla"
+        timestamptz created_at "Fecha de solicitud"
+        timestamptz completed_at "Fecha de finalización de generación PDF"
+    }
+
+    AUDIT_LOGS {
+        bigint id PK "Identificador inmutable de auditoría"
+        bigint from_user_id "ID del emisor involucrado"
+        bigint to_user_id "ID del receptor involucrado"
+        decimal amount "Monto registrado en el movimiento"
+        varchar event_type "Tipo de evento auditado"
+        text details "Detalles estructurados de la operación"
+        timestamptz timestamp "Marca de tiempo inmutable de auditoría"
+    }
+
+    %% =========================================================================
+    %% RELACIONES LÓGICAS ENTRE MICROSERVICIOS Y BASES DE DATOS
+    %% =========================================================================
+
+    AUTH_USERS ||--|| USER_PROFILES : "1:1 Lógica por campo 'email' (Identidad ↔ Perfil Financiero)"
+    USER_PROFILES ||--o{ TRANSACTIONS : "1:N por 'from_user_id' / 'to_user_id' (Transferencias)"
+    USER_PROFILES ||--o{ MONEY_REQUESTS : "1:N por 'requester_id' / 'target_id' (Cobros)"
+    USER_PROFILES ||--o{ IDEMPOTENCY_RECORDS : "1:N por 'user_id' (Bloqueo y No Duplicidad)"
+    USER_PROFILES ||--o{ NOTIFICATIONS : "1:N por 'user_id' (Alertas y Emails)"
+    USER_PROFILES ||--o{ STATEMENT_JOBS : "1:N por 'user_id' (Extractos Bancarios)"
+    USER_PROFILES ||--o{ AUDIT_LOGS : "1:N por 'from_user_id' / 'to_user_id' (Logs de Auditoría)"
+    TRANSACTIONS ||--o{ AUDIT_LOGS : "1:N Sincronización asíncrona vía eventos Kafka"
 ```
+
+---
+
+### 8.2 Matriz de Relaciones Lógicas entre Microservicios
+
+En una arquitectura de microservicios con **Database-per-Service**, no existen claves foráneas físicas (`FOREIGN KEY`) entre bases de datos distintas para preservar el desacoplamiento y permitir el escalado o migración independiente. La integridad referencial se garantiza mediante **coordinación a nivel de aplicación**:
+
+| Entidad Origen | Entidad Destino | Campo de Enlace | Tipo | Mecanismo de Integridad |
+|:---|:---|:---|:---:|:---|
+| `authdb.users` | `userdb.user_profiles` | `email` | `1 : 1` | Al registrarse en `auth-service`, se invoca de forma síncrona vía tRPC a `user-service` para crear el perfil financiero dentro del mismo flujo de alta. |
+| `userdb.user_profiles` | `transactiondb.transactions` | `from_user_id`, `to_user_id` | `1 : N` | `transaction-service` valida la existencia de ambos usuarios mediante el procedimiento tRPC `getUserById` antes de ejecutar la transferencia. |
+| `userdb.user_profiles` | `transactiondb.idempotency_records` | `user_id` + `key` | `1 : N` | Restricción de unicidad compuesta `UNIQUE(user_id, key)` y bloqueo atómico con Redis (`SET NX EX 86400`) para evitar transferencias dobles. |
+| `transactiondb.transactions` | `notificationdb.notifications` | `to_user_id` / `from_user_id` | `1 : N` | **Transactional Outbox**: La transacción se guarda junto con el evento en `outbox_events`; el poller publica en Kafka (`transfer.completed`) y `notification-service` genera la notificación. |
+| `userdb.user_profiles` | `workerdb.statement_jobs` | `user_id` | `1 : N` | `worker-service` recibe la solicitud de extracto y consulta el historial de movimientos a `transaction-service` para compilar el PDF inmutable con PDFKit. |
+| `transactiondb.transactions` | `workerdb.audit_logs` | `id`, `from_user_id`, `to_user_id` | `1 : N` | `worker-service` consume eventos de auditoría desde Kafka y los persiste en `audit_logs` con retención inmutable. |
+
+---
+
+### 8.3 Garantías de Consistencia y Aislamiento
+
+1. **Restricción de Saldo no Negativo (`CHECK balance >= 0`)**:
+   - `userdb.user_profiles` cuenta con una restricción a nivel de base de datos (`CONSTRAINT check_positive_balance CHECK (balance >= 0)`) que impide que cualquier transacción o débito concurrente deje la cuenta en saldo negativo.
+2. **Patrón Transactional Outbox**:
+   - `auth-service`, `user-service` y `transaction-service` insertan el registro de negocio y el evento en la tabla `outbox_events` dentro de la **misma transacción ACID de PostgreSQL**. Esto elimina la posibilidad de fallos parciales (*Dual Write Problem*).
+3. **Connection Pooling con PgBouncer**:
+   - Configurado en modo `transaction`, multiplexa hasta **1,000 conexiones de clientes** hacia un pool óptimo de conexiones a PostgreSQL (`postgres-core`), impidiendo el agotamiento de memoria del motor ante ráfagas de escalado horizontal de pods.
 
 ---
 

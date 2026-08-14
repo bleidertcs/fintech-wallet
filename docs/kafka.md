@@ -21,19 +21,19 @@ En el proyecto **FinTech Wallet**, utilizamos **Apache Kafka 3.7.0** operando en
 ## 2. El Patrón Transactional Outbox
 
 ### El Problema de la Inconsistencia en Mensajería
-Si un microservicio guarda un registro en la base de datos MySQL e inmediatamente intenta enviar un mensaje a Kafka mediante red, existe el riesgo de que la BD guarde el cambio pero la llamada a Kafka falle por timeout, o viceversa.
+Si un microservicio guarda un registro en la base de datos PostgreSQL e inmediatamente intenta enviar un mensaje a Kafka mediante red, existe el riesgo de que la BD guarde el cambio pero la llamada a Kafka falle por timeout, o viceversa (*Dual Write Problem*).
 
 ### La Solución: Transactional Outbox
-El microservicio guarda la entidad `Transaction` y el evento en la tabla `outbox_events` dentro de la **misma transacción local de MySQL**:
+El microservicio guarda la entidad `Transaction` y el evento en la tabla `outbox_events` dentro de la **misma transacción local ACID de PostgreSQL**:
 
 ```sql
-START TRANSACTION;
+BEGIN;
 
 INSERT INTO transactions (id, from_user_id, to_user_id, amount, status) 
-VALUES ('tx-101', 1, 2, 150.00, 'COMPLETED');
+VALUES (101, 1, 2, 150.00, 'SUCCESS');
 
-INSERT INTO outbox_events (id, event_type, payload, status) 
-VALUES ('evt-501', 'TRANSFER_COMPLETED', '{"transactionId":"tx-101", ...}', 'PENDING');
+INSERT INTO outbox_events (id, aggregate_type, aggregate_id, event_type, payload, status) 
+VALUES ('evt-501', 'Transaction', '101', 'TRANSFER_COMPLETED', '{"transactionId":"101", "amount": 150.00}', 'PENDING');
 
 COMMIT;
 ```

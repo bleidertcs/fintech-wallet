@@ -10,19 +10,19 @@ Redis opera como una capa de almacenamiento en memoria de ultra-alta velocidad (
 
 ```mermaid
 graph TD
-    Client[Cliente HTTP / Frontend] --> Gateway[Traefik Gateway]
-    Gateway --> Auth[Auth Service]
-    Gateway --> Tx[Transaction Service]
-    Gateway --> User[User Service]
+    Client["Cliente HTTP / Frontend"] --> Gateway["Traefik Gateway"]
+    Gateway --> Auth["Auth Service"]
+    Gateway --> Tx["Transaction Service"]
+    Gateway --> User["User Service"]
 
-    Auth -->|1. Token Blacklist / 2FA| Redis[(Redis 7)]
-    Tx -->|2. Idempotency Lock| Redis
-    User -->|3. Caché L2 Perfiles| Redis
+    Auth -->|"1. Token Blacklist / 2FA"| Redis[("Redis 7")]
+    Tx -->|"2. Idempotency Lock"| Redis
+    User -->|"3. Caché L2 Perfiles"| Redis
 ```
 
 ---
 
-## 2. Idempotencia Durable (Redis + MySQL)
+## 2. Idempotencia Durable (Redis + PostgreSQL)
 
 ### ¿Por qué es necesaria la Idempotencia Financiera?
 En redes móviles o llamadas HTTP inestables, un usuario o cliente puede presionar el botón "Transferir" dos veces, o la red puede reintentar una petición `POST /transactions/transfer`. Sin idempotencia, esto provocaría un **doble débito** en la billetera del usuario.
@@ -35,8 +35,8 @@ En redes móviles o llamadas HTTP inestables, un usuario o cliente puede presion
    - Si la clave está bloqueada en procesamiento, retorna `HTTP 400 Bad Request: Concurrent request in progress`.
 4. Si la clave **no existe**:
    - Se adquiere un Lock atómico en Redis (`SET key IN_PROGRESS NX EX 30`).
-   - Se ejecuta la transferencia en MySQL.
-   - Al finalizar, se almacena el resultado en Redis con un **TTL de 24 horas** (`86400` segundos) y se respalda de forma durable en la tabla MySQL `idempotency_records`.
+   - Se ejecuta la transferencia en PostgreSQL (`postgres-core` vía `pgbouncer-core`).
+   - Al finalizar, se almacena el resultado en Redis con un **TTL de 24 horas** (`86400` segundos) y se respalda de forma durable en la tabla PostgreSQL `idempotency_records`.
 
 ```typescript
 // Ejemplo de implementación en idempotency.service.ts

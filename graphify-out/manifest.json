@@ -620,8 +620,8 @@
     "semantic_hash": ""
   },
   "ARQUITECTURA.md": {
-    "mtime": 1786721689.0073116,
-    "ast_hash": "ab7d1c93bf1df1ee7c9638c8606d046e",
+    "mtime": 1786723163.045876,
+    "ast_hash": "22f5fecc408391d42e40046f70811c28",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -2250,8 +2250,8 @@
     "semantic_hash": ""
   },
   "docs/kafka.md": {
-    "mtime": 1786644350.321691,
-    "ast_hash": "3a27b71cacd982e7a1b99d729ac82c37",
+    "mtime": 1786723196.8264177,
+    "ast_hash": "edec0ff7a02c6265df21b27900932cbd",
     "semantic_hash": ""
   },
   "docs/kubernetes.md": {
@@ -2260,8 +2260,8 @@
     "semantic_hash": ""
   },
   "docs/redis.md": {
-    "mtime": 1786644358.496159,
-    "ast_hash": "65bc5e8471de4192ec2711d3e223d4d9",
+    "mtime": 1786723171.3925214,
+    "ast_hash": "97557c4196ef60a65e9afc5edd15ed5f",
     "semantic_hash": ""
   },
   "docs/saga.md": {
@@ -2270,13 +2270,13 @@
     "semantic_hash": ""
   },
   "docs/signoz.md": {
-    "mtime": 1786644374.9003358,
-    "ast_hash": "5927394af33692164358353ffb9d286a",
+    "mtime": 1786723186.3902552,
+    "ast_hash": "1895bc4a939c795c5aeda2190e55ed56",
     "semantic_hash": ""
   },
   "docs/traefik.md": {
-    "mtime": 1786646614.6092875,
-    "ast_hash": "ca9102dde8a607fdd902dbf287b287ef",
+    "mtime": 1786723178.81741,
+    "ast_hash": "4d68b9f92cd53a07267570462c9a8d2a",
     "semantic_hash": ""
   },
   "docs/helm.md": {

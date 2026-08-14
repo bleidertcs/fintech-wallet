@@ -10,21 +10,21 @@ Traefik es un **Ingress Controller** nativo y dinámico integrado en K3s / Ranch
 
 ```mermaid
 graph TD
-    Client[Cliente / Navegador Web] -->|HTTP :80| Traefik[Traefik Ingress Controller]
+    Client["Cliente / Navegador Web"] -->|"HTTP :80"| Traefik["Traefik Ingress Controller"]
     
     subgraph Middlewares
-        StripAPI[strip-api-prefix: regex ^/api]
-        RateLimit[auth-ratelimit: 100 req/s]
-        StripMail[strip-maildev-prefix: regex ^/maildev]
+        StripAPI["strip-api-prefix: regex ^/api"]
+        RateLimit["auth-ratelimit: 100 req/s"]
+        StripMail["strip-maildev-prefix: regex ^/maildev"]
     end
 
-    Traefik -->|/| Frontend[frontend:80]
-    Traefik -->|/api/auth & RateLimit| Auth[auth-service:3001]
-    Traefik -->|/api/users| User[user-service:8082]
-    Traefik -->|/api/transactions| Tx[transaction-service:8083]
-    Traefik -->|/api/notifications| Notif[notification-service:8084]
-    Traefik -->|/api/worker| Worker[worker-service:8085]
-    Traefik -->|/maildev| Maildev[maildev:1080]
+    Traefik -->|"/"| Frontend["frontend:80"]
+    Traefik -->|"/api/auth & RateLimit"| Auth["auth-service:3001"]
+    Traefik -->|"/api/users"| User["user-service:8082"]
+    Traefik -->|"/api/transactions"| Tx["transaction-service:8083"]
+    Traefik -->|"/api/notifications"| Notif["notification-service:8084"]
+    Traefik -->|"/api/worker"| Worker["worker-service:8085"]
+    Traefik -->|"/maildev"| Maildev["maildev:1080"]
 ```
 
 ---

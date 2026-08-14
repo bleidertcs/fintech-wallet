@@ -11,33 +11,33 @@ La observabilidad nos permite inspeccionar el comportamiento interno del sistema
 ```mermaid
 graph TD
     subgraph Microservicios NestJS
-        Auth[auth-service]
-        User[user-service]
-        Tx[transaction-service]
-        Notif[notification-service]
-        Worker[worker-service]
+        Auth["auth-service"]
+        User["user-service"]
+        Tx["transaction-service"]
+        Notif["notification-service"]
+        Worker["worker-service"]
     end
 
     subgraph Recolección y Procesamiento
-        Collector[OpenTelemetry Collector<br>Puertos 4317 gRPC / 4318 HTTP]
+        Collector["OpenTelemetry Collector<br>Puertos 4317 gRPC / 4318 HTTP"]
     end
 
     subgraph Almacenamiento Columnar
-        ClickHouse[(ClickHouse DB 25.12<br>Puerto 9000)]
+        ClickHouse[("ClickHouse DB 25.12<br>Puerto 9000")]
     end
 
     subgraph Visualización
-        SigNozUI[SigNoz UI<br>NodePort 30301]
+        SigNozUI["SigNoz UI<br>NodePort 30301"]
     end
 
-    Auth -->|OTLP Traces / Winston Logs| Collector
-    User -->|OTLP Traces / Winston Logs| Collector
-    Tx -->|OTLP Traces / Winston Logs| Collector
-    Notif -->|OTLP Traces / Winston Logs| Collector
-    Worker -->|OTLP Traces / Winston Logs| Collector
+    Auth -->|"OTLP Traces / Winston Logs"| Collector
+    User -->|"OTLP Traces / Winston Logs"| Collector
+    Tx -->|"OTLP Traces / Winston Logs"| Collector
+    Notif -->|"OTLP Traces / Winston Logs"| Collector
+    Worker -->|"OTLP Traces / Winston Logs"| Collector
 
-    Collector -->|Batch Processor| ClickHouse
-    SigNozUI -->|SQL Queries| ClickHouse
+    Collector -->|"Batch Processor"| ClickHouse
+    SigNozUI -->|"SQL Queries"| ClickHouse
 ```
 
 ---
