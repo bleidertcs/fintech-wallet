@@ -32,16 +32,14 @@ graph TD
         Kafka["Apache Kafka 3.7 (KRaft)<br>Tópicos: transfer_completed, transfer-events-dlq"]
     end
 
-    subgraph Database ["Capa de Persistencia"]
-        MySQL[("MySQL 8.0<br>Puerto: 3306")]
-        AuthDB[("authdb")]
-        UserDB[("userdb")]
-        TransactionDB[("transactiondb")]
-        NotificationDB[("notificationdb")]
-        WorkerDB[("workerdb")]
+    subgraph Database ["Capa de Persistencia (2 Instancias PostgreSQL 16 + PgBouncer)"]
+        PgBouncer["PgBouncer Core<br>Puerto: 6432 (Modo: Transaction)"]
+        PostgresCore[("Postgres Core (Dinero)<br>Puerto: 5432<br>• authdb<br>• userdb<br>• transactiondb")]
+        PostgresSupport[("Postgres Support (Auxiliar)<br>Puerto: 5433<br>• notificationdb<br>• workerdb")]
+        BackupCron["DevOps Backup CronJob<br>02:00 AM / Retención 7d / SHA-256"]
     end
 
-    subgraph Observability ["Suite de Observabilidad OTLP"]
+    subgraph Observability ["Suite de Observabilidad OTLP & SigNoz"]
         OTelCollector["OpenTelemetry Collector<br>Puertos: 4317 (gRPC) / 4318 (HTTP)"]
         ClickHouse[("ClickHouse DB 25.12<br>Puerto: 9000")]
         SigNoz["SigNoz UI<br>Puerto: 30301 (NodePort)"]
@@ -54,18 +52,20 @@ graph TD
     Traefik --> NotificationService
     Traefik --> WorkerService
 
-    AuthService --> MySQL
+    AuthService --> PgBouncer
     AuthService --> Redis
-    UserService --> MySQL
+    UserService --> PgBouncer
     UserService --> Redis
-    TransactionService --> MySQL
+    TransactionService --> PgBouncer
     TransactionService --> Redis
+    PgBouncer --> PostgresCore
     TransactionService --> UserService
     TransactionService --> Kafka
-    NotificationService --> MySQL
+    NotificationService --> PostgresSupport
     NotificationService --> Kafka
-    WorkerService --> MySQL
+    WorkerService --> PostgresSupport
     WorkerService --> Kafka
+    BackupCron -.->|Hot Backups| PostgresCore & PostgresSupport
 
     AuthService -.-> OTelCollector
     UserService -.-> OTelCollector

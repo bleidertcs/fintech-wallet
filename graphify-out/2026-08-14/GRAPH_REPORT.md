@@ -1,11 +1,11 @@
 # Graph Report - fintech-wallet  (2026-08-14)
 
 ## Corpus Check
-- 452 files · ~187,274 words
+- 460 files · ~189,490 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3845 nodes · 4873 edges · 551 communities (249 shown, 302 thin omitted)
+- 3873 nodes · 4904 edges · 558 communities (253 shown, 305 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 20 edges (avg confidence: 0.72)
 - Token cost: 0 input · 0 output
 
@@ -360,6 +360,7 @@
 - @types/express
 - @types/jest
 - @types/jsonwebtoken
+- NotificationUseCases
 - typescript-eslint
 - @eslint/js
 - eslint-plugin-prettier
@@ -367,17 +368,20 @@
 - supertest
 - @swc/cli
 - @swc/core
+- KafkaConsumerService
 - ts-node
 - @types/jest
 - @types/supertest
 - typescript
 - @grpc/proto-loader
+- eslint-plugin-prettier
 - mariadb
 - @nestjs/config
 - @nestjs/core
 - @nestjs/platform-express
 - @nestjs/terminus
 - @opentelemetry/auto-instrumentations-node
+- kafkajs
 - @opentelemetry/instrumentation-express
 - @opentelemetry/instrumentation-http
 - @opentelemetry/resources
@@ -389,7 +393,7 @@
 - reflect-metadata
 - rxjs
 - winston
-- @prisma/adapter-mariadb
+- @types/node
 - @grpc/proto-loader
 - @nestjs/common
 - prisma
@@ -401,6 +405,7 @@
 - @opentelemetry/exporter-metrics-otlp-http
 - @opentelemetry/exporter-trace-otlp-http
 - @opentelemetry/instrumentation-express
+- nest-winston
 - @opentelemetry/instrumentation-nestjs-core
 - @opentelemetry/resources
 - @opentelemetry/sdk-metrics
@@ -410,9 +415,11 @@
 - @opentelemetry/semantic-conventions
 - pg
 - @prisma/adapter-mariadb
+- @prisma/client
 - reflect-metadata
 - rxjs
 - winston
+- @nestjs/config
 - axios
 - supertest
 - @swc/cli
@@ -435,7 +442,6 @@
 - react-icons
 - react-router-dom
 - recharts
-- class-transformer
 - main.ts
 - @nestjs/microservices
 - @nestjs/swagger
@@ -528,7 +534,6 @@
 - @trpc/server
 - zod
 - jest
-- @nestjs/schematics
 - source-map-support
 - @swc/cli
 - tsconfig-paths
@@ -537,7 +542,6 @@
 - @nestjs/core
 - @nestjs/swagger
 - @prisma/adapter-pg
-- @trpc/server
 - zod
 - baseline-test.js
 - k6-concurrency-test.js
@@ -555,29 +559,29 @@
 10. `Service Mesh` - 19 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `bootstrap()` --indirect_call--> `UserTrpcRouter`  [INFERRED]
-  backend-nestjs/user-service/src/main.ts → backend-nestjs/user-service/src/adapters/inbound/trpc/user-trpc.router.ts
 - `bootstrap()` --indirect_call--> `AppModule`  [INFERRED]
   backend-nestjs/auth-service/src/main.ts → backend-nestjs/auth-service/src/app.module.ts
 - `AuthUseCases` --implements--> `AuthServicePort`  [EXTRACTED]
   backend-nestjs/auth-service/src/application/use-cases/auth.use-cases.ts → backend-nestjs/auth-service/src/domain/ports/inbound/auth.service.port.ts
 - `AuthResult` --references--> `User`  [EXTRACTED]
   backend-nestjs/auth-service/src/domain/ports/inbound/auth.service.port.ts → backend-nestjs/auth-service/src/domain/entities/user.entity.ts
-- `bootstrap()` --references--> `logger`  [EXTRACTED]
-  backend-nestjs/transaction-service/src/main.ts → backend-nestjs/auth-service/src/infrastructure/telemetry/tracing.ts
+- `bootstrap()` --indirect_call--> `AppModule`  [INFERRED]
+  backend-nestjs/notification-service/src/main.ts → backend-nestjs/notification-service/src/app.module.ts
+- `NotificationUseCases` --implements--> `NotificationServicePort`  [EXTRACTED]
+  backend-nestjs/notification-service/src/application/use-cases/notification.use-cases.ts → backend-nestjs/notification-service/src/domain/ports/inbound/notification-service.port.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (551 total, 302 thin omitted)
+## Communities (558 total, 305 thin omitted)
 
 ### Community 0 - "UserDto"
 Cohesion: 0.05
 Nodes (49): GetMapping, RequestMapping, RequiredArgsConstructor, ResponseEntity, RestController, UserController, ApiResponse, AllArgsConstructor (+41 more)
 
 ### Community 1 - "NotificationService"
-Cohesion: 0.13
-Nodes (11): EventEnvelope, TransferCompletedEventPayload, PrismaModule, Module, PrismaService, Injectable, IdempotencyService, Injectable (+3 more)
+Cohesion: 0.11
+Nodes (14): KafkaModule, Module, EventEnvelope, TransferCompletedEventPayload, PrismaModule, Module, PrismaService, Injectable (+6 more)
 
 ### Community 2 - "UserProfileDto"
 Cohesion: 0.25
@@ -600,8 +604,8 @@ Cohesion: 0.10
 Nodes (21): file-saver, dependencies, axios, file-saver, jspdf, jspdf-autotable, @opentelemetry/api, @opentelemetry/instrumentation (+13 more)
 
 ### Community 7 - "Writing ClickHouse Queries for SigNoz Dashboards"
-Cohesion: 0.17
-Nodes (9): ClickHouse Traces Query Reference for SigNoz, Contents, Dashboard Panel Query Templates, Query Examples, Query Optimization Checklist, Table — Average duration by HTTP method, Table Panel, Timeseries — Error spans per service per minute (+1 more)
+Cohesion: 0.15
+Nodes (13): ClickHouse Traces Query Reference for SigNoz, Contents, Dashboard Panel Query Templates, distributed_signoz_error_index_v2 (Error Events), distributed_signoz_index_v3 (Primary Spans Table), distributed_traces_v3_resource (Resource Lookup Table), Query Examples, Query Optimization Checklist (+5 more)
 
 ### Community 8 - "Fase 1: Notification Service Completo"
 Cohesion: 0.18
@@ -624,8 +628,8 @@ Cohesion: 0.14
 Nodes (14): Advanced — Top 10 largest logs for payload auditing, ClickHouse Logs Query Reference for SigNoz, Contents, Dashboard Panel Query Examples, distributed_logs_v2 (Primary Logs Table), distributed_logs_v2_resource (Resource Lookup Table), Query Examples, Query Optimization Checklist (+6 more)
 
 ### Community 13 - "auth.module.ts"
-Cohesion: 0.16
-Nodes (7): RedisModule, Module, RedisTokenBlacklistAdapter, Inject, Injectable, CACHE_SERVICE_PORT, CacheServicePort
+Cohesion: 0.12
+Nodes (7): RedisModule, Module, RedisTokenBlacklistAdapter, Injectable, CACHE_SERVICE_PORT, CacheServicePort, TOKEN_SERVICE_PORT
 
 ### Community 14 - "Agent Instructions for This Project"
 Cohesion: 0.18
@@ -664,8 +668,8 @@ Cohesion: 0.10
 Nodes (20): Behavioral Traits, Capabilities, Cloud-Native Development, Database & Persistence, Do not use this skill when, Enterprise Architecture Patterns, Example Interactions, Instructions (+12 more)
 
 ### Community 23 - "TransactionService"
-Cohesion: 0.50
-Nodes (4): distributed_signoz_error_index_v2 (Error Events), distributed_signoz_index_v3 (Primary Spans Table), distributed_traces_v3_resource (Resource Lookup Table), Table Schemas
+Cohesion: 0.13
+Nodes (14): Inject, Injectable, UserTrpcRouter, AppModule, Module, appConfig(), createWinstonLogger(), otelLogFormat (+6 more)
 
 ### Community 24 - "dashboard-config.js"
 Cohesion: 0.19
@@ -688,8 +692,8 @@ Cohesion: 0.12
 Nodes (14): 1. Draft Proposal (Before Coding!), 2. Review & Align, 3. Implement, 4. Ship & Archive, Code Patterns, Controller Pattern, Maven Profiles, Package Structure (+6 more)
 
 ### Community 29 - "AuthController"
-Cohesion: 0.14
-Nodes (9): JwtAuthGuard, Inject, Injectable, TOKEN_SERVICE_PORT, TokenPayload, TokenServicePort, JwtUtil, Inject (+1 more)
+Cohesion: 0.15
+Nodes (8): JwtAuthGuard, Inject, Injectable, TokenPayload, TokenServicePort, JwtUtil, Inject, Injectable
 
 ### Community 30 - "Setting Up Observability After Ingestion"
 Cohesion: 0.13
@@ -745,7 +749,7 @@ Nodes (9): ConditionalOnModuleEnabled, Override, OnModuleEnabledCondition, Annot
 
 ### Community 50 - "MoneyRequestDto"
 Cohesion: 0.10
-Nodes (21): devDependencies, eslint, eslint-config-prettier, eslint-plugin-prettier, prettier, supertest, ts-jest, ts-node (+13 more)
+Nodes (21): devDependencies, eslint-config-prettier, eslint-plugin-prettier, @nestjs/schematics, prettier, supertest, ts-jest, ts-node (+13 more)
 
 ### Community 51 - "Accessibility (a11y)"
 Cohesion: 0.20
@@ -839,6 +843,10 @@ Nodes (4): Application, ConfigurationPropertiesScan, EnableAsync, SpringBootAppl
 Cohesion: 0.06
 Nodes (38): AuthController, ApiOperation, ApiTags, Body, Controller, Get, HttpCode, Post (+30 more)
 
+### Community 92 - "AuthServiceApplicationTests.java"
+Cohesion: 0.22
+Nodes (5): DatabaseModule, Module, NOTIFICATION_REPOSITORY_PORT, PrismaService, Injectable
+
 ### Community 96 - "Perceivable"
 Cohesion: 0.50
 Nodes (4): Color contrast (1.4.3, 1.4.6), Media alternatives (1.2), Perceivable, Text alternatives (1.1)
@@ -876,8 +884,8 @@ Cohesion: 0.18
 Nodes (11): Key Variables by Signal, Logs, Query Attribution, Quick Reference, Reference Routing, Signal Detection, Top Anti-Patterns, Traces (+3 more)
 
 ### Community 134 - "TransactionController"
-Cohesion: 0.09
-Nodes (27): ApiHeader, MoneyRequestDto, ApiProperty, IsNumber, IsOptional, IsPositive, IsString, TransferRequestDto (+19 more)
+Cohesion: 0.11
+Nodes (22): ApiHeader, MoneyRequestDto, ApiProperty, IsNumber, IsOptional, IsPositive, IsString, TransferResponseDto (+14 more)
 
 ### Community 137 - "Attribute Access Syntax"
 Cohesion: 0.33
@@ -909,15 +917,15 @@ Nodes (4): 1. Spec-First Approach, 2. TDD with Mockito, 3. Code Review Checklist
 
 ### Community 147 - "MoneyRequestEntity"
 Cohesion: 0.09
-Nodes (8): PrismaTransactionRepository, Injectable, TransactionUseCases, Injectable, MoneyRequestEntity, TransactionEntity, TransactionServicePort, TransactionRepositoryPort
+Nodes (10): PrismaTransactionRepository, Injectable, TransactionUseCases, Injectable, MoneyRequestEntity, TransactionEntity, MoneyRequestParams, TransactionServicePort (+2 more)
 
 ### Community 148 - "📖 Guía Completa de Comandos Kubernetes (Cheat Sheet)"
 Cohesion: 0.50
 Nodes (4): API Conventions, Error Response Format, Response Format, REST Endpoints
 
 ### Community 149 - "Docker Swarm Skill"
-Cohesion: 0.07
-Nodes (6): Inject, PrismaUserRepository, Injectable, User, AuthServicePort, UserRepositoryPort
+Cohesion: 0.11
+Nodes (5): PrismaUserRepository, Injectable, User, USER_REPOSITORY_PORT, UserRepositoryPort
 
 ### Community 150 - "Docker Swarm Guide"
 Cohesion: 0.08
@@ -925,7 +933,7 @@ Nodes (23): 1. Agregar Deployment y Service en [`k8s/02-microservices.yaml`](fil
 
 ### Community 152 - "swarm-init.sh"
 Cohesion: 0.09
-Nodes (23): devDependencies, eslint-plugin-prettier, globals, jest, @nestjs/cli, prettier, source-map-support, @swc/cli (+15 more)
+Nodes (23): devDependencies, eslint, eslint-plugin-prettier, globals, jest, @nestjs/cli, prettier, source-map-support (+15 more)
 
 ### Community 153 - "Microservicios"
 Cohesion: 0.50
@@ -944,8 +952,8 @@ Cohesion: 0.08
 Nodes (25): Best Practices, Chart Repository, Chart Structure, Chart Testing, Chart Testing Tool (ct), Chart.yaml, Complex Upgrade/Rollback, Create Repository (+17 more)
 
 ### Community 160 - "app.module.ts"
-Cohesion: 0.11
-Nodes (15): KafkaModule, Module, RedisModule, Module, Module, UserTrpcClientModule, AppModule, CommandHandlers (+7 more)
+Cohesion: 0.12
+Nodes (10): TransferRequestDto, ApiProperty, IsNumber, IsPositive, TransferMoneyCommand, GetTransactionHistoryQueryHandler, Inject, GetTransactionHistoryQuery (+2 more)
 
 ### Community 161 - "dependencies"
 Cohesion: 0.17
@@ -964,12 +972,12 @@ Cohesion: 0.14
 Nodes (13): 1. Arquitectura y Conceptos Clave de Kubernetes, 2. Probes de Diagnóstico (Health Checks), 3. Kubernetes Commands Cheat Sheet 🛠️, 📄 Aplicación de Archivos YAML (Declarativo), 🌐 Clúster y Contexto, 🔐 ConfigMaps & Secrets, 🚀 Despliegues y Replicación (Deployments), 📊 Estadísticas y Monitoreo de Recursos (+5 more)
 
 ### Community 167 - "auth.use-cases.ts"
-Cohesion: 0.25
+Cohesion: 0.20
 Nodes (7): Environment, EnvironmentVariables, IsNumber, IsOptional, IsString, validateEnv(), IsEnum
 
 ### Community 169 - "AuthController"
-Cohesion: 0.12
-Nodes (13): KafkaConsumerService, Inject, Injectable, AppModule, Module, NotificationApplicationModule, Module, createWinstonLogger() (+5 more)
+Cohesion: 0.15
+Nodes (12): AppModule, Module, NotificationApplicationModule, Module, createWinstonLogger(), otelLogFormat, logger, metricExporter (+4 more)
 
 ### Community 170 - "dependencies"
 Cohesion: 0.22
@@ -996,8 +1004,8 @@ Cohesion: 0.10
 Nodes (20): ArgoCD Application, ArgoCD ApplicationSet, ArgoCD Installation, ArgoCD Project, ArgoCD vs Flux Comparison, ArgoCD with Helm, Best Practices, Flux GitRepository (+12 more)
 
 ### Community 176 - "UserServiceGrpcAdapter"
-Cohesion: 0.12
-Nodes (12): Module, UserGrpcClientModule, Inject, Injectable, UserGrpcService, UserServiceGrpcAdapter, Injectable, UserServiceTrpcAdapter (+4 more)
+Cohesion: 0.07
+Nodes (17): Module, UserGrpcClientModule, Inject, Injectable, UserGrpcService, UserServiceGrpcAdapter, IdempotencyService, Injectable (+9 more)
 
 ### Community 177 - "Service Mesh"
 Cohesion: 0.10
@@ -1020,8 +1028,8 @@ Cohesion: 0.11
 Nodes (18): compilerOptions, allowSyntheticDefaultImports, baseUrl, declaration, emitDecoratorMetadata, experimentalDecorators, forceConsistentCasingInFileNames, incremental (+10 more)
 
 ### Community 183 - "app.module.ts"
-Cohesion: 0.13
-Nodes (16): UpdateBalanceRequest, UserRequest, ApiProperty, IsNotEmpty, IsNumber, UpdateBalanceDto, AppRouter, t (+8 more)
+Cohesion: 0.11
+Nodes (15): ApiPropertyOptional, UpdateBalanceRequest, UserRequest, ApiProperty, IsNotEmpty, IsNumber, UpdateBalanceDto, IsNumber (+7 more)
 
 ### Community 184 - "compilerOptions"
 Cohesion: 0.11
@@ -1044,12 +1052,8 @@ Cohesion: 0.11
 Nodes (17): 1. Consultar Perfil de Usuario por ID (`GET /users/profile/:id`), 1. Desarrollo Local (Standalone), 2. Crear Nuevo Perfil (`POST /users`), 2. Producción Local, 3. Actualizar Saldo de Usuario (`PUT /users/profile/:id/balance`), 3. En Kubernetes / Rancher Desktop (k3s), 4. Probar Router tRPC (`POST /trpc`), 5. Health Check (`GET /users/health`) (+9 more)
 
 ### Community 189 - "PrismaUserRepository"
-Cohesion: 0.10
-Nodes (7): TransferMoneyCommand, TransferMoneyCommandHandler, Inject, TransferCompletedEvent, Money, UserId, CommandHandler
-
-### Community 190 - "WinstonLogger"
-Cohesion: 0.13
-Nodes (9): AppModule, Module, otelLogFormat, WinstonLogger, initTracing(), metricExporter, sdk, traceExporter (+1 more)
+Cohesion: 0.18
+Nodes (4): TransferMoneyCommandHandler, Inject, UserId, CommandHandler
 
 ### Community 191 - "Quick Reference"
 Cohesion: 0.12
@@ -1060,7 +1064,7 @@ Cohesion: 0.27
 Nodes (5): AppController, Controller, Get, AppService, Injectable
 
 ### Community 194 - "UserController"
-Cohesion: 0.17
+Cohesion: 0.21
 Nodes (10): ApiOperation, ApiTags, Body, Controller, Get, Inject, Param, Post (+2 more)
 
 ### Community 195 - "app.module.ts"
@@ -1072,8 +1076,8 @@ Cohesion: 0.10
 Nodes (20): dependencies, axios, description, devDependencies, jest, ts-jest, @types/jest, @types/node (+12 more)
 
 ### Community 197 - "tracing.ts"
-Cohesion: 0.11
-Nodes (15): AppController, Controller, Get, AppModule, Module, AppService, Injectable, createWinstonLogger() (+7 more)
+Cohesion: 0.17
+Nodes (10): AppModule, Module, createWinstonLogger(), otelLogFormat, logger, metricExporter, otelSDK, startTelemetry() (+2 more)
 
 ### Community 198 - "Kubernetes Specialist"
 Cohesion: 0.14
@@ -1120,8 +1124,8 @@ Cohesion: 0.17
 Nodes (11): 10. DevOps & Deployment (devops), 1. Architecture (arch), 2. Dependency Injection (di), 3. Error Handling (error), 4. Security (security), 5. Performance (perf), 6. Testing (test), 7. Database & ORM (db) (+3 more)
 
 ### Community 212 - "AppController"
-Cohesion: 0.18
-Nodes (8): Inject, Injectable, UserProfileHttpClient, Inject, Injectable, UserProfileTrpcClient, UserProfileClientPort, appConfig
+Cohesion: 0.09
+Nodes (16): NodemailerEmailAdapter, Inject, Injectable, Inject, Injectable, UserProfileHttpClient, Inject, Inject (+8 more)
 
 ### Community 213 - "TransactionUseCases"
 Cohesion: 0.13
@@ -1153,7 +1157,7 @@ Nodes (5): AppController, Controller, Get, AppService, Injectable
 
 ### Community 223 - "dependencies"
 Cohesion: 0.22
-Nodes (9): dependencies, kafkajs, @nestjs/common, @nestjs/config, @nestjs/platform-express, kafkajs, @nestjs/common, @nestjs/config (+1 more)
+Nodes (9): dependencies, class-transformer, kafkajs, @nestjs/common, @nestjs/platform-express, class-transformer, kafkajs, @nestjs/common (+1 more)
 
 ### Community 225 - "PrismaService"
 Cohesion: 0.13
@@ -1180,8 +1184,8 @@ Cohesion: 0.22
 Nodes (9): Authentication & Authorization (Passport.js), Configuration & Environment Management, Controllers & Request Handling, Database Integration (TypeORM & Mongoose), Domain Coverage, Error Handling & Logging, Middleware, Guards, Interceptors & Pipes, Module Architecture & Dependency Injection (+1 more)
 
 ### Community 235 - "EnvironmentVariables"
-Cohesion: 0.14
-Nodes (7): PrismaNotificationRepository, Injectable, NotificationEntity, NOTIFICATION_REPOSITORY_PORT, NotificationRepositoryPort, PrismaService, Injectable
+Cohesion: 0.20
+Nodes (4): PrismaNotificationRepository, Injectable, NotificationEntity, NotificationRepositoryPort
 
 ### Community 236 - "exclude"
 Cohesion: 0.25
@@ -1256,44 +1260,40 @@ Cohesion: 0.40
 Nodes (5): Common Patterns & Solutions, Custom Decorator Pattern, Exception Filter Pattern, Module Organization, Testing Pattern
 
 ### Community 259 - "tracing.ts"
-Cohesion: 0.40
-Nodes (3): metricExporter, sdk, traceExporter
+Cohesion: 0.17
+Nodes (10): AppModule, Module, createWinstonLogger(), otelLogFormat, logger, metricExporter, otelSDK, startTelemetry() (+2 more)
 
 ### Community 260 - "UpdateBalanceDto"
-Cohesion: 0.14
-Nodes (13): DatabaseModule, Module, PdfModule, Module, AppModule, Module, Module, WorkerApplicationModule (+5 more)
+Cohesion: 0.13
+Nodes (14): PdfModule, Module, AppModule, Module, Module, WorkerApplicationModule, createWinstonLogger(), otelLogFormat (+6 more)
 
 ### Community 261 - "TransferRequest"
-Cohesion: 0.23
-Nodes (4): PrismaWorkerRepository, Injectable, StatementJobEntity, WorkerRepositoryPort
+Cohesion: 0.18
+Nodes (5): PrismaWorkerRepository, Injectable, AuditLogEntity, StatementJobEntity, WorkerRepositoryPort
 
 ### Community 262 - "Performance Optimization"
 Cohesion: 0.50
 Nodes (4): Caching Strategies, Database Optimization, Performance Optimization, Request Processing
 
 ### Community 263 - "Table Schemas"
-Cohesion: 0.25
-Nodes (9): ApiOperation, ApiTags, Controller, Get, Param, Post, Query, WorkerController (+1 more)
+Cohesion: 0.21
+Nodes (10): ApiOperation, ApiTags, Controller, Get, Inject, Param, Post, Query (+2 more)
 
 ### Community 267 - "Environmental Adaptation"
 Cohesion: 0.67
 Nodes (3): Adaptation Strategies, Detection Phase, Environmental Adaptation
 
 ### Community 308 - "@eslint/js"
-Cohesion: 0.26
-Nodes (3): WORKER_REPOSITORY_PORT, PrismaService, Injectable
-
-### Community 311 - "supertest"
-Cohesion: 0.22
-Nodes (9): dependencies, @nestjs/config, @opentelemetry/instrumentation-http, @prisma/client, reflect-metadata, @nestjs/config, @opentelemetry/instrumentation-http, @prisma/client (+1 more)
+Cohesion: 0.21
+Nodes (5): DatabaseModule, Module, WORKER_REPOSITORY_PORT, PrismaService, Injectable
 
 ### Community 320 - "axios"
 Cohesion: 0.20
 Nodes (9): 1. Arquitectura de Observabilidad, 1. Trazas Distribuidas (Distributed Tracing), 2. Logs Estructurados Correlacionados (Winston OTLP), 2. Los Tres Pilares de Observabilidad, 3. Acceso y Uso de SigNoz UI, 3. Métricas RED (Rate, Errors, Duration), 4. Importación del Dashboard de FinTech Wallet, Secciones Principales en SigNoz: (+1 more)
 
 ### Community 322 - "nest-winston"
-Cohesion: 0.16
-Nodes (7): HealthController, ApiOperation, ApiTags, Controller, Get, PrismaService, Injectable
+Cohesion: 0.14
+Nodes (9): HealthController, ApiOperation, ApiTags, Controller, Get, PrismaModule, Module, PrismaService (+1 more)
 
 ### Community 323 - "@nestjs/common"
 Cohesion: 0.14
@@ -1308,24 +1308,24 @@ Cohesion: 0.22
 Nodes (8): 1. El Problema de las Transacciones Distribuidas en Microservicios, 2. ¿Qué es el Patrón SAGA?, 3. Flujo de Transacción SAGA en Transferencias de Dinero, 4. Transacciones de Compensación (Compensating Actions), 5. Arquitectura CQRS con `@nestjs/cqrs`, Coreografía vs Orquestación, Estructura en Código NestJS, Patrón SAGA y CQRS en FinTech Wallet 🔄
 
 ### Community 331 - "@opentelemetry/resources"
-Cohesion: 0.20
-Nodes (10): NotificationController, ApiOperation, ApiParam, ApiTags, Controller, Get, Inject, Param (+2 more)
+Cohesion: 0.24
+Nodes (9): NotificationController, ApiOperation, ApiParam, ApiTags, Controller, Get, Inject, Param (+1 more)
 
 ### Community 332 - "@opentelemetry/sdk-logs"
 Cohesion: 0.42
 Nodes (4): PdfKitAdapter, Injectable, PDF_GENERATOR_PORT, PdfGeneratorPort
 
 ### Community 333 - "@opentelemetry/sdk-metrics"
-Cohesion: 0.17
-Nodes (6): DatabaseModule, Module, NotificationUseCases, Injectable, TransferCompletedEvent, NotificationServicePort
+Cohesion: 0.37
+Nodes (3): TransferCompletedEvent, NOTIFICATION_SERVICE_PORT, NotificationServicePort
 
 ### Community 336 - "@prisma/adapter-mariadb"
 Cohesion: 0.22
 Nodes (3): Inject, Injectable, WorkerUseCases
 
 ### Community 339 - "@eslint/eslintrc"
-Cohesion: 0.20
-Nodes (7): EmailModule, Module, NodemailerAdapter, Injectable, Inject, EMAIL_ADAPTER_PORT, EmailAdapterPort
+Cohesion: 0.23
+Nodes (6): EmailModule, Module, NodemailerAdapter, Injectable, EMAIL_ADAPTER_PORT, EmailAdapterPort
 
 ### Community 345 - "@swc/core"
 Cohesion: 0.17
@@ -1333,15 +1333,23 @@ Nodes (12): Fase 0 — Baseline, Fase 10 — Kubernetes, Fase 1 — Arquitectura
 
 ### Community 349 - "@types/bcrypt"
 Cohesion: 0.22
-Nodes (9): devDependencies, eslint-plugin-prettier, @types/node, @types/supertest, typescript, eslint-plugin-prettier, @types/node, @types/supertest (+1 more)
+Nodes (9): devDependencies, eslint-config-prettier, @types/node, @types/supertest, typescript, eslint-config-prettier, @types/node, @types/supertest (+1 more)
+
+### Community 354 - "NotificationUseCases"
+Cohesion: 0.25
+Nodes (3): NotificationUseCases, Inject, Injectable
 
 ### Community 357 - "eslint-plugin-prettier"
-Cohesion: 0.09
-Nodes (8): qrcode, AuthUseCases, Inject, Injectable, AuthResult, TotpSetupResult, TotpUtil, qrcode
+Cohesion: 0.10
+Nodes (7): qrcode, AuthUseCases, Injectable, AuthResult, TotpSetupResult, TotpUtil, qrcode
 
 ### Community 359 - "supertest"
 Cohesion: 0.22
 Nodes (8): 🏛️ Arquitectura General del Sistema, 🚀 Despliegue Automatizado en Kubernetes / Rancher Desktop, 📚 Documentación Especializada por Módulo (`docs/`), 🧪 Ejecución de la Suite de Pruebas (`scripts/`), Ejecutar Despliegue Completo, FinTech Wallet 💳, 🌐 Puertos y Endpoints del Sistema, Requisitos Previos
+
+### Community 362 - "KafkaConsumerService"
+Cohesion: 0.33
+Nodes (3): KafkaConsumerService, Inject, Injectable
 
 ### Community 368 - "@grpc/proto-loader"
 Cohesion: 0.29
@@ -1353,15 +1361,15 @@ Nodes (7): 1. Rol de Redis 7 en la Arquitectura, 2. Idempotencia Durable (Redis 
 
 ### Community 371 - "@nestjs/config"
 Cohesion: 0.22
-Nodes (9): dependencies, kafkajs, rxjs, @trpc/client, @trpc/server, kafkajs, rxjs, @trpc/client (+1 more)
+Nodes (9): dependencies, class-transformer, rxjs, @trpc/client, @trpc/server, class-transformer, rxjs, @trpc/client (+1 more)
 
 ### Community 373 - "@nestjs/platform-express"
-Cohesion: 0.16
-Nodes (5): Inject, AuditLogEntity, TransferCompletedEventDto, WORKER_SERVICE_PORT, WorkerServicePort
+Cohesion: 0.23
+Nodes (3): TransferCompletedEventDto, WORKER_SERVICE_PORT, WorkerServicePort
 
 ### Community 377 - "@opentelemetry/instrumentation-express"
-Cohesion: 0.09
-Nodes (12): GlobalExceptionFilter, NodemailerEmailAdapter, Inject, Injectable, AuthModule, Module, UserProps, EMAIL_SERVICE_PORT (+4 more)
+Cohesion: 0.16
+Nodes (9): GlobalExceptionFilter, AppController, Controller, Get, AppService, Injectable, AuthModule, Module (+1 more)
 
 ### Community 379 - "@opentelemetry/resources"
 Cohesion: 0.33
@@ -1383,13 +1391,13 @@ Nodes (5): HealthController, ApiOperation, ApiTags, Controller, Get
 Cohesion: 0.29
 Nodes (6): Arquitectura Objetivo, Decisiones de Diseño Validadas, Estado Actual del Proyecto, Plan de Implementación por Fases — FinTech Wallet, Protocolos de Comunicación, Resumen de Prioridades
 
+### Community 394 - "@nestjs/microservices"
+Cohesion: 0.22
+Nodes (9): dependencies, @nestjs/microservices, @opentelemetry/sdk-metrics, @trpc/server, winston, @nestjs/microservices, @opentelemetry/sdk-metrics, @trpc/server (+1 more)
+
 ### Community 395 - "@nestjs/terminus"
 Cohesion: 0.25
 Nodes (7): 1. Rol de Traefik en la Arquitectura, 1. `strip-api-prefix` (Limpieza de Ruta API), 2. `auth-ratelimit` (Protección Rate Limiting), 2. Configuración de Middlewares Traefik, 3. Tabla de Rutas y Endpoints Expuestos, 4. Acceso al Dashboard de Traefik, Traefik API Gateway y Routing en Kubernetes 🚦
-
-### Community 400 - "@opentelemetry/instrumentation-express"
-Cohesion: 0.33
-Nodes (5): ApiPropertyOptional, IsNumber, IsOptional, IsString, UpdateSettingsDto
 
 ### Community 410 - "@prisma/adapter-mariadb"
 Cohesion: 0.40
@@ -1468,24 +1476,24 @@ Cohesion: 0.67
 Nodes (3): Criterio de completitud, Fase 11 — Validación Final y Paridad con Spring, Tareas
 
 ## Knowledge Gaps
-- **1781 isolated node(s):** `com.company:spring-boot-app`, `start-local.sh script`, `$schema`, `collection`, `sourceRoot` (+1776 more)
+- **1787 isolated node(s):** `com.company:spring-boot-app`, `start-local.sh script`, `$schema`, `collection`, `sourceRoot` (+1782 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **302 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **305 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `logger` connect `tracing.ts` to `app.module.ts`?**
-  _High betweenness centrality (0.016) - this node is a cross-community bridge._
-- **Why does `bootstrap()` connect `app.module.ts` to `tracing.ts`?**
-  _High betweenness centrality (0.016) - this node is a cross-community bridge._
-- **Why does `User` connect `Docker Swarm Skill` to `PrismaService`, `App.jsx`, `eslint-plugin-prettier`, `@opentelemetry/instrumentation-express`, `user.entity.ts`, `.verifyTotp`?**
+- **Why does `User` connect `Docker Swarm Skill` to `PrismaService`, `App.jsx`, `eslint-plugin-prettier`, `.findByEmail`, `AppController`, `user.entity.ts`, `.verifyTotp`?**
   _High betweenness centrality (0.010) - this node is a cross-community bridge._
+- **Why does `bcrypt` connect `jest` to `AppController`?**
+  _High betweenness centrality (0.006) - this node is a cross-community bridge._
 - **What connects `com.company:spring-boot-app`, `start-local.sh script`, `$schema` to the rest of the system?**
-  _1781 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _1787 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `UserDto` be split into smaller, more focused modules?**
   _Cohesion score 0.05446727185857621 - nodes in this community are weakly interconnected._
 - **Should `NotificationService` be split into smaller, more focused modules?**
-  _Cohesion score 0.12878787878787878 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.11076923076923077 - nodes in this community are weakly interconnected._
 - **Should `App.jsx` be split into smaller, more focused modules?**
   _Cohesion score 0.1012987012987013 - nodes in this community are weakly interconnected._
+- **Should `Cloud or Self-Hosted HTTP` be split into smaller, more focused modules?**
+  _Cohesion score 0.044444444444444446 - nodes in this community are weakly interconnected._

@@ -16,28 +16,36 @@ Este documento detalla el procedimiento completo para desplegar la arquitectura 
 
 ## 📁 Estructura de Manifiestos DevSecOps (`k8s/`)
 
-- [`00-namespace-config.yaml`](./k8s/00-namespace-config.yaml): Namespace `fintech`, ConfigMap `mysql-init-sql` y Secret `fintech-secrets`.
-- [`01-infrastructure.yaml`](./k8s/01-infrastructure.yaml): **StatefulSets** con PVCs (`local-path`) para MySQL 8.0, Redis 7 y Apache Kafka KRaft; y Deployment para MailDev 2.1.0.
+- [`00-namespace-config.yaml`](./k8s/00-namespace-config.yaml): Namespace `fintech`, ConfigMaps DDL (`postgres-core-init-sql`, `postgres-support-init-sql`) y Secret `fintech-secrets`.
+- [`01-infrastructure.yaml`](./k8s/01-infrastructure.yaml): **StatefulSets** con PVCs (`local-path`) para PostgreSQL 16 Core (5432) y Support (5433), PgBouncer Pooler (6432), Redis 7 y Apache Kafka KRaft; y Deployment para MailDev.
 - [`02-microservices.yaml`](./k8s/02-microservices.yaml): Deployments y Services endurecidos para los 5 microservicios NestJS (`auth`, `user`, `transaction`, `notification`, `worker`) con SecurityContext, Probes y Requests para el Scheduler.
 - [`03-frontend.yaml`](./k8s/03-frontend.yaml): Deployment y Service para el frontend web React (Vite + Nginx).
 - [`04-observability.yaml`](./k8s/04-observability.yaml): **StatefulSet** para ClickHouse DB con PVC (`local-path`), SigNoz UI (NodePort 30301) y OpenTelemetry Collector.
 - [`05-ingress.yaml`](./k8s/05-ingress.yaml): Recurso Ingress y Middleware Traefik (`strip-api-prefix`, `auth-ratelimit`) para ruteo nativo en Rancher Desktop.
 - [`06-networkpolicy.yaml`](./k8s/06-networkpolicy.yaml): Políticas de red NetworkPolicy para seguridad y control de tráfico interno.
+- [`07-backup-cronjob.yaml`](./k8s/07-backup-cronjob.yaml): CronJob automatizado diario (02:00 AM) con retención de 7 días, compresión `.sql.gz` y verificación de integridad SHA-256.
+- [`08-restore-job-template.yaml`](./k8s/08-restore-job-template.yaml): Plantilla de Job Kubernetes para Disaster Recovery y restauración de bases de datos.
 
 ---
 
 ## 🔐 Buenas Prácticas DevSecOps Implementadas
 
-1. **Cargas con Estado (StatefulSets & PVCs)**:
-   - MySQL, Redis, Kafka y ClickHouse utilizan `StatefulSets` vinculados a la StorageClass `local-path` de Rancher Desktop, asegurando la persistencia de datos ante reinicios de pods.
-2. **Hardening de Seguridad (SecurityContext)**:
-   - `allowPrivilegeEscalation: false` y restricción de `capabilities` activada en contenedores.
-3. **Gestión de Recursos (Requests)**:
+1. **Aislamiento de Bases de Datos & Connection Pooling**:
+   - **`postgres-core`** (Puerto 5432): Camino crítico de dinero (`authdb`, `userdb`, `transactiondb`).
+   - **`pgbouncer-core`** (Puerto 6432): Connection pooler en modo `transaction` para mitigar picos de concurrencia y proteger la memoria de PostgreSQL.
+   - **`postgres-support`** (Puerto 5433): Servicios auxiliares (`notificationdb`, `workerdb`) aislados de la carga transaccional.
+2. **Cargas con Estado (StatefulSets & PVCs)**:
+   - PostgreSQL (Core y Support), Redis, Kafka y ClickHouse utilizan `StatefulSets` vinculados a la StorageClass `local-path` de Rancher Desktop, asegurando la persistencia de datos ante reinicios de pods.
+3. **Hardening de Seguridad (SecurityContext)**:
+   - `allowPrivilegeEscalation: false` y restricción de `capabilities` (`drop: ALL`) activada en contenedores.
+4. **Gestión de Recursos (Requests)**:
    - Cuotas de CPU y Memoria (RAM) `requests` configuradas para garantizar el agendamiento del Kubernetes Scheduler sin CFS Throttling.
-4. **Resiliencia & Salud (Probes)**:
+5. **Resiliencia & Salud (Probes)**:
    - Configuración de `startupProbe`, `livenessProbe` y `readinessProbe` en los endpoints `/health` de NestJS y servicios de infraestructura.
-5. **Aislamiento de Red (NetworkPolicy)**:
+6. **Aislamiento de Red (NetworkPolicy)**:
    - Control de tráfico interno en el namespace `fintech`.
+7. **Disaster Recovery Automatizado (DR)**:
+   - Respaldo continuo y script de restauración con sumas de verificación criptográficas SHA-256.
 
 ---
 
@@ -136,6 +144,16 @@ powershell -ExecutionPolicy Bypass -File ./scripts/concurrency-test.ps1
 Mide el Throughput (RPS), latencias P95/P99 y tasa de errores HTTP mediante `k6` o el motor nativo de benchmark:
 ```powershell
 powershell -ExecutionPolicy Bypass -File ./scripts/performance-test.ps1
+```
+
+### 5. Respaldo y Recuperación de Desastres (DevOps Backup & DR)
+Ejecuta una copia de seguridad en caliente de las 5 bases de datos de PostgreSQL, genera compresión gzip `.sql.gz` y valida sumas de verificación criptográficas SHA-256:
+```powershell
+# Ejecutar backup manual contra el clúster de Kubernetes (k3s / Rancher Desktop)
+powershell -ExecutionPolicy Bypass -File ./scripts/backup-databases.ps1 -Target k8s
+
+# Restaurar una base de datos específica (Disaster Recovery)
+powershell -ExecutionPolicy Bypass -File ./scripts/restore-database.ps1 -Target k8s -DatabaseName transactiondb -BackupFile ./backups/20260814_111939/core_transactiondb_20260814_151946.sql.gz
 ```
 
 ---

@@ -3552,8 +3552,8 @@
       "source_location": "L80",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_devdependencies_eslint_config_prettier",
-      "community": 49,
-      "community_name": ".findByEmail",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "eslint-config-prettier"
     },
     {
@@ -3563,8 +3563,8 @@
       "source_location": "L80",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_eslint_config_prettier",
-      "community": 49,
-      "community_name": ".findByEmail",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "eslint-config-prettier"
     },
     {
@@ -3574,8 +3574,8 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_devdependencies_eslint_plugin_prettier",
-      "community": 349,
-      "community_name": "@types/bcrypt",
+      "community": 369,
+      "community_name": "eslint-plugin-prettier",
       "norm_label": "eslint-plugin-prettier"
     },
     {
@@ -3585,8 +3585,8 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_eslint_plugin_prettier",
-      "community": 349,
-      "community_name": "@types/bcrypt",
+      "community": 369,
+      "community_name": "eslint-plugin-prettier",
       "norm_label": "eslint-plugin-prettier"
     },
     {
@@ -4069,8 +4069,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_index",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "index.ts"
     },
     {
@@ -4124,8 +4124,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_inject",
-      "community": 149,
-      "community_name": "Docker Swarm Skill",
+      "community": 49,
+      "community_name": ".findByEmail",
       "norm_label": "inject"
     },
     {
@@ -4212,8 +4212,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_constructor",
-      "community": 149,
-      "community_name": "Docker Swarm Skill",
+      "community": 49,
+      "community_name": ".findByEmail",
       "norm_label": ".constructor()"
     },
     {
@@ -4773,8 +4773,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_index",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "index.ts"
     },
     {
@@ -4784,8 +4784,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "jwt-auth.guard.ts"
     },
     {
@@ -4960,8 +4960,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_index",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "index.ts"
     },
     {
@@ -4971,8 +4971,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_index",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "index.ts"
     },
     {
@@ -4982,8 +4982,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_outbound_email_index",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "index.ts"
     },
     {
@@ -4993,8 +4993,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_outbound_email_nodemailer_email_adapter",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "nodemailer-email.adapter.ts"
     },
     {
@@ -5004,8 +5004,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_outbound_email_nodemailer_email_adapter_nodemaileremailadapter",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "nodemaileremailadapter"
     },
     {
@@ -5015,8 +5015,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_outbound_email_nodemailer_email_adapter_ts_injectable",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "injectable"
     },
     {
@@ -5026,8 +5026,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_outbound_email_nodemailer_email_adapter_ts_inject",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "inject"
     },
     {
@@ -5037,8 +5037,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_outbound_email_nodemailer_email_adapter_nodemaileremailadapter_constructor",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": ".constructor()"
     },
     {
@@ -5048,8 +5048,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_outbound_email_nodemailer_email_adapter_nodemaileremailadapter_sendverificationemail",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": ".sendverificationemail()"
     },
     {
@@ -5059,8 +5059,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_outbound_http_index",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "index.ts"
     },
     {
@@ -5136,8 +5136,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_outbound_index",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "index.ts"
     },
     {
@@ -5422,8 +5422,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_outbound_redis_redis_token_blacklist_adapter_ts_inject",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "inject"
     },
     {
@@ -5433,8 +5433,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_outbound_redis_redis_token_blacklist_adapter_redistokenblacklistadapter_constructor",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": ".constructor()"
     },
     {
@@ -5576,8 +5576,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_controller_spec",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 377,
+      "community_name": "@opentelemetry/instrumentation-express",
       "norm_label": "app.controller.spec.ts"
     },
     {
@@ -5587,8 +5587,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_controller",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 377,
+      "community_name": "@opentelemetry/instrumentation-express",
       "norm_label": "app.controller.ts"
     },
     {
@@ -5598,8 +5598,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_controller_appcontroller",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 377,
+      "community_name": "@opentelemetry/instrumentation-express",
       "norm_label": "appcontroller"
     },
     {
@@ -5609,8 +5609,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_controller_ts_controller",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 377,
+      "community_name": "@opentelemetry/instrumentation-express",
       "norm_label": "controller"
     },
     {
@@ -5620,8 +5620,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_controller_ts_get",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 377,
+      "community_name": "@opentelemetry/instrumentation-express",
       "norm_label": "get"
     },
     {
@@ -5631,8 +5631,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_controller_appcontroller_constructor",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 377,
+      "community_name": "@opentelemetry/instrumentation-express",
       "norm_label": ".constructor()"
     },
     {
@@ -5642,8 +5642,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_controller_appcontroller_gethello",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 377,
+      "community_name": "@opentelemetry/instrumentation-express",
       "norm_label": ".gethello()"
     },
     {
@@ -5653,8 +5653,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_controller_appcontroller_gethealth",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 377,
+      "community_name": "@opentelemetry/instrumentation-express",
       "norm_label": ".gethealth()"
     },
     {
@@ -5664,8 +5664,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_module",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 377,
+      "community_name": "@opentelemetry/instrumentation-express",
       "norm_label": "app.module.ts"
     },
     {
@@ -5697,8 +5697,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_service",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 377,
+      "community_name": "@opentelemetry/instrumentation-express",
       "norm_label": "app.service.ts"
     },
     {
@@ -5708,8 +5708,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_service_appservice",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 377,
+      "community_name": "@opentelemetry/instrumentation-express",
       "norm_label": "appservice"
     },
     {
@@ -5719,8 +5719,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_service_ts_injectable",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 377,
+      "community_name": "@opentelemetry/instrumentation-express",
       "norm_label": "injectable"
     },
     {
@@ -5730,8 +5730,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_service_appservice_gethello",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 377,
+      "community_name": "@opentelemetry/instrumentation-express",
       "norm_label": ".gethello()"
     },
     {
@@ -5741,8 +5741,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_application_index",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "index.ts"
     },
     {
@@ -5752,8 +5752,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_application_use_cases_auth_use_cases",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "auth.use-cases.ts"
     },
     {
@@ -5785,8 +5785,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_application_use_cases_auth_use_cases_ts_inject",
-      "community": 357,
-      "community_name": "eslint-plugin-prettier",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "inject"
     },
     {
@@ -5796,8 +5796,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_application_use_cases_auth_use_cases_authusecases_constructor",
-      "community": 357,
-      "community_name": "eslint-plugin-prettier",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": ".constructor()"
     },
     {
@@ -5939,8 +5939,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_application_use_cases_index",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "index.ts"
     },
     {
@@ -5950,8 +5950,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_auth_module",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "auth.module.ts"
     },
     {
@@ -5994,8 +5994,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_entities_user_entity",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 218,
+      "community_name": "user.entity.ts",
       "norm_label": "user.entity.ts"
     },
     {
@@ -6005,8 +6005,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_entities_user_entity_userprops",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 218,
+      "community_name": "user.entity.ts",
       "norm_label": "userprops"
     },
     {
@@ -6236,8 +6236,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport",
-      "community": 149,
-      "community_name": "Docker Swarm Skill",
+      "community": 49,
+      "community_name": ".findByEmail",
       "norm_label": "authserviceport"
     },
     {
@@ -6247,8 +6247,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport_register",
-      "community": 149,
-      "community_name": "Docker Swarm Skill",
+      "community": 49,
+      "community_name": ".findByEmail",
       "norm_label": ".register()"
     },
     {
@@ -6258,8 +6258,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport_login",
-      "community": 149,
-      "community_name": "Docker Swarm Skill",
+      "community": 49,
+      "community_name": ".findByEmail",
       "norm_label": ".login()"
     },
     {
@@ -6269,8 +6269,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport_verifyemail",
-      "community": 149,
-      "community_name": "Docker Swarm Skill",
+      "community": 49,
+      "community_name": ".findByEmail",
       "norm_label": ".verifyemail()"
     },
     {
@@ -6280,8 +6280,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport_getme",
-      "community": 149,
-      "community_name": "Docker Swarm Skill",
+      "community": 49,
+      "community_name": ".findByEmail",
       "norm_label": ".getme()"
     },
     {
@@ -6291,8 +6291,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport_setuptotp",
-      "community": 149,
-      "community_name": "Docker Swarm Skill",
+      "community": 49,
+      "community_name": ".findByEmail",
       "norm_label": ".setuptotp()"
     },
     {
@@ -6302,8 +6302,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport_verifytotp",
-      "community": 149,
-      "community_name": "Docker Swarm Skill",
+      "community": 49,
+      "community_name": ".findByEmail",
       "norm_label": ".verifytotp()"
     },
     {
@@ -6313,8 +6313,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport_enabletotp",
-      "community": 149,
-      "community_name": "Docker Swarm Skill",
+      "community": 49,
+      "community_name": ".findByEmail",
       "norm_label": ".enabletotp()"
     },
     {
@@ -6324,8 +6324,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport_disabletotp",
-      "community": 149,
-      "community_name": "Docker Swarm Skill",
+      "community": 49,
+      "community_name": ".findByEmail",
       "norm_label": ".disabletotp()"
     },
     {
@@ -6335,8 +6335,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport_getuserbyemail",
-      "community": 149,
-      "community_name": "Docker Swarm Skill",
+      "community": 49,
+      "community_name": ".findByEmail",
       "norm_label": ".getuserbyemail()"
     },
     {
@@ -6346,8 +6346,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport_resendverification",
-      "community": 149,
-      "community_name": "Docker Swarm Skill",
+      "community": 49,
+      "community_name": ".findByEmail",
       "norm_label": ".resendverification()"
     },
     {
@@ -6357,8 +6357,8 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport_changepassword",
-      "community": 149,
-      "community_name": "Docker Swarm Skill",
+      "community": 49,
+      "community_name": ".findByEmail",
       "norm_label": ".changepassword()"
     },
     {
@@ -6368,8 +6368,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authserviceport_promotetoadmin",
-      "community": 149,
-      "community_name": "Docker Swarm Skill",
+      "community": 49,
+      "community_name": ".findByEmail",
       "norm_label": ".promotetoadmin()"
     },
     {
@@ -6379,8 +6379,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_index",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "index.ts"
     },
     {
@@ -6390,8 +6390,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_index",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "index.ts"
     },
     {
@@ -6456,8 +6456,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_email_service_port",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "email.service.port.ts"
     },
     {
@@ -6467,8 +6467,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_email_service_port_email_service_port",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "email_service_port"
     },
     {
@@ -6478,8 +6478,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_email_service_port_emailserviceport",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "emailserviceport"
     },
     {
@@ -6489,8 +6489,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_email_service_port_emailserviceport_sendverificationemail",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": ".sendverificationemail()"
     },
     {
@@ -6500,8 +6500,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_index",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "index.ts"
     },
     {
@@ -6522,8 +6522,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port_token_service_port",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "token_service_port"
     },
     {
@@ -6588,8 +6588,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_user_profile_client_port_user_profile_client_port",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "user_profile_client_port"
     },
     {
@@ -6621,8 +6621,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_user_repository_port",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": "user.repository.port.ts"
     },
     {
@@ -6632,8 +6632,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_user_repository_port_user_repository_port",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": "user_repository_port"
     },
     {
@@ -6896,8 +6896,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_index",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": "index.ts"
     },
     {
@@ -6907,8 +6907,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_index",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
       "norm_label": "index.ts"
     },
     {
@@ -7187,10 +7187,21 @@
       "norm_label": "logger"
     },
     {
-      "label": "traceExporter",
+      "label": "createResource()",
       "file_type": "code",
       "source_file": "backend-nestjs/auth-service/src/infrastructure/telemetry/tracing.ts",
       "source_location": "L20",
+      "_origin": "ast",
+      "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing_createresource",
+      "community": 197,
+      "community_name": "tracing.ts",
+      "norm_label": "createresource()"
+    },
+    {
+      "label": "traceExporter",
+      "file_type": "code",
+      "source_file": "backend-nestjs/auth-service/src/infrastructure/telemetry/tracing.ts",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing_traceexporter",
       "community": 197,
@@ -7201,7 +7212,7 @@
       "label": "metricExporter",
       "file_type": "code",
       "source_file": "backend-nestjs/auth-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L24",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing_metricexporter",
       "community": 197,
@@ -7212,7 +7223,7 @@
       "label": "otelSDK",
       "file_type": "code",
       "source_file": "backend-nestjs/auth-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L28",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing_otelsdk",
       "community": 197,
@@ -7223,7 +7234,7 @@
       "label": "startTelemetry()",
       "file_type": "code",
       "source_file": "backend-nestjs/auth-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L54",
+      "source_location": "L67",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing_starttelemetry",
       "community": 197,
@@ -8458,8 +8469,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_dependencies_class_transformer",
-      "community": 389,
-      "community_name": "@prisma/adapter-mariadb",
+      "community": 371,
+      "community_name": "@nestjs/config",
       "norm_label": "class-transformer"
     },
     {
@@ -8469,8 +8480,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_class_transformer",
-      "community": 389,
-      "community_name": "@prisma/adapter-mariadb",
+      "community": 371,
+      "community_name": "@nestjs/config",
       "norm_label": "class-transformer"
     },
     {
@@ -8502,8 +8513,8 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_dependencies_kafkajs",
-      "community": 371,
-      "community_name": "@nestjs/config",
+      "community": 376,
+      "community_name": "kafkajs",
       "norm_label": "kafkajs"
     },
     {
@@ -8513,8 +8524,8 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_kafkajs",
-      "community": 371,
-      "community_name": "@nestjs/config",
+      "community": 376,
+      "community_name": "kafkajs",
       "norm_label": "kafkajs"
     },
     {
@@ -8865,8 +8876,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_devdependencies_types_node",
-      "community": 152,
-      "community_name": "swarm-init.sh",
+      "community": 388,
+      "community_name": "@types/node",
       "norm_label": "@types/node"
     },
     {
@@ -8876,8 +8887,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_types_node",
-      "community": 152,
-      "community_name": "swarm-init.sh",
+      "community": 388,
+      "community_name": "@types/node",
       "norm_label": "@types/node"
     },
     {
@@ -8953,8 +8964,8 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_devdependencies_eslint",
-      "community": 92,
-      "community_name": "AuthServiceApplicationTests.java",
+      "community": 152,
+      "community_name": "swarm-init.sh",
       "norm_label": "eslint"
     },
     {
@@ -8964,8 +8975,8 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_eslint",
-      "community": 92,
-      "community_name": "AuthServiceApplicationTests.java",
+      "community": 152,
+      "community_name": "swarm-init.sh",
       "norm_label": "eslint"
     },
     {
@@ -9404,8 +9415,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_adapters_inbound_kafka_kafka_consumer_service",
-      "community": 169,
-      "community_name": "AuthController",
+      "community": 333,
+      "community_name": "@opentelemetry/sdk-metrics",
       "norm_label": "kafka-consumer.service.ts"
     },
     {
@@ -9415,8 +9426,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_adapters_inbound_kafka_kafka_consumer_service_kafkaconsumerservice",
-      "community": 169,
-      "community_name": "AuthController",
+      "community": 362,
+      "community_name": "KafkaConsumerService",
       "norm_label": "kafkaconsumerservice"
     },
     {
@@ -9426,8 +9437,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_adapters_inbound_kafka_kafka_consumer_service_ts_injectable",
-      "community": 169,
-      "community_name": "AuthController",
+      "community": 362,
+      "community_name": "KafkaConsumerService",
       "norm_label": "injectable"
     },
     {
@@ -9437,8 +9448,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_adapters_inbound_kafka_kafka_consumer_service_ts_inject",
-      "community": 169,
-      "community_name": "AuthController",
+      "community": 362,
+      "community_name": "KafkaConsumerService",
       "norm_label": "inject"
     },
     {
@@ -9448,8 +9459,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_adapters_inbound_kafka_kafka_consumer_service_kafkaconsumerservice_constructor",
-      "community": 169,
-      "community_name": "AuthController",
+      "community": 362,
+      "community_name": "KafkaConsumerService",
       "norm_label": ".constructor()"
     },
     {
@@ -9459,8 +9470,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_adapters_inbound_kafka_kafka_consumer_service_kafkaconsumerservice_onmoduleinit",
-      "community": 169,
-      "community_name": "AuthController",
+      "community": 362,
+      "community_name": "KafkaConsumerService",
       "norm_label": ".onmoduleinit()"
     },
     {
@@ -9470,8 +9481,8 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_adapters_inbound_kafka_kafka_consumer_service_kafkaconsumerservice_processwithretry",
-      "community": 169,
-      "community_name": "AuthController",
+      "community": 362,
+      "community_name": "KafkaConsumerService",
       "norm_label": ".processwithretry()"
     },
     {
@@ -9481,8 +9492,8 @@
       "source_location": "L100",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_adapters_inbound_kafka_kafka_consumer_service_kafkaconsumerservice_onmoduledestroy",
-      "community": 169,
-      "community_name": "AuthController",
+      "community": 362,
+      "community_name": "KafkaConsumerService",
       "norm_label": ".onmoduledestroy()"
     },
     {
@@ -9613,8 +9624,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_adapters_inbound_rest_notification_controller_spec",
-      "community": 331,
-      "community_name": "@opentelemetry/resources",
+      "community": 333,
+      "community_name": "@opentelemetry/sdk-metrics",
       "norm_label": "notification.controller.spec.ts"
     },
     {
@@ -9624,8 +9635,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_adapters_inbound_rest_notification_controller",
-      "community": 331,
-      "community_name": "@opentelemetry/resources",
+      "community": 333,
+      "community_name": "@opentelemetry/sdk-metrics",
       "norm_label": "notification.controller.ts"
     },
     {
@@ -9789,8 +9800,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_adapters_outbound_database_database_module",
-      "community": 235,
-      "community_name": "EnvironmentVariables",
+      "community": 92,
+      "community_name": "AuthServiceApplicationTests.java",
       "norm_label": "database.module.ts"
     },
     {
@@ -9800,8 +9811,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_adapters_outbound_database_database_module_databasemodule",
-      "community": 333,
-      "community_name": "@opentelemetry/sdk-metrics",
+      "community": 92,
+      "community_name": "AuthServiceApplicationTests.java",
       "norm_label": "databasemodule"
     },
     {
@@ -9811,8 +9822,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_adapters_outbound_database_database_module_ts_module",
-      "community": 333,
-      "community_name": "@opentelemetry/sdk-metrics",
+      "community": 92,
+      "community_name": "AuthServiceApplicationTests.java",
       "norm_label": "module"
     },
     {
@@ -9822,8 +9833,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_adapters_outbound_database_prisma_notification_repository",
-      "community": 235,
-      "community_name": "EnvironmentVariables",
+      "community": 92,
+      "community_name": "AuthServiceApplicationTests.java",
       "norm_label": "prisma-notification.repository.ts"
     },
     {
@@ -9855,8 +9866,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_adapters_outbound_database_prisma_notification_repository_prismanotificationrepository_constructor",
-      "community": 235,
-      "community_name": "EnvironmentVariables",
+      "community": 92,
+      "community_name": "AuthServiceApplicationTests.java",
       "norm_label": ".constructor()"
     },
     {
@@ -10416,8 +10427,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_application_use_cases_notification_use_cases_spec",
-      "community": 235,
-      "community_name": "EnvironmentVariables",
+      "community": 339,
+      "community_name": "@eslint/eslintrc",
       "norm_label": "notification.use-cases.spec.ts"
     },
     {
@@ -10438,8 +10449,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_application_use_cases_notification_use_cases_notificationusecases",
-      "community": 333,
-      "community_name": "@opentelemetry/sdk-metrics",
+      "community": 354,
+      "community_name": "NotificationUseCases",
       "norm_label": "notificationusecases"
     },
     {
@@ -10449,8 +10460,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_application_use_cases_notification_use_cases_ts_injectable",
-      "community": 333,
-      "community_name": "@opentelemetry/sdk-metrics",
+      "community": 354,
+      "community_name": "NotificationUseCases",
       "norm_label": "injectable"
     },
     {
@@ -10460,8 +10471,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_application_use_cases_notification_use_cases_ts_inject",
-      "community": 339,
-      "community_name": "@eslint/eslintrc",
+      "community": 354,
+      "community_name": "NotificationUseCases",
       "norm_label": "inject"
     },
     {
@@ -10471,8 +10482,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_application_use_cases_notification_use_cases_notificationusecases_constructor",
-      "community": 339,
-      "community_name": "@eslint/eslintrc",
+      "community": 354,
+      "community_name": "NotificationUseCases",
       "norm_label": ".constructor()"
     },
     {
@@ -10482,8 +10493,8 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_application_use_cases_notification_use_cases_notificationusecases_processtransfernotification",
-      "community": 333,
-      "community_name": "@opentelemetry/sdk-metrics",
+      "community": 354,
+      "community_name": "NotificationUseCases",
       "norm_label": ".processtransfernotification()"
     },
     {
@@ -10493,8 +10504,8 @@
       "source_location": "L91",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_application_use_cases_notification_use_cases_notificationusecases_getusernotifications",
-      "community": 333,
-      "community_name": "@opentelemetry/sdk-metrics",
+      "community": 354,
+      "community_name": "NotificationUseCases",
       "norm_label": ".getusernotifications()"
     },
     {
@@ -10504,8 +10515,8 @@
       "source_location": "L95",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_application_use_cases_notification_use_cases_notificationusecases_markasread",
-      "community": 333,
-      "community_name": "@opentelemetry/sdk-metrics",
+      "community": 354,
+      "community_name": "NotificationUseCases",
       "norm_label": ".markasread()"
     },
     {
@@ -10515,8 +10526,8 @@
       "source_location": "L99",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_application_use_cases_notification_use_cases_notificationusecases_getunreadcount",
-      "community": 333,
-      "community_name": "@opentelemetry/sdk-metrics",
+      "community": 354,
+      "community_name": "NotificationUseCases",
       "norm_label": ".getunreadcount()"
     },
     {
@@ -10526,8 +10537,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_domain_entities_notification_entity",
-      "community": 235,
-      "community_name": "EnvironmentVariables",
+      "community": 333,
+      "community_name": "@opentelemetry/sdk-metrics",
       "norm_label": "notification.entity.ts"
     },
     {
@@ -10592,8 +10603,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_domain_ports_inbound_notification_service_port_notification_service_port",
-      "community": 331,
-      "community_name": "@opentelemetry/resources",
+      "community": 333,
+      "community_name": "@opentelemetry/sdk-metrics",
       "norm_label": "notification_service_port"
     },
     {
@@ -10625,8 +10636,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_domain_ports_inbound_notification_service_port_notificationserviceport_getusernotifications",
-      "community": 333,
-      "community_name": "@opentelemetry/sdk-metrics",
+      "community": 235,
+      "community_name": "EnvironmentVariables",
       "norm_label": ".getusernotifications()"
     },
     {
@@ -10636,8 +10647,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_domain_ports_inbound_notification_service_port_notificationserviceport_markasread",
-      "community": 333,
-      "community_name": "@opentelemetry/sdk-metrics",
+      "community": 235,
+      "community_name": "EnvironmentVariables",
       "norm_label": ".markasread()"
     },
     {
@@ -10702,8 +10713,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_domain_ports_outbound_notification_repository_port",
-      "community": 235,
-      "community_name": "EnvironmentVariables",
+      "community": 92,
+      "community_name": "AuthServiceApplicationTests.java",
       "norm_label": "notification-repository.port.ts"
     },
     {
@@ -10713,8 +10724,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_domain_ports_outbound_notification_repository_port_notification_repository_port",
-      "community": 235,
-      "community_name": "EnvironmentVariables",
+      "community": 92,
+      "community_name": "AuthServiceApplicationTests.java",
       "norm_label": "notification_repository_port"
     },
     {
@@ -10845,8 +10856,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_infrastructure_database_prisma_service",
-      "community": 235,
-      "community_name": "EnvironmentVariables",
+      "community": 92,
+      "community_name": "AuthServiceApplicationTests.java",
       "norm_label": "prisma.service.ts"
     },
     {
@@ -10856,8 +10867,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_infrastructure_database_prisma_service_prismaservice",
-      "community": 235,
-      "community_name": "EnvironmentVariables",
+      "community": 92,
+      "community_name": "AuthServiceApplicationTests.java",
       "norm_label": "prismaservice"
     },
     {
@@ -10867,8 +10878,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_infrastructure_database_prisma_service_ts_injectable",
-      "community": 235,
-      "community_name": "EnvironmentVariables",
+      "community": 92,
+      "community_name": "AuthServiceApplicationTests.java",
       "norm_label": "injectable"
     },
     {
@@ -10878,8 +10889,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_infrastructure_database_prisma_service_prismaservice_constructor",
-      "community": 235,
-      "community_name": "EnvironmentVariables",
+      "community": 92,
+      "community_name": "AuthServiceApplicationTests.java",
       "norm_label": ".constructor()"
     },
     {
@@ -10889,8 +10900,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_infrastructure_database_prisma_service_prismaservice_onmoduleinit",
-      "community": 235,
-      "community_name": "EnvironmentVariables",
+      "community": 92,
+      "community_name": "AuthServiceApplicationTests.java",
       "norm_label": ".onmoduleinit()"
     },
     {
@@ -10900,8 +10911,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_infrastructure_database_prisma_service_prismaservice_onmoduledestroy",
-      "community": 235,
-      "community_name": "EnvironmentVariables",
+      "community": 92,
+      "community_name": "AuthServiceApplicationTests.java",
       "norm_label": ".onmoduledestroy()"
     },
     {
@@ -10911,8 +10922,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_infrastructure_logger_winston_logger",
-      "community": 169,
-      "community_name": "AuthController",
+      "community": 389,
+      "community_name": "@prisma/adapter-mariadb",
       "norm_label": "winston.logger.ts"
     },
     {
@@ -10922,6 +10933,50 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_infrastructure_logger_winston_logger_createwinstonlogger",
+      "community": 389,
+      "community_name": "@prisma/adapter-mariadb",
+      "norm_label": "createwinstonlogger()"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/index.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_nestjs_notification_service_src_infrastructure_telemetry_index",
+      "community": 169,
+      "community_name": "AuthController",
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "logger.config.ts",
+      "file_type": "code",
+      "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/logger.config.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_nestjs_notification_service_src_infrastructure_telemetry_logger_config",
+      "community": 169,
+      "community_name": "AuthController",
+      "norm_label": "logger.config.ts"
+    },
+    {
+      "label": "otelLogFormat",
+      "file_type": "code",
+      "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/logger.config.ts",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "backend_nestjs_notification_service_src_infrastructure_telemetry_logger_config_otellogformat",
+      "community": 169,
+      "community_name": "AuthController",
+      "norm_label": "otellogformat"
+    },
+    {
+      "label": "createWinstonLogger()",
+      "file_type": "code",
+      "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/logger.config.ts",
+      "source_location": "L93",
+      "_origin": "ast",
+      "id": "backend_nestjs_notification_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
       "community": 169,
       "community_name": "AuthController",
       "norm_label": "createwinstonlogger()"
@@ -10938,10 +10993,32 @@
       "norm_label": "tracing.ts"
     },
     {
+      "label": "logger",
+      "file_type": "code",
+      "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/tracing.ts",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "backend_nestjs_notification_service_src_infrastructure_telemetry_tracing_logger",
+      "community": 169,
+      "community_name": "AuthController",
+      "norm_label": "logger"
+    },
+    {
+      "label": "createResource()",
+      "file_type": "code",
+      "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/tracing.ts",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "backend_nestjs_notification_service_src_infrastructure_telemetry_tracing_createresource",
+      "community": 169,
+      "community_name": "AuthController",
+      "norm_label": "createresource()"
+    },
+    {
       "label": "traceExporter",
       "file_type": "code",
       "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L17",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_infrastructure_telemetry_tracing_traceexporter",
       "community": 169,
@@ -10952,7 +11029,7 @@
       "label": "metricExporter",
       "file_type": "code",
       "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L21",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_infrastructure_telemetry_tracing_metricexporter",
       "community": 169,
@@ -10960,26 +11037,26 @@
       "norm_label": "metricexporter"
     },
     {
-      "label": "sdk",
+      "label": "otelSDK",
       "file_type": "code",
       "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L25",
+      "source_location": "L35",
       "_origin": "ast",
-      "id": "backend_nestjs_notification_service_src_infrastructure_telemetry_tracing_sdk",
+      "id": "backend_nestjs_notification_service_src_infrastructure_telemetry_tracing_otelsdk",
       "community": 169,
       "community_name": "AuthController",
-      "norm_label": "sdk"
+      "norm_label": "otelsdk"
     },
     {
-      "label": "initTracing()",
+      "label": "startTelemetry()",
       "file_type": "code",
       "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L51",
+      "source_location": "L67",
       "_origin": "ast",
-      "id": "backend_nestjs_notification_service_src_infrastructure_telemetry_tracing_inittracing",
+      "id": "backend_nestjs_notification_service_src_infrastructure_telemetry_tracing_starttelemetry",
       "community": 169,
       "community_name": "AuthController",
-      "norm_label": "inittracing()"
+      "norm_label": "starttelemetry()"
     },
     {
       "label": "main.ts",
@@ -10996,7 +11073,7 @@
       "label": "bootstrap()",
       "file_type": "code",
       "source_file": "backend-nestjs/notification-service/src/main.ts",
-      "source_location": "L13",
+      "source_location": "L9",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_main_bootstrap",
       "community": 169,
@@ -12440,8 +12517,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_devdependencies_nestjs_schematics",
-      "community": 570,
-      "community_name": "@nestjs/schematics",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": "@nestjs/schematics"
     },
     {
@@ -12451,8 +12528,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_nestjs_schematics",
-      "community": 570,
-      "community_name": "@nestjs/schematics",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": "@nestjs/schematics"
     },
     {
@@ -12638,8 +12715,8 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_devdependencies_eslint",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 400,
+      "community_name": "@opentelemetry/instrumentation-express",
       "norm_label": "eslint"
     },
     {
@@ -12649,8 +12726,8 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_eslint",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 400,
+      "community_name": "@opentelemetry/instrumentation-express",
       "norm_label": "eslint"
     },
     {
@@ -13166,8 +13243,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_inbound_rest_dto_transfer_request_dto",
-      "community": 134,
-      "community_name": "TransactionController",
+      "community": 160,
+      "community_name": "app.module.ts",
       "norm_label": "transfer-request.dto.ts"
     },
     {
@@ -13177,8 +13254,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_inbound_rest_dto_transfer_request_dto_transferrequestdto",
-      "community": 134,
-      "community_name": "TransactionController",
+      "community": 160,
+      "community_name": "app.module.ts",
       "norm_label": "transferrequestdto"
     },
     {
@@ -13188,8 +13265,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_inbound_rest_dto_transfer_request_dto_ts_apiproperty",
-      "community": 134,
-      "community_name": "TransactionController",
+      "community": 160,
+      "community_name": "app.module.ts",
       "norm_label": "apiproperty"
     },
     {
@@ -13199,8 +13276,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_inbound_rest_dto_transfer_request_dto_ts_isnumber",
-      "community": 134,
-      "community_name": "TransactionController",
+      "community": 160,
+      "community_name": "app.module.ts",
       "norm_label": "isnumber"
     },
     {
@@ -13210,8 +13287,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_inbound_rest_dto_transfer_request_dto_ts_ispositive",
-      "community": 134,
-      "community_name": "TransactionController",
+      "community": 160,
+      "community_name": "app.module.ts",
       "norm_label": "ispositive"
     },
     {
@@ -13221,8 +13298,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_inbound_rest_dto_transfer_response_dto",
-      "community": 134,
-      "community_name": "TransactionController",
+      "community": 160,
+      "community_name": "app.module.ts",
       "norm_label": "transfer-response.dto.ts"
     },
     {
@@ -13375,8 +13452,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_inbound_rest_transaction_controller_spec",
-      "community": 134,
-      "community_name": "TransactionController",
+      "community": 160,
+      "community_name": "app.module.ts",
       "norm_label": "transaction.controller.spec.ts"
     },
     {
@@ -13386,8 +13463,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_inbound_rest_transaction_controller",
-      "community": 134,
-      "community_name": "TransactionController",
+      "community": 160,
+      "community_name": "app.module.ts",
       "norm_label": "transaction.controller.ts"
     },
     {
@@ -13936,8 +14013,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_kafka_kafka_module",
-      "community": 160,
-      "community_name": "app.module.ts",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "kafka.module.ts"
     },
     {
@@ -13947,8 +14024,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_kafka_kafka_module_kafkamodule",
-      "community": 160,
-      "community_name": "app.module.ts",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "kafkamodule"
     },
     {
@@ -13958,8 +14035,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_kafka_kafka_module_ts_module",
-      "community": 160,
-      "community_name": "app.module.ts",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "module"
     },
     {
@@ -13969,8 +14046,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_persistence_prisma_transaction_repository",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": "prisma-transaction.repository.ts"
     },
     {
@@ -14002,8 +14079,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_persistence_prisma_transaction_repository_prismatransactionrepository_constructor",
-      "community": 147,
-      "community_name": "MoneyRequestEntity",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": ".constructor()"
     },
     {
@@ -14189,8 +14266,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_redis_idempotency_service",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": "idempotency.service.ts"
     },
     {
@@ -14200,8 +14277,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_redis_idempotency_service_idempotencyservice",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": "idempotencyservice"
     },
     {
@@ -14211,8 +14288,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_redis_idempotency_service_ts_injectable",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": "injectable"
     },
     {
@@ -14222,8 +14299,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_redis_idempotency_service_idempotencyservice_constructor",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": ".constructor()"
     },
     {
@@ -14233,8 +14310,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_redis_idempotency_service_idempotencyservice_onmoduleinit",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": ".onmoduleinit()"
     },
     {
@@ -14244,8 +14321,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_redis_idempotency_service_idempotencyservice_onmoduledestroy",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": ".onmoduledestroy()"
     },
     {
@@ -14277,8 +14354,8 @@
       "source_location": "L115",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_redis_idempotency_service_idempotencyservice_removekey",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": ".removekey()"
     },
     {
@@ -14299,8 +14376,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_redis_redis_module_redismodule",
-      "community": 160,
-      "community_name": "app.module.ts",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "redismodule"
     },
     {
@@ -14310,8 +14387,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_redis_redis_module_ts_module",
-      "community": 160,
-      "community_name": "app.module.ts",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "module"
     },
     {
@@ -14398,8 +14475,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_trpc_user_trpc_client_module_usertrpcclientmodule",
-      "community": 160,
-      "community_name": "app.module.ts",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "usertrpcclientmodule"
     },
     {
@@ -14409,8 +14486,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_trpc_user_trpc_client_module_ts_module",
-      "community": 160,
-      "community_name": "app.module.ts",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "module"
     },
     {
@@ -14497,8 +14574,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_app_module",
-      "community": 160,
-      "community_name": "app.module.ts",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "app.module.ts"
     },
     {
@@ -14508,8 +14585,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_app_module_commandhandlers",
-      "community": 160,
-      "community_name": "app.module.ts",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "commandhandlers"
     },
     {
@@ -14519,8 +14596,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_app_module_queryhandlers",
-      "community": 160,
-      "community_name": "app.module.ts",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "queryhandlers"
     },
     {
@@ -14530,8 +14607,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_app_module_appmodule",
-      "community": 160,
-      "community_name": "app.module.ts",
+      "community": 259,
+      "community_name": "tracing.ts",
       "norm_label": "appmodule"
     },
     {
@@ -14541,8 +14618,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_app_module_ts_module",
-      "community": 160,
-      "community_name": "app.module.ts",
+      "community": 259,
+      "community_name": "tracing.ts",
       "norm_label": "module"
     },
     {
@@ -14596,8 +14673,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_commands_transfer_money_command",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 160,
+      "community_name": "app.module.ts",
       "norm_label": "transfer-money.command.ts"
     },
     {
@@ -14607,8 +14684,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_commands_transfer_money_command_transfermoneycommand",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 160,
+      "community_name": "app.module.ts",
       "norm_label": "transfermoneycommand"
     },
     {
@@ -14618,8 +14695,8 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_commands_transfer_money_command_transfermoneycommand_constructor",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 160,
+      "community_name": "app.module.ts",
       "norm_label": ".constructor()"
     },
     {
@@ -14629,8 +14706,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_commands_transfer_money_handler",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": "transfer-money.handler.ts"
     },
     {
@@ -14805,8 +14882,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_use_cases_transaction_use_cases_spec",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": "transaction.use-cases.spec.ts"
     },
     {
@@ -14816,8 +14893,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_use_cases_transaction_use_cases",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": "transaction.use-cases.ts"
     },
     {
@@ -14926,8 +15003,8 @@
       "source_location": "L159",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_use_cases_transaction_use_cases_transactionusecases_acceptmoneyrequest",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": ".acceptmoneyrequest()"
     },
     {
@@ -14948,8 +15025,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_entities_money_request_entity",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": "money-request.entity.ts"
     },
     {
@@ -14981,8 +15058,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_entities_transaction_entity",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": "transaction.entity.ts"
     },
     {
@@ -15014,8 +15091,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_events_transfer_completed_event",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": "transfer-completed.event.ts"
     },
     {
@@ -15025,8 +15102,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_events_transfer_completed_event_transfercompletedevent",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": "transfercompletedevent"
     },
     {
@@ -15036,8 +15113,8 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_events_transfer_completed_event_transfercompletedevent_constructor",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": ".constructor()"
     },
     {
@@ -15047,8 +15124,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_ports_inbound_transaction_service_port",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": "transaction-service.port.ts"
     },
     {
@@ -15058,8 +15135,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_ports_inbound_transaction_service_port_transferparams",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": "transferparams"
     },
     {
@@ -15069,8 +15146,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_ports_inbound_transaction_service_port_moneyrequestparams",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": "moneyrequestparams"
     },
     {
@@ -15168,8 +15245,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_ports_inbound_transaction_service_port_transaction_service_port",
-      "community": 134,
-      "community_name": "TransactionController",
+      "community": 160,
+      "community_name": "app.module.ts",
       "norm_label": "transaction_service_port"
     },
     {
@@ -15179,8 +15256,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_ports_outbound_transaction_repository_port",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": "transaction-repository.port.ts"
     },
     {
@@ -15278,8 +15355,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_ports_outbound_transaction_repository_port_transaction_repository_port",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": "transaction_repository_port"
     },
     {
@@ -15366,8 +15443,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_value_objects_money_vo",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": "money.vo.ts"
     },
     {
@@ -15377,8 +15454,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_value_objects_money_vo_money",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": "money"
     },
     {
@@ -15388,8 +15465,8 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_value_objects_money_vo_money_constructor",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": ".constructor()"
     },
     {
@@ -15399,8 +15476,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_value_objects_money_vo_money_add",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": ".add()"
     },
     {
@@ -15410,8 +15487,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_value_objects_money_vo_money_subtract",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": ".subtract()"
     },
     {
@@ -15421,8 +15498,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_value_objects_money_vo_money_isgreaterthanorequal",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": ".isgreaterthanorequal()"
     },
     {
@@ -15635,6 +15712,50 @@
       "norm_label": ".processpendingevents()"
     },
     {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/index.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_nestjs_transaction_service_src_infrastructure_telemetry_index",
+      "community": 259,
+      "community_name": "tracing.ts",
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "logger.config.ts",
+      "file_type": "code",
+      "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/logger.config.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_nestjs_transaction_service_src_infrastructure_telemetry_logger_config",
+      "community": 259,
+      "community_name": "tracing.ts",
+      "norm_label": "logger.config.ts"
+    },
+    {
+      "label": "otelLogFormat",
+      "file_type": "code",
+      "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/logger.config.ts",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "backend_nestjs_transaction_service_src_infrastructure_telemetry_logger_config_otellogformat",
+      "community": 259,
+      "community_name": "tracing.ts",
+      "norm_label": "otellogformat"
+    },
+    {
+      "label": "createWinstonLogger()",
+      "file_type": "code",
+      "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/logger.config.ts",
+      "source_location": "L93",
+      "_origin": "ast",
+      "id": "backend_nestjs_transaction_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
+      "community": 259,
+      "community_name": "tracing.ts",
+      "norm_label": "createwinstonlogger()"
+    },
+    {
       "label": "tracing.ts",
       "file_type": "code",
       "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/tracing.ts",
@@ -15646,10 +15767,32 @@
       "norm_label": "tracing.ts"
     },
     {
+      "label": "logger",
+      "file_type": "code",
+      "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/tracing.ts",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "backend_nestjs_transaction_service_src_infrastructure_telemetry_tracing_logger",
+      "community": 259,
+      "community_name": "tracing.ts",
+      "norm_label": "logger"
+    },
+    {
+      "label": "createResource()",
+      "file_type": "code",
+      "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/tracing.ts",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "backend_nestjs_transaction_service_src_infrastructure_telemetry_tracing_createresource",
+      "community": 259,
+      "community_name": "tracing.ts",
+      "norm_label": "createresource()"
+    },
+    {
       "label": "traceExporter",
       "file_type": "code",
       "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L17",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_telemetry_tracing_traceexporter",
       "community": 259,
@@ -15660,7 +15803,7 @@
       "label": "metricExporter",
       "file_type": "code",
       "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L21",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_telemetry_tracing_metricexporter",
       "community": 259,
@@ -15668,26 +15811,26 @@
       "norm_label": "metricexporter"
     },
     {
-      "label": "sdk",
+      "label": "otelSDK",
       "file_type": "code",
       "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L25",
+      "source_location": "L35",
       "_origin": "ast",
-      "id": "backend_nestjs_transaction_service_src_infrastructure_telemetry_tracing_sdk",
+      "id": "backend_nestjs_transaction_service_src_infrastructure_telemetry_tracing_otelsdk",
       "community": 259,
       "community_name": "tracing.ts",
-      "norm_label": "sdk"
+      "norm_label": "otelsdk"
     },
     {
-      "label": "initTracing()",
+      "label": "startTelemetry()",
       "file_type": "code",
       "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L51",
+      "source_location": "L67",
       "_origin": "ast",
-      "id": "backend_nestjs_transaction_service_src_infrastructure_telemetry_tracing_inittracing",
+      "id": "backend_nestjs_transaction_service_src_infrastructure_telemetry_tracing_starttelemetry",
       "community": 259,
       "community_name": "tracing.ts",
-      "norm_label": "inittracing()"
+      "norm_label": "starttelemetry()"
     },
     {
       "label": "main.ts",
@@ -15696,19 +15839,19 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_main",
-      "community": 160,
-      "community_name": "app.module.ts",
+      "community": 259,
+      "community_name": "tracing.ts",
       "norm_label": "main.ts"
     },
     {
       "label": "bootstrap()",
       "file_type": "code",
       "source_file": "backend-nestjs/transaction-service/src/main.ts",
-      "source_location": "L6",
+      "source_location": "L9",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_main_bootstrap",
-      "community": 160,
-      "community_name": "app.module.ts",
+      "community": 259,
+      "community_name": "tracing.ts",
       "norm_label": "bootstrap()"
     },
     {
@@ -15718,8 +15861,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_test_app_e2e_spec",
-      "community": 160,
-      "community_name": "app.module.ts",
+      "community": 259,
+      "community_name": "tracing.ts",
       "norm_label": "app.e2e-spec.ts"
     },
     {
@@ -15729,8 +15872,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_test_concurrency_spec",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": "concurrency.spec.ts"
     },
     {
@@ -16301,8 +16444,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies",
-      "community": 311,
-      "community_name": "supertest",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "dependencies"
     },
     {
@@ -16576,8 +16719,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_opentelemetry_instrumentation_http",
-      "community": 311,
-      "community_name": "supertest",
+      "community": 404,
+      "community_name": "@opentelemetry/sdk-metrics",
       "norm_label": "@opentelemetry/instrumentation-http"
     },
     {
@@ -16587,8 +16730,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_opentelemetry_instrumentation_http",
-      "community": 311,
-      "community_name": "supertest",
+      "community": 404,
+      "community_name": "@opentelemetry/sdk-metrics",
       "norm_label": "@opentelemetry/instrumentation-http"
     },
     {
@@ -16642,8 +16785,8 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_opentelemetry_sdk_metrics",
-      "community": 404,
-      "community_name": "@opentelemetry/sdk-metrics",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@opentelemetry/sdk-metrics"
     },
     {
@@ -16653,8 +16796,8 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_opentelemetry_sdk_metrics",
-      "community": 404,
-      "community_name": "@opentelemetry/sdk-metrics",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@opentelemetry/sdk-metrics"
     },
     {
@@ -16796,8 +16939,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_prisma_client",
-      "community": 311,
-      "community_name": "supertest",
+      "community": 411,
+      "community_name": "@prisma/client",
       "norm_label": "@prisma/client"
     },
     {
@@ -16807,8 +16950,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_prisma_client",
-      "community": 311,
-      "community_name": "supertest",
+      "community": 411,
+      "community_name": "@prisma/client",
       "norm_label": "@prisma/client"
     },
     {
@@ -16818,8 +16961,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_trpc_server",
-      "community": 584,
-      "community_name": "@trpc/server",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@trpc/server"
     },
     {
@@ -16829,8 +16972,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_trpc_server",
-      "community": 584,
-      "community_name": "@trpc/server",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@trpc/server"
     },
     {
@@ -16900,10 +17043,32 @@
       "norm_label": "mariadb"
     },
     {
-      "label": "pg",
+      "label": "nest-winston",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/package.json",
       "source_location": "L45",
+      "_origin": "ast",
+      "id": "backend_nestjs_user_service_package_dependencies_nest_winston",
+      "community": 401,
+      "community_name": "nest-winston",
+      "norm_label": "nest-winston"
+    },
+    {
+      "label": "nest-winston",
+      "file_type": "concept",
+      "source_file": "backend-nestjs/user-service/package.json",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "backend_nestjs_user_service_package_json_nest_winston",
+      "community": 401,
+      "community_name": "nest-winston",
+      "norm_label": "nest-winston"
+    },
+    {
+      "label": "pg",
+      "file_type": "code",
+      "source_file": "backend-nestjs/user-service/package.json",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_pg",
       "community": 409,
@@ -16914,7 +17079,7 @@
       "label": "pg",
       "file_type": "concept",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L45",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_pg",
       "community": 409,
@@ -16925,29 +17090,29 @@
       "label": "reflect-metadata",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L46",
+      "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_reflect_metadata",
-      "community": 311,
-      "community_name": "supertest",
+      "community": 414,
+      "community_name": "winston",
       "norm_label": "reflect-metadata"
     },
     {
       "label": "reflect-metadata",
       "file_type": "concept",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L46",
+      "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_reflect_metadata",
-      "community": 311,
-      "community_name": "supertest",
+      "community": 414,
+      "community_name": "winston",
       "norm_label": "reflect-metadata"
     },
     {
       "label": "rxjs",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L47",
+      "source_location": "L48",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_rxjs",
       "community": 138,
@@ -16958,7 +17123,7 @@
       "label": "rxjs",
       "file_type": "concept",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L47",
+      "source_location": "L48",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_rxjs",
       "community": 138,
@@ -16969,29 +17134,29 @@
       "label": "winston",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L48",
+      "source_location": "L49",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_winston",
-      "community": 414,
-      "community_name": "winston",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "winston"
     },
     {
       "label": "winston",
       "file_type": "concept",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L48",
+      "source_location": "L49",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_winston",
-      "community": 414,
-      "community_name": "winston",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "winston"
     },
     {
       "label": "zod",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L49",
+      "source_location": "L50",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_zod",
       "community": 585,
@@ -17002,7 +17167,7 @@
       "label": "zod",
       "file_type": "concept",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L49",
+      "source_location": "L50",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_zod",
       "community": 585,
@@ -17013,7 +17178,7 @@
       "label": "devDependencies",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L51",
+      "source_location": "L52",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies",
       "community": 8,
@@ -17024,7 +17189,7 @@
       "label": "@nestjs/cli",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L52",
+      "source_location": "L53",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_nestjs_cli",
       "community": 8,
@@ -17035,7 +17200,7 @@
       "label": "@nestjs/cli",
       "file_type": "concept",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L52",
+      "source_location": "L53",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_cli",
       "community": 8,
@@ -17046,7 +17211,7 @@
       "label": "@nestjs/schematics",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L53",
+      "source_location": "L54",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_nestjs_schematics",
       "community": 146,
@@ -17057,7 +17222,7 @@
       "label": "@nestjs/schematics",
       "file_type": "concept",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L53",
+      "source_location": "L54",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_schematics",
       "community": 146,
@@ -17068,7 +17233,7 @@
       "label": "@nestjs/testing",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L54",
+      "source_location": "L55",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_nestjs_testing",
       "community": 151,
@@ -17079,7 +17244,7 @@
       "label": "@nestjs/testing",
       "file_type": "concept",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L54",
+      "source_location": "L55",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_testing",
       "community": 151,
@@ -17090,7 +17255,7 @@
       "label": "@types/express",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L55",
+      "source_location": "L56",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_types_express",
       "community": 200,
@@ -17101,7 +17266,7 @@
       "label": "@types/express",
       "file_type": "concept",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L55",
+      "source_location": "L56",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_types_express",
       "community": 200,
@@ -17112,7 +17277,7 @@
       "label": "@types/jest",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L56",
+      "source_location": "L57",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_types_jest",
       "community": 8,
@@ -17123,7 +17288,7 @@
       "label": "@types/jest",
       "file_type": "concept",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L56",
+      "source_location": "L57",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_types_jest",
       "community": 8,
@@ -17134,7 +17299,7 @@
       "label": "@types/node",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L57",
+      "source_location": "L58",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_types_node",
       "community": 203,
@@ -17145,7 +17310,7 @@
       "label": "@types/node",
       "file_type": "concept",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L57",
+      "source_location": "L58",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_types_node",
       "community": 203,
@@ -17156,7 +17321,7 @@
       "label": "@types/pg",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L58",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_types_pg",
       "community": 219,
@@ -17167,7 +17332,7 @@
       "label": "@types/pg",
       "file_type": "concept",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L58",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_types_pg",
       "community": 219,
@@ -17178,7 +17343,7 @@
       "label": "@types/supertest",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L59",
+      "source_location": "L60",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_types_supertest",
       "community": 231,
@@ -17189,7 +17354,7 @@
       "label": "@types/supertest",
       "file_type": "concept",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L59",
+      "source_location": "L60",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_types_supertest",
       "community": 231,
@@ -17200,7 +17365,7 @@
       "label": "jest",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L60",
+      "source_location": "L61",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_jest",
       "community": 141,
@@ -17211,7 +17376,7 @@
       "label": "jest",
       "file_type": "concept",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L60",
+      "source_location": "L61",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_jest",
       "community": 141,
@@ -17222,7 +17387,7 @@
       "label": "prisma",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L61",
+      "source_location": "L62",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_prisma",
       "community": 157,
@@ -17233,7 +17398,7 @@
       "label": "prisma",
       "file_type": "concept",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L61",
+      "source_location": "L62",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_prisma",
       "community": 157,
@@ -17244,7 +17409,7 @@
       "label": "source-map-support",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L62",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_source_map_support",
       "community": 158,
@@ -17255,7 +17420,7 @@
       "label": "source-map-support",
       "file_type": "concept",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L62",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_source_map_support",
       "community": 158,
@@ -17266,7 +17431,7 @@
       "label": "supertest",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L63",
+      "source_location": "L64",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_supertest",
       "community": 8,
@@ -17277,7 +17442,7 @@
       "label": "supertest",
       "file_type": "concept",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L63",
+      "source_location": "L64",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_supertest",
       "community": 8,
@@ -17288,7 +17453,7 @@
       "label": "ts-jest",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L64",
+      "source_location": "L65",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_ts_jest",
       "community": 8,
@@ -17299,7 +17464,7 @@
       "label": "ts-jest",
       "file_type": "concept",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L64",
+      "source_location": "L65",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_ts_jest",
       "community": 8,
@@ -17310,7 +17475,7 @@
       "label": "ts-loader",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L65",
+      "source_location": "L66",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_ts_loader",
       "community": 8,
@@ -17321,7 +17486,7 @@
       "label": "ts-loader",
       "file_type": "concept",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L65",
+      "source_location": "L66",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_ts_loader",
       "community": 8,
@@ -17332,7 +17497,7 @@
       "label": "ts-node",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L66",
+      "source_location": "L67",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_ts_node",
       "community": 168,
@@ -17343,7 +17508,7 @@
       "label": "ts-node",
       "file_type": "concept",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L66",
+      "source_location": "L67",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_ts_node",
       "community": 168,
@@ -17354,7 +17519,7 @@
       "label": "tsconfig-paths",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L67",
+      "source_location": "L68",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_tsconfig_paths",
       "community": 178,
@@ -17365,7 +17530,7 @@
       "label": "tsconfig-paths",
       "file_type": "concept",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L67",
+      "source_location": "L68",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_tsconfig_paths",
       "community": 178,
@@ -17376,7 +17541,7 @@
       "label": "typescript",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L68",
+      "source_location": "L69",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_typescript",
       "community": 233,
@@ -17387,7 +17552,7 @@
       "label": "typescript",
       "file_type": "concept",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L68",
+      "source_location": "L69",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_typescript",
       "community": 233,
@@ -17654,8 +17819,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_adapters_inbound_rest_dto_update_settings_dto",
-      "community": 400,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 183,
+      "community_name": "app.module.ts",
       "norm_label": "update-settings.dto.ts"
     },
     {
@@ -17665,8 +17830,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_adapters_inbound_rest_dto_update_settings_dto_updatesettingsdto",
-      "community": 400,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 183,
+      "community_name": "app.module.ts",
       "norm_label": "updatesettingsdto"
     },
     {
@@ -17676,8 +17841,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "apipropertyoptional",
-      "community": 400,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 183,
+      "community_name": "app.module.ts",
       "norm_label": "apipropertyoptional"
     },
     {
@@ -17687,8 +17852,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_adapters_inbound_rest_dto_update_settings_dto_ts_isnumber",
-      "community": 400,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 183,
+      "community_name": "app.module.ts",
       "norm_label": "isnumber"
     },
     {
@@ -17698,8 +17863,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_adapters_inbound_rest_dto_update_settings_dto_ts_isoptional",
-      "community": 400,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 183,
+      "community_name": "app.module.ts",
       "norm_label": "isoptional"
     },
     {
@@ -17709,8 +17874,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_adapters_inbound_rest_dto_update_settings_dto_ts_isstring",
-      "community": 400,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 183,
+      "community_name": "app.module.ts",
       "norm_label": "isstring"
     },
     {
@@ -18061,8 +18226,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_adapters_inbound_trpc_user_trpc_router_usertrpcrouter",
-      "community": 183,
-      "community_name": "app.module.ts",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": "usertrpcrouter"
     },
     {
@@ -18072,8 +18237,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_adapters_inbound_trpc_user_trpc_router_ts_injectable",
-      "community": 183,
-      "community_name": "app.module.ts",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": "injectable"
     },
     {
@@ -18083,8 +18248,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_adapters_inbound_trpc_user_trpc_router_ts_inject",
-      "community": 183,
-      "community_name": "app.module.ts",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": "inject"
     },
     {
@@ -18094,8 +18259,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_adapters_inbound_trpc_user_trpc_router_usertrpcrouter_constructor",
-      "community": 183,
-      "community_name": "app.module.ts",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": ".constructor()"
     },
     {
@@ -18127,8 +18292,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_adapters_outbound_persistence_prisma_user_repository",
-      "community": 172,
-      "community_name": "UserProfileEntity",
+      "community": 322,
+      "community_name": "nest-winston",
       "norm_label": "prisma-user.repository.ts"
     },
     {
@@ -18248,8 +18413,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_adapters_outbound_persistence_prisma_module",
-      "community": 172,
-      "community_name": "UserProfileEntity",
+      "community": 322,
+      "community_name": "nest-winston",
       "norm_label": "prisma.module.ts"
     },
     {
@@ -18259,8 +18424,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_adapters_outbound_persistence_prisma_module_prismamodule",
-      "community": 183,
-      "community_name": "app.module.ts",
+      "community": 322,
+      "community_name": "nest-winston",
       "norm_label": "prismamodule"
     },
     {
@@ -18270,8 +18435,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_adapters_outbound_persistence_prisma_module_ts_module",
-      "community": 183,
-      "community_name": "app.module.ts",
+      "community": 322,
+      "community_name": "nest-winston",
       "norm_label": "module"
     },
     {
@@ -18424,8 +18589,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_app_module",
-      "community": 183,
-      "community_name": "app.module.ts",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": "app.module.ts"
     },
     {
@@ -18435,8 +18600,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_app_module_appmodule",
-      "community": 190,
-      "community_name": "WinstonLogger",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": "appmodule"
     },
     {
@@ -18446,8 +18611,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_app_module_ts_module",
-      "community": 190,
-      "community_name": "WinstonLogger",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": "module"
     },
     {
@@ -18732,8 +18897,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_domain_ports_inbound_user_service_port_iuserserviceport_getallprofiles",
-      "community": 194,
-      "community_name": "UserController",
+      "community": 183,
+      "community_name": "app.module.ts",
       "norm_label": ".getallprofiles()"
     },
     {
@@ -18743,8 +18908,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_domain_ports_inbound_user_service_port_iuserserviceport_createprofile",
-      "community": 194,
-      "community_name": "UserController",
+      "community": 183,
+      "community_name": "app.module.ts",
       "norm_label": ".createprofile()"
     },
     {
@@ -18765,8 +18930,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_domain_ports_inbound_user_service_port_iuserserviceport_updatesettings",
-      "community": 194,
-      "community_name": "UserController",
+      "community": 183,
+      "community_name": "app.module.ts",
       "norm_label": ".updatesettings()"
     },
     {
@@ -18886,8 +19051,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_infrastructure_config_app_config",
-      "community": 183,
-      "community_name": "app.module.ts",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": "app.config.ts"
     },
     {
@@ -18897,8 +19062,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_infrastructure_config_app_config_appconfig",
-      "community": 183,
-      "community_name": "app.module.ts",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": "appconfig()"
     },
     {
@@ -18990,6 +19155,50 @@
       "norm_label": ".debug()"
     },
     {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/index.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_nestjs_user_service_src_infrastructure_telemetry_index",
+      "community": 23,
+      "community_name": "TransactionService",
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "logger.config.ts",
+      "file_type": "code",
+      "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/logger.config.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_nestjs_user_service_src_infrastructure_telemetry_logger_config",
+      "community": 23,
+      "community_name": "TransactionService",
+      "norm_label": "logger.config.ts"
+    },
+    {
+      "label": "otelLogFormat",
+      "file_type": "code",
+      "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/logger.config.ts",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "backend_nestjs_user_service_src_infrastructure_telemetry_logger_config_otellogformat",
+      "community": 23,
+      "community_name": "TransactionService",
+      "norm_label": "otellogformat"
+    },
+    {
+      "label": "createWinstonLogger()",
+      "file_type": "code",
+      "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/logger.config.ts",
+      "source_location": "L93",
+      "_origin": "ast",
+      "id": "backend_nestjs_user_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
+      "community": 23,
+      "community_name": "TransactionService",
+      "norm_label": "createwinstonlogger()"
+    },
+    {
       "label": "otlp-log.transport.ts",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/otlp-log.transport.ts",
@@ -19040,53 +19249,75 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing",
-      "community": 190,
-      "community_name": "WinstonLogger",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": "tracing.ts"
+    },
+    {
+      "label": "logger",
+      "file_type": "code",
+      "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/tracing.ts",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing_logger",
+      "community": 23,
+      "community_name": "TransactionService",
+      "norm_label": "logger"
+    },
+    {
+      "label": "createResource()",
+      "file_type": "code",
+      "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/tracing.ts",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing_createresource",
+      "community": 23,
+      "community_name": "TransactionService",
+      "norm_label": "createresource()"
     },
     {
       "label": "traceExporter",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L17",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing_traceexporter",
-      "community": 190,
-      "community_name": "WinstonLogger",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": "traceexporter"
     },
     {
       "label": "metricExporter",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L21",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing_metricexporter",
-      "community": 190,
-      "community_name": "WinstonLogger",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": "metricexporter"
     },
     {
-      "label": "sdk",
+      "label": "otelSDK",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L25",
+      "source_location": "L35",
       "_origin": "ast",
-      "id": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing_sdk",
-      "community": 190,
-      "community_name": "WinstonLogger",
-      "norm_label": "sdk"
+      "id": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing_otelsdk",
+      "community": 23,
+      "community_name": "TransactionService",
+      "norm_label": "otelsdk"
     },
     {
-      "label": "initTracing()",
+      "label": "startTelemetry()",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L49",
+      "source_location": "L67",
       "_origin": "ast",
-      "id": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing_inittracing",
-      "community": 190,
-      "community_name": "WinstonLogger",
-      "norm_label": "inittracing()"
+      "id": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing_starttelemetry",
+      "community": 23,
+      "community_name": "TransactionService",
+      "norm_label": "starttelemetry()"
     },
     {
       "label": "main.ts",
@@ -19095,19 +19326,19 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_main",
-      "community": 190,
-      "community_name": "WinstonLogger",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": "main.ts"
     },
     {
       "label": "bootstrap()",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/src/main.ts",
-      "source_location": "L15",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_main_bootstrap",
-      "community": 190,
-      "community_name": "WinstonLogger",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": "bootstrap()"
     },
     {
@@ -19117,8 +19348,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_test_app_e2e_spec",
-      "community": 190,
-      "community_name": "WinstonLogger",
+      "community": 23,
+      "community_name": "TransactionService",
       "norm_label": "app.e2e-spec.ts"
     },
     {
@@ -19755,8 +19986,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_nestjs_config",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 415,
+      "community_name": "@nestjs/config",
       "norm_label": "@nestjs/config"
     },
     {
@@ -19766,8 +19997,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nestjs_config",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 415,
+      "community_name": "@nestjs/config",
       "norm_label": "@nestjs/config"
     },
     {
@@ -20173,8 +20404,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_class_transformer",
-      "community": 439,
-      "community_name": "class-transformer",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "class-transformer"
     },
     {
@@ -20184,8 +20415,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_class_transformer",
-      "community": 439,
-      "community_name": "class-transformer",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "class-transformer"
     },
     {
@@ -21372,8 +21603,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_src_adapters_inbound_rest_worker_controller_ts_inject",
-      "community": 373,
-      "community_name": "@nestjs/platform-express",
+      "community": 263,
+      "community_name": "Table Schemas",
       "norm_label": "inject"
     },
     {
@@ -21449,8 +21680,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_src_adapters_inbound_rest_worker_controller_workercontroller_constructor",
-      "community": 373,
-      "community_name": "@nestjs/platform-express",
+      "community": 263,
+      "community_name": "Table Schemas",
       "norm_label": ".constructor()"
     },
     {
@@ -21537,8 +21768,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_src_adapters_outbound_database_database_module_databasemodule",
-      "community": 260,
-      "community_name": "UpdateBalanceDto",
+      "community": 308,
+      "community_name": "@eslint/js",
       "norm_label": "databasemodule"
     },
     {
@@ -21548,8 +21779,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_src_adapters_outbound_database_database_module_ts_module",
-      "community": 260,
-      "community_name": "UpdateBalanceDto",
+      "community": 308,
+      "community_name": "@eslint/js",
       "norm_label": "module"
     },
     {
@@ -21647,8 +21878,8 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_src_adapters_outbound_database_prisma_worker_repository_prismaworkerrepository_createauditlog",
-      "community": 373,
-      "community_name": "@nestjs/platform-express",
+      "community": 261,
+      "community_name": "TransferRequest",
       "norm_label": ".createauditlog()"
     },
     {
@@ -21658,8 +21889,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_src_adapters_outbound_database_prisma_worker_repository_prismaworkerrepository_findauditlogsbyuserid",
-      "community": 373,
-      "community_name": "@nestjs/platform-express",
+      "community": 261,
+      "community_name": "TransferRequest",
       "norm_label": ".findauditlogsbyuserid()"
     },
     {
@@ -21680,8 +21911,8 @@
       "source_location": "L91",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_src_adapters_outbound_database_prisma_worker_repository_prismaworkerrepository_mapaudittoentity",
-      "community": 373,
-      "community_name": "@nestjs/platform-express",
+      "community": 261,
+      "community_name": "TransferRequest",
       "norm_label": ".mapaudittoentity()"
     },
     {
@@ -22098,8 +22329,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_src_domain_entities_audit_log_entity_auditlogentity",
-      "community": 373,
-      "community_name": "@nestjs/platform-express",
+      "community": 261,
+      "community_name": "TransferRequest",
       "norm_label": "auditlogentity"
     },
     {
@@ -22109,8 +22340,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_src_domain_entities_audit_log_entity_auditlogentity_constructor",
-      "community": 373,
-      "community_name": "@nestjs/platform-express",
+      "community": 261,
+      "community_name": "TransferRequest",
       "norm_label": ".constructor()"
     },
     {
@@ -22472,8 +22703,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_src_infrastructure_logging_otel_winston_logger",
-      "community": 260,
-      "community_name": "UpdateBalanceDto",
+      "community": 416,
+      "community_name": "otel-winston.logger.ts",
       "norm_label": "otel-winston.logger.ts"
     },
     {
@@ -22483,9 +22714,53 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_src_infrastructure_logging_otel_winston_logger_createotelwinstonlogger",
+      "community": 416,
+      "community_name": "otel-winston.logger.ts",
+      "norm_label": "createotelwinstonlogger()"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/index.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_nestjs_worker_service_src_infrastructure_telemetry_index",
       "community": 260,
       "community_name": "UpdateBalanceDto",
-      "norm_label": "createotelwinstonlogger()"
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "logger.config.ts",
+      "file_type": "code",
+      "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/logger.config.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_nestjs_worker_service_src_infrastructure_telemetry_logger_config",
+      "community": 260,
+      "community_name": "UpdateBalanceDto",
+      "norm_label": "logger.config.ts"
+    },
+    {
+      "label": "otelLogFormat",
+      "file_type": "code",
+      "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/logger.config.ts",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "backend_nestjs_worker_service_src_infrastructure_telemetry_logger_config_otellogformat",
+      "community": 260,
+      "community_name": "UpdateBalanceDto",
+      "norm_label": "otellogformat"
+    },
+    {
+      "label": "createWinstonLogger()",
+      "file_type": "code",
+      "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/logger.config.ts",
+      "source_location": "L93",
+      "_origin": "ast",
+      "id": "backend_nestjs_worker_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
+      "community": 260,
+      "community_name": "UpdateBalanceDto",
+      "norm_label": "createwinstonlogger()"
     },
     {
       "label": "tracing.ts",
@@ -22499,10 +22774,32 @@
       "norm_label": "tracing.ts"
     },
     {
+      "label": "logger",
+      "file_type": "code",
+      "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/tracing.ts",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing_logger",
+      "community": 260,
+      "community_name": "UpdateBalanceDto",
+      "norm_label": "logger"
+    },
+    {
+      "label": "createResource()",
+      "file_type": "code",
+      "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/tracing.ts",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing_createresource",
+      "community": 260,
+      "community_name": "UpdateBalanceDto",
+      "norm_label": "createresource()"
+    },
+    {
       "label": "traceExporter",
       "file_type": "code",
       "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L12",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing_traceexporter",
       "community": 260,
@@ -22513,7 +22810,7 @@
       "label": "metricExporter",
       "file_type": "code",
       "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L16",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing_metricexporter",
       "community": 260,
@@ -22521,15 +22818,26 @@
       "norm_label": "metricexporter"
     },
     {
-      "label": "sdk",
+      "label": "otelSDK",
       "file_type": "code",
       "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L20",
+      "source_location": "L35",
       "_origin": "ast",
-      "id": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing_sdk",
+      "id": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing_otelsdk",
       "community": 260,
       "community_name": "UpdateBalanceDto",
-      "norm_label": "sdk"
+      "norm_label": "otelsdk"
+    },
+    {
+      "label": "startTelemetry()",
+      "file_type": "code",
+      "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/tracing.ts",
+      "source_location": "L67",
+      "_origin": "ast",
+      "id": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing_starttelemetry",
+      "community": 260,
+      "community_name": "UpdateBalanceDto",
+      "norm_label": "starttelemetry()"
     },
     {
       "label": "main.ts",
@@ -22546,7 +22854,7 @@
       "label": "bootstrap()",
       "file_type": "code",
       "source_file": "backend-nestjs/worker-service/src/main.ts",
-      "source_location": "L8",
+      "source_location": "L9",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_src_main_bootstrap",
       "community": 260,
@@ -35045,8 +35353,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_skill",
-      "community": 7,
-      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
+      "community": 365,
+      "community_name": "SKILL.md",
       "norm_label": "skill.md"
     },
     {
@@ -35177,8 +35485,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_logs_reference",
-      "community": 7,
-      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
+      "community": 365,
+      "community_name": "SKILL.md",
       "norm_label": "clickhouse-logs-reference.md"
     },
     {
@@ -35540,8 +35848,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_traces_reference",
-      "community": 7,
-      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
+      "community": 365,
+      "community_name": "SKILL.md",
       "norm_label": "clickhouse-traces-reference.md"
     },
     {
@@ -35573,8 +35881,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_traces_reference_table_schemas",
-      "community": 23,
-      "community_name": "TransactionService",
+      "community": 7,
+      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
       "norm_label": "table schemas"
     },
     {
@@ -35584,8 +35892,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_traces_reference_distributed_signoz_index_v3_primary_spans_table",
-      "community": 23,
-      "community_name": "TransactionService",
+      "community": 7,
+      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
       "norm_label": "distributed_signoz_index_v3 (primary spans table)"
     },
     {
@@ -35595,8 +35903,8 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_traces_reference_distributed_traces_v3_resource_resource_lookup_table",
-      "community": 23,
-      "community_name": "TransactionService",
+      "community": 7,
+      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
       "norm_label": "distributed_traces_v3_resource (resource lookup table)"
     },
     {
@@ -35606,8 +35914,8 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_traces_reference_distributed_signoz_error_index_v2_error_events",
-      "community": 23,
-      "community_name": "TransactionService",
+      "community": 7,
+      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
       "norm_label": "distributed_signoz_error_index_v2 (error events)"
     },
     {
@@ -54960,6 +55268,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/auth-service/src/infrastructure/telemetry/tracing.ts",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing",
+      "target": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing_createresource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/auth-service/src/infrastructure/telemetry/tracing.ts",
       "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
@@ -54971,7 +55290,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/auth-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L24",
+      "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing",
@@ -54982,7 +55301,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/auth-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L28",
+      "source_location": "L35",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing",
@@ -54993,7 +55312,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/auth-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L54",
+      "source_location": "L67",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing",
@@ -55004,48 +55323,12 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/auth-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L20",
+      "source_location": "L27",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing",
       "target": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing_traceexporter",
       "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "backend-nestjs/auth-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L57",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing_starttelemetry",
-      "target": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing_logger"
-    },
-    {
-      "relation": "references",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "backend-nestjs/auth-service/src/main.ts",
-      "source_location": "L40",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_auth_service_src_main_bootstrap",
-      "target": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing_logger"
-    },
-    {
-      "relation": "references",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "backend-nestjs/transaction-service/src/main.ts",
-      "source_location": "L32",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_transaction_service_src_main_bootstrap",
-      "target": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing_logger"
     },
     {
       "relation": "imports",
@@ -59258,7 +59541,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/notification-service/src/main.ts",
-      "source_location": "L10",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_notification_service_src_main",
@@ -59294,7 +59577,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/notification-service/src/main.ts",
-      "source_location": "L10",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_notification_service_src_main",
@@ -59307,7 +59590,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "backend-nestjs/notification-service/src/main.ts",
-      "source_location": "L15",
+      "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_notification_service_src_main_bootstrap",
@@ -60393,15 +60676,73 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_notification_service_src_infrastructure_telemetry_index",
+      "target": "backend_nestjs_notification_service_src_infrastructure_telemetry_logger_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_notification_service_src_infrastructure_telemetry_index",
+      "target": "backend_nestjs_notification_service_src_infrastructure_telemetry_tracing",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/notification-service/src/main.ts",
-      "source_location": "L11",
+      "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_notification_service_src_main",
-      "target": "backend_nestjs_notification_service_src_infrastructure_logger_winston_logger",
+      "target": "backend_nestjs_notification_service_src_infrastructure_telemetry_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/logger.config.ts",
+      "source_location": "L93",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_notification_service_src_infrastructure_telemetry_logger_config",
+      "target": "backend_nestjs_notification_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/logger.config.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_notification_service_src_infrastructure_telemetry_logger_config",
+      "target": "backend_nestjs_notification_service_src_infrastructure_telemetry_logger_config_otellogformat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/logger.config.ts",
+      "source_location": "L100",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_notification_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
+      "target": "backend_nestjs_notification_service_src_infrastructure_telemetry_logger_config_otellogformat",
       "confidence_score": 1.0
     },
     {
@@ -60409,11 +60750,11 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/notification-service/src/main.ts",
-      "source_location": "L11",
+      "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_notification_service_src_main",
-      "target": "backend_nestjs_notification_service_src_infrastructure_logger_winston_logger_createwinstonlogger",
+      "target": "backend_nestjs_notification_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
       "confidence_score": 1.0
     },
     {
@@ -60421,29 +60762,40 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/notification-service/src/main.ts",
-      "source_location": "L14",
+      "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_notification_service_src_main_bootstrap",
-      "target": "backend_nestjs_notification_service_src_infrastructure_logger_winston_logger_createwinstonlogger",
+      "target": "backend_nestjs_notification_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L51",
+      "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_notification_service_src_infrastructure_telemetry_tracing",
-      "target": "backend_nestjs_notification_service_src_infrastructure_telemetry_tracing_inittracing",
+      "target": "backend_nestjs_notification_service_src_infrastructure_telemetry_tracing_createresource",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L21",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_notification_service_src_infrastructure_telemetry_tracing",
+      "target": "backend_nestjs_notification_service_src_infrastructure_telemetry_tracing_logger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/tracing.ts",
+      "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_notification_service_src_infrastructure_telemetry_tracing",
@@ -60454,34 +60806,33 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L25",
+      "source_location": "L35",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_notification_service_src_infrastructure_telemetry_tracing",
-      "target": "backend_nestjs_notification_service_src_infrastructure_telemetry_tracing_sdk",
+      "target": "backend_nestjs_notification_service_src_infrastructure_telemetry_tracing_otelsdk",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L17",
+      "source_location": "L67",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_notification_service_src_infrastructure_telemetry_tracing",
+      "target": "backend_nestjs_notification_service_src_infrastructure_telemetry_tracing_starttelemetry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/tracing.ts",
+      "source_location": "L27",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_notification_service_src_infrastructure_telemetry_tracing",
       "target": "backend_nestjs_notification_service_src_infrastructure_telemetry_tracing_traceexporter",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/notification-service/src/main.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_notification_service_src_main",
-      "target": "backend_nestjs_notification_service_src_infrastructure_telemetry_tracing",
       "confidence_score": 1.0
     },
     {
@@ -60493,14 +60844,14 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_notification_service_src_main",
-      "target": "backend_nestjs_notification_service_src_infrastructure_telemetry_tracing_inittracing",
+      "target": "backend_nestjs_notification_service_src_infrastructure_telemetry_tracing_starttelemetry",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/notification-service/src/main.ts",
-      "source_location": "L13",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_notification_service_src_main",
@@ -65905,7 +66256,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/transaction-service/src/main.ts",
-      "source_location": "L4",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_transaction_service_src_main",
@@ -65941,7 +66292,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/transaction-service/src/main.ts",
-      "source_location": "L4",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_transaction_service_src_main",
@@ -65954,7 +66305,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "backend-nestjs/transaction-service/src/main.ts",
-      "source_location": "L8",
+      "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_transaction_service_src_main_bootstrap",
@@ -68158,21 +68509,126 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
+      "relation": "re_exports",
+      "context": "export",
       "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L51",
+      "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/index.ts",
+      "source_location": "L2",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "backend_nestjs_transaction_service_src_infrastructure_telemetry_tracing",
-      "target": "backend_nestjs_transaction_service_src_infrastructure_telemetry_tracing_inittracing",
+      "source": "backend_nestjs_transaction_service_src_infrastructure_telemetry_index",
+      "target": "backend_nestjs_transaction_service_src_infrastructure_telemetry_logger_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_transaction_service_src_infrastructure_telemetry_index",
+      "target": "backend_nestjs_transaction_service_src_infrastructure_telemetry_tracing",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/transaction-service/src/main.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_transaction_service_src_main",
+      "target": "backend_nestjs_transaction_service_src_infrastructure_telemetry_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/logger.config.ts",
+      "source_location": "L93",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_transaction_service_src_infrastructure_telemetry_logger_config",
+      "target": "backend_nestjs_transaction_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/logger.config.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_transaction_service_src_infrastructure_telemetry_logger_config",
+      "target": "backend_nestjs_transaction_service_src_infrastructure_telemetry_logger_config_otellogformat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/logger.config.ts",
+      "source_location": "L100",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_transaction_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
+      "target": "backend_nestjs_transaction_service_src_infrastructure_telemetry_logger_config_otellogformat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/transaction-service/src/main.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_transaction_service_src_main",
+      "target": "backend_nestjs_transaction_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/transaction-service/src/main.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_transaction_service_src_main_bootstrap",
+      "target": "backend_nestjs_transaction_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L21",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_transaction_service_src_infrastructure_telemetry_tracing",
+      "target": "backend_nestjs_transaction_service_src_infrastructure_telemetry_tracing_createresource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/tracing.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_transaction_service_src_infrastructure_telemetry_tracing",
+      "target": "backend_nestjs_transaction_service_src_infrastructure_telemetry_tracing_logger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/tracing.ts",
+      "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_transaction_service_src_infrastructure_telemetry_tracing",
@@ -68183,18 +68639,29 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L25",
+      "source_location": "L35",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_transaction_service_src_infrastructure_telemetry_tracing",
-      "target": "backend_nestjs_transaction_service_src_infrastructure_telemetry_tracing_sdk",
+      "target": "backend_nestjs_transaction_service_src_infrastructure_telemetry_tracing_otelsdk",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L17",
+      "source_location": "L67",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_transaction_service_src_infrastructure_telemetry_tracing",
+      "target": "backend_nestjs_transaction_service_src_infrastructure_telemetry_tracing_starttelemetry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/tracing.ts",
+      "source_location": "L27",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_transaction_service_src_infrastructure_telemetry_tracing",
@@ -68202,10 +68669,22 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/transaction-service/src/main.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_transaction_service_src_main",
+      "target": "backend_nestjs_transaction_service_src_infrastructure_telemetry_tracing_starttelemetry",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/transaction-service/src/main.ts",
-      "source_location": "L6",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_transaction_service_src_main",
@@ -68595,7 +69074,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L51",
+      "source_location": "L52",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_package",
@@ -68765,6 +69244,17 @@
       "_origin": "ast",
       "source": "backend_nestjs_user_service_package_dependencies",
       "target": "backend_nestjs_user_service_package_dependencies_mariadb",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/user-service/package.json",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_user_service_package_dependencies",
+      "target": "backend_nestjs_user_service_package_dependencies_nest_winston",
       "confidence_score": 1.0
     },
     {
@@ -68991,7 +69481,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L45",
+      "source_location": "L46",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_package_dependencies",
@@ -69035,7 +69525,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L46",
+      "source_location": "L47",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_package_dependencies",
@@ -69046,7 +69536,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L47",
+      "source_location": "L48",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_package_dependencies",
@@ -69068,7 +69558,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L48",
+      "source_location": "L49",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_package_dependencies",
@@ -69079,7 +69569,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L49",
+      "source_location": "L50",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_package_dependencies",
@@ -69418,6 +69908,18 @@
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
+      "source": "backend_nestjs_user_service_package_dependencies_nest_winston",
+      "target": "backend_nestjs_user_service_package_json_nest_winston",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/user-service/package.json",
+      "source_location": "L46",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast",
       "source": "backend_nestjs_user_service_package_dependencies_pg",
       "target": "backend_nestjs_user_service_package_json_pg",
       "confidence_score": 1.0
@@ -69426,7 +69928,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L46",
+      "source_location": "L47",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -69438,7 +69940,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L47",
+      "source_location": "L48",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -69450,7 +69952,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L48",
+      "source_location": "L49",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -69462,7 +69964,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L49",
+      "source_location": "L50",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -69474,7 +69976,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L60",
+      "source_location": "L61",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_package_devdependencies",
@@ -69485,7 +69987,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L52",
+      "source_location": "L53",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_package_devdependencies",
@@ -69496,7 +69998,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L53",
+      "source_location": "L54",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_package_devdependencies",
@@ -69507,7 +70009,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L54",
+      "source_location": "L55",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_package_devdependencies",
@@ -69518,7 +70020,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L61",
+      "source_location": "L62",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_package_devdependencies",
@@ -69529,7 +70031,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L62",
+      "source_location": "L63",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_package_devdependencies",
@@ -69540,7 +70042,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L63",
+      "source_location": "L64",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_package_devdependencies",
@@ -69551,7 +70053,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L64",
+      "source_location": "L65",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_package_devdependencies",
@@ -69562,7 +70064,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L65",
+      "source_location": "L66",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_package_devdependencies",
@@ -69573,7 +70075,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L66",
+      "source_location": "L67",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_package_devdependencies",
@@ -69584,7 +70086,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L67",
+      "source_location": "L68",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_package_devdependencies",
@@ -69595,7 +70097,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L55",
+      "source_location": "L56",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_package_devdependencies",
@@ -69606,7 +70108,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L56",
+      "source_location": "L57",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_package_devdependencies",
@@ -69617,7 +70119,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L57",
+      "source_location": "L58",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_package_devdependencies",
@@ -69628,7 +70130,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L58",
+      "source_location": "L59",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_package_devdependencies",
@@ -69639,7 +70141,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L59",
+      "source_location": "L60",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_package_devdependencies",
@@ -69650,7 +70152,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L68",
+      "source_location": "L69",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_package_devdependencies",
@@ -69661,7 +70163,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L52",
+      "source_location": "L53",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -69673,7 +70175,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L53",
+      "source_location": "L54",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -69685,7 +70187,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L54",
+      "source_location": "L55",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -69697,7 +70199,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L55",
+      "source_location": "L56",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -69709,7 +70211,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L56",
+      "source_location": "L57",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -69721,7 +70223,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L57",
+      "source_location": "L58",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -69733,7 +70235,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L58",
+      "source_location": "L59",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -69745,7 +70247,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L59",
+      "source_location": "L60",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -69757,7 +70259,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L60",
+      "source_location": "L61",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -69769,7 +70271,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L61",
+      "source_location": "L62",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -69781,7 +70283,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L62",
+      "source_location": "L63",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -69793,7 +70295,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L63",
+      "source_location": "L64",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -69805,7 +70307,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L64",
+      "source_location": "L65",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -69817,7 +70319,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L65",
+      "source_location": "L66",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -69829,7 +70331,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L66",
+      "source_location": "L67",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -69841,7 +70343,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L67",
+      "source_location": "L68",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -69853,7 +70355,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/package.json",
-      "source_location": "L68",
+      "source_location": "L69",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -71172,7 +71674,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/src/main.ts",
-      "source_location": "L13",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_src_main",
@@ -71230,7 +71732,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/src/main.ts",
-      "source_location": "L13",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_src_main",
@@ -71243,7 +71745,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "backend-nestjs/user-service/src/main.ts",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_src_main_bootstrap",
@@ -72101,7 +72603,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "backend-nestjs/user-service/src/main.ts",
-      "source_location": "L17",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_src_main_bootstrap",
@@ -73034,18 +73536,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/user-service/src/main.ts",
-      "source_location": "L9",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_user_service_src_main",
-      "target": "backend_nestjs_user_service_src_infrastructure_logger_winston_logger",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -73113,30 +73603,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/user-service/src/main.ts",
-      "source_location": "L9",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_user_service_src_main",
-      "target": "backend_nestjs_user_service_src_infrastructure_logger_winston_logger_winstonlogger",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "backend-nestjs/user-service/src/main.ts",
-      "source_location": "L49",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_user_service_src_main_bootstrap",
-      "target": "backend_nestjs_user_service_src_infrastructure_logger_winston_logger_winstonlogger_log"
-    },
-    {
       "relation": "indirect_call",
       "context": "argument",
       "confidence": "INFERRED",
@@ -73147,6 +73613,100 @@
       "_origin": "ast",
       "source": "backend_nestjs_worker_service_src_adapters_outbound_pdf_pdfkit_adapter_pdfkitadapter_generatestatementpdf",
       "target": "backend_nestjs_user_service_src_infrastructure_logger_winston_logger_winstonlogger_error"
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_user_service_src_infrastructure_telemetry_index",
+      "target": "backend_nestjs_user_service_src_infrastructure_telemetry_logger_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_user_service_src_infrastructure_telemetry_index",
+      "target": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/user-service/src/main.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_user_service_src_main",
+      "target": "backend_nestjs_user_service_src_infrastructure_telemetry_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/logger.config.ts",
+      "source_location": "L93",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_user_service_src_infrastructure_telemetry_logger_config",
+      "target": "backend_nestjs_user_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/logger.config.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_user_service_src_infrastructure_telemetry_logger_config",
+      "target": "backend_nestjs_user_service_src_infrastructure_telemetry_logger_config_otellogformat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/logger.config.ts",
+      "source_location": "L100",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_user_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
+      "target": "backend_nestjs_user_service_src_infrastructure_telemetry_logger_config_otellogformat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/user-service/src/main.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_user_service_src_main",
+      "target": "backend_nestjs_user_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/user-service/src/main.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_user_service_src_main_bootstrap",
+      "target": "backend_nestjs_user_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -73185,18 +73745,29 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L49",
+      "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing",
-      "target": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing_inittracing",
+      "target": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing_createresource",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L21",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing",
+      "target": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing_logger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/tracing.ts",
+      "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing",
@@ -73207,34 +73778,33 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L25",
+      "source_location": "L35",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing",
-      "target": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing_sdk",
+      "target": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing_otelsdk",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L17",
+      "source_location": "L67",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing",
+      "target": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing_starttelemetry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/tracing.ts",
+      "source_location": "L27",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing",
       "target": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing_traceexporter",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/user-service/src/main.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_user_service_src_main",
-      "target": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing",
       "confidence_score": 1.0
     },
     {
@@ -73246,14 +73816,14 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_src_main",
-      "target": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing_inittracing",
+      "target": "backend_nestjs_user_service_src_infrastructure_telemetry_tracing_starttelemetry",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/src/main.ts",
-      "source_location": "L15",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_src_main",
@@ -77021,7 +77591,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/worker-service/src/main.ts",
-      "source_location": "L3",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_worker_service_src_main",
@@ -77057,7 +77627,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/worker-service/src/main.ts",
-      "source_location": "L3",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_worker_service_src_main",
@@ -78250,72 +78820,27 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "imports_from",
-      "context": "import",
+      "relation": "re_exports",
+      "context": "export",
       "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/worker-service/src/main.ts",
-      "source_location": "L6",
+      "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/index.ts",
+      "source_location": "L2",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "backend_nestjs_worker_service_src_main",
-      "target": "backend_nestjs_worker_service_src_infrastructure_logging_otel_winston_logger",
+      "source": "backend_nestjs_worker_service_src_infrastructure_telemetry_index",
+      "target": "backend_nestjs_worker_service_src_infrastructure_telemetry_logger_config",
       "confidence_score": 1.0
     },
     {
-      "relation": "imports",
-      "context": "import",
+      "relation": "re_exports",
+      "context": "export",
       "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/worker-service/src/main.ts",
-      "source_location": "L6",
+      "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/index.ts",
+      "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "backend_nestjs_worker_service_src_main",
-      "target": "backend_nestjs_worker_service_src_infrastructure_logging_otel_winston_logger_createotelwinstonlogger",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/worker-service/src/main.ts",
-      "source_location": "L9",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_worker_service_src_main_bootstrap",
-      "target": "backend_nestjs_worker_service_src_infrastructure_logging_otel_winston_logger_createotelwinstonlogger",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L16",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing",
-      "target": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing_metricexporter",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L20",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing",
-      "target": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing_sdk",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/tracing.ts",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing",
-      "target": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing_traceexporter",
+      "source": "backend_nestjs_worker_service_src_infrastructure_telemetry_index",
+      "target": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing",
       "confidence_score": 1.0
     },
     {
@@ -78327,14 +78852,150 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_worker_service_src_main",
-      "target": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing",
+      "target": "backend_nestjs_worker_service_src_infrastructure_telemetry_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/logger.config.ts",
+      "source_location": "L93",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_worker_service_src_infrastructure_telemetry_logger_config",
+      "target": "backend_nestjs_worker_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/logger.config.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_worker_service_src_infrastructure_telemetry_logger_config",
+      "target": "backend_nestjs_worker_service_src_infrastructure_telemetry_logger_config_otellogformat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/logger.config.ts",
+      "source_location": "L100",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_worker_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
+      "target": "backend_nestjs_worker_service_src_infrastructure_telemetry_logger_config_otellogformat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/worker-service/src/main.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_worker_service_src_main",
+      "target": "backend_nestjs_worker_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/worker-service/src/main.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_worker_service_src_main_bootstrap",
+      "target": "backend_nestjs_worker_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/tracing.ts",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing",
+      "target": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing_createresource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/tracing.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing",
+      "target": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing_logger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/tracing.ts",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing",
+      "target": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing_metricexporter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/tracing.ts",
+      "source_location": "L35",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing",
+      "target": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing_otelsdk",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/tracing.ts",
+      "source_location": "L67",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing",
+      "target": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing_starttelemetry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/tracing.ts",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing",
+      "target": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing_traceexporter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/worker-service/src/main.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_worker_service_src_main",
+      "target": "backend_nestjs_worker_service_src_infrastructure_telemetry_tracing_starttelemetry",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/worker-service/src/main.ts",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_worker_service_src_main",

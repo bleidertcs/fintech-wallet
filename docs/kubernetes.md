@@ -14,14 +14,16 @@ Kubernetes es una plataforma de orquestación de contenedores open-source que au
 | :--- | :--- | :--- |
 | **Namespace** | `v1/Namespace` | Aislamiento lógico de la aplicación (`fintech`). Evita colisiones de nombres con el sistema. |
 | **Pod** | Unidad Mínima | La unidad más pequeña de ejecución. Agrupa 1 o más contenedores compartiendo IP y volúmenes. |
-| **Deployment** | `apps/v1` | Orquesta Pods sin estado (*stateless*) como los 5 microservicios NestJS y el Frontend React. |
-| **StatefulSet** | `apps/v1` | Orquesta Pods con estado (*stateful*) que requieren identidad de red y almacenamiento estable: **MySQL 8.0**, **Redis 7**, **Kafka KRaft** y **ClickHouse**. |
-| **Service** | `v1/Service` | Abstracción de red que expone un conjunto de Pods: <br> - `ClusterIP`: IP interna (`mysql:3306`, `redis:6379`, `user-service:8082`). <br> - `NodePort`: Puerto expuesto en el host (`frontend:30000`, `maildev:30080`, `signoz:30301`). |
-| **PersistentVolumeClaim (PVC)** | `v1/PVC` | Solicitud de almacenamiento persistente dinámico provisto por la StorageClass `local-path`. |
-| **ConfigMap** | `v1/ConfigMap` | Configuración no sensible inyectada como archivos o variables (ej. `init.sql` de MySQL, `otel-collector-config.yaml`). |
+| **Deployment** | `apps/v1` | Orquesta Pods sin estado (*stateless*) como los 5 microservicios NestJS, Frontend React y **PgBouncer Core** (Connection Pooler). |
+| **StatefulSet** | `apps/v1` | Orquesta Pods con estado (*stateful*) que requieren identidad de red y almacenamiento estable: **PostgreSQL 16 Core**, **PostgreSQL 16 Support**, **Redis 7**, **Kafka KRaft** y **ClickHouse**. |
+| **Service** | `v1/Service` | Abstracción de red que expone un conjunto de Pods: <br> - `ClusterIP`: IP interna (`pgbouncer-core:6432`, `postgres-core:5432`, `postgres-support:5432`, `redis:6379`, `user-service:8082`). <br> - `NodePort`: Puerto expuesto en el host (`frontend:30000`, `maildev:30080`, `signoz:30301`). |
+| **PersistentVolumeClaim (PVC)** | `v1/PVC` | Solicitud de almacenamiento persistente dinámico provisto por la StorageClass `local-path` para bases de datos y backups (`postgres-backups-pvc`). |
+| **ConfigMap** | `v1/ConfigMap` | Configuración no sensible inyectada como archivos o variables (ej. `init-core.sql`, `init-support.sql`, `otel-collector-config.yaml`, `postgres-backup-script`). |
 | **Secret** | `v1/Secret` | Almacenamiento seguro de credenciales codificadas (`DB_PASSWORD`, `JWT_SECRET`). |
 | **Ingress** | `networking.k8s.io` | Reglas de enrutamiento HTTP/HTTPS gestionadas por **Traefik API Gateway**. |
-| **NetworkPolicy** | `networking.k8s.io` | Reglas de seguridad de red que aíslan y controlan el tráfico entrante (`Ingress`) y saliente (`Egress`). |
+| **NetworkPolicy** | `networking.k8s.io` | Reglas de seguridad de red que aíslan y controlan el tráfico interno en el namespace `fintech`. |
+| **CronJob** | `batch/v1` | Tarea programada periódica: **`postgres-backup-cronjob`** (ejecución diaria 02:00 AM UTC para copias de seguridad y rotación de 7 días). |
+| **Job** | `batch/v1` | Tareas de ejecución única: **`signoz-migrator`** (migraciones de ClickHouse) y **`postgres-restore-job`** (recuperación de desastres). |
 
 ---
 

@@ -620,8 +620,8 @@
     "semantic_hash": ""
   },
   "ARQUITECTURA.md": {
-    "mtime": 1786648313.6930637,
-    "ast_hash": "dba278605f9a39657a1b85042586e63b",
+    "mtime": 1786721689.0073116,
+    "ast_hash": "ab7d1c93bf1df1ee7c9638c8606d046e",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -630,8 +630,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1786648303.4188027,
-    "ast_hash": "24eef917f5d7c972ba1411c83c08a403",
+    "mtime": 1786721708.610054,
+    "ast_hash": "0d9684c262f02afc69cdcf9ad24f4cce",
     "semantic_hash": ""
   },
   "docker-compose.yml": {
@@ -715,8 +715,8 @@
     "semantic_hash": ""
   },
   "README_RANCHER.md": {
-    "mtime": 1786648043.9604824,
-    "ast_hash": "b24b381286f6c235c5e016a538003c1d",
+    "mtime": 1786721673.663718,
+    "ast_hash": "069bd96dfb5ac32480ea37b4fafad63c",
     "semantic_hash": ""
   },
   "backend-nestjs/auth-service/eslint.config.mjs": {
@@ -2255,8 +2255,8 @@
     "semantic_hash": ""
   },
   "docs/kubernetes.md": {
-    "mtime": 1786644334.1991236,
-    "ast_hash": "fbaccc2b3e13adbe8112fade95ad7f89",
+    "mtime": 1786721699.2096136,
+    "ast_hash": "67b99106ddfff2cb35f91d0e2badaa62",
     "semantic_hash": ""
   },
   "docs/redis.md": {

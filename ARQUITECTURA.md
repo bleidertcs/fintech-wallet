@@ -34,16 +34,14 @@ graph TD
         Kafka["Apache Kafka 3.7.0 (Modo KRaft)<br>Tópicos: transfer.completed.v1, transfer_completed, dlq"]
     end
 
-    subgraph Database ["Capa de Persistencia (Database-per-Service)"]
-        MySQL[("MySQL 8.0<br>Puerto: 3306")]
-        AuthDB[("authdb")]
-        UserDB[("userdb")]
-        TransactionDB[("transactiondb")]
-        NotificationDB[("notificationdb")]
-        WorkerDB[("workerdb")]
+    subgraph Database ["Capa de Persistencia (2 Instancias PostgreSQL 16 + PgBouncer)"]
+        PgBouncer["PgBouncer Core<br>Puerto: 6432 (Modo: Transaction)"]
+        PostgresCore[("Postgres Core (Dinero)<br>Puerto: 5432<br>• authdb<br>• userdb<br>• transactiondb")]
+        PostgresSupport[("Postgres Support (Auxiliar)<br>Puerto: 5433<br>• notificationdb<br>• workerdb")]
+        BackupJob["DevOps Backup & DR<br>CronJob 02:00 AM / Retention 7d / SHA256"]
     end
 
-    subgraph Observability ["Suite de Observabilidad OTLP"]
+    subgraph Observability ["Suite de Observabilidad OTLP & SigNoz"]
         OTelCollector["OpenTelemetry Collector<br>Puertos: 4317 (gRPC) / 4318 (HTTP)"]
         ClickHouse[("ClickHouse DB 25.12<br>Puerto: 9000")]
         SigNoz["SigNoz APM UI<br>Puerto: 30301 (NodePort)"]
@@ -63,12 +61,13 @@ graph TD
     TransactionService -.->|Claves Idempotencia TTL 24h| Redis
 
     %% Persistence
-    AuthService --> AuthDB
-    UserService --> UserDB
-    TransactionService --> TransactionDB
-    NotificationService --> NotificationDB
-    WorkerService --> WorkerDB
-    AuthDB & UserDB & TransactionDB & NotificationDB & WorkerDB --> MySQL
+    AuthService -->|authdb| PgBouncer
+    UserService -->|userdb| PgBouncer
+    TransactionService -->|transactiondb| PgBouncer
+    PgBouncer --> PostgresCore
+    NotificationService -->|notificationdb| PostgresSupport
+    WorkerService -->|workerdb| PostgresSupport
+    BackupJob -.->|Hot Backups & Checksums| PostgresCore & PostgresSupport
 
     %% Inter-service Sync RPC (tRPC)
     TransactionService -.->|tRPC: getUserById / updateBalance| UserService
