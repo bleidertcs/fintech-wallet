@@ -346,28 +346,30 @@ sequenceDiagram
     Gateway->>TxService: Forward Request
     TxService->>Redis: Verificar si idempotencyKey ya existe
     alt Clave duplicada detectada
-        Redis-->>TxService: Duplicado
-        TxService-->>User: HTTP 400 (Solicitud duplicada)
+        Redis-->>TxService: Duplicado (Key Lock)
+        TxService-->>User: HTTP 400 Bad Request (Solicitud duplicada)
     else Clave nueva
-        TxService->>UserService: tRPC updateBalance(Emisor, -monto)
+        TxService->>UserService: tRPC updateBalance (Emisor, -monto)
         alt Saldo insuficiente
-            UserService-->>TxService: Falla
-            TxService-->>User: HTTP 400 (Saldo insuficiente)
-        else Débito exitoso
-            TxService->>UserService: tRPC updateBalance(Receptor, +monto)
-            alt Falla en crédito
-                UserService-->>TxService: Falla
-                TxService->>UserService: tRPC updateBalance(Emisor, +monto) [Compensación SAGA]
-                TxService-->>User: HTTP 400 (Error en destino; transfer revertida)
-            else Crédito exitoso
-                TxService->>DB: Guardar Transacción + Outbox Event (TRANSFER_COMPLETED)
+            UserService-->>TxService: Error de saldo
+            TxService-->>User: HTTP 400 Bad Request (Saldo insuficiente)
+        else Saldo suficiente
+            UserService-->>TxService: OK (Debito exitoso)
+            TxService->>UserService: tRPC updateBalance (Receptor, +monto)
+            alt Falla en credito al receptor
+                UserService-->>TxService: Error en destino
+                TxService->>UserService: tRPC updateBalance (Emisor, +monto) (Compensacion SAGA)
+                TxService-->>User: HTTP 400 Bad Request (Error en destino - transfer revertida)
+            else Credito exitoso
+                UserService-->>TxService: OK (Credito exitoso)
+                TxService->>DB: Guardar Transaccion y Outbox Event (TRANSFER_COMPLETED)
                 TxService->>Redis: Registrar Idempotency Key (TTL 24h)
-                TxService-->>User: HTTP 200 (Transferencia exitosa)
+                TxService-->>User: HTTP 200 OK (Transferencia exitosa)
                 loop Poller Outbox (Cada 3s)
                     TxService->>Kafka: Publicar TransferCompletedV1
                 end
                 Kafka->>NotifService: Consume TransferCompletedV1
-                NotifService->>UserService: tRPC getUserById(Receptor)
+                NotifService->>UserService: tRPC getUserById (Receptor)
                 NotifService->>Mail: Enviar Correo SMTP
             end
         end

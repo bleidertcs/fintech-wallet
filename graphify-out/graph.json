@@ -2859,8 +2859,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_class_validator",
-      "community": 200,
-      "community_name": "jest",
+      "community": 327,
+      "community_name": "nodemailer",
       "norm_label": "class-validator"
     },
     {
@@ -2870,8 +2870,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_class_validator",
-      "community": 200,
-      "community_name": "jest",
+      "community": 327,
+      "community_name": "nodemailer",
       "norm_label": "class-validator"
     },
     {
@@ -2947,8 +2947,8 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_nest_winston",
-      "community": 327,
-      "community_name": "nodemailer",
+      "community": 135,
+      "community_name": "IdempotencyService",
       "norm_label": "nest-winston"
     },
     {
@@ -2958,8 +2958,8 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_nest_winston",
-      "community": 327,
-      "community_name": "nodemailer",
+      "community": 135,
+      "community_name": "IdempotencyService",
       "norm_label": "nest-winston"
     },
     {
@@ -8469,8 +8469,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_dependencies_class_transformer",
-      "community": 371,
-      "community_name": "@nestjs/config",
+      "community": 200,
+      "community_name": "jest",
       "norm_label": "class-transformer"
     },
     {
@@ -8480,8 +8480,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_class_transformer",
-      "community": 371,
-      "community_name": "@nestjs/config",
+      "community": 200,
+      "community_name": "jest",
       "norm_label": "class-transformer"
     },
     {
@@ -8513,8 +8513,8 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_dependencies_kafkajs",
-      "community": 376,
-      "community_name": "kafkajs",
+      "community": 371,
+      "community_name": "@nestjs/config",
       "norm_label": "kafkajs"
     },
     {
@@ -8524,8 +8524,8 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_kafkajs",
-      "community": 376,
-      "community_name": "kafkajs",
+      "community": 371,
+      "community_name": "@nestjs/config",
       "norm_label": "kafkajs"
     },
     {
@@ -8876,8 +8876,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_devdependencies_types_node",
-      "community": 152,
-      "community_name": "swarm-init.sh",
+      "community": 310,
+      "community_name": "@nestjs/schematics",
       "norm_label": "@types/node"
     },
     {
@@ -8887,8 +8887,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_types_node",
-      "community": 152,
-      "community_name": "swarm-init.sh",
+      "community": 310,
+      "community_name": "@nestjs/schematics",
       "norm_label": "@types/node"
     },
     {
@@ -8964,8 +8964,8 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_devdependencies_eslint",
-      "community": 135,
-      "community_name": "IdempotencyService",
+      "community": 152,
+      "community_name": "swarm-init.sh",
       "norm_label": "eslint"
     },
     {
@@ -8975,8 +8975,8 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_eslint",
-      "community": 135,
-      "community_name": "IdempotencyService",
+      "community": 152,
+      "community_name": "swarm-init.sh",
       "norm_label": "eslint"
     },
     {
@@ -12198,8 +12198,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_dependencies_trpc_client",
-      "community": 564,
-      "community_name": "@trpc/client",
+      "community": 170,
+      "community_name": "dependencies",
       "norm_label": "@trpc/client"
     },
     {
@@ -12209,8 +12209,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_trpc_client",
-      "community": 564,
-      "community_name": "@trpc/client",
+      "community": 170,
+      "community_name": "dependencies",
       "norm_label": "@trpc/client"
     },
     {
@@ -12264,8 +12264,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_dependencies_class_validator",
-      "community": 170,
-      "community_name": "dependencies",
+      "community": 369,
+      "community_name": "eslint-plugin-prettier",
       "norm_label": "class-validator"
     },
     {
@@ -12275,8 +12275,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_class_validator",
-      "community": 170,
-      "community_name": "dependencies",
+      "community": 369,
+      "community_name": "eslint-plugin-prettier",
       "norm_label": "class-validator"
     },
     {
@@ -12583,8 +12583,8 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_devdependencies_swc_core",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 376,
+      "community_name": "kafkajs",
       "norm_label": "@swc/core"
     },
     {
@@ -12594,8 +12594,8 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_swc_core",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 376,
+      "community_name": "kafkajs",
       "norm_label": "@swc/core"
     },
     {
@@ -12715,8 +12715,8 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_devdependencies_eslint",
-      "community": 369,
-      "community_name": "eslint-plugin-prettier",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": "eslint"
     },
     {
@@ -12726,8 +12726,8 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_eslint",
-      "community": 369,
-      "community_name": "eslint-plugin-prettier",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": "eslint"
     },
     {
@@ -20943,8 +20943,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_eslint_plugin_prettier",
-      "community": 310,
-      "community_name": "@nestjs/schematics",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "eslint-plugin-prettier"
     },
     {
@@ -20954,8 +20954,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_eslint_plugin_prettier",
-      "community": 310,
-      "community_name": "@nestjs/schematics",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "eslint-plugin-prettier"
     },
     {
@@ -21053,8 +21053,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_source_map_support",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 388,
+      "community_name": "@types/node",
       "norm_label": "source-map-support"
     },
     {
@@ -21064,8 +21064,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_source_map_support",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 388,
+      "community_name": "@types/node",
       "norm_label": "source-map-support"
     },
     {
@@ -23375,8 +23375,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "frontend_package_dependencies_axios",
-      "community": 388,
-      "community_name": "@types/node",
+      "community": 6,
+      "community_name": "dependencies",
       "norm_label": "axios"
     },
     {
@@ -23386,8 +23386,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "frontend_package_json_axios",
-      "community": 388,
-      "community_name": "@types/node",
+      "community": 6,
+      "community_name": "dependencies",
       "norm_label": "axios"
     },
     {
@@ -23705,8 +23705,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "frontend_package_dependencies_opentelemetry_sdk_trace_base",
-      "community": 6,
-      "community_name": "dependencies",
+      "community": 415,
+      "community_name": "@opentelemetry/sdk-trace-base",
       "norm_label": "@opentelemetry/sdk-trace-base"
     },
     {
@@ -23716,8 +23716,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "frontend_package_json_opentelemetry_sdk_trace_base",
-      "community": 6,
-      "community_name": "dependencies",
+      "community": 415,
+      "community_name": "@opentelemetry/sdk-trace-base",
       "norm_label": "@opentelemetry/sdk-trace-base"
     },
     {
@@ -38716,7 +38716,7 @@
       "label": "6. Seguridad, Hardening y DevSecOps \ud83d\udd10\ud83d\udee1\ufe0f",
       "file_type": "document",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L379",
+      "source_location": "L381",
       "_origin": "ast",
       "id": "arquitectura_6_seguridad_hardening_y_devsecops",
       "community": 27,
@@ -38727,7 +38727,7 @@
       "label": "6.1 Hardening de Contenedores en Kubernetes (`SecurityContext`)",
       "file_type": "document",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L419",
+      "source_location": "L421",
       "_origin": "ast",
       "id": "arquitectura_6_1_hardening_de_contenedores_en_kubernetes_securitycontext",
       "community": 27,
@@ -38738,7 +38738,7 @@
       "label": "6.2 Seguridad en la Capa de Identidad y Autenticaci\u00f3n",
       "file_type": "document",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L428",
+      "source_location": "L430",
       "_origin": "ast",
       "id": "arquitectura_6_2_seguridad_en_la_capa_de_identidad_y_autenticaci\u00f3n",
       "community": 27,
@@ -38749,7 +38749,7 @@
       "label": "7. Pol\u00edticas de Red en Kubernetes (Network Policies) \ud83d\udea6\ud83c\udf10",
       "file_type": "document",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L441",
+      "source_location": "L443",
       "_origin": "ast",
       "id": "arquitectura_7_pol\u00edticas_de_red_en_kubernetes_network_policies",
       "community": 27,
@@ -38760,7 +38760,7 @@
       "label": "7.1 Reglas de Aislamiento de Tr\u00e1fico",
       "file_type": "document",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L497",
+      "source_location": "L499",
       "_origin": "ast",
       "id": "arquitectura_7_1_reglas_de_aislamiento_de_tr\u00e1fico",
       "community": 27,
@@ -38771,7 +38771,7 @@
       "label": "8. Modelado de Datos y Relaciones entre Bases de Datos (ERD & Data Architecture) \ud83d\uddc4\ufe0f\ud83d\udcca",
       "file_type": "document",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L508",
+      "source_location": "L510",
       "_origin": "ast",
       "id": "arquitectura_8_modelado_de_datos_y_relaciones_entre_bases_de_datos_erd_data_architecture",
       "community": 27,
@@ -38782,7 +38782,7 @@
       "label": "8.1 Diagrama Entidad-Relaci\u00f3n (ERD)",
       "file_type": "document",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L514",
+      "source_location": "L516",
       "_origin": "ast",
       "id": "arquitectura_8_1_diagrama_entidad_relaci\u00f3n_erd",
       "community": 27,
@@ -38793,7 +38793,7 @@
       "label": "8.2 Matriz de Relaciones L\u00f3gicas entre Microservicios",
       "file_type": "document",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L638",
+      "source_location": "L640",
       "_origin": "ast",
       "id": "arquitectura_8_2_matriz_de_relaciones_l\u00f3gicas_entre_microservicios",
       "community": 27,
@@ -38804,7 +38804,7 @@
       "label": "8.3 Garant\u00edas de Consistencia y Aislamiento",
       "file_type": "document",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L653",
+      "source_location": "L655",
       "_origin": "ast",
       "id": "arquitectura_8_3_garant\u00edas_de_consistencia_y_aislamiento",
       "community": 27,
@@ -38815,7 +38815,7 @@
       "label": "9. Observabilidad y Monitoreo (SigNoz + OpenTelemetry)",
       "file_type": "document",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L664",
+      "source_location": "L666",
       "_origin": "ast",
       "id": "arquitectura_9_observabilidad_y_monitoreo_signoz_opentelemetry",
       "community": 27,
@@ -38826,7 +38826,7 @@
       "label": "10. Enlaces a Documentaci\u00f3n de Soporte (`docs/`)",
       "file_type": "document",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L672",
+      "source_location": "L674",
       "_origin": "ast",
       "id": "arquitectura_10_enlaces_a_documentaci\u00f3n_de_soporte_docs",
       "community": 27,
@@ -95314,7 +95314,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L672",
+      "source_location": "L674",
       "weight": 1.0,
       "_origin": "ast",
       "source": "arquitectura_fintech_wallet_arquitectura_del_sistema",
@@ -95380,7 +95380,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L379",
+      "source_location": "L381",
       "weight": 1.0,
       "_origin": "ast",
       "source": "arquitectura_fintech_wallet_arquitectura_del_sistema",
@@ -95391,7 +95391,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L441",
+      "source_location": "L443",
       "weight": 1.0,
       "_origin": "ast",
       "source": "arquitectura_fintech_wallet_arquitectura_del_sistema",
@@ -95402,7 +95402,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L508",
+      "source_location": "L510",
       "weight": 1.0,
       "_origin": "ast",
       "source": "arquitectura_fintech_wallet_arquitectura_del_sistema",
@@ -95413,7 +95413,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L664",
+      "source_location": "L666",
       "weight": 1.0,
       "_origin": "ast",
       "source": "arquitectura_fintech_wallet_arquitectura_del_sistema",
@@ -95523,7 +95523,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L419",
+      "source_location": "L421",
       "weight": 1.0,
       "_origin": "ast",
       "source": "arquitectura_6_seguridad_hardening_y_devsecops",
@@ -95534,7 +95534,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L428",
+      "source_location": "L430",
       "weight": 1.0,
       "_origin": "ast",
       "source": "arquitectura_6_seguridad_hardening_y_devsecops",
@@ -95545,7 +95545,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L497",
+      "source_location": "L499",
       "weight": 1.0,
       "_origin": "ast",
       "source": "arquitectura_7_pol\u00edticas_de_red_en_kubernetes_network_policies",
@@ -95556,7 +95556,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L514",
+      "source_location": "L516",
       "weight": 1.0,
       "_origin": "ast",
       "source": "arquitectura_8_modelado_de_datos_y_relaciones_entre_bases_de_datos_erd_data_architecture",
@@ -95567,7 +95567,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L638",
+      "source_location": "L640",
       "weight": 1.0,
       "_origin": "ast",
       "source": "arquitectura_8_modelado_de_datos_y_relaciones_entre_bases_de_datos_erd_data_architecture",
@@ -95578,7 +95578,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ARQUITECTURA.md",
-      "source_location": "L653",
+      "source_location": "L655",
       "weight": 1.0,
       "_origin": "ast",
       "source": "arquitectura_8_modelado_de_datos_y_relaciones_entre_bases_de_datos_erd_data_architecture",
@@ -99613,5 +99613,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "66a07b778fe04875795fdadcea837f8f4ac572d2"
+  "built_at_commit": "9687528d3d1ff728f542f69ccea5595edd850903"
 }

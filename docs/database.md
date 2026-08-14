@@ -96,11 +96,11 @@ sequenceDiagram
 
     Pods->>PgB: Solicita conexión TCP / Prisma Client
     Note over PgB: Mantiene pool de ~25 conexiones físicas reales hacia PostgreSQL
-    Pods->>PgB: BEGIN TRANSACTION;
+    Pods->>PgB: BEGIN TRANSACTION
     PgB->>PG: Asigna una conexión física del pool
     Pods->>PG: UPDATE user_profiles SET balance = balance - 100...
     Pods->>PG: INSERT INTO transactions...
-    Pods->>PG: COMMIT;
+    Pods->>PG: COMMIT
     PgB->>PgB: Libera inmediatamente la conexión física de PostgreSQL
     Note over PgB: La conexión física queda libre para atender a otro Pod en < 1ms
 ```
