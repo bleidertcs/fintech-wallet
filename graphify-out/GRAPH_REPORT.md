@@ -1,11 +1,11 @@
 # Graph Report - fintech-wallet  (2026-08-17)
 
 ## Corpus Check
-- 495 files · ~250,807 words
+- 495 files · ~250,717 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 4952 nodes · 6067 edges · 637 communities (337 shown, 300 thin omitted)
+- 4952 nodes · 6067 edges · 638 communities (338 shown, 300 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 20 edges (avg confidence: 0.72)
 - Token cost: 0 input · 0 output
 
@@ -587,6 +587,7 @@
 - 2. Background & Context
 - 3. User Experience
 - 4. Technical Design
+- nest-winston
 - Common Deployment Patterns
 - Integration Examples
 - Table Schemas
@@ -619,9 +620,9 @@
 - @types/supertest
 - typescript
 - class-transformer
+- react-hot-toast
 - globals
 - class-transformer
-- axios
 
 ## God Nodes (most connected - your core abstractions)
 1. `User` - 38 edges
@@ -650,7 +651,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (637 total, 300 thin omitted)
+## Communities (638 total, 300 thin omitted)
 
 ### Community 0 - "UserDto"
 Cohesion: 0.05
@@ -678,7 +679,7 @@ Nodes (10): BusinessException, GlobalExceptionHandler, ResponseEntity, Slf4j, Re
 
 ### Community 6 - "dependencies"
 Cohesion: 0.10
-Nodes (21): file-saver, dependencies, file-saver, jspdf, jspdf-autotable, @opentelemetry/api, @opentelemetry/instrumentation, @opentelemetry/resources (+13 more)
+Nodes (21): file-saver, dependencies, axios, file-saver, jspdf, jspdf-autotable, @opentelemetry/api, @opentelemetry/instrumentation (+13 more)
 
 ### Community 7 - "Writing ClickHouse Queries for SigNoz Dashboards"
 Cohesion: 0.17
@@ -686,7 +687,7 @@ Nodes (9): ClickHouse Traces Query Reference for SigNoz, Contents, Dashboard Pan
 
 ### Community 8 - "Fase 1: Notification Service Completo"
 Cohesion: 0.18
-Nodes (11): devDependencies, @nestjs/schematics, supertest, ts-jest, ts-loader, @types/jest, @nestjs/schematics, supertest (+3 more)
+Nodes (11): devDependencies, @nestjs/cli, supertest, ts-jest, ts-loader, @types/jest, @nestjs/cli, supertest (+3 more)
 
 ### Community 9 - "SEO optimization"
 Cohesion: 0.06
@@ -1028,6 +1029,10 @@ Nodes (4): distributed_signoz_error_index_v2 (Error Events), distributed_signoz_
 Cohesion: 0.50
 Nodes (4): 1. Spec-First Approach, 2. TDD with Mockito, 3. Code Review Checklist, Development Workflow
 
+### Community 146 - "worker-service:worker-service"
+Cohesion: 0.50
+Nodes (4): Activity Diagram from Filter Chain, Filter Chain Configuration, Mapping to Activity Diagram, web.xml Filter Ordering
+
 ### Community 147 - "MoneyRequestEntity"
 Cohesion: 0.07
 Nodes (11): Inject, PrismaTransactionRepository, Injectable, TransactionUseCases, Injectable, MoneyRequestEntity, TransactionEntity, MoneyRequestParams (+3 more)
@@ -1046,7 +1051,7 @@ Nodes (35): Activity Flow with States, Available Guides and Resources, Best Prac
 
 ### Community 152 - "swarm-init.sh"
 Cohesion: 0.09
-Nodes (23): devDependencies, eslint-config-prettier, eslint-plugin-prettier, globals, jest, @nestjs/cli, prettier, source-map-support (+15 more)
+Nodes (23): devDependencies, eslint, eslint-plugin-prettier, globals, jest, @nestjs/cli, prettier, source-map-support (+15 more)
 
 ### Community 153 - "Microservicios"
 Cohesion: 0.50
@@ -1058,7 +1063,7 @@ Nodes (4): Integration Tests, Test Naming, Testing Guidelines, Unit Tests
 
 ### Community 155 - "Funcionalidades"
 Cohesion: 0.22
-Nodes (9): devDependencies, @eslint/js, globals, @nestjs/schematics, typescript-eslint, @eslint/js, globals, @nestjs/schematics (+1 more)
+Nodes (9): devDependencies, @eslint/js, @nestjs/schematics, @nestjs/testing, typescript-eslint, @eslint/js, @nestjs/schematics, @nestjs/testing (+1 more)
 
 ### Community 156 - "Helm Charts"
 Cohesion: 0.08
@@ -1098,7 +1103,7 @@ Nodes (12): AppModule, Module, NotificationApplicationModule, Module, createWins
 
 ### Community 170 - "dependencies"
 Cohesion: 0.22
-Nodes (9): dependencies, ioredis, @nestjs/microservices, @nestjs/platform-express, @opentelemetry/exporter-metrics-otlp-http, ioredis, @nestjs/microservices, @nestjs/platform-express (+1 more)
+Nodes (9): dependencies, class-transformer, ioredis, @nestjs/microservices, @opentelemetry/exporter-metrics-otlp-http, class-transformer, ioredis, @nestjs/microservices (+1 more)
 
 ### Community 171 - "Transaction Service (NestJS) 💸"
 Cohesion: 0.10
@@ -1274,7 +1279,7 @@ Nodes (5): AppController, Controller, Get, AppService, Injectable
 
 ### Community 223 - "dependencies"
 Cohesion: 0.10
-Nodes (21): dependencies, class-transformer, class-validator, kafkajs, nest-winston, @nestjs/config, @nestjs/core, @opentelemetry/auto-instrumentations-node (+13 more)
+Nodes (21): dependencies, class-transformer, class-validator, kafkajs, @nestjs/config, @nestjs/core, @opentelemetry/auto-instrumentations-node, @opentelemetry/exporter-metrics-otlp-http (+13 more)
 
 ### Community 225 - "PrismaService"
 Cohesion: 0.13
@@ -1426,7 +1431,7 @@ Nodes (13): Module, UserGrpcClientModule, Injectable, UserServiceGrpcAdapter, Us
 
 ### Community 327 - "nodemailer"
 Cohesion: 0.18
-Nodes (11): dependencies, class-transformer, @nestjs/common, @opentelemetry/exporter-logs-otlp-http, @opentelemetry/resources, @trpc/client, class-transformer, @nestjs/common (+3 more)
+Nodes (11): dependencies, axios, class-transformer, @nestjs/common, @opentelemetry/exporter-logs-otlp-http, @trpc/client, axios, class-transformer (+3 more)
 
 ### Community 329 - "@opentelemetry/exporter-logs-otlp-http"
 Cohesion: 0.09
@@ -1513,8 +1518,8 @@ Cohesion: 0.23
 Nodes (3): TransferCompletedEventDto, WORKER_SERVICE_PORT, WorkerServicePort
 
 ### Community 377 - "@opentelemetry/instrumentation-express"
-Cohesion: 0.10
-Nodes (20): Activity Diagram from Filter Chain, Architecture Diagram from Project Structure, Deployment Diagram from web.xml & server.xml, Entity Relationship from JPA Entities, Filter Chain Configuration, Java Code - Request Processing, Java Servlet/JSP Web Application → Mermaid Diagrams, Java Source Code Structure (+12 more)
+Cohesion: 0.12
+Nodes (16): Architecture Diagram from Project Structure, Deployment Diagram from web.xml & server.xml, Entity Relationship from JPA Entities, Java Code - Request Processing, Java Servlet/JSP Web Application → Mermaid Diagrams, Java Source Code Structure, JPA Entity Classes, Mapping to Architecture Diagram (+8 more)
 
 ### Community 379 - "@opentelemetry/resources"
 Cohesion: 0.33
@@ -1890,7 +1895,7 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `User` connect `Docker Swarm Skill` to `PrismaService`, `App.jsx`, `.findByEmail`, `AppController`, `user.entity.ts`, `.verifyTotp`?**
   _High betweenness centrality (0.008) - this node is a cross-community bridge._
-- **Why does `dependencies` connect `dependencies` to `axios`, `@opentelemetry/resources`, `package.json`, `mariadb`, `@opentelemetry/auto-instrumentations-web`, `@opentelemetry/exporter-trace-otlp-http`, `@opentelemetry/sdk-trace-web`, `qrcode.react`, `react`, `react-icons`, `recharts`, `class-transformer`, `@opentelemetry/sdk-trace-base`?**
+- **Why does `dependencies` connect `dependencies` to `@opentelemetry/resources`, `package.json`, `mariadb`, `@opentelemetry/auto-instrumentations-web`, `@opentelemetry/exporter-trace-otlp-http`, `@opentelemetry/sdk-trace-web`, `qrcode.react`, `react`, `react-icons`, `recharts`, `class-transformer`, `react-hot-toast`, `@opentelemetry/sdk-trace-base`?**
   _High betweenness centrality (0.005) - this node is a cross-community bridge._
 - **Why does `History()` connect `App.jsx` to `dependencies`?**
   _High betweenness centrality (0.005) - this node is a cross-community bridge._

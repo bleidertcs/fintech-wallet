@@ -601,6 +601,7 @@
   "599": "2. Background & Context",
   "600": "3. User Experience",
   "601": "4. Technical Design",
+  "602": "nest-winston",
   "603": "Common Deployment Patterns",
   "604": "Integration Examples",
   "605": "Table Schemas",
@@ -633,7 +634,7 @@
   "632": "@types/supertest",
   "633": "typescript",
   "634": "class-transformer",
+  "635": "react-hot-toast",
   "636": "globals",
-  "637": "class-transformer",
-  "640": "axios"
+  "637": "class-transformer"
 }

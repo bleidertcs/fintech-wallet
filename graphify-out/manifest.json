@@ -625,8 +625,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1786992474.232333,
-    "ast_hash": "b0a04b391468b0781872469e718715f6",
+    "mtime": 1786993575.3667953,
+    "ast_hash": "60585949ab377dbeb11c8a1199330926",
     "semantic_hash": ""
   },
   "docker-compose.yml": {
@@ -2640,8 +2640,8 @@
     "semantic_hash": ""
   },
   "docs/api-gateway.md": {
-    "mtime": 1786990449.102958,
-    "ast_hash": "58a39cd1a730f8ca78316105eaa9a25d",
+    "mtime": 1786993591.620459,
+    "ast_hash": "b3c1775936a70099dfb401c9694828f2",
     "semantic_hash": ""
   },
   "docs/architecture.md": {
@@ -2670,8 +2670,8 @@
     "semantic_hash": ""
   },
   "docs/getting-started.md": {
-    "mtime": 1786992467.2822006,
-    "ast_hash": "a51b37df7d5f334866db13e6eaac7d2c",
+    "mtime": 1786993617.8780696,
+    "ast_hash": "c562ef3b5e56c53f29592ad2d8b7b151",
     "semantic_hash": ""
   },
   "docs/observability.md": {
@@ -2695,8 +2695,8 @@
     "semantic_hash": ""
   },
   "docs/transactions.md": {
-    "mtime": 1786990468.2883523,
-    "ast_hash": "9092ce988690eaf87a27f2f51255dcf6",
+    "mtime": 1786993583.500125,
+    "ast_hash": "841d09c85de521beccdb7dc75146ccd5",
     "semantic_hash": ""
   },
   "docs/troubleshooting.md": {
