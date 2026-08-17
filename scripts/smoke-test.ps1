@@ -74,14 +74,14 @@ foreach ($sw in $swaggers) {
 Write-Host ""
 
 # 4. Bases de Datos e Infraestructura
-Write-Host "[4/4] Verificando conectividad de MySQL, Redis y Kafka..." -ForegroundColor Yellow
+Write-Host "[4/4] Verificando conectividad de PostgreSQL, Redis y Kafka..." -ForegroundColor Yellow
 try {
-    $mysqlTables = kubectl exec -n fintech mysql-0 -- mysql -u root -p12345 -e "SHOW DATABASES;" 2>$null
-    if ($mysqlTables -match "transactiondb") {
-        Write-Host "  [OK] MySQL-0 respondiendo con bases de datos creadas!" -ForegroundColor Green
+    $pgCheck = kubectl exec -n fintech postgres-core-0 -- pg_isready -U postgres -d transactiondb 2>$null
+    if ($pgCheck -match "accepting connections") {
+        Write-Host "  [OK] postgres-core-0 respondiendo y aceptando conexiones!" -ForegroundColor Green
     }
 } catch {
-    Write-Host "  [FAIL] Error conectando a MySQL: $_" -ForegroundColor Red
+    Write-Host "  [FAIL] Error conectando a PostgreSQL: $_" -ForegroundColor Red
 }
 
 try {

@@ -1,74 +1,112 @@
-# Almacenamiento en Memoria e Idempotencia con Redis 7 ⚡
+# Redis: Caché en Memoria, Idempotencia y Sesiones
 
-Este documento describe la arquitectura de caché en memoria, control de idempotencia y revocación de seguridad basada en **Redis 7** en **FinTech Wallet**.
+Este documento describe la arquitectura, configuración y casos de uso de **Redis 7** en **FinTech Wallet**, detallando los patrones de clave, políticas de expiración (TTL) y comandos de inspección en el clúster de Kubernetes.
 
 ---
 
-## 1. Rol de Redis 7 en la Arquitectura
+## 📑 Contenido
 
-Redis opera como una capa de almacenamiento en memoria de ultra-alta velocidad (sub-milisegundo) que cumple tres funciones críticas en la plataforma:
+1. [Arquitectura y Despliegue de Redis](#1-arquitectura-y-despliegue-de-redis)
+2. [Matriz de Claves, Patrones y TTL](#2-matriz-de-claves-patrones-y-ttl)
+3. [Casos de Uso en Microservicios](#3-casos-de-uso-en-microservicios)
+   - [Idempotencia y Bloqueo Distribuido (`transaction-service`)](#idempotencia-y-bloqueo-distribuido-transaction-service)
+   - [Lista Negra de Tokens JWT (`auth-service`)](#lista-negra-de-tokens-jwt-auth-service)
+   - [Caché L2 de Perfiles (`user-service`)](#caché-l2-de-perfiles-user-service)
+4. [Inspección y Diagnóstico con `redis-cli`](#4-inspección-y-diagnóstico-con-redis-cli)
+
+---
+
+## 1. Arquitectura y Despliegue de Redis
+
+Redis se ejecuta como un **StatefulSet** en Kubernetes (`redis`) con almacenamiento persistente para garantizar durabilidad de claves críticas:
+
+* **Imagen**: `redis:7-alpine`
+* **Puerto**: `6379` (ClusterIP: `redis.fintech.svc.cluster.local:6379`)
+* **Límites de Memoria**: `--maxmemory 256mb` con política de desalojo `--maxmemory-policy volatile-lru` (expulsa primero las claves menos usadas recientemente que tengan un TTL configurado).
+* **Persistencia**: Volumen PVC de 1 GiB (`redis-data` con storageClassName `local-path`).
+* **Seguridad de Contenedor**: Ejecución sin privilegios (`runAsUser: 999`, `allowPrivilegeEscalation: false`, `drop: ALL`).
+
+---
+
+## 2. Matriz de Claves, Patrones y TTL
+
+| Caso de Uso | Patrón de Clave (Key Pattern) | Tipo de Dato | TTL (Tiempo de Vida) | Microservicio Propietario |
+| :--- | :--- | :--- | :--- | :--- |
+| **Candado de Idempotencia** | `idemp:lock:<userId>:<key>` | String | `30 segundos` | `transaction-service` |
+| **Registro de Idempotencia**| `idemp:key:<userId>:<key>` | String | `24 horas` (86400s) | `transaction-service` |
+| **Token JWT Revocado** | `jwt:blacklist:<token>` | String | Tiempo restante del token | `auth-service` |
+| **Caché de Perfil de Usuario**| `user:cache:<id>` | JSON / String | `1 hora` (3600s) | `user-service` |
+
+---
+
+## 3. Casos de Uso en Microservicios
+
+### Idempotencia y Bloqueo Distribuido (`transaction-service`)
+
+Para evitar la doble ejecución de transferencias bajo condiciones de concurrencia elevada o reintentos del cliente HTTP:
 
 ```mermaid
-graph TD
-    Client["Cliente HTTP / Frontend"] --> Gateway["Traefik Gateway"]
-    Gateway --> Auth["Auth Service"]
-    Gateway --> Tx["Transaction Service"]
-    Gateway --> User["User Service"]
+sequenceDiagram
+    autonumber
+    participant Client as Cliente HTTP
+    participant TxSvc as transaction-service
+    participant Redis as Redis 7
 
-    Auth -->|"1. Token Blacklist / 2FA"| Redis[("Redis 7")]
-    Tx -->|"2. Idempotency Lock"| Redis
-    User -->|"3. Caché L2 Perfiles"| Redis
+    Client->>TxSvc: POST /transactions/transfer (X-Idempotency-Key: "tx-uuid-123")
+    
+    TxSvc->>Redis: SET idemp:lock:1:tx-uuid-123 "IN_PROGRESS" NX EX 30
+    alt Clave ya existe (Candado ocupado)
+        Redis-->>TxSvc: NULL (No modificado)
+        TxSvc-->>Client: HTTP 400 (Solicitud duplicada procesada previamente)
+    else Candado adquirido exitosamente
+        Redis-->>TxSvc: OK
+        Note over TxSvc: Ejecuta débito, crédito y persistencia en DB
+        
+        TxSvc->>Redis: SET idemp:key:1:tx-uuid-123 "COMPLETED" EX 86400
+        TxSvc->>Redis: DEL idemp:lock:1:tx-uuid-123
+        TxSvc-->>Client: HTTP 200 (Transferencia completada)
+    end
 ```
 
+### Lista Negra de Tokens JWT (`auth-service`)
+
+Al realizar un cierre de sesión o cambio de contraseña, el token JWT activo es revocado de forma inmediata:
+
+1. `auth-service` calcula los segundos restantes hasta la fecha de expiración (`exp`) del token.
+2. Ejecuta `SET jwt:blacklist:<token> "REVOKED" EX <segundos_restantes>`.
+3. Cualquier solicitud posterior que presente ese token es rechazada por el guard con **HTTP 401 Unauthorized**.
+
+### Caché L2 de Perfiles (`user-service`)
+
+Las consultas de perfil por ID o email son almacenadas temporalmente en Redis para aliviar el tráfico de lectura sobre la base de datos `userdb`:
+
+* Al actualizar saldo o límites, la clave `user:cache:<id>` se invalida automáticamente (`DEL`).
+
 ---
 
-## 2. Idempotencia Durable (Redis + PostgreSQL)
+## 4. Inspección y Diagnóstico con `redis-cli`
 
-### ¿Por qué es necesaria la Idempotencia Financiera?
-En redes móviles o llamadas HTTP inestables, un usuario o cliente puede presionar el botón "Transferir" dos veces, o la red puede reintentar una petición `POST /transactions/transfer`. Sin idempotencia, esto provocaría un **doble débito** en la billetera del usuario.
+Puedes inspeccionar el contenido de Redis directamente dentro del pod de Kubernetes:
 
-### El Flujo de Idempotencia
-1. El cliente envía el encabezado HTTP: `X-Idempotency-Key: TX-882910-AAA`.
-2. `transaction-service` consulta a Redis usando la clave `idempotency:TX-882910-AAA`.
-3. Si la clave **ya existe**:
-   - Redis devuelve el resultado previo inmediatamente sin volver a ejecutar la transacción.
-   - Si la clave está bloqueada en procesamiento, retorna `HTTP 400 Bad Request: Concurrent request in progress`.
-4. Si la clave **no existe**:
-   - Se adquiere un Lock atómico en Redis (`SET key IN_PROGRESS NX EX 30`).
-   - Se ejecuta la transferencia en PostgreSQL (`postgres-core` vía `pgbouncer-core`).
-   - Al finalizar, se almacena el resultado en Redis con un **TTL de 24 horas** (`86400` segundos) y se respalda de forma durable en la tabla PostgreSQL `idempotency_records`.
+```bash
+# 1. Comprobar salud del servidor Redis
+kubectl exec -it -n fintech redis-0 -- redis-cli ping
+# Salida esperada: PONG
 
-```typescript
-// Ejemplo de implementación en idempotency.service.ts
-async registerKey(key: string, payload: any): Promise<boolean> {
-  const redisKey = `idempotency:${key}`;
-  const success = await this.redisClient.set(
-    redisKey,
-    JSON.stringify(payload),
-    'NX',  // Only set if Not Exists
-    'EX',  // Expiration in seconds
-    86400  // 24 Hours TTL
-  );
-  return success === 'OK';
-}
+# 2. Listar todas las claves activas
+kubectl exec -it -n fintech redis-0 -- redis-cli keys "*"
+
+# 3. Consultar claves de idempotencia específicas
+kubectl exec -it -n fintech redis-0 -- redis-cli keys "idemp:*"
+
+# 4. Verificar el TTL restante de una clave (en segundos)
+kubectl exec -it -n fintech redis-0 -- redis-cli ttl "idemp:key:1:tx-uuid-123"
+
+# 5. Obtener el valor de una clave
+kubectl exec -it -n fintech redis-0 -- redis-cli get "idemp:key:1:tx-uuid-123"
+
+# 6. Inspeccionar consumo de memoria y estadísticas
+kubectl exec -it -n fintech redis-0 -- redis-cli info memory
 ```
 
----
-
-## 3. JWT Blacklist (Revocación Instantánea de Sesión)
-
-Por naturaleza, los tokens **JWT (JSON Web Tokens)** son apátridas (*stateless*) y no se pueden anular antes de su tiempo de expiración. 
-
-Para permitir un cierre de sesión seguro (*Logout*):
-1. `auth-service` extrae el `jti` (JWT ID) o la firma del token al recibir `POST /auth/logout`.
-2. Agrega la clave `blacklist:<token_jti>` en Redis con un TTL igual al tiempo de vida restante del JWT.
-3. El middleware de autenticación valida en cada petición entrante que el token no resida en la lista negra de Redis.
-
----
-
-## 4. Caché L2 de Perfiles y Saldos
-
-Para optimizar lecturas masivas del perfil de usuario y saldos sin saturar la base de datos MySQL `userdb`:
-- `user-service` almacena la entidad `UserProfile` en la clave `user:profile:<userId>` con un TTL de **5 minutos**.
-- Al recibir una solicitud `GET /users/profile/:id`, se busca primero en Redis (**Cache Hit**). Si no existe (**Cache Miss**), lee de MySQL y actualiza Redis.
-- Cuando ocurre una actualización de saldo o datos personales, se invalida proactivamente la clave en Redis.
+Para comprender el flujo de mensajería asíncrona complementario a Redis, consulta la guía de [Apache Kafka](kafka.md).

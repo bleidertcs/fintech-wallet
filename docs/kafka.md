@@ -1,95 +1,156 @@
-# Arquitectura de Mensajería Apache Kafka 📩
+# Apache Kafka: Mensajería Asíncrona y Event Streaming
 
-Este documento describe la arquitectura de mensajería asíncrona basada en **Apache Kafka (modo KRaft)**, el patrón **Transactional Outbox**, la estructura de eventos (Event Envelope) y el manejo de reintentos y Dead Letter Queue (DLQ).
-
----
-
-## 1. Arquitectura de Apache Kafka KRaft
-
-En el proyecto **FinTech Wallet**, utilizamos **Apache Kafka 3.7.0** operando en modo **KRaft (Kafka Raft Metadata Mode)**. Esto elimina la dependencia histórica de Apache ZooKeeper, simplificando la topología de despliegue en Kubernetes y reduciendo el consumo de memoria.
-
-### Tópicos Principales
-
-| Tópico | Productor | Consumidores | Propósito |
-| :--- | :--- | :--- | :--- |
-| `transfer_completed` | `transaction-service` (Outbox) | `notification-service`, `worker-service` | Evento emitido al completar exitosamente una transferencia de fondos. |
-| `transfer_failed` | `transaction-service` | `notification-service` | Notifica al usuario emisor sobre el fallo o reversión de una transferencia. |
-| `transfer-events-dlq` | `worker-service`, `notification-service` | Proceso de Auditoría / Soporte | Dead Letter Queue para almacenar eventos corruptos o no procesables. |
+Este documento detalla la arquitectura de mensajería distribuida con **Apache Kafka 3.7.0 en modo KRaft**, el catálogo de tópicos, productores, consumidores, esquemas de eventos, estrategias de reintento, Dead Letter Queue (DLQ) y comandos de inspección en Kubernetes.
 
 ---
 
-## 2. El Patrón Transactional Outbox
+## 📑 Contenido
 
-### El Problema de la Inconsistencia en Mensajería
-Si un microservicio guarda un registro en la base de datos PostgreSQL e inmediatamente intenta enviar un mensaje a Kafka mediante red, existe el riesgo de que la BD guarde el cambio pero la llamada a Kafka falle por timeout, o viceversa (*Dual Write Problem*).
-
-### La Solución: Transactional Outbox
-El microservicio guarda la entidad `Transaction` y el evento en la tabla `outbox_events` dentro de la **misma transacción local ACID de PostgreSQL**:
-
-```sql
-BEGIN;
-
-INSERT INTO transactions (id, from_user_id, to_user_id, amount, status) 
-VALUES (101, 1, 2, 150.00, 'SUCCESS');
-
-INSERT INTO outbox_events (id, aggregate_type, aggregate_id, event_type, payload, status) 
-VALUES ('evt-501', 'Transaction', '101', 'TRANSFER_COMPLETED', '{"transactionId":"101", "amount": 150.00}', 'PENDING');
-
-COMMIT;
-```
-
-Posteriormente, un servicio asíncrono en segundo plano (`OutboxPublisherService`) lee periódicamente las filas en estado `PENDING`, las publica en Apache Kafka y las marca como `PROCESSED`. Esto garantiza la propiedad **At-Least-Once Delivery** (Entrega al menos una vez).
+1. [Arquitectura de Kafka en Modo KRaft](#1-arquitectura-de-kafka-en-modo-kraft)
+2. [Catálogo de Tópicos y Grupos de Consumidores](#2-catálogo-de-tópicos-y-grupos-de-consumidores)
+3. [Esquema del Event Envelope](#3-esquema-del-event-envelope)
+4. [Mecanismos de Resiliencia, Reintentos y DLQ](#4-mecanismos-de-resiliencia-reintentos-y-dlq)
+5. [Flujo de Eventos Transaccionales](#5-flujo-de-eventos-transaccionales)
+6. [Guía de Inspección y Diagnóstico en Kubernetes](#6-guía-de-inspección-y-diagnóstico-en-kubernetes)
 
 ---
 
-## 3. Estructura Estándar del Event Envelope
+## 1. Arquitectura de Kafka en Modo KRaft
 
-Todos los eventos publicados en el cluster Kafka siguen una estructura estandarizada y compatible hacia atrás:
+El clúster utiliza la imagen oficial `apache/kafka:3.7.0` operando en modo **KRaft (Kafka Raft Metadata Mode)**, eliminando la dependencia de ZooKeeper y centralizando la gestión de quórum y metadatos en el propio broker:
+
+* **StatefulSet en Kubernetes**: `kafka` en el namespace `fintech`.
+* **Puertos de Red**:
+  - `29092`: Tráfico interno entre Pods (`PLAINTEXT://kafka:29092`).
+  - `9092`: Tráfico externo / depuración local (`EXTERNAL://localhost:9092`).
+  - `29093`: Quórum del controlador KRaft (`CONTROLLER://0.0.0.0:29093`).
+* **Almacenamiento Persistente**: Volumen PVC de 5 GiB (`kafka-data` montado en `/tmp/kafka-logs`).
+* **Auto-creación de Tópicos**: Habilitada (`KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"`).
+
+---
+
+## 2. Catálogo de Tópicos y Grupos de Consumidores
+
+| Tópico | Productor | Consumidor | Consumer Group | Propósito del Evento |
+| :--- | :--- | :--- | :--- | :--- |
+| `transfer_completed`<br>`fintech.transaction.transfer.completed.v1` | `transaction-service` | `notification-service` | `notification-group` | Envío de correos de alerta y registro de notificaciones |
+| `transfer_completed`<br>`fintech.transaction.transfer.completed.v1` | `transaction-service` | `worker-service` | `worker-group` | Registro de bitácora en `audit_logs` |
+| `transfer-events-dlq` | `worker-service` | Operaciones / DLQ Monitor | N/A (Auditoría) | Mensajes corruptos o no procesables tras agotar reintentos |
+
+---
+
+## 3. Esquema del Event Envelope
+
+Todos los eventos transaccionales producidos por `transaction-service` siguen una estructura uniforme en formato JSON:
 
 ```json
 {
-  "eventId": "evt_98a7b6c5-4321-4def-8901-23456789abcd",
+  "eventId": "c8f2b34a-93f8-4e8c-a1d2-0948b812ef44",
   "eventType": "TRANSFER_COMPLETED",
-  "version": 1,
-  "occurredAt": "2026-08-13T14:30:00.000Z",
-  "producer": "transaction-service",
-  "correlationId": "trace_4f8b9e10a2c3d4e5",
-  "causationId": "req_1122334455",
+  "aggregateType": "Transaction",
+  "aggregateId": "104",
+  "timestamp": "2026-08-17T12:00:00.000Z",
   "data": {
-    "transactionId": "tx-882910-AAA",
-    "sourceUserId": 1,
-    "targetUserId": 2,
-    "amount": 150.00,
-    "currency": "ARS",
-    "status": "COMPLETED"
+    "transactionId": "104",
+    "fromUser": 1,
+    "toUser": 2,
+    "amount": 1500.50
   }
 }
 ```
 
 ### Campos del Envelope:
-- **`eventId`**: UUID único del evento.
-- **`eventType`**: Nombre descriptivo del evento de dominio.
-- **`version`**: Versión del esquema del evento para evolución retrocompatible.
-- **`occurredAt`**: Marca temporal ISO-8601 del momento exacto de emisión.
-- **`producer`**: Nombre del microservicio origen.
-- **`correlationId`**: Identificador de traza (`trace_id`) de OpenTelemetry para observabilidad de extremo a extremo.
-- **`data`**: Payload tipado con los detalles del negocio.
+* `eventId`: UUID único del evento (utilizado por los consumidores para deduplicación).
+* `eventType`: Tipo semántico de evento de dominio.
+* `aggregateType` y `aggregateId`: Entidad raíz que originó el cambio.
+* `timestamp`: Fecha y hora UTC de generación.
+* `data`: Carga útil estructurada (Payload).
 
 ---
 
-## 4. Estrategia de Reintentos y Dead Letter Queue (DLQ)
+## 4. Mecanismos de Resiliencia, Reintentos y DLQ
 
-Cuando un consumidor (`notification-service` o `worker-service`) falla al procesar un mensaje debido a un problema temporal (ej. base de datos temporalmente inalcanzable), se aplica una estrategia de **Exponential Backoff con Jitter**:
+### 1. Deduplicación de Mensajes en Memoria
+En `notification-service`, el servicio mantiene un set en memoria (`processedEventIds`) con capacidad para 10,000 IDs de eventos. Si Kafka reenvía un mensaje ya procesado tras un rebalanceo de particiones, es descartado inmediatamente.
 
-```text
-Intento 1 (Inmediato) -> Fallo
-  │
-  ├── Esperar 1 segundo -> Intento 2 -> Fallo
-  ├── Esperar 5 segundos -> Intento 3 -> Fallo
-  ├── Esperar 30 segundos -> Intento 4 -> Fallo
-  │
-  └── Excedido límite (Max 3 reintentos) -> Enviar mensaje a 'transfer-events-dlq'
+### 2. Reintentos Exponenciales (Backoff)
+Ante fallos transitorios en el envío de correo o inserción en base de datos, el consumidor reintenta la operación hasta **3 veces** con pausas exponenciales ($2^{\text{intento}} \times 500\text{ms}$).
+
+### 3. Dead Letter Queue (DLQ)
+En `worker-service`, si un mensaje falla definitivamente o contiene un formato JSON inválido:
+1. Se publica automáticamente en el tópico `transfer-events-dlq` incluyendo el error técnico y la carga original.
+2. Se registra un evento `DLQ_TRANSFER_FAILED` en la tabla `audit_logs`.
+
+---
+
+## 5. Flujo de Eventos Transaccionales
+
+```mermaid
+graph TD
+    TxSvc["transaction-service<br>(Transactional Outbox)"] -->|Produce Evento| TopicTx["Topic: transfer_completed"]
+    
+    TopicTx -->|Consumo Paralelo| NotifSvc["notification-service<br>(notification-group)"]
+    TopicTx -->|Consumo Paralelo| WorkerSvc["worker-service<br>(worker-group)"]
+    
+    NotifSvc -->|1. Deduplica| NotifCheck{¿Procesado?}
+    NotifCheck -- No --> NotifProcess["2. Guarda en notificationdb & envía Email"]
+    NotifCheck -- Sí --> DiscardMsg["Descarta duplicado"]
+    
+    WorkerSvc -->|Procesa auditoría| WorkerProcess{¿Parseo exitoso?}
+    WorkerProcess -- Sí --> AuditDB[("INSERT audit_logs")]
+    WorkerProcess -- No (Error crítico) --> DLQProducer["Publica en Dead Letter Queue"]
+    DLQProducer --> TopicDLQ["Topic: transfer-events-dlq"]
+    TopicDLQ --> AuditDLQ[("INSERT audit_logs (DLQ_TRANSFER_FAILED)")]
 ```
 
-### Idempotencia en el Consumidor
-Para evitar procesar dos veces el mismo mensaje si ocurre un reintento, cada consumidor verifica el `eventId` en su base de datos local o en Redis antes de ejecutar la lógica de negocio.
+---
+
+## 6. Guía de Inspección y Diagnóstico en Kubernetes
+
+Puedes interactuar con Apache Kafka directamente ejecutando los scripts CLI oficiales dentro del pod `kafka-0`:
+
+### 1. Listar los Tópicos Existentes
+
+```bash
+kubectl exec -it -n fintech kafka-0 -- /opt/kafka/bin/kafka-topics.sh \
+  --bootstrap-server localhost:9092 \
+  --list
+```
+
+### 2. Describir la Configuración de un Tópico
+
+```bash
+kubectl exec -it -n fintech kafka-0 -- /opt/kafka/bin/kafka-topics.sh \
+  --bootstrap-server localhost:9092 \
+  --describe \
+  --topic transfer_completed
+```
+
+### 3. Consumir Mensajes en Tiempo Real (Desde el Inicio)
+
+```bash
+kubectl exec -it -n fintech kafka-0 -- /opt/kafka/bin/kafka-console-consumer.sh \
+  --bootstrap-server localhost:9092 \
+  --topic transfer_completed \
+  --from-beginning
+```
+
+### 4. Inspeccionar el Tópico de Dead Letter Queue (DLQ)
+
+```bash
+kubectl exec -it -n fintech kafka-0 -- /opt/kafka/bin/kafka-console-consumer.sh \
+  --bootstrap-server localhost:9092 \
+  --topic transfer-events-dlq \
+  --from-beginning
+```
+
+### 5. Inspeccionar Grupos de Consumidores y Lag de Particiones
+
+```bash
+kubectl exec -it -n fintech kafka-0 -- /opt/kafka/bin/kafka-consumer-groups.sh \
+  --bootstrap-server localhost:9092 \
+  --describe \
+  --group notification-group
+```
+
+Para comprender el punto de entrada de las peticiones HTTP antes de la publicación de eventos, consulta la guía de [API Gateway e Ingress Traefik](api-gateway.md).

@@ -12,11 +12,23 @@
       "sourceType": "autoskills-registry",
       "computedHash": "bffe3d08cfe92ebad63699f74ce29e35c19850ebfbf474c1463183cfe34d6a09"
     },
+    "design-doc-mermaid": {
+      "source": "spillwavesolutions/design-doc-mermaid",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "36e44f50fdbfd9e0868c1237ba879395646f42f7db780fe59f1bf4c35947869b"
+    },
     "docker-best-practices": {
       "source": "josiahsiegel/claude-plugin-marketplace",
       "sourceType": "github",
       "skillPath": "plugins/docker-master/skills/docker-best-practices/SKILL.md",
       "computedHash": "cba601e13f539041216007fbd2bd929b5b335b57ea0cdd8ab8ab54406febfc3d"
+    },
+    "documentation-writer": {
+      "source": "github/awesome-copilot",
+      "sourceType": "github",
+      "skillPath": "skills/documentation-writer/SKILL.md",
+      "computedHash": "ee53d65b163cd7eb953a930c95841cfe398cc2c0bd24c06508bbaa07c432be35"
     },
     "frontend-design": {
       "source": "anthropics/skills",

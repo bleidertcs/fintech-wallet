@@ -1,169 +1,205 @@
-# Guía Completa de Kubernetes en FinTech Wallet ☸️
+# Kubernetes: Manifiestos, Clúster y Operación
 
-Este documento detalla la arquitectura de **Kubernetes (K8s)** aplicada al proyecto **FinTech Wallet**, los tipos de recursos desplegados en Rancher Desktop (k3s) y una **guía completa de referencia rápida (Cheat Sheet)** con los comandos `kubectl` más utilizados.
+Este documento detalla la arquitectura de Kubernetes para **FinTech Wallet**, los manifiestos declarativos en `k8s/`, el orden secuencial de despliegue, la matriz completa de componentes y una guía práctica de operaciones y comandos `kubectl`.
 
 ---
 
-## 1. Arquitectura y Conceptos Clave de Kubernetes
+## 📑 Contenido
 
-Kubernetes es una plataforma de orquestación de contenedores open-source que automatiza el despliegue, el escalado y la gestión de aplicaciones en contenedores. En este proyecto, se ejecuta sobre **K3s / Rancher Desktop** utilizando **containerd** como motor de contenedores en el namespace `fintech`.
+1. [Arquitectura del Clúster y Namespace `fintech`](#1-arquitectura-del-clúster-y-namespace-fintech)
+2. [Estructura y Orden de los Manifiestos (`k8s/`)](#2-estructura-y-orden-de-los-manifiestos-k8s)
+3. [Matriz Exhaustiva de Componentes Kubernetes](#3-matriz-exhaustiva-de-componentes-kubernetes)
+4. [Estrategia de Recursos y Scheduler QoS](#4-estrategia-de-recursos-y-scheduler-qos)
+5. [Políticas de Seguridad y Aislamiento de Red](#5-políticas-de-seguridad-y-aislamiento-de-red)
+6. [Guía de Operaciones con `kubectl` (Cheat Sheet)](#6-guía-de-operaciones-con-kubectl-cheat-sheet)
 
-### Recursos de Kubernetes Utilizados en el Proyecto
+---
 
-| Recurso | Tipo en `k8s/` | Descripción y Uso en FinTech Wallet |
+## 1. Arquitectura del Clúster y Namespace `fintech`
+
+Todos los recursos del sistema residen en el espacio de nombres dedicado `fintech`, garantizando aislamiento lógico y gobernanza sobre las cargas de trabajo:
+
+```mermaid
+graph TD
+    subgraph K8sCluster ["Clúster Kubernetes (K3s / Rancher Desktop)"]
+        subgraph NamespaceKubeSystem ["Namespace: kube-system"]
+            TraefikIngress["Traefik Ingress Controller (NodePort 80/443)"]
+        end
+
+        subgraph NamespaceFintech ["Namespace: fintech"]
+            subgraph IngressRouting ["Enrutamiento y Middlewares"]
+                IngressRule["Ingress: fintech-ingress, auth-ingress, ..."]
+                TraefikMiddlewares["Middlewares: strip-api-prefix, auth-ratelimit"]
+            end
+
+            subgraph MicroservicesApps ["Microservicios (Deployments)"]
+                Auth["auth-service (1 réplica)"]
+                User["user-service (1 réplica)"]
+                Tx["transaction-service (1 réplica)"]
+                Notif["notification-service (1 réplica)"]
+                Worker["worker-service (1 réplica)"]
+                Front["frontend (1 réplica)"]
+            end
+
+            subgraph InfrastructureStateful ["Infraestructura con Estado (StatefulSets)"]
+                PgCore["postgres-core-0 (PVC: 5Gi)"]
+                PgSupp["postgres-support-0 (PVC: 5Gi)"]
+                PgBnc["pgbouncer-core (Deployment)"]
+                Red["redis-0 (PVC: 1Gi)"]
+                Kfk["kafka-0 (PVC: 5Gi)"]
+                Mail["maildev (Deployment)"]
+            end
+
+            subgraph ObservabilityStack ["Suite SigNoz (APM)"]
+                ClickH["clickhouse-0 (PVC: 5Gi)"]
+                Migr["Job: signoz-migrator"]
+                SigUI["signoz (Deployment)"]
+                Collector["otel-collector (Deployment)"]
+            end
+
+            subgraph AutomationOps ["Automatización y DR"]
+                BackCron["CronJob: postgres-backup-cronjob (PVC: 10Gi)"]
+                RestJob["Job Template: postgres-restore-job"]
+            end
+        end
+    end
+
+    TraefikIngress --> IngressRule
+    IngressRule --> MicroservicesApps
+    MicroservicesApps --> InfrastructureStateful
+    MicroservicesApps -.-> Collector
+    Collector --> ClickH
+    ClickH --> SigUI
+```
+
+---
+
+## 2. Estructura y Orden de los Manifiestos (`k8s/`)
+
+Para evitar condiciones de carrera durante el despliegue, los archivos YAML están numerados y deben aplicarse en el siguiente orden estricto:
+
+| Archivo Manifiesto | Tipo de Recursos Definidos | Propósito Principal |
 | :--- | :--- | :--- |
-| **Namespace** | `v1/Namespace` | Aislamiento lógico de la aplicación (`fintech`). Evita colisiones de nombres con el sistema. |
-| **Pod** | Unidad Mínima | La unidad más pequeña de ejecución. Agrupa 1 o más contenedores compartiendo IP y volúmenes. |
-| **Deployment** | `apps/v1` | Orquesta Pods sin estado (*stateless*) como los 5 microservicios NestJS, Frontend React y **PgBouncer Core** (Connection Pooler). |
-| **StatefulSet** | `apps/v1` | Orquesta Pods con estado (*stateful*) que requieren identidad de red y almacenamiento estable: **PostgreSQL 16 Core**, **PostgreSQL 16 Support**, **Redis 7**, **Kafka KRaft** y **ClickHouse**. |
-| **Service** | `v1/Service` | Abstracción de red que expone un conjunto de Pods: <br> - `ClusterIP`: IP interna (`pgbouncer-core:6432`, `postgres-core:5432`, `postgres-support:5432`, `redis:6379`, `user-service:8082`). <br> - `NodePort`: Puerto expuesto en el host (`frontend:30000`, `maildev:30080`, `signoz:30301`). |
-| **PersistentVolumeClaim (PVC)** | `v1/PVC` | Solicitud de almacenamiento persistente dinámico provisto por la StorageClass `local-path` para bases de datos y backups (`postgres-backups-pvc`). |
-| **ConfigMap** | `v1/ConfigMap` | Configuración no sensible inyectada como archivos o variables (ej. `init-core.sql`, `init-support.sql`, `otel-collector-config.yaml`, `postgres-backup-script`). |
-| **Secret** | `v1/Secret` | Almacenamiento seguro de credenciales codificadas (`DB_PASSWORD`, `JWT_SECRET`). |
-| **Ingress** | `networking.k8s.io` | Reglas de enrutamiento HTTP/HTTPS gestionadas por **Traefik API Gateway**. |
-| **NetworkPolicy** | `networking.k8s.io` | Reglas de seguridad de red que aíslan y controlan el tráfico interno en el namespace `fintech`. |
-| **CronJob** | `batch/v1` | Tarea programada periódica: **`postgres-backup-cronjob`** (ejecución diaria 02:00 AM UTC para copias de seguridad y rotación de 7 días). |
-| **Job** | `batch/v1` | Tareas de ejecución única: **`signoz-migrator`** (migraciones de ClickHouse) y **`postgres-restore-job`** (recuperación de desastres). |
+| `00-namespace-config.yaml` | `Namespace`, `ConfigMap`, `Secret` | Crea el namespace `fintech`, inyecta scripts SQL iniciales y secretos de BD/JWT |
+| `01-infrastructure.yaml` | `StatefulSet`, `Deployment`, `Service` | Despliega Postgres Core/Support, PgBouncer, Redis 7, Kafka 3.7 y Maildev |
+| `02-microservices.yaml` | `Deployment`, `Service` | Despliega los 5 microservicios NestJS con sus Probes y variables |
+| `03-frontend.yaml` | `Deployment`, `Service` (NodePort) | Despliega el contenedor Nginx con la aplicación React SPA |
+| `04-observability.yaml` | `StatefulSet`, `Job`, `Deployment`, `Service`, `RBAC` | Despliega ClickHouse, ejecuta migraciones y levanta SigNoz y OTel Collector |
+| `05-ingress.yaml` | `Middleware`, `Ingress`, `IngressRoute` | Configura routers de Traefik, StripPrefix, RateLimiting y Dashboard |
+| `06-networkpolicy.yaml` | `NetworkPolicy` | Define reglas de aislamiento y tráfico permitido dentro del namespace |
+| `07-backup-cronjob.yaml` | `PersistentVolumeClaim`, `ConfigMap`, `CronJob` | Programa el respaldo diario automático de bases de datos a las 02:00 AM UTC |
+| `08-restore-job-template.yaml`| `Job` (Template bajo demanda) | Plantilla para recuperación ante desastres (DR) a partir de backups |
 
 ---
 
-## 2. Probes de Diagnóstico (Health Checks)
+## 3. Matriz Exhaustiva de Componentes Kubernetes
 
-Cada microservicio implementa tres sondas de salud para garantizar resiliencia:
-
-1. **StartupProbe**: Retarda las comprobaciones iniciales mientras el proceso Node.js/NestJS carga módulos en memoria.
-2. **LivenessProbe**: Comprueba si el contenedor está vivo. Si falla secuencialmente, Kubernetes destruye el Pod y crea uno nuevo.
-3. **ReadinessProbe**: Comprueba si la aplicación está lista para recibir tráfico. Si falla, el servicio remueve temporalmente el Pod del balanceador.
+| Componente | Tipo K8s | Réplicas | Puertos Internos / Expuestos | Requests (CPU/RAM) | Límites | Persistencia | Propósito |
+| :--- | :--- | :---: | :--- | :--- | :--- | :--- | :--- |
+| `auth-service` | Deployment | 1 | `3001` (ClusterIP) | `100m` / `128Mi` | N/A (Anti-throttling)| N/A | Auth, JWT, 2FA |
+| `user-service` | Deployment | 1 | `3002` (Svc: `8082`) | `100m` / `128Mi` | N/A | N/A | Perfiles y saldos |
+| `transaction-service`| Deployment | 1 | `3003` (Svc: `8083`) | `100m` / `128Mi` | N/A | N/A | Transferencias CQRS |
+| `notification-service`| Deployment | 1 | `3004` (Svc: `8084`) | `100m` / `128Mi` | N/A | N/A | Consumidor Kafka y Email |
+| `worker-service` | Deployment | 1 | `3005` (Svc: `8085`) | `100m` / `128Mi` | N/A | N/A | Extractos PDF y DLQ |
+| `frontend` | Deployment | 1 | `80` (NodePort: `30000`) | `50m` / `64Mi` | N/A | N/A | Interfaz gráfica React |
+| `postgres-core` | StatefulSet | 1 | `5432` (ClusterIP) | `100m` / `256Mi` | N/A | PVC: 5Gi (`local-path`)| `authdb`, `userdb`, `transactiondb` |
+| `postgres-support` | StatefulSet | 1 | `5432` (ClusterIP) | `50m` / `128Mi` | N/A | PVC: 5Gi (`local-path`)| `notificationdb`, `workerdb` |
+| `pgbouncer-core` | Deployment | 1 | `6432` (ClusterIP) | `50m` / `64Mi` | N/A | N/A | Connection pooler |
+| `redis` | StatefulSet | 1 | `6379` (ClusterIP) | `50m` / `64Mi` | N/A | PVC: 1Gi (`local-path`)| Idempotencia y Blacklist |
+| `kafka` | StatefulSet | 1 | `29092` / `9092` | `150m` / `384Mi` | N/A | PVC: 5Gi (`local-path`)| Broker KRaft |
+| `maildev` | Deployment | 1 | `1080` (NodePort: `30080`), `1025` | `50m` / `64Mi` | N/A | N/A | Servidor SMTP pruebas |
+| `clickhouse` | StatefulSet | 1 | `9000` (TCP), `8123` (HTTP) | `200m` / `512Mi` | N/A | PVC: 5Gi (`local-path`)| Almacén APM |
+| `signoz` | Deployment | 1 | `8080` (NodePort: `30301`) | `50m` / `128Mi` | N/A | N/A | Dashboard UI SigNoz |
+| `otel-collector` | Deployment | 1 | `4317` (gRPC), `4318` (HTTP) | `50m` / `128Mi` | N/A | N/A | Recolector OpenTelemetry |
+| `postgres-backup` | CronJob | Programado | N/A | `50m` / `64Mi` | N/A | PVC: 10Gi | Respaldo diario 02:00 AM |
 
 ---
 
-## 3. Kubernetes Commands Cheat Sheet 🛠️
+## 4. Estrategia de Recursos y Scheduler QoS
 
-A continuación se presenta la guía completa de comandos `kubectl` para administrar el clúster:
+Siguiendo las mejores prácticas de Kubernetes para Node.js y K3s:
 
-### 🌐 Clúster y Contexto
+* **Garantía de Agendamiento (`requests`)**: Cada contenedor define `requests` de CPU y memoria explícitos para que el Kubernetes Scheduler ubique los pods sin sobrecargar los nodos.
+* **Prevención de CFS Bandwidth Throttling**: Se omiten los `limits.cpu` en los microservicios Node.js para evitar que el planificador del kernel de Linux congele el Event Loop ante picos momentáneos de CPU.
+* **Control de Memoria Node.js**: Se inyecta la variable `NODE_OPTIONS="--max-old-space-size=256"` para que el recolector de basura de V8 optimice la memoria antes de alcanzar límites del sistema operativo.
+
+---
+
+## 5. Políticas de Seguridad y Aislamiento de Red
+
+El archivo `k8s/06-networkpolicy.yaml` define la política `allow-internal-namespace-ingress`:
+
+* Permite la comunicación irrestricta entre todos los Pods que conviven dentro del namespace `fintech`.
+* Acepta tráfico de entrada proveniente de otros namespaces del clúster (específicamente desde el Ingress Controller Traefik ubicado en `kube-system`).
+
+---
+
+## 6. Guía de Operaciones con `kubectl` (Cheat Sheet)
+
+### 1. Inspección de Recursos
+
 ```bash
-# Mostrar información básica del clúster
-kubectl cluster-info
+# Ver estado general de pods con nodos e IPs asignadas
+kubectl get pods -n fintech -o wide
 
-# Listar todos los nodos del clúster con sus IPs y estado
-kubectl get nodes -o wide
+# Ver servicios y puertos expuestos
+kubectl get svc -n fintech
 
-# Cambiar contexto activo al de Rancher Desktop
-kubectl config use-context rancher-desktop
+# Ver volúmenes persistentes y su estado Bound
+kubectl get pvc -n fintech
 
-# Cambiar namespace por defecto
-kubectl config set-context --current --namespace=fintech
+# Ver CronJobs y Jobs completados
+kubectl get cronjobs,jobs -n fintech
 ```
 
-### 📦 Gestión de Pods
+### 2. Inspección de Logs en Tiempo Real
+
 ```bash
-# Listar todos los pods en el namespace actual
-kubectl get pods
+# Logs del microservicio de transacciones
+kubectl logs -n fintech -l app=transaction-service -f --tail=100
 
-# Listar pods con información detallada (IP, Nodo)
-kubectl get pods -o wide
+# Logs de PgBouncer Core
+kubectl logs -n fintech -l app=pgbouncer-core -f
 
-# Listar pods filtrados por etiqueta (label)
-kubectl get pods -l app=transaction-service
-
-# Ver detalles completos y eventos de un pod
-kubectl describe pod <pod-name> -n fintech
-
-# Ver logs en tiempo real de un pod
-kubectl logs -f <pod-name> -n fintech
-
-# Ejecutar una terminal interactiva bash dentro de un pod
-kubectl exec -it <pod-name> -n fintech -- /bin/sh
-
-# Eliminar un pod (Kubernetes creará uno nuevo si pertenece a un Deployment/StatefulSet)
-kubectl delete pod <pod-name> -n fintech
-
-# Explicación del esquema del recurso Pod
-kubectl explain pod
+# Logs del recolector OpenTelemetry
+kubectl logs -n fintech -l app=otel-collector -f
 ```
 
-### 🚀 Despliegues y Replicación (Deployments)
+### 3. Ejecución de Comandos dentro de Pods
+
 ```bash
-# Listar todos los Deployments
-kubectl get deployments -n fintech
+# Abrir terminal interactiva en el pod de base de datos Postgres Core
+kubectl exec -it -n fintech postgres-core-0 -- psql -U postgres -d transactiondb
 
-# Ver detalles de un Deployment
-kubectl describe deployment transaction-service -n fintech
+# Ejecutar comando Redis CLI
+kubectl exec -it -n fintech redis-0 -- redis-cli ping
 
-# Escalar el número de réplicas de un Deployment
-kubectl scale deployment transaction-service --replicas=3 -n fintech
+# Abrir shell en el pod de Kafka
+kubectl exec -it -n fintech kafka-0 -- /bin/bash
+```
 
-# Reiniciar un Deployment (forzar actualización de pods sin tiempo de inactividad)
-kubectl rollout restart deployment/transaction-service -n fintech
+### 4. Reinicio Controlado (Rolling Restart)
 
-# Ver el estado del despliegue rollout
+```bash
+# Reiniciar todos los microservicios sin pérdida de servicio
+kubectl rollout restart deployment -n fintech auth-service user-service transaction-service notification-service worker-service
+
+# Comprobar el progreso del rollout
 kubectl rollout status deployment/transaction-service -n fintech
-
-# Crear un deployment directamente desde CLI
-kubectl create deployment demo-service --image=nginx:alpine
 ```
 
-### 🔌 Servicios de Red (Services)
+### 5. Escalado de Réplicas
+
 ```bash
-# Listar todos los servicios del namespace
-kubectl get services -n fintech
-
-# Ver detalles de un servicio específico
-kubectl describe service user-service -n fintech
-
-# Reenviar un puerto local del Host directamente a un Pod (Port-Forward)
-kubectl port-forward pod/mysql-0 3306:3306 -n fintech
-
-# Eliminar un servicio
-kubectl delete service <service-name> -n fintech
+# Escalar el servicio de transacciones a 3 réplicas
+kubectl scale deployment/transaction-service -n fintech --replicas=3
 ```
 
-### 🔐 ConfigMaps & Secrets
+### 6. Eliminación y Limpieza del Namespace
+
 ```bash
-# Listar ConfigMaps y Secrets
-kubectl get configmaps -n fintech
-kubectl get secrets -n fintech
-
-# Ver contenido codificado de un Secret
-kubectl describe secret fintech-secrets -n fintech
-
-# Crear un secret desde literales en terminal
-kubectl create secret generic mi-secreto --from-literal=key1=val1 -n fintech
+# Eliminar todos los recursos del sistema
+kubectl delete namespace fintech
 ```
 
-### 🏷️ Namespaces
-```bash
-# Listar todos los namespaces del clúster
-kubectl get namespaces
-
-# Crear un nuevo namespace
-kubectl create namespace mi-namespace
-
-# Eliminar un namespace y todos sus recursos contenidos
-kubectl delete namespace mi-namespace
-```
-
-### 📄 Aplicación de Archivos YAML (Declarativo)
-```bash
-# Aplicar todos los manifiestos de un directorio
-kubectl apply -f k8s/
-
-# Probar la sintaxis sin aplicar cambios (Dry Run)
-kubectl apply -f k8s/02-microservices.yaml --dry-run=client
-
-# Eliminar recursos definidos en un archivo YAML
-kubectl delete -f k8s/02-microservices.yaml
-```
-
-### 📊 Estadísticas y Monitoreo de Recursos
-```bash
-# Ver consumo de CPU y memoria de los Nodos
-kubectl top nodes
-
-# Ver consumo de CPU y memoria de los Pods
-kubectl top pods -n fintech
-
-# Listar eventos recientes del clúster (Útil para depurar fallas)
-kubectl get events -n fintech --sort-by='.metadata.creationTimestamp'
-```
+Para gestionar los despliegues de forma parametrizada mediante plantillas, consulta la guía de [Helm](helm.md).

@@ -325,8 +325,8 @@
     "semantic_hash": ""
   },
   "skills-lock.json": {
-    "mtime": 1785943947.7202442,
-    "ast_hash": "b9a62614e51ba2ba03809386b921504d",
+    "mtime": 1786978750.2150815,
+    "ast_hash": "72473958e24b0ebee14bd567dc59f35e",
     "semantic_hash": ""
   },
   ".agents/rules/graphify.md": {
@@ -619,29 +619,19 @@
     "ast_hash": "637776aa6f7496d069afe7520c845c8a",
     "semantic_hash": ""
   },
-  "ARQUITECTURA.md": {
-    "mtime": 1786731626.7899778,
-    "ast_hash": "f60f3152a1f72817d76dfcc6ad747805",
-    "semantic_hash": ""
-  },
   "CLAUDE.md": {
     "mtime": 1784555369.5696354,
     "ast_hash": "8a6643a420fdad6bfb583523bc6cef16",
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1786734572.235679,
-    "ast_hash": "11d1b4de1ba427e7380b439020c66d81",
+    "mtime": 1786982101.338066,
+    "ast_hash": "236a2614920f506b68d2100b463ef40c",
     "semantic_hash": ""
   },
   "docker-compose.yml": {
     "mtime": 1786720674.3048806,
     "ast_hash": "d8cf52e1b4d5e2db4b40a7accca803ad",
-    "semantic_hash": ""
-  },
-  "docs/signoz_error_report.md": {
-    "mtime": 1784297040.566816,
-    "ast_hash": "4f91f755b074ef902e68671c33ada53b",
     "semantic_hash": ""
   },
   "frontend/README.md": {
@@ -712,11 +702,6 @@
   "deploy-rancher.sh": {
     "mtime": 1786720079.354992,
     "ast_hash": "b5947dfa1a94baaee81437f8799b49b4",
-    "semantic_hash": ""
-  },
-  "README_RANCHER.md": {
-    "mtime": 1786734581.6815393,
-    "ast_hash": "55cd77bb37cabfb8a018abf543507574",
     "semantic_hash": ""
   },
   "backend-nestjs/auth-service/eslint.config.mjs": {
@@ -2235,8 +2220,8 @@
     "semantic_hash": ""
   },
   "scripts/smoke-test.ps1": {
-    "mtime": 1786646598.4035933,
-    "ast_hash": "4b49b06a87367cac29360a85528a39e0",
+    "mtime": 1786982355.2618487,
+    "ast_hash": "16dd74eba4d9497846ef0f8edd89d353",
     "semantic_hash": ""
   },
   "Analisis.md": {
@@ -2250,38 +2235,23 @@
     "semantic_hash": ""
   },
   "docs/kafka.md": {
-    "mtime": 1786723196.8264177,
-    "ast_hash": "edec0ff7a02c6265df21b27900932cbd",
+    "mtime": 1786982197.4750638,
+    "ast_hash": "3fc7ac977d0acafdcb9fd9dc3abac5f9",
     "semantic_hash": ""
   },
   "docs/kubernetes.md": {
-    "mtime": 1786721699.2096136,
-    "ast_hash": "67b99106ddfff2cb35f91d0e2badaa62",
+    "mtime": 1786982221.5465755,
+    "ast_hash": "461c2a55f7de5daebc0b14bc2a960f6d",
     "semantic_hash": ""
   },
   "docs/redis.md": {
-    "mtime": 1786723171.3925214,
-    "ast_hash": "97557c4196ef60a65e9afc5edd15ed5f",
-    "semantic_hash": ""
-  },
-  "docs/saga.md": {
-    "mtime": 1786644342.1225972,
-    "ast_hash": "dcf56945f4aac5689495235d99429329",
-    "semantic_hash": ""
-  },
-  "docs/signoz.md": {
-    "mtime": 1786723186.3902552,
-    "ast_hash": "1895bc4a939c795c5aeda2190e55ed56",
-    "semantic_hash": ""
-  },
-  "docs/traefik.md": {
-    "mtime": 1786723178.81741,
-    "ast_hash": "4d68b9f92cd53a07267570462c9a8d2a",
+    "mtime": 1786982188.6682184,
+    "ast_hash": "3d85272299a8be1bc9418ba786adc1ac",
     "semantic_hash": ""
   },
   "docs/helm.md": {
-    "mtime": 1786647849.6069643,
-    "ast_hash": "d962b8492b2f8c9fe4769e453ba67c03",
+    "mtime": 1786982230.1645992,
+    "ast_hash": "01c5b5aff5687b4a3574af7504abfb75",
     "semantic_hash": ""
   },
   "k8s/dashboards/signoz-01-nestjs-apm.json": {
@@ -2439,11 +2409,6 @@
     "ast_hash": "2679d644e04d58f3c487bfca7ad1f19a",
     "semantic_hash": ""
   },
-  "docs/crear-nuevo-microservicio.md": {
-    "mtime": 1786648296.0128462,
-    "ast_hash": "84fb6b55439eac3dc624b2d57cf71cc0",
-    "semantic_hash": ""
-  },
   "infra/postgres/init-core.sql": {
     "mtime": 1786720955.1904442,
     "ast_hash": "414497b5d9b59cf3e8caf883c7755d5a",
@@ -2530,13 +2495,213 @@
     "semantic_hash": ""
   },
   "docs/database.md": {
-    "mtime": 1786731626.790974,
-    "ast_hash": "941008fb4ea4c36b1b99d9c563bef230",
+    "mtime": 1786982180.5417213,
+    "ast_hash": "f36ee8232ae7715eb0a57b0ef4c505a9",
     "semantic_hash": ""
   },
   "scripts/run-k6.ps1": {
     "mtime": 1786734269.0596917,
     "ast_hash": "d87e4a6c84adf316d5e11923396856ee",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/scripts/extract_mermaid.py": {
+    "mtime": 1786978645.8800645,
+    "ast_hash": "d206fc15ff68a7200e9db904c254ae97",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/scripts/mermaid_to_image.py": {
+    "mtime": 1786978645.8810635,
+    "ast_hash": "bbf4921ff568667a43b4b6c87155993e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/scripts/resilient_diagram.py": {
+    "mtime": 1786978645.882063,
+    "ast_hash": "b73e1844d1226a417e24916019ff7aa1",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/HIGH_CONTRAST_UPDATE.md": {
+    "mtime": 1786978645.847062,
+    "ast_hash": "b3aaf0303e6dd47d2e18c319d7c841a2",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/README.md": {
+    "mtime": 1786978645.8481724,
+    "ast_hash": "cef939c85d6ca7797ff8c1b397a2b5e9",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/SKILL.md": {
+    "mtime": 1786978645.8481724,
+    "ast_hash": "6dd72c162a48f6ed92b9ea4aaa3f9bd5",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/assets/api-design-template.md": {
+    "mtime": 1786978645.849861,
+    "ast_hash": "2ba064accab6bc9a0e02d322a6630d22",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/assets/architecture-design-template.md": {
+    "mtime": 1786978645.8504765,
+    "ast_hash": "fb827e37aa2d6b06aa61f197e2eb3608",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/assets/database-design-template.md": {
+    "mtime": 1786978645.8512542,
+    "ast_hash": "8a631ac09071cf7a62cea51e6506deb2",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/assets/feature-design-template.md": {
+    "mtime": 1786978645.851909,
+    "ast_hash": "7daf387d4e8e1ee26cf88cbe6b68a3b1",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/assets/system-design-template.md": {
+    "mtime": 1786978645.852539,
+    "ast_hash": "f26046dff2bf06eaa6881faacc05006c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/examples/fastapi/README.md": {
+    "mtime": 1786978645.854064,
+    "ast_hash": "daa8c5d7e029febd90c95736700658bf",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/examples/java-webapp/README.md": {
+    "mtime": 1786978645.8574407,
+    "ast_hash": "730a8950b26d295668531e238aa9bcca",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/examples/node-webapp/README.md": {
+    "mtime": 1786978645.8590631,
+    "ast_hash": "67ec35b62f948fb26c7918fd029f762e",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/examples/python-etl/README.md": {
+    "mtime": 1786978645.8612769,
+    "ast_hash": "16b1643455c4582373570b84ea61baf2",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/examples/react/README.md": {
+    "mtime": 1786978645.8630648,
+    "ast_hash": "738690f6c83174356540b9834fd0c143",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/examples/spring-boot/README.md": {
+    "mtime": 1786978645.8635576,
+    "ast_hash": "d81f579ec3bb9c5ac3c156a72b3fb113",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/references/guides/code-to-diagram/README.md": {
+    "mtime": 1786978645.8657467,
+    "ast_hash": "472670011b458f0286d8e2190576da35",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/references/guides/diagrams/activity-diagrams.md": {
+    "mtime": 1786978645.8660634,
+    "ast_hash": "b12e7ff7ddb9f92799c0bd975056d9c2",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/references/guides/diagrams/architecture-diagrams.md": {
+    "mtime": 1786978645.86778,
+    "ast_hash": "21319a9ce19e9f5e90ac8ba061abda7d",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/references/guides/diagrams/deployment-diagrams.md": {
+    "mtime": 1786978645.8686874,
+    "ast_hash": "27796ecf04975d8ef7ba5beffc2a171c",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/references/guides/diagrams/sequence-diagrams.md": {
+    "mtime": 1786978645.8694398,
+    "ast_hash": "cde8dd567fbc7b5da094586252235e00",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/references/guides/resilient-workflow.md": {
+    "mtime": 1786978645.8701892,
+    "ast_hash": "800de63cda5ed74d3cf6243801adb37f",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/references/guides/troubleshooting.md": {
+    "mtime": 1786978645.871068,
+    "ast_hash": "8f86f8036498eeb48f4e30a3c866ac17",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/references/guides/unicode-symbols/guide.md": {
+    "mtime": 1786978645.8760645,
+    "ast_hash": "ef6a7231a6206cd0798d669ad989a55b",
+    "semantic_hash": ""
+  },
+  ".agents/skills/design-doc-mermaid/references/mermaid-diagram-guide.md": {
+    "mtime": 1786978645.8780715,
+    "ast_hash": "41c65c4db7c6f4c1bbde6dda1be98482",
+    "semantic_hash": ""
+  },
+  ".agents/skills/documentation-writer/SKILL.md": {
+    "mtime": 1786978730.5456295,
+    "ast_hash": "97d745bf61941e9d12d302cc5707cac0",
+    "semantic_hash": ""
+  },
+  "docs/api-gateway.md": {
+    "mtime": 1786982207.8688655,
+    "ast_hash": "8d314d3d3865abe16ff824df9ef68535",
+    "semantic_hash": ""
+  },
+  "docs/architecture.md": {
+    "mtime": 1786982127.927766,
+    "ast_hash": "0edb4247a6b8bdfa38b0b2b0e0d2e725",
+    "semantic_hash": ""
+  },
+  "docs/authentication.md": {
+    "mtime": 1786982155.0309186,
+    "ast_hash": "c451e0c6f3e86c5faf91c27135ea1f11",
+    "semantic_hash": ""
+  },
+  "docs/creating-a-microservice.md": {
+    "mtime": 1786982293.604123,
+    "ast_hash": "9023277e8e508c381fe5c503e56e0c7e",
+    "semantic_hash": ""
+  },
+  "docs/development.md": {
+    "mtime": 1786982282.7504876,
+    "ast_hash": "e96cf729f33a41eef25214ce47f1f183",
+    "semantic_hash": ""
+  },
+  "docs/documentation-gaps.md": {
+    "mtime": 1786982304.99526,
+    "ast_hash": "a74563bc9becf837caad9943e088b6c1",
+    "semantic_hash": ""
+  },
+  "docs/getting-started.md": {
+    "mtime": 1786982114.402241,
+    "ast_hash": "44cc499d09f1f2c98aac43ff14c68b8b",
+    "semantic_hash": ""
+  },
+  "docs/observability.md": {
+    "mtime": 1786982242.11787,
+    "ast_hash": "312cb8a388fee22cc5aed44925f21fa5",
+    "semantic_hash": ""
+  },
+  "docs/operations.md": {
+    "mtime": 1786982261.426933,
+    "ast_hash": "30ec8a01313e31abcaa35b26ba7e0146",
+    "semantic_hash": ""
+  },
+  "docs/services.md": {
+    "mtime": 1786982143.8692014,
+    "ast_hash": "6392365f32094c46b97a0b60039a7fee",
+    "semantic_hash": ""
+  },
+  "docs/testing.md": {
+    "mtime": 1786982251.315869,
+    "ast_hash": "49ae274c05b583246ffbeb8d794d74d2",
+    "semantic_hash": ""
+  },
+  "docs/transactions.md": {
+    "mtime": 1786982166.65418,
+    "ast_hash": "1c5287dc8d8189596dbe42370c2eea44",
+    "semantic_hash": ""
+  },
+  "docs/troubleshooting.md": {
+    "mtime": 1786982273.6987116,
+    "ast_hash": "6d45deef71ade067017fc83ed409472e",
     "semantic_hash": ""
   }
 }

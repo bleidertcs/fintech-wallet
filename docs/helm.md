@@ -1,166 +1,157 @@
-# Guía Completa de Helm (Kubernetes Package Manager) ☸️⚓
+# Helm: Charts, Parametrización y Ciclo de Vida
 
-Este documento detalla la arquitectura de empaquetado de aplicaciones en Kubernetes utilizando **Helm 3**, la parametrización de manifiestos con `values.yaml`, la estructura de un Chart para **FinTech Wallet** y una **guía completa de comandos (Cheat Sheet)** de Helm CLI.
-
----
-
-## 1. ¿Qué es Helm y Por Qué Utilizarlo?
-
-**Helm** es el gestor de paquetes (*Package Manager*) oficial de Kubernetes. En lugar de mantener múltiples archivos YAML estáticos (`k8s/*.yaml`) duplicados para entornos de Desarrollo, Staging y Producción, Helm permite empaquetar todos los manifiestos en un **Chart** reutilizable y parametrizable.
-
-### Conceptos Clave de Helm
-
-| Término | Descripción |
-| :--- | :--- |
-| **Chart** | Paquete de Helm que contiene todos los recursos necesarios para desplegar una aplicación (Templates + `Chart.yaml` + `values.yaml`). |
-| **Values (`values.yaml`)** | Archivo de configuración central donde se definen las variables (imágenes, réplicas, puertos, recursos CPU/RAM) que alimentan a los plantillas YAML. |
-| **Templates** | Archivos YAML parametrizados en lenguaje Go Template (`.Values.service.port`, `.Values.image.tag`). |
-| **Release** | Una instancia específica de un Chart desplegada en el clúster de Kubernetes con un nombre y namespace dado. |
-| **Repository** | Servidor HTTP que almacena y distribuye Charts de Helm (ej. Artifact Hub, Bitnami). |
+Este documento detalla el empaquetado y despliegue del ecosistema **FinTech Wallet** mediante el gestor de paquetes **Helm 3**, explicando la estructura del Chart, la configuración de `values.yaml`, la gestión de versiones y los comandos de ciclo de vida.
 
 ---
 
-## 2. Estructura de un Helm Chart para FinTech Wallet
+## 📑 Contenido
 
-A continuación se presenta la estructura estándar recomendada para empaquetar el sistema **FinTech Wallet** en un Helm Chart (`helm/fintech-wallet`):
+1. [Estructura del Chart `fintech-wallet`](#1-estructura-del-chart-fintech-wallet)
+2. [Parametrización en `values.yaml`](#2-parametrización-en-valuesyaml)
+3. [Plantillas de Recursos (`templates/`)](#3-plantillas-de-recursos-templates)
+4. [Ciclo de Vida de Despliegue con Helm](#4-ciclo-de-vida-de-despliegue-con-helm)
+   - [Instalación Inicial](#instalación-inicial)
+   - [Actualización (Upgrade)](#actualización-upgrade)
+   - [Historial y Reversión (Rollback)](#historial-y-reversión-rollback)
+   - [Desinstalación](#desinstalación)
+5. [Comparativa: Helm vs Manifiestos Puros](#5-comparativa-helm-vs-manifiestos-puros)
+
+---
+
+## 1. Estructura del Chart `fintech-wallet`
+
+El Chart reside en `k8s/helm/fintech-wallet/` y sigue el estándar de Helm v2 API:
 
 ```text
-helm/fintech-wallet/
-├── Chart.yaml                  # Metadatos del Chart (nombre, versión, appVersion, descripción)
-├── values.yaml                 # Valores por defecto de configuración (dev/staging/prod)
-├── values-production.yaml      # Sobrescritura de valores para entorno de Producción
-├── .helmignore                 # Patrones de archivos excluidos del empaquetado
-└── templates/                  # Manifiestos parametrizados con lenguaje Go Template
-    ├── _helpers.tpl            # Plantillas de nombres y etiquetas reutilizables (labels/selectors)
-    ├── namespace.yaml
-    ├── secrets.yaml
-    ├── configmap.yaml
-    ├── infrastructure/         # StatefulSets (MySQL, Redis, Kafka, ClickHouse)
-    │   ├── mysql.yaml
-    │   ├── redis.yaml
-    │   └── kafka.yaml
-    ├── microservices/          # Deployments de los 5 microservicios NestJS
-    │   ├── auth-service.yaml
-    │   ├── user-service.yaml
-    │   ├── transaction-service.yaml
-    │   ├── notification-service.yaml
-    │   └── worker-service.yaml
-    ├── observability/          # OpenTelemetry Collector & SigNoz UI
-    │   ├── otel-collector.yaml
-    │   └── signoz.yaml
-    └── ingress.yaml            # Ingress de Traefik y Middlewares
+k8s/helm/fintech-wallet/
+├── Chart.yaml                  # Metadatos del paquete (nombre, versión 1.0.0, descripción)
+├── values.yaml                 # Valores de configuración por defecto para todos los componentes
+└── templates/                  # Plantillas Go template de Kubernetes
+    ├── _helpers.tpl            # Funciones auxiliares de nombrado y etiquetas comunes
+    ├── secrets-configmaps.yaml # Secretos y ConfigMaps globales
+    ├── networkpolicy.yaml      # Reglas de aislamiento de red
+    ├── ingress.yaml            # Enrutamiento HTTP Traefik
+    ├── auth-service.yaml       # Deployment y Service de auth-service
+    ├── user-service.yaml       # Deployment y Service de user-service
+    ├── transaction-service.yaml# Deployment y Service de transaction-service
+    ├── notification-service.yaml# Deployment y Service de notification-service
+    ├── worker-service.yaml     # Deployment y Service de worker-service
+    ├── frontend.yaml           # Deployment y Service de frontend
+    ├── redis.yaml              # StatefulSet y Service de Redis
+    ├── kafka.yaml              # StatefulSet y Service de Kafka KRaft
+    ├── maildev.yaml            # Deployment y Service de Maildev
+    └── observability/          # ClickHouse, SigNoz y OTel Collector
 ```
 
 ---
 
-## 3. Ejemplo de Parametrización con Go Template
+## 2. Parametrización en `values.yaml`
 
-### Archivo `values.yaml`:
+El archivo `values.yaml` centraliza los parámetros ajustables según el ambiente (desarrollo, staging, producción):
+
 ```yaml
 global:
-  namespace: fintech
-  environment: production
+  storageClass: "local-path"
+  environment: "production"
+  dbUsername: "postgres"
+  dbPassword: "<secure-password>"
+  jwtSecret: "<base64-secret>"
+  otelEndpoint: "http://otel-collector.{{ .Release.Namespace }}.svc.cluster.local:4318"
+  clusterName: "fintech-k8s-cluster"
 
-microservices:
-  authService:
-    replicas: 2
-    image:
-      repository: fintech/auth-service
-      tag: nestjs
-    resources:
-      limits:
-        cpu: 500m
-        memory: 256Mi
+authService:
+  replicaCount: 1
+  image:
+    repository: "fintech/auth-service"
+    tag: "nestjs"
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
 
-  transactionService:
-    replicas: 3
-    image:
-      repository: fintech/transaction-service
-      tag: nestjs
-```
+transactionService:
+  replicaCount: 1
+  image:
+    repository: "fintech/transaction-service"
+    tag: "nestjs"
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
 
-### Plantilla `templates/microservices/auth-service.yaml`:
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: {{ include "fintech.fullname" . }}-auth
-  namespace: {{ .Values.global.namespace }}
-spec:
-  replicas: {{ .Values.microservices.authService.replicas }}
-  selector:
-    matchLabels:
-      app: auth-service
-  template:
-    metadata:
-      labels:
-        app: auth-service
-    spec:
-      containers:
-        - name: auth-service
-          image: "{{ .Values.microservices.authService.image.repository }}:{{ .Values.microservices.authService.image.tag }}"
-          resources:
-            limits:
-              cpu: {{ .Values.microservices.authService.resources.limits.cpu }}
-              memory: {{ .Values.microservices.authService.resources.limits.memory }}
+observability:
+  clickhouse:
+    storage: "5Gi"
+  signoz:
+    image: "signoz/signoz:v0.136.1"
+  collector:
+    image: "signoz/signoz-otel-collector:v0.144.7"
 ```
 
 ---
 
-## 4. Helm Commands Cheat Sheet 🛠️
+## 3. Plantillas de Recursos (`templates/`)
 
-Guía rápida de comandos de la CLI de Helm 3:
+Las plantillas utilizan helpers de Helm (`{{ include "fintech-wallet.fullname" . }}`) para generar nombres consistentes y asignar etiquetas estándar de Kubernetes (`app.kubernetes.io/name`, `app.kubernetes.io/instance`, `app.kubernetes.io/managed-by`).
 
-### 📦 Gestión de Releases (Instalación y Despliegue)
+---
+
+## 4. Ciclo de Vida de Despliegue con Helm
+
+### Instalación Inicial
+
+Para desplegar todo el ecosistema en un nuevo clúster o namespace:
+
 ```bash
-# Crear la estructura vacía de un nuevo Chart
-helm create fintech-wallet
+# 1. Crear namespace e instalar el release fintech-wallet
+helm install fintech-wallet ./k8s/helm/fintech-wallet \
+  --namespace fintech \
+  --create-namespace
 
-# Validar la sintaxis de las plantillas de un Chart (Linting)
-helm lint ./helm/fintech-wallet
-
-# Renderizar las plantillas localmente en consola sin instalar (Dry-Run / Debug)
-helm template fintech ./helm/fintech-wallet --debug
-
-# Instalar el Chart en Kubernetes
-helm install fintech ./helm/fintech-wallet -n fintech
-
-# Instalar o Actualizar un Chart (Idempotente)
-helm upgrade --install fintech ./helm/fintech-wallet -n fintech -f ./helm/fintech-wallet/values-production.yaml
-
-# Listar todos los releases de Helm en el namespace actual
-helm list -n fintech
-
-# Ver el historial de revisiones/despliegues de un release
-helm history fintech -n fintech
-
-# Deshacer una actualización y volver a la revisión previa (Rollback)
-helm rollback fintech 1 -n fintech
-
-# Desinstalar un release y eliminar todos sus recursos de K8s
-helm uninstall fintech -n fintech
+# 2. Verificar el estado del release instalado
+helm status fintech-wallet -n fintech
 ```
 
-### 🌐 Gestión de Repositorios Helm
+### Actualización (Upgrade)
+
+Cuando se modifican imágenes, réplicas o configuraciones en `values.yaml`:
+
 ```bash
-# Agregar un repositorio remoto de Helm (ej. Bitnami)
-helm repo add bitnami https://charts.bitnami.com/bitnami
-
-# Actualizar la lista de paquetes de los repositorios registrados
-helm repo update
-
-# Buscar un paquete o chart en los repositorios locales agregados
-helm search repo mysql
-
-# Buscar un paquete en el registro global Artifact Hub
-helm search hub redis
+# Actualizar el release aplicando los nuevos valores
+helm upgrade fintech-wallet ./k8s/helm/fintech-wallet \
+  --namespace fintech \
+  --set transactionService.replicaCount=2
 ```
 
-### 🔍 Inspección de Releases
-```bash
-# Ver los valores efectivamente aplicados en un release activo
-helm get values fintech -n fintech
+### Historial y Reversión (Rollback)
 
-# Ver todos los manifiestos YAML generados por un release activo
-helm get manifest fintech -n fintech
+Helm mantiene un historial inmutable de revisiones para revertir cambios ante incidencias:
+
+```bash
+# 1. Ver el historial de despliegues y revisiones
+helm history fintech-wallet -n fintech
+
+# 2. Revertir a una revisión previa estable (ej. revisión 1)
+helm rollback fintech-wallet 1 -n fintech
 ```
+
+### Desinstalación
+
+Para remover completamente el release y sus cargas de trabajo:
+
+```bash
+helm uninstall fintech-wallet -n fintech
+```
+
+---
+
+## 5. Comparativa: Helm vs Manifiestos Puros
+
+| Criterio | Despliegue con Manifiestos YAML (`k8s/*.yaml`) | Despliegue con Helm (`k8s/helm/`) |
+| :--- | :--- | :--- |
+| **Uso Principal** | Desarrollo local y entornos K3s automatizados con scripts (`deploy-rancher.ps1`) | Entornos multi-ambiente (Staging, QA, Prod) con valores variables |
+| **Parametrización** | Valores fijos embebidos en los archivos YAML | Dinámica a través de `values.yaml` o flags `--set` |
+| **Gestión de Versiones**| Control de versiones en Git | Control de versiones en Git + historial de releases K8s (`helm history`) |
+| **Rollback** | Manual (`kubectl rollout undo`) servicio por servicio | Atómico para todo el release (`helm rollback`) |
+
+Para conocer la suite de telemetría y métricas desplegada por el Chart, consulta la guía de [Observabilidad y SigNoz](observability.md).
