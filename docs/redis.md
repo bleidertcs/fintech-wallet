@@ -48,13 +48,13 @@ Para evitar la doble ejecución de transferencias bajo condiciones de concurrenc
 ```mermaid
 sequenceDiagram
     autonumber
-    participant Client as Cliente HTTP
-    participant TxSvc as transaction-service
-    participant Redis as Redis 7
+    participant Client as "Cliente HTTP"
+    participant TxSvc as "transaction-service"
+    participant Redis as "Redis 7"
 
-    Client->>TxSvc: POST /transactions/transfer (X-Idempotency-Key: "tx-uuid-123")
+    Client->>TxSvc: POST /transactions/transfer (X-Idempotency-Key)
     
-    TxSvc->>Redis: SET idemp:lock:1:tx-uuid-123 "IN_PROGRESS" NX EX 30
+    TxSvc->>Redis: SET idemp:lock:1:uuid IN_PROGRESS NX EX 30
     alt Clave ya existe (Candado ocupado)
         Redis-->>TxSvc: NULL (No modificado)
         TxSvc-->>Client: HTTP 400 (Solicitud duplicada procesada previamente)
@@ -62,8 +62,8 @@ sequenceDiagram
         Redis-->>TxSvc: OK
         Note over TxSvc: Ejecuta débito, crédito y persistencia en DB
         
-        TxSvc->>Redis: SET idemp:key:1:tx-uuid-123 "COMPLETED" EX 86400
-        TxSvc->>Redis: DEL idemp:lock:1:tx-uuid-123
+        TxSvc->>Redis: SET idemp:key:1:uuid COMPLETED EX 86400
+        TxSvc->>Redis: DEL idemp:lock:1:uuid
         TxSvc-->>Client: HTTP 200 (Transferencia completada)
     end
 ```

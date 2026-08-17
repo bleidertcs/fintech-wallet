@@ -625,8 +625,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1786982101.338066,
-    "ast_hash": "236a2614920f506b68d2100b463ef40c",
+    "mtime": 1786990430.4225981,
+    "ast_hash": "72c428055f7477cf2456c172ea3b124d",
     "semantic_hash": ""
   },
   "docker-compose.yml": {
@@ -2235,18 +2235,18 @@
     "semantic_hash": ""
   },
   "docs/kafka.md": {
-    "mtime": 1786982197.4750638,
-    "ast_hash": "3fc7ac977d0acafdcb9fd9dc3abac5f9",
+    "mtime": 1786990489.9291935,
+    "ast_hash": "a528865b71040e6c7be6753557406491",
     "semantic_hash": ""
   },
   "docs/kubernetes.md": {
-    "mtime": 1786982221.5465755,
-    "ast_hash": "461c2a55f7de5daebc0b14bc2a960f6d",
+    "mtime": 1786990439.8596063,
+    "ast_hash": "cc55a817e60643bcf4a5d92f24f829f1",
     "semantic_hash": ""
   },
   "docs/redis.md": {
-    "mtime": 1786982188.6682184,
-    "ast_hash": "3d85272299a8be1bc9418ba786adc1ac",
+    "mtime": 1786990496.4110675,
+    "ast_hash": "6d43f20e1fe18a77446d3e5bf3f15bb5",
     "semantic_hash": ""
   },
   "docs/helm.md": {
@@ -2495,8 +2495,8 @@
     "semantic_hash": ""
   },
   "docs/database.md": {
-    "mtime": 1786982180.5417213,
-    "ast_hash": "f36ee8232ae7715eb0a57b0ef4c505a9",
+    "mtime": 1786990459.321733,
+    "ast_hash": "4dd5db6ca37ec5b2b15ad5b26b81340f",
     "semantic_hash": ""
   },
   "scripts/run-k6.ps1": {
@@ -2640,18 +2640,18 @@
     "semantic_hash": ""
   },
   "docs/api-gateway.md": {
-    "mtime": 1786982207.8688655,
-    "ast_hash": "8d314d3d3865abe16ff824df9ef68535",
+    "mtime": 1786990449.102958,
+    "ast_hash": "58a39cd1a730f8ca78316105eaa9a25d",
     "semantic_hash": ""
   },
   "docs/architecture.md": {
-    "mtime": 1786982127.927766,
-    "ast_hash": "0edb4247a6b8bdfa38b0b2b0e0d2e725",
+    "mtime": 1786990514.5341928,
+    "ast_hash": "61063457f922a1c677f3edc2835d69ae",
     "semantic_hash": ""
   },
   "docs/authentication.md": {
-    "mtime": 1786982155.0309186,
-    "ast_hash": "c451e0c6f3e86c5faf91c27135ea1f11",
+    "mtime": 1786990481.5798535,
+    "ast_hash": "046e953b50f28a15d7ac1f1d482643ea",
     "semantic_hash": ""
   },
   "docs/creating-a-microservice.md": {
@@ -2675,8 +2675,8 @@
     "semantic_hash": ""
   },
   "docs/observability.md": {
-    "mtime": 1786982242.11787,
-    "ast_hash": "312cb8a388fee22cc5aed44925f21fa5",
+    "mtime": 1786990502.0947304,
+    "ast_hash": "3d516b8feeed282ccc368e941c1a5c9f",
     "semantic_hash": ""
   },
   "docs/operations.md": {
@@ -2695,8 +2695,8 @@
     "semantic_hash": ""
   },
   "docs/transactions.md": {
-    "mtime": 1786982166.65418,
-    "ast_hash": "1c5287dc8d8189596dbe42370c2eea44",
+    "mtime": 1786990468.2883523,
+    "ast_hash": "9092ce988690eaf87a27f2f51255dcf6",
     "semantic_hash": ""
   },
   "docs/troubleshooting.md": {

@@ -92,11 +92,11 @@ graph TD
     TopicTx -->|Consumo Paralelo| NotifSvc["notification-service<br>(notification-group)"]
     TopicTx -->|Consumo Paralelo| WorkerSvc["worker-service<br>(worker-group)"]
     
-    NotifSvc -->|1. Deduplica| NotifCheck{¿Procesado?}
+    NotifSvc -->|1. Deduplica| NotifCheck{"¿Procesado?"}
     NotifCheck -- No --> NotifProcess["2. Guarda en notificationdb & envía Email"]
     NotifCheck -- Sí --> DiscardMsg["Descarta duplicado"]
     
-    WorkerSvc -->|Procesa auditoría| WorkerProcess{¿Parseo exitoso?}
+    WorkerSvc -->|Procesa auditoría| WorkerProcess{"¿Parseo exitoso?"}
     WorkerProcess -- Sí --> AuditDB[("INSERT audit_logs")]
     WorkerProcess -- No (Error crítico) --> DLQProducer["Publica en Dead Letter Queue"]
     DLQProducer --> TopicDLQ["Topic: transfer-events-dlq"]

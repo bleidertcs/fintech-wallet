@@ -39,15 +39,15 @@ El registro crea simultáneamente la identidad en `auth-service` y el perfil fin
 ```mermaid
 sequenceDiagram
     autonumber
-    actor Usuario as Usuario / Navegador
-    participant Gateway as Traefik Ingress
-    participant AuthSvc as auth-service
-    participant AuthDB as PostgreSQL (authdb)
-    participant UserSvc as user-service
-    participant UserDB as PostgreSQL (userdb)
-    participant Maildev as Maildev (SMTP)
+    actor Usuario as "Usuario / Navegador"
+    participant Gateway as "Traefik Ingress"
+    participant AuthSvc as "auth-service"
+    participant AuthDB as "PostgreSQL (authdb)"
+    participant UserSvc as "user-service"
+    participant UserDB as "PostgreSQL (userdb)"
+    participant Maildev as "Maildev (SMTP)"
 
-    Usuario->>Gateway: POST /api/auth/register { email, password, name }
+    Usuario->>Gateway: POST /api/auth/register (email, password, name)
     Gateway->>AuthSvc: Reenvía petición
     AuthSvc->>AuthDB: Verifica si el email ya existe
     alt Email ya registrado
@@ -55,16 +55,16 @@ sequenceDiagram
         AuthSvc-->>Usuario: HTTP 400 (Email ya registrado)
     else Email disponible
         AuthSvc->>AuthSvc: Genera hash BCrypt y token de verificación
-        AuthSvc->>AuthDB: INSERT INTO users (email, password, verification_token, ...)
+        AuthSvc->>AuthDB: INSERT INTO users (email, password, ...)
         AuthDB-->>AuthSvc: Usuario creado (id=1)
         
-        AuthSvc->>UserSvc: POST /users { id: 1, name, email, balance: 0 }
+        AuthSvc->>UserSvc: POST /users (id: 1, name, email, balance: 0)
         UserSvc->>UserDB: INSERT INTO user_profiles (...)
         UserDB-->>UserSvc: Perfil creado
         UserSvc-->>AuthSvc: HTTP 201 OK
         
         AuthSvc->>Maildev: Envía correo con enlace de verificación
-        AuthSvc-->>Usuario: HTTP 200 { email, role: 'USER', verified: false, totpEnabled: false }
+        AuthSvc-->>Usuario: HTTP 200 { email, role: 'USER', verified: false }
     end
 ```
 
@@ -77,26 +77,26 @@ El proceso de login evalúa si el usuario requiere segundo factor antes de exped
 ```mermaid
 sequenceDiagram
     autonumber
-    actor Usuario as Usuario / Navegador
-    participant Gateway as Traefik Ingress
-    participant AuthSvc as auth-service
-    participant AuthDB as PostgreSQL (authdb)
+    actor Usuario as "Usuario / Navegador"
+    participant Gateway as "Traefik Ingress"
+    participant AuthSvc as "auth-service"
+    participant AuthDB as "PostgreSQL (authdb)"
 
-    Usuario->>Gateway: POST /api/auth/login { email, password }
+    Usuario->>Gateway: POST /api/auth/login (email, password)
     Gateway->>AuthSvc: Reenvía petición
-    AuthSvc->>AuthDB: SELECT * FROM users WHERE email = ?
+    AuthSvc->>AuthDB: SELECT FROM users WHERE email = ?
     AuthDB-->>AuthSvc: Registro de usuario
     AuthSvc->>AuthSvc: Compara password con hash BCrypt
     
     alt Contraseña inválida
         AuthSvc-->>Usuario: HTTP 401 (Credenciales inválidas)
     else Contraseña válida
-        alt 2FA / TOTP Activado (totp_enabled = true)
-            AuthSvc-->>Usuario: HTTP 200 { token: null, totpRequired: true, email }
-            Note over Usuario: La UI redirige a pantalla de ingreso de código TOTP (6 dígitos)
+        alt 2FA / TOTP Activado
+            AuthSvc-->>Usuario: HTTP 200 { token: null, totpRequired: true }
+            Note over Usuario: La UI redirige a pantalla de ingreso de código TOTP
         else 2FA Desactivado
             AuthSvc->>AuthSvc: Firma JWT con JWT_SECRET
-            AuthSvc-->>Usuario: HTTP 200 { token: "ey...", totpRequired: false, email, role }
+            AuthSvc-->>Usuario: HTTP 200 { token: 'jwt_token', totpRequired: false }
         end
     end
 ```
@@ -150,7 +150,7 @@ Para invalidar tokens JWT antes de su fecha natural de expiración:
 ```mermaid
 graph LR
     User["Cliente (Logout / Cambio Contraseña)"] -->|Envía Token| AuthSvc["auth-service"]
-    AuthSvc -->|Calcula TTL restante| Redis[("Redis 7<br>Key: jwt:blacklist:<token><br>TTL: Tiempo hasta expiración")]
+    AuthSvc -->|Calcula TTL restante| Redis[("Redis 7<br>Key: jwt:blacklist:token<br>TTL: Tiempo hasta expiración")]
     
     NextReq["Siguiente Petición con Token"] --> Gateway["Traefik Ingress"]
     Gateway --> AuthGuard["JwtAuthGuard"]

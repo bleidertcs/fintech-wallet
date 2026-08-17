@@ -93,20 +93,20 @@ El sistema está conformado por 5 microservicios con responsabilidades bien deli
 ```mermaid
 graph TD
     subgraph CoreServices ["Servicios Críticos (Financieros)"]
-        Auth["auth-service<br>(Puerto: 3001)<br>• Registro / Login<br>• JWT / 2FA TOTP<br>• Blacklist Redis"]
-        User["user-service<br>(Puerto: 3002 | Svc: 8082)<br>• Perfiles y Monedas<br>• Saldos ARS/USD/EUR<br>• tRPC Router"]
-        Tx["transaction-service<br>(Puerto: 3003 | Svc: 8083)<br>• Transferencias CQRS<br>• Idempotencia Redis<br>• Outbox Pattern"]
+        Auth["auth-service<br>Puerto: 3001<br>Auth, JWT, 2FA/TOTP"]
+        User["user-service<br>ClusterIP: 8082<br>Perfiles, Saldos, tRPC"]
+        Tx["transaction-service<br>ClusterIP: 8083<br>CQRS, Idempotencia, Outbox"]
     end
 
-    subgraph SupportServices ["Servicios de Soporte y Asíncronos"]
-        Notif["notification-service<br>(Puerto: 3004 | Svc: 8084)<br>• Consumer Kafka<br>• Historial Alertas<br>• Maildev SMTP"]
-        Worker["worker-service<br>(Puerto: 3005 | Svc: 8085)<br>• Extractos PDFKit<br>• Auditoría Transaccional<br>• DLQ Handler"]
+    subgraph SupportServices ["Servicios de Soporte"]
+        Notif["notification-service<br>ClusterIP: 8084<br>Consumer Kafka, SMTP"]
+        Worker["worker-service<br>ClusterIP: 8085<br>Extractos PDF, Auditoría"]
     end
 
     Auth -->|Crea perfil inicial| User
-    Tx -->|tRPC: Consulta/Actualiza saldos| User
-    Tx -->|Produce: transfer_completed| Notif
-    Tx -->|Produce: transfer_completed| Worker
+    Tx -->|tRPC: Actualiza saldos| User
+    Tx -->|Produce transfer_completed| Notif
+    Tx -->|Produce transfer_completed| Worker
 ```
 
 ---
@@ -130,24 +130,29 @@ Para desacoplar las operaciones financieras de los procesos colaterales (notific
 
 ```mermaid
 graph LR
-    subgraph TransactionServiceBoundary ["transaction-service"]
-        Handler["TransferMoneyHandler"] -->|1. Transacción ACID| DB[("PostgreSQL<br>transactiondb")]
-        DB -->|2. Guarda Transaction & OutboxEvent| DB
-        Handler -->|3. Publica| EventBus["EventBus Interno"]
+    subgraph TxBoundary ["transaction-service"]
+        Handler["TransferMoneyHandler"]
+        DB[("PostgreSQL: transactiondb")]
+        EventBus["EventBus Interno"]
+        
+        Handler -->|1. Transacción ACID| DB
+        Handler -->|2. Despacha evento| EventBus
     end
 
     subgraph KafkaCluster ["Apache Kafka (KRaft)"]
-        EventBus -->|4. Produce mensaje| Topic["Topic: transfer_completed"]
+        Topic["Topic: transfer_completed"]
+        DLQ["Topic: transfer-events-dlq"]
     end
 
     subgraph Consumers ["Consumidores Asíncronos"]
-        Topic -->|5a. Consumer Group: notification-group| NotifSvc["notification-service"]
-        Topic -->|5b. Consumer Group: worker-group| WorkerSvc["worker-service"]
+        NotifSvc["notification-service"]
+        WorkerSvc["worker-service"]
     end
 
-    subgraph ErrorHandling ["Manejo de Errores"]
-        WorkerSvc -->|6. Falla tras reintentos| DLQ["Topic: transfer-events-dlq"]
-    end
+    EventBus -->|Produce| Topic
+    Topic -->|Consumer Group: notification-group| NotifSvc
+    Topic -->|Consumer Group: worker-group| WorkerSvc
+    WorkerSvc -->|Produce en fallo| DLQ
 ```
 
 #### Estructura del Evento (`transfer_completed`):
@@ -176,20 +181,20 @@ La persistencia relacional utiliza **PostgreSQL 16** segregado en dos StatefulSe
 
 ```mermaid
 graph TD
-    subgraph CoreCluster ["StatefulSet: postgres-core (Financiero)"]
-        PgBouncer["PgBouncer Core<br>Puerto: 6432<br>Pool Mode: Transaction"]
-        AuthDB[("authdb<br>• users<br>• outbox_events")]
-        UserDB[("userdb<br>• user_profiles<br>• outbox_events")]
-        TxDB[("transactiondb<br>• transactions<br>• money_requests<br>• idempotency_records<br>• outbox_events")]
+    subgraph CoreCluster ["StatefulSet: postgres-core"]
+        PgBouncer["PgBouncer Core<br>Puerto: 6432 (Transaction Mode)"]
+        AuthDB[("authdb")]
+        UserDB[("userdb")]
+        TxDB[("transactiondb")]
 
         PgBouncer --> AuthDB
         PgBouncer --> UserDB
         PgBouncer --> TxDB
     end
 
-    subgraph SupportCluster ["StatefulSet: postgres-support (Auxiliar)"]
-        NotifDB[("notificationdb<br>• notifications")]
-        WorkerDB[("workerdb<br>• statement_jobs<br>• audit_logs")]
+    subgraph SupportCluster ["StatefulSet: postgres-support"]
+        NotifDB[("notificationdb")]
+        WorkerDB[("workerdb")]
     end
 
     AuthSvc["auth-service"] -->|Puerto 6432| PgBouncer
@@ -243,7 +248,7 @@ graph LR
     end
 
     subgraph Ingestion ["Ingesta y Procesamiento"]
-        AppCode -->|OTLP HTTP (4318)| Collector["OpenTelemetry Collector"]
+        AppCode -->|OTLP HTTP: 4318| Collector["OpenTelemetry Collector"]
         K8sEvents["K8s Cluster & Kubelet"] --> Collector
         KafkaMetrics["Kafka / Redis Scrapers"] --> Collector
     end

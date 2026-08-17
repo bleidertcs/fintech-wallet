@@ -130,7 +130,8 @@ graph TD
 
     NotifSvc --> PostgresSupport
     WorkerSvc --> PostgresSupport
-    BackupJob -.->|Hot Backups| PostgresCore & PostgresSupport
+    BackupJob -.->|Hot Backups| PostgresCore
+    BackupJob -.->|Hot Backups| PostgresSupport
 
     AuthSvc -.->|OTLP HTTP| OTelCol
     UserSvc -.->|OTLP HTTP| OTelCol
@@ -169,17 +170,17 @@ sequenceDiagram
     autonumber
     actor Cliente as Cliente / Frontend
     participant Gateway as Traefik Ingress
-    participant TxSvc as transaction-service (CQRS)
-    participant Redis as Redis 7 (Lock & Idempotencia)
-    participant UserSvc as user-service (tRPC)
-    participant CoreDB as PostgreSQL (transactiondb)
-    participant Kafka as Apache Kafka (KRaft)
-    participant NotifSvc as notification-service
-    participant WorkerSvc as worker-service
+    participant TxSvc as "transaction-service (CQRS)"
+    participant Redis as "Redis 7 (Lock / Idempotencia)"
+    participant UserSvc as "user-service (tRPC)"
+    participant CoreDB as "PostgreSQL (transactiondb)"
+    participant Kafka as "Apache Kafka (KRaft)"
+    participant NotifSvc as "notification-service"
+    participant WorkerSvc as "worker-service"
 
     Cliente->>Gateway: POST /api/transactions/transfer (X-Idempotency-Key)
     Gateway->>TxSvc: Reenvía petición despojada de prefijo
-    TxSvc->>Redis: Adquirir candado atómico (idemp:lock:<key>)
+    TxSvc->>Redis: Adquirir candado atómico (idemp:lock:key)
     alt Solicitud duplicada en proceso
         Redis-->>TxSvc: Candado no adquirido
         TxSvc-->>Cliente: HTTP 400 (Solicitud duplicada procesada previamente)
@@ -196,21 +197,21 @@ sequenceDiagram
         
         TxSvc->>UserSvc: tRPC: updateBalance(toUserId, +monto)
         alt Falla acreditación a destino
-            TxSvc->>UserSvc: tRPC: updateBalance(fromUserId, +monto) [Compensación SAGA]
+            TxSvc->>UserSvc: tRPC: updateBalance(fromUserId, +monto) - Compensación SAGA
             TxSvc->>Redis: Liberar candado
             TxSvc-->>Cliente: HTTP 400 (Falla en crédito; transferencia revertida)
         else Crédito exitoso
             TxSvc->>CoreDB: INSERT transactions & INSERT outbox_events (ACID)
             CoreDB-->>TxSvc: Transacción guardada
             TxSvc->>Redis: Registrar clave completada (TTL 24h)
-            TxSvc->>Kafka: Publicar evento 'transfer_completed'
-            TxSvc-->>Cliente: HTTP 200 { id, status: 'SUCCESS', ... }
+            TxSvc->>Kafka: Publicar evento transfer_completed
+            TxSvc-->>Cliente: HTTP 200 { id, status: 'SUCCESS' }
             
             par Notificación Asíncrona
-                Kafka->>NotifSvc: Consumir evento 'transfer_completed'
+                Kafka->>NotifSvc: Consumir evento transfer_completed
                 NotifSvc->>NotifSvc: Guardar en notificationdb & enviar correo SMTP
             and Auditoría y Extracto
-                Kafka->>WorkerSvc: Consumir evento 'transfer_completed'
+                Kafka->>WorkerSvc: Consumir evento transfer_completed
                 WorkerSvc->>WorkerSvc: Registrar audit_log en workerdb
             end
         end

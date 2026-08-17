@@ -21,53 +21,69 @@ Todos los recursos del sistema residen en el espacio de nombres dedicado `fintec
 
 ```mermaid
 graph TD
-    subgraph K8sCluster ["Clúster Kubernetes (K3s / Rancher Desktop)"]
-        subgraph NamespaceKubeSystem ["Namespace: kube-system"]
-            TraefikIngress["Traefik Ingress Controller (NodePort 80/443)"]
+    subgraph NamespaceKubeSystem ["Namespace: kube-system"]
+        TraefikIngress["Traefik Ingress Controller<br>NodePort: 80 / 443"]
+    end
+
+    subgraph NamespaceFintech ["Namespace: fintech"]
+        IngressRule["Traefik Ingress Rules<br>• fintech-ingress<br>• auth-ingress"]
+        
+        subgraph Apps ["Microservicios & Frontend"]
+            Auth["auth-service"]
+            User["user-service"]
+            Tx["transaction-service"]
+            Notif["notification-service"]
+            Worker["worker-service"]
+            Front["frontend"]
         end
 
-        subgraph NamespaceFintech ["Namespace: fintech"]
-            subgraph IngressRouting ["Enrutamiento y Middlewares"]
-                IngressRule["Ingress: fintech-ingress, auth-ingress, ..."]
-                TraefikMiddlewares["Middlewares: strip-api-prefix, auth-ratelimit"]
-            end
+        subgraph Infra ["Infraestructura"]
+            PgBnc["pgbouncer-core"]
+            PgCore[("postgres-core-0<br>PVC: 5Gi")]
+            PgSupp[("postgres-support-0<br>PVC: 5Gi")]
+            Red[("redis-0<br>PVC: 1Gi")]
+            Kfk[("kafka-0<br>PVC: 5Gi")]
+            Mail["maildev"]
+        end
 
-            subgraph MicroservicesApps ["Microservicios (Deployments)"]
-                Auth["auth-service (1 réplica)"]
-                User["user-service (1 réplica)"]
-                Tx["transaction-service (1 réplica)"]
-                Notif["notification-service (1 réplica)"]
-                Worker["worker-service (1 réplica)"]
-                Front["frontend (1 réplica)"]
-            end
+        subgraph APMStack ["Observabilidad SigNoz"]
+            Collector["otel-collector"]
+            ClickH[("clickhouse-0<br>PVC: 5Gi")]
+            SigUI["signoz UI"]
+        end
 
-            subgraph InfrastructureStateful ["Infraestructura con Estado (StatefulSets)"]
-                PgCore["postgres-core-0 (PVC: 5Gi)"]
-                PgSupp["postgres-support-0 (PVC: 5Gi)"]
-                PgBnc["pgbouncer-core (Deployment)"]
-                Red["redis-0 (PVC: 1Gi)"]
-                Kfk["kafka-0 (PVC: 5Gi)"]
-                Mail["maildev (Deployment)"]
-            end
-
-            subgraph ObservabilityStack ["Suite SigNoz (APM)"]
-                ClickH["clickhouse-0 (PVC: 5Gi)"]
-                Migr["Job: signoz-migrator"]
-                SigUI["signoz (Deployment)"]
-                Collector["otel-collector (Deployment)"]
-            end
-
-            subgraph AutomationOps ["Automatización y DR"]
-                BackCron["CronJob: postgres-backup-cronjob (PVC: 10Gi)"]
-                RestJob["Job Template: postgres-restore-job"]
-            end
+        subgraph BackupOps ["Backups y DR"]
+            BackCron["CronJob: postgres-backup-cronjob<br>PVC: 10Gi"]
+            RestJob["Job Template: postgres-restore-job"]
         end
     end
 
     TraefikIngress --> IngressRule
-    IngressRule --> MicroservicesApps
-    MicroservicesApps --> InfrastructureStateful
-    MicroservicesApps -.-> Collector
+    IngressRule --> Front
+    IngressRule --> Auth
+    IngressRule --> User
+    IngressRule --> Tx
+    IngressRule --> Notif
+    IngressRule --> Worker
+    IngressRule --> Mail
+
+    Auth --> PgBnc
+    User --> PgBnc
+    Tx --> PgBnc
+    PgBnc --> PgCore
+    Auth --> Red
+    Tx --> Red
+    Tx --> Kfk
+    Kfk --> Notif
+    Kfk --> Worker
+    Notif --> PgSupp
+    Worker --> PgSupp
+
+    Auth -.-> Collector
+    User -.-> Collector
+    Tx -.-> Collector
+    Notif -.-> Collector
+    Worker -.-> Collector
     Collector --> ClickH
     ClickH --> SigUI
 ```

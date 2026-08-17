@@ -97,11 +97,11 @@ El caso de uso `TransferMoneyCommandHandler` coordina la transacción distribuid
 sequenceDiagram
     autonumber
     actor Cliente as Cliente / Frontend
-    participant TxSvc as transaction-service
-    participant Redis as Redis (Idempotencia)
-    participant UserSvc as user-service (tRPC)
-    participant TxDB as PostgreSQL (transactiondb)
-    participant Kafka as Apache Kafka
+    participant TxSvc as "transaction-service"
+    participant Redis as "Redis (Idempotencia)"
+    participant UserSvc as "user-service (tRPC)"
+    participant TxDB as "PostgreSQL (transactiondb)"
+    participant Kafka as "Apache Kafka"
 
     Cliente->>TxSvc: POST /transactions/transfer (fromUserId, toUserId, amount, idempotencyKey)
     
@@ -126,7 +126,7 @@ sequenceDiagram
     
     alt Falla en Crédito (Error de red o cuenta inactiva)
         Note over TxSvc,UserSvc: ACCIÓN DE COMPENSACIÓN SAGA
-        TxSvc->>UserSvc: updateBalance(fromUserId, +amount) [Revierte Débito]
+        TxSvc->>UserSvc: updateBalance(fromUserId, +amount) - Compensación SAGA
         TxSvc->>Redis: removeKey(idempotencyKey)
         TxSvc-->>Cliente: HTTP 400 (Falla al acreditar cuenta; transferencia revertida)
     else Crédito Exitoso
@@ -136,8 +136,8 @@ sequenceDiagram
         TxDB-->>TxSvc: Commit OK
         
         TxSvc->>Redis: registerKey(idempotencyKey, TTL 24h)
-        TxSvc->>Kafka: Publicar 'transfer_completed'
-        TxSvc-->>Cliente: HTTP 200 { id, status: 'SUCCESS', ... }
+        TxSvc->>Kafka: Publicar transfer_completed
+        TxSvc-->>Cliente: HTTP 200 { id, status: 'SUCCESS' }
     end
 ```
 
@@ -149,11 +149,9 @@ El sistema permite a un usuario solicitar dinero a otro mediante una máquina de
 
 ```mermaid
 stateDiagram-v2
-    [*] --> PENDING: POST /transactions/request<br>(requesterId, targetId, amount, message)
-    
-    PENDING --> ACCEPTED: PUT /transactions/requests/:id/accept<br>(Ejecuta Transferencia Implícita: targetId -> requesterId)
-    PENDING --> REJECTED: PUT /transactions/requests/:id/reject<br>(Cancela la solicitud)
-    
+    [*] --> PENDING : POST /transactions/request
+    PENDING --> ACCEPTED : PUT /transactions/requests/:id/accept
+    PENDING --> REJECTED : PUT /transactions/requests/:id/reject
     ACCEPTED --> [*]
     REJECTED --> [*]
 ```

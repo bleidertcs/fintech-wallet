@@ -231,10 +231,17 @@ Registro inmutable de auditoría financiera.
 
 ```mermaid
 erDiagram
-    %% authdb
+    USERS ||--o{ USER_PROFILES : "perfil_financiero"
+    USER_PROFILES ||--o{ TRANSACTIONS : "emite_o_recibe"
+    USER_PROFILES ||--o{ MONEY_REQUESTS : "solicita_o_recibe"
+    USER_PROFILES ||--o{ NOTIFICATIONS : "recibe_alertas"
+    USER_PROFILES ||--o{ STATEMENT_JOBS : "solicita_pdf"
+    TRANSACTIONS ||--|| OUTBOX_EVENTS : "genera_evento"
+    TRANSACTIONS ||--o{ AUDIT_LOGS : "genera_auditoria"
+
     USERS {
         bigserial id PK
-        varchar email UK
+        varchar email
         varchar password
         varchar role
         boolean verified
@@ -243,17 +250,15 @@ erDiagram
         boolean totp_enabled
     }
 
-    %% userdb
     USER_PROFILES {
         bigserial id PK
         varchar name
-        varchar email UK
+        varchar email
         decimal balance
         decimal daily_limit
         varchar currency
     }
 
-    %% transactiondb
     TRANSACTIONS {
         bigserial id PK
         bigint from_user_id
@@ -276,7 +281,7 @@ erDiagram
     IDEMPOTENCY_RECORDS {
         varchar id PK
         bigint user_id
-        varchar key UK
+        varchar key
         varchar request_hash
         jsonb response
         varchar status
@@ -294,7 +299,6 @@ erDiagram
         timestamptz processed_at
     }
 
-    %% notificationdb
     NOTIFICATIONS {
         bigserial id PK
         bigint user_id
@@ -306,7 +310,6 @@ erDiagram
         timestamptz created_at
     }
 
-    %% workerdb
     STATEMENT_JOBS {
         bigserial id PK
         bigint user_id

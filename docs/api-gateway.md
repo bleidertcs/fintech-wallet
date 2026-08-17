@@ -23,23 +23,37 @@ Traefik opera como el Ingress Controller nativo dentro del namespace `kube-syste
 graph TD
     Client["Petición Cliente / Frontend"] --> Traefik["Traefik Ingress Controller (Puerto: 80)"]
     
-    subgraph MiddlewaresApplied ["Middlewares Traefik"]
-        StripApi["strip-api-prefix (^/api)"]
-        RateLimit["auth-ratelimit (100 req/s, burst 50)"]
-        StripOtlp["strip-otlp-prefix (^/otlp)"]
-        StripMail["strip-maildev-prefix (^/maildev)"]
+    subgraph Middlewares ["Middlewares de Entrada"]
+        StripApi["strip-api-prefix (/api)"]
+        RateLimit["auth-ratelimit (100 req/s)"]
+        StripOtlp["strip-otlp-prefix (/otlp)"]
+        StripMail["strip-maildev-prefix (/maildev)"]
     end
 
-    Traefik -->|Aplica Middlewares| MiddlewaresApplied
+    subgraph Backends ["Servicios de Destino"]
+        Frontend["frontend:80"]
+        AuthSvc["auth-service:3001"]
+        UserSvc["user-service:8082"]
+        TxSvc["transaction-service:8083"]
+        NotifSvc["notification-service:8084"]
+        WorkerSvc["worker-service:8085"]
+        OTelCol["otel-collector:4318"]
+        Maildev["maildev:1080"]
+    end
 
-    MiddlewaresApplied -->|/api/auth/* o /auth/*| AuthSvc["auth-service:3001"]
-    MiddlewaresApplied -->|/api/users/* o /users/*| UserSvc["user-service:8082"]
-    MiddlewaresApplied -->|/api/transactions/* o /transactions/*| TxSvc["transaction-service:8083"]
-    MiddlewaresApplied -->|/api/notifications/* o /notifications/*| NotifSvc["notification-service:8084"]
-    MiddlewaresApplied -->|/api/worker/* o /worker/*| WorkerSvc["worker-service:8085"]
-    MiddlewaresApplied -->|/otlp/*| OTelCol["otel-collector:4318"]
-    MiddlewaresApplied -->|/maildev/* o maildev.localhost| Maildev["maildev:1080"]
-    Traefik -->|/ (Frontend SPA)| Frontend["frontend:80"]
+    Traefik -->|/ (Frontend SPA)| Frontend
+    Traefik -->|/auth| RateLimit
+    RateLimit --> AuthSvc
+    Traefik -->|/api/*| StripApi
+    StripApi --> AuthSvc
+    StripApi --> UserSvc
+    StripApi --> TxSvc
+    StripApi --> NotifSvc
+    StripApi --> WorkerSvc
+    Traefik -->|/otlp| StripOtlp
+    StripOtlp --> OTelCol
+    Traefik -->|/maildev| StripMail
+    StripMail --> Maildev
 ```
 
 ---

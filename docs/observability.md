@@ -61,7 +61,9 @@ graph TD
     KafkaScraper --> OTelReceiver
     RedisScraper --> OTelReceiver
 
-    OTelReceiver --> SpanMetricsProc --> BatchMemoryProc --> K8sAttrProc
+    OTelReceiver --> SpanMetricsProc
+    SpanMetricsProc --> BatchMemoryProc
+    BatchMemoryProc --> K8sAttrProc
     K8sAttrProc --> ClickHouseEngine
     ClickHouseEngine --> SigNozDashboard
 ```

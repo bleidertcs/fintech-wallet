@@ -3233,8 +3233,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_nestjs_common",
-      "community": 327,
-      "community_name": "nodemailer",
+      "community": 338,
+      "community_name": "winston",
       "norm_label": "@nestjs/common"
     },
     {
@@ -3244,8 +3244,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_nestjs_common",
-      "community": 327,
-      "community_name": "nodemailer",
+      "community": 338,
+      "community_name": "winston",
       "norm_label": "@nestjs/common"
     },
     {
@@ -3409,8 +3409,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_opentelemetry_exporter_logs_otlp_http",
-      "community": 327,
-      "community_name": "nodemailer",
+      "community": 340,
+      "community_name": "eslint-plugin-prettier",
       "norm_label": "@opentelemetry/exporter-logs-otlp-http"
     },
     {
@@ -3420,8 +3420,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "opentelemetry_exporter_logs_otlp_http",
-      "community": 327,
-      "community_name": "nodemailer",
+      "community": 340,
+      "community_name": "eslint-plugin-prettier",
       "norm_label": "@opentelemetry/exporter-logs-otlp-http"
     },
     {
@@ -3695,8 +3695,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_axios",
-      "community": 340,
-      "community_name": "eslint-plugin-prettier",
+      "community": 327,
+      "community_name": "nodemailer",
       "norm_label": "axios"
     },
     {
@@ -3706,8 +3706,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_axios",
-      "community": 340,
-      "community_name": "eslint-plugin-prettier",
+      "community": 327,
+      "community_name": "nodemailer",
       "norm_label": "axios"
     },
     {
@@ -3739,8 +3739,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_class_transformer",
-      "community": 327,
-      "community_name": "nodemailer",
+      "community": 232,
+      "community_name": "dependencies",
       "norm_label": "class-transformer"
     },
     {
@@ -3750,8 +3750,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_class_transformer",
-      "community": 327,
-      "community_name": "nodemailer",
+      "community": 232,
+      "community_name": "dependencies",
       "norm_label": "class-transformer"
     },
     {
@@ -3761,8 +3761,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_class_validator",
-      "community": 338,
-      "community_name": "winston",
+      "community": 327,
+      "community_name": "nodemailer",
       "norm_label": "class-validator"
     },
     {
@@ -3772,8 +3772,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_class_validator",
-      "community": 338,
-      "community_name": "winston",
+      "community": 327,
+      "community_name": "nodemailer",
       "norm_label": "class-validator"
     },
     {
@@ -3783,8 +3783,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_ioredis",
-      "community": 327,
-      "community_name": "nodemailer",
+      "community": 335,
+      "community_name": "otpauth",
       "norm_label": "ioredis"
     },
     {
@@ -3794,8 +3794,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_ioredis",
-      "community": 327,
-      "community_name": "nodemailer",
+      "community": 335,
+      "community_name": "otpauth",
       "norm_label": "ioredis"
     },
     {
@@ -3893,8 +3893,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_otpauth",
-      "community": 335,
-      "community_name": "otpauth",
+      "community": 327,
+      "community_name": "nodemailer",
       "norm_label": "otpauth"
     },
     {
@@ -3904,8 +3904,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "otpauth",
-      "community": 335,
-      "community_name": "otpauth",
+      "community": 327,
+      "community_name": "nodemailer",
       "norm_label": "otpauth"
     },
     {
@@ -3959,8 +3959,8 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_qrcode",
-      "community": 357,
-      "community_name": "eslint-plugin-prettier",
+      "community": 350,
+      "community_name": "@types/express",
       "norm_label": "qrcode"
     },
     {
@@ -3970,8 +3970,8 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "qrcode",
-      "community": 357,
-      "community_name": "eslint-plugin-prettier",
+      "community": 350,
+      "community_name": "@types/express",
       "norm_label": "qrcode"
     },
     {
@@ -4003,8 +4003,8 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_rxjs",
-      "community": 350,
-      "community_name": "@types/express",
+      "community": 327,
+      "community_name": "nodemailer",
       "norm_label": "rxjs"
     },
     {
@@ -4014,8 +4014,8 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_rxjs",
-      "community": 350,
-      "community_name": "@types/express",
+      "community": 327,
+      "community_name": "nodemailer",
       "norm_label": "rxjs"
     },
     {
@@ -4971,8 +4971,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_index",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "index.ts"
     },
     {
@@ -4993,8 +4993,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "authcontroller"
     },
     {
@@ -5004,8 +5004,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_apitags",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "apitags"
     },
     {
@@ -5015,8 +5015,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_controller",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "controller"
     },
     {
@@ -5026,8 +5026,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_inject",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 49,
+      "community_name": ".findByEmail",
       "norm_label": "inject"
     },
     {
@@ -5037,8 +5037,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_get",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "get"
     },
     {
@@ -5048,8 +5048,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_apioperation",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "apioperation"
     },
     {
@@ -5059,8 +5059,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_post",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "post"
     },
     {
@@ -5070,8 +5070,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_body",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "body"
     },
     {
@@ -5081,8 +5081,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_httpcode",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "httpcode"
     },
     {
@@ -5092,8 +5092,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_query",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "query"
     },
     {
@@ -5103,8 +5103,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_put",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "put"
     },
     {
@@ -5114,8 +5114,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_constructor",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 49,
+      "community_name": ".findByEmail",
       "norm_label": ".constructor()"
     },
     {
@@ -5125,8 +5125,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_gethealth",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".gethealth()"
     },
     {
@@ -5136,8 +5136,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_register",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".register()"
     },
     {
@@ -5147,8 +5147,8 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_login",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".login()"
     },
     {
@@ -5158,8 +5158,8 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_verifytotp",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".verifytotp()"
     },
     {
@@ -5169,8 +5169,8 @@
       "source_location": "L99",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_verifyemail",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".verifyemail()"
     },
     {
@@ -5180,8 +5180,8 @@
       "source_location": "L108",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_setuptotp",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".setuptotp()"
     },
     {
@@ -5191,8 +5191,8 @@
       "source_location": "L121",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_enabletotp",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".enabletotp()"
     },
     {
@@ -5202,8 +5202,8 @@
       "source_location": "L130",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_disabletotp",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".disabletotp()"
     },
     {
@@ -5213,8 +5213,8 @@
       "source_location": "L139",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_getme",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".getme()"
     },
     {
@@ -5224,8 +5224,8 @@
       "source_location": "L154",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_resendverification",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".resendverification()"
     },
     {
@@ -5235,8 +5235,8 @@
       "source_location": "L161",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_changepassword",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".changepassword()"
     },
     {
@@ -5246,8 +5246,8 @@
       "source_location": "L168",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_promoteadmin",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".promoteadmin()"
     },
     {
@@ -5268,8 +5268,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_auth_response_dto_authresponsedto",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "authresponsedto"
     },
     {
@@ -5279,8 +5279,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_auth_response_dto_ts_apiproperty",
-      "community": 91,
-      "community_name": ".verifyTotp",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "apiproperty"
     },
     {
@@ -5631,8 +5631,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_filters_global_exception_filter",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "global-exception.filter.ts"
     },
     {
@@ -5642,8 +5642,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_filters_global_exception_filter_globalexceptionfilter",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "globalexceptionfilter"
     },
     {
@@ -5653,8 +5653,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "catch",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "catch"
     },
     {
@@ -5664,8 +5664,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_filters_global_exception_filter_globalexceptionfilter_catch",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": ".catch()"
     },
     {
@@ -5675,8 +5675,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_index",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "index.ts"
     },
     {
@@ -5686,8 +5686,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "jwt-auth.guard.ts"
     },
     {
@@ -5697,8 +5697,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard_jwtauthguard",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "jwtauthguard"
     },
     {
@@ -5708,8 +5708,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard_ts_injectable",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "injectable"
     },
     {
@@ -5719,8 +5719,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard_ts_inject",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "inject"
     },
     {
@@ -5730,8 +5730,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard_jwtauthguard_constructor",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": ".constructor()"
     },
     {
@@ -5741,8 +5741,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard_jwtauthguard_canactivate",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": ".canactivate()"
     },
     {
@@ -5862,8 +5862,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_index",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "index.ts"
     },
     {
@@ -5873,8 +5873,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_index",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "index.ts"
     },
     {
@@ -6566,8 +6566,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_module",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "app.module.ts"
     },
     {
@@ -6687,8 +6687,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_application_use_cases_auth_use_cases_ts_inject",
-      "community": 357,
-      "community_name": "eslint-plugin-prettier",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "inject"
     },
     {
@@ -6698,8 +6698,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_application_use_cases_auth_use_cases_authusecases_constructor",
-      "community": 357,
-      "community_name": "eslint-plugin-prettier",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": ".constructor()"
     },
     {
@@ -6863,8 +6863,8 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_auth_module_authmodule",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "authmodule"
     },
     {
@@ -6874,8 +6874,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_auth_module_ts_module",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "module"
     },
     {
@@ -7413,8 +7413,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": "token.service.port.ts"
     },
     {
@@ -7424,8 +7424,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port_token_service_port",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": "token_service_port"
     },
     {
@@ -7435,8 +7435,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port_tokenpayload",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "tokenpayload"
     },
     {
@@ -7446,8 +7446,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port_tokenserviceport",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "tokenserviceport"
     },
     {
@@ -7457,8 +7457,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port_tokenserviceport_generatetoken",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": ".generatetoken()"
     },
     {
@@ -7468,8 +7468,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port_tokenserviceport_verifytoken",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": ".verifytoken()"
     },
     {
@@ -7787,8 +7787,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_index",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "index.ts"
     },
     {
@@ -7798,8 +7798,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_index",
-      "community": 197,
-      "community_name": "tracing.ts",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "index.ts"
     },
     {
@@ -7809,8 +7809,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_index",
-      "community": 357,
-      "community_name": "eslint-plugin-prettier",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "index.ts"
     },
     {
@@ -7820,8 +7820,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "jwt.util.ts"
     },
     {
@@ -7831,8 +7831,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_jwtutil",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "jwtutil"
     },
     {
@@ -7842,8 +7842,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_ts_injectable",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "injectable"
     },
     {
@@ -7853,8 +7853,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_ts_inject",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "inject"
     },
     {
@@ -7864,8 +7864,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_jwtutil_constructor",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": ".constructor()"
     },
     {
@@ -7875,8 +7875,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_jwtutil_generatetoken",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": ".generatetoken()"
     },
     {
@@ -7886,8 +7886,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_jwtutil_verifytoken",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": ".verifytoken()"
     },
     {
@@ -7897,8 +7897,8 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_jwtutil_getemailfromtoken",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": ".getemailfromtoken()"
     },
     {
@@ -9371,8 +9371,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_dependencies_class_transformer",
-      "community": 634,
-      "community_name": "class-transformer",
+      "community": 371,
+      "community_name": "@nestjs/config",
       "norm_label": "class-transformer"
     },
     {
@@ -9382,8 +9382,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_class_transformer",
-      "community": 634,
-      "community_name": "class-transformer",
+      "community": 371,
+      "community_name": "@nestjs/config",
       "norm_label": "class-transformer"
     },
     {
@@ -9415,8 +9415,8 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_dependencies_kafkajs",
-      "community": 371,
-      "community_name": "@nestjs/config",
+      "community": 429,
+      "community_name": "@opentelemetry/context-zone",
       "norm_label": "kafkajs"
     },
     {
@@ -9426,8 +9426,8 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_kafkajs",
-      "community": 371,
-      "community_name": "@nestjs/config",
+      "community": 429,
+      "community_name": "@opentelemetry/context-zone",
       "norm_label": "kafkajs"
     },
     {
@@ -9734,8 +9734,8 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_devdependencies_types_express",
-      "community": 152,
-      "community_name": "swarm-init.sh",
+      "community": 466,
+      "community_name": "@types/node",
       "norm_label": "@types/express"
     },
     {
@@ -9745,8 +9745,8 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_types_express",
-      "community": 152,
-      "community_name": "swarm-init.sh",
+      "community": 466,
+      "community_name": "@types/node",
       "norm_label": "@types/express"
     },
     {
@@ -9866,8 +9866,8 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_devdependencies_eslint",
-      "community": 232,
-      "community_name": "dependencies",
+      "community": 152,
+      "community_name": "swarm-init.sh",
       "norm_label": "eslint"
     },
     {
@@ -9877,8 +9877,8 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_eslint",
-      "community": 232,
-      "community_name": "dependencies",
+      "community": 152,
+      "community_name": "swarm-init.sh",
       "norm_label": "eslint"
     },
     {
@@ -17533,8 +17533,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_nestjs_terminus",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 526,
+      "community_name": "@nestjs/testing",
       "norm_label": "@nestjs/terminus"
     },
     {
@@ -17544,8 +17544,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_terminus",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 526,
+      "community_name": "@nestjs/testing",
       "norm_label": "@nestjs/terminus"
     },
     {
@@ -17929,8 +17929,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_class_transformer",
-      "community": 637,
-      "community_name": "class-transformer",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "class-transformer"
     },
     {
@@ -17940,8 +17940,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_class_transformer",
-      "community": 637,
-      "community_name": "class-transformer",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "class-transformer"
     },
     {
@@ -18138,8 +18138,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_nestjs_cli",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 605,
+      "community_name": "Table Schemas",
       "norm_label": "@nestjs/cli"
     },
     {
@@ -18149,8 +18149,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_cli",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 605,
+      "community_name": "Table Schemas",
       "norm_label": "@nestjs/cli"
     },
     {
@@ -18446,8 +18446,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_ts_node",
-      "community": 638,
-      "community_name": "ts-node",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "ts-node"
     },
     {
@@ -18457,8 +18457,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_ts_node",
-      "community": 638,
-      "community_name": "ts-node",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "ts-node"
     },
     {
@@ -20998,8 +20998,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_nestjs_microservices",
-      "community": 466,
-      "community_name": "@types/node",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@nestjs/microservices"
     },
     {
@@ -21009,8 +21009,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nestjs_microservices",
-      "community": 466,
-      "community_name": "@types/node",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@nestjs/microservices"
     },
     {
@@ -21372,8 +21372,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_class_transformer",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 634,
+      "community_name": "class-transformer",
       "norm_label": "class-transformer"
     },
     {
@@ -21383,8 +21383,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_class_transformer",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 634,
+      "community_name": "class-transformer",
       "norm_label": "class-transformer"
     },
     {
@@ -21669,8 +21669,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_nestjs_testing",
-      "community": 526,
-      "community_name": "@nestjs/testing",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "@nestjs/testing"
     },
     {
@@ -21680,8 +21680,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nestjs_testing",
-      "community": 526,
-      "community_name": "@nestjs/testing",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "@nestjs/testing"
     },
     {
@@ -22021,8 +22021,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_source_map_support",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 637,
+      "community_name": "class-transformer",
       "norm_label": "source-map-support"
     },
     {
@@ -22032,8 +22032,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_source_map_support",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 637,
+      "community_name": "class-transformer",
       "norm_label": "source-map-support"
     },
     {
@@ -24519,8 +24519,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "frontend_package_dependencies_react_hot_toast",
-      "community": 6,
-      "community_name": "dependencies",
+      "community": 638,
+      "community_name": "ts-node",
       "norm_label": "react-hot-toast"
     },
     {
@@ -24530,8 +24530,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "react_hot_toast",
-      "community": 6,
-      "community_name": "dependencies",
+      "community": 638,
+      "community_name": "ts-node",
       "norm_label": "react-hot-toast"
     },
     {
@@ -24739,8 +24739,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "frontend_package_dependencies_opentelemetry_context_zone",
-      "community": 429,
-      "community_name": "@opentelemetry/context-zone",
+      "community": 6,
+      "community_name": "dependencies",
       "norm_label": "@opentelemetry/context-zone"
     },
     {
@@ -24750,8 +24750,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "opentelemetry_context_zone",
-      "community": 429,
-      "community_name": "@opentelemetry/context-zone",
+      "community": 6,
+      "community_name": "dependencies",
       "norm_label": "@opentelemetry/context-zone"
     },
     {
@@ -45176,8 +45176,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_skill",
-      "community": 7,
-      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
+      "community": 144,
+      "community_name": "SKILL.md",
       "norm_label": "skill.md"
     },
     {
@@ -45308,8 +45308,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_logs_reference",
-      "community": 7,
-      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
+      "community": 144,
+      "community_name": "SKILL.md",
       "norm_label": "clickhouse-logs-reference.md"
     },
     {
@@ -45671,8 +45671,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_traces_reference",
-      "community": 7,
-      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
+      "community": 144,
+      "community_name": "SKILL.md",
       "norm_label": "clickhouse-traces-reference.md"
     },
     {
@@ -45704,8 +45704,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_traces_reference_table_schemas",
-      "community": 605,
-      "community_name": "Table Schemas",
+      "community": 7,
+      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
       "norm_label": "table schemas"
     },
     {
@@ -45715,8 +45715,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_traces_reference_distributed_signoz_index_v3_primary_spans_table",
-      "community": 605,
-      "community_name": "Table Schemas",
+      "community": 7,
+      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
       "norm_label": "distributed_signoz_index_v3 (primary spans table)"
     },
     {
@@ -45726,8 +45726,8 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_traces_reference_distributed_traces_v3_resource_resource_lookup_table",
-      "community": 605,
-      "community_name": "Table Schemas",
+      "community": 7,
+      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
       "norm_label": "distributed_traces_v3_resource (resource lookup table)"
     },
     {
@@ -45737,8 +45737,8 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_traces_reference_distributed_signoz_error_index_v2_error_events",
-      "community": 605,
-      "community_name": "Table Schemas",
+      "community": 7,
+      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
       "norm_label": "distributed_signoz_error_index_v2 (error events)"
     },
     {
@@ -48360,39 +48360,6 @@
       "norm_label": "workflow: graphify"
     },
     {
-      "label": "ARQUITECTURA.md",
-      "file_type": "document",
-      "source_file": "ARQUITECTURA.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "arquitectura",
-      "community": 27,
-      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "arquitectura.md"
-    },
-    {
-      "label": "FinTech Wallet - Arquitectura del Sistema \ud83d\udcb3\ud83c\udfdb\ufe0f",
-      "file_type": "document",
-      "source_file": "ARQUITECTURA.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "arquitectura_fintech_wallet_arquitectura_del_sistema",
-      "community": 27,
-      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "fintech wallet - arquitectura del sistema \ud83d\udcb3\ud83c\udfdb\ufe0f"
-    },
-    {
-      "label": "\ud83d\udcd1 \u00cdndice de Navegaci\u00f3n Arquitect\u00f3nica",
-      "file_type": "document",
-      "source_file": "ARQUITECTURA.md",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "arquitectura_\u00edndice_de_navegaci\u00f3n_arquitect\u00f3nica",
-      "community": 27,
-      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "\ud83d\udcd1 indice de navegacion arquitectonica"
-    },
-    {
       "label": "Analisis.md",
       "file_type": "document",
       "source_file": "Analisis.md",
@@ -50065,215 +50032,6 @@
       "norm_label": "\ud83e\udde9 matriz de dependencias por servicio"
     },
     {
-      "label": "README_RANCHER.md",
-      "file_type": "document",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "readme_rancher",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "readme_rancher.md"
-    },
-    {
-      "label": "Despliegue de FinTech Wallet en Rancher Desktop (containerd + nerdctl)",
-      "file_type": "document",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "readme_rancher_despliegue_de_fintech_wallet_en_rancher_desktop_containerd_nerdctl",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "despliegue de fintech wallet en rancher desktop (containerd + nerdctl)"
-    },
-    {
-      "label": "\ud83d\udee0\ufe0f Requisitos Previos",
-      "file_type": "document",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "readme_rancher_requisitos_previos",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "\ud83d\udee0\ufe0f requisitos previos"
-    },
-    {
-      "label": "\ud83d\udcc1 Estructura de Manifiestos DevSecOps (`k8s/`)",
-      "file_type": "document",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L17",
-      "_origin": "ast",
-      "id": "readme_rancher_estructura_de_manifiestos_devsecops_k8s",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "\ud83d\udcc1 estructura de manifiestos devsecops (`k8s/`)"
-    },
-    {
-      "label": "\ud83d\udd10 Buenas Pr\u00e1cticas DevSecOps Implementadas",
-      "file_type": "document",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L31",
-      "_origin": "ast",
-      "id": "readme_rancher_buenas_pr\u00e1cticas_devsecops_implementadas",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "\ud83d\udd10 buenas practicas devsecops implementadas"
-    },
-    {
-      "label": "\ud83d\ude80 OPCI\u00d3N 1: Despliegue Automatizado",
-      "file_type": "document",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L52",
-      "_origin": "ast",
-      "id": "readme_rancher_opci\u00f3n_1_despliegue_automatizado",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "\ud83d\ude80 opcion 1: despliegue automatizado"
-    },
-    {
-      "label": "En Windows (PowerShell):",
-      "file_type": "document",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L59",
-      "_origin": "ast",
-      "id": "readme_rancher_en_windows_powershell",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "en windows (powershell):"
-    },
-    {
-      "label": "En Linux / macOS / Git Bash:",
-      "file_type": "document",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L68",
-      "_origin": "ast",
-      "id": "readme_rancher_en_linux_macos_git_bash",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "en linux / macos / git bash:"
-    },
-    {
-      "label": "\ud83e\uddf1 OPCI\u00d3N 2: Despliegue Manual Paso a Paso",
-      "file_type": "document",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L80",
-      "_origin": "ast",
-      "id": "readme_rancher_opci\u00f3n_2_despliegue_manual_paso_a_paso",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "\ud83e\uddf1 opcion 2: despliegue manual paso a paso"
-    },
-    {
-      "label": "Paso 1: Construir im\u00e1genes en containerd (Namespace `k8s.io`)",
-      "file_type": "document",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L82",
-      "_origin": "ast",
-      "id": "readme_rancher_paso_1_construir_im\u00e1genes_en_containerd_namespace_k8s_io",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "paso 1: construir imagenes en containerd (namespace `k8s.io`)"
-    },
-    {
-      "label": "Paso 2: Aplicar Manifiestos en Orden",
-      "file_type": "document",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L93",
-      "_origin": "ast",
-      "id": "readme_rancher_paso_2_aplicar_manifiestos_en_orden",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "paso 2: aplicar manifiestos en orden"
-    },
-    {
-      "label": "\ud83e\uddea Ejecuci\u00f3n de Scripts de Pruebas y Validaci\u00f3n",
-      "file_type": "document",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L121",
-      "_origin": "ast",
-      "id": "readme_rancher_ejecuci\u00f3n_de_scripts_de_pruebas_y_validaci\u00f3n",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "\ud83e\uddea ejecucion de scripts de pruebas y validacion"
-    },
-    {
-      "label": "1. Prueba de Humo (Smoke Test)",
-      "file_type": "document",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L125",
-      "_origin": "ast",
-      "id": "readme_rancher_1_prueba_de_humo_smoke_test",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "1. prueba de humo (smoke test)"
-    },
-    {
-      "label": "2. Prueba de Integraci\u00f3n E2E (auth-service \u2194 user-service \u2194 tRPC)",
-      "file_type": "document",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L131",
-      "_origin": "ast",
-      "id": "readme_rancher_2_prueba_de_integraci\u00f3n_e2e_auth_service_user_service_trpc",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "2. prueba de integracion e2e (auth-service \u2194 user-service \u2194 trpc)"
-    },
-    {
-      "label": "3. Prueba de Concurrencia e Idempotencia (transaction-service)",
-      "file_type": "document",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L137",
-      "_origin": "ast",
-      "id": "readme_rancher_3_prueba_de_concurrencia_e_idempotencia_transaction_service",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "3. prueba de concurrencia e idempotencia (transaction-service)"
-    },
-    {
-      "label": "4. Benchmark de Concurrencia con K6 (run-k6.ps1)",
-      "file_type": "document",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L143",
-      "_origin": "ast",
-      "id": "readme_rancher_4_benchmark_de_concurrencia_con_k6_run_k6_ps1",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "4. benchmark de concurrencia con k6 (run-k6.ps1)"
-    },
-    {
-      "label": "5. Prueba de Carga y Rendimiento (Performance Test)",
-      "file_type": "document",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L149",
-      "_origin": "ast",
-      "id": "readme_rancher_5_prueba_de_carga_y_rendimiento_performance_test",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "5. prueba de carga y rendimiento (performance test)"
-    },
-    {
-      "label": "6. Respaldo y Recuperaci\u00f3n de Desastres (DevOps Backup & DR)",
-      "file_type": "document",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L155",
-      "_origin": "ast",
-      "id": "readme_rancher_6_respaldo_y_recuperaci\u00f3n_de_desastres_devops_backup_dr",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "6. respaldo y recuperacion de desastres (devops backup & dr)"
-    },
-    {
-      "label": "\ud83c\udf10 URLs de Acceso",
-      "file_type": "document",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L167",
-      "_origin": "ast",
-      "id": "readme_rancher_urls_de_acceso",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "\ud83c\udf10 urls de acceso"
-    },
-    {
       "label": "README.md",
       "file_type": "document",
       "source_file": "backend-nestjs/auth-service/README.md",
@@ -51517,28 +51275,6 @@
       "norm_label": "8. proteccion contra fuerza bruta con traefik rate limiting"
     },
     {
-      "label": "crear-nuevo-microservicio.md",
-      "file_type": "document",
-      "source_file": "docs/crear-nuevo-microservicio.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_crear_nuevo_microservicio",
-      "community": 27,
-      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "crear-nuevo-microservicio.md"
-    },
-    {
-      "label": "Gu\u00eda: C\u00f3mo Crear un Nuevo Microservicio",
-      "file_type": "document",
-      "source_file": "docs/crear-nuevo-microservicio.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_crear_nuevo_microservicio_gu\u00eda_c\u00f3mo_crear_un_nuevo_microservicio",
-      "community": 27,
-      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "guia: como crear un nuevo microservicio"
-    },
-    {
       "label": "creating-a-microservice.md",
       "file_type": "document",
       "source_file": "docs/creating-a-microservice.md",
@@ -51556,8 +51292,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_creating_a_microservice_gu\u00eda_c\u00f3mo_crear_un_nuevo_microservicio",
-      "community": 515,
-      "community_name": "\ud83d\udcd1 Pasos del Flujo de Creaci\u00f3n",
+      "community": 27,
+      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
       "norm_label": "guia: como crear un nuevo microservicio"
     },
     {
@@ -53387,28 +53123,6 @@
       "norm_label": "4. inspeccion y diagnostico con `redis-cli`"
     },
     {
-      "label": "saga.md",
-      "file_type": "document",
-      "source_file": "docs/saga.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_saga",
-      "community": 27,
-      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "saga.md"
-    },
-    {
-      "label": "Patr\u00f3n SAGA y CQRS",
-      "file_type": "document",
-      "source_file": "docs/saga.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_saga_patr\u00f3n_saga_y_cqrs",
-      "community": 27,
-      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "patron saga y cqrs"
-    },
-    {
       "label": "services.md",
       "file_type": "document",
       "source_file": "docs/services.md",
@@ -53827,50 +53541,6 @@
       "norm_label": "5.6. puertos, rutas y health checks"
     },
     {
-      "label": "signoz.md",
-      "file_type": "document",
-      "source_file": "docs/signoz.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_signoz",
-      "community": 27,
-      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "signoz.md"
-    },
-    {
-      "label": "Suite de Observabilidad SigNoz",
-      "file_type": "document",
-      "source_file": "docs/signoz.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_signoz_suite_de_observabilidad_signoz",
-      "community": 27,
-      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "suite de observabilidad signoz"
-    },
-    {
-      "label": "signoz_error_report.md",
-      "file_type": "document",
-      "source_file": "docs/signoz_error_report.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_signoz_error_report",
-      "community": 27,
-      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "signoz_error_report.md"
-    },
-    {
-      "label": "Diagn\u00f3stico de M\u00e9tricas de Spans en SigNoz",
-      "file_type": "document",
-      "source_file": "docs/signoz_error_report.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_signoz_error_report_diagn\u00f3stico_de_m\u00e9tricas_de_spans_en_signoz",
-      "community": 27,
-      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "diagnostico de metricas de spans en signoz"
-    },
-    {
       "label": "testing.md",
       "file_type": "document",
       "source_file": "docs/testing.md",
@@ -54188,28 +53858,6 @@
       "community": 163,
       "community_name": "devDependencies",
       "norm_label": "7. pruebas unitarias en microservicios"
-    },
-    {
-      "label": "traefik.md",
-      "file_type": "document",
-      "source_file": "docs/traefik.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_traefik",
-      "community": 27,
-      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "traefik.md"
-    },
-    {
-      "label": "Traefik API Gateway e Ingress",
-      "file_type": "document",
-      "source_file": "docs/traefik.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_traefik_traefik_api_gateway_e_ingress",
-      "community": 27,
-      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "traefik api gateway e ingress"
     },
     {
       "label": "transactions.md",
@@ -117489,149 +117137,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "ARQUITECTURA.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "arquitectura",
-      "target": "arquitectura_fintech_wallet_arquitectura_del_sistema",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "ARQUITECTURA.md",
-      "source_location": "L18",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "arquitectura",
-      "target": "docs_api_gateway",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "ARQUITECTURA.md",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "arquitectura",
-      "target": "docs_architecture",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "ARQUITECTURA.md",
-      "source_location": "L13",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "arquitectura",
-      "target": "docs_authentication",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "ARQUITECTURA.md",
-      "source_location": "L15",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "arquitectura",
-      "target": "docs_database",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "ARQUITECTURA.md",
-      "source_location": "L21",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "arquitectura",
-      "target": "docs_documentation_gaps",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "ARQUITECTURA.md",
-      "source_location": "L17",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "arquitectura",
-      "target": "docs_kafka",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "ARQUITECTURA.md",
-      "source_location": "L19",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "arquitectura",
-      "target": "docs_kubernetes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "ARQUITECTURA.md",
-      "source_location": "L20",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "arquitectura",
-      "target": "docs_observability",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "ARQUITECTURA.md",
-      "source_location": "L16",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "arquitectura",
-      "target": "docs_redis",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "ARQUITECTURA.md",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "arquitectura",
-      "target": "docs_services",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "ARQUITECTURA.md",
-      "source_location": "L14",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "arquitectura",
-      "target": "docs_transactions",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "ARQUITECTURA.md",
-      "source_location": "L9",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "arquitectura_fintech_wallet_arquitectura_del_sistema",
-      "target": "arquitectura_\u00edndice_de_navegaci\u00f3n_arquitect\u00f3nica",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "Analisis.md",
       "source_location": "L541",
       "weight": 1.0,
@@ -119447,204 +118952,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "readme_rancher",
-      "target": "readme_rancher_despliegue_de_fintech_wallet_en_rancher_desktop_containerd_nerdctl",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L31",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "readme_rancher_despliegue_de_fintech_wallet_en_rancher_desktop_containerd_nerdctl",
-      "target": "readme_rancher_buenas_pr\u00e1cticas_devsecops_implementadas",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L121",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "readme_rancher_despliegue_de_fintech_wallet_en_rancher_desktop_containerd_nerdctl",
-      "target": "readme_rancher_ejecuci\u00f3n_de_scripts_de_pruebas_y_validaci\u00f3n",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L17",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "readme_rancher_despliegue_de_fintech_wallet_en_rancher_desktop_containerd_nerdctl",
-      "target": "readme_rancher_estructura_de_manifiestos_devsecops_k8s",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L52",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "readme_rancher_despliegue_de_fintech_wallet_en_rancher_desktop_containerd_nerdctl",
-      "target": "readme_rancher_opci\u00f3n_1_despliegue_automatizado",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L80",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "readme_rancher_despliegue_de_fintech_wallet_en_rancher_desktop_containerd_nerdctl",
-      "target": "readme_rancher_opci\u00f3n_2_despliegue_manual_paso_a_paso",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L7",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "readme_rancher_despliegue_de_fintech_wallet_en_rancher_desktop_containerd_nerdctl",
-      "target": "readme_rancher_requisitos_previos",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L167",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "readme_rancher_despliegue_de_fintech_wallet_en_rancher_desktop_containerd_nerdctl",
-      "target": "readme_rancher_urls_de_acceso",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L68",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "readme_rancher_opci\u00f3n_1_despliegue_automatizado",
-      "target": "readme_rancher_en_linux_macos_git_bash",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L59",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "readme_rancher_opci\u00f3n_1_despliegue_automatizado",
-      "target": "readme_rancher_en_windows_powershell",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L82",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "readme_rancher_opci\u00f3n_2_despliegue_manual_paso_a_paso",
-      "target": "readme_rancher_paso_1_construir_im\u00e1genes_en_containerd_namespace_k8s_io",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L93",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "readme_rancher_opci\u00f3n_2_despliegue_manual_paso_a_paso",
-      "target": "readme_rancher_paso_2_aplicar_manifiestos_en_orden",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L125",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "readme_rancher_ejecuci\u00f3n_de_scripts_de_pruebas_y_validaci\u00f3n",
-      "target": "readme_rancher_1_prueba_de_humo_smoke_test",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L131",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "readme_rancher_ejecuci\u00f3n_de_scripts_de_pruebas_y_validaci\u00f3n",
-      "target": "readme_rancher_2_prueba_de_integraci\u00f3n_e2e_auth_service_user_service_trpc",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L137",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "readme_rancher_ejecuci\u00f3n_de_scripts_de_pruebas_y_validaci\u00f3n",
-      "target": "readme_rancher_3_prueba_de_concurrencia_e_idempotencia_transaction_service",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L143",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "readme_rancher_ejecuci\u00f3n_de_scripts_de_pruebas_y_validaci\u00f3n",
-      "target": "readme_rancher_4_benchmark_de_concurrencia_con_k6_run_k6_ps1",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L149",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "readme_rancher_ejecuci\u00f3n_de_scripts_de_pruebas_y_validaci\u00f3n",
-      "target": "readme_rancher_5_prueba_de_carga_y_rendimiento_performance_test",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "README_RANCHER.md",
-      "source_location": "L155",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "readme_rancher_ejecuci\u00f3n_de_scripts_de_pruebas_y_validaci\u00f3n",
-      "target": "readme_rancher_6_respaldo_y_recuperaci\u00f3n_de_desastres_devops_backup_dr",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/auth-service/README.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -120402,17 +119709,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/traefik.md",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_traefik",
-      "target": "docs_api_gateway",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/api-gateway.md",
@@ -120850,28 +120146,6 @@
       "_origin": "ast",
       "source": "docs_authentication_4_autenticaci\u00f3n_de_dos_factores_2fa_totp",
       "target": "docs_authentication_verificaci\u00f3n_y_activaci\u00f3n",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/crear-nuevo-microservicio.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_crear_nuevo_microservicio",
-      "target": "docs_crear_nuevo_microservicio_gu\u00eda_c\u00f3mo_crear_un_nuevo_microservicio",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/crear-nuevo-microservicio.md",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_crear_nuevo_microservicio",
-      "target": "docs_creating_a_microservice",
       "confidence_score": 1.0
     },
     {
@@ -122294,28 +121568,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/signoz.md",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_signoz",
-      "target": "docs_observability",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/signoz_error_report.md",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_signoz_error_report",
-      "target": "docs_observability",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/observability.md",
@@ -122791,28 +122043,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "docs/saga.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_saga",
-      "target": "docs_saga_patr\u00f3n_saga_y_cqrs",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/saga.md",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_saga",
-      "target": "docs_transactions",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "docs/services.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -123220,28 +122450,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "docs/signoz.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_signoz",
-      "target": "docs_signoz_suite_de_observabilidad_signoz",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/signoz_error_report.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_signoz_error_report",
-      "target": "docs_signoz_error_report_diagn\u00f3stico_de_m\u00e9tricas_de_spans_en_signoz",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "docs/testing.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -123545,17 +122753,6 @@
       "_origin": "ast",
       "source": "docs_testing_6_benchmark_de_rendimiento_y_latencias_p95_p99",
       "target": "docs_testing_resultado_esperado_153",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/traefik.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_traefik",
-      "target": "docs_traefik_traefik_api_gateway_e_ingress",
       "confidence_score": 1.0
     },
     {
