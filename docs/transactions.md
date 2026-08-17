@@ -96,48 +96,45 @@ El caso de uso `TransferMoneyCommandHandler` coordina la transacción distribuid
 ```mermaid
 sequenceDiagram
     autonumber
-    actor Cliente as Cliente / Frontend
+    actor Cliente as "Cliente / Frontend"
     participant TxSvc as "transaction-service"
-    participant Redis as "Redis (Idempotencia)"
-    participant UserSvc as "user-service (tRPC)"
-    participant TxDB as "PostgreSQL (transactiondb)"
-    participant Kafka as "Apache Kafka"
+    participant Redis as "Redis 7"
+    participant UserSvc as "user-service"
+    participant TxDB as "PostgreSQL"
+    participant Kafka as "Kafka"
 
-    Cliente->>TxSvc: POST /transactions/transfer (fromUserId, toUserId, amount, idempotencyKey)
+    Cliente->>TxSvc: POST /transactions/transfer
     
-    TxSvc->>Redis: acquireLock(idempotencyKey, fromUserId)
+    TxSvc->>Redis: Adquirir candado idemp:lock:key
     alt Candado ocupado
-        TxSvc-->>Cliente: HTTP 400 (Solicitud duplicada)
-    end
-    
-    TxSvc->>UserSvc: getUser(fromUserId)
-    UserSvc-->>TxSvc: Saldo emisor
-    Note over TxSvc: Valida: saldo emisor >= amount
-    
-    TxSvc->>UserSvc: getUser(toUserId)
-    UserSvc-->>TxSvc: Perfil receptor
-    
-    Note over TxSvc,UserSvc: PASO 1 SAGA: Débito en Cuenta Origen
-    TxSvc->>UserSvc: updateBalance(fromUserId, -amount)
-    UserSvc-->>TxSvc: Débito OK
-    
-    Note over TxSvc,UserSvc: PASO 2 SAGA: Crédito en Cuenta Destino
-    TxSvc->>UserSvc: updateBalance(toUserId, +amount)
-    
-    alt Falla en Crédito (Error de red o cuenta inactiva)
-        Note over TxSvc,UserSvc: ACCIÓN DE COMPENSACIÓN SAGA
-        TxSvc->>UserSvc: updateBalance(fromUserId, +amount) - Compensación SAGA
-        TxSvc->>Redis: removeKey(idempotencyKey)
-        TxSvc-->>Cliente: HTTP 400 (Falla al acreditar cuenta; transferencia revertida)
-    else Crédito Exitoso
-        Note over TxSvc,TxDB: PERSISTENCIA ACID LOCAL (Misma Transacción)
-        TxSvc->>TxDB: INSERT transactions (status='SUCCESS')
-        TxSvc->>TxDB: INSERT outbox_events (eventType='TRANSFER_COMPLETED')
-        TxDB-->>TxSvc: Commit OK
+        Redis-->>TxSvc: Candado no adquirido
+        TxSvc-->>Cliente: HTTP 400 Solicitud duplicada
+    else Candado adquirido
+        TxSvc->>UserSvc: getUserById(fromUserId)
+        UserSvc-->>TxSvc: Saldo emisor
         
-        TxSvc->>Redis: registerKey(idempotencyKey, TTL 24h)
-        TxSvc->>Kafka: Publicar transfer_completed
-        TxSvc-->>Cliente: HTTP 200 { id, status: 'SUCCESS' }
+        TxSvc->>UserSvc: getUserById(toUserId)
+        UserSvc-->>TxSvc: Perfil receptor
+        
+        Note over TxSvc: Valida saldo emisor >= amount
+        
+        TxSvc->>UserSvc: updateBalance debito origen
+        UserSvc-->>TxSvc: Debito exitoso
+        
+        TxSvc->>UserSvc: updateBalance credito destino
+        
+        alt Falla en credito destino
+            TxSvc->>UserSvc: Revertir debito origen (SAGA)
+            TxSvc->>Redis: Liberar candado
+            TxSvc-->>Cliente: HTTP 400 Transferencia revertida
+        else Credito exitoso
+            TxSvc->>TxDB: Guardar transaccion y outbox_events
+            TxDB-->>TxSvc: Commit OK
+            
+            TxSvc->>Redis: Registrar clave completada (TTL 24h)
+            TxSvc->>Kafka: Publicar transfer_completed
+            TxSvc-->>Cliente: HTTP 200 SUCCESS
+        end
     end
 ```
 

@@ -109,11 +109,13 @@ cp .env.example .env
 
 ---
 
-## 5. Despliegue Completo en Kubernetes
+## 5. Despliegue en Kubernetes
 
-El despliegue está 100% automatizado mediante scripts que interactúan con `nerdctl` y `kubectl`.
+El sistema puede desplegarse de dos formas: mediante el **script 100% automatizado** o mediante **comandos manuales paso a paso**.
 
-### Ejecutar Despliegue Automatizado
+### Opción A: Despliegue Automatizado (Script)
+
+Los scripts automatizados verifican la conexión con containerd/K8s, compilan las 6 imágenes e inyectan los manifiestos secuencialmente:
 
 ```powershell
 # En Windows (PowerShell)

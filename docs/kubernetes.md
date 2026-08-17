@@ -106,6 +106,35 @@ Para evitar condiciones de carrera durante el despliegue, los archivos YAML est�
 | `07-backup-cronjob.yaml` | `PersistentVolumeClaim`, `ConfigMap`, `CronJob` | Programa el respaldo diario automático de bases de datos a las 02:00 AM UTC |
 | `08-restore-job-template.yaml`| `Job` (Template bajo demanda) | Plantilla para recuperación ante desastres (DR) a partir de backups |
 
+### Comandos de Despliegue Manual Secuencial
+
+```bash
+# 1. Configuración de Base, Secretos y SQL Scripts
+kubectl apply -f k8s/00-namespace-config.yaml
+
+# 2. Infraestructura con Estado
+kubectl apply -f k8s/01-infrastructure.yaml
+
+# 3. Microservicios NestJS
+kubectl apply -f k8s/02-microservices.yaml
+
+# 4. Frontend SPA React
+kubectl apply -f k8s/03-frontend.yaml
+
+# 5. Suite de Observabilidad SigNoz
+kubectl delete job signoz-migrator -n fintech --ignore-not-found
+kubectl apply -f k8s/04-observability.yaml
+
+# 6. Reglas de Enrutamiento Ingress y Middlewares
+kubectl apply -f k8s/05-ingress.yaml
+
+# 7. Políticas de Seguridad de Red
+kubectl apply -f k8s/06-networkpolicy.yaml
+
+# 8. CronJob de Respaldo Automatizado
+kubectl apply -f k8s/07-backup-cronjob.yaml
+```
+
 ---
 
 ## 3. Matriz Exhaustiva de Componentes Kubernetes

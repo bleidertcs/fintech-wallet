@@ -21,13 +21,13 @@ Traefik opera como el Ingress Controller nativo dentro del namespace `kube-syste
 
 ```mermaid
 graph TD
-    Client["Petición Cliente / Frontend"] --> Traefik["Traefik Ingress Controller (Puerto: 80)"]
+    Client["Peticion Cliente / Frontend"] --> Traefik["Traefik Ingress Controller (Puerto 80)"]
     
     subgraph Middlewares ["Middlewares de Entrada"]
-        StripApi["strip-api-prefix (/api)"]
-        RateLimit["auth-ratelimit (100 req/s)"]
-        StripOtlp["strip-otlp-prefix (/otlp)"]
-        StripMail["strip-maildev-prefix (/maildev)"]
+        StripApi["strip-api-prefix"]
+        RateLimit["auth-ratelimit"]
+        StripOtlp["strip-otlp-prefix"]
+        StripMail["strip-maildev-prefix"]
     end
 
     subgraph Backends ["Servicios de Destino"]
@@ -41,18 +41,18 @@ graph TD
         Maildev["maildev:1080"]
     end
 
-    Traefik -->|/ (Frontend SPA)| Frontend
-    Traefik -->|/auth| RateLimit
+    Traefik --> Frontend
+    Traefik --> RateLimit
     RateLimit --> AuthSvc
-    Traefik -->|/api/*| StripApi
+    Traefik --> StripApi
     StripApi --> AuthSvc
     StripApi --> UserSvc
     StripApi --> TxSvc
     StripApi --> NotifSvc
     StripApi --> WorkerSvc
-    Traefik -->|/otlp| StripOtlp
+    Traefik --> StripOtlp
     StripOtlp --> OTelCol
-    Traefik -->|/maildev| StripMail
+    Traefik --> StripMail
     StripMail --> Maildev
 ```
 

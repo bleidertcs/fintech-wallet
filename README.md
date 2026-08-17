@@ -168,51 +168,51 @@ graph LR
 ```mermaid
 sequenceDiagram
     autonumber
-    actor Cliente as Cliente / Frontend
-    participant Gateway as Traefik Ingress
-    participant TxSvc as "transaction-service (CQRS)"
-    participant Redis as "Redis 7 (Lock / Idempotencia)"
-    participant UserSvc as "user-service (tRPC)"
-    participant CoreDB as "PostgreSQL (transactiondb)"
-    participant Kafka as "Apache Kafka (KRaft)"
+    actor Cliente as "Cliente / Frontend"
+    participant Gateway as "Traefik Ingress"
+    participant TxSvc as "transaction-service"
+    participant Redis as "Redis 7"
+    participant UserSvc as "user-service"
+    participant CoreDB as "PostgreSQL"
+    participant Kafka as "Kafka KRaft"
     participant NotifSvc as "notification-service"
     participant WorkerSvc as "worker-service"
 
-    Cliente->>Gateway: POST /api/transactions/transfer (X-Idempotency-Key)
-    Gateway->>TxSvc: Reenvía petición despojada de prefijo
-    TxSvc->>Redis: Adquirir candado atómico (idemp:lock:key)
+    Cliente->>Gateway: POST /api/transactions/transfer
+    Gateway->>TxSvc: Reenvia peticion
+    TxSvc->>Redis: Adquirir candado idemp:lock:key
     alt Solicitud duplicada en proceso
         Redis-->>TxSvc: Candado no adquirido
-        TxSvc-->>Cliente: HTTP 400 (Solicitud duplicada procesada previamente)
+        TxSvc-->>Cliente: HTTP 400 Solicitud duplicada
     else Candado adquirido
-        TxSvc->>UserSvc: tRPC: getUserById(fromUserId)
-        UserSvc-->>TxSvc: Datos de perfil y saldo emisor
-        TxSvc->>UserSvc: tRPC: getUserById(toUserId)
+        TxSvc->>UserSvc: getUserById(fromUserId)
+        UserSvc-->>TxSvc: Datos de saldo emisor
+        TxSvc->>UserSvc: getUserById(toUserId)
         UserSvc-->>TxSvc: Datos de perfil receptor
         
-        Note over TxSvc: Valida saldo suficiente >= monto
+        Note over TxSvc: Valida saldo suficiente
         
-        TxSvc->>UserSvc: tRPC: updateBalance(fromUserId, -monto)
-        UserSvc-->>TxSvc: Débito exitoso
+        TxSvc->>UserSvc: updateBalance debito origen
+        UserSvc-->>TxSvc: Debito exitoso
         
-        TxSvc->>UserSvc: tRPC: updateBalance(toUserId, +monto)
-        alt Falla acreditación a destino
-            TxSvc->>UserSvc: tRPC: updateBalance(fromUserId, +monto) - Compensación SAGA
+        TxSvc->>UserSvc: updateBalance credito destino
+        alt Falla acreditacion destino
+            TxSvc->>UserSvc: Revertir debito origen (SAGA)
             TxSvc->>Redis: Liberar candado
-            TxSvc-->>Cliente: HTTP 400 (Falla en crédito; transferencia revertida)
-        else Crédito exitoso
-            TxSvc->>CoreDB: INSERT transactions & INSERT outbox_events (ACID)
-            CoreDB-->>TxSvc: Transacción guardada
+            TxSvc-->>Cliente: HTTP 400 Transferencia revertida
+        else Credito exitoso
+            TxSvc->>CoreDB: Guardar transaccion y outbox_events
+            CoreDB-->>TxSvc: Transaccion guardada
             TxSvc->>Redis: Registrar clave completada (TTL 24h)
             TxSvc->>Kafka: Publicar evento transfer_completed
-            TxSvc-->>Cliente: HTTP 200 { id, status: 'SUCCESS' }
+            TxSvc-->>Cliente: HTTP 200 SUCCESS
             
-            par Notificación Asíncrona
-                Kafka->>NotifSvc: Consumir evento transfer_completed
-                NotifSvc->>NotifSvc: Guardar en notificationdb & enviar correo SMTP
-            and Auditoría y Extracto
-                Kafka->>WorkerSvc: Consumir evento transfer_completed
-                WorkerSvc->>WorkerSvc: Registrar audit_log en workerdb
+            par Notificacion Asincrona
+                Kafka->>NotifSvc: Consumir transfer_completed
+                NotifSvc->>NotifSvc: Guardar en DB y enviar email
+            and Auditoria y Extracto
+                Kafka->>WorkerSvc: Consumir transfer_completed
+                WorkerSvc->>WorkerSvc: Registrar audit_log
             end
         end
     end
@@ -289,6 +289,8 @@ cp .env.example .env
 
 ### 4. Desplegar Todo el Sistema en Kubernetes
 
+#### Opción A: Despliegue Automatizado (Recomendado)
+
 El script de despliegue compila las imágenes de contenedor directamente en el espacio de nombres `k8s.io` de containerd y aplica todos los manifiestos en el orden requerido:
 
 ```powershell
@@ -298,6 +300,31 @@ El script de despliegue compila las imágenes de contenedor directamente en el e
 # En Linux / macOS (Bash)
 chmod +x ./deploy-rancher.sh
 ./deploy-rancher.sh
+```
+
+#### Opción B: Despliegue Manual Paso a Paso
+
+Si prefieres construir y desplegar manualmente sin scripts:
+
+```bash
+# 1. Compilar las 6 imágenes de contenedor en containerd (namespace k8s.io)
+nerdctl --namespace k8s.io build -t fintech/frontend:latest ./frontend
+nerdctl --namespace k8s.io build -t fintech/auth-service:nestjs ./backend-nestjs/auth-service
+nerdctl --namespace k8s.io build -t fintech/user-service:nestjs ./backend-nestjs/user-service
+nerdctl --namespace k8s.io build -t fintech/transaction-service:nestjs ./backend-nestjs/transaction-service
+nerdctl --namespace k8s.io build -t fintech/notification-service:nestjs ./backend-nestjs/notification-service
+nerdctl --namespace k8s.io build -t fintech/worker-service:nestjs ./backend-nestjs/worker-service
+
+# 2. Aplicar manifiestos de Kubernetes en orden secuencial
+kubectl apply -f k8s/00-namespace-config.yaml
+kubectl apply -f k8s/01-infrastructure.yaml
+kubectl apply -f k8s/02-microservices.yaml
+kubectl apply -f k8s/03-frontend.yaml
+kubectl delete job signoz-migrator -n fintech --ignore-not-found
+kubectl apply -f k8s/04-observability.yaml
+kubectl apply -f k8s/05-ingress.yaml
+kubectl apply -f k8s/06-networkpolicy.yaml
+kubectl apply -f k8s/07-backup-cronjob.yaml
 ```
 
 ### 5. Verificar el Estado del Despliegue

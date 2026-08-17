@@ -625,8 +625,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1786990430.4225981,
-    "ast_hash": "72c428055f7477cf2456c172ea3b124d",
+    "mtime": 1786992474.232333,
+    "ast_hash": "b0a04b391468b0781872469e718715f6",
     "semantic_hash": ""
   },
   "docker-compose.yml": {
@@ -2240,8 +2240,8 @@
     "semantic_hash": ""
   },
   "docs/kubernetes.md": {
-    "mtime": 1786990439.8596063,
-    "ast_hash": "cc55a817e60643bcf4a5d92f24f829f1",
+    "mtime": 1786992482.539748,
+    "ast_hash": "dae972b78090bd1e675f895a817ab2f2",
     "semantic_hash": ""
   },
   "docs/redis.md": {
@@ -2670,8 +2670,8 @@
     "semantic_hash": ""
   },
   "docs/getting-started.md": {
-    "mtime": 1786982114.402241,
-    "ast_hash": "44cc499d09f1f2c98aac43ff14c68b8b",
+    "mtime": 1786992467.2822006,
+    "ast_hash": "a51b37df7d5f334866db13e6eaac7d2c",
     "semantic_hash": ""
   },
   "docs/observability.md": {
