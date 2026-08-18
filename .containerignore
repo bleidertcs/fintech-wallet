@@ -1,12 +1,12 @@
 # ==========================================
-# FinTech Wallet - Docker Ignore (Best Practices)
+# FinTech Wallet - Container Ignore (Podman Best Practices)
 # ==========================================
 
 # Version Control
 .git/
 .gitignore
 
-# Dependencies (Installed inside Docker multi-stage build)
+# Dependencies (Installed inside multi-stage Containerfile)
 node_modules/
 **/node_modules/
 
@@ -34,7 +34,7 @@ build/
 Thumbs.db
 desktop.ini
 
-# Docker Data Volumes & Local Storage
+# Container Data Volumes & Local Storage
 mysql-data/
 data/
 

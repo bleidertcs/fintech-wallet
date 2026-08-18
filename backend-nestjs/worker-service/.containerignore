@@ -3,6 +3,4 @@ dist
 .git
 .gitignore
 *.log
-npm-debug.log*
-pnpm-debug.log*
 coverage

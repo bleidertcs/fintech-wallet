@@ -207,30 +207,31 @@ bootstrap();
 
 ---
 
-### Paso 7: Creación del Dockerfile Optimizado
+### Paso 7: Creación del Containerfile Optimizado
 
-Crea `Dockerfile` con compilación multi-etapa:
+Crea `Containerfile` con compilación multi-etapa:
 
 ```dockerfile
-FROM node:20-alpine AS builder
+FROM node:22-alpine AS builder
 WORKDIR /app
-RUN npm install -g pnpm
-COPY package.json pnpm-lock.yaml* ./
-RUN pnpm install --frozen-lockfile
+RUN corepack enable && corepack prepare pnpm@latest --activate
+COPY package.json pnpm-workspace.yaml pnpm-lock.yaml* ./
+COPY prisma ./prisma/
+RUN pnpm install --frozen-lockfile --ignore-scripts || pnpm install --ignore-scripts
 COPY . .
-RUN pnpm prisma generate
-RUN pnpm build
+RUN pnpm exec prisma generate
+RUN pnpm run build
+RUN pnpm prune --prod --ignore-scripts
 
-FROM node:20-alpine AS runner
+FROM node:22-alpine AS runner
 WORKDIR /app
-RUN npm install -g pnpm
 ENV NODE_ENV=production
-COPY package.json pnpm-lock.yaml* ./
-RUN pnpm install --prod --frozen-lockfile
+ENV PORT=3006
+COPY package.json ./
+COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
-COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
 
+USER node
 EXPOSE 3006
 CMD ["node", "dist/main"]
 ```
@@ -259,7 +260,7 @@ spec:
     spec:
       containers:
         - name: <service-name>
-          image: fintech/<service-name>:nestjs
+          image: fintech/<service-name>:1.0.0
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3006
@@ -330,17 +331,17 @@ En `k8s/05-ingress.yaml`, agrega la regla en `fintech-ingress` y el Ingress indi
 
 ### Paso 10: Integración en Scripts de Despliegue
 
-Agrega el nuevo servicio al array `$services` de `deploy-rancher.ps1` y `deploy-rancher.sh`:
+Agrega el nuevo servicio al array `$services` de `deploy-k8s.ps1` y `deploy-k8s.sh`:
 
 ```powershell
-@{ Name = "<service-name>"; Path = "./backend-nestjs/<service-name>"; Image = "fintech/<service-name>:nestjs" }
+@{ Name = "<service-name>"; Path = "./backend-nestjs/<service-name>"; Image = "fintech/<service-name>:1.0.0"; File = "./backend-nestjs/<service-name>/Containerfile" }
 ```
 
 ---
 
 ### Paso 11: Pruebas y Verificación
 
-1. Despliega con `.\deploy-rancher.ps1`.
+1. Despliega con `.\deploy-k8s.ps1` (o `./deploy-k8s.sh`).
 2. Verifica que el pod esté en `Running`: `kubectl get pods -n fintech -l app=<service-name>`.
 3. Accede a Swagger UI en `http://localhost/<service-name>/docs/`.
 4. Comprueba que las trazas aparezcan en SigNoz APM (`http://localhost:30301`).

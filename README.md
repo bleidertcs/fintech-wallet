@@ -1,6 +1,6 @@
 # FinTech Wallet 💳
 
-Plataforma empresarial de billetera digital distribuida, diseñada bajo **Arquitectura Hexagonal (Ports & Adapters)**, patrones de **Domain-Driven Design (DDD)** y desplegada sobre **Kubernetes (K3s / Rancher Desktop)** con orquestación mediante manifiestos nativos y **Helm**.
+Plataforma empresarial de billetera digital distribuida, diseñada bajo **Arquitectura Hexagonal (Ports & Adapters)**, patrones de **Domain-Driven Design (DDD)** y desplegada sobre **Kubernetes (Kind / Minikube / K3s / Podman Desktop)** con orquestación mediante manifiestos nativos y **Helm**, utilizando **Podman** como motor de contenedores OCI estándar y seguro.
 
 El backend está compuesto por **5 microservicios independientes en NestJS y TypeScript**, persistencia segregada en **PostgreSQL 16** con connection pooling vía **PgBouncer**, caché y bloqueos distribuidos en **Redis 7**, mensajería asíncrona de eventos con **Apache Kafka (KRaft)**, enrutamiento inteligente mediante **Traefik Ingress Controller** y observabilidad integral con **OpenTelemetry, ClickHouse y SigNoz APM**.
 
@@ -47,7 +47,7 @@ El backend está compuesto por **5 microservicios independientes en NestJS y Typ
 | **PgBouncer** | `1.22+` (`latest`) | Connection pooler en modo `transaction` para alta concurrencia |
 | **Redis** | `7-alpine` | Caché en memoria, tokens revocados y candados de idempotencia |
 | **Apache Kafka** | `3.7.0` | Broker de mensajería distribuida operando en modo KRaft (sin ZooKeeper) |
-| **Traefik** | `2.x` / `3.x` (K3s) | Ingress Controller, enrutamiento API Gateway y control de tasa (RateLimit) |
+| **Traefik** | `2.x` / `3.x` | Ingress Controller, enrutamiento API Gateway y control de tasa (RateLimit) |
 | **React** | `19.0.0` | Biblioteca de interfaz de usuario para la Single Page Application (SPA) |
 | **Vite** | `6.1.0` | Herramienta de empaquetado y servidor de desarrollo frontend |
 | **OpenTelemetry SDK** | `0.57.x` / `1.30.x` | Instrumentación de trazas distribuidas, métricas y logs estructurados |
@@ -55,8 +55,10 @@ El backend está compuesto por **5 microservicios independientes en NestJS y Typ
 | **ClickHouse** | `25.12.5` | Motor de base de datos columnar analítico para almacenamiento APM |
 | **SigNoz APM UI** | `v0.136.1` | Panel de visualización de trazas, dashboards y métricas de rendimiento |
 | **Maildev** | `2.1.0` | Servidor SMTP y visor web de correos electrónicos transaccionales |
-| **Kubernetes (K3s)** | `v1.28+` | Orquestador de contenedores para despliegue local y en producción |
+| **Podman / Compose** | `4.x` / `5.x` | Motor de contenedores OCI daemonless y seguro (Rootless) |
+| **Kubernetes (K3s/Kind)** | `v1.28+` | Orquestador de contenedores para despliegue local y en producción |
 | **Helm** | `3.x` | Gestor de paquetes para despliegue parametrizado en Kubernetes |
+
 
 ---
 
@@ -246,14 +248,14 @@ fintech-wallet/
 │   ├── smoke-test.ps1           # Prueba de humo de salud de infraestructura y APIs
 │   ├── test-services-integration.ps1 # Prueba E2E de integración de flujos principales
 │   ├── concurrency-test.ps1     # Pruebas de estrés de concurrencia e idempotencia
-│   ├── run-k6.ps1               # Ejecución de pruebas de carga con K6
+│   ├── run-k6.ps1               # Ejecución de pruebas de carga con K6 (vía Podman)
 │   ├── performance-test.ps1     # Medición de latencias P95 y P99
 │   ├── backup-databases.ps1     # Script manual para respaldo de bases de datos
 │   └── restore-database.ps1    # Script manual para restauración de bases de datos
 ├── docs/                        # Documentación técnica exhaustiva y guías de operación
-├── deploy-rancher.ps1           # Script principal de despliegue automatizado en Windows (nerdctl)
-├── deploy-rancher.sh            # Script principal de despliegue automatizado en Linux/macOS
-├── docker-compose.yml           # Configuración Docker Compose para desarrollo local auxiliar
+├── deploy-k8s.ps1               # Script principal de despliegue automatizado en Windows (Podman + K8s)
+├── deploy-k8s.sh                # Script principal de despliegue automatizado en Linux/macOS (Podman + K8s)
+├── compose.yaml                 # Configuración Compose para Podman (desarrollo local y rootless)
 └── .env.example                 # Plantilla de variables de entorno del sistema
 ```
 
@@ -263,10 +265,10 @@ fintech-wallet/
 
 ### 1. Requisitos Previos
 
-* **Rancher Desktop** con motor **containerd** y Kubernetes (K3s) activado.
-* **kubectl** configurado en el contexto `rancher-desktop`.
-* **nerdctl** CLI disponible en el PATH del sistema.
-* **Node.js** 20.x o superior y **pnpm** 10.x (para desarrollo local).
+* **Podman** / **Podman Desktop** con soporte para contenedores OCI y máquina de Podman activa.
+* Clúster **Kubernetes** local activo (**Kind**, **Minikube**, **K3s** o Podman Desktop K8s).
+* **kubectl** configurado en el contexto activo del clúster.
+* **Node.js** 20.x o superior y **pnpm** 10.x (para desarrollo local opcional).
 * **PowerShell 7+** (en Windows) o **Bash** (en Linux/macOS).
 
 ### 2. Clonar el Repositorio y Seleccionar la Rama
@@ -291,15 +293,15 @@ cp .env.example .env
 
 #### Opción A: Despliegue Automatizado (Recomendado)
 
-El script de despliegue compila las imágenes de contenedor directamente en el espacio de nombres `k8s.io` de containerd y aplica todos los manifiestos en el orden requerido:
+El script de despliegue compila las imágenes de contenedor mediante `podman build`, las carga automáticamente en tu clúster de Kubernetes activo (Kind / Minikube / K3s) y aplica todos los manifiestos en orden:
 
 ```powershell
 # En Windows (PowerShell)
-.\deploy-rancher.ps1
+.\deploy-k8s.ps1
 
 # En Linux / macOS (Bash)
-chmod +x ./deploy-rancher.sh
-./deploy-rancher.sh
+chmod +x ./deploy-k8s.sh
+./deploy-k8s.sh
 ```
 
 #### Opción B: Despliegue Manual Paso a Paso
@@ -307,15 +309,19 @@ chmod +x ./deploy-rancher.sh
 Si prefieres construir y desplegar manualmente sin scripts:
 
 ```bash
-# 1. Compilar las 6 imágenes de contenedor en containerd (namespace k8s.io)
-nerdctl --namespace k8s.io build -t fintech/frontend:latest ./frontend
-nerdctl --namespace k8s.io build -t fintech/auth-service:nestjs ./backend-nestjs/auth-service
-nerdctl --namespace k8s.io build -t fintech/user-service:nestjs ./backend-nestjs/user-service
-nerdctl --namespace k8s.io build -t fintech/transaction-service:nestjs ./backend-nestjs/transaction-service
-nerdctl --namespace k8s.io build -t fintech/notification-service:nestjs ./backend-nestjs/notification-service
-nerdctl --namespace k8s.io build -t fintech/worker-service:nestjs ./backend-nestjs/worker-service
+# 1. Compilar las 6 imágenes de contenedor con Podman
+podman build -f frontend/Containerfile -t fintech/frontend:1.0.0 ./frontend
+podman build -f backend-nestjs/auth-service/Containerfile -t fintech/auth-service:1.0.0 ./backend-nestjs/auth-service
+podman build -f backend-nestjs/user-service/Containerfile -t fintech/user-service:1.0.0 ./backend-nestjs/user-service
+podman build -f backend-nestjs/transaction-service/Containerfile -t fintech/transaction-service:1.0.0 ./backend-nestjs/transaction-service
+podman build -f backend-nestjs/notification-service/Containerfile -t fintech/notification-service:1.0.0 ./backend-nestjs/notification-service
+podman build -f backend-nestjs/worker-service/Containerfile -t fintech/worker-service:1.0.0 ./backend-nestjs/worker-service
 
-# 2. Aplicar manifiestos de Kubernetes en orden secuencial
+# 2. Cargar imágenes en tu clúster (Ejemplo en Kind con Podman):
+export KIND_EXPERIMENTAL_PROVIDER=podman
+kind load docker-image fintech/frontend:1.0.0 fintech/auth-service:1.0.0 fintech/user-service:1.0.0 fintech/transaction-service:1.0.0 fintech/notification-service:1.0.0 fintech/worker-service:1.0.0
+
+# 3. Aplicar manifiestos de Kubernetes en orden secuencial
 kubectl apply -f k8s/00-namespace-config.yaml
 kubectl apply -f k8s/01-infrastructure.yaml
 kubectl apply -f k8s/02-microservices.yaml
@@ -325,6 +331,12 @@ kubectl apply -f k8s/04-observability.yaml
 kubectl apply -f k8s/05-ingress.yaml
 kubectl apply -f k8s/06-networkpolicy.yaml
 kubectl apply -f k8s/07-backup-cronjob.yaml
+```
+
+#### Opción C: Levantar con Podman Compose (Desarrollo Local sin K8s)
+
+```bash
+podman compose up -d
 ```
 
 ### 5. Verificar el Estado del Despliegue
@@ -374,6 +386,7 @@ kubectl get ingress -n fintech
 Para profundizar en cada uno de los aspectos de la arquitectura, configuración, operaciones y pruebas, consulta las guías dedicadas en la carpeta `docs/`:
 
 * 🏁 [**Guía de Inicio Rápido y Requisitos**](docs/getting-started.md): Requisitos detallados, configuración de herramientas, desarrollo local vs Kubernetes.
+* 🦭 [**Configuración de Podman y Kubernetes**](docs/podman-setup.md): Configuración de Podman Desktop, Podman Machine, modo Rootless, Kind/Minikube y permisos SELinux.
 * 🏛️ [**Arquitectura General del Sistema**](docs/architecture.md): Principios DDD, arquitectura hexagonal, protocolos de comunicación síncrona (tRPC) y asíncrona (Kafka).
 * ⚙️ [**Ficha Técnica de Microservicios**](docs/services.md): Detalle exhaustivo de responsabilidades, capas internas, puertos, variables y dependencias de cada microservicio.
 * 🔐 [**Autenticación y Seguridad (2FA / JWT)**](docs/authentication.md): Flujos de registro, login, 2FA/TOTP, Blacklist en Redis y Rate Limiting.
@@ -388,7 +401,6 @@ Para profundizar en cada uno de los aspectos de la arquitectura, configuración,
 * 🧪 [**Guía de Testing y Benchmarking**](docs/testing.md): Ejecución de smoke tests, tests de integración, pruebas de concurrencia e idempotencia y pruebas de carga con K6.
 * 🛠️ [**Guía de Operaciones Day-2 y Backups**](docs/operations.md): Despliegues continuos, escalado horizontal, rotación de logs, CronJob de backups y recuperación de desastres (DR).
 * 🩺 [**Guía de Troubleshooting y Resolución de Fallos**](docs/troubleshooting.md): Diagnóstico paso a paso de problemas en Pods, Postgres, Redis, Kafka, Traefik y SigNoz.
-* 🐧 [**Configuración de containerd y BuildKit (Linux)**](docs/containerd-setup.md): Configuración de nerdctl, sockets de containerd, permisos y BuildKit en Ubuntu/Linux.
 * 💻 [**Guía de Desarrollo Local**](docs/development.md): Flujo de trabajo para desarrolladores, ejecución individual de servicios, Prisma CLI y depuración.
 * 🚀 [**Guía: Cómo Crear un Nuevo Microservicio**](docs/creating-a-microservice.md): Manual paso a paso para extender la plataforma con un nuevo microservicio.
 * 📋 [**Auditoría de Gaps y Mejoras Recomendadas**](docs/documentation-gaps.md): Hallazgos técnicos y oportunidades de evolución priorizadas (Crítico, Importante, Recomendado).
@@ -398,7 +410,7 @@ Para profundizar en cada uno de los aspectos de la arquitectura, configuración,
 ## 🧩 Matriz de Dependencias por Servicio
 
 | Microservicio | PostgreSQL DB | PgBouncer | Redis 7 | Kafka (KRaft) | S2S (tRPC / HTTP) | OpenTelemetry | Maildev SMTP |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **auth-service** | `authdb` | Sí (`6432`) | Sí (Blacklist) | No | `user-service` (HTTP) | Sí (OTLP) | Sí (Email Verif.) |
 | **user-service** | `userdb` | Sí (`6432`) | Sí (User Cache) | No | Expone tRPC (`8082`) | Sí (OTLP) | No |
 | **transaction-service** | `transactiondb` | Sí (`6432`) | Sí (Lock / Key)| Sí (Producer) | `user-service` (tRPC) | Sí (OTLP) | No |

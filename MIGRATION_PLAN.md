@@ -100,8 +100,8 @@ Cada microservicio migrado debe cumplir obligatoriamente con los siguientes 6 pi
 - [x] **Tarea 4.6**: Implementar controladores REST HTTP + DTOs con validaciones `class-validator`.
 - [x] **Tarea 4.7**: Configurar Swagger UI en `/transactions/docs` y `/api-docs`.
 - [x] **Tarea 4.8**: Configurar Winston OTLP Logger (con metadatos K8s) y OpenTelemetry Tracing/Metrics hacia SigNoz.
-- [x] **Tarea 4.9**: Crear `Dockerfile` multi-stage optimizado para `transaction-service`.
-- [x] **Tarea 4.10**: Construir imagen con `nerdctl` y actualizar `k8s/02-microservices.yaml` (puerto 3003) y `k8s/05-ingress.yaml` (`/transactions`).
+- [x] **Tarea 4.9**: Crear `Containerfile` multi-stage optimizado para `transaction-service`.
+- [x] **Tarea 4.10**: Construir imagen con `podman` y actualizar `k8s/02-microservices.yaml` (puerto 3003) y `k8s/05-ingress.yaml` (`/transactions`).
 - [x] **Tarea 4.11**: Creación y ejecución de Pruebas Unitarias y E2E con Jest (`pnpm test`).
 - [x] **Tarea 4.12**: Generar documentación individual `backend-nestjs/transaction-service/README.md` con arquitectura de carpetas, env vars, endpoints y cURL.
 
@@ -115,7 +115,7 @@ Cada microservicio migrado debe cumplir obligatoriamente con los siguientes 6 pi
 - [x] **Tarea 5.4**: Implementar Adaptador Outbound Email (Nodemailer / Mailpit).
 - [x] **Tarea 5.5**: Configurar Swagger UI en `/notifications/docs` y `/api-docs`.
 - [x] **Tarea 5.6**: Configurar Winston OTLP Logger con correlación `trace_id` y atributos K8s para SigNoz.
-- [x] **Tarea 5.7**: Crear `Dockerfile` multi-stage y desplegar en Kubernetes (puerto 3004).
+- [x] **Tarea 5.7**: Crear `Containerfile` multi-stage y desplegar en Kubernetes (puerto 3004).
 - [x] **Tarea 5.8**: Creación y ejecución de Pruebas Unitarias y E2E con Jest (`pnpm test`).
 - [x] **Tarea 5.9**: Generar documentación individual `backend-nestjs/notification-service/README.md` con árbol de carpetas.
 
@@ -129,7 +129,7 @@ Cada microservicio migrado debe cumplir obligatoriamente con los siguientes 6 pi
 - [x] **Tarea 6.4**: Implementar procesamiento de reintentos y Dead Letter Queue (DLQ) Kafka.
 - [x] **Tarea 6.5**: Configurar Swagger UI en `/worker/docs` y `/api-docs`.
 - [x] **Tarea 6.6**: Configurar Winston OTLP Logger + OpenTelemetry para SigNoz.
-- [x] **Tarea 6.7**: Crear `Dockerfile` multi-stage y actualizar manifiestos de Kubernetes (puerto 3005).
+- [x] **Tarea 6.7**: Crear `Containerfile` multi-stage y actualizar manifiestos de Kubernetes (puerto 3005).
 - [x] **Tarea 6.8**: Creación y ejecución de Pruebas Unitarias y E2E con Jest (`pnpm test`).
 - [x] **Tarea 6.9**: Generar documentación individual `backend-nestjs/worker-service/README.md` con árbol de carpetas.
 ---
@@ -137,12 +137,12 @@ Cada microservicio migrado debe cumplir obligatoriamente con los siguientes 6 pi
 ## FASE 7: Frontend React Application Containerization & Ingress Integration (Nginx + Traefik Ingress)
 
 - [x] **Tarea 7.1**: Configurar servidor Nginx `frontend/nginx.conf` con soporte para SPA (`try_files index.html`) y proxied endpoints.
-- [x] **Tarea 7.2**: Crear `frontend/Dockerfile` Multi-Stage (`node:22-alpine` builder y `nginx:alpine` runner).
-- [x] **Tarea 7.3**: Crear `frontend/.dockerignore` excluyendo `node_modules`, `dist` y temporales.
+- [x] **Tarea 7.2**: Crear `frontend/Containerfile` Multi-Stage (`node:22-alpine` builder y `nginx:alpine` runner).
+- [x] **Tarea 7.3**: Crear `frontend/.containerignore` excluyendo `node_modules`, `dist` y temporales.
 - [x] **Tarea 7.4**: Configurar manifiesto `k8s/03-frontend.yaml` con contenedor en puerto 80, NodePort 30000, Liveness/Readiness probes y límites de recursos.
 - [x] **Tarea 7.5**: Configurar enrutamiento Ingress en Traefik (`k8s/05-ingress.yaml`) vinculando la ruta `/` al servicio `frontend:80`.
 - [x] **Tarea 7.6**: Integrar telemetría OpenTelemetry Web SDK (`frontend/src/telemetry.js`) hacia SigNoz APM.
-- [x] **Tarea 7.7**: Compilar la imagen con `nerdctl` en Rancher Desktop (`k8s.io` namespace) y desplegar en Kubernetes (**Pod 1/1 Running**).
+- [x] **Tarea 7.7**: Compilar la imagen con `podman` y desplegar en Kubernetes (**Pod 1/1 Running**).
 - [x] **Tarea 7.8**: Generar la documentación técnica individual `frontend/README.md`.
 
 ---

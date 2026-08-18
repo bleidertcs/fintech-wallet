@@ -9,7 +9,7 @@
 
 set -eo pipefail
 
-TARGET="${1:-docker}"
+TARGET="${1:-podman}"
 BACKUP_BASE_DIR="${2:-./backups}"
 DB_PASSWORD="${DB_PASSWORD:-12345}"
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
@@ -26,12 +26,17 @@ echo "================================================="
 CORE_DBS=("authdb" "userdb" "transactiondb")
 SUPPORT_DBS=("notificationdb" "workerdb")
 
-if [ "${TARGET}" == "docker" ]; then
+CLI_CMD="podman"
+if ! command -v podman &>/dev/null; then
+    CLI_CMD="docker"
+fi
+
+if [ "${TARGET}" == "podman" ] || [ "${TARGET}" == "docker" ]; then
     # 1. Backup postgres-core
     for DB in "${CORE_DBS[@]}"; do
         echo "[Core] Respaldando ${DB}..."
         OUT_FILE="${TARGET_DIR}/core_${DB}_${TIMESTAMP}.sql.gz"
-        docker exec -e PGPASSWORD="${DB_PASSWORD}" fintech-postgres-core \
+        ${CLI_CMD} exec -e PGPASSWORD="${DB_PASSWORD}" fintech-postgres-core \
             pg_dump -U postgres -d "${DB}" --clean --if-exists --no-owner --no-privileges | gzip -9 > "${OUT_FILE}"
         echo "  -> ${OUT_FILE} ($(du -h "${OUT_FILE}" | cut -f1))"
     done
@@ -40,18 +45,18 @@ if [ "${TARGET}" == "docker" ]; then
     for DB in "${SUPPORT_DBS[@]}"; do
         echo "[Support] Respaldando ${DB}..."
         OUT_FILE="${TARGET_DIR}/support_${DB}_${TIMESTAMP}.sql.gz"
-        docker exec -e PGPASSWORD="${DB_PASSWORD}" fintech-postgres-support \
+        ${CLI_CMD} exec -e PGPASSWORD="${DB_PASSWORD}" fintech-postgres-support \
             pg_dump -U postgres -d "${DB}" --clean --if-exists --no-owner --no-privileges | gzip -9 > "${OUT_FILE}"
         echo "  -> ${OUT_FILE} ($(du -h "${OUT_FILE}" | cut -f1))"
     done
 
 elif [ "$TARGET" = "k8s" ]; then
     K8S_JOB_NAME="postgres-backup-manual-$(echo ${TIMESTAMP} | tr '_' '-')"
-    echo -e "${YELLOW}Ejecutando Job de Backup en Kubernetes (${K8S_JOB_NAME} en namespace: fintech)...${NC}"
+    echo -e "Ejecutando Job de Backup en Kubernetes (${K8S_JOB_NAME} en namespace: fintech)..."
     kubectl create job --from=cronjob/postgres-backup-cronjob "${K8S_JOB_NAME}" -n fintech
-    echo -e "${YELLOW}Esperando finalización del Job...${NC}"
+    echo -e "Esperando finalización del Job..."
     kubectl wait --for=condition=complete "job/${K8S_JOB_NAME}" -n fintech --timeout=120s
-    echo -e "${GREEN}Backup K8s completado exitosamente.${NC}"
+    echo -e "Backup K8s completado exitosamente."
 fi
 
 # 3. Generar Checksums SHA256

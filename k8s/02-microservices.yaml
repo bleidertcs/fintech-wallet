@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
         - name: auth-service
-          image: fintech/auth-service:nestjs
+          image: fintech/auth-service:1.0.0
           imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: false
@@ -150,7 +150,7 @@ spec:
     spec:
       containers:
         - name: user-service
-          image: fintech/user-service:nestjs
+          image: fintech/user-service:1.0.0
           imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: false
@@ -247,7 +247,7 @@ spec:
     spec:
       containers:
         - name: transaction-service
-          image: fintech/transaction-service:nestjs
+          image: fintech/transaction-service:1.0.0
           imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: false
@@ -352,7 +352,7 @@ spec:
     spec:
       containers:
         - name: notification-service
-          image: fintech/notification-service:nestjs
+          image: fintech/notification-service:1.0.0
           imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: false
@@ -459,7 +459,7 @@ spec:
     spec:
       containers:
         - name: worker-service
-          image: fintech/worker-service:nestjs
+          image: fintech/worker-service:1.0.0
           imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: false

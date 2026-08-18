@@ -1,16 +1,16 @@
-# Graph Report - fintech-wallet  (2026-08-17)
+# Graph Report - fintech-wallet  (2026-08-18)
 
 ## Corpus Check
-- 496 files · ~251,331 words
+- 496 files · ~252,242 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 4969 nodes · 6087 edges · 640 communities (340 shown, 300 thin omitted)
+- 4977 nodes · 6095 edges · 616 communities (341 shown, 275 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 20 edges (avg confidence: 0.72)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `324b2038`
+- Built from commit: `e7fb4dbd`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -169,6 +169,7 @@
 - Tecnologias Detalladas
 - app.module.ts
 - dependencies
+- Log-Msg
 - devDependencies
 - Multi-Cluster Management
 - Kubernetes Networking
@@ -374,7 +375,6 @@
 - @types/supertest
 - typescript
 - @grpc/proto-loader
-- eslint-plugin-prettier
 - mariadb
 - @nestjs/config
 - @nestjs/core
@@ -407,17 +407,11 @@
 - nest-winston
 - @opentelemetry/instrumentation-nestjs-core
 - @opentelemetry/resources
-- @opentelemetry/sdk-metrics
-- @opentelemetry/sdk-node
-- @opentelemetry/sdk-trace-base
 - @opentelemetry/sdk-trace-node
 - @opentelemetry/semantic-conventions
-- pg
 - @prisma/adapter-mariadb
-- @prisma/client
 - reflect-metadata
 - rxjs
-- winston
 - @opentelemetry/sdk-trace-base
 - axios
 - supertest
@@ -454,14 +448,9 @@
 - @nestjs/schematics
 - eslint-plugin-prettier
 - source-map-support
-- @nestjs/core
 - @trpc/server
-- class-validator
-- @opentelemetry/instrumentation-express
-- html5-qrcode
 - @types/node
 - axios
-- @eslint/js
 - react-hot-toast
 - import-signoz-dashboards.sh script
 - mariadb
@@ -475,7 +464,6 @@
 - @opentelemetry/auto-instrumentations-node
 - @opentelemetry/exporter-metrics-otlp-http
 - @opentelemetry/exporter-trace-otlp-http
-- @opentelemetry/instrumentation-express
 - rxjs
 - @opentelemetry/instrumentation-nestjs-core
 - @opentelemetry/resources
@@ -483,11 +471,9 @@
 - @opentelemetry/sdk-node
 - @opentelemetry/semantic-conventions
 - @prisma/client
-- @types/express
 - @nestjs/cli
 - winston
 - eslint
-- @nestjs/config
 - prisma
 - scripts
 - ts-loader
@@ -560,34 +546,26 @@
 - package.json
 - Node.js Patterns
 - jest
-- Best Practices
 - Search Tool Priority
-- source-map-support
-- Best Practices
 - @swc/cli
 - Diátaxis Documentation Expert
 - tsconfig-paths
 - @types/jest
 - Diagram Types
 - Generated Diagrams
-- mariadb
 - @nestjs/core
 - @nestjs/swagger
-- @prisma/adapter-pg
 - Generated Diagrams
-- zod
 - Diagram Types
 - Generated Diagrams
 - baseline-test.js
 - k6-concurrency-test.js
 - File Naming Convention
 - Quick Reference Card
-- Language-Specific Symbol Conventions
 - 2. Background & Context
 - 3. User Experience
 - 4. Technical Design
 - nest-winston
-- Common Deployment Patterns
 - Integration Examples
 - Table Schemas
 - 11. Performance Requirements
@@ -621,9 +599,7 @@
 - class-transformer
 - react-hot-toast
 - globals
-- class-transformer
 - @nestjs/testing
-- axios
 
 ## God Nodes (most connected - your core abstractions)
 1. `User` - 38 edges
@@ -639,6 +615,8 @@
 
 ## Surprising Connections (you probably didn't know these)
 - `bootstrap()` --indirect_call--> `AppModule`  [INFERRED]
+  backend-nestjs/transaction-service/src/main.ts → backend-nestjs/transaction-service/src/app.module.ts
+- `bootstrap()` --indirect_call--> `AppModule`  [INFERRED]
   backend-nestjs/auth-service/src/main.ts → backend-nestjs/auth-service/src/app.module.ts
 - `AuthUseCases` --implements--> `AuthServicePort`  [EXTRACTED]
   backend-nestjs/auth-service/src/application/use-cases/auth.use-cases.ts → backend-nestjs/auth-service/src/domain/ports/inbound/auth.service.port.ts
@@ -646,25 +624,23 @@
   backend-nestjs/notification-service/src/main.ts → backend-nestjs/notification-service/src/app.module.ts
 - `NotificationUseCases` --implements--> `NotificationServicePort`  [EXTRACTED]
   backend-nestjs/notification-service/src/application/use-cases/notification.use-cases.ts → backend-nestjs/notification-service/src/domain/ports/inbound/notification-service.port.ts
-- `bootstrap()` --indirect_call--> `AppModule`  [INFERRED]
-  backend-nestjs/transaction-service/src/main.ts → backend-nestjs/transaction-service/src/app.module.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (640 total, 300 thin omitted)
+## Communities (616 total, 275 thin omitted)
 
 ### Community 0 - "UserDto"
 Cohesion: 0.05
 Nodes (49): GetMapping, RequestMapping, RequiredArgsConstructor, ResponseEntity, RestController, UserController, ApiResponse, AllArgsConstructor (+41 more)
 
 ### Community 1 - "NotificationService"
-Cohesion: 0.10
-Nodes (17): TransactionController, ApiTags, Controller, KafkaModule, Module, PrismaModule, Module, RedisModule (+9 more)
+Cohesion: 0.28
+Nodes (4): GetTransactionHistoryQueryHandler, Inject, GetTransactionHistoryQuery, QueryHandler
 
 ### Community 2 - "UserProfileDto"
-Cohesion: 0.25
-Nodes (8): scripts, build, format, start, start:debug, start:dev, start:prod, test
+Cohesion: 0.13
+Nodes (14): author, description, license, name, private, scripts, build, format (+6 more)
 
 ### Community 3 - "App.jsx"
 Cohesion: 0.10
@@ -680,15 +656,15 @@ Nodes (10): BusinessException, GlobalExceptionHandler, ResponseEntity, Slf4j, Re
 
 ### Community 6 - "dependencies"
 Cohesion: 0.10
-Nodes (21): file-saver, dependencies, file-saver, jspdf, jspdf-autotable, @opentelemetry/api, @opentelemetry/instrumentation, @opentelemetry/resources (+13 more)
+Nodes (21): file-saver, dependencies, axios, file-saver, jspdf, jspdf-autotable, @opentelemetry/api, @opentelemetry/instrumentation (+13 more)
 
 ### Community 7 - "Writing ClickHouse Queries for SigNoz Dashboards"
 Cohesion: 0.15
 Nodes (13): ClickHouse Traces Query Reference for SigNoz, Contents, Dashboard Panel Query Templates, distributed_signoz_error_index_v2 (Error Events), distributed_signoz_index_v3 (Primary Spans Table), distributed_traces_v3_resource (Resource Lookup Table), Query Examples, Query Optimization Checklist (+5 more)
 
 ### Community 8 - "Fase 1: Notification Service Completo"
-Cohesion: 0.18
-Nodes (11): devDependencies, supertest, ts-jest, ts-loader, ts-node, @types/jest, supertest, ts-jest (+3 more)
+Cohesion: 0.06
+Nodes (35): devDependencies, jest, @nestjs/cli, @nestjs/schematics, @nestjs/testing, prisma, source-map-support, supertest (+27 more)
 
 ### Community 9 - "SEO optimization"
 Cohesion: 0.06
@@ -731,8 +707,8 @@ Cohesion: 0.05
 Nodes (38): Backup Strategy, Base Image Selection, Build Performance, Checklist for Production-Ready Images, Common Anti-Patterns to Avoid, Container Runtime Best Practices, 🚨 CRITICAL GUIDELINES, Dependency Management (+30 more)
 
 ### Community 19 - "Proposed Changes"
-Cohesion: 0.29
-Nodes (6): author, description, license, name, private, version
+Cohesion: 0.08
+Nodes (25): 1. `Error: cannot connect to the Podman socket`, 2. `Permission denied` al montar volúmenes locales en Linux, 3. `kind load docker-image` falla con Podman, 4. Puertos privilegiados (<1024) en modo Rootless en Linux, ⚙️ Configuración de Podman Machine (Windows / macOS), Configuración de subuid y subgid en Linux:, 🛠️ Construcción de Imágenes con `Containerfile`, ⚡ Despliegue Automatizado con `deploy-k8s.ps1` / `deploy-k8s.sh` (+17 more)
 
 ### Community 20 - "ModuleProperties"
 Cohesion: 0.16
@@ -828,7 +804,7 @@ Nodes (9): ConditionalOnModuleEnabled, Override, OnModuleEnabledCondition, Annot
 
 ### Community 50 - "MoneyRequestDto"
 Cohesion: 0.10
-Nodes (21): devDependencies, eslint-config-prettier, eslint-plugin-prettier, globals, prettier, supertest, ts-jest, ts-node (+13 more)
+Nodes (21): devDependencies, eslint-config-prettier, eslint-plugin-prettier, prettier, source-map-support, supertest, ts-jest, ts-node (+13 more)
 
 ### Community 51 - "Accessibility (a11y)"
 Cohesion: 0.20
@@ -846,13 +822,17 @@ Nodes (7): SecurityConfig, Bean, Configuration, EnableWebSecurity, HttpSecurity,
 Cohesion: 0.04
 Nodes (45): Class Diagrams, Cross-Cutting Issues (All Diagrams), Debugging Tips, Diagram-Specific Guides, ER Diagrams, ❌ Error 10: Nested Subgraph Linking Error, ❌ Error 11: Missing Colon Before Message Text, ❌ Error 12: Missing Space in Participant Declaration (+37 more)
 
+### Community 55 - "GatewayConfig"
+Cohesion: 0.12
+Nodes (14): KafkaModule, Module, RedisModule, Module, Module, UserTrpcClientModule, AppModule, CommandHandlers (+6 more)
+
 ### Community 58 - "SecurityConfig.java"
 Cohesion: 0.05
 Nodes (42): 10.1 Webhook Events, 10. Webhooks, 11. Versioning Strategy, 12.1 Security Checklist, 12. Security Considerations, 13. Performance Targets, 14.1 Test Coverage, 14. Testing Strategy (+34 more)
 
 ### Community 59 - "mvnw"
-Cohesion: 0.05
-Nodes (43): 1. Layered Architecture (MVC), 1. **Start High-Level, Then Zoom In**, 2. Microservices, 2. **Use Framework Examples as Templates**, 3. Event-Driven, 3. **Include Technology Stack**, 4. CQRS (Command Query Responsibility Segregation), 4. **Validate Diagram Syntax** (+35 more)
+Cohesion: 0.12
+Nodes (16): Code-to-Diagram Master Guide, Common Pitfalls, Decision Tree, Diagram Type Mapping, Overview, ❌ Pitfall 1: Mixing Abstraction Levels, ❌ Pitfall 2: Overloading Diagrams, ❌ Pitfall 3: Missing Communication Protocols (+8 more)
 
 ### Community 61 - "mvnw"
 Cohesion: 0.05
@@ -980,7 +960,7 @@ Nodes (4): Full Stack, Quick Start, With Docker, Without Docker
 
 ### Community 107 - "React + Vite"
 Cohesion: 0.33
-Nodes (5): 🧪 Comandos de Desarrollo, 📦 Construcción y Despliegue en Kubernetes (Rancher Desktop), 📁 Estructura del Proyecto, Frontend (React + Vite + TailwindCSS), ⚙️ Integración con Microservicios NestJS & Traefik Ingress
+Nodes (5): 🧪 Comandos de Desarrollo, 📦 Construcción y Despliegue en Kubernetes con Podman, 📁 Estructura del Proyecto, Frontend (React + Vite + TailwindCSS), ⚙️ Integración con Microservicios NestJS & Traefik Ingress
 
 ### Community 121 - "api-gateway:api-gateway"
 Cohesion: 0.06
@@ -988,7 +968,7 @@ Nodes (26): GlobalExceptionFilter, AppController, Controller, Get, AppModule, Mo
 
 ### Community 124 - "notification-service:notification-service"
 Cohesion: 0.25
-Nodes (8): 1. **Choose the Right Abstraction Level**, 2. **Use Consistent Symbols**, 3. **Label Communication Protocols**, 4. **Show Boundaries Clearly**, 5. **Indicate Technology Choices**, 6. **Document Key Decisions**, 7. **High-Contrast Styling**, Best Practices
+Nodes (8): 1. **Start High-Level, Then Zoom In**, 2. **Use Framework Examples as Templates**, 3. **Include Technology Stack**, 4. **Validate Diagram Syntax**, 5. **Keep Diagrams Current**, 6. **Use Semantic Unicode Symbols**, 7. **Document Diagram Scope**, Best Practices
 
 ### Community 129 - "5. Body Text Search — Engaging Skip Indexes"
 Cohesion: 0.17
@@ -1000,7 +980,7 @@ Nodes (11): Key Variables by Signal, Logs, Query Attribution, Quick Reference, R
 
 ### Community 134 - "TransactionController"
 Cohesion: 0.08
-Nodes (25): ApiHeader, MoneyRequestDto, ApiProperty, IsNumber, IsOptional, IsPositive, IsString, TransferRequestDto (+17 more)
+Nodes (29): ApiHeader, MoneyRequestDto, ApiProperty, IsNumber, IsOptional, IsPositive, IsString, TransferRequestDto (+21 more)
 
 ### Community 137 - "Attribute Access Syntax"
 Cohesion: 0.33
@@ -1014,6 +994,10 @@ Nodes (5): 1. Resource Filter CTE, 2. Timestamp Bucketing, 3. Use Indexed Column
 Cohesion: 0.50
 Nodes (4): Attribute Access Syntax, Checking attribute existence, Resource attributes in SELECT / GROUP BY, Resource attributes in WHERE (via CTE)
 
+### Community 141 - "StatementService"
+Cohesion: 0.29
+Nodes (7): Express.js → Diagrams, FastAPI → Diagrams, Framework-Specific Guides, Java Servlet → Diagrams, Python ETL → Diagrams, React → Diagrams, Spring Boot → Diagrams
+
 ### Community 142 - "StatementService"
 Cohesion: 0.06
 Nodes (30): AWS EBS CSI Driver, AWS EBS (gp3), Azure Disk (Premium SSD), Basic PVC (Dynamic Provisioning), Best Practices, Block Volume, ConfigMap and Secret Volumes, CSI Driver Examples (+22 more)
@@ -1023,8 +1007,8 @@ Cohesion: 0.07
 Nodes (29): Advanced Debugging, API Server Debugging, Best Practices, Common Exit Codes, Common Issues and Solutions, Database Client Container, Debug on Node, Debug Pod (+21 more)
 
 ### Community 144 - "SKILL.md"
-Cohesion: 0.11
-Nodes (18): 1. Diagnóstico del Error Común: `rootless containerd not running`, 2. Método A: Modo Sistema / Root con K3s (Recomendado), 3. Método B: Modo Rootless (Sin `sudo`), 4. Configuración del Demonio BuildKit (`buildkitd`), 5. Automatización con Variables de Entorno y Alias, 6. Verificación de Compilación, Configuración de containerd, nerdctl y BuildKit en Linux (Ubuntu), 📑 Contenido (+10 more)
+Cohesion: 0.33
+Nodes (6): 1. Layered Architecture (MVC), 2. Microservices, 3. Event-Driven, 4. CQRS (Command Query Responsibility Segregation), Common Architectural Patterns, Pattern Recognition
 
 ### Community 145 - "FinTech Wallet"
 Cohesion: 0.50
@@ -1035,8 +1019,8 @@ Cohesion: 0.50
 Nodes (4): Activity Diagram from Filter Chain, Filter Chain Configuration, Mapping to Activity Diagram, web.xml Filter Ordering
 
 ### Community 147 - "MoneyRequestEntity"
-Cohesion: 0.07
-Nodes (11): Inject, PrismaTransactionRepository, Injectable, TransactionUseCases, Injectable, MoneyRequestEntity, TransactionEntity, MoneyRequestParams (+3 more)
+Cohesion: 0.08
+Nodes (9): Inject, PrismaTransactionRepository, Injectable, TransactionUseCases, Injectable, MoneyRequestEntity, TransactionEntity, TransactionServicePort (+1 more)
 
 ### Community 148 - "📖 Guía Completa de Comandos Kubernetes (Cheat Sheet)"
 Cohesion: 0.50
@@ -1050,9 +1034,13 @@ Nodes (8): PrismaUserRepository, Injectable, AuthUseCases, Inject, Injectable, U
 Cohesion: 0.06
 Nodes (35): Activity Flow with States, Available Guides and Resources, Best Practices, Code-to-Diagram Guide & Examples, Convert to Images, Decision Tree, Decision Tree Examples, Design Document Templates (+27 more)
 
+### Community 151 - "AuthResponse"
+Cohesion: 0.33
+Nodes (6): Analysis Workflow, Step 1: Identify Framework and Patterns, Step 2: Map Code Structure to Diagram Types, Step 3: Extract Key Information, Step 4: Apply Framework Patterns, Step 5: Generate and Validate
+
 ### Community 152 - "swarm-init.sh"
 Cohesion: 0.09
-Nodes (23): devDependencies, eslint-plugin-prettier, globals, jest, @nestjs/cli, prettier, source-map-support, @swc/cli (+15 more)
+Nodes (23): devDependencies, eslint, eslint-plugin-prettier, globals, jest, @nestjs/cli, prettier, source-map-support (+15 more)
 
 ### Community 153 - "Microservicios"
 Cohesion: 0.50
@@ -1064,11 +1052,23 @@ Nodes (4): Integration Tests, Test Naming, Testing Guidelines, Unit Tests
 
 ### Community 155 - "Funcionalidades"
 Cohesion: 0.10
-Nodes (21): devDependencies, eslint, eslint-config-prettier, @eslint/eslintrc, @eslint/js, globals, @nestjs/schematics, prisma (+13 more)
+Nodes (21): devDependencies, eslint, eslint-config-prettier, @eslint/eslintrc, globals, @nestjs/schematics, prisma, source-map-support (+13 more)
 
 ### Community 156 - "Helm Charts"
 Cohesion: 0.08
 Nodes (25): Best Practices, Chart Repository, Chart Structure, Chart Testing, Chart Testing Tool (ct), Chart.yaml, Complex Upgrade/Rollback, Create Repository (+17 more)
+
+### Community 157 - "RetryProxyConfig.java"
+Cohesion: 0.33
+Nodes (6): 1. Show Resource Specifications, 2. Indicate Network Boundaries, 3. Show Scaling Configuration, 4. Document Ports and Protocols, 5. Indicate High Availability, Best Practices
+
+### Community 158 - "GrpcRetryConfig.java"
+Cohesion: 0.50
+Nodes (4): Authentication Flow, Common Patterns, Data Processing Pipeline, E-commerce Checkout Flow
+
+### Community 159 - "Tecnologias Detalladas"
+Cohesion: 0.67
+Nodes (3): log(), SERVICES, deploy-k8s.sh script
 
 ### Community 161 - "dependencies"
 Cohesion: 0.07
@@ -1092,11 +1092,11 @@ Nodes (15): main(), MermaidDiagram, MermaidExtractor, Path, Print a list of all 
 
 ### Community 167 - "auth.use-cases.ts"
 Cohesion: 0.08
-Nodes (26): 1.1. Pod en Estado `Pending`, 1.2. Pod en Estado `ImagePullBackOff` o `ErrImagePull`, 1.3. Pod en Estado `CrashLoopBackOff`, 1.4. Fallo en `ReadinessProbe` o `LivenessProbe`, 1.5. Error al Compilar Imágenes: `rootless containerd not running` (Linux / Ubuntu), 1. Problemas en Kubernetes, 2.1. Error `Connection Refused` o Fallo en PgBouncer, 2.2. Error de Autenticación de Base de Datos (`password authentication failed`) (+18 more)
+Nodes (26): 1.1. Pod en Estado `Pending`, 1.2. Pod en Estado `ImagePullBackOff` o `ErrImagePull`, 1.3. Pod en Estado `CrashLoopBackOff`, 1.4. Fallo en `ReadinessProbe` o `LivenessProbe`, 1.5. Error al Compilar o Montar con Podman: Socket o Permisos Rootless, 1. Problemas en Kubernetes, 2.1. Error `Connection Refused` o Fallo en PgBouncer, 2.2. Error de Autenticación de Base de Datos (`password authentication failed`) (+18 more)
 
 ### Community 168 - "transaction.use-cases.ts"
-Cohesion: 0.12
-Nodes (16): 3. Catálogo de Bases de Datos y Esquemas, Base de Datos `authdb` (`auth-service`), Base de Datos `notificationdb` (`notification-service`), Base de Datos `transactiondb` (`transaction-service`), Base de Datos `userdb` (`user-service`), Base de Datos `workerdb` (`worker-service`), Tabla `audit_logs`, Tabla `idempotency_records` (+8 more)
+Cohesion: 0.08
+Nodes (24): 1. Topología de Persistencia y Segregación, 2. Connection Pooling con PgBouncer Core, 3. Catálogo de Bases de Datos y Esquemas, 4. Diagrama Entidad-Relación (ERD) Consolidado, 5. Gestión de Esquemas con Prisma ORM, 6. Estrategia de Copias de Seguridad y Recuperación, Base de Datos `authdb` (`auth-service`), Base de Datos `notificationdb` (`notification-service`) (+16 more)
 
 ### Community 169 - "AuthController"
 Cohesion: 0.15
@@ -1104,7 +1104,7 @@ Nodes (12): AppModule, Module, NotificationApplicationModule, Module, createWins
 
 ### Community 170 - "dependencies"
 Cohesion: 0.22
-Nodes (9): dependencies, class-transformer, ioredis, @nestjs/microservices, @opentelemetry/exporter-metrics-otlp-http, class-transformer, ioredis, @nestjs/microservices (+1 more)
+Nodes (9): dependencies, class-validator, ioredis, @nestjs/microservices, @opentelemetry/exporter-metrics-otlp-http, class-validator, ioredis, @nestjs/microservices (+1 more)
 
 ### Community 171 - "Transaction Service (NestJS) 💸"
 Cohesion: 0.10
@@ -1127,8 +1127,8 @@ Cohesion: 0.10
 Nodes (20): ArgoCD Application, ArgoCD ApplicationSet, ArgoCD Installation, ArgoCD Project, ArgoCD vs Flux Comparison, ArgoCD with Helm, Best Practices, Flux GitRepository (+12 more)
 
 ### Community 176 - "UserServiceGrpcAdapter"
-Cohesion: 0.11
-Nodes (11): Inject, Injectable, UserGrpcService, UserServiceGrpcAdapter, Injectable, UserServiceTrpcAdapter, Module, UserTrpcClientModule (+3 more)
+Cohesion: 0.12
+Nodes (12): Module, UserGrpcClientModule, Inject, Injectable, UserGrpcService, UserServiceGrpcAdapter, Injectable, UserServiceTrpcAdapter (+4 more)
 
 ### Community 177 - "Service Mesh"
 Cohesion: 0.10
@@ -1136,7 +1136,7 @@ Nodes (19): Authorization Policy, Best Practices, Circuit Breaker, DestinationRu
 
 ### Community 179 - "Auth Service (NestJS) 🔐"
 Cohesion: 0.11
-Nodes (18): 1. Desarrollo Local (Standalone), 1. Registrar Nuevo Usuario (`POST /auth/register`), 2. Iniciar Sesión (`POST /auth/login`), 2. Producción Local, 3. En Kubernetes / Rancher Desktop (k3s), 3. Obtener Usuario Autenticado (`GET /auth/me`), 4. Configurar Autenticación 2FA/TOTP (`POST /auth/setup-totp`), 5. Confirmar y Activar 2FA (`POST /auth/enable-totp`) (+10 more)
+Nodes (18): 1. Desarrollo Local (Standalone), 1. Registrar Nuevo Usuario (`POST /auth/register`), 2. Iniciar Sesión (`POST /auth/login`), 2. Producción Local, 3. En Kubernetes con Podman, 3. Obtener Usuario Autenticado (`GET /auth/me`), 4. Configurar Autenticación 2FA/TOTP (`POST /auth/setup-totp`), 5. Confirmar y Activar 2FA (`POST /auth/enable-totp`) (+10 more)
 
 ### Community 180 - "compilerOptions"
 Cohesion: 0.11
@@ -1172,11 +1172,11 @@ Nodes (17): 1. Arquitectura de Kafka en Modo KRaft, 1. Deduplicación de Mensaje
 
 ### Community 188 - "User Service (NestJS) 👤"
 Cohesion: 0.11
-Nodes (17): 1. Consultar Perfil de Usuario por ID (`GET /users/profile/:id`), 1. Desarrollo Local (Standalone), 2. Crear Nuevo Perfil (`POST /users`), 2. Producción Local, 3. Actualizar Saldo de Usuario (`PUT /users/profile/:id/balance`), 3. En Kubernetes / Rancher Desktop (k3s), 4. Probar Router tRPC (`POST /trpc`), 5. Health Check (`GET /users/health`) (+9 more)
+Nodes (17): 1. Consultar Perfil de Usuario por ID (`GET /users/profile/:id`), 1. Desarrollo Local (Standalone), 2. Crear Nuevo Perfil (`POST /users`), 2. Producción Local, 3. Actualizar Saldo de Usuario (`PUT /users/profile/:id/balance`), 3. En Kubernetes con Podman, 4. Probar Router tRPC (`POST /trpc`), 5. Health Check (`GET /users/health`) (+9 more)
 
 ### Community 189 - "PrismaUserRepository"
-Cohesion: 0.13
-Nodes (6): IdempotencyService, Injectable, TransferMoneyCommandHandler, Inject, UserId, CommandHandler
+Cohesion: 0.08
+Nodes (9): IdempotencyService, Injectable, TransferMoneyCommand, TransferMoneyCommandHandler, Inject, TransferCompletedEvent, Money, UserId (+1 more)
 
 ### Community 191 - "Quick Reference"
 Cohesion: 0.12
@@ -1251,8 +1251,8 @@ Cohesion: 0.09
 Nodes (15): NodemailerEmailAdapter, Inject, Injectable, Inject, Injectable, UserProfileHttpClient, Inject, Inject (+7 more)
 
 ### Community 213 - "TransactionUseCases"
-Cohesion: 0.13
-Nodes (7): KafkaProducerService, Injectable, Inject, OutboxPublisherService, Injectable, OutboxService, Injectable
+Cohesion: 0.24
+Nodes (3): KafkaProducerService, Injectable, Inject
 
 ### Community 214 - "Custom Operators"
 Cohesion: 0.18
@@ -1280,7 +1280,7 @@ Nodes (5): AppController, Controller, Get, AppService, Injectable
 
 ### Community 223 - "dependencies"
 Cohesion: 0.22
-Nodes (9): dependencies, kafkajs, nest-winston, @nestjs/common, @nestjs/platform-express, kafkajs, nest-winston, @nestjs/common (+1 more)
+Nodes (9): dependencies, kafkajs, @nestjs/common, @nestjs/platform-express, @opentelemetry/exporter-metrics-otlp-http, kafkajs, @nestjs/common, @nestjs/platform-express (+1 more)
 
 ### Community 225 - "PrismaService"
 Cohesion: 0.13
@@ -1288,11 +1288,11 @@ Nodes (10): HealthController, ApiOperation, ApiTags, Controller, Get, PrismaModu
 
 ### Community 226 - "README.md"
 Cohesion: 0.25
-Nodes (7): 📁 Arquitectura de Carpetas (Hexagonal / Ports & Adapters), 🚀 Arquitectura y Características, 🐳 Despliegue en Kubernetes (Rancher / nerdctl), 🚀 Endpoints REST API & Swagger UI, Notification Service (NestJS) 🔔, 🧪 Pruebas Unitarias, ⚙️ Variables de Entorno (`.env`)
+Nodes (7): 📁 Arquitectura de Carpetas (Hexagonal / Ports & Adapters), 🚀 Arquitectura y Características, 🦭 Despliegue en Kubernetes con Podman, 🚀 Endpoints REST API & Swagger UI, Notification Service (NestJS) 🔔, 🧪 Pruebas Unitarias, ⚙️ Variables de Entorno (`.env`)
 
 ### Community 227 - "README.md"
 Cohesion: 0.33
-Nodes (5): 🏗️ Arquitectura Hexagonal, 🚀 Características Principales, 🔧 Comandos de Ejecución, 🐳 Docker & Kubernetes Deployment, Worker Service (NestJS) ⚙️
+Nodes (5): 🏗️ Arquitectura Hexagonal, 🚀 Características Principales, 🔧 Comandos de Ejecución, 🦭 Podman & Kubernetes Deployment, Worker Service (NestJS) ⚙️
 
 ### Community 228 - "package.json"
 Cohesion: 0.20
@@ -1387,8 +1387,8 @@ Cohesion: 0.40
 Nodes (5): Common Patterns & Solutions, Custom Decorator Pattern, Exception Filter Pattern, Module Organization, Testing Pattern
 
 ### Community 259 - "tracing.ts"
-Cohesion: 0.17
-Nodes (10): AppModule, Module, createWinstonLogger(), otelLogFormat, logger, metricExporter, otelSDK, startTelemetry() (+2 more)
+Cohesion: 0.21
+Nodes (8): createWinstonLogger(), otelLogFormat, logger, metricExporter, otelSDK, startTelemetry(), traceExporter, bootstrap()
 
 ### Community 260 - "UpdateBalanceDto"
 Cohesion: 0.13
@@ -1432,11 +1432,11 @@ Nodes (13): Module, UserGrpcClientModule, Injectable, UserServiceGrpcAdapter, Us
 
 ### Community 327 - "nodemailer"
 Cohesion: 0.18
-Nodes (11): dependencies, class-transformer, @nestjs/common, @opentelemetry/exporter-logs-otlp-http, @trpc/client, zod, class-transformer, @nestjs/common (+3 more)
+Nodes (11): dependencies, axios, class-transformer, @nestjs/common, @opentelemetry/exporter-logs-otlp-http, @trpc/client, axios, class-transformer (+3 more)
 
 ### Community 329 - "@opentelemetry/exporter-logs-otlp-http"
-Cohesion: 0.09
-Nodes (22): Activity Diagram Guide, Activity Diagram Templates, Anti-Patterns to Avoid, Authentication Flow, Basic Syntax, Common Patterns, Common Unicode Symbols for Activities, Data Processing Pipeline (+14 more)
+Cohesion: 0.08
+Nodes (24): 1. Keep Flows Focused, 2. Use Clear Naming, 3. Consistent Decision Logic, 4. Handle Error Paths, 5. Use Subgraphs for Organization, Activity Diagram Guide, Activity Diagram Templates, Anti-Patterns to Avoid (+16 more)
 
 ### Community 331 - "@opentelemetry/resources"
 Cohesion: 0.24
@@ -1463,12 +1463,12 @@ Cohesion: 0.17
 Nodes (12): Fase 0 — Baseline, Fase 10 — Kubernetes, Fase 1 — Arquitectura del monorepo, Fase 2 — tRPC, Fase 3 — DDD, Fase 4 — Seguridad, Fase 5 — Consistencia financiera, Fase 6 — Kafka (+4 more)
 
 ### Community 346 - "ts-jest"
-Cohesion: 0.09
-Nodes (22): Architecture Diagrams Guide, C4 Model Diagrams, Common Patterns, Component Diagrams, Event-Driven Architecture, Layered Architecture, Level 1: Context Diagram, Level 2: Container Diagram (+14 more)
+Cohesion: 0.07
+Nodes (30): 1. **Choose the Right Abstraction Level**, 2. **Use Consistent Symbols**, 3. **Label Communication Protocols**, 4. **Show Boundaries Clearly**, 5. **Indicate Technology Choices**, 6. **Document Key Decisions**, 7. **High-Contrast Styling**, Architecture Diagrams Guide (+22 more)
 
 ### Community 349 - "@types/bcrypt"
 Cohesion: 0.07
-Nodes (27): devDependencies, eslint, @eslint/eslintrc, @eslint/js, eslint-plugin-prettier, @nestjs/schematics, @nestjs/testing, supertest (+19 more)
+Nodes (27): devDependencies, eslint, @eslint/eslintrc, @eslint/js, eslint-plugin-prettier, globals, @nestjs/schematics, @nestjs/testing (+19 more)
 
 ### Community 351 - "@types/jest"
 Cohesion: 0.23
@@ -1484,23 +1484,23 @@ Nodes (4): qrcode, TotpSetupResult, TotpUtil, qrcode
 
 ### Community 358 - "@nestjs/schematics"
 Cohesion: 0.22
-Nodes (7): Module, UserGrpcClientModule, EventEnvelope, TransferCompletedEventPayload, TransferCompletedEvent, TRANSACTION_REPOSITORY_PORT, USER_SERVICE_CLIENT_PORT
+Nodes (7): EventEnvelope, TransferCompletedEventPayload, PrismaModule, Module, MoneyRequestParams, TransferParams, TRANSACTION_REPOSITORY_PORT
 
 ### Community 359 - "supertest"
-Cohesion: 0.10
-Nodes (21): 1. Requisitos Previos, 2. Clonar el Repositorio y Seleccionar la Rama, 3. Configurar Variables de Entorno, 4. Desplegar Todo el Sistema en Kubernetes, 5. Verificar el Estado del Despliegue, 6. Ejecutar la Suite de Pruebas de Humo, 🏛️ Arquitectura del Sistema, ✨ Características Principales (+13 more)
+Cohesion: 0.09
+Nodes (22): 1. Requisitos Previos, 2. Clonar el Repositorio y Seleccionar la Rama, 3. Configurar Variables de Entorno, 4. Desplegar Todo el Sistema en Kubernetes, 5. Verificar el Estado del Despliegue, 6. Ejecutar la Suite de Pruebas de Humo, 🏛️ Arquitectura del Sistema, ✨ Características Principales (+14 more)
 
 ### Community 362 - "KafkaConsumerService"
 Cohesion: 0.33
 Nodes (3): KafkaConsumerService, Inject, Injectable
 
 ### Community 365 - "SKILL.md"
-Cohesion: 0.11
-Nodes (19): 1. Show Resource Specifications, 2. Indicate Network Boundaries, 3. Show Scaling Configuration, 4. Document Ports and Protocols, 5. Indicate High Availability, Basic Syntax, Best Practices, Deployment Diagram Guide (+11 more)
+Cohesion: 0.12
+Nodes (17): Basic Syntax, Common Deployment Patterns, Deployment Diagram Guide, Deployment Diagram Templates, Docker Compose to Deployment Diagram, Infrastructure as Code Mapping, Integration with Code, Microservices Deployment (Kubernetes) (+9 more)
 
 ### Community 367 - "typescript"
-Cohesion: 0.11
-Nodes (18): Advanced: Creating Symbol Legends, Business & Domain (💰 🛒 📋), Common Patterns, Complete Symbol Reference Table, Compute & Processing (⚙️ ⚡ 🔄), Data & Storage (💾 📦 📊), Development & Code (💻 🔧 🐛), Infrastructure & Cloud (☁️ 🌐 🔌) (+10 more)
+Cohesion: 0.07
+Nodes (29): 1. Consistent Symbol Usage, 2. Don't Overuse Symbols, 3. Combine with Text, 4. Consider Rendering Context, 5. Symbol Accessibility, Advanced: Creating Symbol Legends, Best Practices, Business & Domain (💰 🛒 📋) (+21 more)
 
 ### Community 368 - "@grpc/proto-loader"
 Cohesion: 0.29
@@ -1512,7 +1512,7 @@ Nodes (18): 1. Arquitectura del Pipeline de Telemetría, 1. Ejecutar Script de D
 
 ### Community 371 - "@nestjs/config"
 Cohesion: 0.22
-Nodes (9): dependencies, class-transformer, rxjs, @trpc/client, @trpc/server, class-transformer, rxjs, @trpc/client (+1 more)
+Nodes (9): dependencies, @opentelemetry/instrumentation-express, rxjs, @trpc/client, @trpc/server, @opentelemetry/instrumentation-express, rxjs, @trpc/client (+1 more)
 
 ### Community 373 - "@nestjs/platform-express"
 Cohesion: 0.23
@@ -1531,12 +1531,8 @@ Cohesion: 0.22
 Nodes (4): Controller, Inject, UserGrpcController, GrpcMethod
 
 ### Community 385 - "reflect-metadata"
-Cohesion: 0.16
+Cohesion: 0.15
 Nodes (7): HealthController, ApiOperation, ApiTags, Controller, Get, PrismaService, Injectable
-
-### Community 386 - "rxjs"
-Cohesion: 0.25
-Nodes (8): 1. Topología de Persistencia y Segregación, 2. Connection Pooling con PgBouncer Core, 4. Diagrama Entidad-Relación (ERD) Consolidado, 5. Gestión de Esquemas con Prisma ORM, 6. Estrategia de Copias de Seguridad y Recuperación, Bases de Datos Relacionales y PgBouncer, Comandos de Administración Prisma:, 📑 Contenido
 
 ### Community 388 - "@types/node"
 Cohesion: 0.24
@@ -1551,8 +1547,8 @@ Cohesion: 0.29
 Nodes (6): Arquitectura Objetivo, Decisiones de Diseño Validadas, Estado Actual del Proyecto, Plan de Implementación por Fases — FinTech Wallet, Protocolos de Comunicación, Resumen de Prioridades
 
 ### Community 394 - "@nestjs/microservices"
-Cohesion: 0.22
-Nodes (9): dependencies, class-transformer, @opentelemetry/sdk-metrics, @trpc/server, winston, class-transformer, @opentelemetry/sdk-metrics, @trpc/server (+1 more)
+Cohesion: 0.06
+Nodes (31): dependencies, class-transformer, class-validator, @nestjs/platform-express, @opentelemetry/instrumentation-express, @opentelemetry/instrumentation-http, @opentelemetry/sdk-metrics, @opentelemetry/sdk-node (+23 more)
 
 ### Community 395 - "@nestjs/terminus"
 Cohesion: 0.13
@@ -1595,8 +1591,8 @@ Cohesion: 0.50
 Nodes (4): Archivos a crear, Criterio de completitud, Fase 5 — Kafka: Contratos de Eventos y Retry Formal, Tareas
 
 ### Community 467 - "axios"
-Cohesion: 0.14
-Nodes (14): 1. Prerrequisitos de Software, 2. Estrategia de Ejecución: Local vs Kubernetes, 3. Clonación del Repositorio, 4. Configuración de Variables de Entorno, 5. Despliegue en Kubernetes, 6. Verificación del Despliegue y Salud del Clúster, 7. Acceso a las Aplicaciones y Paneles de Control, 8. Ejecución de Pruebas de Humo (+6 more)
+Cohesion: 0.15
+Nodes (13): 1. Prerrequisitos de Software, 2. Estrategia de Ejecución: Local vs Kubernetes, 3. Clonación del Repositorio, 4. Configuración de Variables de Entorno, 5. Despliegue en Kubernetes, 6. Verificación del Despliegue y Salud del Clúster, 7. Acceso a las Aplicaciones y Paneles de Control, 8. Ejecución de Pruebas de Humo (+5 more)
 
 ### Community 469 - "react-hot-toast"
 Cohesion: 0.13
@@ -1734,17 +1730,9 @@ Nodes (6): author, description, license, name, private, version
 Cohesion: 0.33
 Nodes (6): 1. Error Handling Pattern, 2. Async Handler Wrapper, 3. Service Layer Pattern, 4. Dependency Injection Pattern, 5. Background Job Processing with Bull, Node.js Patterns
 
-### Community 570 - "Best Practices"
-Cohesion: 0.33
-Nodes (6): 1. Keep Flows Focused, 2. Use Clear Naming, 3. Consistent Decision Logic, 4. Handle Error Paths, 5. Use Subgraphs for Organization, Best Practices
-
 ### Community 571 - "Search Tool Priority"
 Cohesion: 0.33
 Nodes (6): 1. Perplexity MCP (Primary), 2. Brave Search MCP (Secondary), 3. Gemini Skill (Tertiary), 4. WebSearch Tool (Fallback), Search Query Format, Search Tool Priority
-
-### Community 573 - "Best Practices"
-Cohesion: 0.33
-Nodes (6): 1. Consistent Symbol Usage, 2. Don't Overuse Symbols, 3. Combine with Text, 4. Consider Rendering Context, 5. Symbol Accessibility, Best Practices
 
 ### Community 575 - "Diátaxis Documentation Expert"
 Cohesion: 0.33
@@ -1778,10 +1766,6 @@ Nodes (5): Components, Examples, File Naming Convention, Format, Sanitization Ru
 Cohesion: 0.40
 Nodes (5): File Naming, Quick Reference Card, Search Priority, Validation Command, Workflow Summary
 
-### Community 598 - "Language-Specific Symbol Conventions"
-Cohesion: 0.40
-Nodes (5): Java/Spring, JavaScript/Node, Language-Specific Symbol Conventions, Python, React
-
 ### Community 599 - "2. Background & Context"
 Cohesion: 0.50
 Nodes (4): 2.1 Problem Statement, 2.2 Business Goals, 2.3 User Stories, 2. Background & Context
@@ -1793,10 +1777,6 @@ Nodes (4): 3.1 User Journey, 3.2 User Flow, 3.3 UI/UX Mockups, 3. User Experienc
 ### Community 601 - "4. Technical Design"
 Cohesion: 0.50
 Nodes (4): 4.1 System Architecture, 4.2 Component Design, 4.3 Sequence Diagram, 4. Technical Design
-
-### Community 603 - "Common Deployment Patterns"
-Cohesion: 0.50
-Nodes (4): Common Deployment Patterns, Microservices Deployment (Kubernetes), Serverless Architecture, Three-Tier Architecture
 
 ### Community 604 - "Integration Examples"
 Cohesion: 0.50
@@ -1891,24 +1871,24 @@ Cohesion: 0.67
 Nodes (3): 9.1 Horizontal Scaling, 9.2 Database Scaling, 9. Scaling Strategy
 
 ## Knowledge Gaps
-- **2516 isolated node(s):** `com.company:spring-boot-app`, `start-local.sh script`, `$schema`, `collection`, `sourceRoot` (+2511 more)
+- **2523 isolated node(s):** `com.company:spring-boot-app`, `start-local.sh script`, `$schema`, `collection`, `sourceRoot` (+2518 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **300 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **275 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `User` connect `Docker Swarm Skill` to `PrismaService`, `App.jsx`, `.findByEmail`, `AppController`, `user.entity.ts`, `.verifyTotp`?**
   _High betweenness centrality (0.008) - this node is a cross-community bridge._
-- **Why does `dependencies` connect `dependencies` to `@opentelemetry/resources`, `package.json`, `@opentelemetry/sdk-trace-base`, `@opentelemetry/auto-instrumentations-web`, `@opentelemetry/exporter-trace-otlp-http`, `@opentelemetry/sdk-trace-web`, `qrcode.react`, `react`, `react-icons`, `recharts`, `class-transformer`, `react-hot-toast`, `axios`?**
-  _High betweenness centrality (0.005) - this node is a cross-community bridge._
+- **Why does `dependencies` connect `dependencies` to `@opentelemetry/resources`, `rxjs`, `package.json`, `@opentelemetry/auto-instrumentations-web`, `@opentelemetry/exporter-trace-otlp-http`, `@opentelemetry/sdk-trace-web`, `qrcode.react`, `react`, `react-icons`, `recharts`, `class-transformer`, `react-hot-toast`, `@opentelemetry/sdk-trace-base`?**
+  _High betweenness centrality (0.006) - this node is a cross-community bridge._
 - **Why does `History()` connect `App.jsx` to `dependencies`?**
-  _High betweenness centrality (0.005) - this node is a cross-community bridge._
+  _High betweenness centrality (0.006) - this node is a cross-community bridge._
 - **What connects `com.company:spring-boot-app`, `start-local.sh script`, `$schema` to the rest of the system?**
-  _2516 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _2523 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `UserDto` be split into smaller, more focused modules?**
   _Cohesion score 0.05446727185857621 - nodes in this community are weakly interconnected._
-- **Should `NotificationService` be split into smaller, more focused modules?**
-  _Cohesion score 0.1032258064516129 - nodes in this community are weakly interconnected._
+- **Should `UserProfileDto` be split into smaller, more focused modules?**
+  _Cohesion score 0.13333333333333333 - nodes in this community are weakly interconnected._
 - **Should `App.jsx` be split into smaller, more focused modules?**
   _Cohesion score 0.1012987012987013 - nodes in this community are weakly interconnected._

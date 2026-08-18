@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
 
   # ==============================================================================
@@ -19,7 +17,7 @@ services:
       - "5432:5432"
     volumes:
       - postgres-core-data:/var/lib/postgresql/data
-      - ./infra/postgres/init-core.sql:/docker-entrypoint-initdb.d/init-core.sql:ro
+      - ./infra/postgres/init-core.sql:/docker-entrypoint-initdb.d/init-core.sql:ro,z
     command: >
       postgres -c max_connections=150
                -c shared_buffers=128MB
@@ -43,7 +41,7 @@ services:
       - "5433:5432"
     volumes:
       - postgres-support-data:/var/lib/postgresql/data
-      - ./infra/postgres/init-support.sql:/docker-entrypoint-initdb.d/init-support.sql:ro
+      - ./infra/postgres/init-support.sql:/docker-entrypoint-initdb.d/init-support.sql:ro,z
     command: >
       postgres -c max_connections=100
                -c shared_buffers=64MB
@@ -87,7 +85,7 @@ services:
       postgres-support:
         condition: service_healthy
     volumes:
-      - ./backups:/backups
+      - ./backups:/backups:z
     environment:
       POSTGRES_HOST: postgres-core
       POSTGRES_DB: authdb,userdb,transactiondb
@@ -152,7 +150,7 @@ services:
   auth-service:
     build:
       context: ./backend-nestjs/auth-service
-      dockerfile: Dockerfile
+      dockerfile: Containerfile
     container_name: fintech-auth
     ports:
       - "3001:3001"
@@ -182,7 +180,7 @@ services:
   user-service:
     build:
       context: ./backend-nestjs/user-service
-      dockerfile: Dockerfile
+      dockerfile: Containerfile
     container_name: fintech-user
     ports:
       - "3002:3002"
@@ -204,7 +202,7 @@ services:
   transaction-service:
     build:
       context: ./backend-nestjs/transaction-service
-      dockerfile: Dockerfile
+      dockerfile: Containerfile
     container_name: fintech-transaction
     ports:
       - "3003:3003"
@@ -231,7 +229,7 @@ services:
   notification-service:
     build:
       context: ./backend-nestjs/notification-service
-      dockerfile: Dockerfile
+      dockerfile: Containerfile
     container_name: fintech-notification
     ports:
       - "3004:3004"
@@ -257,7 +255,7 @@ services:
   worker-service:
     build:
       context: ./backend-nestjs/worker-service
-      dockerfile: Dockerfile
+      dockerfile: Containerfile
     container_name: fintech-worker
     ports:
       - "3005:3005"
@@ -284,7 +282,7 @@ services:
   frontend:
     build:
       context: ./frontend
-      dockerfile: Dockerfile
+      dockerfile: Containerfile
     container_name: fintech-frontend
     ports:
       - "3000:80"
@@ -303,8 +301,8 @@ services:
     container_name: fintech-clickhouse
     volumes:
       - clickhouse-data:/var/lib/clickhouse
-      - ./infra/clickhouse/cluster.xml:/etc/clickhouse-server/config.d/cluster.xml:ro
-      - ./infra/clickhouse/users.xml:/etc/clickhouse-server/users.d/experimental.xml:ro
+      - ./infra/clickhouse/cluster.xml:/etc/clickhouse-server/config.d/cluster.xml:ro,z
+      - ./infra/clickhouse/users.xml:/etc/clickhouse-server/users.d/experimental.xml:ro,z
     healthcheck:
       test: ["CMD", "clickhouse-client", "--query", "SELECT 1"]
       interval: 10s
@@ -323,7 +321,7 @@ services:
         /signoz-otel-collector migrate sync up --config /etc/otel-collector-config.yaml && \
         /signoz-otel-collector migrate async up --config /etc/otel-collector-config.yaml
     volumes:
-      - ./infra/otel/otel-migration-config.yaml:/etc/otel-collector-config.yaml
+      - ./infra/otel/otel-migration-config.yaml:/etc/otel-collector-config.yaml:ro,z
     environment:
       - SIGNOZ_OTEL_COLLECTOR_CLICKHOUSE_DSN=tcp://clickhouse:9000
     depends_on:
@@ -351,10 +349,8 @@ services:
     image: signoz/signoz-otel-collector:v0.144.7
     container_name: fintech-otel-collector
     command: ["--config=/etc/otel-collector-config.yaml"]
-    user: "0"
     volumes:
-      - ./infra/otel/otel-collector-config.yaml:/etc/otel-collector-config.yaml
-      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./infra/otel/otel-collector-config.yaml:/etc/otel-collector-config.yaml:ro,z
     ports:
       - "4317:4317" # OTLP gRPC
       - "4318:4318" # OTLP HTTP

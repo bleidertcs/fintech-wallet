@@ -131,12 +131,12 @@ pnpm test
 
 ---
 
-## 🐳 Despliegue con Docker y Kubernetes
+## 🦭 Despliegue con Podman y Kubernetes
 
-### Construir Imagen con `nerdctl`
+### Construir Imagen con Podman
 
 ```bash
-nerdctl --namespace k8s.io build -t fintech/transaction-service:nestjs ./backend-nestjs/transaction-service
+podman build -f Containerfile -t fintech/transaction-service:1.0.0 .
 ```
 
 ### Aplicar Manifiesto Kubernetes

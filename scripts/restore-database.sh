@@ -8,7 +8,7 @@ set -eo pipefail
 
 BACKUP_PATH="${1:-}"
 TARGET_DB="${2:-ALL}"
-TARGET="${3:-docker}"
+TARGET="${3:-podman}"
 DB_PASSWORD="${DB_PASSWORD:-12345}"
 
 if [ -z "${BACKUP_PATH}" ]; then
@@ -32,12 +32,17 @@ if [ -f "${BACKUP_PATH}/checksums.sha256" ]; then
     (cd "${BACKUP_PATH}" && sha256sum -c checksums.sha256)
 fi
 
+CLI_CMD="podman"
+if ! command -v podman &>/dev/null; then
+    CLI_CMD="docker"
+fi
+
 restore_core_db() {
     local DB=$1
     local FILE=$(ls "${BACKUP_PATH}"/core_${DB}_*.sql.gz 2>/dev/null | head -n 1)
     if [ -f "${FILE}" ]; then
         echo "[Core] Restaurando ${DB} desde ${FILE}..."
-        gunzip -c "${FILE}" | docker exec -i -e PGPASSWORD="${DB_PASSWORD}" fintech-postgres-core psql -U postgres -d "${DB}"
+        gunzip -c "${FILE}" | ${CLI_CMD} exec -i -e PGPASSWORD="${DB_PASSWORD}" fintech-postgres-core psql -U postgres -d "${DB}"
         echo "  -> ${DB} restaurado con éxito."
     else
         echo "  Advertencia: No se encontró archivo de backup para ${DB}"
@@ -49,14 +54,14 @@ restore_support_db() {
     local FILE=$(ls "${BACKUP_PATH}"/support_${DB}_*.sql.gz 2>/dev/null | head -n 1)
     if [ -f "${FILE}" ]; then
         echo "[Support] Restaurando ${DB} desde ${FILE}..."
-        gunzip -c "${FILE}" | docker exec -i -e PGPASSWORD="${DB_PASSWORD}" fintech-postgres-support psql -U postgres -d "${DB}"
+        gunzip -c "${FILE}" | ${CLI_CMD} exec -i -e PGPASSWORD="${DB_PASSWORD}" fintech-postgres-support psql -U postgres -d "${DB}"
         echo "  -> ${DB} restaurado con éxito."
     else
         echo "  Advertencia: No se encontró archivo de backup para ${DB}"
     fi
 }
 
-if [ "${TARGET}" == "docker" ]; then
+if [ "${TARGET}" == "podman" ] || [ "${TARGET}" == "docker" ]; then
     if [ "${TARGET_DB}" == "ALL" ] || [ "${TARGET_DB}" == "authdb" ]; then restore_core_db "authdb"; fi
     if [ "${TARGET_DB}" == "ALL" ] || [ "${TARGET_DB}" == "userdb" ]; then restore_core_db "userdb"; fi
     if [ "${TARGET_DB}" == "ALL" ] || [ "${TARGET_DB}" == "transactiondb" ]; then restore_core_db "transactiondb"; fi

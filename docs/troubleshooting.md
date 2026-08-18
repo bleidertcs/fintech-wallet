@@ -22,19 +22,25 @@ Este documento proporciona una guía de diagnóstico paso a paso y soluciones pr
 
 * **Causa 1: Volumen Persistente (PVC) no asignado o StorageClass ausente**.
   - **Diagnóstico**: `kubectl describe pod <pod-name> -n fintech` (buscar eventos `FailedScheduling` o `VolumeBindingFailed`).
-  - **Solución**: Verificar que Rancher Desktop tenga habilitado el proveedor de almacenamiento `local-path` (`kubectl get sc`).
+  - **Solución**: Verificar que el clúster (Kind/Minikube/K3s) tenga habilitado el proveedor de almacenamiento estándar (`kubectl get sc`).
 * **Causa 2: Recursos de CPU o Memoria insuficientes en el nodo**.
   - **Diagnóstico**: `kubectl describe nodes` (comprobar la sección `Allocated resources`).
-  - **Solución**: Aumentar la memoria asignada a la máquina virtual de Rancher Desktop (mínimo 6 GB RAM recomendado).
+  - **Solución**: Aumentar la memoria asignada a la máquina virtual de Podman (`podman machine set --cpus 4 --memory 8192` o recrearla con `podman machine init --memory 8192`).
 
 ### 1.2. Pod en Estado `ImagePullBackOff` o `ErrImagePull`
 
-* **Causa: La imagen de contenedor no existe en el espacio de nombres de containerd**.
+* **Causa: La imagen de contenedor no fue cargada al clúster local de Kubernetes**.
   - **Diagnóstico**: `kubectl describe pod <pod-name> -n fintech` (evento `Failed to pull image`).
-  - **Solución**: Compilar las imágenes asegurando el flag `--namespace k8s.io`:
-    ```powershell
-    nerdctl --namespace k8s.io build -t fintech/auth-service:nestjs ./backend-nestjs/auth-service
+  - **Solución**: Cargar las imágenes construidas con Podman en el clúster:
+    ```bash
+    # En Kind:
+    export KIND_EXPERIMENTAL_PROVIDER=podman
+    kind load docker-image fintech/auth-service:1.0.0 --name <nombre-cluster>
+
+    # En Minikube:
+    minikube image load fintech/auth-service:1.0.0
     ```
+    O simplemente ejecuta `.\deploy-k8s.ps1` (o `./deploy-k8s.sh`), que detecta el clúster y carga todas las imágenes automáticamente.
 
 ### 1.3. Pod en Estado `CrashLoopBackOff`
 
@@ -52,15 +58,15 @@ Este documento proporciona una guía de diagnóstico paso a paso y soluciones pr
   - **Diagnóstico**: `kubectl describe pod <pod-name> -n fintech` (buscar `Unhealthy readiness probe`).
   - **Solución**: En `k8s/02-microservices.yaml`, los pods incluyen un `startupProbe` con `failureThreshold: 20` y `periodSeconds: 3` (hasta 60 segundos de gracia). Si el host es lento, incrementa `failureThreshold: 30`.
 
-### 1.5. Error al Compilar Imágenes: `rootless containerd not running` (Linux / Ubuntu)
+### 1.5. Error al Compilar o Montar con Podman: Socket o Permisos Rootless
 
-* **Causa: `nerdctl` ejecutado sin `sudo` busca el socket rootless en `/run/user/1000/containerd-rootless`, pero containerd corre como servicio del sistema (root) en `/run/k3s/containerd/containerd.sock` o `/run/containerd/containerd.sock`**.
-  - **Diagnóstico**: `stat /run/user/1000/containerd-rootless: no such file or directory`.
-  - **Solución Rápida (K3s)**:
-    ```bash
-    sudo nerdctl --address /run/k3s/containerd/containerd.sock --namespace k8s.io build -t fintech/frontend:latest ./frontend
-    ```
-  - **Guía Completa**: Consulta la [Guía de Configuración de containerd y BuildKit en Linux](containerd-setup.md).
+* **Causa: El servicio Podman no está activo o se presentan restricciones SELinux en volúmenes montados**.
+  - **Diagnóstico**: `Error: cannot connect to the Podman socket` o `Permission denied` en carpetas locales.
+  - **Solución**:
+    1. En Windows/macOS: Iniciar la máquina con `podman machine start`.
+    2. En Linux: Habilitar el socket de usuario con `systemctl --user enable --now podman.socket`.
+    3. Para volúmenes montados en Linux con SELinux, usar el sufijo `:z` o `:Z` (ya configurado en `compose.yaml`).
+  - **Guía Completa**: Consulta la [Guía de Configuración de Podman y Kubernetes](podman-setup.md).
 
 ---
 

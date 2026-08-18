@@ -149,7 +149,7 @@ helm uninstall fintech-wallet -n fintech
 
 | Criterio | Despliegue con Manifiestos YAML (`k8s/*.yaml`) | Despliegue con Helm (`k8s/helm/`) |
 | :--- | :--- | :--- |
-| **Uso Principal** | Desarrollo local y entornos K3s automatizados con scripts (`deploy-rancher.ps1`) | Entornos multi-ambiente (Staging, QA, Prod) con valores variables |
+| **Uso Principal** | Desarrollo local y entornos K8s automatizados con scripts (`deploy-k8s.ps1`) | Entornos multi-ambiente (Staging, QA, Prod) con valores variables |
 | **Parametrización** | Valores fijos embebidos en los archivos YAML | Dinámica a través de `values.yaml` o flags `--set` |
 | **Gestión de Versiones**| Control de versiones en Git | Control de versiones en Git + historial de releases K8s (`helm history`) |
 | **Rollback** | Manual (`kubectl rollout undo`) servicio por servicio | Atómico para todo el release (`helm rollback`) |

@@ -146,16 +146,17 @@ if ($Mode -eq "Load" -or $Mode -eq "All") {
         Write-Host "[INFO] Ejecutando con binario local k6..." -ForegroundColor Green
         & k6 run scripts/k6-concurrency-test.js
     } else {
-        Write-Host "[INFO] k6 no detectado localmente. Ejecutando k6 en contenedor (nerdctl/docker)..." -ForegroundColor Yellow
+        Write-Host "[INFO] k6 no detectado localmente. Ejecutando k6 en contenedor (Podman)..." -ForegroundColor Yellow
         $scriptPath = (Resolve-Path ./scripts/k6-concurrency-test.js).Path
         $scriptDir = (Get-Item $scriptPath).DirectoryName
         
-        $nerdctl = Get-Command nerdctl -ErrorAction SilentlyContinue
-        if ($nerdctl) {
-            nerdctl run --rm -i --network host -v "${scriptDir}:/scripts" grafana/k6:latest run /scripts/k6-concurrency-test.js
+        $podman = Get-Command podman -ErrorAction SilentlyContinue
+        if ($podman) {
+            podman run --rm -i --network host -v "${scriptDir}:/scripts:z" docker.io/grafana/k6:latest run /scripts/k6-concurrency-test.js
         } else {
-            docker run --rm -i --network host -v "${scriptDir}:/scripts" grafana/k6:latest run /scripts/k6-concurrency-test.js
+            Write-Host "[ERROR] Ni k6 ni podman están instalados o disponibles en el PATH." -ForegroundColor Red
         }
     }
 }
+
 

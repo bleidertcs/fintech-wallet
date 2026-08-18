@@ -8,15 +8,15 @@
 .PARAMETER TargetDb
     Base de datos objetivo: "ALL", "authdb", "userdb", "transactiondb", "notificationdb", "workerdb". Por defecto: "ALL".
 .PARAMETER Target
-    Entorno objetivo: "docker" o "k8s". Por defecto: "docker".
+    Entorno objetivo: "podman", "docker" o "k8s". Por defecto: "podman".
 #>
 
 param(
     [string]$BackupPath = "",
     [ValidateSet("ALL", "authdb", "userdb", "transactiondb", "notificationdb", "workerdb")]
     [string]$TargetDb = "ALL",
-    [ValidateSet("docker", "k8s")]
-    [string]$Target = "docker",
+    [ValidateSet("podman", "docker", "k8s")]
+    [string]$Target = "podman",
     [string]$DbPassword = $env:DB_PASSWORD
 )
 
@@ -64,6 +64,8 @@ if (Test-Path $ChecksumFile) {
     }
 }
 
+$cliCmd = if (Get-Command podman -ErrorAction SilentlyContinue) { "podman" } elseif (Get-Command podman.exe -ErrorAction SilentlyContinue) { "podman.exe" } else { "docker" }
+
 function Restore-CoreDatabase($dbName) {
     $file = Get-ChildItem -Path $BackupPath -Filter "core_${dbName}_*.sql.gz" | Select-Object -First 1
     if ($file) {
@@ -79,7 +81,7 @@ function Restore-CoreDatabase($dbName) {
         $gzStream.Dispose()
         $fileStream.Dispose()
 
-        Get-Content $tempSql -Raw | docker exec -i -e PGPASSWORD=$DbPassword fintech-postgres-core psql -U postgres -d $dbName
+        Get-Content $tempSql -Raw | & $cliCmd exec -i -e PGPASSWORD=$DbPassword fintech-postgres-core psql -U postgres -d $dbName
         Remove-Item $tempSql -Force
         Write-Host "  -> $dbName restaurado exitosamente." -ForegroundColor Green
     } else {
@@ -101,7 +103,7 @@ function Restore-SupportDatabase($dbName) {
         $gzStream.Dispose()
         $fileStream.Dispose()
 
-        Get-Content $tempSql -Raw | docker exec -i -e PGPASSWORD=$DbPassword fintech-postgres-support psql -U postgres -d $dbName
+        Get-Content $tempSql -Raw | & $cliCmd exec -i -e PGPASSWORD=$DbPassword fintech-postgres-support psql -U postgres -d $dbName
         Remove-Item $tempSql -Force
         Write-Host "  -> $dbName restaurado exitosamente." -ForegroundColor Green
     } else {
@@ -109,7 +111,7 @@ function Restore-SupportDatabase($dbName) {
     }
 }
 
-if ($Target -eq "docker") {
+if ($Target -eq "podman" -or $Target -eq "docker") {
     if ($TargetDb -eq "ALL" -or $TargetDb -eq "authdb") { Restore-CoreDatabase "authdb" }
     if ($TargetDb -eq "ALL" -or $TargetDb -eq "userdb") { Restore-CoreDatabase "userdb" }
     if ($TargetDb -eq "ALL" -or $TargetDb -eq "transactiondb") { Restore-CoreDatabase "transactiondb" }

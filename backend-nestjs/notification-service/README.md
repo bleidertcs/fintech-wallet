@@ -95,9 +95,9 @@ pnpm test
 
 ---
 
-## 🐳 Despliegue en Kubernetes (Rancher / nerdctl)
+## 🦭 Despliegue en Kubernetes con Podman
 
 ```bash
-nerdctl --namespace k8s.io build -t fintech/notification-service:nestjs ./backend-nestjs/notification-service
+podman build -f Containerfile -t fintech/notification-service:1.0.0 .
 kubectl rollout restart deployment/notification-service -n fintech
 ```

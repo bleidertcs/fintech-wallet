@@ -7,14 +7,14 @@
     - Support: notificationdb, workerdb
     Comprime en .sql.gz, calcula sumas de verificación SHA-256 y aplica rotación de 7 días.
 .PARAMETER Target
-    Entorno objetivo: "docker" o "k8s". Por defecto: "docker".
+    Entorno objetivo: "podman" o "k8s". Por defecto: "podman".
 .PARAMETER BackupDir
     Directorio de almacenamiento de backups. Por defecto: "./backups".
 #>
 
 param(
-    [ValidateSet("docker", "k8s")]
-    [string]$Target = "docker",
+    [ValidateSet("podman", "k8s", "docker")]
+    [string]$Target = "podman",
     [string]$BackupDir = "./backups",
     [string]$DbPassword = $env:DB_PASSWORD
 )
@@ -37,14 +37,16 @@ Write-Host "=================================================" -ForegroundColor 
 $CoreDbs = @("authdb", "userdb", "transactiondb")
 $SupportDbs = @("notificationdb", "workerdb")
 
-if ($Target -eq "docker") {
+$cliCmd = if (Get-Command podman -ErrorAction SilentlyContinue) { "podman" } elseif (Get-Command podman.exe -ErrorAction SilentlyContinue) { "podman.exe" } else { "docker" }
+
+if ($Target -eq "podman" -or $Target -eq "docker") {
     # 1. Backup de postgres-core
     foreach ($db in $CoreDbs) {
         Write-Host "[Core] Respaldando $db..." -ForegroundColor Yellow
         $outFile = Join-Path $TargetDir "core_${db}_${Timestamp}.sql"
         $gzFile = "$outFile.gz"
         
-        docker exec -e PGPASSWORD=$DbPassword fintech-postgres-core pg_dump -U postgres -d $db --clean --if-exists --no-owner --no-privileges | Out-File -FilePath $outFile -Encoding utf8
+        & $cliCmd exec -e PGPASSWORD=$DbPassword fintech-postgres-core pg_dump -U postgres -d $db --clean --if-exists --no-owner --no-privileges | Out-File -FilePath $outFile -Encoding utf8
         
         # Comprimir con .NET GZip
         $fileBytes = [System.IO.File]::ReadAllBytes($outFile)
@@ -65,7 +67,7 @@ if ($Target -eq "docker") {
         $outFile = Join-Path $TargetDir "support_${db}_${Timestamp}.sql"
         $gzFile = "$outFile.gz"
         
-        docker exec -e PGPASSWORD=$DbPassword fintech-postgres-support pg_dump -U postgres -d $db --clean --if-exists --no-owner --no-privileges | Out-File -FilePath $outFile -Encoding utf8
+        & $cliCmd exec -e PGPASSWORD=$DbPassword fintech-postgres-support pg_dump -U postgres -d $db --clean --if-exists --no-owner --no-privileges | Out-File -FilePath $outFile -Encoding utf8
         
         $fileBytes = [System.IO.File]::ReadAllBytes($outFile)
         $outputFileStream = [System.IO.File]::Create($gzFile)
@@ -98,9 +100,9 @@ if (Test-Path $TargetDir) {
 }
 
 # 4. Rotación de backups (7 días)
-$LimitDate = (Get-Date).AddDays(-7)
-Get-ChildItem -Path $BackupDir -Directory | Where-Object { $_.CreationTime -lt $LimitDate } | ForEach-Object {
-    Write-Host "Eliminando backup antiguo por política de retención: $($_.FullName)" -ForegroundColor DarkGray
+$cutoff = (Get-Date).AddDays(-7)
+Get-ChildItem -Path $BackupDir -Directory | Where-Object { $_.CreationTime -lt $cutoff } | ForEach-Object {
+    Write-Host "Rotando backup antiguo: $($_.Name)" -ForegroundColor DarkGray
     Remove-Item $_.FullName -Recurse -Force
 }
 

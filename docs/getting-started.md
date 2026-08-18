@@ -25,15 +25,15 @@ Antes de iniciar, asegúrate de contar con las siguientes herramientas instalada
 | :--- | :--- | :--- | :--- |
 | **Node.js** | `v20.18.0` / `v22.x` | Runtime de JavaScript/TypeScript | `node --version` |
 | **pnpm** | `v10.4.1` (o `v9.x+`) | Gestor de paquetes de alto rendimiento | `pnpm --version` |
-| **Rancher Desktop** | `v1.14+` / `v1.16+` | Entorno de Kubernetes K3s y motor containerd | Interfaz de Rancher Desktop |
+| **Podman / Podman Desktop** | `v4.9+` / `v5.x` | Motor de contenedores OCI daemonless y seguro | `podman --version` |
 | **kubectl** | `v1.28.0+` | CLI de administración de Kubernetes | `kubectl version --client` |
-| **nerdctl** | `v1.7.0+` | CLI para interactuar con containerd | `nerdctl version` |
+| **Kind / Minikube / K3s** | `v0.22+` / `v1.32+` | Clúster local de Kubernetes | `kind version` o `minikube status` |
 | **Helm** | `v3.14.0+` | Gestor de paquetes para Kubernetes | `helm version` |
 | **Git** | `v2.40.0+` | Control de versiones | `git --version` |
 | **PowerShell / Bash** | PowerShell 7+ / Bash 5+ | Ejecución de scripts automatizados | `$PSVersionTable.PSVersion` o `bash --version` |
 
 > [!TIP]
-> **Usuarios de Linux / Ubuntu / WSL2**: Si experimentas el error `rootless containerd not running` o necesitas configurar los sockets de containerd y BuildKit, consulta la guía dedicada [**Configuración de containerd y BuildKit en Linux**](containerd-setup.md).
+> **Usuarios de Windows (Podman Desktop / WSL2) y Linux**: Para una guía detallada de configuración de Podman Machine, modo Rootless, permisos SELinux y provisión de clústeres Kind/Minikube con Podman, consulta la guía dedicada [**Configuración de Podman y Kubernetes**](podman-setup.md).
 
 ---
 
@@ -53,7 +53,7 @@ El proyecto soporta dos modos de trabajo según la necesidad del desarrollador:
          ├───────────────────────────┤                                 ├───────────────────────────┤
          │ • Modificación activa     │                                 │ • Sistema 100% integrado  │
          │ • Hot reload (NestJS/Vite)│                                 │ • Ruteo Traefik Ingress   │
-         │ • Dependencias vía Docker │                                 │ • PgBouncer + StatefulSets│
+         │ • Stack vía Podman Compose│                                 │ • PgBouncer + StatefulSets│
          │ • Depuración en IDE       │                                 │ • Observabilidad SigNoz   │
          └───────────────────────────┘                                 └───────────────────────────┘
 ```
@@ -77,11 +77,9 @@ git checkout k8s-nestjs
 
 ## 4. Configuración de Variables de Entorno
 
-El repositorio incluye un archivo de plantilla `.env.example` con configuraciones por defecto preestablecidas para el funcionamiento local y en clúster.
+El repositorio provee una plantilla de configuración `.env.example` con valores predeterminados para desarrollo local y clúster.
 
-Copia la plantilla a `.env`:
-
-```powershell
+```bash
 # En Windows (PowerShell)
 Copy-Item .env.example .env
 
@@ -89,20 +87,17 @@ Copy-Item .env.example .env
 cp .env.example .env
 ```
 
-### Tabla de Variables de Entorno Globales
+Principales variables de entorno:
 
-| Variable | Obligatoria | Descripción | Valor por Defecto |
+| Variable | Requerida | Propósito | Valor por Defecto (Ejemplo) |
 | :--- | :---: | :--- | :--- |
-| `NODE_ENV` | Sí | Entorno de ejecución (`development` / `production`) | `production` |
-| `DB_USERNAME` | Sí | Usuario administrador de PostgreSQL | `postgres` |
-| `DB_PASSWORD` | Sí | Contraseña de acceso a PostgreSQL | `<secure-password>` |
-| `JWT_SECRET` | Sí | Clave criptográfica para firma de tokens JWT | `<base64-random-secret>` |
+| `DB_PASSWORD` | Sí | Contraseña del superusuario `postgres` | `12345` |
+| `JWT_SECRET` | Sí | Clave HMAC-SHA256 para firma y validación de tokens | `dGhpc2lzYXNlY3JldGtleWZvc...` |
 | `REDIS_HOST` | Sí | Host de conexión al servidor Redis | `redis` |
 | `REDIS_PORT` | Sí | Puerto de conexión al servidor Redis | `6379` |
 | `KAFKA_BROKERS`| Sí | Lista de brokers Kafka para productores/consumidores | `kafka:29092` |
 | `MAIL_HOST` | Sí | Host del servidor SMTP para notificaciones | `maildev` |
 | `MAIL_PORT` | Sí | Puerto del servidor SMTP | `1025` |
-| `OTEL_EXPORTER_OTLP_ENDPOINT` | Sí | Endpoint OTLP HTTP para telemetría | `http://otel-collector.fintech.svc.cluster.local:4318` |
 
 ---
 
@@ -112,23 +107,24 @@ El sistema puede desplegarse de dos formas: mediante el **script 100% automatiza
 
 ### Opción A: Despliegue Automatizado (Script)
 
-Los scripts automatizados verifican la conexión con containerd/K8s, compilan las 6 imágenes e inyectan los manifiestos secuencialmente:
+Los scripts automatizados verifican la conexión con Podman y Kubernetes, compilan las 6 imágenes con `podman build`, las cargan en el clúster activo e inyectan los manifiestos secuencialmente:
 
 ```powershell
 # En Windows (PowerShell)
-.\deploy-rancher.ps1
+.\deploy-k8s.ps1
 
 # En Linux / macOS (Bash)
-chmod +x ./deploy-rancher.sh
-./deploy-rancher.sh
+chmod +x ./deploy-k8s.sh
+./deploy-k8s.sh
 ```
 
 ### ¿Qué hace el script de despliegue?
 
-1. **Verifica la conectividad** con containerd (`nerdctl`) y con el clúster de Kubernetes (`kubectl config current-context`).
-2. **Compila las 6 imágenes Docker** (`frontend`, `auth-service`, `user-service`, `transaction-service`, `notification-service`, `worker-service`) directamente en el namespace `k8s.io` de containerd, evitando la necesidad de un registry externo.
-3. **Verifica el Ingress Controller Traefik** nativo en el namespace `kube-system`.
-4. **Aplica secuencialmente los manifiestos** ubicados en `k8s/`:
+1. **Verifica la conectividad** con Podman (`podman info`) y con el clúster de Kubernetes (`kubectl config current-context`).
+2. **Compila las 6 imágenes** (`frontend`, `auth-service`, `user-service`, `transaction-service`, `notification-service`, `worker-service`) a partir de sus respectivos archivos `Containerfile`.
+3. **Carga las imágenes en el clúster** (Kind, Minikube o K3s) detectando el proveedor automáticamente.
+4. **Verifica el Ingress Controller Traefik** nativo.
+5. **Aplica secuencialmente los manifiestos** ubicados en `k8s/`:
    - `00-namespace-config.yaml`: Namespace `fintech`, scripts SQL de inicialización y Secretos.
    - `01-infrastructure.yaml`: StatefulSets de Postgres Core, Postgres Support, PgBouncer, Redis, Kafka KRaft y Maildev.
    - `02-microservices.yaml`: Deployments y Servicios de los 5 microservicios NestJS.

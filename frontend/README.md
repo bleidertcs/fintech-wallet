@@ -59,16 +59,19 @@ npm run preview
 
 ---
 
-## 📦 Construcción y Despliegue en Kubernetes (Rancher Desktop)
+## 📦 Construcción y Despliegue en Kubernetes con Podman
 
 ```powershell
-# 1. Construir la imagen en containerd con nerdctl (namespace k8s.io)
-& "C:\Program Files\Rancher Desktop\resources\resources\win32\bin\nerdctl.exe" --namespace k8s.io build -t fintech/frontend:latest ./frontend
+# 1. Construir la imagen con Podman
+podman build -f frontend/Containerfile -t fintech/frontend:1.0.0 ./frontend
 
-# 2. Desplegar en Kubernetes
+# 2. Cargar en el clúster si aplica (ej. en Kind)
+# export KIND_EXPERIMENTAL_PROVIDER=podman; kind load docker-image fintech/frontend:1.0.0 --name fintech-wallet
+
+# 3. Desplegar en Kubernetes
 kubectl apply -f k8s/03-frontend.yaml
 kubectl apply -f k8s/05-ingress.yaml
 
-# 3. Reiniciar el deployment para aplicar la nueva versión
+# 4. Reiniciar el deployment para aplicar la nueva versión
 kubectl rollout restart deployment/frontend -n fintech
 ```

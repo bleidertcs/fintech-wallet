@@ -42,7 +42,7 @@ El repositorio provee una batería completa de pruebas que validan desde la salu
 Verificar en pocos segundos que todos los Pods en Kubernetes están saludables, que los 5 microservicios responden en sus endpoints `/health` a través de Traefik, que las consolas Swagger están disponibles y que PostgreSQL y Redis responden a comandos básicos.
 
 ### Precondiciones
-* Clúster Kubernetes desplegado con `deploy-rancher.ps1` o `deploy-rancher.sh`.
+* Clúster Kubernetes desplegado con `deploy-k8s.ps1` o `deploy-k8s.sh`.
 
 ### Comando de Ejecución
 ```powershell
@@ -125,7 +125,7 @@ Simular 10 o más solicitudes simultáneas multihilo con la misma clave `X-Idemp
 Medir el comportamiento del sistema bajo estrés continuo de usuarios concurrentes mediante el script `scripts/k6-concurrency-test.js`.
 
 ### Precondiciones
-* Binario de `k6` instalado localmente o disponible a través de contenedor Docker/nerdctl.
+* Binario de `k6` instalado localmente o disponible a través de contenedor Podman.
 
 ### Comando de Ejecución
 ```powershell

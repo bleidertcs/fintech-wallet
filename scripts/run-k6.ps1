@@ -1,6 +1,6 @@
 # ==============================================================================
 # SCRIPT EJECUTOR DE BENCHMARK K6 (FinTech Wallet)
-# Ejecuta k6 localmente o mediante contenedor sin necesidad de instalación manual
+# Ejecuta k6 localmente o mediante contenedor Podman sin necesidad de instalación manual
 # ==============================================================================
 
 param (
@@ -21,13 +21,14 @@ if ($k6Local) {
     Write-Host "[INFO] Ejecutando benchmark con binario k6 local..." -ForegroundColor Green
     & k6 run scripts/k6-concurrency-test.js
 } else {
-    Write-Host "[INFO] Binario k6 local no detectado. Ejecutando k6 en contenedor con nerdctl..." -ForegroundColor Yellow
+    Write-Host "[INFO] Binario k6 local no detectado. Ejecutando k6 en contenedor con Podman..." -ForegroundColor Yellow
     $scriptDir = (Resolve-Path ./scripts).Path
     
-    $nerdctl = Get-Command nerdctl -ErrorAction SilentlyContinue
-    if ($nerdctl) {
-        nerdctl run --rm -i --network host -v "${scriptDir}:/scripts" -e TARGET_URL="$TargetUrl" grafana/k6:latest run /scripts/k6-concurrency-test.js
+    $podman = Get-Command podman -ErrorAction SilentlyContinue
+    if ($podman) {
+        podman run --rm -i --network host -v "${scriptDir}:/scripts:z" -e TARGET_URL="$TargetUrl" docker.io/grafana/k6:latest run /scripts/k6-concurrency-test.js
     } else {
-        docker run --rm -i --network host -v "${scriptDir}:/scripts" -e TARGET_URL="$TargetUrl" grafana/k6:latest run /scripts/k6-concurrency-test.js
+        Write-Host "[ERROR] Ni k6 ni podman están instalados o disponibles en el PATH." -ForegroundColor Red
+        exit 1
     }
 }

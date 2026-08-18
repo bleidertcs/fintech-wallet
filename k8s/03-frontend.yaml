@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: fintech/frontend:latest
+          image: fintech/frontend:1.0.0
           imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: false

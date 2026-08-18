@@ -24,13 +24,16 @@ Este documento detalla las actividades operativas de ciclo de vida (Day-2 Operat
 Cuando se actualiza el código de un microservicio sin alterar la infraestructura:
 
 ```powershell
-# 1. Recompilar la imagen del servicio específico en containerd (k8s.io)
-nerdctl --namespace k8s.io build -t fintech/transaction-service:nestjs ./backend-nestjs/transaction-service
+# 1. Recompilar la imagen del servicio específico con Podman
+podman build -f backend-nestjs/transaction-service/Containerfile -t fintech/transaction-service:1.0.0 ./backend-nestjs/transaction-service
 
-# 2. Reiniciar el Deployment para tomar la nueva imagen
+# 2. Cargar en el clúster (si aplica, ej. en Kind)
+# kind load docker-image fintech/transaction-service:1.0.0 --name fintech-wallet
+
+# 3. Reiniciar el Deployment para tomar la nueva imagen
 kubectl rollout restart deployment/transaction-service -n fintech
 
-# 3. Monitorear el progreso del Rollout sin pérdida de tráfico
+# 4. Monitorear el progreso del Rollout sin pérdida de tráfico
 kubectl rollout status deployment/transaction-service -n fintech
 ```
 

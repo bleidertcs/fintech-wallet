@@ -138,10 +138,10 @@ pnpm run build
 pnpm start:prod
 ```
 
-### 3. En Kubernetes / Rancher Desktop (k3s)
+### 3. En Kubernetes con Podman
 ```bash
-# Construir imagen en containerd
-nerdctl --namespace k8s.io build -t fintech/auth-service:nestjs .
+# Construir imagen con Podman
+podman build -f Containerfile -t fintech/auth-service:1.0.0 .
 
 # Reiniciar deployment en Kubernetes
 kubectl rollout restart deployment/auth-service -n fintech

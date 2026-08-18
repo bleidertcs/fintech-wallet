@@ -17,7 +17,7 @@ Este documento describe la capa de enrutamiento y entrada al clúster de Kuberne
 
 ## 1. Arquitectura del API Gateway
 
-Traefik opera como el Ingress Controller nativo dentro del namespace `kube-system` de K3s / Rancher Desktop. Expone los puertos estándar HTTP (`80`) y HTTPS (`443`) y enruta el tráfico hacia los microservicios desplegados en el namespace `fintech`.
+Traefik opera como el Ingress Controller dentro del clúster de Kubernetes. Expone los puertos estándar HTTP (`80`) y HTTPS (`443`) y enruta el tráfico hacia los microservicios desplegados en el namespace `fintech`.
 
 ```mermaid
 graph TD

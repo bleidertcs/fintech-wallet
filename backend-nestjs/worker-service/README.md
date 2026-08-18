@@ -60,11 +60,11 @@ pnpm test
 
 ---
 
-## 🐳 Docker & Kubernetes Deployment
+## 🦭 Podman & Kubernetes Deployment
 
 ```bash
-# Construir imagen con nerdctl en containerd (Rancher Desktop)
-nerdctl --namespace k8s.io build -t fintech/worker-service:nestjs ./backend-nestjs/worker-service
+# Construir imagen con Podman
+podman build -f Containerfile -t fintech/worker-service:1.0.0 .
 
 # Reiniciar deployment en Kubernetes
 kubectl rollout restart deployment/worker-service -n fintech

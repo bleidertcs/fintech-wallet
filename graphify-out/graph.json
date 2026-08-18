@@ -3695,8 +3695,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_axios",
-      "community": 404,
-      "community_name": "@opentelemetry/sdk-metrics",
+      "community": 327,
+      "community_name": "nodemailer",
       "norm_label": "axios"
     },
     {
@@ -3706,8 +3706,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_axios",
-      "community": 404,
-      "community_name": "@opentelemetry/sdk-metrics",
+      "community": 327,
+      "community_name": "nodemailer",
       "norm_label": "axios"
     },
     {
@@ -4047,8 +4047,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_zod",
-      "community": 327,
-      "community_name": "nodemailer",
+      "community": 160,
+      "community_name": "app.module.ts",
       "norm_label": "zod"
     },
     {
@@ -4058,8 +4058,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_zod",
-      "community": 327,
-      "community_name": "nodemailer",
+      "community": 160,
+      "community_name": "app.module.ts",
       "norm_label": "zod"
     },
     {
@@ -4344,8 +4344,8 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_devdependencies_types_nodemailer",
-      "community": 349,
-      "community_name": "@types/bcrypt",
+      "community": 162,
+      "community_name": "Log-Msg",
       "norm_label": "@types/nodemailer"
     },
     {
@@ -4355,8 +4355,8 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_types_nodemailer",
-      "community": 349,
-      "community_name": "@types/bcrypt",
+      "community": 162,
+      "community_name": "Log-Msg",
       "norm_label": "@types/nodemailer"
     },
     {
@@ -4498,8 +4498,8 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_devdependencies_globals",
-      "community": 55,
-      "community_name": "GatewayConfig",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "globals"
     },
     {
@@ -4509,8 +4509,8 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_globals",
-      "community": 55,
-      "community_name": "GatewayConfig",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "globals"
     },
     {
@@ -9107,8 +9107,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_dependencies_opentelemetry_instrumentation_express",
-      "community": 484,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 371,
+      "community_name": "@nestjs/config",
       "norm_label": "@opentelemetry/instrumentation-express"
     },
     {
@@ -9118,8 +9118,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_opentelemetry_instrumentation_express",
-      "community": 484,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 371,
+      "community_name": "@nestjs/config",
       "norm_label": "@opentelemetry/instrumentation-express"
     },
     {
@@ -9371,8 +9371,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_dependencies_class_transformer",
-      "community": 371,
-      "community_name": "@nestjs/config",
+      "community": 178,
+      "community_name": "compilerOptions",
       "norm_label": "class-transformer"
     },
     {
@@ -9382,8 +9382,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_class_transformer",
-      "community": 371,
-      "community_name": "@nestjs/config",
+      "community": 178,
+      "community_name": "compilerOptions",
       "norm_label": "class-transformer"
     },
     {
@@ -9778,8 +9778,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_devdependencies_types_node",
-      "community": 152,
-      "community_name": "swarm-init.sh",
+      "community": 203,
+      "community_name": "scripts",
       "norm_label": "@types/node"
     },
     {
@@ -9789,8 +9789,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_types_node",
-      "community": 152,
-      "community_name": "swarm-init.sh",
+      "community": 203,
+      "community_name": "scripts",
       "norm_label": "@types/node"
     },
     {
@@ -9866,8 +9866,8 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_devdependencies_eslint",
-      "community": 468,
-      "community_name": "@eslint/js",
+      "community": 152,
+      "community_name": "swarm-init.sh",
       "norm_label": "eslint"
     },
     {
@@ -9877,8 +9877,8 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_eslint",
-      "community": 468,
-      "community_name": "@eslint/js",
+      "community": 152,
+      "community_name": "swarm-init.sh",
       "norm_label": "eslint"
     },
     {
@@ -13144,7 +13144,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_dependencies_class_transformer",
-      "community": 170,
+      "community": 219,
       "community_name": "dependencies",
       "norm_label": "class-transformer"
     },
@@ -13155,7 +13155,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_class_transformer",
-      "community": 170,
+      "community": 219,
       "community_name": "dependencies",
       "norm_label": "class-transformer"
     },
@@ -13166,8 +13166,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_dependencies_class_validator",
-      "community": 369,
-      "community_name": "eslint-plugin-prettier",
+      "community": 170,
+      "community_name": "dependencies",
       "norm_label": "class-validator"
     },
     {
@@ -13177,8 +13177,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_class_validator",
-      "community": 369,
-      "community_name": "eslint-plugin-prettier",
+      "community": 170,
+      "community_name": "dependencies",
       "norm_label": "class-validator"
     },
     {
@@ -13683,8 +13683,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_devdependencies_globals",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 231,
+      "community_name": "WithSpan",
       "norm_label": "globals"
     },
     {
@@ -13694,8 +13694,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_globals",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 231,
+      "community_name": "WithSpan",
       "norm_label": "globals"
     },
     {
@@ -13771,8 +13771,8 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_devdependencies_source_map_support",
-      "community": 572,
-      "community_name": "source-map-support",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": "source-map-support"
     },
     {
@@ -13782,8 +13782,8 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_source_map_support",
-      "community": 572,
-      "community_name": "source-map-support",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": "source-map-support"
     },
     {
@@ -14387,8 +14387,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_inbound_rest_transaction_controller_spec",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 134,
+      "community_name": "TransactionController",
       "norm_label": "transaction.controller.spec.ts"
     },
     {
@@ -14398,8 +14398,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_inbound_rest_transaction_controller",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 134,
+      "community_name": "TransactionController",
       "norm_label": "transaction.controller.ts"
     },
     {
@@ -14409,8 +14409,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_inbound_rest_transaction_controller_transactioncontroller",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 134,
+      "community_name": "TransactionController",
       "norm_label": "transactioncontroller"
     },
     {
@@ -14420,8 +14420,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_inbound_rest_transaction_controller_ts_apitags",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 134,
+      "community_name": "TransactionController",
       "norm_label": "apitags"
     },
     {
@@ -14431,8 +14431,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_inbound_rest_transaction_controller_ts_controller",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 134,
+      "community_name": "TransactionController",
       "norm_label": "controller"
     },
     {
@@ -14662,8 +14662,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_grpc_user_grpc_client_module",
-      "community": 358,
-      "community_name": "@nestjs/schematics",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": "user-grpc-client.module.ts"
     },
     {
@@ -14673,8 +14673,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_grpc_user_grpc_client_module_usergrpcclientmodule",
-      "community": 358,
-      "community_name": "@nestjs/schematics",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": "usergrpcclientmodule"
     },
     {
@@ -14684,8 +14684,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_grpc_user_grpc_client_module_ts_module",
-      "community": 358,
-      "community_name": "@nestjs/schematics",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": "module"
     },
     {
@@ -14948,8 +14948,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_kafka_kafka_module",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "kafka.module.ts"
     },
     {
@@ -14959,8 +14959,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_kafka_kafka_module_kafkamodule",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "kafkamodule"
     },
     {
@@ -14970,8 +14970,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_kafka_kafka_module_ts_module",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "module"
     },
     {
@@ -14981,8 +14981,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_persistence_prisma_transaction_repository",
-      "community": 147,
-      "community_name": "MoneyRequestEntity",
+      "community": 358,
+      "community_name": "@nestjs/schematics",
       "norm_label": "prisma-transaction.repository.ts"
     },
     {
@@ -15102,8 +15102,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_persistence_prisma_module",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 358,
+      "community_name": "@nestjs/schematics",
       "norm_label": "prisma.module.ts"
     },
     {
@@ -15113,8 +15113,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_persistence_prisma_module_prismamodule",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 358,
+      "community_name": "@nestjs/schematics",
       "norm_label": "prismamodule"
     },
     {
@@ -15124,8 +15124,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_persistence_prisma_module_ts_module",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 358,
+      "community_name": "@nestjs/schematics",
       "norm_label": "module"
     },
     {
@@ -15278,8 +15278,8 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_redis_idempotency_service_idempotencyservice_isduplicatekey",
-      "community": 147,
-      "community_name": "MoneyRequestEntity",
+      "community": 189,
+      "community_name": "PrismaUserRepository",
       "norm_label": ".isduplicatekey()"
     },
     {
@@ -15311,8 +15311,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_redis_redis_module",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 358,
+      "community_name": "@nestjs/schematics",
       "norm_label": "redis.module.ts"
     },
     {
@@ -15322,8 +15322,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_redis_redis_module_redismodule",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "redismodule"
     },
     {
@@ -15333,8 +15333,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_redis_redis_module_ts_module",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "module"
     },
     {
@@ -15421,8 +15421,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_trpc_user_trpc_client_module_usertrpcclientmodule",
-      "community": 176,
-      "community_name": "UserServiceGrpcAdapter",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "usertrpcclientmodule"
     },
     {
@@ -15432,8 +15432,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_trpc_user_trpc_client_module_ts_module",
-      "community": 176,
-      "community_name": "UserServiceGrpcAdapter",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "module"
     },
     {
@@ -15520,8 +15520,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_app_module",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "app.module.ts"
     },
     {
@@ -15531,8 +15531,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_app_module_commandhandlers",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "commandhandlers"
     },
     {
@@ -15542,8 +15542,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_app_module_queryhandlers",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "queryhandlers"
     },
     {
@@ -15553,8 +15553,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_app_module_appmodule",
-      "community": 259,
-      "community_name": "tracing.ts",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "appmodule"
     },
     {
@@ -15564,8 +15564,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_app_module_ts_module",
-      "community": 259,
-      "community_name": "tracing.ts",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "module"
     },
     {
@@ -15619,8 +15619,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_commands_transfer_money_command",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 189,
+      "community_name": "PrismaUserRepository",
       "norm_label": "transfer-money.command.ts"
     },
     {
@@ -15630,8 +15630,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_commands_transfer_money_command_transfermoneycommand",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 189,
+      "community_name": "PrismaUserRepository",
       "norm_label": "transfermoneycommand"
     },
     {
@@ -15641,8 +15641,8 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_commands_transfer_money_command_transfermoneycommand_constructor",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 189,
+      "community_name": "PrismaUserRepository",
       "norm_label": ".constructor()"
     },
     {
@@ -15652,8 +15652,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_commands_transfer_money_handler",
-      "community": 358,
-      "community_name": "@nestjs/schematics",
+      "community": 189,
+      "community_name": "PrismaUserRepository",
       "norm_label": "transfer-money.handler.ts"
     },
     {
@@ -15894,8 +15894,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_use_cases_transaction_use_cases_transactionusecases_transfer",
-      "community": 147,
-      "community_name": "MoneyRequestEntity",
+      "community": 189,
+      "community_name": "PrismaUserRepository",
       "norm_label": ".transfer()"
     },
     {
@@ -15949,8 +15949,8 @@
       "source_location": "L159",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_use_cases_transaction_use_cases_transactionusecases_acceptmoneyrequest",
-      "community": 147,
-      "community_name": "MoneyRequestEntity",
+      "community": 189,
+      "community_name": "PrismaUserRepository",
       "norm_label": ".acceptmoneyrequest()"
     },
     {
@@ -15971,8 +15971,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_entities_money_request_entity",
-      "community": 147,
-      "community_name": "MoneyRequestEntity",
+      "community": 358,
+      "community_name": "@nestjs/schematics",
       "norm_label": "money-request.entity.ts"
     },
     {
@@ -16037,8 +16037,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_events_transfer_completed_event",
-      "community": 358,
-      "community_name": "@nestjs/schematics",
+      "community": 189,
+      "community_name": "PrismaUserRepository",
       "norm_label": "transfer-completed.event.ts"
     },
     {
@@ -16048,8 +16048,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_events_transfer_completed_event_transfercompletedevent",
-      "community": 358,
-      "community_name": "@nestjs/schematics",
+      "community": 189,
+      "community_name": "PrismaUserRepository",
       "norm_label": "transfercompletedevent"
     },
     {
@@ -16059,8 +16059,8 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_events_transfer_completed_event_transfercompletedevent_constructor",
-      "community": 358,
-      "community_name": "@nestjs/schematics",
+      "community": 189,
+      "community_name": "PrismaUserRepository",
       "norm_label": ".constructor()"
     },
     {
@@ -16070,8 +16070,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_ports_inbound_transaction_service_port",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 358,
+      "community_name": "@nestjs/schematics",
       "norm_label": "transaction-service.port.ts"
     },
     {
@@ -16081,8 +16081,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_ports_inbound_transaction_service_port_transferparams",
-      "community": 147,
-      "community_name": "MoneyRequestEntity",
+      "community": 358,
+      "community_name": "@nestjs/schematics",
       "norm_label": "transferparams"
     },
     {
@@ -16092,8 +16092,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_ports_inbound_transaction_service_port_moneyrequestparams",
-      "community": 147,
-      "community_name": "MoneyRequestEntity",
+      "community": 358,
+      "community_name": "@nestjs/schematics",
       "norm_label": "moneyrequestparams"
     },
     {
@@ -16191,8 +16191,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_ports_inbound_transaction_service_port_transaction_service_port",
-      "community": 1,
-      "community_name": "NotificationService",
+      "community": 134,
+      "community_name": "TransactionController",
       "norm_label": "transaction_service_port"
     },
     {
@@ -16312,8 +16312,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_ports_outbound_user_service_client_port",
-      "community": 358,
-      "community_name": "@nestjs/schematics",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": "user-service-client.port.ts"
     },
     {
@@ -16378,8 +16378,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_ports_outbound_user_service_client_port_user_service_client_port",
-      "community": 358,
-      "community_name": "@nestjs/schematics",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": "user_service_client_port"
     },
     {
@@ -16389,8 +16389,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_value_objects_money_vo",
-      "community": 160,
-      "community_name": "app.module.ts",
+      "community": 189,
+      "community_name": "PrismaUserRepository",
       "norm_label": "money.vo.ts"
     },
     {
@@ -16400,8 +16400,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_value_objects_money_vo_money",
-      "community": 160,
-      "community_name": "app.module.ts",
+      "community": 189,
+      "community_name": "PrismaUserRepository",
       "norm_label": "money"
     },
     {
@@ -16411,8 +16411,8 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_value_objects_money_vo_money_constructor",
-      "community": 160,
-      "community_name": "app.module.ts",
+      "community": 189,
+      "community_name": "PrismaUserRepository",
       "norm_label": ".constructor()"
     },
     {
@@ -16422,8 +16422,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_value_objects_money_vo_money_add",
-      "community": 160,
-      "community_name": "app.module.ts",
+      "community": 189,
+      "community_name": "PrismaUserRepository",
       "norm_label": ".add()"
     },
     {
@@ -16433,8 +16433,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_value_objects_money_vo_money_subtract",
-      "community": 160,
-      "community_name": "app.module.ts",
+      "community": 189,
+      "community_name": "PrismaUserRepository",
       "norm_label": ".subtract()"
     },
     {
@@ -16444,8 +16444,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_value_objects_money_vo_money_isgreaterthanorequal",
-      "community": 160,
-      "community_name": "app.module.ts",
+      "community": 189,
+      "community_name": "PrismaUserRepository",
       "norm_label": ".isgreaterthanorequal()"
     },
     {
@@ -16532,8 +16532,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_outbox_outbox_publisher_service",
-      "community": 213,
-      "community_name": "TransactionUseCases",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "outbox-publisher.service.ts"
     },
     {
@@ -16543,8 +16543,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_outbox_outbox_publisher_service_outboxpublisherservice",
-      "community": 213,
-      "community_name": "TransactionUseCases",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "outboxpublisherservice"
     },
     {
@@ -16554,8 +16554,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_outbox_outbox_publisher_service_ts_injectable",
-      "community": 213,
-      "community_name": "TransactionUseCases",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "injectable"
     },
     {
@@ -16565,8 +16565,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_outbox_outbox_publisher_service_outboxpublisherservice_constructor",
-      "community": 213,
-      "community_name": "TransactionUseCases",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": ".constructor()"
     },
     {
@@ -16576,8 +16576,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_outbox_outbox_publisher_service_outboxpublisherservice_onmoduleinit",
-      "community": 213,
-      "community_name": "TransactionUseCases",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": ".onmoduleinit()"
     },
     {
@@ -16587,8 +16587,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_outbox_outbox_publisher_service_outboxpublisherservice_onmoduledestroy",
-      "community": 213,
-      "community_name": "TransactionUseCases",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": ".onmoduledestroy()"
     },
     {
@@ -16598,8 +16598,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_outbox_outbox_service",
-      "community": 358,
-      "community_name": "@nestjs/schematics",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "outbox.service.ts"
     },
     {
@@ -16609,8 +16609,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_outbox_outbox_service_outboxservice",
-      "community": 213,
-      "community_name": "TransactionUseCases",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "outboxservice"
     },
     {
@@ -16620,8 +16620,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_outbox_outbox_service_ts_injectable",
-      "community": 213,
-      "community_name": "TransactionUseCases",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "injectable"
     },
     {
@@ -16631,8 +16631,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_outbox_outbox_service_outboxservice_constructor",
-      "community": 213,
-      "community_name": "TransactionUseCases",
+      "community": 385,
+      "community_name": "reflect-metadata",
       "norm_label": ".constructor()"
     },
     {
@@ -16653,8 +16653,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_outbox_outbox_service_outboxservice_processpendingevents",
-      "community": 213,
-      "community_name": "TransactionUseCases",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": ".processpendingevents()"
     },
     {
@@ -16807,8 +16807,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_test_app_e2e_spec",
-      "community": 259,
-      "community_name": "tracing.ts",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "app.e2e-spec.ts"
     },
     {
@@ -17225,8 +17225,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package",
-      "community": 19,
-      "community_name": "Proposed Changes",
+      "community": 2,
+      "community_name": "UserProfileDto",
       "norm_label": "package.json"
     },
     {
@@ -17236,8 +17236,8 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_name",
-      "community": 19,
-      "community_name": "Proposed Changes",
+      "community": 2,
+      "community_name": "UserProfileDto",
       "norm_label": "name"
     },
     {
@@ -17247,8 +17247,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_version",
-      "community": 19,
-      "community_name": "Proposed Changes",
+      "community": 2,
+      "community_name": "UserProfileDto",
       "norm_label": "version"
     },
     {
@@ -17258,8 +17258,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_description",
-      "community": 19,
-      "community_name": "Proposed Changes",
+      "community": 2,
+      "community_name": "UserProfileDto",
       "norm_label": "description"
     },
     {
@@ -17269,8 +17269,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_author",
-      "community": 19,
-      "community_name": "Proposed Changes",
+      "community": 2,
+      "community_name": "UserProfileDto",
       "norm_label": "author"
     },
     {
@@ -17280,8 +17280,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_private",
-      "community": 19,
-      "community_name": "Proposed Changes",
+      "community": 2,
+      "community_name": "UserProfileDto",
       "norm_label": "private"
     },
     {
@@ -17291,8 +17291,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_license",
-      "community": 19,
-      "community_name": "Proposed Changes",
+      "community": 2,
+      "community_name": "UserProfileDto",
       "norm_label": "license"
     },
     {
@@ -17489,8 +17489,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_nestjs_platform_express",
-      "community": 461,
-      "community_name": "@nestjs/core",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -17500,8 +17500,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_platform_express",
-      "community": 461,
-      "community_name": "@nestjs/core",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -17643,8 +17643,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_opentelemetry_instrumentation_express",
-      "community": 464,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@opentelemetry/instrumentation-express"
     },
     {
@@ -17654,8 +17654,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_opentelemetry_instrumentation_express",
-      "community": 464,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@opentelemetry/instrumentation-express"
     },
     {
@@ -17665,8 +17665,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_opentelemetry_instrumentation_http",
-      "community": 340,
-      "community_name": "eslint-plugin-prettier",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@opentelemetry/instrumentation-http"
     },
     {
@@ -17676,8 +17676,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_opentelemetry_instrumentation_http",
-      "community": 340,
-      "community_name": "eslint-plugin-prettier",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@opentelemetry/instrumentation-http"
     },
     {
@@ -17753,8 +17753,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_opentelemetry_sdk_node",
-      "community": 405,
-      "community_name": "@opentelemetry/sdk-node",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@opentelemetry/sdk-node"
     },
     {
@@ -17764,8 +17764,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_opentelemetry_sdk_node",
-      "community": 405,
-      "community_name": "@opentelemetry/sdk-node",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@opentelemetry/sdk-node"
     },
     {
@@ -17775,8 +17775,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_opentelemetry_sdk_trace_base",
-      "community": 406,
-      "community_name": "@opentelemetry/sdk-trace-base",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@opentelemetry/sdk-trace-base"
     },
     {
@@ -17786,8 +17786,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_opentelemetry_sdk_trace_base",
-      "community": 406,
-      "community_name": "@opentelemetry/sdk-trace-base",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@opentelemetry/sdk-trace-base"
     },
     {
@@ -17863,8 +17863,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_prisma_adapter_pg",
-      "community": 583,
-      "community_name": "@prisma/adapter-pg",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@prisma/adapter-pg"
     },
     {
@@ -17874,8 +17874,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_prisma_adapter_pg",
-      "community": 583,
-      "community_name": "@prisma/adapter-pg",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@prisma/adapter-pg"
     },
     {
@@ -17885,8 +17885,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_prisma_client",
-      "community": 411,
-      "community_name": "@prisma/client",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@prisma/client"
     },
     {
@@ -17896,8 +17896,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_prisma_client",
-      "community": 411,
-      "community_name": "@prisma/client",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@prisma/client"
     },
     {
@@ -17951,8 +17951,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_class_validator",
-      "community": 463,
-      "community_name": "class-validator",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "class-validator"
     },
     {
@@ -17962,8 +17962,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_class_validator",
-      "community": 463,
-      "community_name": "class-validator",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "class-validator"
     },
     {
@@ -18017,8 +18017,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_pg",
-      "community": 409,
-      "community_name": "pg",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "pg"
     },
     {
@@ -18028,8 +18028,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_pg",
-      "community": 409,
-      "community_name": "pg",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "pg"
     },
     {
@@ -18039,8 +18039,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_reflect_metadata",
-      "community": 414,
-      "community_name": "winston",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "reflect-metadata"
     },
     {
@@ -18050,8 +18050,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_reflect_metadata",
-      "community": 414,
-      "community_name": "winston",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "reflect-metadata"
     },
     {
@@ -18105,8 +18105,8 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_zod",
-      "community": 585,
-      "community_name": "zod",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "zod"
     },
     {
@@ -18116,8 +18116,8 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_zod",
-      "community": 585,
-      "community_name": "zod",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "zod"
     },
     {
@@ -18138,8 +18138,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_nestjs_cli",
-      "community": 496,
-      "community_name": "@nestjs/config",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@nestjs/cli"
     },
     {
@@ -18149,8 +18149,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_cli",
-      "community": 496,
-      "community_name": "@nestjs/config",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@nestjs/cli"
     },
     {
@@ -18160,8 +18160,8 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_nestjs_schematics",
-      "community": 465,
-      "community_name": "html5-qrcode",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@nestjs/schematics"
     },
     {
@@ -18171,8 +18171,8 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_schematics",
-      "community": 465,
-      "community_name": "html5-qrcode",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@nestjs/schematics"
     },
     {
@@ -18182,8 +18182,8 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_nestjs_testing",
-      "community": 151,
-      "community_name": "AuthResponse",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@nestjs/testing"
     },
     {
@@ -18193,8 +18193,8 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_testing",
-      "community": 151,
-      "community_name": "AuthResponse",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@nestjs/testing"
     },
     {
@@ -18204,8 +18204,8 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_types_express",
-      "community": 492,
-      "community_name": "@types/express",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@types/express"
     },
     {
@@ -18215,8 +18215,8 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_types_express",
-      "community": 492,
-      "community_name": "@types/express",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@types/express"
     },
     {
@@ -18248,8 +18248,8 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_types_node",
-      "community": 203,
-      "community_name": "scripts",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@types/node"
     },
     {
@@ -18259,8 +18259,8 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_types_node",
-      "community": 203,
-      "community_name": "scripts",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@types/node"
     },
     {
@@ -18270,8 +18270,8 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_types_pg",
-      "community": 219,
-      "community_name": "dependencies",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@types/pg"
     },
     {
@@ -18281,8 +18281,8 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_types_pg",
-      "community": 219,
-      "community_name": "dependencies",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@types/pg"
     },
     {
@@ -18292,8 +18292,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_types_supertest",
-      "community": 231,
-      "community_name": "WithSpan",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@types/supertest"
     },
     {
@@ -18303,8 +18303,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_types_supertest",
-      "community": 231,
-      "community_name": "WithSpan",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@types/supertest"
     },
     {
@@ -18314,8 +18314,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_jest",
-      "community": 141,
-      "community_name": "StatementService",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "jest"
     },
     {
@@ -18325,8 +18325,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_jest",
-      "community": 141,
-      "community_name": "StatementService",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "jest"
     },
     {
@@ -18336,8 +18336,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_prisma",
-      "community": 157,
-      "community_name": "RetryProxyConfig.java",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "prisma"
     },
     {
@@ -18347,8 +18347,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_prisma",
-      "community": 157,
-      "community_name": "RetryProxyConfig.java",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "prisma"
     },
     {
@@ -18358,8 +18358,8 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_source_map_support",
-      "community": 158,
-      "community_name": "GrpcRetryConfig.java",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "source-map-support"
     },
     {
@@ -18369,8 +18369,8 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_source_map_support",
-      "community": 158,
-      "community_name": "GrpcRetryConfig.java",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "source-map-support"
     },
     {
@@ -18468,8 +18468,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_tsconfig_paths",
-      "community": 178,
-      "community_name": "compilerOptions",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "tsconfig-paths"
     },
     {
@@ -18479,8 +18479,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_tsconfig_paths",
-      "community": 178,
-      "community_name": "compilerOptions",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "tsconfig-paths"
     },
     {
@@ -18490,8 +18490,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_typescript",
-      "community": 233,
-      "community_name": "exclude",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "typescript"
     },
     {
@@ -18501,8 +18501,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_typescript",
-      "community": 233,
-      "community_name": "exclude",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "typescript"
     },
     {
@@ -21130,8 +21130,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_opentelemetry_exporter_metrics_otlp_http",
-      "community": 580,
-      "community_name": "mariadb",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@opentelemetry/exporter-metrics-otlp-http"
     },
     {
@@ -21141,8 +21141,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_opentelemetry_exporter_metrics_otlp_http",
-      "community": 580,
-      "community_name": "mariadb",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@opentelemetry/exporter-metrics-otlp-http"
     },
     {
@@ -21438,8 +21438,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_nest_winston",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 233,
+      "community_name": "exclude",
       "norm_label": "nest-winston"
     },
     {
@@ -21449,8 +21449,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nest_winston",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 233,
+      "community_name": "exclude",
       "norm_label": "nest-winston"
     },
     {
@@ -21603,8 +21603,8 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_eslint_js",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 340,
+      "community_name": "eslint-plugin-prettier",
       "norm_label": "@eslint/js"
     },
     {
@@ -21614,8 +21614,8 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_eslint_js",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 340,
+      "community_name": "eslint-plugin-prettier",
       "norm_label": "@eslint/js"
     },
     {
@@ -22021,8 +22021,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_source_map_support",
-      "community": 637,
-      "community_name": "class-transformer",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "source-map-support"
     },
     {
@@ -22032,8 +22032,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_source_map_support",
-      "community": 637,
-      "community_name": "class-transformer",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "source-map-support"
     },
     {
@@ -23286,8 +23286,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_src_domain_entities_audit_log_entity",
-      "community": 373,
-      "community_name": "@nestjs/platform-express",
+      "community": 308,
+      "community_name": "@eslint/js",
       "norm_label": "audit-log.entity.ts"
     },
     {
@@ -23319,8 +23319,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_src_domain_entities_statement_job_entity",
-      "community": 308,
-      "community_name": "@eslint/js",
+      "community": 373,
+      "community_name": "@nestjs/platform-express",
       "norm_label": "statement-job.entity.ts"
     },
     {
@@ -24138,71 +24138,86 @@
       "norm_label": "nofallthroughcasesinswitch"
     },
     {
-      "label": "deploy-rancher.ps1",
+      "label": "deploy-k8s.ps1",
       "file_type": "code",
-      "source_file": "deploy-rancher.ps1",
+      "source_file": "deploy-k8s.ps1",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "deploy_rancher_ps1_deploy_rancher",
-      "community": 162,
-      "community_name": "Log-Msg",
-      "norm_label": "deploy-rancher.ps1"
+      "id": "deploy_k8s_ps1_deploy_k8s",
+      "community": 369,
+      "community_name": "eslint-plugin-prettier",
+      "norm_label": "deploy-k8s.ps1"
     },
     {
       "label": "Log-Msg()",
       "file_type": "code",
-      "source_file": "deploy-rancher.ps1",
-      "source_location": "L12",
+      "source_file": "deploy-k8s.ps1",
+      "source_location": "L13",
       "_origin": "ast",
-      "id": "deploy_rancher_log_msg",
-      "community": 162,
-      "community_name": "Log-Msg",
+      "id": "deploy_k8s_log_msg",
+      "community": 369,
+      "community_name": "eslint-plugin-prettier",
       "norm_label": "log-msg()"
     },
     {
-      "label": "deploy-rancher.sh",
+      "label": "deploy-k8s.sh",
       "file_type": "code",
-      "source_file": "deploy-rancher.sh",
+      "source_file": "deploy-k8s.sh",
       "source_location": "L1",
       "metadata": {
         "language": "bash",
         "kind": "file"
       },
       "_origin": "ast",
-      "id": "deploy_rancher_sh_deploy_rancher",
+      "id": "deploy_k8s_sh_deploy_k8s",
       "community": 159,
       "community_name": "Tecnologias Detalladas",
-      "norm_label": "deploy-rancher.sh"
+      "norm_label": "deploy-k8s.sh"
     },
     {
-      "label": "deploy-rancher.sh script",
+      "label": "deploy-k8s.sh script",
       "file_type": "code",
-      "source_file": "deploy-rancher.sh",
+      "source_file": "deploy-k8s.sh",
       "source_location": "L1",
       "metadata": {
         "language": "bash",
         "kind": "bash_entrypoint"
       },
       "_origin": "ast",
-      "id": "deploy_rancher_sh__entry",
+      "id": "deploy_k8s_sh__entry",
       "community": 159,
       "community_name": "Tecnologias Detalladas",
-      "norm_label": "deploy-rancher.sh script"
+      "norm_label": "deploy-k8s.sh script"
     },
     {
-      "label": "timestamp()",
+      "label": "log()",
       "file_type": "code",
-      "source_file": "deploy-rancher.sh",
-      "source_location": "L24",
+      "source_file": "deploy-k8s.sh",
+      "source_location": "L35",
       "metadata": {
         "language": "bash",
         "kind": "bash_function"
       },
       "_origin": "ast",
-      "id": "deploy_rancher_timestamp",
+      "id": "deploy_k8s_log",
       "community": 159,
       "community_name": "Tecnologias Detalladas",
-      "norm_label": "timestamp()"
+      "norm_label": "log()"
+    },
+    {
+      "label": "SERVICES",
+      "file_type": "code",
+      "source_file": "deploy-k8s.sh",
+      "source_location": "L106",
+      "metadata": {
+        "language": "bash",
+        "kind": "code"
+      },
+      "_origin": "ast",
+      "id": "deploy_k8s_services",
+      "community": 159,
+      "community_name": "Tecnologias Detalladas",
+      "norm_label": "services"
     },
     {
       "label": "eslint.config.js",
@@ -24343,8 +24358,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "frontend_package_dependencies_axios",
-      "community": 639,
-      "community_name": "axios",
+      "community": 6,
+      "community_name": "dependencies",
       "norm_label": "axios"
     },
     {
@@ -24354,8 +24369,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "frontend_package_json_axios",
-      "community": 639,
-      "community_name": "axios",
+      "community": 6,
+      "community_name": "dependencies",
       "norm_label": "axios"
     },
     {
@@ -24563,8 +24578,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "frontend_package_dependencies_react_router_dom",
-      "community": 6,
-      "community_name": "dependencies",
+      "community": 386,
+      "community_name": "rxjs",
       "norm_label": "react-router-dom"
     },
     {
@@ -24574,8 +24589,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "react_router_dom",
-      "community": 6,
-      "community_name": "dependencies",
+      "community": 386,
+      "community_name": "rxjs",
       "norm_label": "react-router-dom"
     },
     {
@@ -26578,7 +26593,7 @@
       "label": "Restore-CoreDatabase()",
       "file_type": "code",
       "source_file": "scripts/restore-database.ps1",
-      "source_location": "L67",
+      "source_location": "L69",
       "_origin": "ast",
       "id": "scripts_restore_database_restore_coredatabase",
       "community": 33,
@@ -26589,7 +26604,7 @@
       "label": "Restore-SupportDatabase()",
       "file_type": "code",
       "source_file": "scripts/restore-database.ps1",
-      "source_location": "L90",
+      "source_location": "L92",
       "_origin": "ast",
       "id": "scripts_restore_database_restore_supportdatabase",
       "community": 33,
@@ -26630,7 +26645,7 @@
       "label": "restore_core_db()",
       "file_type": "code",
       "source_file": "scripts/restore-database.sh",
-      "source_location": "L35",
+      "source_location": "L40",
       "metadata": {
         "language": "bash",
         "kind": "bash_function"
@@ -26645,7 +26660,7 @@
       "label": "restore_support_db()",
       "file_type": "code",
       "source_file": "scripts/restore-database.sh",
-      "source_location": "L47",
+      "source_location": "L52",
       "metadata": {
         "language": "bash",
         "kind": "bash_function"
@@ -32911,8 +32926,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_analysis_workflow",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "analysis workflow"
     },
     {
@@ -32922,8 +32937,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_step_1_identify_framework_and_patterns",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "step 1: identify framework and patterns"
     },
     {
@@ -32933,8 +32948,8 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_step_2_map_code_structure_to_diagram_types",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "step 2: map code structure to diagram types"
     },
     {
@@ -32944,8 +32959,8 @@
       "source_location": "L86",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_step_3_extract_key_information",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "step 3: extract key information"
     },
     {
@@ -32955,8 +32970,8 @@
       "source_location": "L108",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_step_4_apply_framework_patterns",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "step 4: apply framework patterns"
     },
     {
@@ -32966,8 +32981,8 @@
       "source_location": "L141",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_step_5_generate_and_validate",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "step 5: generate and validate"
     },
     {
@@ -32977,8 +32992,8 @@
       "source_location": "L150",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_framework_specific_guides",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": "framework-specific guides"
     },
     {
@@ -32988,8 +33003,8 @@
       "source_location": "L152",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_spring_boot_diagrams",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": "spring boot \u2192 diagrams"
     },
     {
@@ -32999,8 +33014,8 @@
       "source_location": "L224",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_fastapi_diagrams",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": "fastapi \u2192 diagrams"
     },
     {
@@ -33010,8 +33025,8 @@
       "source_location": "L291",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_react_diagrams",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": "react \u2192 diagrams"
     },
     {
@@ -33021,8 +33036,8 @@
       "source_location": "L360",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_express_js_diagrams",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": "express.js \u2192 diagrams"
     },
     {
@@ -33032,8 +33047,8 @@
       "source_location": "L419",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_java_servlet_diagrams",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": "java servlet \u2192 diagrams"
     },
     {
@@ -33043,8 +33058,8 @@
       "source_location": "L476",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_python_etl_diagrams",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": "python etl \u2192 diagrams"
     },
     {
@@ -33087,8 +33102,8 @@
       "source_location": "L589",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_pattern_recognition",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 144,
+      "community_name": "SKILL.md",
       "norm_label": "pattern recognition"
     },
     {
@@ -33098,8 +33113,8 @@
       "source_location": "L591",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_common_architectural_patterns",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 144,
+      "community_name": "SKILL.md",
       "norm_label": "common architectural patterns"
     },
     {
@@ -33109,8 +33124,8 @@
       "source_location": "L593",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_1_layered_architecture_mvc",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 144,
+      "community_name": "SKILL.md",
       "norm_label": "1. layered architecture (mvc)"
     },
     {
@@ -33120,8 +33135,8 @@
       "source_location": "L624",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_2_microservices",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 144,
+      "community_name": "SKILL.md",
       "norm_label": "2. microservices"
     },
     {
@@ -33131,8 +33146,8 @@
       "source_location": "L635",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_3_event_driven",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 144,
+      "community_name": "SKILL.md",
       "norm_label": "3. event-driven"
     },
     {
@@ -33142,8 +33157,8 @@
       "source_location": "L646",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_4_cqrs_command_query_responsibility_segregation",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 144,
+      "community_name": "SKILL.md",
       "norm_label": "4. cqrs (command query responsibility segregation)"
     },
     {
@@ -33153,8 +33168,8 @@
       "source_location": "L659",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_best_practices",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 124,
+      "community_name": "notification-service:notification-service",
       "norm_label": "best practices"
     },
     {
@@ -33164,8 +33179,8 @@
       "source_location": "L661",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_1_start_high_level_then_zoom_in",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 124,
+      "community_name": "notification-service:notification-service",
       "norm_label": "1. **start high-level, then zoom in**"
     },
     {
@@ -33175,8 +33190,8 @@
       "source_location": "L670",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_2_use_framework_examples_as_templates",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 124,
+      "community_name": "notification-service:notification-service",
       "norm_label": "2. **use framework examples as templates**"
     },
     {
@@ -33186,8 +33201,8 @@
       "source_location": "L677",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_3_include_technology_stack",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 124,
+      "community_name": "notification-service:notification-service",
       "norm_label": "3. **include technology stack**"
     },
     {
@@ -33197,8 +33212,8 @@
       "source_location": "L686",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_4_validate_diagram_syntax",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 124,
+      "community_name": "notification-service:notification-service",
       "norm_label": "4. **validate diagram syntax**"
     },
     {
@@ -33208,8 +33223,8 @@
       "source_location": "L696",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_5_keep_diagrams_current",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 124,
+      "community_name": "notification-service:notification-service",
       "norm_label": "5. **keep diagrams current**"
     },
     {
@@ -33219,8 +33234,8 @@
       "source_location": "L702",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_6_use_semantic_unicode_symbols",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 124,
+      "community_name": "notification-service:notification-service",
       "norm_label": "6. **use semantic unicode symbols**"
     },
     {
@@ -33230,8 +33245,8 @@
       "source_location": "L711",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_7_document_diagram_scope",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 124,
+      "community_name": "notification-service:notification-service",
       "norm_label": "7. **document diagram scope**"
     },
     {
@@ -33395,8 +33410,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_common_patterns",
-      "community": 329,
-      "community_name": "@opentelemetry/exporter-logs-otlp-http",
+      "community": 158,
+      "community_name": "GrpcRetryConfig.java",
       "norm_label": "common patterns"
     },
     {
@@ -33406,8 +33421,8 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_authentication_flow",
-      "community": 329,
-      "community_name": "@opentelemetry/exporter-logs-otlp-http",
+      "community": 158,
+      "community_name": "GrpcRetryConfig.java",
       "norm_label": "authentication flow"
     },
     {
@@ -33417,8 +33432,8 @@
       "source_location": "L90",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_e_commerce_checkout_flow",
-      "community": 329,
-      "community_name": "@opentelemetry/exporter-logs-otlp-http",
+      "community": 158,
+      "community_name": "GrpcRetryConfig.java",
       "norm_label": "e-commerce checkout flow"
     },
     {
@@ -33428,8 +33443,8 @@
       "source_location": "L123",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_data_processing_pipeline",
-      "community": 329,
-      "community_name": "@opentelemetry/exporter-logs-otlp-http",
+      "community": 158,
+      "community_name": "GrpcRetryConfig.java",
       "norm_label": "data processing pipeline"
     },
     {
@@ -33494,8 +33509,8 @@
       "source_location": "L291",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_best_practices",
-      "community": 570,
-      "community_name": "Best Practices",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "best practices"
     },
     {
@@ -33505,8 +33520,8 @@
       "source_location": "L293",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_1_keep_flows_focused",
-      "community": 570,
-      "community_name": "Best Practices",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "1. keep flows focused"
     },
     {
@@ -33516,8 +33531,8 @@
       "source_location": "L299",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_2_use_clear_naming",
-      "community": 570,
-      "community_name": "Best Practices",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "2. use clear naming"
     },
     {
@@ -33527,8 +33542,8 @@
       "source_location": "L313",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_3_consistent_decision_logic",
-      "community": 570,
-      "community_name": "Best Practices",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "3. consistent decision logic"
     },
     {
@@ -33538,8 +33553,8 @@
       "source_location": "L325",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_4_handle_error_paths",
-      "community": 570,
-      "community_name": "Best Practices",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "4. handle error paths"
     },
     {
@@ -33549,8 +33564,8 @@
       "source_location": "L342",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_5_use_subgraphs_for_organization",
-      "community": 570,
-      "community_name": "Best Practices",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "5. use subgraphs for organization"
     },
     {
@@ -33857,8 +33872,8 @@
       "source_location": "L813",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_architecture_diagrams_best_practices",
-      "community": 124,
-      "community_name": "notification-service:notification-service",
+      "community": 346,
+      "community_name": "ts-jest",
       "norm_label": "best practices"
     },
     {
@@ -33868,8 +33883,8 @@
       "source_location": "L815",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_architecture_diagrams_1_choose_the_right_abstraction_level",
-      "community": 124,
-      "community_name": "notification-service:notification-service",
+      "community": 346,
+      "community_name": "ts-jest",
       "norm_label": "1. **choose the right abstraction level**"
     },
     {
@@ -33879,8 +33894,8 @@
       "source_location": "L821",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_architecture_diagrams_2_use_consistent_symbols",
-      "community": 124,
-      "community_name": "notification-service:notification-service",
+      "community": 346,
+      "community_name": "ts-jest",
       "norm_label": "2. **use consistent symbols**"
     },
     {
@@ -33890,8 +33905,8 @@
       "source_location": "L838",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_architecture_diagrams_3_label_communication_protocols",
-      "community": 124,
-      "community_name": "notification-service:notification-service",
+      "community": 346,
+      "community_name": "ts-jest",
       "norm_label": "3. **label communication protocols**"
     },
     {
@@ -33901,8 +33916,8 @@
       "source_location": "L846",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_architecture_diagrams_4_show_boundaries_clearly",
-      "community": 124,
-      "community_name": "notification-service:notification-service",
+      "community": 346,
+      "community_name": "ts-jest",
       "norm_label": "4. **show boundaries clearly**"
     },
     {
@@ -33912,8 +33927,8 @@
       "source_location": "L854",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_architecture_diagrams_5_indicate_technology_choices",
-      "community": 124,
-      "community_name": "notification-service:notification-service",
+      "community": 346,
+      "community_name": "ts-jest",
       "norm_label": "5. **indicate technology choices**"
     },
     {
@@ -33923,8 +33938,8 @@
       "source_location": "L862",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_architecture_diagrams_6_document_key_decisions",
-      "community": 124,
-      "community_name": "notification-service:notification-service",
+      "community": 346,
+      "community_name": "ts-jest",
       "norm_label": "6. **document key decisions**"
     },
     {
@@ -33934,8 +33949,8 @@
       "source_location": "L878",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_architecture_diagrams_7_high_contrast_styling",
-      "community": 124,
-      "community_name": "notification-service:notification-service",
+      "community": 346,
+      "community_name": "ts-jest",
       "norm_label": "7. **high-contrast styling**"
     },
     {
@@ -34044,8 +34059,8 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_common_deployment_patterns",
-      "community": 603,
-      "community_name": "Common Deployment Patterns",
+      "community": 365,
+      "community_name": "SKILL.md",
       "norm_label": "common deployment patterns"
     },
     {
@@ -34055,8 +34070,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_three_tier_architecture",
-      "community": 603,
-      "community_name": "Common Deployment Patterns",
+      "community": 365,
+      "community_name": "SKILL.md",
       "norm_label": "three-tier architecture"
     },
     {
@@ -34066,8 +34081,8 @@
       "source_location": "L105",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_microservices_deployment_kubernetes",
-      "community": 603,
-      "community_name": "Common Deployment Patterns",
+      "community": 365,
+      "community_name": "SKILL.md",
       "norm_label": "microservices deployment (kubernetes)"
     },
     {
@@ -34077,8 +34092,8 @@
       "source_location": "L182",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_serverless_architecture",
-      "community": 603,
-      "community_name": "Common Deployment Patterns",
+      "community": 365,
+      "community_name": "SKILL.md",
       "norm_label": "serverless architecture"
     },
     {
@@ -34143,8 +34158,8 @@
       "source_location": "L456",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_best_practices",
-      "community": 365,
-      "community_name": "SKILL.md",
+      "community": 157,
+      "community_name": "RetryProxyConfig.java",
       "norm_label": "best practices"
     },
     {
@@ -34154,8 +34169,8 @@
       "source_location": "L458",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_1_show_resource_specifications",
-      "community": 365,
-      "community_name": "SKILL.md",
+      "community": 157,
+      "community_name": "RetryProxyConfig.java",
       "norm_label": "1. show resource specifications"
     },
     {
@@ -34165,8 +34180,8 @@
       "source_location": "L467",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_2_indicate_network_boundaries",
-      "community": 365,
-      "community_name": "SKILL.md",
+      "community": 157,
+      "community_name": "RetryProxyConfig.java",
       "norm_label": "2. indicate network boundaries"
     },
     {
@@ -34176,8 +34191,8 @@
       "source_location": "L476",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_3_show_scaling_configuration",
-      "community": 365,
-      "community_name": "SKILL.md",
+      "community": 157,
+      "community_name": "RetryProxyConfig.java",
       "norm_label": "3. show scaling configuration"
     },
     {
@@ -34187,8 +34202,8 @@
       "source_location": "L488",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_4_document_ports_and_protocols",
-      "community": 365,
-      "community_name": "SKILL.md",
+      "community": 157,
+      "community_name": "RetryProxyConfig.java",
       "norm_label": "4. document ports and protocols"
     },
     {
@@ -34198,8 +34213,8 @@
       "source_location": "L498",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_5_indicate_high_availability",
-      "community": 365,
-      "community_name": "SKILL.md",
+      "community": 157,
+      "community_name": "RetryProxyConfig.java",
       "norm_label": "5. indicate high availability"
     },
     {
@@ -35947,8 +35962,8 @@
       "source_location": "L270",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_best_practices",
-      "community": 573,
-      "community_name": "Best Practices",
+      "community": 367,
+      "community_name": "typescript",
       "norm_label": "best practices"
     },
     {
@@ -35958,8 +35973,8 @@
       "source_location": "L272",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_1_consistent_symbol_usage",
-      "community": 573,
-      "community_name": "Best Practices",
+      "community": 367,
+      "community_name": "typescript",
       "norm_label": "1. consistent symbol usage"
     },
     {
@@ -35969,8 +35984,8 @@
       "source_location": "L290",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_2_don_t_overuse_symbols",
-      "community": 573,
-      "community_name": "Best Practices",
+      "community": 367,
+      "community_name": "typescript",
       "norm_label": "2. don't overuse symbols"
     },
     {
@@ -35980,8 +35995,8 @@
       "source_location": "L307",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_3_combine_with_text",
-      "community": 573,
-      "community_name": "Best Practices",
+      "community": 367,
+      "community_name": "typescript",
       "norm_label": "3. combine with text"
     },
     {
@@ -35991,8 +36006,8 @@
       "source_location": "L323",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_4_consider_rendering_context",
-      "community": 573,
-      "community_name": "Best Practices",
+      "community": 367,
+      "community_name": "typescript",
       "norm_label": "4. consider rendering context"
     },
     {
@@ -36002,8 +36017,8 @@
       "source_location": "L335",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_5_symbol_accessibility",
-      "community": 573,
-      "community_name": "Best Practices",
+      "community": 367,
+      "community_name": "typescript",
       "norm_label": "5. symbol accessibility"
     },
     {
@@ -36035,8 +36050,8 @@
       "source_location": "L400",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_language_specific_symbol_conventions",
-      "community": 598,
-      "community_name": "Language-Specific Symbol Conventions",
+      "community": 367,
+      "community_name": "typescript",
       "norm_label": "language-specific symbol conventions"
     },
     {
@@ -36046,8 +36061,8 @@
       "source_location": "L402",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_python",
-      "community": 598,
-      "community_name": "Language-Specific Symbol Conventions",
+      "community": 367,
+      "community_name": "typescript",
       "norm_label": "python"
     },
     {
@@ -36057,8 +36072,8 @@
       "source_location": "L409",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_java_spring",
-      "community": 598,
-      "community_name": "Language-Specific Symbol Conventions",
+      "community": 367,
+      "community_name": "typescript",
       "norm_label": "java/spring"
     },
     {
@@ -36068,8 +36083,8 @@
       "source_location": "L416",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_javascript_node",
-      "community": 598,
-      "community_name": "Language-Specific Symbol Conventions",
+      "community": 367,
+      "community_name": "typescript",
       "norm_label": "javascript/node"
     },
     {
@@ -36079,8 +36094,8 @@
       "source_location": "L423",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_react",
-      "community": 598,
-      "community_name": "Language-Specific Symbol Conventions",
+      "community": 367,
+      "community_name": "typescript",
       "norm_label": "react"
     },
     {
@@ -49870,7 +49885,7 @@
       "label": "\ud83c\udfdb\ufe0f Arquitectura del Sistema",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L63",
+      "source_location": "L65",
       "_origin": "ast",
       "id": "readme_arquitectura_del_sistema",
       "community": 359,
@@ -49881,7 +49896,7 @@
       "label": "Diagrama de Arquitectura General",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L65",
+      "source_location": "L67",
       "_origin": "ast",
       "id": "readme_diagrama_de_arquitectura_general",
       "community": 359,
@@ -49892,7 +49907,7 @@
       "label": "Diagrama de Comunicaci\u00f3n entre Microservicios",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L147",
+      "source_location": "L149",
       "_origin": "ast",
       "id": "readme_diagrama_de_comunicaci\u00f3n_entre_microservicios",
       "community": 359,
@@ -49903,7 +49918,7 @@
       "label": "Diagrama de Flujo Transaccional de una Transferencia",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L166",
+      "source_location": "L168",
       "_origin": "ast",
       "id": "readme_diagrama_de_flujo_transaccional_de_una_transferencia",
       "community": 359,
@@ -49914,7 +49929,7 @@
       "label": "\ud83d\udcc2 Estructura del Repositorio",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L223",
+      "source_location": "L225",
       "_origin": "ast",
       "id": "readme_estructura_del_repositorio",
       "community": 359,
@@ -49925,7 +49940,7 @@
       "label": "\ud83d\ude80 Gu\u00eda de Inicio R\u00e1pido (Quick Start)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L262",
+      "source_location": "L264",
       "_origin": "ast",
       "id": "readme_gu\u00eda_de_inicio_r\u00e1pido_quick_start",
       "community": 359,
@@ -49936,7 +49951,7 @@
       "label": "1. Requisitos Previos",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L264",
+      "source_location": "L266",
       "_origin": "ast",
       "id": "readme_1_requisitos_previos",
       "community": 359,
@@ -49947,7 +49962,7 @@
       "label": "2. Clonar el Repositorio y Seleccionar la Rama",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L272",
+      "source_location": "L274",
       "_origin": "ast",
       "id": "readme_2_clonar_el_repositorio_y_seleccionar_la_rama",
       "community": 359,
@@ -49958,7 +49973,7 @@
       "label": "3. Configurar Variables de Entorno",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L280",
+      "source_location": "L282",
       "_origin": "ast",
       "id": "readme_3_configurar_variables_de_entorno",
       "community": 359,
@@ -49969,7 +49984,7 @@
       "label": "4. Desplegar Todo el Sistema en Kubernetes",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L290",
+      "source_location": "L292",
       "_origin": "ast",
       "id": "readme_4_desplegar_todo_el_sistema_en_kubernetes",
       "community": 359,
@@ -49980,7 +49995,7 @@
       "label": "Opci\u00f3n A: Despliegue Automatizado (Recomendado)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L292",
+      "source_location": "L294",
       "_origin": "ast",
       "id": "readme_opci\u00f3n_a_despliegue_automatizado_recomendado",
       "community": 359,
@@ -49991,7 +50006,7 @@
       "label": "Opci\u00f3n B: Despliegue Manual Paso a Paso",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L305",
+      "source_location": "L307",
       "_origin": "ast",
       "id": "readme_opci\u00f3n_b_despliegue_manual_paso_a_paso",
       "community": 359,
@@ -49999,10 +50014,21 @@
       "norm_label": "opcion b: despliegue manual paso a paso"
     },
     {
+      "label": "Opci\u00f3n C: Levantar con Podman Compose (Desarrollo Local sin K8s)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L336",
+      "_origin": "ast",
+      "id": "readme_opci\u00f3n_c_levantar_con_podman_compose_desarrollo_local_sin_k8s",
+      "community": 359,
+      "community_name": "supertest",
+      "norm_label": "opcion c: levantar con podman compose (desarrollo local sin k8s)"
+    },
+    {
       "label": "5. Verificar el Estado del Despliegue",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L330",
+      "source_location": "L342",
       "_origin": "ast",
       "id": "readme_5_verificar_el_estado_del_despliegue",
       "community": 359,
@@ -50013,7 +50039,7 @@
       "label": "6. Ejecutar la Suite de Pruebas de Humo",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L343",
+      "source_location": "L355",
       "_origin": "ast",
       "id": "readme_6_ejecutar_la_suite_de_pruebas_de_humo",
       "community": 359,
@@ -50024,7 +50050,7 @@
       "label": "\ud83c\udf10 Puertos y Endpoints del Ecosistema",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L352",
+      "source_location": "L364",
       "_origin": "ast",
       "id": "readme_puertos_y_endpoints_del_ecosistema",
       "community": 359,
@@ -50035,7 +50061,7 @@
       "label": "\ud83d\udcda Documentaci\u00f3n T\u00e9cnica Especializada",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L372",
+      "source_location": "L384",
       "_origin": "ast",
       "id": "readme_documentaci\u00f3n_t\u00e9cnica_especializada",
       "community": 359,
@@ -50046,7 +50072,7 @@
       "label": "\ud83e\udde9 Matriz de Dependencias por Servicio",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L398",
+      "source_location": "L410",
       "_origin": "ast",
       "id": "readme_matriz_de_dependencias_por_servicio",
       "community": 359,
@@ -50164,15 +50190,15 @@
       "norm_label": "2. produccion local"
     },
     {
-      "label": "3. En Kubernetes / Rancher Desktop (k3s)",
+      "label": "3. En Kubernetes con Podman",
       "file_type": "document",
       "source_file": "backend-nestjs/auth-service/README.md",
       "source_location": "L141",
       "_origin": "ast",
-      "id": "backend_nestjs_auth_service_readme_3_en_kubernetes_rancher_desktop_k3s",
+      "id": "backend_nestjs_auth_service_readme_3_en_kubernetes_con_podman",
       "community": 179,
       "community_name": "Auth Service (NestJS) \ud83d\udd10",
-      "norm_label": "3. en kubernetes / rancher desktop (k3s)"
+      "norm_label": "3. en kubernetes con podman"
     },
     {
       "label": "\ud83e\uddea Gu\u00eda de Pruebas e Interacci\u00f3n (API REST)",
@@ -50340,15 +50366,15 @@
       "norm_label": "\ud83e\uddea pruebas unitarias"
     },
     {
-      "label": "\ud83d\udc33 Despliegue en Kubernetes (Rancher / nerdctl)",
+      "label": "\ud83e\uddad Despliegue en Kubernetes con Podman",
       "file_type": "document",
       "source_file": "backend-nestjs/notification-service/README.md",
       "source_location": "L98",
       "_origin": "ast",
-      "id": "backend_nestjs_notification_service_readme_despliegue_en_kubernetes_rancher_nerdctl",
+      "id": "backend_nestjs_notification_service_readme_despliegue_en_kubernetes_con_podman",
       "community": 226,
       "community_name": "README.md",
-      "norm_label": "\ud83d\udc33 despliegue en kubernetes (rancher / nerdctl)"
+      "norm_label": "\ud83e\uddad despliegue en kubernetes con podman"
     },
     {
       "label": "README.md",
@@ -50472,26 +50498,26 @@
       "norm_label": "4. pruebas unitarias con jest"
     },
     {
-      "label": "\ud83d\udc33 Despliegue con Docker y Kubernetes",
+      "label": "\ud83e\uddad Despliegue con Podman y Kubernetes",
       "file_type": "document",
       "source_file": "backend-nestjs/transaction-service/README.md",
       "source_location": "L134",
       "_origin": "ast",
-      "id": "backend_nestjs_transaction_service_readme_despliegue_con_docker_y_kubernetes",
+      "id": "backend_nestjs_transaction_service_readme_despliegue_con_podman_y_kubernetes",
       "community": 171,
       "community_name": "Transaction Service (NestJS) \ud83d\udcb8",
-      "norm_label": "\ud83d\udc33 despliegue con docker y kubernetes"
+      "norm_label": "\ud83e\uddad despliegue con podman y kubernetes"
     },
     {
-      "label": "Construir Imagen con `nerdctl`",
+      "label": "Construir Imagen con Podman",
       "file_type": "document",
       "source_file": "backend-nestjs/transaction-service/README.md",
       "source_location": "L136",
       "_origin": "ast",
-      "id": "backend_nestjs_transaction_service_readme_construir_imagen_con_nerdctl",
+      "id": "backend_nestjs_transaction_service_readme_construir_imagen_con_podman",
       "community": 171,
       "community_name": "Transaction Service (NestJS) \ud83d\udcb8",
-      "norm_label": "construir imagen con `nerdctl`"
+      "norm_label": "construir imagen con podman"
     },
     {
       "label": "Aplicar Manifiesto Kubernetes",
@@ -50681,15 +50707,15 @@
       "norm_label": "2. produccion local"
     },
     {
-      "label": "3. En Kubernetes / Rancher Desktop (k3s)",
+      "label": "3. En Kubernetes con Podman",
       "file_type": "document",
       "source_file": "backend-nestjs/user-service/README.md",
       "source_location": "L118",
       "_origin": "ast",
-      "id": "backend_nestjs_user_service_readme_3_en_kubernetes_rancher_desktop_k3s",
+      "id": "backend_nestjs_user_service_readme_3_en_kubernetes_con_podman",
       "community": 188,
       "community_name": "User Service (NestJS) \ud83d\udc64",
-      "norm_label": "3. en kubernetes / rancher desktop (k3s)"
+      "norm_label": "3. en kubernetes con podman"
     },
     {
       "label": "\ud83e\uddea Gu\u00eda de Pruebas e Interacci\u00f3n (REST & tRPC)",
@@ -50824,15 +50850,15 @@
       "norm_label": "\ud83d\udd27 comandos de ejecucion"
     },
     {
-      "label": "\ud83d\udc33 Docker & Kubernetes Deployment",
+      "label": "\ud83e\uddad Podman & Kubernetes Deployment",
       "file_type": "document",
       "source_file": "backend-nestjs/worker-service/README.md",
       "source_location": "L63",
       "_origin": "ast",
-      "id": "backend_nestjs_worker_service_readme_docker_kubernetes_deployment",
+      "id": "backend_nestjs_worker_service_readme_podman_kubernetes_deployment",
       "community": 227,
       "community_name": "README.md",
-      "norm_label": "\ud83d\udc33 docker & kubernetes deployment"
+      "norm_label": "\ud83e\uddad podman & kubernetes deployment"
     },
     {
       "label": "api-gateway.md",
@@ -51297,215 +51323,6 @@
       "norm_label": "8. proteccion contra fuerza bruta con traefik rate limiting"
     },
     {
-      "label": "containerd-setup.md",
-      "file_type": "document",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_containerd_setup",
-      "community": 27,
-      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
-      "norm_label": "containerd-setup.md"
-    },
-    {
-      "label": "Configuraci\u00f3n de containerd, nerdctl y BuildKit en Linux (Ubuntu)",
-      "file_type": "document",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_containerd_setup_configuraci\u00f3n_de_containerd_nerdctl_y_buildkit_en_linux_ubuntu",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "configuracion de containerd, nerdctl y buildkit en linux (ubuntu)"
-    },
-    {
-      "label": "\ud83d\udcd1 Contenido",
-      "file_type": "document",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "docs_containerd_setup_contenido",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "\ud83d\udcd1 contenido"
-    },
-    {
-      "label": "1. Diagn\u00f3stico del Error Com\u00fan: `rootless containerd not running`",
-      "file_type": "document",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L18",
-      "_origin": "ast",
-      "id": "docs_containerd_setup_1_diagn\u00f3stico_del_error_com\u00fan_rootless_containerd_not_running",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "1. diagnostico del error comun: `rootless containerd not running`"
-    },
-    {
-      "label": "El Error:",
-      "file_type": "document",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L20",
-      "_origin": "ast",
-      "id": "docs_containerd_setup_el_error",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "el error:"
-    },
-    {
-      "label": "\u00bfPor qu\u00e9 ocurre?",
-      "file_type": "document",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L26",
-      "_origin": "ast",
-      "id": "docs_containerd_setup_por_qu\u00e9_ocurre",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "\u00bfpor que ocurre?"
-    },
-    {
-      "label": "2. M\u00e9todo A: Modo Sistema / Root con K3s (Recomendado)",
-      "file_type": "document",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L33",
-      "_origin": "ast",
-      "id": "docs_containerd_setup_2_m\u00e9todo_a_modo_sistema_root_con_k3s_recomendado",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "2. metodo a: modo sistema / root con k3s (recomendado)"
-    },
-    {
-      "label": "Paso 1: Ejecutar con `sudo` y especificar el socket de K3s",
-      "file_type": "document",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L37",
-      "_origin": "ast",
-      "id": "docs_containerd_setup_paso_1_ejecutar_con_sudo_y_especificar_el_socket_de_k3s",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "paso 1: ejecutar con `sudo` y especificar el socket de k3s"
-    },
-    {
-      "label": "3. M\u00e9todo B: Modo Rootless (Sin `sudo`)",
-      "file_type": "document",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L53",
-      "_origin": "ast",
-      "id": "docs_containerd_setup_3_m\u00e9todo_b_modo_rootless_sin_sudo",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "3. metodo b: modo rootless (sin `sudo`)"
-    },
-    {
-      "label": "Paso 1: Instalar paquetes prerrequisitos en Ubuntu",
-      "file_type": "document",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L57",
-      "_origin": "ast",
-      "id": "docs_containerd_setup_paso_1_instalar_paquetes_prerrequisitos_en_ubuntu",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "paso 1: instalar paquetes prerrequisitos en ubuntu"
-    },
-    {
-      "label": "Paso 2: Instalar containerd Rootless",
-      "file_type": "document",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L64",
-      "_origin": "ast",
-      "id": "docs_containerd_setup_paso_2_instalar_containerd_rootless",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "paso 2: instalar containerd rootless"
-    },
-    {
-      "label": "Paso 3: Iniciar e instalar BuildKit en modo Rootless",
-      "file_type": "document",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L70",
-      "_origin": "ast",
-      "id": "docs_containerd_setup_paso_3_iniciar_e_instalar_buildkit_en_modo_rootless",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "paso 3: iniciar e instalar buildkit en modo rootless"
-    },
-    {
-      "label": "Paso 4: Exportar variables de sesi\u00f3n en tu terminal",
-      "file_type": "document",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L78",
-      "_origin": "ast",
-      "id": "docs_containerd_setup_paso_4_exportar_variables_de_sesi\u00f3n_en_tu_terminal",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "paso 4: exportar variables de sesion en tu terminal"
-    },
-    {
-      "label": "4. Configuraci\u00f3n del Demonio BuildKit (`buildkitd`)",
-      "file_type": "document",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L95",
-      "_origin": "ast",
-      "id": "docs_containerd_setup_4_configuraci\u00f3n_del_demonio_buildkit_buildkitd",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "4. configuracion del demonio buildkit (`buildkitd`)"
-    },
-    {
-      "label": "Opci\u00f3n 1: BuildKit como Contenedor en segundo plano (Universal)",
-      "file_type": "document",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L99",
-      "_origin": "ast",
-      "id": "docs_containerd_setup_opci\u00f3n_1_buildkit_como_contenedor_en_segundo_plano_universal",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "opcion 1: buildkit como contenedor en segundo plano (universal)"
-    },
-    {
-      "label": "Opci\u00f3n 2: BuildKit como Servicio de Systemd en Ubuntu",
-      "file_type": "document",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L110",
-      "_origin": "ast",
-      "id": "docs_containerd_setup_opci\u00f3n_2_buildkit_como_servicio_de_systemd_en_ubuntu",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "opcion 2: buildkit como servicio de systemd en ubuntu"
-    },
-    {
-      "label": "5. Automatizaci\u00f3n con Variables de Entorno y Alias",
-      "file_type": "document",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L122",
-      "_origin": "ast",
-      "id": "docs_containerd_setup_5_automatizaci\u00f3n_con_variables_de_entorno_y_alias",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "5. automatizacion con variables de entorno y alias"
-    },
-    {
-      "label": "6. Verificaci\u00f3n de Compilaci\u00f3n",
-      "file_type": "document",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L152",
-      "_origin": "ast",
-      "id": "docs_containerd_setup_6_verificaci\u00f3n_de_compilaci\u00f3n",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "6. verificacion de compilacion"
-    },
-    {
-      "label": "Validar que las im\u00e1genes est\u00e1n en el cl\u00faster:",
-      "file_type": "document",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L176",
-      "_origin": "ast",
-      "id": "docs_containerd_setup_validar_que_las_im\u00e1genes_est\u00e1n_en_el_cl\u00faster",
-      "community": 144,
-      "community_name": "SKILL.md",
-      "norm_label": "validar que las imagenes estan en el cluster:"
-    },
-    {
       "label": "creating-a-microservice.md",
       "file_type": "document",
       "source_file": "docs/creating-a-microservice.md",
@@ -51605,21 +51422,21 @@
       "norm_label": "paso 6: arranque con nestjs y documentacion swagger"
     },
     {
-      "label": "Paso 7: Creaci\u00f3n del Dockerfile Optimizado",
+      "label": "Paso 7: Creaci\u00f3n del Containerfile Optimizado",
       "file_type": "document",
       "source_file": "docs/creating-a-microservice.md",
       "source_location": "L210",
       "_origin": "ast",
-      "id": "docs_creating_a_microservice_paso_7_creaci\u00f3n_del_dockerfile_optimizado",
+      "id": "docs_creating_a_microservice_paso_7_creaci\u00f3n_del_containerfile_optimizado",
       "community": 515,
       "community_name": "\ud83d\udcd1 Pasos del Flujo de Creaci\u00f3n",
-      "norm_label": "paso 7: creacion del dockerfile optimizado"
+      "norm_label": "paso 7: creacion del containerfile optimizado"
     },
     {
       "label": "Paso 8: Manifiestos de Kubernetes (Deployment y Service)",
       "file_type": "document",
       "source_file": "docs/creating-a-microservice.md",
-      "source_location": "L240",
+      "source_location": "L241",
       "_origin": "ast",
       "id": "docs_creating_a_microservice_paso_8_manifiestos_de_kubernetes_deployment_y_service",
       "community": 515,
@@ -51630,7 +51447,7 @@
       "label": "Paso 9: Enrutamiento en Traefik Ingress",
       "file_type": "document",
       "source_file": "docs/creating-a-microservice.md",
-      "source_location": "L315",
+      "source_location": "L316",
       "_origin": "ast",
       "id": "docs_creating_a_microservice_paso_9_enrutamiento_en_traefik_ingress",
       "community": 515,
@@ -51641,7 +51458,7 @@
       "label": "Paso 10: Integraci\u00f3n en Scripts de Despliegue",
       "file_type": "document",
       "source_file": "docs/creating-a-microservice.md",
-      "source_location": "L331",
+      "source_location": "L332",
       "_origin": "ast",
       "id": "docs_creating_a_microservice_paso_10_integraci\u00f3n_en_scripts_de_despliegue",
       "community": 515,
@@ -51652,7 +51469,7 @@
       "label": "Paso 11: Pruebas y Verificaci\u00f3n",
       "file_type": "document",
       "source_file": "docs/creating-a-microservice.md",
-      "source_location": "L341",
+      "source_location": "L342",
       "_origin": "ast",
       "id": "docs_creating_a_microservice_paso_11_pruebas_y_verificaci\u00f3n",
       "community": 515,
@@ -51677,8 +51494,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_database_bases_de_datos_relacionales_y_pgbouncer",
-      "community": 386,
-      "community_name": "rxjs",
+      "community": 168,
+      "community_name": "transaction.use-cases.ts",
       "norm_label": "bases de datos relacionales y pgbouncer"
     },
     {
@@ -51688,8 +51505,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "docs_database_contenido",
-      "community": 386,
-      "community_name": "rxjs",
+      "community": 168,
+      "community_name": "transaction.use-cases.ts",
       "norm_label": "\ud83d\udcd1 contenido"
     },
     {
@@ -51699,8 +51516,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "docs_database_1_topolog\u00eda_de_persistencia_y_segregaci\u00f3n",
-      "community": 386,
-      "community_name": "rxjs",
+      "community": 168,
+      "community_name": "transaction.use-cases.ts",
       "norm_label": "1. topologia de persistencia y segregacion"
     },
     {
@@ -51710,8 +51527,8 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "docs_database_2_connection_pooling_con_pgbouncer_core",
-      "community": 386,
-      "community_name": "rxjs",
+      "community": 168,
+      "community_name": "transaction.use-cases.ts",
       "norm_label": "2. connection pooling con pgbouncer core"
     },
     {
@@ -51897,8 +51714,8 @@
       "source_location": "L230",
       "_origin": "ast",
       "id": "docs_database_4_diagrama_entidad_relaci\u00f3n_erd_consolidado",
-      "community": 386,
-      "community_name": "rxjs",
+      "community": 168,
+      "community_name": "transaction.use-cases.ts",
       "norm_label": "4. diagrama entidad-relacion (erd) consolidado"
     },
     {
@@ -51908,8 +51725,8 @@
       "source_location": "L336",
       "_origin": "ast",
       "id": "docs_database_5_gesti\u00f3n_de_esquemas_con_prisma_orm",
-      "community": 386,
-      "community_name": "rxjs",
+      "community": 168,
+      "community_name": "transaction.use-cases.ts",
       "norm_label": "5. gestion de esquemas con prisma orm"
     },
     {
@@ -51919,8 +51736,8 @@
       "source_location": "L340",
       "_origin": "ast",
       "id": "docs_database_comandos_de_administraci\u00f3n_prisma",
-      "community": 386,
-      "community_name": "rxjs",
+      "community": 168,
+      "community_name": "transaction.use-cases.ts",
       "norm_label": "comandos de administracion prisma:"
     },
     {
@@ -51930,8 +51747,8 @@
       "source_location": "L355",
       "_origin": "ast",
       "id": "docs_database_6_estrategia_de_copias_de_seguridad_y_recuperaci\u00f3n",
-      "community": 386,
-      "community_name": "rxjs",
+      "community": 168,
+      "community_name": "transaction.use-cases.ts",
       "norm_label": "6. estrategia de copias de seguridad y recuperacion"
     },
     {
@@ -52276,21 +52093,10 @@
       "norm_label": "4. configuracion de variables de entorno"
     },
     {
-      "label": "Tabla de Variables de Entorno Globales",
-      "file_type": "document",
-      "source_file": "docs/getting-started.md",
-      "source_location": "L92",
-      "_origin": "ast",
-      "id": "docs_getting_started_tabla_de_variables_de_entorno_globales",
-      "community": 467,
-      "community_name": "axios",
-      "norm_label": "tabla de variables de entorno globales"
-    },
-    {
       "label": "5. Despliegue en Kubernetes",
       "file_type": "document",
       "source_file": "docs/getting-started.md",
-      "source_location": "L109",
+      "source_location": "L104",
       "_origin": "ast",
       "id": "docs_getting_started_5_despliegue_en_kubernetes",
       "community": 467,
@@ -52301,7 +52107,7 @@
       "label": "Opci\u00f3n A: Despliegue Automatizado (Script)",
       "file_type": "document",
       "source_file": "docs/getting-started.md",
-      "source_location": "L113",
+      "source_location": "L108",
       "_origin": "ast",
       "id": "docs_getting_started_opci\u00f3n_a_despliegue_automatizado_script",
       "community": 467,
@@ -52312,7 +52118,7 @@
       "label": "\u00bfQu\u00e9 hace el script de despliegue?",
       "file_type": "document",
       "source_file": "docs/getting-started.md",
-      "source_location": "L126",
+      "source_location": "L121",
       "_origin": "ast",
       "id": "docs_getting_started_qu\u00e9_hace_el_script_de_despliegue",
       "community": 467,
@@ -52323,7 +52129,7 @@
       "label": "6. Verificaci\u00f3n del Despliegue y Salud del Cl\u00faster",
       "file_type": "document",
       "source_file": "docs/getting-started.md",
-      "source_location": "L143",
+      "source_location": "L139",
       "_origin": "ast",
       "id": "docs_getting_started_6_verificaci\u00f3n_del_despliegue_y_salud_del_cl\u00faster",
       "community": 467,
@@ -52334,7 +52140,7 @@
       "label": "Salida esperada de Pods:",
       "file_type": "document",
       "source_file": "docs/getting-started.md",
-      "source_location": "L161",
+      "source_location": "L157",
       "_origin": "ast",
       "id": "docs_getting_started_salida_esperada_de_pods",
       "community": 467,
@@ -52345,7 +52151,7 @@
       "label": "7. Acceso a las Aplicaciones y Paneles de Control",
       "file_type": "document",
       "source_file": "docs/getting-started.md",
-      "source_location": "L185",
+      "source_location": "L181",
       "_origin": "ast",
       "id": "docs_getting_started_7_acceso_a_las_aplicaciones_y_paneles_de_control",
       "community": 467,
@@ -52356,7 +52162,7 @@
       "label": "8. Ejecuci\u00f3n de Pruebas de Humo",
       "file_type": "document",
       "source_file": "docs/getting-started.md",
-      "source_location": "L203",
+      "source_location": "L199",
       "_origin": "ast",
       "id": "docs_getting_started_8_ejecuci\u00f3n_de_pruebas_de_humo",
       "community": 467,
@@ -53137,7 +52943,7 @@
       "label": "Reversi\u00f3n de Despliegue (Rollback Inmediato)",
       "file_type": "document",
       "source_file": "docs/operations.md",
-      "source_location": "L37",
+      "source_location": "L40",
       "_origin": "ast",
       "id": "docs_operations_reversi\u00f3n_de_despliegue_rollback_inmediato",
       "community": 395,
@@ -53148,7 +52954,7 @@
       "label": "2. Escalado Horizontal y Ajuste de Cargas",
       "file_type": "document",
       "source_file": "docs/operations.md",
-      "source_location": "L47",
+      "source_location": "L50",
       "_origin": "ast",
       "id": "docs_operations_2_escalado_horizontal_y_ajuste_de_cargas",
       "community": 395,
@@ -53159,7 +52965,7 @@
       "label": "3. Monitoreo de Salud y Gesti\u00f3n de Logs",
       "file_type": "document",
       "source_file": "docs/operations.md",
-      "source_location": "L64",
+      "source_location": "L67",
       "_origin": "ast",
       "id": "docs_operations_3_monitoreo_de_salud_y_gesti\u00f3n_de_logs",
       "community": 395,
@@ -53170,7 +52976,7 @@
       "label": "Inspecci\u00f3n R\u00e1pida del Cl\u00faster",
       "file_type": "document",
       "source_file": "docs/operations.md",
-      "source_location": "L66",
+      "source_location": "L69",
       "_origin": "ast",
       "id": "docs_operations_inspecci\u00f3n_r\u00e1pida_del_cl\u00faster",
       "community": 395,
@@ -53181,7 +52987,7 @@
       "label": "Seguimiento de Logs en Streaming",
       "file_type": "document",
       "source_file": "docs/operations.md",
-      "source_location": "L76",
+      "source_location": "L79",
       "_origin": "ast",
       "id": "docs_operations_seguimiento_de_logs_en_streaming",
       "community": 395,
@@ -53192,7 +52998,7 @@
       "label": "4. Estrategia de Copias de Seguridad (Backups)",
       "file_type": "document",
       "source_file": "docs/operations.md",
-      "source_location": "L88",
+      "source_location": "L91",
       "_origin": "ast",
       "id": "docs_operations_4_estrategia_de_copias_de_seguridad_backups",
       "community": 395,
@@ -53203,7 +53009,7 @@
       "label": "CronJob Automatizado de Kubernetes (`postgres-backup-cronjob`)",
       "file_type": "document",
       "source_file": "docs/operations.md",
-      "source_location": "L90",
+      "source_location": "L93",
       "_origin": "ast",
       "id": "docs_operations_cronjob_automatizado_de_kubernetes_postgres_backup_cronjob",
       "community": 395,
@@ -53214,7 +53020,7 @@
       "label": "Respaldo Manual con Scripts (`backup-databases.ps1` / `.sh`)",
       "file_type": "document",
       "source_file": "docs/operations.md",
-      "source_location": "L103",
+      "source_location": "L106",
       "_origin": "ast",
       "id": "docs_operations_respaldo_manual_con_scripts_backup_databases_ps1_sh",
       "community": 395,
@@ -53225,7 +53031,7 @@
       "label": "5. Procedimiento de Recuperaci\u00f3n de Desastres (Disaster Recovery)",
       "file_type": "document",
       "source_file": "docs/operations.md",
-      "source_location": "L119",
+      "source_location": "L122",
       "_origin": "ast",
       "id": "docs_operations_5_procedimiento_de_recuperaci\u00f3n_de_desastres_disaster_recovery",
       "community": 395,
@@ -53236,7 +53042,7 @@
       "label": "Restauraci\u00f3n Mediante Kubernetes Job (`08-restore-job-template.yaml`)",
       "file_type": "document",
       "source_file": "docs/operations.md",
-      "source_location": "L121",
+      "source_location": "L124",
       "_origin": "ast",
       "id": "docs_operations_restauraci\u00f3n_mediante_kubernetes_job_08_restore_job_template_yaml",
       "community": 395,
@@ -53247,12 +53053,298 @@
       "label": "Restauraci\u00f3n Mediante Script CLI (`restore-database.ps1` / `.sh`)",
       "file_type": "document",
       "source_file": "docs/operations.md",
-      "source_location": "L141",
+      "source_location": "L144",
       "_origin": "ast",
       "id": "docs_operations_restauraci\u00f3n_mediante_script_cli_restore_database_ps1_sh",
       "community": 395,
       "community_name": "@nestjs/terminus",
       "norm_label": "restauracion mediante script cli (`restore-database.ps1` / `.sh`)"
+    },
+    {
+      "label": "podman-setup.md",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_podman_setup",
+      "community": 27,
+      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
+      "norm_label": "podman-setup.md"
+    },
+    {
+      "label": "\ud83e\uddad Gu\u00eda Completa de Configuraci\u00f3n de Podman y Kubernetes",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_podman_setup_gu\u00eda_completa_de_configuraci\u00f3n_de_podman_y_kubernetes",
+      "community": 19,
+      "community_name": "Proposed Changes",
+      "norm_label": "\ud83e\uddad guia completa de configuracion de podman y kubernetes"
+    },
+    {
+      "label": "\ud83d\udcd1 Tabla de Contenidos",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "docs_podman_setup_tabla_de_contenidos",
+      "community": 19,
+      "community_name": "Proposed Changes",
+      "norm_label": "\ud83d\udcd1 tabla de contenidos"
+    },
+    {
+      "label": "\ud83c\udfaf \u00bfPor qu\u00e9 Podman en FinTech Wallet?",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "docs_podman_setup_por_qu\u00e9_podman_en_fintech_wallet",
+      "community": 19,
+      "community_name": "Proposed Changes",
+      "norm_label": "\ud83c\udfaf \u00bfpor que podman en fintech wallet?"
+    },
+    {
+      "label": "\ud83d\udcbb Instalaci\u00f3n y Configuraci\u00f3n Base",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "docs_podman_setup_instalaci\u00f3n_y_configuraci\u00f3n_base",
+      "community": 19,
+      "community_name": "Proposed Changes",
+      "norm_label": "\ud83d\udcbb instalacion y configuracion base"
+    },
+    {
+      "label": "Windows (Podman Desktop & WSL2)",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "docs_podman_setup_windows_podman_desktop_wsl2",
+      "community": 19,
+      "community_name": "Proposed Changes",
+      "norm_label": "windows (podman desktop & wsl2)"
+    },
+    {
+      "label": "Linux (Ubuntu / Debian / Fedora)",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L60",
+      "_origin": "ast",
+      "id": "docs_podman_setup_linux_ubuntu_debian_fedora",
+      "community": 19,
+      "community_name": "Proposed Changes",
+      "norm_label": "linux (ubuntu / debian / fedora)"
+    },
+    {
+      "label": "Ubuntu 22.04 / 24.04 LTS:",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L62",
+      "_origin": "ast",
+      "id": "docs_podman_setup_ubuntu_22_04_24_04_lts",
+      "community": 19,
+      "community_name": "Proposed Changes",
+      "norm_label": "ubuntu 22.04 / 24.04 lts:"
+    },
+    {
+      "label": "Fedora / RHEL:",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L68",
+      "_origin": "ast",
+      "id": "docs_podman_setup_fedora_rhel",
+      "community": 19,
+      "community_name": "Proposed Changes",
+      "norm_label": "fedora / rhel:"
+    },
+    {
+      "label": "\u2699\ufe0f Configuraci\u00f3n de Podman Machine (Windows / macOS)",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L81",
+      "_origin": "ast",
+      "id": "docs_podman_setup_configuraci\u00f3n_de_podman_machine_windows_macos",
+      "community": 19,
+      "community_name": "Proposed Changes",
+      "norm_label": "\u2699\ufe0f configuracion de podman machine (windows / macos)"
+    },
+    {
+      "label": "\ud83d\udd12 Modo Rootless y Permisos de Vol\u00famenes (SELinux / :Z)",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L101",
+      "_origin": "ast",
+      "id": "docs_podman_setup_modo_rootless_y_permisos_de_vol\u00famenes_selinux_z",
+      "community": 19,
+      "community_name": "Proposed Changes",
+      "norm_label": "\ud83d\udd12 modo rootless y permisos de volumenes (selinux / :z)"
+    },
+    {
+      "label": "Configuraci\u00f3n de subuid y subgid en Linux:",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L115",
+      "_origin": "ast",
+      "id": "docs_podman_setup_configuraci\u00f3n_de_subuid_y_subgid_en_linux",
+      "community": 19,
+      "community_name": "Proposed Changes",
+      "norm_label": "configuracion de subuid y subgid en linux:"
+    },
+    {
+      "label": "\ud83d\ude80 Uso de `compose.yaml` con Podman",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L129",
+      "_origin": "ast",
+      "id": "docs_podman_setup_uso_de_compose_yaml_con_podman",
+      "community": 19,
+      "community_name": "Proposed Changes",
+      "norm_label": "\ud83d\ude80 uso de `compose.yaml` con podman"
+    },
+    {
+      "label": "\u2638\ufe0f Integraci\u00f3n con Cl\u00fasteres Kubernetes Locales",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L149",
+      "_origin": "ast",
+      "id": "docs_podman_setup_integraci\u00f3n_con_cl\u00fasteres_kubernetes_locales",
+      "community": 19,
+      "community_name": "Proposed Changes",
+      "norm_label": "\u2638\ufe0f integracion con clusteres kubernetes locales"
+    },
+    {
+      "label": "Kind con Proveedor Podman",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L151",
+      "_origin": "ast",
+      "id": "docs_podman_setup_kind_con_proveedor_podman",
+      "community": 19,
+      "community_name": "Proposed Changes",
+      "norm_label": "kind con proveedor podman"
+    },
+    {
+      "label": "Minikube con Driver Podman",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L173",
+      "_origin": "ast",
+      "id": "docs_podman_setup_minikube_con_driver_podman",
+      "community": 19,
+      "community_name": "Proposed Changes",
+      "norm_label": "minikube con driver podman"
+    },
+    {
+      "label": "Podman Desktop con Kubernetes Embebido",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L180",
+      "_origin": "ast",
+      "id": "docs_podman_setup_podman_desktop_con_kubernetes_embebido",
+      "community": 19,
+      "community_name": "Proposed Changes",
+      "norm_label": "podman desktop con kubernetes embebido"
+    },
+    {
+      "label": "\ud83d\udee0\ufe0f Construcci\u00f3n de Im\u00e1genes con `Containerfile`",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L186",
+      "_origin": "ast",
+      "id": "docs_podman_setup_construcci\u00f3n_de_im\u00e1genes_con_containerfile",
+      "community": 19,
+      "community_name": "Proposed Changes",
+      "norm_label": "\ud83d\udee0\ufe0f construccion de imagenes con `containerfile`"
+    },
+    {
+      "label": "\u26a1 Despliegue Automatizado con `deploy-k8s.ps1` / `deploy-k8s.sh`",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L204",
+      "_origin": "ast",
+      "id": "docs_podman_setup_despliegue_automatizado_con_deploy_k8s_ps1_deploy_k8s_sh",
+      "community": 19,
+      "community_name": "Proposed Changes",
+      "norm_label": "\u26a1 despliegue automatizado con `deploy-k8s.ps1` / `deploy-k8s.sh`"
+    },
+    {
+      "label": "En Windows (PowerShell):",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L208",
+      "_origin": "ast",
+      "id": "docs_podman_setup_en_windows_powershell",
+      "community": 19,
+      "community_name": "Proposed Changes",
+      "norm_label": "en windows (powershell):"
+    },
+    {
+      "label": "En Linux / macOS / WSL2 (Bash):",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L217",
+      "_origin": "ast",
+      "id": "docs_podman_setup_en_linux_macos_wsl2_bash",
+      "community": 19,
+      "community_name": "Proposed Changes",
+      "norm_label": "en linux / macos / wsl2 (bash):"
+    },
+    {
+      "label": "\ud83e\ude7a Diagn\u00f3stico y Resoluci\u00f3n de Problemas Frecuentes",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L228",
+      "_origin": "ast",
+      "id": "docs_podman_setup_diagn\u00f3stico_y_resoluci\u00f3n_de_problemas_frecuentes",
+      "community": 19,
+      "community_name": "Proposed Changes",
+      "norm_label": "\ud83e\ude7a diagnostico y resolucion de problemas frecuentes"
+    },
+    {
+      "label": "1. `Error: cannot connect to the Podman socket`",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L230",
+      "_origin": "ast",
+      "id": "docs_podman_setup_1_error_cannot_connect_to_the_podman_socket",
+      "community": 19,
+      "community_name": "Proposed Changes",
+      "norm_label": "1. `error: cannot connect to the podman socket`"
+    },
+    {
+      "label": "2. `Permission denied` al montar vol\u00famenes locales en Linux",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L241",
+      "_origin": "ast",
+      "id": "docs_podman_setup_2_permission_denied_al_montar_vol\u00famenes_locales_en_linux",
+      "community": 19,
+      "community_name": "Proposed Changes",
+      "norm_label": "2. `permission denied` al montar volumenes locales en linux"
+    },
+    {
+      "label": "3. `kind load docker-image` falla con Podman",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L245",
+      "_origin": "ast",
+      "id": "docs_podman_setup_3_kind_load_docker_image_falla_con_podman",
+      "community": 19,
+      "community_name": "Proposed Changes",
+      "norm_label": "3. `kind load docker-image` falla con podman"
+    },
+    {
+      "label": "4. Puertos privilegiados (<1024) en modo Rootless en Linux",
+      "file_type": "document",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L253",
+      "_origin": "ast",
+      "id": "docs_podman_setup_4_puertos_privilegiados_1024_en_modo_rootless_en_linux",
+      "community": 19,
+      "community_name": "Proposed Changes",
+      "norm_label": "4. puertos privilegiados (<1024) en modo rootless en linux"
     },
     {
       "label": "redis.md",
@@ -54292,7 +54384,7 @@
       "label": "1.3. Pod en Estado `CrashLoopBackOff`",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L39",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "docs_troubleshooting_1_3_pod_en_estado_crashloopbackoff",
       "community": 167,
@@ -54303,7 +54395,7 @@
       "label": "1.4. Fallo en `ReadinessProbe` o `LivenessProbe`",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L49",
+      "source_location": "L55",
       "_origin": "ast",
       "id": "docs_troubleshooting_1_4_fallo_en_readinessprobe_o_livenessprobe",
       "community": 167,
@@ -54311,21 +54403,21 @@
       "norm_label": "1.4. fallo en `readinessprobe` o `livenessprobe`"
     },
     {
-      "label": "1.5. Error al Compilar Im\u00e1genes: `rootless containerd not running` (Linux / Ubuntu)",
+      "label": "1.5. Error al Compilar o Montar con Podman: Socket o Permisos Rootless",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L55",
+      "source_location": "L61",
       "_origin": "ast",
-      "id": "docs_troubleshooting_1_5_error_al_compilar_im\u00e1genes_rootless_containerd_not_running_linux_ubuntu",
+      "id": "docs_troubleshooting_1_5_error_al_compilar_o_montar_con_podman_socket_o_permisos_rootless",
       "community": 167,
       "community_name": "auth.use-cases.ts",
-      "norm_label": "1.5. error al compilar imagenes: `rootless containerd not running` (linux / ubuntu)"
+      "norm_label": "1.5. error al compilar o montar con podman: socket o permisos rootless"
     },
     {
       "label": "2. Problemas en PostgreSQL y PgBouncer",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L67",
+      "source_location": "L73",
       "_origin": "ast",
       "id": "docs_troubleshooting_2_problemas_en_postgresql_y_pgbouncer",
       "community": 167,
@@ -54336,7 +54428,7 @@
       "label": "2.1. Error `Connection Refused` o Fallo en PgBouncer",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L69",
+      "source_location": "L75",
       "_origin": "ast",
       "id": "docs_troubleshooting_2_1_error_connection_refused_o_fallo_en_pgbouncer",
       "community": 167,
@@ -54347,7 +54439,7 @@
       "label": "2.2. Error de Autenticaci\u00f3n de Base de Datos (`password authentication failed`)",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L79",
+      "source_location": "L85",
       "_origin": "ast",
       "id": "docs_troubleshooting_2_2_error_de_autenticaci\u00f3n_de_base_de_datos_password_authentication_failed",
       "community": 167,
@@ -54358,7 +54450,7 @@
       "label": "2.3. Error de Prisma: `Prepared statement already exists` o Incompatibilidad PgBouncer",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L88",
+      "source_location": "L94",
       "_origin": "ast",
       "id": "docs_troubleshooting_2_3_error_de_prisma_prepared_statement_already_exists_o_incompatibilidad_pgbouncer",
       "community": 167,
@@ -54369,7 +54461,7 @@
       "label": "3. Problemas en Redis",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L98",
+      "source_location": "L104",
       "_origin": "ast",
       "id": "docs_troubleshooting_3_problemas_en_redis",
       "community": 167,
@@ -54380,7 +54472,7 @@
       "label": "3.1. Error `ECONNREFUSED` al Conectar con Redis",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L100",
+      "source_location": "L106",
       "_origin": "ast",
       "id": "docs_troubleshooting_3_1_error_econnrefused_al_conectar_con_redis",
       "community": 167,
@@ -54391,7 +54483,7 @@
       "label": "3.2. Claves de Idempotencia Bloqueadas Permanentemente",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L108",
+      "source_location": "L114",
       "_origin": "ast",
       "id": "docs_troubleshooting_3_2_claves_de_idempotencia_bloqueadas_permanentemente",
       "community": 167,
@@ -54402,7 +54494,7 @@
       "label": "4. Problemas en Apache Kafka (KRaft)",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L118",
+      "source_location": "L124",
       "_origin": "ast",
       "id": "docs_troubleshooting_4_problemas_en_apache_kafka_kraft",
       "community": 167,
@@ -54413,7 +54505,7 @@
       "label": "4.1. El Broker Kafka no Levanta o Falla el Qu\u00f3rum",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L120",
+      "source_location": "L126",
       "_origin": "ast",
       "id": "docs_troubleshooting_4_1_el_broker_kafka_no_levanta_o_falla_el_qu\u00f3rum",
       "community": 167,
@@ -54424,7 +54516,7 @@
       "label": "4.2. Los Consumidores no Reciben Mensajes de Transferencia",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L131",
+      "source_location": "L137",
       "_origin": "ast",
       "id": "docs_troubleshooting_4_2_los_consumidores_no_reciben_mensajes_de_transferencia",
       "community": 167,
@@ -54435,7 +54527,7 @@
       "label": "5. Problemas en Traefik e Ingress",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L143",
+      "source_location": "L149",
       "_origin": "ast",
       "id": "docs_troubleshooting_5_problemas_en_traefik_e_ingress",
       "community": 167,
@@ -54446,7 +54538,7 @@
       "label": "5.1. Error HTTP 404 Not Found al Invocar `/api/*`",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L145",
+      "source_location": "L151",
       "_origin": "ast",
       "id": "docs_troubleshooting_5_1_error_http_404_not_found_al_invocar_api",
       "community": 167,
@@ -54457,7 +54549,7 @@
       "label": "5.2. Error HTTP 502 Bad Gateway",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L151",
+      "source_location": "L157",
       "_origin": "ast",
       "id": "docs_troubleshooting_5_2_error_http_502_bad_gateway",
       "community": 167,
@@ -54468,7 +54560,7 @@
       "label": "6. Problemas en Observabilidad (SigNoz / ClickHouse / OTel)",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L158",
+      "source_location": "L164",
       "_origin": "ast",
       "id": "docs_troubleshooting_6_problemas_en_observabilidad_signoz_clickhouse_otel",
       "community": 167,
@@ -54479,7 +54571,7 @@
       "label": "6.1. No Aparecen Trazas ni M\u00e9tricas en SigNoz UI",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L160",
+      "source_location": "L166",
       "_origin": "ast",
       "id": "docs_troubleshooting_6_1_no_aparecen_trazas_ni_m\u00e9tricas_en_signoz_ui",
       "community": 167,
@@ -54490,7 +54582,7 @@
       "label": "7. Problemas en Microservicios NestJS",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L180",
+      "source_location": "L186",
       "_origin": "ast",
       "id": "docs_troubleshooting_7_problemas_en_microservicios_nestjs",
       "community": 167,
@@ -54501,7 +54593,7 @@
       "label": "7.1. Error al Iniciar: `Cannot find module './infrastructure/telemetry'`",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L182",
+      "source_location": "L188",
       "_origin": "ast",
       "id": "docs_troubleshooting_7_1_error_al_iniciar_cannot_find_module_infrastructure_telemetry",
       "community": 167,
@@ -54512,7 +54604,7 @@
       "label": "7.2. Fallo de CORS al Invocar APIs desde el Navegador",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L187",
+      "source_location": "L193",
       "_origin": "ast",
       "id": "docs_troubleshooting_7_2_fallo_de_cors_al_invocar_apis_desde_el_navegador",
       "community": 167,
@@ -54575,15 +54667,15 @@
       "norm_label": "\ud83e\uddea comandos de desarrollo"
     },
     {
-      "label": "\ud83d\udce6 Construcci\u00f3n y Despliegue en Kubernetes (Rancher Desktop)",
+      "label": "\ud83d\udce6 Construcci\u00f3n y Despliegue en Kubernetes con Podman",
       "file_type": "document",
       "source_file": "frontend/README.md",
       "source_location": "L62",
       "_origin": "ast",
-      "id": "frontend_readme_construcci\u00f3n_y_despliegue_en_kubernetes_rancher_desktop",
+      "id": "frontend_readme_construcci\u00f3n_y_despliegue_en_kubernetes_con_podman",
       "community": 107,
       "community_name": "React + Vite",
-      "norm_label": "\ud83d\udce6 construccion y despliegue en kubernetes (rancher desktop)"
+      "norm_label": "\ud83d\udce6 construccion y despliegue en kubernetes con podman"
     },
     {
       "label": "README.md",
@@ -92969,34 +93061,57 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "deploy-rancher.ps1",
-      "source_location": "L12",
+      "source_file": "deploy-k8s.ps1",
+      "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "deploy_rancher_ps1_deploy_rancher",
-      "target": "deploy_rancher_log_msg",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "deploy-rancher.sh",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "deploy_rancher_sh_deploy_rancher",
-      "target": "deploy_rancher_sh__entry",
+      "source": "deploy_k8s_ps1_deploy_k8s",
+      "target": "deploy_k8s_log_msg",
       "confidence_score": 1.0
     },
     {
       "relation": "defines",
       "confidence": "EXTRACTED",
-      "source_file": "deploy-rancher.sh",
-      "source_location": "L24",
+      "source_file": "deploy-k8s.sh",
+      "source_location": "L35",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "deploy_rancher_sh_deploy_rancher",
-      "target": "deploy_rancher_timestamp",
+      "source": "deploy_k8s_sh_deploy_k8s",
+      "target": "deploy_k8s_log",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy-k8s.sh",
+      "source_location": "L106",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "deploy_k8s_sh_deploy_k8s",
+      "target": "deploy_k8s_services",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy-k8s.sh",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "deploy_k8s_sh_deploy_k8s",
+      "target": "deploy_k8s_sh__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy-k8s.sh",
+      "source_location": "L40",
+      "weight": 1.0,
+      "context": "call",
+      "_origin": "ast",
+      "source": "deploy_k8s_sh__entry",
+      "target": "deploy_k8s_log",
       "confidence_score": 1.0
     },
     {
@@ -96632,7 +96747,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/restore-database.ps1",
-      "source_location": "L67",
+      "source_location": "L69",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_restore_database_ps1_scripts_restore_database",
@@ -96643,7 +96758,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/restore-database.ps1",
-      "source_location": "L90",
+      "source_location": "L92",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_restore_database_ps1_scripts_restore_database",
@@ -96654,7 +96769,7 @@
       "relation": "defines",
       "confidence": "EXTRACTED",
       "source_file": "scripts/restore-database.sh",
-      "source_location": "L35",
+      "source_location": "L40",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_restore_database_sh_scripts_restore_database",
@@ -96665,7 +96780,7 @@
       "relation": "defines",
       "confidence": "EXTRACTED",
       "source_file": "scripts/restore-database.sh",
-      "source_location": "L47",
+      "source_location": "L52",
       "weight": 1.0,
       "_origin": "ast",
       "source": "scripts_restore_database_sh_scripts_restore_database",
@@ -96687,7 +96802,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts/restore-database.sh",
-      "source_location": "L60",
+      "source_location": "L65",
       "weight": 1.0,
       "context": "call",
       "_origin": "ast",
@@ -96699,7 +96814,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts/restore-database.sh",
-      "source_location": "L63",
+      "source_location": "L68",
       "weight": 1.0,
       "context": "call",
       "_origin": "ast",
@@ -118799,7 +118914,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L384",
+      "source_location": "L397",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme",
@@ -118810,7 +118925,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L377",
+      "source_location": "L390",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme",
@@ -118821,7 +118936,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L379",
+      "source_location": "L392",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme",
@@ -118832,18 +118947,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L391",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "readme",
-      "target": "docs_containerd_setup",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "README.md",
-      "source_location": "L393",
+      "source_location": "L405",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme",
@@ -118854,7 +118958,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L381",
+      "source_location": "L394",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme",
@@ -118865,7 +118969,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L392",
+      "source_location": "L404",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme",
@@ -118876,7 +118980,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L394",
+      "source_location": "L406",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme",
@@ -118887,7 +118991,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L376",
+      "source_location": "L388",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme",
@@ -118898,7 +119002,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L386",
+      "source_location": "L399",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme",
@@ -118909,7 +119013,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L383",
+      "source_location": "L396",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme",
@@ -118920,7 +119024,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L385",
+      "source_location": "L398",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme",
@@ -118931,7 +119035,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L387",
+      "source_location": "L400",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme",
@@ -118942,7 +119046,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L389",
+      "source_location": "L402",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme",
@@ -118953,7 +119057,18 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L382",
+      "source_location": "L389",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "readme",
+      "target": "docs_podman_setup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L395",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme",
@@ -118964,7 +119079,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L378",
+      "source_location": "L391",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme",
@@ -118975,7 +119090,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L388",
+      "source_location": "L401",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme",
@@ -118986,7 +119101,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L380",
+      "source_location": "L393",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme",
@@ -118997,7 +119112,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L390",
+      "source_location": "L403",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme",
@@ -119019,7 +119134,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L63",
+      "source_location": "L65",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_fintech_wallet",
@@ -119041,7 +119156,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L372",
+      "source_location": "L384",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_fintech_wallet",
@@ -119052,7 +119167,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L223",
+      "source_location": "L225",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_fintech_wallet",
@@ -119063,7 +119178,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L262",
+      "source_location": "L264",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_fintech_wallet",
@@ -119074,7 +119189,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L398",
+      "source_location": "L410",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_fintech_wallet",
@@ -119085,7 +119200,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L352",
+      "source_location": "L364",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_fintech_wallet",
@@ -119118,7 +119233,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L65",
+      "source_location": "L67",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_arquitectura_del_sistema",
@@ -119129,7 +119244,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L147",
+      "source_location": "L149",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_arquitectura_del_sistema",
@@ -119140,7 +119255,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L166",
+      "source_location": "L168",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_arquitectura_del_sistema",
@@ -119151,7 +119266,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L264",
+      "source_location": "L266",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_gu\u00eda_de_inicio_r\u00e1pido_quick_start",
@@ -119162,7 +119277,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L272",
+      "source_location": "L274",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_gu\u00eda_de_inicio_r\u00e1pido_quick_start",
@@ -119173,7 +119288,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L280",
+      "source_location": "L282",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_gu\u00eda_de_inicio_r\u00e1pido_quick_start",
@@ -119184,7 +119299,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L290",
+      "source_location": "L292",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_gu\u00eda_de_inicio_r\u00e1pido_quick_start",
@@ -119195,7 +119310,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L330",
+      "source_location": "L342",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_gu\u00eda_de_inicio_r\u00e1pido_quick_start",
@@ -119206,7 +119321,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L343",
+      "source_location": "L355",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_gu\u00eda_de_inicio_r\u00e1pido_quick_start",
@@ -119217,7 +119332,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L292",
+      "source_location": "L294",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_4_desplegar_todo_el_sistema_en_kubernetes",
@@ -119228,11 +119343,22 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L305",
+      "source_location": "L307",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_4_desplegar_todo_el_sistema_en_kubernetes",
       "target": "readme_opci\u00f3n_b_despliegue_manual_paso_a_paso",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L336",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "readme_4_desplegar_todo_el_sistema_en_kubernetes",
+      "target": "readme_opci\u00f3n_c_levantar_con_podman_compose_desarrollo_local_sin_k8s",
       "confidence_score": 1.0
     },
     {
@@ -119364,7 +119490,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_auth_service_readme_modos_de_ejecuci\u00f3n",
-      "target": "backend_nestjs_auth_service_readme_3_en_kubernetes_rancher_desktop_k3s",
+      "target": "backend_nestjs_auth_service_readme_3_en_kubernetes_con_podman",
       "confidence_score": 1.0
     },
     {
@@ -119474,7 +119600,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_notification_service_readme_notification_service_nestjs",
-      "target": "backend_nestjs_notification_service_readme_despliegue_en_kubernetes_rancher_nerdctl",
+      "target": "backend_nestjs_notification_service_readme_despliegue_en_kubernetes_con_podman",
       "confidence_score": 1.0
     },
     {
@@ -119551,7 +119677,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_transaction_service_readme_transaction_service_nestjs",
-      "target": "backend_nestjs_transaction_service_readme_despliegue_con_docker_y_kubernetes",
+      "target": "backend_nestjs_transaction_service_readme_despliegue_con_podman_y_kubernetes",
       "confidence_score": 1.0
     },
     {
@@ -119660,7 +119786,7 @@
       "source_location": "L142",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "backend_nestjs_transaction_service_readme_despliegue_con_docker_y_kubernetes",
+      "source": "backend_nestjs_transaction_service_readme_despliegue_con_podman_y_kubernetes",
       "target": "backend_nestjs_transaction_service_readme_aplicar_manifiesto_kubernetes",
       "confidence_score": 1.0
     },
@@ -119671,8 +119797,8 @@
       "source_location": "L136",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "backend_nestjs_transaction_service_readme_despliegue_con_docker_y_kubernetes",
-      "target": "backend_nestjs_transaction_service_readme_construir_imagen_con_nerdctl",
+      "source": "backend_nestjs_transaction_service_readme_despliegue_con_podman_y_kubernetes",
+      "target": "backend_nestjs_transaction_service_readme_construir_imagen_con_podman",
       "confidence_score": 1.0
     },
     {
@@ -119848,7 +119974,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_readme_modos_de_ejecuci\u00f3n",
-      "target": "backend_nestjs_user_service_readme_3_en_kubernetes_rancher_desktop_k3s",
+      "target": "backend_nestjs_user_service_readme_3_en_kubernetes_con_podman",
       "confidence_score": 1.0
     },
     {
@@ -119958,7 +120084,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_worker_service_readme_worker_service_nestjs",
-      "target": "backend_nestjs_worker_service_readme_docker_kubernetes_deployment",
+      "target": "backend_nestjs_worker_service_readme_podman_kubernetes_deployment",
       "confidence_score": 1.0
     },
     {
@@ -120437,237 +120563,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_containerd_setup",
-      "target": "docs_containerd_setup_configuraci\u00f3n_de_containerd_nerdctl_y_buildkit_en_linux_ubuntu",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L181",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_containerd_setup",
-      "target": "docs_getting_started",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L181",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_containerd_setup",
-      "target": "docs_kubernetes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/troubleshooting.md",
-      "source_location": "L63",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_troubleshooting",
-      "target": "docs_containerd_setup",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L18",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_containerd_setup_configuraci\u00f3n_de_containerd_nerdctl_y_buildkit_en_linux_ubuntu",
-      "target": "docs_containerd_setup_1_diagn\u00f3stico_del_error_com\u00fan_rootless_containerd_not_running",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L33",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_containerd_setup_configuraci\u00f3n_de_containerd_nerdctl_y_buildkit_en_linux_ubuntu",
-      "target": "docs_containerd_setup_2_m\u00e9todo_a_modo_sistema_root_con_k3s_recomendado",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L53",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_containerd_setup_configuraci\u00f3n_de_containerd_nerdctl_y_buildkit_en_linux_ubuntu",
-      "target": "docs_containerd_setup_3_m\u00e9todo_b_modo_rootless_sin_sudo",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L95",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_containerd_setup_configuraci\u00f3n_de_containerd_nerdctl_y_buildkit_en_linux_ubuntu",
-      "target": "docs_containerd_setup_4_configuraci\u00f3n_del_demonio_buildkit_buildkitd",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L122",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_containerd_setup_configuraci\u00f3n_de_containerd_nerdctl_y_buildkit_en_linux_ubuntu",
-      "target": "docs_containerd_setup_5_automatizaci\u00f3n_con_variables_de_entorno_y_alias",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L152",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_containerd_setup_configuraci\u00f3n_de_containerd_nerdctl_y_buildkit_en_linux_ubuntu",
-      "target": "docs_containerd_setup_6_verificaci\u00f3n_de_compilaci\u00f3n",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L7",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_containerd_setup_configuraci\u00f3n_de_containerd_nerdctl_y_buildkit_en_linux_ubuntu",
-      "target": "docs_containerd_setup_contenido",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L20",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_containerd_setup_1_diagn\u00f3stico_del_error_com\u00fan_rootless_containerd_not_running",
-      "target": "docs_containerd_setup_el_error",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L26",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_containerd_setup_1_diagn\u00f3stico_del_error_com\u00fan_rootless_containerd_not_running",
-      "target": "docs_containerd_setup_por_qu\u00e9_ocurre",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L37",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_containerd_setup_2_m\u00e9todo_a_modo_sistema_root_con_k3s_recomendado",
-      "target": "docs_containerd_setup_paso_1_ejecutar_con_sudo_y_especificar_el_socket_de_k3s",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L57",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_containerd_setup_3_m\u00e9todo_b_modo_rootless_sin_sudo",
-      "target": "docs_containerd_setup_paso_1_instalar_paquetes_prerrequisitos_en_ubuntu",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L64",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_containerd_setup_3_m\u00e9todo_b_modo_rootless_sin_sudo",
-      "target": "docs_containerd_setup_paso_2_instalar_containerd_rootless",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L70",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_containerd_setup_3_m\u00e9todo_b_modo_rootless_sin_sudo",
-      "target": "docs_containerd_setup_paso_3_iniciar_e_instalar_buildkit_en_modo_rootless",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L78",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_containerd_setup_3_m\u00e9todo_b_modo_rootless_sin_sudo",
-      "target": "docs_containerd_setup_paso_4_exportar_variables_de_sesi\u00f3n_en_tu_terminal",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L99",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_containerd_setup_4_configuraci\u00f3n_del_demonio_buildkit_buildkitd",
-      "target": "docs_containerd_setup_opci\u00f3n_1_buildkit_como_contenedor_en_segundo_plano_universal",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L110",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_containerd_setup_4_configuraci\u00f3n_del_demonio_buildkit_buildkitd",
-      "target": "docs_containerd_setup_opci\u00f3n_2_buildkit_como_servicio_de_systemd_en_ubuntu",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/containerd-setup.md",
-      "source_location": "L176",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_containerd_setup_6_verificaci\u00f3n_de_compilaci\u00f3n",
-      "target": "docs_containerd_setup_validar_que_las_im\u00e1genes_est\u00e1n_en_el_cl\u00faster",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "docs/creating-a-microservice.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -120680,7 +120575,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "docs/creating-a-microservice.md",
-      "source_location": "L348",
+      "source_location": "L349",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_creating_a_microservice",
@@ -120713,7 +120608,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/creating-a-microservice.md",
-      "source_location": "L331",
+      "source_location": "L332",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_creating_a_microservice_pasos_del_flujo_de_creaci\u00f3n",
@@ -120724,7 +120619,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/creating-a-microservice.md",
-      "source_location": "L341",
+      "source_location": "L342",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_creating_a_microservice_pasos_del_flujo_de_creaci\u00f3n",
@@ -120805,14 +120700,14 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_creating_a_microservice_pasos_del_flujo_de_creaci\u00f3n",
-      "target": "docs_creating_a_microservice_paso_7_creaci\u00f3n_del_dockerfile_optimizado",
+      "target": "docs_creating_a_microservice_paso_7_creaci\u00f3n_del_containerfile_optimizado",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/creating-a-microservice.md",
-      "source_location": "L240",
+      "source_location": "L241",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_creating_a_microservice_pasos_del_flujo_de_creaci\u00f3n",
@@ -120823,7 +120718,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/creating-a-microservice.md",
-      "source_location": "L315",
+      "source_location": "L316",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_creating_a_microservice_pasos_del_flujo_de_creaci\u00f3n",
@@ -121142,7 +121037,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L191",
+      "source_location": "L197",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting",
@@ -121406,7 +121301,18 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "docs/getting-started.md",
-      "source_location": "L217",
+      "source_location": "L36",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_getting_started",
+      "target": "docs_podman_setup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/getting-started.md",
+      "source_location": "L213",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_getting_started",
@@ -121417,7 +121323,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "docs/getting-started.md",
-      "source_location": "L217",
+      "source_location": "L213",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_getting_started",
@@ -121472,7 +121378,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/getting-started.md",
-      "source_location": "L109",
+      "source_location": "L104",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_getting_started_gu\u00eda_de_inicio_r\u00e1pido_y_requisitos_getting_started",
@@ -121483,7 +121389,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/getting-started.md",
-      "source_location": "L143",
+      "source_location": "L139",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_getting_started_gu\u00eda_de_inicio_r\u00e1pido_y_requisitos_getting_started",
@@ -121494,7 +121400,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/getting-started.md",
-      "source_location": "L185",
+      "source_location": "L181",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_getting_started_gu\u00eda_de_inicio_r\u00e1pido_y_requisitos_getting_started",
@@ -121505,7 +121411,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/getting-started.md",
-      "source_location": "L203",
+      "source_location": "L199",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_getting_started_gu\u00eda_de_inicio_r\u00e1pido_y_requisitos_getting_started",
@@ -121527,18 +121433,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/getting-started.md",
-      "source_location": "L92",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_getting_started_4_configuraci\u00f3n_de_variables_de_entorno",
-      "target": "docs_getting_started_tabla_de_variables_de_entorno_globales",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/getting-started.md",
-      "source_location": "L113",
+      "source_location": "L108",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_getting_started_5_despliegue_en_kubernetes",
@@ -121549,7 +121444,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/getting-started.md",
-      "source_location": "L126",
+      "source_location": "L121",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_getting_started_5_despliegue_en_kubernetes",
@@ -121560,7 +121455,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/getting-started.md",
-      "source_location": "L161",
+      "source_location": "L157",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_getting_started_6_verificaci\u00f3n_del_despliegue_y_salud_del_cl\u00faster",
@@ -122297,7 +122192,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "docs/operations.md",
-      "source_location": "L150",
+      "source_location": "L153",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_operations",
@@ -122330,7 +122225,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/operations.md",
-      "source_location": "L47",
+      "source_location": "L50",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_operations_gu\u00eda_de_operaciones_day_2_backups_y_disaster_recovery",
@@ -122341,7 +122236,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/operations.md",
-      "source_location": "L64",
+      "source_location": "L67",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_operations_gu\u00eda_de_operaciones_day_2_backups_y_disaster_recovery",
@@ -122352,7 +122247,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/operations.md",
-      "source_location": "L88",
+      "source_location": "L91",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_operations_gu\u00eda_de_operaciones_day_2_backups_y_disaster_recovery",
@@ -122363,7 +122258,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/operations.md",
-      "source_location": "L119",
+      "source_location": "L122",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_operations_gu\u00eda_de_operaciones_day_2_backups_y_disaster_recovery",
@@ -122396,7 +122291,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/operations.md",
-      "source_location": "L37",
+      "source_location": "L40",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_operations_1_operaciones_de_despliegue_y_rollout",
@@ -122407,7 +122302,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/operations.md",
-      "source_location": "L66",
+      "source_location": "L69",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_operations_3_monitoreo_de_salud_y_gesti\u00f3n_de_logs",
@@ -122418,7 +122313,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/operations.md",
-      "source_location": "L76",
+      "source_location": "L79",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_operations_3_monitoreo_de_salud_y_gesti\u00f3n_de_logs",
@@ -122429,7 +122324,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/operations.md",
-      "source_location": "L90",
+      "source_location": "L93",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_operations_4_estrategia_de_copias_de_seguridad_backups",
@@ -122440,7 +122335,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/operations.md",
-      "source_location": "L103",
+      "source_location": "L106",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_operations_4_estrategia_de_copias_de_seguridad_backups",
@@ -122451,7 +122346,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/operations.md",
-      "source_location": "L121",
+      "source_location": "L124",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_operations_5_procedimiento_de_recuperaci\u00f3n_de_desastres_disaster_recovery",
@@ -122462,11 +122357,297 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/operations.md",
-      "source_location": "L141",
+      "source_location": "L144",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_operations_5_procedimiento_de_recuperaci\u00f3n_de_desastres_disaster_recovery",
       "target": "docs_operations_restauraci\u00f3n_mediante_script_cli_restore_database_ps1_sh",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_podman_setup",
+      "target": "docs_podman_setup_gu\u00eda_completa_de_configuraci\u00f3n_de_podman_y_kubernetes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/troubleshooting.md",
+      "source_location": "L69",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_troubleshooting",
+      "target": "docs_podman_setup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L81",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_podman_setup_gu\u00eda_completa_de_configuraci\u00f3n_de_podman_y_kubernetes",
+      "target": "docs_podman_setup_configuraci\u00f3n_de_podman_machine_windows_macos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L186",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_podman_setup_gu\u00eda_completa_de_configuraci\u00f3n_de_podman_y_kubernetes",
+      "target": "docs_podman_setup_construcci\u00f3n_de_im\u00e1genes_con_containerfile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L204",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_podman_setup_gu\u00eda_completa_de_configuraci\u00f3n_de_podman_y_kubernetes",
+      "target": "docs_podman_setup_despliegue_automatizado_con_deploy_k8s_ps1_deploy_k8s_sh",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L228",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_podman_setup_gu\u00eda_completa_de_configuraci\u00f3n_de_podman_y_kubernetes",
+      "target": "docs_podman_setup_diagn\u00f3stico_y_resoluci\u00f3n_de_problemas_frecuentes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L35",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_podman_setup_gu\u00eda_completa_de_configuraci\u00f3n_de_podman_y_kubernetes",
+      "target": "docs_podman_setup_instalaci\u00f3n_y_configuraci\u00f3n_base",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L149",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_podman_setup_gu\u00eda_completa_de_configuraci\u00f3n_de_podman_y_kubernetes",
+      "target": "docs_podman_setup_integraci\u00f3n_con_cl\u00fasteres_kubernetes_locales",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L101",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_podman_setup_gu\u00eda_completa_de_configuraci\u00f3n_de_podman_y_kubernetes",
+      "target": "docs_podman_setup_modo_rootless_y_permisos_de_vol\u00famenes_selinux_z",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_podman_setup_gu\u00eda_completa_de_configuraci\u00f3n_de_podman_y_kubernetes",
+      "target": "docs_podman_setup_por_qu\u00e9_podman_en_fintech_wallet",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_podman_setup_gu\u00eda_completa_de_configuraci\u00f3n_de_podman_y_kubernetes",
+      "target": "docs_podman_setup_tabla_de_contenidos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L129",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_podman_setup_gu\u00eda_completa_de_configuraci\u00f3n_de_podman_y_kubernetes",
+      "target": "docs_podman_setup_uso_de_compose_yaml_con_podman",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L60",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_podman_setup_instalaci\u00f3n_y_configuraci\u00f3n_base",
+      "target": "docs_podman_setup_linux_ubuntu_debian_fedora",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L37",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_podman_setup_instalaci\u00f3n_y_configuraci\u00f3n_base",
+      "target": "docs_podman_setup_windows_podman_desktop_wsl2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L68",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_podman_setup_linux_ubuntu_debian_fedora",
+      "target": "docs_podman_setup_fedora_rhel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L62",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_podman_setup_linux_ubuntu_debian_fedora",
+      "target": "docs_podman_setup_ubuntu_22_04_24_04_lts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L115",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_podman_setup_modo_rootless_y_permisos_de_vol\u00famenes_selinux_z",
+      "target": "docs_podman_setup_configuraci\u00f3n_de_subuid_y_subgid_en_linux",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L151",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_podman_setup_integraci\u00f3n_con_cl\u00fasteres_kubernetes_locales",
+      "target": "docs_podman_setup_kind_con_proveedor_podman",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L173",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_podman_setup_integraci\u00f3n_con_cl\u00fasteres_kubernetes_locales",
+      "target": "docs_podman_setup_minikube_con_driver_podman",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L180",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_podman_setup_integraci\u00f3n_con_cl\u00fasteres_kubernetes_locales",
+      "target": "docs_podman_setup_podman_desktop_con_kubernetes_embebido",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L217",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_podman_setup_despliegue_automatizado_con_deploy_k8s_ps1_deploy_k8s_sh",
+      "target": "docs_podman_setup_en_linux_macos_wsl2_bash",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L208",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_podman_setup_despliegue_automatizado_con_deploy_k8s_ps1_deploy_k8s_sh",
+      "target": "docs_podman_setup_en_windows_powershell",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L230",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_podman_setup_diagn\u00f3stico_y_resoluci\u00f3n_de_problemas_frecuentes",
+      "target": "docs_podman_setup_1_error_cannot_connect_to_the_podman_socket",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L241",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_podman_setup_diagn\u00f3stico_y_resoluci\u00f3n_de_problemas_frecuentes",
+      "target": "docs_podman_setup_2_permission_denied_al_montar_vol\u00famenes_locales_en_linux",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L245",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_podman_setup_diagn\u00f3stico_y_resoluci\u00f3n_de_problemas_frecuentes",
+      "target": "docs_podman_setup_3_kind_load_docker_image_falla_con_podman",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/podman-setup.md",
+      "source_location": "L253",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_podman_setup_diagn\u00f3stico_y_resoluci\u00f3n_de_problemas_frecuentes",
+      "target": "docs_podman_setup_4_puertos_privilegiados_1024_en_modo_rootless_en_linux",
       "confidence_score": 1.0
     },
     {
@@ -123419,7 +123600,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L67",
+      "source_location": "L73",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_gu\u00eda_de_troubleshooting_y_resoluci\u00f3n_de_fallos",
@@ -123430,7 +123611,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L98",
+      "source_location": "L104",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_gu\u00eda_de_troubleshooting_y_resoluci\u00f3n_de_fallos",
@@ -123441,7 +123622,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L118",
+      "source_location": "L124",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_gu\u00eda_de_troubleshooting_y_resoluci\u00f3n_de_fallos",
@@ -123452,7 +123633,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L143",
+      "source_location": "L149",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_gu\u00eda_de_troubleshooting_y_resoluci\u00f3n_de_fallos",
@@ -123463,7 +123644,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L158",
+      "source_location": "L164",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_gu\u00eda_de_troubleshooting_y_resoluci\u00f3n_de_fallos",
@@ -123474,7 +123655,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L180",
+      "source_location": "L186",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_gu\u00eda_de_troubleshooting_y_resoluci\u00f3n_de_fallos",
@@ -123518,7 +123699,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L39",
+      "source_location": "L45",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_1_problemas_en_kubernetes",
@@ -123529,7 +123710,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L49",
+      "source_location": "L55",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_1_problemas_en_kubernetes",
@@ -123540,18 +123721,18 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L55",
+      "source_location": "L61",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_1_problemas_en_kubernetes",
-      "target": "docs_troubleshooting_1_5_error_al_compilar_im\u00e1genes_rootless_containerd_not_running_linux_ubuntu",
+      "target": "docs_troubleshooting_1_5_error_al_compilar_o_montar_con_podman_socket_o_permisos_rootless",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L69",
+      "source_location": "L75",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_2_problemas_en_postgresql_y_pgbouncer",
@@ -123562,7 +123743,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L79",
+      "source_location": "L85",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_2_problemas_en_postgresql_y_pgbouncer",
@@ -123573,7 +123754,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L88",
+      "source_location": "L94",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_2_problemas_en_postgresql_y_pgbouncer",
@@ -123584,7 +123765,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L100",
+      "source_location": "L106",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_3_problemas_en_redis",
@@ -123595,7 +123776,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L108",
+      "source_location": "L114",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_3_problemas_en_redis",
@@ -123606,7 +123787,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L120",
+      "source_location": "L126",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_4_problemas_en_apache_kafka_kraft",
@@ -123617,7 +123798,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L131",
+      "source_location": "L137",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_4_problemas_en_apache_kafka_kraft",
@@ -123628,7 +123809,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L145",
+      "source_location": "L151",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_5_problemas_en_traefik_e_ingress",
@@ -123639,7 +123820,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L151",
+      "source_location": "L157",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_5_problemas_en_traefik_e_ingress",
@@ -123650,7 +123831,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L160",
+      "source_location": "L166",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_6_problemas_en_observabilidad_signoz_clickhouse_otel",
@@ -123661,7 +123842,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L182",
+      "source_location": "L188",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_7_problemas_en_microservicios_nestjs",
@@ -123672,7 +123853,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L187",
+      "source_location": "L193",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_7_problemas_en_microservicios_nestjs",
@@ -123709,7 +123890,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_readme_frontend_react_vite_tailwindcss",
-      "target": "frontend_readme_construcci\u00f3n_y_despliegue_en_kubernetes_rancher_desktop",
+      "target": "frontend_readme_construcci\u00f3n_y_despliegue_en_kubernetes_con_podman",
       "confidence_score": 1.0
     },
     {
@@ -123857,5 +124038,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "324b2038b4d82ade8f0afe7dc22e93c13bd3f08b"
+  "built_at_commit": "e7fb4dbdc866c115ff080c7336efa0c2a0af7f7c"
 }
