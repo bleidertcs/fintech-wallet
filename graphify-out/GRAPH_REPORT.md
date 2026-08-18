@@ -1,16 +1,16 @@
 # Graph Report - fintech-wallet  (2026-08-17)
 
 ## Corpus Check
-- 495 files · ~250,717 words
+- 496 files · ~251,331 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 4952 nodes · 6067 edges · 638 communities (338 shown, 300 thin omitted)
+- 4969 nodes · 6087 edges · 640 communities (340 shown, 300 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 20 edges (avg confidence: 0.72)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `3c336d22`
+- Built from commit: `324b2038`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -396,7 +396,6 @@
 - @types/node
 - @grpc/proto-loader
 - @nestjs/common
-- prisma
 - @nestjs/core
 - @nestjs/microservices
 - @nestjs/terminus
@@ -623,6 +622,8 @@
 - react-hot-toast
 - globals
 - class-transformer
+- @nestjs/testing
+- axios
 
 ## God Nodes (most connected - your core abstractions)
 1. `User` - 38 edges
@@ -651,7 +652,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (638 total, 300 thin omitted)
+## Communities (640 total, 300 thin omitted)
 
 ### Community 0 - "UserDto"
 Cohesion: 0.05
@@ -679,15 +680,15 @@ Nodes (10): BusinessException, GlobalExceptionHandler, ResponseEntity, Slf4j, Re
 
 ### Community 6 - "dependencies"
 Cohesion: 0.10
-Nodes (21): file-saver, dependencies, axios, file-saver, jspdf, jspdf-autotable, @opentelemetry/api, @opentelemetry/instrumentation (+13 more)
+Nodes (21): file-saver, dependencies, file-saver, jspdf, jspdf-autotable, @opentelemetry/api, @opentelemetry/instrumentation, @opentelemetry/resources (+13 more)
 
 ### Community 7 - "Writing ClickHouse Queries for SigNoz Dashboards"
-Cohesion: 0.17
-Nodes (9): ClickHouse Traces Query Reference for SigNoz, Contents, Dashboard Panel Query Templates, Query Examples, Query Optimization Checklist, Table — Average duration by HTTP method, Table Panel, Timeseries — Error spans per service per minute (+1 more)
+Cohesion: 0.15
+Nodes (13): ClickHouse Traces Query Reference for SigNoz, Contents, Dashboard Panel Query Templates, distributed_signoz_error_index_v2 (Error Events), distributed_signoz_index_v3 (Primary Spans Table), distributed_traces_v3_resource (Resource Lookup Table), Query Examples, Query Optimization Checklist (+5 more)
 
 ### Community 8 - "Fase 1: Notification Service Completo"
 Cohesion: 0.18
-Nodes (11): devDependencies, @nestjs/cli, supertest, ts-jest, ts-loader, @types/jest, @nestjs/cli, supertest (+3 more)
+Nodes (11): devDependencies, supertest, ts-jest, ts-loader, ts-node, @types/jest, supertest, ts-jest (+3 more)
 
 ### Community 9 - "SEO optimization"
 Cohesion: 0.06
@@ -827,7 +828,7 @@ Nodes (9): ConditionalOnModuleEnabled, Override, OnModuleEnabledCondition, Annot
 
 ### Community 50 - "MoneyRequestDto"
 Cohesion: 0.10
-Nodes (21): devDependencies, eslint, eslint-config-prettier, eslint-plugin-prettier, prettier, supertest, ts-jest, ts-node (+13 more)
+Nodes (21): devDependencies, eslint-config-prettier, eslint-plugin-prettier, globals, prettier, supertest, ts-jest, ts-node (+13 more)
 
 ### Community 51 - "Accessibility (a11y)"
 Cohesion: 0.20
@@ -1022,8 +1023,8 @@ Cohesion: 0.07
 Nodes (29): Advanced Debugging, API Server Debugging, Best Practices, Common Exit Codes, Common Issues and Solutions, Database Client Container, Debug on Node, Debug Pod (+21 more)
 
 ### Community 144 - "SKILL.md"
-Cohesion: 0.50
-Nodes (4): distributed_signoz_error_index_v2 (Error Events), distributed_signoz_index_v3 (Primary Spans Table), distributed_traces_v3_resource (Resource Lookup Table), Table Schemas
+Cohesion: 0.11
+Nodes (18): 1. Diagnóstico del Error Común: `rootless containerd not running`, 2. Método A: Modo Sistema / Root con K3s (Recomendado), 3. Método B: Modo Rootless (Sin `sudo`), 4. Configuración del Demonio BuildKit (`buildkitd`), 5. Automatización con Variables de Entorno y Alias, 6. Verificación de Compilación, Configuración de containerd, nerdctl y BuildKit en Linux (Ubuntu), 📑 Contenido (+10 more)
 
 ### Community 145 - "FinTech Wallet"
 Cohesion: 0.50
@@ -1051,7 +1052,7 @@ Nodes (35): Activity Flow with States, Available Guides and Resources, Best Prac
 
 ### Community 152 - "swarm-init.sh"
 Cohesion: 0.09
-Nodes (23): devDependencies, eslint, eslint-plugin-prettier, globals, jest, @nestjs/cli, prettier, source-map-support (+15 more)
+Nodes (23): devDependencies, eslint-plugin-prettier, globals, jest, @nestjs/cli, prettier, source-map-support, @swc/cli (+15 more)
 
 ### Community 153 - "Microservicios"
 Cohesion: 0.50
@@ -1062,8 +1063,8 @@ Cohesion: 0.50
 Nodes (4): Integration Tests, Test Naming, Testing Guidelines, Unit Tests
 
 ### Community 155 - "Funcionalidades"
-Cohesion: 0.22
-Nodes (9): devDependencies, @eslint/js, @nestjs/schematics, @nestjs/testing, typescript-eslint, @eslint/js, @nestjs/schematics, @nestjs/testing (+1 more)
+Cohesion: 0.10
+Nodes (21): devDependencies, eslint, eslint-config-prettier, @eslint/eslintrc, @eslint/js, globals, @nestjs/schematics, prisma (+13 more)
 
 ### Community 156 - "Helm Charts"
 Cohesion: 0.08
@@ -1091,11 +1092,11 @@ Nodes (15): main(), MermaidDiagram, MermaidExtractor, Path, Print a list of all 
 
 ### Community 167 - "auth.use-cases.ts"
 Cohesion: 0.08
-Nodes (25): 1.1. Pod en Estado `Pending`, 1.2. Pod en Estado `ImagePullBackOff` o `ErrImagePull`, 1.3. Pod en Estado `CrashLoopBackOff`, 1.4. Fallo en `ReadinessProbe` o `LivenessProbe`, 1. Problemas en Kubernetes, 2.1. Error `Connection Refused` o Fallo en PgBouncer, 2.2. Error de Autenticación de Base de Datos (`password authentication failed`), 2.3. Error de Prisma: `Prepared statement already exists` o Incompatibilidad PgBouncer (+17 more)
+Nodes (26): 1.1. Pod en Estado `Pending`, 1.2. Pod en Estado `ImagePullBackOff` o `ErrImagePull`, 1.3. Pod en Estado `CrashLoopBackOff`, 1.4. Fallo en `ReadinessProbe` o `LivenessProbe`, 1.5. Error al Compilar Imágenes: `rootless containerd not running` (Linux / Ubuntu), 1. Problemas en Kubernetes, 2.1. Error `Connection Refused` o Fallo en PgBouncer, 2.2. Error de Autenticación de Base de Datos (`password authentication failed`) (+18 more)
 
 ### Community 168 - "transaction.use-cases.ts"
-Cohesion: 0.08
-Nodes (24): 1. Topología de Persistencia y Segregación, 2. Connection Pooling con PgBouncer Core, 3. Catálogo de Bases de Datos y Esquemas, 4. Diagrama Entidad-Relación (ERD) Consolidado, 5. Gestión de Esquemas con Prisma ORM, 6. Estrategia de Copias de Seguridad y Recuperación, Base de Datos `authdb` (`auth-service`), Base de Datos `notificationdb` (`notification-service`) (+16 more)
+Cohesion: 0.12
+Nodes (16): 3. Catálogo de Bases de Datos y Esquemas, Base de Datos `authdb` (`auth-service`), Base de Datos `notificationdb` (`notification-service`), Base de Datos `transactiondb` (`transaction-service`), Base de Datos `userdb` (`user-service`), Base de Datos `workerdb` (`worker-service`), Tabla `audit_logs`, Tabla `idempotency_records` (+8 more)
 
 ### Community 169 - "AuthController"
 Cohesion: 0.15
@@ -1278,8 +1279,8 @@ Cohesion: 0.24
 Nodes (5): AppController, Controller, Get, AppService, Injectable
 
 ### Community 223 - "dependencies"
-Cohesion: 0.10
-Nodes (21): dependencies, class-transformer, class-validator, kafkajs, @nestjs/config, @nestjs/core, @opentelemetry/auto-instrumentations-node, @opentelemetry/exporter-metrics-otlp-http (+13 more)
+Cohesion: 0.22
+Nodes (9): dependencies, kafkajs, nest-winston, @nestjs/common, @nestjs/platform-express, kafkajs, nest-winston, @nestjs/common (+1 more)
 
 ### Community 225 - "PrismaService"
 Cohesion: 0.13
@@ -1431,7 +1432,7 @@ Nodes (13): Module, UserGrpcClientModule, Injectable, UserServiceGrpcAdapter, Us
 
 ### Community 327 - "nodemailer"
 Cohesion: 0.18
-Nodes (11): dependencies, axios, class-transformer, @nestjs/common, @opentelemetry/exporter-logs-otlp-http, @trpc/client, axios, class-transformer (+3 more)
+Nodes (11): dependencies, class-transformer, @nestjs/common, @opentelemetry/exporter-logs-otlp-http, @trpc/client, zod, class-transformer, @nestjs/common (+3 more)
 
 ### Community 329 - "@opentelemetry/exporter-logs-otlp-http"
 Cohesion: 0.09
@@ -1533,6 +1534,10 @@ Nodes (4): Controller, Inject, UserGrpcController, GrpcMethod
 Cohesion: 0.16
 Nodes (7): HealthController, ApiOperation, ApiTags, Controller, Get, PrismaService, Injectable
 
+### Community 386 - "rxjs"
+Cohesion: 0.25
+Nodes (8): 1. Topología de Persistencia y Segregación, 2. Connection Pooling con PgBouncer Core, 4. Diagrama Entidad-Relación (ERD) Consolidado, 5. Gestión de Esquemas con Prisma ORM, 6. Estrategia de Copias de Seguridad y Recuperación, Bases de Datos Relacionales y PgBouncer, Comandos de Administración Prisma:, 📑 Contenido
+
 ### Community 388 - "@types/node"
 Cohesion: 0.24
 Nodes (9): main(), MermaidRenderer, Path, Render Mermaid code string to an image.          Args:             mermaid_co, Batch render all .mmd files in a directory.          Args:             input_, Check if mermaid-cli (mmdc) is installed., Render Mermaid diagrams to images using mermaid-cli., Initialize Mermaid renderer.          Args:             theme: Mermaid theme (+1 more)
@@ -1590,8 +1595,8 @@ Cohesion: 0.50
 Nodes (4): Archivos a crear, Criterio de completitud, Fase 5 — Kafka: Contratos de Eventos y Retry Formal, Tareas
 
 ### Community 467 - "axios"
-Cohesion: 0.12
-Nodes (17): 1. Prerrequisitos de Software, 2. Estrategia de Ejecución: Local vs Kubernetes, 3. Clonación del Repositorio, 4. Configuración de Variables de Entorno, 5. Despliegue en Kubernetes, 6. Verificación del Despliegue y Salud del Clúster, 7. Acceso a las Aplicaciones y Paneles de Control, 8. Ejecución de Pruebas de Humo (+9 more)
+Cohesion: 0.14
+Nodes (14): 1. Prerrequisitos de Software, 2. Estrategia de Ejecución: Local vs Kubernetes, 3. Clonación del Repositorio, 4. Configuración de Variables de Entorno, 5. Despliegue en Kubernetes, 6. Verificación del Despliegue y Salud del Clúster, 7. Acceso a las Aplicaciones y Paneles de Control, 8. Ejecución de Pruebas de Humo (+6 more)
 
 ### Community 469 - "react-hot-toast"
 Cohesion: 0.13
@@ -1886,7 +1891,7 @@ Cohesion: 0.67
 Nodes (3): 9.1 Horizontal Scaling, 9.2 Database Scaling, 9. Scaling Strategy
 
 ## Knowledge Gaps
-- **2505 isolated node(s):** `com.company:spring-boot-app`, `start-local.sh script`, `$schema`, `collection`, `sourceRoot` (+2500 more)
+- **2516 isolated node(s):** `com.company:spring-boot-app`, `start-local.sh script`, `$schema`, `collection`, `sourceRoot` (+2511 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **300 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -1895,12 +1900,12 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `User` connect `Docker Swarm Skill` to `PrismaService`, `App.jsx`, `.findByEmail`, `AppController`, `user.entity.ts`, `.verifyTotp`?**
   _High betweenness centrality (0.008) - this node is a cross-community bridge._
-- **Why does `dependencies` connect `dependencies` to `@opentelemetry/resources`, `package.json`, `mariadb`, `@opentelemetry/auto-instrumentations-web`, `@opentelemetry/exporter-trace-otlp-http`, `@opentelemetry/sdk-trace-web`, `qrcode.react`, `react`, `react-icons`, `recharts`, `class-transformer`, `react-hot-toast`, `@opentelemetry/sdk-trace-base`?**
+- **Why does `dependencies` connect `dependencies` to `@opentelemetry/resources`, `package.json`, `@opentelemetry/sdk-trace-base`, `@opentelemetry/auto-instrumentations-web`, `@opentelemetry/exporter-trace-otlp-http`, `@opentelemetry/sdk-trace-web`, `qrcode.react`, `react`, `react-icons`, `recharts`, `class-transformer`, `react-hot-toast`, `axios`?**
   _High betweenness centrality (0.005) - this node is a cross-community bridge._
 - **Why does `History()` connect `App.jsx` to `dependencies`?**
   _High betweenness centrality (0.005) - this node is a cross-community bridge._
 - **What connects `com.company:spring-boot-app`, `start-local.sh script`, `$schema` to the rest of the system?**
-  _2505 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _2516 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `UserDto` be split into smaller, more focused modules?**
   _Cohesion score 0.05446727185857621 - nodes in this community are weakly interconnected._
 - **Should `NotificationService` be split into smaller, more focused modules?**

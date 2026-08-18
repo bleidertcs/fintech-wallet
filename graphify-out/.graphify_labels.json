@@ -636,5 +636,7 @@
   "634": "class-transformer",
   "635": "react-hot-toast",
   "636": "globals",
-  "637": "class-transformer"
+  "637": "class-transformer",
+  "638": "@nestjs/testing",
+  "639": "axios"
 }

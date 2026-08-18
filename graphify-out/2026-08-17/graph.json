@@ -3475,8 +3475,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_opentelemetry_resources",
-      "community": 327,
-      "community_name": "nodemailer",
+      "community": 309,
+      "community_name": "eslint-plugin-prettier",
       "norm_label": "@opentelemetry/resources"
     },
     {
@@ -3486,8 +3486,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_opentelemetry_resources",
-      "community": 327,
-      "community_name": "nodemailer",
+      "community": 309,
+      "community_name": "eslint-plugin-prettier",
       "norm_label": "@opentelemetry/resources"
     },
     {
@@ -3695,8 +3695,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_axios",
-      "community": 146,
-      "community_name": "worker-service:worker-service",
+      "community": 327,
+      "community_name": "nodemailer",
       "norm_label": "axios"
     },
     {
@@ -3706,8 +3706,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_axios",
-      "community": 146,
-      "community_name": "worker-service:worker-service",
+      "community": 327,
+      "community_name": "nodemailer",
       "norm_label": "axios"
     },
     {
@@ -9866,8 +9866,8 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_devdependencies_eslint",
-      "community": 309,
-      "community_name": "eslint-plugin-prettier",
+      "community": 152,
+      "community_name": "swarm-init.sh",
       "norm_label": "eslint"
     },
     {
@@ -9877,8 +9877,8 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_eslint",
-      "community": 309,
-      "community_name": "eslint-plugin-prettier",
+      "community": 152,
+      "community_name": "swarm-init.sh",
       "norm_label": "eslint"
     },
     {
@@ -9888,8 +9888,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_devdependencies_eslint_config_prettier",
-      "community": 152,
-      "community_name": "swarm-init.sh",
+      "community": 342,
+      "community_name": "@nestjs/testing",
       "norm_label": "eslint-config-prettier"
     },
     {
@@ -9899,8 +9899,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_eslint_config_prettier",
-      "community": 152,
-      "community_name": "swarm-init.sh",
+      "community": 342,
+      "community_name": "@nestjs/testing",
       "norm_label": "eslint-config-prettier"
     },
     {
@@ -12726,8 +12726,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_dependencies_nestjs_platform_express",
-      "community": 170,
-      "community_name": "dependencies",
+      "community": 350,
+      "community_name": "@types/express",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -12737,8 +12737,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_nestjs_platform_express",
-      "community": 170,
-      "community_name": "dependencies",
+      "community": 350,
+      "community_name": "@types/express",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -13144,8 +13144,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_dependencies_class_transformer",
-      "community": 465,
-      "community_name": "html5-qrcode",
+      "community": 170,
+      "community_name": "dependencies",
       "norm_label": "class-transformer"
     },
     {
@@ -13155,8 +13155,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_class_transformer",
-      "community": 465,
-      "community_name": "html5-qrcode",
+      "community": 170,
+      "community_name": "dependencies",
       "norm_label": "class-transformer"
     },
     {
@@ -18138,8 +18138,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_nestjs_cli",
-      "community": 350,
-      "community_name": "@types/express",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@nestjs/cli"
     },
     {
@@ -18149,8 +18149,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_cli",
-      "community": 350,
-      "community_name": "@types/express",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@nestjs/cli"
     },
     {
@@ -18160,8 +18160,8 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_nestjs_schematics",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 465,
+      "community_name": "html5-qrcode",
       "norm_label": "@nestjs/schematics"
     },
     {
@@ -18171,8 +18171,8 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_schematics",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 465,
+      "community_name": "html5-qrcode",
       "norm_label": "@nestjs/schematics"
     },
     {
@@ -21438,8 +21438,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_nest_winston",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 602,
+      "community_name": "nest-winston",
       "norm_label": "nest-winston"
     },
     {
@@ -21449,8 +21449,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nest_winston",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 602,
+      "community_name": "nest-winston",
       "norm_label": "nest-winston"
     },
     {
@@ -21460,8 +21460,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_pdfkit",
-      "community": 342,
-      "community_name": "@nestjs/testing",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "pdfkit"
     },
     {
@@ -21471,8 +21471,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "pdfkit",
-      "community": 342,
-      "community_name": "@nestjs/testing",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "pdfkit"
     },
     {
@@ -21669,8 +21669,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_nestjs_testing",
-      "community": 605,
-      "community_name": "Table Schemas",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "@nestjs/testing"
     },
     {
@@ -21680,8 +21680,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nestjs_testing",
-      "community": 605,
-      "community_name": "Table Schemas",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "@nestjs/testing"
     },
     {
@@ -21933,8 +21933,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_globals",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 605,
+      "community_name": "Table Schemas",
       "norm_label": "globals"
     },
     {
@@ -21944,8 +21944,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_globals",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 605,
+      "community_name": "Table Schemas",
       "norm_label": "globals"
     },
     {
@@ -24343,8 +24343,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "frontend_package_dependencies_axios",
-      "community": 640,
-      "community_name": "axios",
+      "community": 6,
+      "community_name": "dependencies",
       "norm_label": "axios"
     },
     {
@@ -24354,8 +24354,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "frontend_package_json_axios",
-      "community": 640,
-      "community_name": "axios",
+      "community": 6,
+      "community_name": "dependencies",
       "norm_label": "axios"
     },
     {
@@ -24519,8 +24519,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "frontend_package_dependencies_react_hot_toast",
-      "community": 6,
-      "community_name": "dependencies",
+      "community": 635,
+      "community_name": "react-hot-toast",
       "norm_label": "react-hot-toast"
     },
     {
@@ -24530,8 +24530,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "react_hot_toast",
-      "community": 6,
-      "community_name": "dependencies",
+      "community": 635,
+      "community_name": "react-hot-toast",
       "norm_label": "react-hot-toast"
     },
     {
@@ -31712,8 +31712,8 @@
       "source_location": "L641",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_examples_java_webapp_readme_activity_diagram_from_filter_chain",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 146,
+      "community_name": "worker-service:worker-service",
       "norm_label": "activity diagram from filter chain"
     },
     {
@@ -31723,8 +31723,8 @@
       "source_location": "L643",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_examples_java_webapp_readme_filter_chain_configuration",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 146,
+      "community_name": "worker-service:worker-service",
       "norm_label": "filter chain configuration"
     },
     {
@@ -31734,8 +31734,8 @@
       "source_location": "L736",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_examples_java_webapp_readme_web_xml_filter_ordering",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 146,
+      "community_name": "worker-service:worker-service",
       "norm_label": "web.xml filter ordering"
     },
     {
@@ -31745,8 +31745,8 @@
       "source_location": "L775",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_examples_java_webapp_readme_mapping_to_activity_diagram",
-      "community": 377,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 146,
+      "community_name": "worker-service:worker-service",
       "norm_label": "mapping to activity diagram"
     },
     {
@@ -54017,7 +54017,7 @@
       "label": "5. Solicitudes de Dinero (Money Requests)",
       "file_type": "document",
       "source_file": "docs/transactions.md",
-      "source_location": "L146",
+      "source_location": "L143",
       "_origin": "ast",
       "id": "docs_transactions_5_solicitudes_de_dinero_money_requests",
       "community": 528,
@@ -54028,7 +54028,7 @@
       "label": "Endpoints de Money Requests:",
       "file_type": "document",
       "source_file": "docs/transactions.md",
-      "source_location": "L159",
+      "source_location": "L156",
       "_origin": "ast",
       "id": "docs_transactions_endpoints_de_money_requests",
       "community": 528,
@@ -54039,7 +54039,7 @@
       "label": "6. Patr\u00f3n Transactional Outbox y Event Streaming",
       "file_type": "document",
       "source_file": "docs/transactions.md",
-      "source_location": "L168",
+      "source_location": "L165",
       "_origin": "ast",
       "id": "docs_transactions_6_patr\u00f3n_transactional_outbox_y_event_streaming",
       "community": 528,
@@ -120427,7 +120427,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "docs/transactions.md",
-      "source_location": "L178",
+      "source_location": "L175",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_transactions",
@@ -122946,7 +122946,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/transactions.md",
-      "source_location": "L146",
+      "source_location": "L143",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_transactions_transacciones_cqrs_saga_e_idempotencia",
@@ -122957,7 +122957,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/transactions.md",
-      "source_location": "L168",
+      "source_location": "L165",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_transactions_transacciones_cqrs_saga_e_idempotencia",
@@ -122990,7 +122990,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/transactions.md",
-      "source_location": "L159",
+      "source_location": "L156",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_transactions_5_solicitudes_de_dinero_money_requests",

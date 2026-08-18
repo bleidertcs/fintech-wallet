@@ -3695,8 +3695,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_axios",
-      "community": 327,
-      "community_name": "nodemailer",
+      "community": 404,
+      "community_name": "@opentelemetry/sdk-metrics",
       "norm_label": "axios"
     },
     {
@@ -3706,8 +3706,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_axios",
-      "community": 327,
-      "community_name": "nodemailer",
+      "community": 404,
+      "community_name": "@opentelemetry/sdk-metrics",
       "norm_label": "axios"
     },
     {
@@ -4047,8 +4047,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_zod",
-      "community": 548,
-      "community_name": "zod",
+      "community": 327,
+      "community_name": "nodemailer",
       "norm_label": "zod"
     },
     {
@@ -4058,8 +4058,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_zod",
-      "community": 548,
-      "community_name": "zod",
+      "community": 327,
+      "community_name": "nodemailer",
       "norm_label": "zod"
     },
     {
@@ -9778,8 +9778,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_devdependencies_types_node",
-      "community": 386,
-      "community_name": "rxjs",
+      "community": 152,
+      "community_name": "swarm-init.sh",
       "norm_label": "@types/node"
     },
     {
@@ -9789,8 +9789,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_types_node",
-      "community": 386,
-      "community_name": "rxjs",
+      "community": 152,
+      "community_name": "swarm-init.sh",
       "norm_label": "@types/node"
     },
     {
@@ -9866,8 +9866,8 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_devdependencies_eslint",
-      "community": 152,
-      "community_name": "swarm-init.sh",
+      "community": 468,
+      "community_name": "@eslint/js",
       "norm_label": "eslint"
     },
     {
@@ -9877,8 +9877,8 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_eslint",
-      "community": 152,
-      "community_name": "swarm-init.sh",
+      "community": 468,
+      "community_name": "@eslint/js",
       "norm_label": "eslint"
     },
     {
@@ -13617,8 +13617,8 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_devdependencies_eslint",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 479,
+      "community_name": "nodemailer",
       "norm_label": "eslint"
     },
     {
@@ -13628,8 +13628,8 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_eslint",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 479,
+      "community_name": "nodemailer",
       "norm_label": "eslint"
     },
     {
@@ -13683,8 +13683,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_devdependencies_globals",
-      "community": 636,
-      "community_name": "globals",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": "globals"
     },
     {
@@ -13694,8 +13694,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_globals",
-      "community": 636,
-      "community_name": "globals",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": "globals"
     },
     {
@@ -18138,8 +18138,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_nestjs_cli",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 496,
+      "community_name": "@nestjs/config",
       "norm_label": "@nestjs/cli"
     },
     {
@@ -18149,8 +18149,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_cli",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 496,
+      "community_name": "@nestjs/config",
       "norm_label": "@nestjs/cli"
     },
     {
@@ -18446,8 +18446,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_ts_node",
-      "community": 479,
-      "community_name": "nodemailer",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "ts-node"
     },
     {
@@ -18457,8 +18457,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_ts_node",
-      "community": 479,
-      "community_name": "nodemailer",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "ts-node"
     },
     {
@@ -20932,8 +20932,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_nestjs_common",
-      "community": 392,
-      "community_name": "prisma",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@nestjs/common"
     },
     {
@@ -20943,8 +20943,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nestjs_common",
-      "community": 392,
-      "community_name": "prisma",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@nestjs/common"
     },
     {
@@ -20954,8 +20954,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_nestjs_config",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 506,
+      "community_name": "@opentelemetry/exporter-metrics-otlp-http",
       "norm_label": "@nestjs/config"
     },
     {
@@ -20965,8 +20965,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nestjs_config",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 506,
+      "community_name": "@opentelemetry/exporter-metrics-otlp-http",
       "norm_label": "@nestjs/config"
     },
     {
@@ -20976,8 +20976,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_nestjs_core",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 517,
+      "community_name": "@prisma/client",
       "norm_label": "@nestjs/core"
     },
     {
@@ -20987,8 +20987,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nestjs_core",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 517,
+      "community_name": "@prisma/client",
       "norm_label": "@nestjs/core"
     },
     {
@@ -21020,8 +21020,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_nestjs_platform_express",
-      "community": 404,
-      "community_name": "@opentelemetry/sdk-metrics",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -21031,8 +21031,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nestjs_platform_express",
-      "community": 404,
-      "community_name": "@opentelemetry/sdk-metrics",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -21108,8 +21108,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_opentelemetry_auto_instrumentations_node",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 548,
+      "community_name": "zod",
       "norm_label": "@opentelemetry/auto-instrumentations-node"
     },
     {
@@ -21119,8 +21119,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_opentelemetry_auto_instrumentations_node",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 548,
+      "community_name": "zod",
       "norm_label": "@opentelemetry/auto-instrumentations-node"
     },
     {
@@ -21130,8 +21130,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_opentelemetry_exporter_metrics_otlp_http",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 580,
+      "community_name": "mariadb",
       "norm_label": "@opentelemetry/exporter-metrics-otlp-http"
     },
     {
@@ -21141,8 +21141,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_opentelemetry_exporter_metrics_otlp_http",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 580,
+      "community_name": "mariadb",
       "norm_label": "@opentelemetry/exporter-metrics-otlp-http"
     },
     {
@@ -21350,8 +21350,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_prisma_client",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 605,
+      "community_name": "Table Schemas",
       "norm_label": "@prisma/client"
     },
     {
@@ -21361,8 +21361,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_prisma_client",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 605,
+      "community_name": "Table Schemas",
       "norm_label": "@prisma/client"
     },
     {
@@ -21372,8 +21372,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_class_transformer",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 502,
+      "community_name": "@nestjs/platform-express",
       "norm_label": "class-transformer"
     },
     {
@@ -21383,8 +21383,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_class_transformer",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 502,
+      "community_name": "@nestjs/platform-express",
       "norm_label": "class-transformer"
     },
     {
@@ -21394,8 +21394,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_class_validator",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 505,
+      "community_name": "react-hot-toast",
       "norm_label": "class-validator"
     },
     {
@@ -21405,8 +21405,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_class_validator",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 505,
+      "community_name": "react-hot-toast",
       "norm_label": "class-validator"
     },
     {
@@ -21438,8 +21438,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_nest_winston",
-      "community": 602,
-      "community_name": "nest-winston",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "nest-winston"
     },
     {
@@ -21449,8 +21449,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nest_winston",
-      "community": 602,
-      "community_name": "nest-winston",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "nest-winston"
     },
     {
@@ -21460,8 +21460,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_pdfkit",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 602,
+      "community_name": "nest-winston",
       "norm_label": "pdfkit"
     },
     {
@@ -21471,8 +21471,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "pdfkit",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 602,
+      "community_name": "nest-winston",
       "norm_label": "pdfkit"
     },
     {
@@ -21526,8 +21526,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_rxjs",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 636,
+      "community_name": "globals",
       "norm_label": "rxjs"
     },
     {
@@ -21537,8 +21537,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_rxjs",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 636,
+      "community_name": "globals",
       "norm_label": "rxjs"
     },
     {
@@ -21581,8 +21581,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_eslint_eslintrc",
-      "community": 502,
-      "community_name": "@nestjs/platform-express",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "@eslint/eslintrc"
     },
     {
@@ -21592,8 +21592,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_eslint_eslintrc",
-      "community": 502,
-      "community_name": "@nestjs/platform-express",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "@eslint/eslintrc"
     },
     {
@@ -21669,8 +21669,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_nestjs_testing",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 638,
+      "community_name": "@nestjs/testing",
       "norm_label": "@nestjs/testing"
     },
     {
@@ -21680,8 +21680,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nestjs_testing",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 638,
+      "community_name": "@nestjs/testing",
       "norm_label": "@nestjs/testing"
     },
     {
@@ -21757,8 +21757,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_types_jest",
-      "community": 517,
-      "community_name": "@prisma/client",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "@types/jest"
     },
     {
@@ -21768,8 +21768,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_types_jest",
-      "community": 517,
-      "community_name": "@prisma/client",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "@types/jest"
     },
     {
@@ -21867,8 +21867,8 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_eslint",
-      "community": 468,
-      "community_name": "@eslint/js",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "eslint"
     },
     {
@@ -21878,8 +21878,8 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_eslint",
-      "community": 468,
-      "community_name": "@eslint/js",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "eslint"
     },
     {
@@ -21889,8 +21889,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_eslint_config_prettier",
-      "community": 496,
-      "community_name": "@nestjs/config",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "eslint-config-prettier"
     },
     {
@@ -21900,8 +21900,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_eslint_config_prettier",
-      "community": 496,
-      "community_name": "@nestjs/config",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "eslint-config-prettier"
     },
     {
@@ -21933,8 +21933,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_globals",
-      "community": 605,
-      "community_name": "Table Schemas",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "globals"
     },
     {
@@ -21944,8 +21944,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_globals",
-      "community": 605,
-      "community_name": "Table Schemas",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "globals"
     },
     {
@@ -21999,8 +21999,8 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_prisma",
-      "community": 505,
-      "community_name": "react-hot-toast",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "prisma"
     },
     {
@@ -22010,8 +22010,8 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_prisma",
-      "community": 505,
-      "community_name": "react-hot-toast",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "prisma"
     },
     {
@@ -22087,8 +22087,8 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_ts_loader",
-      "community": 506,
-      "community_name": "@opentelemetry/exporter-metrics-otlp-http",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "ts-loader"
     },
     {
@@ -22098,8 +22098,8 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_ts_loader",
-      "community": 506,
-      "community_name": "@opentelemetry/exporter-metrics-otlp-http",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "ts-loader"
     },
     {
@@ -24343,8 +24343,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "frontend_package_dependencies_axios",
-      "community": 6,
-      "community_name": "dependencies",
+      "community": 639,
+      "community_name": "axios",
       "norm_label": "axios"
     },
     {
@@ -24354,8 +24354,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "frontend_package_json_axios",
-      "community": 6,
-      "community_name": "dependencies",
+      "community": 639,
+      "community_name": "axios",
       "norm_label": "axios"
     },
     {
@@ -24563,8 +24563,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "frontend_package_dependencies_react_router_dom",
-      "community": 580,
-      "community_name": "mariadb",
+      "community": 6,
+      "community_name": "dependencies",
       "norm_label": "react-router-dom"
     },
     {
@@ -24574,8 +24574,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "react_router_dom",
-      "community": 580,
-      "community_name": "mariadb",
+      "community": 6,
+      "community_name": "dependencies",
       "norm_label": "react-router-dom"
     },
     {
@@ -45176,8 +45176,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_skill",
-      "community": 7,
-      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
+      "community": 392,
+      "community_name": "prisma",
       "norm_label": "skill.md"
     },
     {
@@ -45308,8 +45308,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_logs_reference",
-      "community": 7,
-      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
+      "community": 392,
+      "community_name": "prisma",
       "norm_label": "clickhouse-logs-reference.md"
     },
     {
@@ -45671,8 +45671,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_traces_reference",
-      "community": 7,
-      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
+      "community": 392,
+      "community_name": "prisma",
       "norm_label": "clickhouse-traces-reference.md"
     },
     {
@@ -45704,8 +45704,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_traces_reference_table_schemas",
-      "community": 144,
-      "community_name": "SKILL.md",
+      "community": 7,
+      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
       "norm_label": "table schemas"
     },
     {
@@ -45715,8 +45715,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_traces_reference_distributed_signoz_index_v3_primary_spans_table",
-      "community": 144,
-      "community_name": "SKILL.md",
+      "community": 7,
+      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
       "norm_label": "distributed_signoz_index_v3 (primary spans table)"
     },
     {
@@ -45726,8 +45726,8 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_traces_reference_distributed_traces_v3_resource_resource_lookup_table",
-      "community": 144,
-      "community_name": "SKILL.md",
+      "community": 7,
+      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
       "norm_label": "distributed_traces_v3_resource (resource lookup table)"
     },
     {
@@ -45737,8 +45737,8 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_traces_reference_distributed_signoz_error_index_v2_error_events",
-      "community": 144,
-      "community_name": "SKILL.md",
+      "community": 7,
+      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
       "norm_label": "distributed_signoz_error_index_v2 (error events)"
     },
     {
@@ -50046,7 +50046,7 @@
       "label": "\ud83e\udde9 Matriz de Dependencias por Servicio",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L397",
+      "source_location": "L398",
       "_origin": "ast",
       "id": "readme_matriz_de_dependencias_por_servicio",
       "community": 359,
@@ -51297,6 +51297,215 @@
       "norm_label": "8. proteccion contra fuerza bruta con traefik rate limiting"
     },
     {
+      "label": "containerd-setup.md",
+      "file_type": "document",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_containerd_setup",
+      "community": 27,
+      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
+      "norm_label": "containerd-setup.md"
+    },
+    {
+      "label": "Configuraci\u00f3n de containerd, nerdctl y BuildKit en Linux (Ubuntu)",
+      "file_type": "document",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_containerd_setup_configuraci\u00f3n_de_containerd_nerdctl_y_buildkit_en_linux_ubuntu",
+      "community": 144,
+      "community_name": "SKILL.md",
+      "norm_label": "configuracion de containerd, nerdctl y buildkit en linux (ubuntu)"
+    },
+    {
+      "label": "\ud83d\udcd1 Contenido",
+      "file_type": "document",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "docs_containerd_setup_contenido",
+      "community": 144,
+      "community_name": "SKILL.md",
+      "norm_label": "\ud83d\udcd1 contenido"
+    },
+    {
+      "label": "1. Diagn\u00f3stico del Error Com\u00fan: `rootless containerd not running`",
+      "file_type": "document",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "docs_containerd_setup_1_diagn\u00f3stico_del_error_com\u00fan_rootless_containerd_not_running",
+      "community": 144,
+      "community_name": "SKILL.md",
+      "norm_label": "1. diagnostico del error comun: `rootless containerd not running`"
+    },
+    {
+      "label": "El Error:",
+      "file_type": "document",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "docs_containerd_setup_el_error",
+      "community": 144,
+      "community_name": "SKILL.md",
+      "norm_label": "el error:"
+    },
+    {
+      "label": "\u00bfPor qu\u00e9 ocurre?",
+      "file_type": "document",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "docs_containerd_setup_por_qu\u00e9_ocurre",
+      "community": 144,
+      "community_name": "SKILL.md",
+      "norm_label": "\u00bfpor que ocurre?"
+    },
+    {
+      "label": "2. M\u00e9todo A: Modo Sistema / Root con K3s (Recomendado)",
+      "file_type": "document",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "docs_containerd_setup_2_m\u00e9todo_a_modo_sistema_root_con_k3s_recomendado",
+      "community": 144,
+      "community_name": "SKILL.md",
+      "norm_label": "2. metodo a: modo sistema / root con k3s (recomendado)"
+    },
+    {
+      "label": "Paso 1: Ejecutar con `sudo` y especificar el socket de K3s",
+      "file_type": "document",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "docs_containerd_setup_paso_1_ejecutar_con_sudo_y_especificar_el_socket_de_k3s",
+      "community": 144,
+      "community_name": "SKILL.md",
+      "norm_label": "paso 1: ejecutar con `sudo` y especificar el socket de k3s"
+    },
+    {
+      "label": "3. M\u00e9todo B: Modo Rootless (Sin `sudo`)",
+      "file_type": "document",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "docs_containerd_setup_3_m\u00e9todo_b_modo_rootless_sin_sudo",
+      "community": 144,
+      "community_name": "SKILL.md",
+      "norm_label": "3. metodo b: modo rootless (sin `sudo`)"
+    },
+    {
+      "label": "Paso 1: Instalar paquetes prerrequisitos en Ubuntu",
+      "file_type": "document",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "docs_containerd_setup_paso_1_instalar_paquetes_prerrequisitos_en_ubuntu",
+      "community": 144,
+      "community_name": "SKILL.md",
+      "norm_label": "paso 1: instalar paquetes prerrequisitos en ubuntu"
+    },
+    {
+      "label": "Paso 2: Instalar containerd Rootless",
+      "file_type": "document",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L64",
+      "_origin": "ast",
+      "id": "docs_containerd_setup_paso_2_instalar_containerd_rootless",
+      "community": 144,
+      "community_name": "SKILL.md",
+      "norm_label": "paso 2: instalar containerd rootless"
+    },
+    {
+      "label": "Paso 3: Iniciar e instalar BuildKit en modo Rootless",
+      "file_type": "document",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L70",
+      "_origin": "ast",
+      "id": "docs_containerd_setup_paso_3_iniciar_e_instalar_buildkit_en_modo_rootless",
+      "community": 144,
+      "community_name": "SKILL.md",
+      "norm_label": "paso 3: iniciar e instalar buildkit en modo rootless"
+    },
+    {
+      "label": "Paso 4: Exportar variables de sesi\u00f3n en tu terminal",
+      "file_type": "document",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L78",
+      "_origin": "ast",
+      "id": "docs_containerd_setup_paso_4_exportar_variables_de_sesi\u00f3n_en_tu_terminal",
+      "community": 144,
+      "community_name": "SKILL.md",
+      "norm_label": "paso 4: exportar variables de sesion en tu terminal"
+    },
+    {
+      "label": "4. Configuraci\u00f3n del Demonio BuildKit (`buildkitd`)",
+      "file_type": "document",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L95",
+      "_origin": "ast",
+      "id": "docs_containerd_setup_4_configuraci\u00f3n_del_demonio_buildkit_buildkitd",
+      "community": 144,
+      "community_name": "SKILL.md",
+      "norm_label": "4. configuracion del demonio buildkit (`buildkitd`)"
+    },
+    {
+      "label": "Opci\u00f3n 1: BuildKit como Contenedor en segundo plano (Universal)",
+      "file_type": "document",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L99",
+      "_origin": "ast",
+      "id": "docs_containerd_setup_opci\u00f3n_1_buildkit_como_contenedor_en_segundo_plano_universal",
+      "community": 144,
+      "community_name": "SKILL.md",
+      "norm_label": "opcion 1: buildkit como contenedor en segundo plano (universal)"
+    },
+    {
+      "label": "Opci\u00f3n 2: BuildKit como Servicio de Systemd en Ubuntu",
+      "file_type": "document",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L110",
+      "_origin": "ast",
+      "id": "docs_containerd_setup_opci\u00f3n_2_buildkit_como_servicio_de_systemd_en_ubuntu",
+      "community": 144,
+      "community_name": "SKILL.md",
+      "norm_label": "opcion 2: buildkit como servicio de systemd en ubuntu"
+    },
+    {
+      "label": "5. Automatizaci\u00f3n con Variables de Entorno y Alias",
+      "file_type": "document",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L122",
+      "_origin": "ast",
+      "id": "docs_containerd_setup_5_automatizaci\u00f3n_con_variables_de_entorno_y_alias",
+      "community": 144,
+      "community_name": "SKILL.md",
+      "norm_label": "5. automatizacion con variables de entorno y alias"
+    },
+    {
+      "label": "6. Verificaci\u00f3n de Compilaci\u00f3n",
+      "file_type": "document",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L152",
+      "_origin": "ast",
+      "id": "docs_containerd_setup_6_verificaci\u00f3n_de_compilaci\u00f3n",
+      "community": 144,
+      "community_name": "SKILL.md",
+      "norm_label": "6. verificacion de compilacion"
+    },
+    {
+      "label": "Validar que las im\u00e1genes est\u00e1n en el cl\u00faster:",
+      "file_type": "document",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L176",
+      "_origin": "ast",
+      "id": "docs_containerd_setup_validar_que_las_im\u00e1genes_est\u00e1n_en_el_cl\u00faster",
+      "community": 144,
+      "community_name": "SKILL.md",
+      "norm_label": "validar que las imagenes estan en el cluster:"
+    },
+    {
       "label": "creating-a-microservice.md",
       "file_type": "document",
       "source_file": "docs/creating-a-microservice.md",
@@ -51468,8 +51677,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_database_bases_de_datos_relacionales_y_pgbouncer",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 386,
+      "community_name": "rxjs",
       "norm_label": "bases de datos relacionales y pgbouncer"
     },
     {
@@ -51479,8 +51688,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "docs_database_contenido",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 386,
+      "community_name": "rxjs",
       "norm_label": "\ud83d\udcd1 contenido"
     },
     {
@@ -51490,8 +51699,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "docs_database_1_topolog\u00eda_de_persistencia_y_segregaci\u00f3n",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 386,
+      "community_name": "rxjs",
       "norm_label": "1. topologia de persistencia y segregacion"
     },
     {
@@ -51501,8 +51710,8 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "docs_database_2_connection_pooling_con_pgbouncer_core",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 386,
+      "community_name": "rxjs",
       "norm_label": "2. connection pooling con pgbouncer core"
     },
     {
@@ -51688,8 +51897,8 @@
       "source_location": "L230",
       "_origin": "ast",
       "id": "docs_database_4_diagrama_entidad_relaci\u00f3n_erd_consolidado",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 386,
+      "community_name": "rxjs",
       "norm_label": "4. diagrama entidad-relacion (erd) consolidado"
     },
     {
@@ -51699,8 +51908,8 @@
       "source_location": "L336",
       "_origin": "ast",
       "id": "docs_database_5_gesti\u00f3n_de_esquemas_con_prisma_orm",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 386,
+      "community_name": "rxjs",
       "norm_label": "5. gestion de esquemas con prisma orm"
     },
     {
@@ -51710,8 +51919,8 @@
       "source_location": "L340",
       "_origin": "ast",
       "id": "docs_database_comandos_de_administraci\u00f3n_prisma",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 386,
+      "community_name": "rxjs",
       "norm_label": "comandos de administracion prisma:"
     },
     {
@@ -51721,8 +51930,8 @@
       "source_location": "L355",
       "_origin": "ast",
       "id": "docs_database_6_estrategia_de_copias_de_seguridad_y_recuperaci\u00f3n",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 386,
+      "community_name": "rxjs",
       "norm_label": "6. estrategia de copias de seguridad y recuperacion"
     },
     {
@@ -52037,7 +52246,7 @@
       "label": "2. Estrategia de Ejecuci\u00f3n: Local vs Kubernetes",
       "file_type": "document",
       "source_file": "docs/getting-started.md",
-      "source_location": "L43",
+      "source_location": "L40",
       "_origin": "ast",
       "id": "docs_getting_started_2_estrategia_de_ejecuci\u00f3n_local_vs_kubernetes",
       "community": 467,
@@ -52048,7 +52257,7 @@
       "label": "3. Clonaci\u00f3n del Repositorio",
       "file_type": "document",
       "source_file": "docs/getting-started.md",
-      "source_location": "L69",
+      "source_location": "L66",
       "_origin": "ast",
       "id": "docs_getting_started_3_clonaci\u00f3n_del_repositorio",
       "community": 467,
@@ -52059,7 +52268,7 @@
       "label": "4. Configuraci\u00f3n de Variables de Entorno",
       "file_type": "document",
       "source_file": "docs/getting-started.md",
-      "source_location": "L81",
+      "source_location": "L78",
       "_origin": "ast",
       "id": "docs_getting_started_4_configuraci\u00f3n_de_variables_de_entorno",
       "community": 467,
@@ -52070,7 +52279,7 @@
       "label": "Tabla de Variables de Entorno Globales",
       "file_type": "document",
       "source_file": "docs/getting-started.md",
-      "source_location": "L95",
+      "source_location": "L92",
       "_origin": "ast",
       "id": "docs_getting_started_tabla_de_variables_de_entorno_globales",
       "community": 467,
@@ -52081,7 +52290,7 @@
       "label": "5. Despliegue en Kubernetes",
       "file_type": "document",
       "source_file": "docs/getting-started.md",
-      "source_location": "L112",
+      "source_location": "L109",
       "_origin": "ast",
       "id": "docs_getting_started_5_despliegue_en_kubernetes",
       "community": 467,
@@ -52092,7 +52301,7 @@
       "label": "Opci\u00f3n A: Despliegue Automatizado (Script)",
       "file_type": "document",
       "source_file": "docs/getting-started.md",
-      "source_location": "L116",
+      "source_location": "L113",
       "_origin": "ast",
       "id": "docs_getting_started_opci\u00f3n_a_despliegue_automatizado_script",
       "community": 467,
@@ -52100,54 +52309,21 @@
       "norm_label": "opcion a: despliegue automatizado (script)"
     },
     {
-      "label": "Opci\u00f3n B: Despliegue Manual Paso a Paso",
+      "label": "\u00bfQu\u00e9 hace el script de despliegue?",
       "file_type": "document",
       "source_file": "docs/getting-started.md",
-      "source_location": "L131",
+      "source_location": "L126",
       "_origin": "ast",
-      "id": "docs_getting_started_opci\u00f3n_b_despliegue_manual_paso_a_paso",
+      "id": "docs_getting_started_qu\u00e9_hace_el_script_de_despliegue",
       "community": 467,
       "community_name": "axios",
-      "norm_label": "opcion b: despliegue manual paso a paso"
-    },
-    {
-      "label": "Paso 1: Compilar las Im\u00e1genes de Contenedor",
-      "file_type": "document",
-      "source_file": "docs/getting-started.md",
-      "source_location": "L135",
-      "_origin": "ast",
-      "id": "docs_getting_started_paso_1_compilar_las_im\u00e1genes_de_contenedor",
-      "community": 467,
-      "community_name": "axios",
-      "norm_label": "paso 1: compilar las imagenes de contenedor"
-    },
-    {
-      "label": "Paso 2: Aplicar Manifiestos de Kubernetes en Orden Secuencial",
-      "file_type": "document",
-      "source_file": "docs/getting-started.md",
-      "source_location": "L160",
-      "_origin": "ast",
-      "id": "docs_getting_started_paso_2_aplicar_manifiestos_de_kubernetes_en_orden_secuencial",
-      "community": 467,
-      "community_name": "axios",
-      "norm_label": "paso 2: aplicar manifiestos de kubernetes en orden secuencial"
-    },
-    {
-      "label": "Paso 3: Monitorear el Despliegue de los Pods",
-      "file_type": "document",
-      "source_file": "docs/getting-started.md",
-      "source_location": "L191",
-      "_origin": "ast",
-      "id": "docs_getting_started_paso_3_monitorear_el_despliegue_de_los_pods",
-      "community": 467,
-      "community_name": "axios",
-      "norm_label": "paso 3: monitorear el despliegue de los pods"
+      "norm_label": "\u00bfque hace el script de despliegue?"
     },
     {
       "label": "6. Verificaci\u00f3n del Despliegue y Salud del Cl\u00faster",
       "file_type": "document",
       "source_file": "docs/getting-started.md",
-      "source_location": "L202",
+      "source_location": "L143",
       "_origin": "ast",
       "id": "docs_getting_started_6_verificaci\u00f3n_del_despliegue_y_salud_del_cl\u00faster",
       "community": 467,
@@ -52158,7 +52334,7 @@
       "label": "Salida esperada de Pods:",
       "file_type": "document",
       "source_file": "docs/getting-started.md",
-      "source_location": "L220",
+      "source_location": "L161",
       "_origin": "ast",
       "id": "docs_getting_started_salida_esperada_de_pods",
       "community": 467,
@@ -52169,7 +52345,7 @@
       "label": "7. Acceso a las Aplicaciones y Paneles de Control",
       "file_type": "document",
       "source_file": "docs/getting-started.md",
-      "source_location": "L244",
+      "source_location": "L185",
       "_origin": "ast",
       "id": "docs_getting_started_7_acceso_a_las_aplicaciones_y_paneles_de_control",
       "community": 467,
@@ -52180,7 +52356,7 @@
       "label": "8. Ejecuci\u00f3n de Pruebas de Humo",
       "file_type": "document",
       "source_file": "docs/getting-started.md",
-      "source_location": "L262",
+      "source_location": "L203",
       "_origin": "ast",
       "id": "docs_getting_started_8_ejecuci\u00f3n_de_pruebas_de_humo",
       "community": 467,
@@ -54135,10 +54311,21 @@
       "norm_label": "1.4. fallo en `readinessprobe` o `livenessprobe`"
     },
     {
+      "label": "1.5. Error al Compilar Im\u00e1genes: `rootless containerd not running` (Linux / Ubuntu)",
+      "file_type": "document",
+      "source_file": "docs/troubleshooting.md",
+      "source_location": "L55",
+      "_origin": "ast",
+      "id": "docs_troubleshooting_1_5_error_al_compilar_im\u00e1genes_rootless_containerd_not_running_linux_ubuntu",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
+      "norm_label": "1.5. error al compilar imagenes: `rootless containerd not running` (linux / ubuntu)"
+    },
+    {
       "label": "2. Problemas en PostgreSQL y PgBouncer",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L57",
+      "source_location": "L67",
       "_origin": "ast",
       "id": "docs_troubleshooting_2_problemas_en_postgresql_y_pgbouncer",
       "community": 167,
@@ -54149,7 +54336,7 @@
       "label": "2.1. Error `Connection Refused` o Fallo en PgBouncer",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L59",
+      "source_location": "L69",
       "_origin": "ast",
       "id": "docs_troubleshooting_2_1_error_connection_refused_o_fallo_en_pgbouncer",
       "community": 167,
@@ -54160,7 +54347,7 @@
       "label": "2.2. Error de Autenticaci\u00f3n de Base de Datos (`password authentication failed`)",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L69",
+      "source_location": "L79",
       "_origin": "ast",
       "id": "docs_troubleshooting_2_2_error_de_autenticaci\u00f3n_de_base_de_datos_password_authentication_failed",
       "community": 167,
@@ -54171,7 +54358,7 @@
       "label": "2.3. Error de Prisma: `Prepared statement already exists` o Incompatibilidad PgBouncer",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L78",
+      "source_location": "L88",
       "_origin": "ast",
       "id": "docs_troubleshooting_2_3_error_de_prisma_prepared_statement_already_exists_o_incompatibilidad_pgbouncer",
       "community": 167,
@@ -54182,7 +54369,7 @@
       "label": "3. Problemas en Redis",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L88",
+      "source_location": "L98",
       "_origin": "ast",
       "id": "docs_troubleshooting_3_problemas_en_redis",
       "community": 167,
@@ -54193,7 +54380,7 @@
       "label": "3.1. Error `ECONNREFUSED` al Conectar con Redis",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L90",
+      "source_location": "L100",
       "_origin": "ast",
       "id": "docs_troubleshooting_3_1_error_econnrefused_al_conectar_con_redis",
       "community": 167,
@@ -54204,7 +54391,7 @@
       "label": "3.2. Claves de Idempotencia Bloqueadas Permanentemente",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L98",
+      "source_location": "L108",
       "_origin": "ast",
       "id": "docs_troubleshooting_3_2_claves_de_idempotencia_bloqueadas_permanentemente",
       "community": 167,
@@ -54215,7 +54402,7 @@
       "label": "4. Problemas en Apache Kafka (KRaft)",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L108",
+      "source_location": "L118",
       "_origin": "ast",
       "id": "docs_troubleshooting_4_problemas_en_apache_kafka_kraft",
       "community": 167,
@@ -54226,7 +54413,7 @@
       "label": "4.1. El Broker Kafka no Levanta o Falla el Qu\u00f3rum",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L110",
+      "source_location": "L120",
       "_origin": "ast",
       "id": "docs_troubleshooting_4_1_el_broker_kafka_no_levanta_o_falla_el_qu\u00f3rum",
       "community": 167,
@@ -54237,7 +54424,7 @@
       "label": "4.2. Los Consumidores no Reciben Mensajes de Transferencia",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L121",
+      "source_location": "L131",
       "_origin": "ast",
       "id": "docs_troubleshooting_4_2_los_consumidores_no_reciben_mensajes_de_transferencia",
       "community": 167,
@@ -54248,7 +54435,7 @@
       "label": "5. Problemas en Traefik e Ingress",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L133",
+      "source_location": "L143",
       "_origin": "ast",
       "id": "docs_troubleshooting_5_problemas_en_traefik_e_ingress",
       "community": 167,
@@ -54259,7 +54446,7 @@
       "label": "5.1. Error HTTP 404 Not Found al Invocar `/api/*`",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L135",
+      "source_location": "L145",
       "_origin": "ast",
       "id": "docs_troubleshooting_5_1_error_http_404_not_found_al_invocar_api",
       "community": 167,
@@ -54270,7 +54457,7 @@
       "label": "5.2. Error HTTP 502 Bad Gateway",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L141",
+      "source_location": "L151",
       "_origin": "ast",
       "id": "docs_troubleshooting_5_2_error_http_502_bad_gateway",
       "community": 167,
@@ -54281,7 +54468,7 @@
       "label": "6. Problemas en Observabilidad (SigNoz / ClickHouse / OTel)",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L148",
+      "source_location": "L158",
       "_origin": "ast",
       "id": "docs_troubleshooting_6_problemas_en_observabilidad_signoz_clickhouse_otel",
       "community": 167,
@@ -54292,7 +54479,7 @@
       "label": "6.1. No Aparecen Trazas ni M\u00e9tricas en SigNoz UI",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L150",
+      "source_location": "L160",
       "_origin": "ast",
       "id": "docs_troubleshooting_6_1_no_aparecen_trazas_ni_m\u00e9tricas_en_signoz_ui",
       "community": 167,
@@ -54303,7 +54490,7 @@
       "label": "7. Problemas en Microservicios NestJS",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L170",
+      "source_location": "L180",
       "_origin": "ast",
       "id": "docs_troubleshooting_7_problemas_en_microservicios_nestjs",
       "community": 167,
@@ -54314,7 +54501,7 @@
       "label": "7.1. Error al Iniciar: `Cannot find module './infrastructure/telemetry'`",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L172",
+      "source_location": "L182",
       "_origin": "ast",
       "id": "docs_troubleshooting_7_1_error_al_iniciar_cannot_find_module_infrastructure_telemetry",
       "community": 167,
@@ -54325,7 +54512,7 @@
       "label": "7.2. Fallo de CORS al Invocar APIs desde el Navegador",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L177",
+      "source_location": "L187",
       "_origin": "ast",
       "id": "docs_troubleshooting_7_2_fallo_de_cors_al_invocar_apis_desde_el_navegador",
       "community": 167,
@@ -118645,7 +118832,18 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L392",
+      "source_location": "L391",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "readme",
+      "target": "docs_containerd_setup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L393",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme",
@@ -118667,7 +118865,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L391",
+      "source_location": "L392",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme",
@@ -118678,7 +118876,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L393",
+      "source_location": "L394",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme",
@@ -118876,7 +119074,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L397",
+      "source_location": "L398",
       "weight": 1.0,
       "_origin": "ast",
       "source": "readme_fintech_wallet",
@@ -120239,6 +120437,237 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_containerd_setup",
+      "target": "docs_containerd_setup_configuraci\u00f3n_de_containerd_nerdctl_y_buildkit_en_linux_ubuntu",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L181",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_containerd_setup",
+      "target": "docs_getting_started",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L181",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_containerd_setup",
+      "target": "docs_kubernetes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/troubleshooting.md",
+      "source_location": "L63",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_troubleshooting",
+      "target": "docs_containerd_setup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_containerd_setup_configuraci\u00f3n_de_containerd_nerdctl_y_buildkit_en_linux_ubuntu",
+      "target": "docs_containerd_setup_1_diagn\u00f3stico_del_error_com\u00fan_rootless_containerd_not_running",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L33",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_containerd_setup_configuraci\u00f3n_de_containerd_nerdctl_y_buildkit_en_linux_ubuntu",
+      "target": "docs_containerd_setup_2_m\u00e9todo_a_modo_sistema_root_con_k3s_recomendado",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L53",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_containerd_setup_configuraci\u00f3n_de_containerd_nerdctl_y_buildkit_en_linux_ubuntu",
+      "target": "docs_containerd_setup_3_m\u00e9todo_b_modo_rootless_sin_sudo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L95",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_containerd_setup_configuraci\u00f3n_de_containerd_nerdctl_y_buildkit_en_linux_ubuntu",
+      "target": "docs_containerd_setup_4_configuraci\u00f3n_del_demonio_buildkit_buildkitd",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L122",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_containerd_setup_configuraci\u00f3n_de_containerd_nerdctl_y_buildkit_en_linux_ubuntu",
+      "target": "docs_containerd_setup_5_automatizaci\u00f3n_con_variables_de_entorno_y_alias",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L152",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_containerd_setup_configuraci\u00f3n_de_containerd_nerdctl_y_buildkit_en_linux_ubuntu",
+      "target": "docs_containerd_setup_6_verificaci\u00f3n_de_compilaci\u00f3n",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_containerd_setup_configuraci\u00f3n_de_containerd_nerdctl_y_buildkit_en_linux_ubuntu",
+      "target": "docs_containerd_setup_contenido",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_containerd_setup_1_diagn\u00f3stico_del_error_com\u00fan_rootless_containerd_not_running",
+      "target": "docs_containerd_setup_el_error",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_containerd_setup_1_diagn\u00f3stico_del_error_com\u00fan_rootless_containerd_not_running",
+      "target": "docs_containerd_setup_por_qu\u00e9_ocurre",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L37",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_containerd_setup_2_m\u00e9todo_a_modo_sistema_root_con_k3s_recomendado",
+      "target": "docs_containerd_setup_paso_1_ejecutar_con_sudo_y_especificar_el_socket_de_k3s",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L57",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_containerd_setup_3_m\u00e9todo_b_modo_rootless_sin_sudo",
+      "target": "docs_containerd_setup_paso_1_instalar_paquetes_prerrequisitos_en_ubuntu",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L64",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_containerd_setup_3_m\u00e9todo_b_modo_rootless_sin_sudo",
+      "target": "docs_containerd_setup_paso_2_instalar_containerd_rootless",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L70",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_containerd_setup_3_m\u00e9todo_b_modo_rootless_sin_sudo",
+      "target": "docs_containerd_setup_paso_3_iniciar_e_instalar_buildkit_en_modo_rootless",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L78",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_containerd_setup_3_m\u00e9todo_b_modo_rootless_sin_sudo",
+      "target": "docs_containerd_setup_paso_4_exportar_variables_de_sesi\u00f3n_en_tu_terminal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L99",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_containerd_setup_4_configuraci\u00f3n_del_demonio_buildkit_buildkitd",
+      "target": "docs_containerd_setup_opci\u00f3n_1_buildkit_como_contenedor_en_segundo_plano_universal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L110",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_containerd_setup_4_configuraci\u00f3n_del_demonio_buildkit_buildkitd",
+      "target": "docs_containerd_setup_opci\u00f3n_2_buildkit_como_servicio_de_systemd_en_ubuntu",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/containerd-setup.md",
+      "source_location": "L176",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_containerd_setup_6_verificaci\u00f3n_de_compilaci\u00f3n",
+      "target": "docs_containerd_setup_validar_que_las_im\u00e1genes_est\u00e1n_en_el_cl\u00faster",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "docs/creating-a-microservice.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -120702,7 +121131,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "docs/getting-started.md",
-      "source_location": "L65",
+      "source_location": "L62",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_getting_started",
@@ -120713,7 +121142,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L181",
+      "source_location": "L191",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting",
@@ -120977,7 +121406,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "docs/getting-started.md",
-      "source_location": "L276",
+      "source_location": "L217",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_getting_started",
@@ -120988,7 +121417,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "docs/getting-started.md",
-      "source_location": "L276",
+      "source_location": "L217",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_getting_started",
@@ -121010,7 +121439,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/getting-started.md",
-      "source_location": "L43",
+      "source_location": "L40",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_getting_started_gu\u00eda_de_inicio_r\u00e1pido_y_requisitos_getting_started",
@@ -121021,7 +121450,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/getting-started.md",
-      "source_location": "L69",
+      "source_location": "L66",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_getting_started_gu\u00eda_de_inicio_r\u00e1pido_y_requisitos_getting_started",
@@ -121032,7 +121461,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/getting-started.md",
-      "source_location": "L81",
+      "source_location": "L78",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_getting_started_gu\u00eda_de_inicio_r\u00e1pido_y_requisitos_getting_started",
@@ -121043,7 +121472,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/getting-started.md",
-      "source_location": "L112",
+      "source_location": "L109",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_getting_started_gu\u00eda_de_inicio_r\u00e1pido_y_requisitos_getting_started",
@@ -121054,7 +121483,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/getting-started.md",
-      "source_location": "L202",
+      "source_location": "L143",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_getting_started_gu\u00eda_de_inicio_r\u00e1pido_y_requisitos_getting_started",
@@ -121065,7 +121494,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/getting-started.md",
-      "source_location": "L244",
+      "source_location": "L185",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_getting_started_gu\u00eda_de_inicio_r\u00e1pido_y_requisitos_getting_started",
@@ -121076,7 +121505,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/getting-started.md",
-      "source_location": "L262",
+      "source_location": "L203",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_getting_started_gu\u00eda_de_inicio_r\u00e1pido_y_requisitos_getting_started",
@@ -121098,7 +121527,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/getting-started.md",
-      "source_location": "L95",
+      "source_location": "L92",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_getting_started_4_configuraci\u00f3n_de_variables_de_entorno",
@@ -121109,7 +121538,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/getting-started.md",
-      "source_location": "L116",
+      "source_location": "L113",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_getting_started_5_despliegue_en_kubernetes",
@@ -121120,51 +121549,18 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/getting-started.md",
-      "source_location": "L131",
+      "source_location": "L126",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_getting_started_5_despliegue_en_kubernetes",
-      "target": "docs_getting_started_opci\u00f3n_b_despliegue_manual_paso_a_paso",
+      "target": "docs_getting_started_qu\u00e9_hace_el_script_de_despliegue",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/getting-started.md",
-      "source_location": "L135",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_getting_started_opci\u00f3n_b_despliegue_manual_paso_a_paso",
-      "target": "docs_getting_started_paso_1_compilar_las_im\u00e1genes_de_contenedor",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/getting-started.md",
-      "source_location": "L160",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_getting_started_opci\u00f3n_b_despliegue_manual_paso_a_paso",
-      "target": "docs_getting_started_paso_2_aplicar_manifiestos_de_kubernetes_en_orden_secuencial",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/getting-started.md",
-      "source_location": "L191",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_getting_started_opci\u00f3n_b_despliegue_manual_paso_a_paso",
-      "target": "docs_getting_started_paso_3_monitorear_el_despliegue_de_los_pods",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/getting-started.md",
-      "source_location": "L220",
+      "source_location": "L161",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_getting_started_6_verificaci\u00f3n_del_despliegue_y_salud_del_cl\u00faster",
@@ -123023,7 +123419,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L57",
+      "source_location": "L67",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_gu\u00eda_de_troubleshooting_y_resoluci\u00f3n_de_fallos",
@@ -123034,7 +123430,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L88",
+      "source_location": "L98",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_gu\u00eda_de_troubleshooting_y_resoluci\u00f3n_de_fallos",
@@ -123045,7 +123441,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L108",
+      "source_location": "L118",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_gu\u00eda_de_troubleshooting_y_resoluci\u00f3n_de_fallos",
@@ -123056,7 +123452,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L133",
+      "source_location": "L143",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_gu\u00eda_de_troubleshooting_y_resoluci\u00f3n_de_fallos",
@@ -123067,7 +123463,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L148",
+      "source_location": "L158",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_gu\u00eda_de_troubleshooting_y_resoluci\u00f3n_de_fallos",
@@ -123078,7 +123474,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L170",
+      "source_location": "L180",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_gu\u00eda_de_troubleshooting_y_resoluci\u00f3n_de_fallos",
@@ -123144,11 +123540,11 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L59",
+      "source_location": "L55",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "docs_troubleshooting_2_problemas_en_postgresql_y_pgbouncer",
-      "target": "docs_troubleshooting_2_1_error_connection_refused_o_fallo_en_pgbouncer",
+      "source": "docs_troubleshooting_1_problemas_en_kubernetes",
+      "target": "docs_troubleshooting_1_5_error_al_compilar_im\u00e1genes_rootless_containerd_not_running_linux_ubuntu",
       "confidence_score": 1.0
     },
     {
@@ -123159,6 +123555,17 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_2_problemas_en_postgresql_y_pgbouncer",
+      "target": "docs_troubleshooting_2_1_error_connection_refused_o_fallo_en_pgbouncer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/troubleshooting.md",
+      "source_location": "L79",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_troubleshooting_2_problemas_en_postgresql_y_pgbouncer",
       "target": "docs_troubleshooting_2_2_error_de_autenticaci\u00f3n_de_base_de_datos_password_authentication_failed",
       "confidence_score": 1.0
     },
@@ -123166,7 +123573,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L78",
+      "source_location": "L88",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_2_problemas_en_postgresql_y_pgbouncer",
@@ -123177,7 +123584,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L90",
+      "source_location": "L100",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_3_problemas_en_redis",
@@ -123188,7 +123595,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L98",
+      "source_location": "L108",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_3_problemas_en_redis",
@@ -123199,7 +123606,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L110",
+      "source_location": "L120",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_4_problemas_en_apache_kafka_kraft",
@@ -123210,7 +123617,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L121",
+      "source_location": "L131",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_4_problemas_en_apache_kafka_kraft",
@@ -123221,7 +123628,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L135",
+      "source_location": "L145",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_5_problemas_en_traefik_e_ingress",
@@ -123232,7 +123639,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L141",
+      "source_location": "L151",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_5_problemas_en_traefik_e_ingress",
@@ -123243,7 +123650,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L150",
+      "source_location": "L160",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_6_problemas_en_observabilidad_signoz_clickhouse_otel",
@@ -123254,7 +123661,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L172",
+      "source_location": "L182",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_7_problemas_en_microservicios_nestjs",
@@ -123265,7 +123672,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L177",
+      "source_location": "L187",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_7_problemas_en_microservicios_nestjs",
@@ -123450,5 +123857,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "3c336d22edf57a50d453a6a12c2edc3ba86bea57"
+  "built_at_commit": "324b2038b4d82ade8f0afe7dc22e93c13bd3f08b"
 }

@@ -32,11 +32,8 @@ Antes de iniciar, asegúrate de contar con las siguientes herramientas instalada
 | **Git** | `v2.40.0+` | Control de versiones | `git --version` |
 | **PowerShell / Bash** | PowerShell 7+ / Bash 5+ | Ejecución de scripts automatizados | `$PSVersionTable.PSVersion` o `bash --version` |
 
-> [!IMPORTANT]
-> En **Rancher Desktop**, asegúrate de que:
-> 1. En **Preferences > Container Engine**, esté seleccionado **containerd**.
-> 2. En **Preferences > Kubernetes**, la casilla **Enable Kubernetes** esté activada (usando K3s).
-> 3. El contexto de `kubectl` esté apuntando a `rancher-desktop` (`kubectl config use-context rancher-desktop`).
+> [!TIP]
+> **Usuarios de Linux / Ubuntu / WSL2**: Si experimentas el error `rootless containerd not running` o necesitas configurar los sockets de containerd y BuildKit, consulta la guía dedicada [**Configuración de containerd y BuildKit en Linux**](containerd-setup.md).
 
 ---
 

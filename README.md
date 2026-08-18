@@ -388,6 +388,7 @@ Para profundizar en cada uno de los aspectos de la arquitectura, configuración,
 * 🧪 [**Guía de Testing y Benchmarking**](docs/testing.md): Ejecución de smoke tests, tests de integración, pruebas de concurrencia e idempotencia y pruebas de carga con K6.
 * 🛠️ [**Guía de Operaciones Day-2 y Backups**](docs/operations.md): Despliegues continuos, escalado horizontal, rotación de logs, CronJob de backups y recuperación de desastres (DR).
 * 🩺 [**Guía de Troubleshooting y Resolución de Fallos**](docs/troubleshooting.md): Diagnóstico paso a paso de problemas en Pods, Postgres, Redis, Kafka, Traefik y SigNoz.
+* 🐧 [**Configuración de containerd y BuildKit (Linux)**](docs/containerd-setup.md): Configuración de nerdctl, sockets de containerd, permisos y BuildKit en Ubuntu/Linux.
 * 💻 [**Guía de Desarrollo Local**](docs/development.md): Flujo de trabajo para desarrolladores, ejecución individual de servicios, Prisma CLI y depuración.
 * 🚀 [**Guía: Cómo Crear un Nuevo Microservicio**](docs/creating-a-microservice.md): Manual paso a paso para extender la plataforma con un nuevo microservicio.
 * 📋 [**Auditoría de Gaps y Mejoras Recomendadas**](docs/documentation-gaps.md): Hallazgos técnicos y oportunidades de evolución priorizadas (Crítico, Importante, Recomendado).

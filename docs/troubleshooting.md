@@ -52,6 +52,16 @@ Este documento proporciona una guía de diagnóstico paso a paso y soluciones pr
   - **Diagnóstico**: `kubectl describe pod <pod-name> -n fintech` (buscar `Unhealthy readiness probe`).
   - **Solución**: En `k8s/02-microservices.yaml`, los pods incluyen un `startupProbe` con `failureThreshold: 20` y `periodSeconds: 3` (hasta 60 segundos de gracia). Si el host es lento, incrementa `failureThreshold: 30`.
 
+### 1.5. Error al Compilar Imágenes: `rootless containerd not running` (Linux / Ubuntu)
+
+* **Causa: `nerdctl` ejecutado sin `sudo` busca el socket rootless en `/run/user/1000/containerd-rootless`, pero containerd corre como servicio del sistema (root) en `/run/k3s/containerd/containerd.sock` o `/run/containerd/containerd.sock`**.
+  - **Diagnóstico**: `stat /run/user/1000/containerd-rootless: no such file or directory`.
+  - **Solución Rápida (K3s)**:
+    ```bash
+    sudo nerdctl --address /run/k3s/containerd/containerd.sock --namespace k8s.io build -t fintech/frontend:latest ./frontend
+    ```
+  - **Guía Completa**: Consulta la [Guía de Configuración de containerd y BuildKit en Linux](containerd-setup.md).
+
 ---
 
 ## 2. Problemas en PostgreSQL y PgBouncer

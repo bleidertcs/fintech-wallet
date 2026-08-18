@@ -625,8 +625,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1786993575.3667953,
-    "ast_hash": "60585949ab377dbeb11c8a1199330926",
+    "mtime": 1786995254.4694097,
+    "ast_hash": "bcdd655b3325bef21304c58a339bc1ea",
     "semantic_hash": ""
   },
   "docker-compose.yml": {
@@ -2670,8 +2670,8 @@
     "semantic_hash": ""
   },
   "docs/getting-started.md": {
-    "mtime": 1786993617.8780696,
-    "ast_hash": "c562ef3b5e56c53f29592ad2d8b7b151",
+    "mtime": 1786995262.553863,
+    "ast_hash": "84751f61e38cfc2b4e9fde5bb478874d",
     "semantic_hash": ""
   },
   "docs/observability.md": {
@@ -2700,8 +2700,13 @@
     "semantic_hash": ""
   },
   "docs/troubleshooting.md": {
-    "mtime": 1786982273.6987116,
-    "ast_hash": "6d45deef71ade067017fc83ed409472e",
+    "mtime": 1786995275.0557683,
+    "ast_hash": "43bce9ca88e8cc3dc367bc23b7afdd15",
+    "semantic_hash": ""
+  },
+  "docs/containerd-setup.md": {
+    "mtime": 1786995240.9977865,
+    "ast_hash": "8c0b3ade413332f8073775b5153de12c",
     "semantic_hash": ""
   }
 }
