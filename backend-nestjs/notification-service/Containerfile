@@ -13,7 +13,6 @@ COPY . .
 
 RUN pnpm exec prisma generate
 RUN pnpm run build
-RUN mkdir -p dist/adapters/outbound/grpc/proto && cp src/adapters/outbound/grpc/proto/*.proto dist/adapters/outbound/grpc/proto/
 
 # Stage 2: Production
 FROM docker.io/library/node:22-alpine AS runner
