@@ -3233,8 +3233,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_nestjs_common",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 158,
+      "community_name": "GrpcRetryConfig.java",
       "norm_label": "@nestjs/common"
     },
     {
@@ -3244,8 +3244,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_nestjs_common",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 158,
+      "community_name": "GrpcRetryConfig.java",
       "norm_label": "@nestjs/common"
     },
     {
@@ -3343,8 +3343,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_nestjs_terminus",
-      "community": 126,
-      "community_name": "user-service:user-service",
+      "community": 57,
+      "community_name": "JwtUtil",
       "norm_label": "@nestjs/terminus"
     },
     {
@@ -3354,8 +3354,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_nestjs_terminus",
-      "community": 126,
-      "community_name": "user-service:user-service",
+      "community": 57,
+      "community_name": "JwtUtil",
       "norm_label": "@nestjs/terminus"
     },
     {
@@ -3365,8 +3365,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_opentelemetry_api",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 341,
+      "community_name": "globals",
       "norm_label": "@opentelemetry/api"
     },
     {
@@ -3376,8 +3376,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_opentelemetry_api",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 341,
+      "community_name": "globals",
       "norm_label": "@opentelemetry/api"
     },
     {
@@ -3453,8 +3453,8 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_opentelemetry_exporter_trace_otlp_http",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 330,
+      "community_name": "@opentelemetry/exporter-trace-otlp-http",
       "norm_label": "@opentelemetry/exporter-trace-otlp-http"
     },
     {
@@ -3464,8 +3464,8 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_opentelemetry_exporter_trace_otlp_http",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 330,
+      "community_name": "@opentelemetry/exporter-trace-otlp-http",
       "norm_label": "@opentelemetry/exporter-trace-otlp-http"
     },
     {
@@ -3519,8 +3519,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_opentelemetry_sdk_metrics",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 426,
+      "community_name": "typescript",
       "norm_label": "@opentelemetry/sdk-metrics"
     },
     {
@@ -3530,8 +3530,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_opentelemetry_sdk_metrics",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 426,
+      "community_name": "typescript",
       "norm_label": "@opentelemetry/sdk-metrics"
     },
     {
@@ -3607,8 +3607,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_prisma_client",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 43,
+      "community_name": "JwtAuthFilter.java",
       "norm_label": "@prisma/client"
     },
     {
@@ -3618,8 +3618,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_prisma_client",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 43,
+      "community_name": "JwtAuthFilter.java",
       "norm_label": "@prisma/client"
     },
     {
@@ -3695,8 +3695,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_bcrypt",
-      "community": 55,
-      "community_name": "GatewayConfig",
+      "community": 57,
+      "community_name": "JwtUtil",
       "norm_label": "bcrypt"
     },
     {
@@ -3706,8 +3706,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "bcrypt",
-      "community": 55,
-      "community_name": "GatewayConfig",
+      "community": 57,
+      "community_name": "JwtUtil",
       "norm_label": "bcrypt"
     },
     {
@@ -3717,8 +3717,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_class_transformer",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 157,
+      "community_name": "RetryProxyConfig.java",
       "norm_label": "class-transformer"
     },
     {
@@ -3728,8 +3728,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_class_transformer",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 157,
+      "community_name": "RetryProxyConfig.java",
       "norm_label": "class-transformer"
     },
     {
@@ -3761,8 +3761,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_ioredis",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 335,
+      "community_name": "otpauth",
       "norm_label": "ioredis"
     },
     {
@@ -3772,8 +3772,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_ioredis",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 335,
+      "community_name": "otpauth",
       "norm_label": "ioredis"
     },
     {
@@ -3783,8 +3783,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_jsonwebtoken",
-      "community": 106,
-      "community_name": "UserServiceApplication",
+      "community": 57,
+      "community_name": "JwtUtil",
       "norm_label": "jsonwebtoken"
     },
     {
@@ -3794,8 +3794,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "jsonwebtoken",
-      "community": 106,
-      "community_name": "UserServiceApplication",
+      "community": 57,
+      "community_name": "JwtUtil",
       "norm_label": "jsonwebtoken"
     },
     {
@@ -3827,8 +3827,8 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_nodemailer",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 387,
+      "community_name": "winston",
       "norm_label": "nodemailer"
     },
     {
@@ -3838,8 +3838,8 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_nodemailer",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 387,
+      "community_name": "winston",
       "norm_label": "nodemailer"
     },
     {
@@ -3871,8 +3871,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_pg",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "pg"
     },
     {
@@ -3882,8 +3882,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_pg",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "pg"
     },
     {
@@ -3893,8 +3893,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_prisma",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 201,
+      "community_name": "scripts",
       "norm_label": "prisma"
     },
     {
@@ -3904,8 +3904,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_prisma",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 201,
+      "community_name": "scripts",
       "norm_label": "prisma"
     },
     {
@@ -3981,8 +3981,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_winston",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 44,
+      "community_name": "TransferCompletedEvent",
       "norm_label": "winston"
     },
     {
@@ -3992,8 +3992,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_winston",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 44,
+      "community_name": "TransferCompletedEvent",
       "norm_label": "winston"
     },
     {
@@ -4003,8 +4003,8 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_zod",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 160,
+      "community_name": "app.module.ts",
       "norm_label": "zod"
     },
     {
@@ -4014,8 +4014,8 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_zod",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 160,
+      "community_name": "app.module.ts",
       "norm_label": "zod"
     },
     {
@@ -4036,8 +4036,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_devdependencies_eslint_eslintrc",
-      "community": 157,
-      "community_name": "RetryProxyConfig.java",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "@eslint/eslintrc"
     },
     {
@@ -4047,8 +4047,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_eslint_eslintrc",
-      "community": 157,
-      "community_name": "RetryProxyConfig.java",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "@eslint/eslintrc"
     },
     {
@@ -4058,8 +4058,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_devdependencies_eslint_js",
-      "community": 158,
-      "community_name": "GrpcRetryConfig.java",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "@eslint/js"
     },
     {
@@ -4069,8 +4069,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_eslint_js",
-      "community": 158,
-      "community_name": "GrpcRetryConfig.java",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "@eslint/js"
     },
     {
@@ -4102,8 +4102,8 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_devdependencies_nestjs_schematics",
-      "community": 160,
-      "community_name": "app.module.ts",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "@nestjs/schematics"
     },
     {
@@ -4113,8 +4113,8 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_nestjs_schematics",
-      "community": 160,
-      "community_name": "app.module.ts",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "@nestjs/schematics"
     },
     {
@@ -4124,8 +4124,8 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_devdependencies_nestjs_testing",
-      "community": 170,
-      "community_name": "dependencies",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "@nestjs/testing"
     },
     {
@@ -4135,8 +4135,8 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_nestjs_testing",
-      "community": 170,
-      "community_name": "dependencies",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "@nestjs/testing"
     },
     {
@@ -4168,8 +4168,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_devdependencies_swc_core",
-      "community": 330,
-      "community_name": "@opentelemetry/exporter-trace-otlp-http",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "@swc/core"
     },
     {
@@ -4179,8 +4179,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_swc_core",
-      "community": 330,
-      "community_name": "@opentelemetry/exporter-trace-otlp-http",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "@swc/core"
     },
     {
@@ -4256,8 +4256,8 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_devdependencies_types_jsonwebtoken",
-      "community": 341,
-      "community_name": "globals",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "@types/jsonwebtoken"
     },
     {
@@ -4267,8 +4267,8 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "types_jsonwebtoken",
-      "community": 341,
-      "community_name": "globals",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "@types/jsonwebtoken"
     },
     {
@@ -4322,8 +4322,8 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_devdependencies_types_pg",
-      "community": 351,
-      "community_name": "@types/jest",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "@types/pg"
     },
     {
@@ -4333,8 +4333,8 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_types_pg",
-      "community": 351,
-      "community_name": "@types/jest",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "@types/pg"
     },
     {
@@ -4366,8 +4366,8 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_devdependencies_types_supertest",
-      "community": 349,
-      "community_name": "@types/bcrypt",
+      "community": 632,
+      "community_name": "@types/supertest",
       "norm_label": "@types/supertest"
     },
     {
@@ -4377,8 +4377,8 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_types_supertest",
-      "community": 349,
-      "community_name": "@types/bcrypt",
+      "community": 632,
+      "community_name": "@types/supertest",
       "norm_label": "@types/supertest"
     },
     {
@@ -4388,8 +4388,8 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_devdependencies_eslint",
-      "community": 138,
-      "community_name": "WorkerServiceApplication",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "eslint"
     },
     {
@@ -4399,8 +4399,8 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_eslint",
-      "community": 138,
-      "community_name": "WorkerServiceApplication",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "eslint"
     },
     {
@@ -4410,8 +4410,8 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_devdependencies_eslint_config_prettier",
-      "community": 151,
-      "community_name": "AuthResponse",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "eslint-config-prettier"
     },
     {
@@ -4421,8 +4421,8 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_eslint_config_prettier",
-      "community": 151,
-      "community_name": "AuthResponse",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "eslint-config-prettier"
     },
     {
@@ -4542,8 +4542,8 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_devdependencies_supertest",
-      "community": 201,
-      "community_name": "scripts",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "supertest"
     },
     {
@@ -4553,8 +4553,8 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_supertest",
-      "community": 201,
-      "community_name": "scripts",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "supertest"
     },
     {
@@ -4564,8 +4564,8 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_devdependencies_ts_jest",
-      "community": 335,
-      "community_name": "otpauth",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "ts-jest"
     },
     {
@@ -4575,8 +4575,8 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_ts_jest",
-      "community": 335,
-      "community_name": "otpauth",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "ts-jest"
     },
     {
@@ -4652,8 +4652,8 @@
       "source_location": "L89",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_devdependencies_typescript",
-      "community": 349,
-      "community_name": "@types/bcrypt",
+      "community": 633,
+      "community_name": "typescript",
       "norm_label": "typescript"
     },
     {
@@ -4663,8 +4663,8 @@
       "source_location": "L89",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_typescript",
-      "community": 349,
-      "community_name": "@types/bcrypt",
+      "community": 633,
+      "community_name": "typescript",
       "norm_label": "typescript"
     },
     {
@@ -4927,8 +4927,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_index",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "index.ts"
     },
     {
@@ -4949,8 +4949,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": "authcontroller"
     },
     {
@@ -4960,8 +4960,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_apitags",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": "apitags"
     },
     {
@@ -4971,8 +4971,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_controller",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": "controller"
     },
     {
@@ -4993,8 +4993,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_get",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": "get"
     },
     {
@@ -5004,8 +5004,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_apioperation",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": "apioperation"
     },
     {
@@ -5015,8 +5015,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_post",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": "post"
     },
     {
@@ -5026,8 +5026,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_body",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": "body"
     },
     {
@@ -5037,8 +5037,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_httpcode",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": "httpcode"
     },
     {
@@ -5048,8 +5048,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_query",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": "query"
     },
     {
@@ -5059,8 +5059,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_put",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": "put"
     },
     {
@@ -5081,8 +5081,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_gethealth",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": ".gethealth()"
     },
     {
@@ -5092,8 +5092,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_register",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": ".register()"
     },
     {
@@ -5103,8 +5103,8 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_login",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": ".login()"
     },
     {
@@ -5114,8 +5114,8 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_verifytotp",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": ".verifytotp()"
     },
     {
@@ -5125,8 +5125,8 @@
       "source_location": "L99",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_verifyemail",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": ".verifyemail()"
     },
     {
@@ -5136,8 +5136,8 @@
       "source_location": "L108",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_setuptotp",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": ".setuptotp()"
     },
     {
@@ -5147,8 +5147,8 @@
       "source_location": "L121",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_enabletotp",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": ".enabletotp()"
     },
     {
@@ -5158,8 +5158,8 @@
       "source_location": "L130",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_disabletotp",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": ".disabletotp()"
     },
     {
@@ -5169,8 +5169,8 @@
       "source_location": "L139",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_getme",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": ".getme()"
     },
     {
@@ -5180,8 +5180,8 @@
       "source_location": "L154",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_resendverification",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": ".resendverification()"
     },
     {
@@ -5191,8 +5191,8 @@
       "source_location": "L161",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_changepassword",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": ".changepassword()"
     },
     {
@@ -5202,8 +5202,8 @@
       "source_location": "L168",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_promoteadmin",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": ".promoteadmin()"
     },
     {
@@ -5224,8 +5224,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_auth_response_dto_authresponsedto",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": "authresponsedto"
     },
     {
@@ -5235,8 +5235,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_auth_response_dto_ts_apiproperty",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": "apiproperty"
     },
     {
@@ -5631,8 +5631,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_index",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": "index.ts"
     },
     {
@@ -5642,8 +5642,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": "jwt-auth.guard.ts"
     },
     {
@@ -5653,8 +5653,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard_jwtauthguard",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": "jwtauthguard"
     },
     {
@@ -5664,8 +5664,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard_ts_injectable",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": "injectable"
     },
     {
@@ -5675,8 +5675,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard_ts_inject",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": "inject"
     },
     {
@@ -5686,8 +5686,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard_jwtauthguard_constructor",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": ".constructor()"
     },
     {
@@ -5697,8 +5697,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard_jwtauthguard_canactivate",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": ".canactivate()"
     },
     {
@@ -5818,8 +5818,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_index",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "index.ts"
     },
     {
@@ -5829,8 +5829,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_index",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "index.ts"
     },
     {
@@ -5840,8 +5840,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_outbound_email_index",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "index.ts"
     },
     {
@@ -5851,8 +5851,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_outbound_email_nodemailer_email_adapter",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "nodemailer-email.adapter.ts"
     },
     {
@@ -5862,8 +5862,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_outbound_email_nodemailer_email_adapter_nodemaileremailadapter",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "nodemaileremailadapter"
     },
     {
@@ -5873,8 +5873,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_outbound_email_nodemailer_email_adapter_ts_injectable",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "injectable"
     },
     {
@@ -5906,8 +5906,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_outbound_email_nodemailer_email_adapter_nodemaileremailadapter_sendverificationemail",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".sendverificationemail()"
     },
     {
@@ -5917,8 +5917,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_outbound_http_index",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "index.ts"
     },
     {
@@ -5994,8 +5994,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_outbound_index",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "index.ts"
     },
     {
@@ -6434,8 +6434,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_controller_spec",
-      "community": 121,
-      "community_name": "api-gateway:api-gateway",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "app.controller.spec.ts"
     },
     {
@@ -6445,8 +6445,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_controller",
-      "community": 121,
-      "community_name": "api-gateway:api-gateway",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "app.controller.ts"
     },
     {
@@ -6456,8 +6456,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_controller_appcontroller",
-      "community": 121,
-      "community_name": "api-gateway:api-gateway",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "appcontroller"
     },
     {
@@ -6467,8 +6467,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_controller_ts_controller",
-      "community": 121,
-      "community_name": "api-gateway:api-gateway",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "controller"
     },
     {
@@ -6478,8 +6478,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_controller_ts_get",
-      "community": 121,
-      "community_name": "api-gateway:api-gateway",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "get"
     },
     {
@@ -6489,8 +6489,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_controller_appcontroller_constructor",
-      "community": 121,
-      "community_name": "api-gateway:api-gateway",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": ".constructor()"
     },
     {
@@ -6500,8 +6500,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_controller_appcontroller_gethello",
-      "community": 121,
-      "community_name": "api-gateway:api-gateway",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": ".gethello()"
     },
     {
@@ -6511,8 +6511,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_controller_appcontroller_gethealth",
-      "community": 121,
-      "community_name": "api-gateway:api-gateway",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": ".gethealth()"
     },
     {
@@ -6533,8 +6533,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_module_appmodule",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "appmodule"
     },
     {
@@ -6544,8 +6544,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_module_ts_module",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "module"
     },
     {
@@ -6555,8 +6555,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_service",
-      "community": 121,
-      "community_name": "api-gateway:api-gateway",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "app.service.ts"
     },
     {
@@ -6566,8 +6566,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_service_appservice",
-      "community": 121,
-      "community_name": "api-gateway:api-gateway",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "appservice"
     },
     {
@@ -6577,8 +6577,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_service_ts_injectable",
-      "community": 121,
-      "community_name": "api-gateway:api-gateway",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": "injectable"
     },
     {
@@ -6588,8 +6588,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_service_appservice_gethello",
-      "community": 121,
-      "community_name": "api-gateway:api-gateway",
+      "community": 55,
+      "community_name": "GatewayConfig",
       "norm_label": ".gethello()"
     },
     {
@@ -6599,8 +6599,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_application_index",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "index.ts"
     },
     {
@@ -6610,8 +6610,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_application_use_cases_auth_use_cases",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "auth.use-cases.ts"
     },
     {
@@ -6643,8 +6643,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_application_use_cases_auth_use_cases_ts_inject",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 357,
+      "community_name": "eslint-plugin-prettier",
       "norm_label": "inject"
     },
     {
@@ -6654,8 +6654,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_application_use_cases_auth_use_cases_authusecases_constructor",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 357,
+      "community_name": "eslint-plugin-prettier",
       "norm_label": ".constructor()"
     },
     {
@@ -6797,8 +6797,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_application_use_cases_index",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "index.ts"
     },
     {
@@ -6808,8 +6808,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_auth_module",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "auth.module.ts"
     },
     {
@@ -6841,8 +6841,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_entities_index",
-      "community": 218,
-      "community_name": "user.entity.ts",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "index.ts"
     },
     {
@@ -6852,8 +6852,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_entities_user_entity",
-      "community": 218,
-      "community_name": "user.entity.ts",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "user.entity.ts"
     },
     {
@@ -6863,8 +6863,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_entities_user_entity_userprops",
-      "community": 218,
-      "community_name": "user.entity.ts",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "userprops"
     },
     {
@@ -7039,8 +7039,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_index",
-      "community": 218,
-      "community_name": "user.entity.ts",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "index.ts"
     },
     {
@@ -7237,8 +7237,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_index",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "index.ts"
     },
     {
@@ -7248,8 +7248,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_index",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "index.ts"
     },
     {
@@ -7314,8 +7314,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_email_service_port",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "email.service.port.ts"
     },
     {
@@ -7325,8 +7325,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_email_service_port_email_service_port",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "email_service_port"
     },
     {
@@ -7336,8 +7336,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_email_service_port_emailserviceport",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "emailserviceport"
     },
     {
@@ -7347,8 +7347,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_email_service_port_emailserviceport_sendverificationemail",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".sendverificationemail()"
     },
     {
@@ -7358,8 +7358,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_index",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "index.ts"
     },
     {
@@ -7369,8 +7369,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": "token.service.port.ts"
     },
     {
@@ -7380,8 +7380,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port_token_service_port",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": "token_service_port"
     },
     {
@@ -7391,8 +7391,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port_tokenpayload",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": "tokenpayload"
     },
     {
@@ -7402,8 +7402,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port_tokenserviceport",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": "tokenserviceport"
     },
     {
@@ -7413,8 +7413,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port_tokenserviceport_generatetoken",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": ".generatetoken()"
     },
     {
@@ -7424,8 +7424,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port_tokenserviceport_verifytoken",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": ".verifytoken()"
     },
     {
@@ -7446,8 +7446,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_user_profile_client_port_user_profile_client_port",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "user_profile_client_port"
     },
     {
@@ -7479,8 +7479,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_user_repository_port",
-      "community": 149,
-      "community_name": "Docker Swarm Skill",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "user.repository.port.ts"
     },
     {
@@ -7490,8 +7490,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_user_repository_port_user_repository_port",
-      "community": 149,
-      "community_name": "Docker Swarm Skill",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "user_repository_port"
     },
     {
@@ -7622,8 +7622,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_value_objects_index",
-      "community": 218,
-      "community_name": "user.entity.ts",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "index.ts"
     },
     {
@@ -7776,8 +7776,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": "jwt.util.ts"
     },
     {
@@ -7787,8 +7787,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_jwtutil",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": "jwtutil"
     },
     {
@@ -7798,8 +7798,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_ts_injectable",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": "injectable"
     },
     {
@@ -7809,8 +7809,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_ts_inject",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": "inject"
     },
     {
@@ -7820,8 +7820,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_jwtutil_constructor",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": ".constructor()"
     },
     {
@@ -7831,8 +7831,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_jwtutil_generatetoken",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": ".generatetoken()"
     },
     {
@@ -7842,8 +7842,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_jwtutil_verifytoken",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": ".verifytoken()"
     },
     {
@@ -7853,8 +7853,8 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_jwtutil_getemailfromtoken",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": ".getemailfromtoken()"
     },
     {
@@ -7941,8 +7941,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_index",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "index.ts"
     },
     {
@@ -7952,8 +7952,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_logger_config",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "logger.config.ts"
     },
     {
@@ -7963,8 +7963,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_logger_config_otellogformat",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "otellogformat"
     },
     {
@@ -7974,8 +7974,8 @@
       "source_location": "L93",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "createwinstonlogger()"
     },
     {
@@ -8029,8 +8029,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "tracing.ts"
     },
     {
@@ -8040,8 +8040,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing_logger",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "logger"
     },
     {
@@ -8051,8 +8051,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing_createresource",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "createresource()"
     },
     {
@@ -8062,8 +8062,8 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing_traceexporter",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "traceexporter"
     },
     {
@@ -8073,8 +8073,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing_metricexporter",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "metricexporter"
     },
     {
@@ -8084,8 +8084,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing_otelsdk",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "otelsdk"
     },
     {
@@ -8095,8 +8095,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing_starttelemetry",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "starttelemetry()"
     },
     {
@@ -8106,8 +8106,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_main",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "main.ts"
     },
     {
@@ -8117,8 +8117,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_main_bootstrap",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "bootstrap()"
     },
     {
@@ -8128,8 +8128,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_test_app_e2e_spec",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "app.e2e-spec.ts"
     },
     {
@@ -12572,8 +12572,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_dependencies_nestjs_core",
-      "community": 387,
-      "community_name": "winston",
+      "community": 122,
+      "community_name": "auth-service:auth-service",
       "norm_label": "@nestjs/core"
     },
     {
@@ -12583,8 +12583,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_nestjs_core",
-      "community": 387,
-      "community_name": "winston",
+      "community": 122,
+      "community_name": "auth-service:auth-service",
       "norm_label": "@nestjs/core"
     },
     {
@@ -13056,8 +13056,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_dependencies_class_validator",
-      "community": 122,
-      "community_name": "auth-service:auth-service",
+      "community": 170,
+      "community_name": "dependencies",
       "norm_label": "class-validator"
     },
     {
@@ -13067,8 +13067,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_class_validator",
-      "community": 122,
-      "community_name": "auth-service:auth-service",
+      "community": 170,
+      "community_name": "dependencies",
       "norm_label": "class-validator"
     },
     {
@@ -13309,8 +13309,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_devdependencies_nestjs_testing",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 126,
+      "community_name": "user-service:user-service",
       "norm_label": "@nestjs/testing"
     },
     {
@@ -13320,8 +13320,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_nestjs_testing",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 126,
+      "community_name": "user-service:user-service",
       "norm_label": "@nestjs/testing"
     },
     {
@@ -13353,8 +13353,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_devdependencies_swc_core",
-      "community": 426,
-      "community_name": "typescript",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": "@swc/core"
     },
     {
@@ -13364,8 +13364,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_swc_core",
-      "community": 426,
-      "community_name": "typescript",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": "@swc/core"
     },
     {
@@ -14255,8 +14255,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_inbound_rest_transaction_controller_spec",
-      "community": 134,
-      "community_name": "TransactionController",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "transaction.controller.spec.ts"
     },
     {
@@ -14266,8 +14266,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_inbound_rest_transaction_controller",
-      "community": 134,
-      "community_name": "TransactionController",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "transaction.controller.ts"
     },
     {
@@ -14277,8 +14277,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_inbound_rest_transaction_controller_transactioncontroller",
-      "community": 134,
-      "community_name": "TransactionController",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "transactioncontroller"
     },
     {
@@ -14288,8 +14288,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_inbound_rest_transaction_controller_ts_apitags",
-      "community": 134,
-      "community_name": "TransactionController",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "apitags"
     },
     {
@@ -14299,8 +14299,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_inbound_rest_transaction_controller_ts_controller",
-      "community": 134,
-      "community_name": "TransactionController",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "controller"
     },
     {
@@ -14530,8 +14530,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_grpc_user_grpc_client_module",
-      "community": 176,
-      "community_name": "UserServiceGrpcAdapter",
+      "community": 358,
+      "community_name": "@nestjs/schematics",
       "norm_label": "user-grpc-client.module.ts"
     },
     {
@@ -14541,8 +14541,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_grpc_user_grpc_client_module_usergrpcclientmodule",
-      "community": 176,
-      "community_name": "UserServiceGrpcAdapter",
+      "community": 358,
+      "community_name": "@nestjs/schematics",
       "norm_label": "usergrpcclientmodule"
     },
     {
@@ -14552,8 +14552,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_grpc_user_grpc_client_module_ts_module",
-      "community": 176,
-      "community_name": "UserServiceGrpcAdapter",
+      "community": 358,
+      "community_name": "@nestjs/schematics",
       "norm_label": "module"
     },
     {
@@ -14816,8 +14816,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_kafka_kafka_module",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "kafka.module.ts"
     },
     {
@@ -14827,8 +14827,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_kafka_kafka_module_kafkamodule",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "kafkamodule"
     },
     {
@@ -14838,8 +14838,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_kafka_kafka_module_ts_module",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "module"
     },
     {
@@ -14849,8 +14849,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_persistence_prisma_transaction_repository",
-      "community": 358,
-      "community_name": "@nestjs/schematics",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": "prisma-transaction.repository.ts"
     },
     {
@@ -14970,8 +14970,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_persistence_prisma_module",
-      "community": 358,
-      "community_name": "@nestjs/schematics",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "prisma.module.ts"
     },
     {
@@ -14981,8 +14981,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_persistence_prisma_module_prismamodule",
-      "community": 358,
-      "community_name": "@nestjs/schematics",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "prismamodule"
     },
     {
@@ -14992,8 +14992,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_persistence_prisma_module_ts_module",
-      "community": 358,
-      "community_name": "@nestjs/schematics",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "module"
     },
     {
@@ -15146,8 +15146,8 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_redis_idempotency_service_idempotencyservice_isduplicatekey",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": ".isduplicatekey()"
     },
     {
@@ -15179,8 +15179,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_redis_redis_module",
-      "community": 358,
-      "community_name": "@nestjs/schematics",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "redis.module.ts"
     },
     {
@@ -15190,8 +15190,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_redis_redis_module_redismodule",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "redismodule"
     },
     {
@@ -15201,8 +15201,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_redis_redis_module_ts_module",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "module"
     },
     {
@@ -15289,8 +15289,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_trpc_user_trpc_client_module_usertrpcclientmodule",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": "usertrpcclientmodule"
     },
     {
@@ -15300,8 +15300,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_trpc_user_trpc_client_module_ts_module",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": "module"
     },
     {
@@ -15388,8 +15388,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_app_module",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "app.module.ts"
     },
     {
@@ -15399,8 +15399,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_app_module_commandhandlers",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "commandhandlers"
     },
     {
@@ -15410,8 +15410,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_app_module_queryhandlers",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "queryhandlers"
     },
     {
@@ -15421,8 +15421,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_app_module_appmodule",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 259,
+      "community_name": "tracing.ts",
       "norm_label": "appmodule"
     },
     {
@@ -15432,8 +15432,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_app_module_ts_module",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 259,
+      "community_name": "tracing.ts",
       "norm_label": "module"
     },
     {
@@ -15487,8 +15487,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_commands_transfer_money_command",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "transfer-money.command.ts"
     },
     {
@@ -15498,8 +15498,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_commands_transfer_money_command_transfermoneycommand",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "transfermoneycommand"
     },
     {
@@ -15509,8 +15509,8 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_commands_transfer_money_command_transfermoneycommand_constructor",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": ".constructor()"
     },
     {
@@ -15520,8 +15520,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_commands_transfer_money_handler",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 358,
+      "community_name": "@nestjs/schematics",
       "norm_label": "transfer-money.handler.ts"
     },
     {
@@ -15762,8 +15762,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_use_cases_transaction_use_cases_transactionusecases_transfer",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": ".transfer()"
     },
     {
@@ -15817,8 +15817,8 @@
       "source_location": "L159",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_application_use_cases_transaction_use_cases_transactionusecases_acceptmoneyrequest",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": ".acceptmoneyrequest()"
     },
     {
@@ -15839,8 +15839,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_entities_money_request_entity",
-      "community": 358,
-      "community_name": "@nestjs/schematics",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": "money-request.entity.ts"
     },
     {
@@ -15905,8 +15905,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_events_transfer_completed_event",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 358,
+      "community_name": "@nestjs/schematics",
       "norm_label": "transfer-completed.event.ts"
     },
     {
@@ -15916,8 +15916,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_events_transfer_completed_event_transfercompletedevent",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 358,
+      "community_name": "@nestjs/schematics",
       "norm_label": "transfercompletedevent"
     },
     {
@@ -15927,8 +15927,8 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_events_transfer_completed_event_transfercompletedevent_constructor",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 358,
+      "community_name": "@nestjs/schematics",
       "norm_label": ".constructor()"
     },
     {
@@ -15938,8 +15938,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_ports_inbound_transaction_service_port",
-      "community": 358,
-      "community_name": "@nestjs/schematics",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "transaction-service.port.ts"
     },
     {
@@ -15949,8 +15949,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_ports_inbound_transaction_service_port_transferparams",
-      "community": 358,
-      "community_name": "@nestjs/schematics",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": "transferparams"
     },
     {
@@ -15960,8 +15960,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_ports_inbound_transaction_service_port_moneyrequestparams",
-      "community": 358,
-      "community_name": "@nestjs/schematics",
+      "community": 147,
+      "community_name": "MoneyRequestEntity",
       "norm_label": "moneyrequestparams"
     },
     {
@@ -16059,8 +16059,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_ports_inbound_transaction_service_port_transaction_service_port",
-      "community": 134,
-      "community_name": "TransactionController",
+      "community": 1,
+      "community_name": "NotificationService",
       "norm_label": "transaction_service_port"
     },
     {
@@ -16180,8 +16180,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_ports_outbound_user_service_client_port",
-      "community": 176,
-      "community_name": "UserServiceGrpcAdapter",
+      "community": 358,
+      "community_name": "@nestjs/schematics",
       "norm_label": "user-service-client.port.ts"
     },
     {
@@ -16246,8 +16246,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_ports_outbound_user_service_client_port_user_service_client_port",
-      "community": 176,
-      "community_name": "UserServiceGrpcAdapter",
+      "community": 358,
+      "community_name": "@nestjs/schematics",
       "norm_label": "user_service_client_port"
     },
     {
@@ -16257,8 +16257,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_value_objects_money_vo",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 138,
+      "community_name": "WorkerServiceApplication",
       "norm_label": "money.vo.ts"
     },
     {
@@ -16268,8 +16268,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_value_objects_money_vo_money",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 138,
+      "community_name": "WorkerServiceApplication",
       "norm_label": "money"
     },
     {
@@ -16279,8 +16279,8 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_value_objects_money_vo_money_constructor",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 138,
+      "community_name": "WorkerServiceApplication",
       "norm_label": ".constructor()"
     },
     {
@@ -16290,8 +16290,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_value_objects_money_vo_money_add",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 138,
+      "community_name": "WorkerServiceApplication",
       "norm_label": ".add()"
     },
     {
@@ -16301,8 +16301,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_value_objects_money_vo_money_subtract",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 138,
+      "community_name": "WorkerServiceApplication",
       "norm_label": ".subtract()"
     },
     {
@@ -16312,8 +16312,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_domain_value_objects_money_vo_money_isgreaterthanorequal",
-      "community": 189,
-      "community_name": "PrismaUserRepository",
+      "community": 138,
+      "community_name": "WorkerServiceApplication",
       "norm_label": ".isgreaterthanorequal()"
     },
     {
@@ -16400,8 +16400,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_outbox_outbox_publisher_service",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 213,
+      "community_name": "TransactionUseCases",
       "norm_label": "outbox-publisher.service.ts"
     },
     {
@@ -16411,8 +16411,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_outbox_outbox_publisher_service_outboxpublisherservice",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 213,
+      "community_name": "TransactionUseCases",
       "norm_label": "outboxpublisherservice"
     },
     {
@@ -16422,8 +16422,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_outbox_outbox_publisher_service_ts_injectable",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 213,
+      "community_name": "TransactionUseCases",
       "norm_label": "injectable"
     },
     {
@@ -16433,8 +16433,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_outbox_outbox_publisher_service_outboxpublisherservice_constructor",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 213,
+      "community_name": "TransactionUseCases",
       "norm_label": ".constructor()"
     },
     {
@@ -16444,8 +16444,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_outbox_outbox_publisher_service_outboxpublisherservice_onmoduleinit",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 213,
+      "community_name": "TransactionUseCases",
       "norm_label": ".onmoduleinit()"
     },
     {
@@ -16455,8 +16455,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_outbox_outbox_publisher_service_outboxpublisherservice_onmoduledestroy",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 213,
+      "community_name": "TransactionUseCases",
       "norm_label": ".onmoduledestroy()"
     },
     {
@@ -16466,8 +16466,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_outbox_outbox_service",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 358,
+      "community_name": "@nestjs/schematics",
       "norm_label": "outbox.service.ts"
     },
     {
@@ -16477,8 +16477,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_outbox_outbox_service_outboxservice",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 213,
+      "community_name": "TransactionUseCases",
       "norm_label": "outboxservice"
     },
     {
@@ -16488,8 +16488,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_outbox_outbox_service_ts_injectable",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 213,
+      "community_name": "TransactionUseCases",
       "norm_label": "injectable"
     },
     {
@@ -16499,8 +16499,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_outbox_outbox_service_outboxservice_constructor",
-      "community": 385,
-      "community_name": "reflect-metadata",
+      "community": 213,
+      "community_name": "TransactionUseCases",
       "norm_label": ".constructor()"
     },
     {
@@ -16521,8 +16521,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_outbox_outbox_service_outboxservice_processpendingevents",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 213,
+      "community_name": "TransactionUseCases",
       "norm_label": ".processpendingevents()"
     },
     {
@@ -16675,8 +16675,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_test_app_e2e_spec",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 259,
+      "community_name": "tracing.ts",
       "norm_label": "app.e2e-spec.ts"
     },
     {
@@ -17335,7 +17335,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_nestjs_microservices",
-      "community": 394,
+      "community": 439,
       "community_name": "@nestjs/microservices",
       "norm_label": "@nestjs/microservices"
     },
@@ -17346,7 +17346,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_microservices",
-      "community": 394,
+      "community": 439,
       "community_name": "@nestjs/microservices",
       "norm_label": "@nestjs/microservices"
     },
@@ -17379,7 +17379,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_nestjs_swagger",
-      "community": 439,
+      "community": 394,
       "community_name": "@nestjs/microservices",
       "norm_label": "@nestjs/swagger"
     },
@@ -17390,7 +17390,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_swagger",
-      "community": 439,
+      "community": 394,
       "community_name": "@nestjs/microservices",
       "norm_label": "@nestjs/swagger"
     },
@@ -17962,8 +17962,8 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_nestjs_cli",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 502,
+      "community_name": "@nestjs/platform-express",
       "norm_label": "@nestjs/cli"
     },
     {
@@ -17973,8 +17973,8 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_cli",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 502,
+      "community_name": "@nestjs/platform-express",
       "norm_label": "@nestjs/cli"
     },
     {
@@ -17984,8 +17984,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_nestjs_schematics",
-      "community": 502,
-      "community_name": "@nestjs/platform-express",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@nestjs/schematics"
     },
     {
@@ -17995,8 +17995,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_schematics",
-      "community": 502,
-      "community_name": "@nestjs/platform-express",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@nestjs/schematics"
     },
     {
@@ -33630,8 +33630,8 @@
       "source_location": "L525",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_architecture_diagrams_microservices_architecture",
-      "community": 346,
-      "community_name": "ts-jest",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "microservices architecture"
     },
     {
@@ -33641,8 +33641,8 @@
       "source_location": "L529",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_architecture_diagrams_pattern_microservices_with_api_gateway",
-      "community": 346,
-      "community_name": "ts-jest",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "pattern - microservices with api gateway"
     },
     {
@@ -33652,8 +33652,8 @@
       "source_location": "L606",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_architecture_diagrams_pattern_service_mesh",
-      "community": 346,
-      "community_name": "ts-jest",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "pattern - service mesh"
     },
     {
@@ -33696,8 +33696,8 @@
       "source_location": "L813",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_architecture_diagrams_best_practices",
-      "community": 44,
-      "community_name": "TransferCompletedEvent",
+      "community": 346,
+      "community_name": "ts-jest",
       "norm_label": "best practices"
     },
     {
@@ -33707,8 +33707,8 @@
       "source_location": "L815",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_architecture_diagrams_1_choose_the_right_abstraction_level",
-      "community": 44,
-      "community_name": "TransferCompletedEvent",
+      "community": 346,
+      "community_name": "ts-jest",
       "norm_label": "1. **choose the right abstraction level**"
     },
     {
@@ -33718,8 +33718,8 @@
       "source_location": "L821",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_architecture_diagrams_2_use_consistent_symbols",
-      "community": 44,
-      "community_name": "TransferCompletedEvent",
+      "community": 346,
+      "community_name": "ts-jest",
       "norm_label": "2. **use consistent symbols**"
     },
     {
@@ -33729,8 +33729,8 @@
       "source_location": "L838",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_architecture_diagrams_3_label_communication_protocols",
-      "community": 44,
-      "community_name": "TransferCompletedEvent",
+      "community": 346,
+      "community_name": "ts-jest",
       "norm_label": "3. **label communication protocols**"
     },
     {
@@ -33740,8 +33740,8 @@
       "source_location": "L846",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_architecture_diagrams_4_show_boundaries_clearly",
-      "community": 44,
-      "community_name": "TransferCompletedEvent",
+      "community": 346,
+      "community_name": "ts-jest",
       "norm_label": "4. **show boundaries clearly**"
     },
     {
@@ -33751,8 +33751,8 @@
       "source_location": "L854",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_architecture_diagrams_5_indicate_technology_choices",
-      "community": 44,
-      "community_name": "TransferCompletedEvent",
+      "community": 346,
+      "community_name": "ts-jest",
       "norm_label": "5. **indicate technology choices**"
     },
     {
@@ -33762,8 +33762,8 @@
       "source_location": "L862",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_architecture_diagrams_6_document_key_decisions",
-      "community": 44,
-      "community_name": "TransferCompletedEvent",
+      "community": 346,
+      "community_name": "ts-jest",
       "norm_label": "6. **document key decisions**"
     },
     {
@@ -33773,8 +33773,8 @@
       "source_location": "L878",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_architecture_diagrams_7_high_contrast_styling",
-      "community": 44,
-      "community_name": "TransferCompletedEvent",
+      "community": 346,
+      "community_name": "ts-jest",
       "norm_label": "7. **high-contrast styling**"
     },
     {
@@ -50443,12 +50443,12 @@
       "norm_label": "user service (nestjs) \ud83d\udc64"
     },
     {
-      "label": "\ud83d\ude80 Arquitectura y Caracteristicas",
+      "label": "\ud83d\ude80 Arquitectura y Caracter\u00edsticas",
       "file_type": "document",
       "source_file": "backend-nestjs/user-service/README.md",
       "source_location": "L7",
       "_origin": "ast",
-      "id": "backend_nestjs_user_service_readme_arquitectura_y_caracteristicas",
+      "id": "backend_nestjs_user_service_readme_arquitectura_y_caracter\u00edsticas",
       "community": 188,
       "community_name": "User Service (NestJS) \ud83d\udc64",
       "norm_label": "\ud83d\ude80 arquitectura y caracteristicas"
@@ -50498,12 +50498,12 @@
       "norm_label": "\ud83d\uddc4\ufe0f base de datos y prisma orm"
     },
     {
-      "label": "\ud83c\udfc3 Modos de Ejecucion",
+      "label": "\ud83c\udfc3 Modos de Ejecuci\u00f3n",
       "file_type": "document",
       "source_file": "backend-nestjs/user-service/README.md",
       "source_location": "L99",
       "_origin": "ast",
-      "id": "backend_nestjs_user_service_readme_modos_de_ejecucion",
+      "id": "backend_nestjs_user_service_readme_modos_de_ejecuci\u00f3n",
       "community": 188,
       "community_name": "User Service (NestJS) \ud83d\udc64",
       "norm_label": "\ud83c\udfc3 modos de ejecucion"
@@ -50520,26 +50520,103 @@
       "norm_label": "1. desarrollo local (standalone)"
     },
     {
-      "label": "\ud83e\uddea Pruebas Unitarias y E2E",
+      "label": "2. Producci\u00f3n Local",
       "file_type": "document",
       "source_file": "backend-nestjs/user-service/README.md",
-      "source_location": "L108",
+      "source_location": "L109",
       "_origin": "ast",
-      "id": "backend_nestjs_user_service_readme_pruebas_unitarias_y_e2e",
+      "id": "backend_nestjs_user_service_readme_2_producci\u00f3n_local",
       "community": 188,
       "community_name": "User Service (NestJS) \ud83d\udc64",
-      "norm_label": "\ud83e\uddea pruebas unitarias y e2e"
+      "norm_label": "2. produccion local"
     },
     {
-      "label": "\ud83e\uddad Despliegue en Kubernetes con Podman",
+      "label": "3. En Kubernetes con Podman",
       "file_type": "document",
       "source_file": "backend-nestjs/user-service/README.md",
-      "source_location": "L116",
+      "source_location": "L118",
       "_origin": "ast",
-      "id": "backend_nestjs_user_service_readme_despliegue_en_kubernetes_con_podman",
+      "id": "backend_nestjs_user_service_readme_3_en_kubernetes_con_podman",
       "community": 188,
       "community_name": "User Service (NestJS) \ud83d\udc64",
-      "norm_label": "\ud83e\uddad despliegue en kubernetes con podman"
+      "norm_label": "3. en kubernetes con podman"
+    },
+    {
+      "label": "\ud83e\uddea Gu\u00eda de Pruebas e Interacci\u00f3n (REST & tRPC)",
+      "file_type": "document",
+      "source_file": "backend-nestjs/user-service/README.md",
+      "source_location": "L130",
+      "_origin": "ast",
+      "id": "backend_nestjs_user_service_readme_gu\u00eda_de_pruebas_e_interacci\u00f3n_rest_trpc",
+      "community": 188,
+      "community_name": "User Service (NestJS) \ud83d\udc64",
+      "norm_label": "\ud83e\uddea guia de pruebas e interaccion (rest & trpc)"
+    },
+    {
+      "label": "1. Consultar Perfil de Usuario por ID (`GET /users/profile/:id`)",
+      "file_type": "document",
+      "source_file": "backend-nestjs/user-service/README.md",
+      "source_location": "L132",
+      "_origin": "ast",
+      "id": "backend_nestjs_user_service_readme_1_consultar_perfil_de_usuario_por_id_get_users_profile_id",
+      "community": 188,
+      "community_name": "User Service (NestJS) \ud83d\udc64",
+      "norm_label": "1. consultar perfil de usuario por id (`get /users/profile/:id`)"
+    },
+    {
+      "label": "2. Crear Nuevo Perfil (`POST /users`)",
+      "file_type": "document",
+      "source_file": "backend-nestjs/user-service/README.md",
+      "source_location": "L137",
+      "_origin": "ast",
+      "id": "backend_nestjs_user_service_readme_2_crear_nuevo_perfil_post_users",
+      "community": 188,
+      "community_name": "User Service (NestJS) \ud83d\udc64",
+      "norm_label": "2. crear nuevo perfil (`post /users`)"
+    },
+    {
+      "label": "3. Actualizar Saldo de Usuario (`PUT /users/profile/:id/balance`)",
+      "file_type": "document",
+      "source_file": "backend-nestjs/user-service/README.md",
+      "source_location": "L149",
+      "_origin": "ast",
+      "id": "backend_nestjs_user_service_readme_3_actualizar_saldo_de_usuario_put_users_profile_id_balance",
+      "community": 188,
+      "community_name": "User Service (NestJS) \ud83d\udc64",
+      "norm_label": "3. actualizar saldo de usuario (`put /users/profile/:id/balance`)"
+    },
+    {
+      "label": "4. Probar Router tRPC (`POST /trpc`)",
+      "file_type": "document",
+      "source_file": "backend-nestjs/user-service/README.md",
+      "source_location": "L158",
+      "_origin": "ast",
+      "id": "backend_nestjs_user_service_readme_4_probar_router_trpc_post_trpc",
+      "community": 188,
+      "community_name": "User Service (NestJS) \ud83d\udc64",
+      "norm_label": "4. probar router trpc (`post /trpc`)"
+    },
+    {
+      "label": "5. Health Check (`GET /users/health`)",
+      "file_type": "document",
+      "source_file": "backend-nestjs/user-service/README.md",
+      "source_location": "L165",
+      "_origin": "ast",
+      "id": "backend_nestjs_user_service_readme_5_health_check_get_users_health",
+      "community": 188,
+      "community_name": "User Service (NestJS) \ud83d\udc64",
+      "norm_label": "5. health check (`get /users/health`)"
+    },
+    {
+      "label": "\ud83d\udcca Integraci\u00f3n con SigNoz & Observabilidad",
+      "file_type": "document",
+      "source_file": "backend-nestjs/user-service/README.md",
+      "source_location": "L172",
+      "_origin": "ast",
+      "id": "backend_nestjs_user_service_readme_integraci\u00f3n_con_signoz_observabilidad",
+      "community": 188,
+      "community_name": "User Service (NestJS) \ud83d\udc64",
+      "norm_label": "\ud83d\udcca integracion con signoz & observabilidad"
     },
     {
       "label": "README.md",
@@ -51241,8 +51318,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_database_bases_de_datos_relacionales_y_pgbouncer",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 106,
+      "community_name": "UserServiceApplication",
       "norm_label": "bases de datos relacionales y pgbouncer"
     },
     {
@@ -51252,8 +51329,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "docs_database_contenido",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 106,
+      "community_name": "UserServiceApplication",
       "norm_label": "\ud83d\udcd1 contenido"
     },
     {
@@ -51263,8 +51340,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "docs_database_1_topolog\u00eda_de_persistencia_y_segregaci\u00f3n",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 106,
+      "community_name": "UserServiceApplication",
       "norm_label": "1. topologia de persistencia y segregacion"
     },
     {
@@ -51274,8 +51351,8 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "docs_database_2_connection_pooling_con_pgbouncer_core",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 106,
+      "community_name": "UserServiceApplication",
       "norm_label": "2. connection pooling con pgbouncer core"
     },
     {
@@ -51461,8 +51538,8 @@
       "source_location": "L230",
       "_origin": "ast",
       "id": "docs_database_4_diagrama_entidad_relaci\u00f3n_erd_consolidado",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 106,
+      "community_name": "UserServiceApplication",
       "norm_label": "4. diagrama entidad-relacion (erd) consolidado"
     },
     {
@@ -51472,8 +51549,8 @@
       "source_location": "L336",
       "_origin": "ast",
       "id": "docs_database_5_gesti\u00f3n_de_esquemas_con_prisma_orm",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 106,
+      "community_name": "UserServiceApplication",
       "norm_label": "5. gestion de esquemas con prisma orm"
     },
     {
@@ -51483,8 +51560,8 @@
       "source_location": "L340",
       "_origin": "ast",
       "id": "docs_database_comandos_de_administraci\u00f3n_prisma",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 106,
+      "community_name": "UserServiceApplication",
       "norm_label": "comandos de administracion prisma:"
     },
     {
@@ -51494,8 +51571,8 @@
       "source_location": "L355",
       "_origin": "ast",
       "id": "docs_database_6_estrategia_de_copias_de_seguridad_y_recuperaci\u00f3n",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 106,
+      "community_name": "UserServiceApplication",
       "norm_label": "6. estrategia de copias de seguridad y recuperacion"
     },
     {
@@ -119438,7 +119515,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_readme_user_service_nestjs",
-      "target": "backend_nestjs_user_service_readme_arquitectura_y_caracteristicas",
+      "target": "backend_nestjs_user_service_readme_arquitectura_y_caracter\u00edsticas",
       "confidence_score": 1.0
     },
     {
@@ -119456,11 +119533,22 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/README.md",
-      "source_location": "L116",
+      "source_location": "L130",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_readme_user_service_nestjs",
-      "target": "backend_nestjs_user_service_readme_despliegue_en_kubernetes_con_podman",
+      "target": "backend_nestjs_user_service_readme_gu\u00eda_de_pruebas_e_interacci\u00f3n_rest_trpc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/user-service/README.md",
+      "source_location": "L172",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_user_service_readme_user_service_nestjs",
+      "target": "backend_nestjs_user_service_readme_integraci\u00f3n_con_signoz_observabilidad",
       "confidence_score": 1.0
     },
     {
@@ -119471,18 +119559,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_readme_user_service_nestjs",
-      "target": "backend_nestjs_user_service_readme_modos_de_ejecucion",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/user-service/README.md",
-      "source_location": "L108",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_user_service_readme_user_service_nestjs",
-      "target": "backend_nestjs_user_service_readme_pruebas_unitarias_y_e2e",
+      "target": "backend_nestjs_user_service_readme_modos_de_ejecuci\u00f3n",
       "confidence_score": 1.0
     },
     {
@@ -119514,8 +119591,85 @@
       "source_location": "L101",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "backend_nestjs_user_service_readme_modos_de_ejecucion",
+      "source": "backend_nestjs_user_service_readme_modos_de_ejecuci\u00f3n",
       "target": "backend_nestjs_user_service_readme_1_desarrollo_local_standalone",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/user-service/README.md",
+      "source_location": "L109",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_user_service_readme_modos_de_ejecuci\u00f3n",
+      "target": "backend_nestjs_user_service_readme_2_producci\u00f3n_local",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/user-service/README.md",
+      "source_location": "L118",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_user_service_readme_modos_de_ejecuci\u00f3n",
+      "target": "backend_nestjs_user_service_readme_3_en_kubernetes_con_podman",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/user-service/README.md",
+      "source_location": "L132",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_user_service_readme_gu\u00eda_de_pruebas_e_interacci\u00f3n_rest_trpc",
+      "target": "backend_nestjs_user_service_readme_1_consultar_perfil_de_usuario_por_id_get_users_profile_id",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/user-service/README.md",
+      "source_location": "L137",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_user_service_readme_gu\u00eda_de_pruebas_e_interacci\u00f3n_rest_trpc",
+      "target": "backend_nestjs_user_service_readme_2_crear_nuevo_perfil_post_users",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/user-service/README.md",
+      "source_location": "L149",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_user_service_readme_gu\u00eda_de_pruebas_e_interacci\u00f3n_rest_trpc",
+      "target": "backend_nestjs_user_service_readme_3_actualizar_saldo_de_usuario_put_users_profile_id_balance",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/user-service/README.md",
+      "source_location": "L158",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_user_service_readme_gu\u00eda_de_pruebas_e_interacci\u00f3n_rest_trpc",
+      "target": "backend_nestjs_user_service_readme_4_probar_router_trpc_post_trpc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend-nestjs/user-service/README.md",
+      "source_location": "L165",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_nestjs_user_service_readme_gu\u00eda_de_pruebas_e_interacci\u00f3n_rest_trpc",
+      "target": "backend_nestjs_user_service_readme_5_health_check_get_users_health",
       "confidence_score": 1.0
     },
     {

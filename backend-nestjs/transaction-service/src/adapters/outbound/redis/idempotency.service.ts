@@ -92,7 +92,7 @@ export class IdempotencyService implements OnModuleInit, OnModuleDestroy {
       this.logger.warn(`Redis fallback para idempotencia: ${err.message}`);
     }
 
-    // 2. Durable check MySQL if userId is provided
+    // 2. Durable check PostgreSQL if userId is provided
     if (userId) {
       const record = await this.prisma.idempotencyRecord.findUnique({
         where: {
@@ -128,7 +128,7 @@ export class IdempotencyService implements OnModuleInit, OnModuleDestroy {
       this.logger.error(`Error registrando idempotencia en Redis: ${err.message}`);
     }
 
-    // 2. Persist in MySQL
+    // 2. Persist in PostgreSQL
     if (userId) {
       try {
         await this.prisma.idempotencyRecord.upsert({
@@ -148,7 +148,7 @@ export class IdempotencyService implements OnModuleInit, OnModuleDestroy {
           },
         });
       } catch (err: any) {
-        this.logger.error(`Error guardando idempotencia durable en MySQL: ${err.message}`);
+        this.logger.error(`Error guardando idempotencia durable en PostgreSQL: ${err.message}`);
       }
     }
   }

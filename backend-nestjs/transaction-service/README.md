@@ -6,13 +6,13 @@ Microservicio de Procesamiento de Transferencias, Solicitudes de Dinero e Idempo
 
 ## 🚀 Arquitectura y Características
 
-- **Arquitectura Hexagonal (Ports & Adapters)**: Separación estricta entre Dominio, Casos de Uso (CQRS) y Adaptadores de Entrada (REST API) / Salida (Prisma MySQL, Redis, Kafka Outbox, tRPC Client).
+- **Arquitectura Hexagonal (Ports & Adapters)**: Separación estricta entre Dominio, Casos de Uso (CQRS) y Adaptadores de Entrada (REST API) / Salida (Prisma PostgreSQL, Redis, Kafka Outbox, tRPC Client).
 - **Integración tRPC Inter-Service**: Cliente tRPC type-safe conectando a `user-service:8082/trpc` (`getUserById`, `getUserByEmail`, `updateBalance`) mediante el adaptador `UserServiceTrpcAdapter`.
-- **Garantía de Idempotencia Durable (Redis + MySQL)**: Uso del encabezado HTTP `X-Idempotency-Key` verificado en Redis (`ioredis`) para respuesta ultrarrápida y respaldado en la tabla MySQL `idempotency_records` con TTL de 24 horas para evitar cobros dobles en red.
+- **Garantía de Idempotencia Durable (Redis + PostgreSQL)**: Uso del encabezado HTTP `X-Idempotency-Key` verificado en Redis (`ioredis`) para respuesta ultrarrápida y respaldado en la tabla PostgreSQL `idempotency_records` con TTL de 24 horas para evitar cobros dobles en red.
 - **Transactional Outbox & Event-Driven Architecture**:
   - Los eventos de transferencias completadas se registran en la tabla `outbox_events` de forma atómica con la transferencia.
   - `OutboxPublisherService` publica asincrónicamente el evento `TRANSFER_COMPLETED` a Apache Kafka (`kafka:29092`) garantizando entrega *at-least-once*.
-- **Base de Datos Dedicada**: Persistencia en MySQL (`transactiondb.transactions`, `transactiondb.money_requests`, `transactiondb.outbox_events`, `transactiondb.idempotency_records`) gestionada con Prisma ORM 7 (`@prisma/adapter-mariadb`).
+- **Base de Datos Dedicada**: Persistencia en PostgreSQL (`transactiondb.transactions`, `transactiondb.money_requests`, `transactiondb.outbox_events`, `transactiondb.idempotency_records`) gestionada con Prisma ORM 7 (`@prisma/adapter-pg`).
 - **Documentación OpenAPI / Swagger UI**: Disponible en vivo en `/transactions/docs` y `/api-docs`.
 - **Observabilidad SigNoz & OpenTelemetry**:
   - **Trazas OTLP**: Rastreabilidad distribuida de transacciones cruzando llamados HTTP REST, tRPC y publicación en Kafka.
@@ -26,7 +26,7 @@ Microservicio de Procesamiento de Transferencias, Solicitudes de Dinero e Idempo
 ```text
 backend-nestjs/transaction-service/
 ├── prisma/
-│   └── schema.prisma             # Esquema Prisma ORM (Base de datos MySQL transactiondb)
+│   └── schema.prisma             # Esquema Prisma ORM (Base de datos PostgreSQL transactiondb)
 ├── src/
 │   ├── adapters/                 # Adaptadores Hexagonales (Interface Adapters)
 │   │   ├── inbound/              # Adaptadores de Entrada (Driving / Primary)
@@ -64,7 +64,7 @@ backend-nestjs/transaction-service/
 
 - **Node.js**: `>= 20.x`
 - **pnpm**: `>= 9.x`
-- **MySQL**: `8.x` (Base de datos `transactiondb`)
+- **PostgreSQL**: `>= 15.x` (Base de datos `transactiondb`)
 - **Redis**: `7.x` (Servidor de caché e idempotencia)
 - **Apache Kafka**: `3.x` (Broker de mensajería)
 - **User Service (NestJS)**: Ejecutándose en puerto `8082`.
@@ -79,8 +79,8 @@ Crea un archivo `.env` en la raíz de `backend-nestjs/transaction-service`:
 PORT=3003
 NODE_ENV=development
 
-# Base de Datos MySQL
-DATABASE_URL="mysql://root:12345@localhost:3306/transactiondb"
+# Base de Datos PostgreSQL
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/transactiondb"
 
 # Redis Cache (Idempotencia)
 REDIS_HOST="localhost"

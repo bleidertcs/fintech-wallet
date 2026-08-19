@@ -13,8 +13,8 @@ backend-nestjs/worker-service/
 │   │   ├── inbound/               # Adaptadores de entrada (Trigger / Drivers)
 │   │   │   ├── kafka/             # Kafka Worker Consumer & DLQ Producer
 │   │   │   └── rest/              # REST Controllers (HealthController & WorkerController)
-│   │   └── outbound/              # Adaptadores de salida (Driven / External)
-│   │       ├── database/          # Prisma ORM & Repositorios MySQL (workerdb)
+│   │   └── outbound/              # Adaptadores de salida (Driven / Secondary)
+│   │       ├── database/          # Prisma ORM & Repositorios PostgreSQL (workerdb)
 │   │       ├── pdf/               # Generador de Extractos Bancarios en PDF (PDFKit)
 │   │       └── telemetry/         # OpenTelemetry Tracer Provider (OTLP)
 │   ├── application/               # Casos de Uso y Servicios de Aplicación
@@ -34,7 +34,7 @@ backend-nestjs/worker-service/
 1. **Generación de Extractos PDF**: Utiliza `PDFKit` para la generación asíncrona de estados de cuenta con firma institucional y detalle transaccional.
 2. **Event-Driven & Kafka DLQ**: Consume el tópico `transfer_completed`. En caso de falla en el procesamiento de auditoría o extractos, redirige el mensaje a `transfer-events-dlq` para reintentos y auditoría.
 3. **Observabilidad SigNoz & OpenTelemetry**: Traza cada ejecución con `OTLPExporter` enviando spans y logs enriquecidos con `trace_id`, `span_id` y atributos K8s (`k8s.pod.name`, `k8s.namespace.name`).
-4. **Persistencia aislada (Database-per-Service)**: Base de datos MySQL independiente (`workerdb`) para `statement_jobs` y `audit_logs`.
+4. **Persistencia aislada (Database-per-Service)**: Base de datos PostgreSQL independiente (`workerdb`) para `statement_jobs` y `audit_logs`.
 5. **Documentación OpenAPI / Swagger**: Disponible en `/worker/docs` y `/api-docs`.
 
 ---
@@ -48,7 +48,7 @@ pnpm install
 # Generar cliente de Prisma
 pnpm exec prisma generate
 
-# Aplicar esquema a la base de datos MySQL (workerdb)
+# Aplicar esquema a la base de datos PostgreSQL (workerdb)
 pnpm exec prisma db push
 
 # Ejecutar en modo desarrollo

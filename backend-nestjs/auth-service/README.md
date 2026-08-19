@@ -27,7 +27,7 @@ Microservicio de Autenticación, Gestión de Identidades y Seguridad 2FA del sis
 ```text
 backend-nestjs/auth-service/
 ├── prisma/
-│   └── schema.prisma             # Esquema Prisma ORM (Base de datos MySQL authdb)
+│   └── schema.prisma             # Esquema Prisma ORM (Base de datos PostgreSQL authdb)
 ├── src/
 │   ├── adapters/                 # Adaptadores Hexagonales (Interface Adapters)
 │   │   ├── inbound/              # Adaptadores de Entrada (Driving / Primary)
@@ -65,7 +65,7 @@ backend-nestjs/auth-service/
 
 - **Node.js**: `>= 20.x`
 - **pnpm**: `>= 9.x`
-- **MySQL**: `8.x` (Base de datos `authdb`)
+- **PostgreSQL**: `>= 15.x` (Base de datos `authdb`)
 - **Redis**: `>= 7.x` (Puerto `6379`)
 - **Mailpit**: Servidor SMTP de desarrollo (Puerto `1025`)
 
@@ -79,8 +79,8 @@ Crea un archivo `.env` en la raíz de `backend-nestjs/auth-service`:
 PORT=3001
 NODE_ENV=development
 
-# Base de Datos MySQL
-DATABASE_URL="mysql://root:12345@localhost:3306/authdb"
+# Base de Datos PostgreSQL
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/authdb"
 
 # Cache & Revocación JWT (Redis)
 REDIS_HOST="localhost"
@@ -113,7 +113,7 @@ pnpm install
 # 2. Generar el cliente de Prisma
 pnpm dlx prisma generate
 
-# 3. Aplicar esquemas y migraciones a la base de datos MySQL (authdb)
+# 3. Aplicar esquemas y migraciones a la base de datos PostgreSQL (authdb)
 pnpm dlx prisma db push
 ```
 

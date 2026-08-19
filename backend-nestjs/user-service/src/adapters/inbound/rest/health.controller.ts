@@ -14,7 +14,7 @@ export class HealthController {
   }
 
   @Get('ready')
-  @ApiOperation({ summary: 'Readiness probe (Verifica conectividad con MySQL Prisma)' })
+  @ApiOperation({ summary: 'Readiness probe (Verifica conectividad con PostgreSQL Prisma)' })
   async getReadiness() {
     try {
       await this.prisma.$queryRaw`SELECT 1`;

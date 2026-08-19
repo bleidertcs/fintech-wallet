@@ -6,10 +6,10 @@ Microservicio de Notificaciones y Alertas por Correo Electrónico del sistema **
 
 ## 🚀 Arquitectura y Características
 
-- **Arquitectura Hexagonal (Ports & Adapters)**: Separación estricta entre Dominio, Casos de Uso y Adaptadores de Entrada (REST API, Kafka Consumer) / Salida (Prisma MySQL, Nodemailer SMTP, tRPC Client).
+- **Arquitectura Hexagonal (Ports & Adapters)**: Separación estricta entre Dominio, Casos de Uso y Adaptadores de Entrada (REST API, Kafka Consumer) / Salida (Prisma PostgreSQL, Nodemailer SMTP, tRPC Client).
 - **Integración tRPC Inter-Service**: Cliente tRPC type-safe conectando a `user-service:8082/trpc` (`getUserById`, `getUserByEmail`) mediante `UserServiceTrpcAdapter` para obtener datos de contacto de emisor y receptor.
 - **Event-Driven Architecture con Kafka Consumer**: Consumidor Kafka (`kafkajs`) escuchando el tópico `transfer_completed`. Genera 2 notificaciones persistidas en BD (`TRANSFER_SENT` y `TRANSFER_RECEIVED`) y envía 2 correos electrónicos en HTML vía Nodemailer hacia Maildev (SMTP local).
-- **Base de Datos Dedicada**: Persistencia en MySQL (`notificationdb.notifications`) gestionada con Prisma ORM 7 (`@prisma/adapter-mariadb`).
+- **Base de Datos Dedicada**: Persistencia en PostgreSQL (`notificationdb.notifications`) gestionada con Prisma ORM 7 (`@prisma/adapter-pg`).
 - **Documentación OpenAPI / Swagger UI**: Disponible en vivo en `/notifications/docs` y `/api-docs`.
 - **Observabilidad SigNoz & OpenTelemetry**:
   - **Trazas OTLP**: Rastreabilidad distribuida conectada con la traza origen enviada desde `transaction-service`.
@@ -22,14 +22,14 @@ Microservicio de Notificaciones y Alertas por Correo Electrónico del sistema **
 ```text
 backend-nestjs/notification-service/
 ├── prisma/
-│   └── schema.prisma                     # Esquema Prisma ORM (Base de datos MySQL notificationdb)
+│   └── schema.prisma                     # Esquema Prisma ORM (Base de datos PostgreSQL notificationdb)
 ├── src/
 │   ├── adapters/                         # Adaptadores Hexagonales (Interface Adapters)
 │   │   ├── inbound/                      # Adaptadores de Entrada (Driving / Primary)
 │   │   │   ├── rest/                     # Controllers REST (NotificationController, HealthController)
 │   │   │   └── kafka/                    # Kafka Consumer (kafka-consumer.service.ts)
 │   │   └── outbound/                     # Adaptadores de Salida (Driven / Secondary)
-│   │       ├── database/                 # Repositorio Prisma MariaDB
+│   │       ├── database/                 # Repositorio Prisma PostgreSQL
 │   │       ├── email/                    # Nodemailer Adapter (Maildev SMTP)
 │   │       └── trpc/                     # Cliente tRPC hacia user-service
 │   ├── application/                      # Casos de Uso de Aplicación
@@ -56,8 +56,8 @@ backend-nestjs/notification-service/
 PORT=3004
 NODE_ENV=development
 
-# Base de Datos MySQL
-DATABASE_URL="mysql://root:12345@localhost:3306/notificationdb"
+# Base de Datos PostgreSQL
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/notificationdb"
 
 # Kafka Broker
 KAFKA_BROKERS="localhost:9092"
