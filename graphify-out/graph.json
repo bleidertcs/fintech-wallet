@@ -3409,8 +3409,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_opentelemetry_exporter_logs_otlp_http",
-      "community": 178,
-      "community_name": "compilerOptions",
+      "community": 57,
+      "community_name": "JwtUtil",
       "norm_label": "@opentelemetry/exporter-logs-otlp-http"
     },
     {
@@ -3420,8 +3420,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "opentelemetry_exporter_logs_otlp_http",
-      "community": 178,
-      "community_name": "compilerOptions",
+      "community": 57,
+      "community_name": "JwtUtil",
       "norm_label": "@opentelemetry/exporter-logs-otlp-http"
     },
     {
@@ -3761,8 +3761,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_ioredis",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 479,
+      "community_name": "nodemailer",
       "norm_label": "ioredis"
     },
     {
@@ -3772,8 +3772,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_ioredis",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 479,
+      "community_name": "nodemailer",
       "norm_label": "ioredis"
     },
     {
@@ -4410,8 +4410,8 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_devdependencies_eslint_config_prettier",
-      "community": 151,
-      "community_name": "AuthResponse",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "eslint-config-prettier"
     },
     {
@@ -4421,8 +4421,8 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_eslint_config_prettier",
-      "community": 151,
-      "community_name": "AuthResponse",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "eslint-config-prettier"
     },
     {
@@ -4432,8 +4432,8 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_devdependencies_eslint_plugin_prettier",
-      "community": 349,
-      "community_name": "@types/bcrypt",
+      "community": 505,
+      "community_name": "react-hot-toast",
       "norm_label": "eslint-plugin-prettier"
     },
     {
@@ -4443,8 +4443,8 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_eslint_plugin_prettier",
-      "community": 349,
-      "community_name": "@types/bcrypt",
+      "community": 505,
+      "community_name": "react-hot-toast",
       "norm_label": "eslint-plugin-prettier"
     },
     {
@@ -4949,8 +4949,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": "authcontroller"
     },
     {
@@ -4960,8 +4960,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_apitags",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": "apitags"
     },
     {
@@ -4971,8 +4971,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_controller",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": "controller"
     },
     {
@@ -4993,8 +4993,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_get",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": "get"
     },
     {
@@ -5004,8 +5004,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_apioperation",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": "apioperation"
     },
     {
@@ -5015,8 +5015,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_post",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": "post"
     },
     {
@@ -5026,8 +5026,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_body",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": "body"
     },
     {
@@ -5037,8 +5037,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_httpcode",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": "httpcode"
     },
     {
@@ -5048,8 +5048,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_query",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": "query"
     },
     {
@@ -5059,8 +5059,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_put",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": "put"
     },
     {
@@ -5081,8 +5081,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_gethealth",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": ".gethealth()"
     },
     {
@@ -5092,8 +5092,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_register",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": ".register()"
     },
     {
@@ -5103,8 +5103,8 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_login",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": ".login()"
     },
     {
@@ -5114,8 +5114,8 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_verifytotp",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": ".verifytotp()"
     },
     {
@@ -5125,8 +5125,8 @@
       "source_location": "L99",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_verifyemail",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": ".verifyemail()"
     },
     {
@@ -5136,8 +5136,8 @@
       "source_location": "L108",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_setuptotp",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": ".setuptotp()"
     },
     {
@@ -5147,8 +5147,8 @@
       "source_location": "L121",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_enabletotp",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": ".enabletotp()"
     },
     {
@@ -5158,8 +5158,8 @@
       "source_location": "L130",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_disabletotp",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": ".disabletotp()"
     },
     {
@@ -5169,8 +5169,8 @@
       "source_location": "L139",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_getme",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": ".getme()"
     },
     {
@@ -5180,8 +5180,8 @@
       "source_location": "L154",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_resendverification",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": ".resendverification()"
     },
     {
@@ -5191,8 +5191,8 @@
       "source_location": "L161",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_changepassword",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": ".changepassword()"
     },
     {
@@ -5202,8 +5202,8 @@
       "source_location": "L168",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_promoteadmin",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": ".promoteadmin()"
     },
     {
@@ -5224,8 +5224,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_auth_response_dto_authresponsedto",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": "authresponsedto"
     },
     {
@@ -5235,8 +5235,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_auth_response_dto_ts_apiproperty",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 91,
+      "community_name": ".verifyTotp",
       "norm_label": "apiproperty"
     },
     {
@@ -5653,8 +5653,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard_jwtauthguard",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "jwtauthguard"
     },
     {
@@ -5664,8 +5664,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard_ts_injectable",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "injectable"
     },
     {
@@ -5675,8 +5675,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard_ts_inject",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "inject"
     },
     {
@@ -5686,8 +5686,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard_jwtauthguard_constructor",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".constructor()"
     },
     {
@@ -5697,8 +5697,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard_jwtauthguard_canactivate",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".canactivate()"
     },
     {
@@ -6280,8 +6280,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_outbound_redis_redis_token_blacklist_adapter_ts_inject",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "inject"
     },
     {
@@ -6291,8 +6291,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_outbound_redis_redis_token_blacklist_adapter_redistokenblacklistadapter_constructor",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": ".constructor()"
     },
     {
@@ -6918,8 +6918,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_entities_user_entity_user_password",
-      "community": 3,
-      "community_name": "App.jsx",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".password()"
     },
     {
@@ -7369,8 +7369,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "token.service.port.ts"
     },
     {
@@ -7391,8 +7391,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port_tokenpayload",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "tokenpayload"
     },
     {
@@ -7402,8 +7402,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port_tokenserviceport",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "tokenserviceport"
     },
     {
@@ -7413,8 +7413,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port_tokenserviceport_generatetoken",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".generatetoken()"
     },
     {
@@ -7424,8 +7424,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port_tokenserviceport_verifytoken",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".verifytoken()"
     },
     {
@@ -7655,8 +7655,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation",
-      "community": 121,
-      "community_name": "api-gateway:api-gateway",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "env.validation.ts"
     },
     {
@@ -7666,8 +7666,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation_environment",
-      "community": 121,
-      "community_name": "api-gateway:api-gateway",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "environment"
     },
     {
@@ -7677,8 +7677,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation_environmentvariables",
-      "community": 121,
-      "community_name": "api-gateway:api-gateway",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "environmentvariables"
     },
     {
@@ -7688,8 +7688,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "isenum",
-      "community": 121,
-      "community_name": "api-gateway:api-gateway",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "isenum"
     },
     {
@@ -7699,8 +7699,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation_ts_isoptional",
-      "community": 121,
-      "community_name": "api-gateway:api-gateway",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "isoptional"
     },
     {
@@ -7710,8 +7710,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation_ts_isnumber",
-      "community": 121,
-      "community_name": "api-gateway:api-gateway",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "isnumber"
     },
     {
@@ -7721,8 +7721,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation_ts_isstring",
-      "community": 121,
-      "community_name": "api-gateway:api-gateway",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "isstring"
     },
     {
@@ -7732,8 +7732,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation_validateenv",
-      "community": 121,
-      "community_name": "api-gateway:api-gateway",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "validateenv()"
     },
     {
@@ -7743,8 +7743,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_index",
-      "community": 121,
-      "community_name": "api-gateway:api-gateway",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "index.ts"
     },
     {
@@ -7754,8 +7754,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_index",
-      "community": 121,
-      "community_name": "api-gateway:api-gateway",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "index.ts"
     },
     {
@@ -7765,8 +7765,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_index",
-      "community": 121,
-      "community_name": "api-gateway:api-gateway",
+      "community": 151,
+      "community_name": "AuthResponse",
       "norm_label": "index.ts"
     },
     {
@@ -7776,8 +7776,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "jwt.util.ts"
     },
     {
@@ -7787,8 +7787,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_jwtutil",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "jwtutil"
     },
     {
@@ -7798,8 +7798,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_ts_injectable",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "injectable"
     },
     {
@@ -7809,8 +7809,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_ts_inject",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "inject"
     },
     {
@@ -7820,8 +7820,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_jwtutil_constructor",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".constructor()"
     },
     {
@@ -7831,8 +7831,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_jwtutil_generatetoken",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".generatetoken()"
     },
     {
@@ -7842,8 +7842,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_jwtutil_verifytoken",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".verifytoken()"
     },
     {
@@ -7853,8 +7853,8 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_jwtutil_getemailfromtoken",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": ".getemailfromtoken()"
     },
     {
@@ -10460,8 +10460,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_adapters_inbound_rest_notification_controller_notificationcontroller",
-      "community": 331,
-      "community_name": "@opentelemetry/resources",
+      "community": 333,
+      "community_name": "@opentelemetry/sdk-metrics",
       "norm_label": "notificationcontroller"
     },
     {
@@ -10471,8 +10471,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_adapters_inbound_rest_notification_controller_ts_apitags",
-      "community": 331,
-      "community_name": "@opentelemetry/resources",
+      "community": 333,
+      "community_name": "@opentelemetry/sdk-metrics",
       "norm_label": "apitags"
     },
     {
@@ -10482,8 +10482,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_adapters_inbound_rest_notification_controller_ts_controller",
-      "community": 331,
-      "community_name": "@opentelemetry/resources",
+      "community": 333,
+      "community_name": "@opentelemetry/sdk-metrics",
       "norm_label": "controller"
     },
     {
@@ -10493,8 +10493,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_adapters_inbound_rest_notification_controller_ts_inject",
-      "community": 331,
-      "community_name": "@opentelemetry/resources",
+      "community": 333,
+      "community_name": "@opentelemetry/sdk-metrics",
       "norm_label": "inject"
     },
     {
@@ -10559,8 +10559,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_adapters_inbound_rest_notification_controller_notificationcontroller_constructor",
-      "community": 331,
-      "community_name": "@opentelemetry/resources",
+      "community": 333,
+      "community_name": "@opentelemetry/sdk-metrics",
       "norm_label": ".constructor()"
     },
     {
@@ -10837,127 +10837,6 @@
       "community": 339,
       "community_name": "@eslint/eslintrc",
       "norm_label": ".sendemail()"
-    },
-    {
-      "label": "user-grpc-client.module.ts",
-      "file_type": "code",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-grpc-client.module.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_grpc_client_module",
-      "community": 323,
-      "community_name": "@nestjs/common",
-      "norm_label": "user-grpc-client.module.ts"
-    },
-    {
-      "label": "UserGrpcClientModule",
-      "file_type": "code",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-grpc-client.module.ts",
-      "source_location": "L14",
-      "_origin": "ast",
-      "id": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_grpc_client_module_usergrpcclientmodule",
-      "community": 323,
-      "community_name": "@nestjs/common",
-      "norm_label": "usergrpcclientmodule"
-    },
-    {
-      "label": "Module",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_grpc_client_module_ts_module",
-      "community": 323,
-      "community_name": "@nestjs/common",
-      "norm_label": "module"
-    },
-    {
-      "label": "user-service.grpc-adapter.ts",
-      "file_type": "code",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-service.grpc-adapter.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter",
-      "community": 323,
-      "community_name": "@nestjs/common",
-      "norm_label": "user-service.grpc-adapter.ts"
-    },
-    {
-      "label": "UserServiceGrpcClient",
-      "file_type": "code",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-service.grpc-adapter.ts",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter_userservicegrpcclient",
-      "community": 323,
-      "community_name": "@nestjs/common",
-      "norm_label": "userservicegrpcclient"
-    },
-    {
-      "label": ".getUser()",
-      "file_type": "code",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-service.grpc-adapter.ts",
-      "source_location": "L11",
-      "_origin": "ast",
-      "id": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter_userservicegrpcclient_getuser",
-      "community": 323,
-      "community_name": "@nestjs/common",
-      "norm_label": ".getuser()"
-    },
-    {
-      "label": "UserServiceGrpcAdapter",
-      "file_type": "code",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-service.grpc-adapter.ts",
-      "source_location": "L15",
-      "_origin": "ast",
-      "id": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter_userservicegrpcadapter",
-      "community": 323,
-      "community_name": "@nestjs/common",
-      "norm_label": "userservicegrpcadapter"
-    },
-    {
-      "label": "Injectable",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter_ts_injectable",
-      "community": 323,
-      "community_name": "@nestjs/common",
-      "norm_label": "injectable"
-    },
-    {
-      "label": "Client",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "client",
-      "community": 323,
-      "community_name": "@nestjs/common",
-      "norm_label": "client"
-    },
-    {
-      "label": ".onModuleInit()",
-      "file_type": "code",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-service.grpc-adapter.ts",
-      "source_location": "L30",
-      "_origin": "ast",
-      "id": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter_userservicegrpcadapter_onmoduleinit",
-      "community": 323,
-      "community_name": "@nestjs/common",
-      "norm_label": ".onmoduleinit()"
-    },
-    {
-      "label": ".getUserProfile()",
-      "file_type": "code",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-service.grpc-adapter.ts",
-      "source_location": "L34",
-      "_origin": "ast",
-      "id": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter_userservicegrpcadapter_getuserprofile",
-      "community": 323,
-      "community_name": "@nestjs/common",
-      "norm_label": ".getuserprofile()"
     },
     {
       "label": "user-service.trpc-adapter.ts",
@@ -11241,8 +11120,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_application_use_cases_notification_use_cases_spec",
-      "community": 339,
-      "community_name": "@eslint/eslintrc",
+      "community": 323,
+      "community_name": "@nestjs/common",
       "norm_label": "notification.use-cases.spec.ts"
     },
     {
@@ -11252,8 +11131,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_application_use_cases_notification_use_cases",
-      "community": 333,
-      "community_name": "@opentelemetry/sdk-metrics",
+      "community": 323,
+      "community_name": "@nestjs/common",
       "norm_label": "notification.use-cases.ts"
     },
     {
@@ -11307,8 +11186,8 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_application_use_cases_notification_use_cases_notificationusecases_processtransfernotification",
-      "community": 354,
-      "community_name": "NotificationUseCases",
+      "community": 333,
+      "community_name": "@opentelemetry/sdk-metrics",
       "norm_label": ".processtransfernotification()"
     },
     {
@@ -11450,8 +11329,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_domain_ports_inbound_notification_service_port_notificationserviceport_getusernotifications",
-      "community": 235,
-      "community_name": "EnvironmentVariables",
+      "community": 333,
+      "community_name": "@opentelemetry/sdk-metrics",
       "norm_label": ".getusernotifications()"
     },
     {
@@ -11461,8 +11340,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_domain_ports_inbound_notification_service_port_notificationserviceport_markasread",
-      "community": 235,
-      "community_name": "EnvironmentVariables",
+      "community": 333,
+      "community_name": "@opentelemetry/sdk-metrics",
       "norm_label": ".markasread()"
     },
     {
@@ -13309,8 +13188,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_devdependencies_nestjs_testing",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 506,
+      "community_name": "@opentelemetry/exporter-metrics-otlp-http",
       "norm_label": "@nestjs/testing"
     },
     {
@@ -13320,8 +13199,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_nestjs_testing",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 506,
+      "community_name": "@opentelemetry/exporter-metrics-otlp-http",
       "norm_label": "@nestjs/testing"
     },
     {
@@ -13485,8 +13364,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_devdependencies_eslint",
-      "community": 479,
-      "community_name": "nodemailer",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": "eslint"
     },
     {
@@ -13496,8 +13375,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_eslint",
-      "community": 479,
-      "community_name": "nodemailer",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": "eslint"
     },
     {
@@ -17313,8 +17192,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_nestjs_core",
-      "community": 581,
-      "community_name": "@nestjs/core",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@nestjs/core"
     },
     {
@@ -17324,8 +17203,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_core",
-      "community": 581,
-      "community_name": "@nestjs/core",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@nestjs/core"
     },
     {
@@ -17335,8 +17214,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_nestjs_microservices",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 517,
+      "community_name": "@prisma/client",
       "norm_label": "@nestjs/microservices"
     },
     {
@@ -17346,8 +17225,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_microservices",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 517,
+      "community_name": "@prisma/client",
       "norm_label": "@nestjs/microservices"
     },
     {
@@ -20756,8 +20635,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_nestjs_common",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 548,
+      "community_name": "zod",
       "norm_label": "@nestjs/common"
     },
     {
@@ -20767,8 +20646,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nestjs_common",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 548,
+      "community_name": "zod",
       "norm_label": "@nestjs/common"
     },
     {
@@ -20778,8 +20657,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_nestjs_config",
-      "community": 506,
-      "community_name": "@opentelemetry/exporter-metrics-otlp-http",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@nestjs/config"
     },
     {
@@ -20789,8 +20668,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nestjs_config",
-      "community": 506,
-      "community_name": "@opentelemetry/exporter-metrics-otlp-http",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@nestjs/config"
     },
     {
@@ -20800,8 +20679,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_nestjs_core",
-      "community": 517,
-      "community_name": "@prisma/client",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@nestjs/core"
     },
     {
@@ -20811,8 +20690,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nestjs_core",
-      "community": 517,
-      "community_name": "@prisma/client",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@nestjs/core"
     },
     {
@@ -20844,8 +20723,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_nestjs_platform_express",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 581,
+      "community_name": "@nestjs/core",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -20855,8 +20734,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nestjs_platform_express",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 581,
+      "community_name": "@nestjs/core",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -20932,8 +20811,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_opentelemetry_auto_instrumentations_node",
-      "community": 548,
-      "community_name": "zod",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@opentelemetry/auto-instrumentations-node"
     },
     {
@@ -20943,8 +20822,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_opentelemetry_auto_instrumentations_node",
-      "community": 548,
-      "community_name": "zod",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@opentelemetry/auto-instrumentations-node"
     },
     {
@@ -20954,8 +20833,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_opentelemetry_exporter_metrics_otlp_http",
-      "community": 583,
-      "community_name": "@opentelemetry/exporter-metrics-otlp-http",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@opentelemetry/exporter-metrics-otlp-http"
     },
     {
@@ -20965,8 +20844,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_opentelemetry_exporter_metrics_otlp_http",
-      "community": 583,
-      "community_name": "@opentelemetry/exporter-metrics-otlp-http",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@opentelemetry/exporter-metrics-otlp-http"
     },
     {
@@ -21174,8 +21053,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_prisma_client",
-      "community": 605,
-      "community_name": "Table Schemas",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@prisma/client"
     },
     {
@@ -21185,8 +21064,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_prisma_client",
-      "community": 605,
-      "community_name": "Table Schemas",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@prisma/client"
     },
     {
@@ -21218,8 +21097,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_class_validator",
-      "community": 505,
-      "community_name": "react-hot-toast",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "class-validator"
     },
     {
@@ -21229,8 +21108,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_class_validator",
-      "community": 505,
-      "community_name": "react-hot-toast",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "class-validator"
     },
     {
@@ -21284,8 +21163,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_pdfkit",
-      "community": 602,
-      "community_name": "nest-winston",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "pdfkit"
     },
     {
@@ -21295,8 +21174,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "pdfkit",
-      "community": 602,
-      "community_name": "nest-winston",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "pdfkit"
     },
     {
@@ -21350,8 +21229,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_rxjs",
-      "community": 636,
-      "community_name": "globals",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "rxjs"
     },
     {
@@ -21361,8 +21240,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_rxjs",
-      "community": 636,
-      "community_name": "globals",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "rxjs"
     },
     {
@@ -21405,8 +21284,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_eslint_eslintrc",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 598,
+      "community_name": "@eslint/eslintrc",
       "norm_label": "@eslint/eslintrc"
     },
     {
@@ -21416,8 +21295,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_eslint_eslintrc",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 598,
+      "community_name": "@eslint/eslintrc",
       "norm_label": "@eslint/eslintrc"
     },
     {
@@ -21427,8 +21306,8 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_eslint_js",
-      "community": 340,
-      "community_name": "eslint-plugin-prettier",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "@eslint/js"
     },
     {
@@ -21438,8 +21317,8 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_eslint_js",
-      "community": 340,
-      "community_name": "eslint-plugin-prettier",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "@eslint/js"
     },
     {
@@ -21581,8 +21460,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_types_jest",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 631,
+      "community_name": "@types/jest",
       "norm_label": "@types/jest"
     },
     {
@@ -21592,8 +21471,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_types_jest",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 631,
+      "community_name": "@types/jest",
       "norm_label": "@types/jest"
     },
     {
@@ -21691,8 +21570,8 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_eslint",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 583,
+      "community_name": "@opentelemetry/exporter-metrics-otlp-http",
       "norm_label": "eslint"
     },
     {
@@ -21702,8 +21581,8 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_eslint",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 583,
+      "community_name": "@opentelemetry/exporter-metrics-otlp-http",
       "norm_label": "eslint"
     },
     {
@@ -21713,8 +21592,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_eslint_config_prettier",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 585,
+      "community_name": "eslint-config-prettier",
       "norm_label": "eslint-config-prettier"
     },
     {
@@ -21724,8 +21603,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_eslint_config_prettier",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 585,
+      "community_name": "eslint-config-prettier",
       "norm_label": "eslint-config-prettier"
     },
     {
@@ -21823,8 +21702,8 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_prisma",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 602,
+      "community_name": "nest-winston",
       "norm_label": "prisma"
     },
     {
@@ -21834,8 +21713,8 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_prisma",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 602,
+      "community_name": "nest-winston",
       "norm_label": "prisma"
     },
     {
@@ -21845,8 +21724,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_source_map_support",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 603,
+      "community_name": "source-map-support",
       "norm_label": "source-map-support"
     },
     {
@@ -21856,8 +21735,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_source_map_support",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 603,
+      "community_name": "source-map-support",
       "norm_label": "source-map-support"
     },
     {
@@ -21911,8 +21790,8 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_ts_loader",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 605,
+      "community_name": "Table Schemas",
       "norm_label": "ts-loader"
     },
     {
@@ -21922,8 +21801,8 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_ts_loader",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 605,
+      "community_name": "Table Schemas",
       "norm_label": "ts-loader"
     },
     {
@@ -45015,8 +44894,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_skill",
-      "community": 392,
-      "community_name": "prisma",
+      "community": 7,
+      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
       "norm_label": "skill.md"
     },
     {
@@ -45147,8 +45026,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_logs_reference",
-      "community": 392,
-      "community_name": "prisma",
+      "community": 7,
+      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
       "norm_label": "clickhouse-logs-reference.md"
     },
     {
@@ -45510,8 +45389,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_traces_reference",
-      "community": 392,
-      "community_name": "prisma",
+      "community": 7,
+      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
       "norm_label": "clickhouse-traces-reference.md"
     },
     {
@@ -45543,8 +45422,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_traces_reference_table_schemas",
-      "community": 7,
-      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
+      "community": 392,
+      "community_name": "prisma",
       "norm_label": "table schemas"
     },
     {
@@ -45554,8 +45433,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_traces_reference_distributed_signoz_index_v3_primary_spans_table",
-      "community": 7,
-      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
+      "community": 392,
+      "community_name": "prisma",
       "norm_label": "distributed_signoz_index_v3 (primary spans table)"
     },
     {
@@ -45565,8 +45444,8 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_traces_reference_distributed_traces_v3_resource_resource_lookup_table",
-      "community": 7,
-      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
+      "community": 392,
+      "community_name": "prisma",
       "norm_label": "distributed_traces_v3_resource (resource lookup table)"
     },
     {
@@ -45576,8 +45455,8 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_traces_reference_distributed_signoz_error_index_v2_error_events",
-      "community": 7,
-      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
+      "community": 392,
+      "community_name": "prisma",
       "norm_label": "distributed_signoz_error_index_v2 (error events)"
     },
     {
@@ -53397,8 +53276,8 @@
       "source_location": "L148",
       "_origin": "ast",
       "id": "docs_services_3_transaction_service_transaction_service",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 178,
+      "community_name": "compilerOptions",
       "norm_label": "3. transaction service (`transaction-service`)"
     },
     {
@@ -53408,8 +53287,8 @@
       "source_location": "L150",
       "_origin": "ast",
       "id": "docs_services_3_1_prop\u00f3sito",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 178,
+      "community_name": "compilerOptions",
       "norm_label": "3.1. proposito"
     },
     {
@@ -53419,8 +53298,8 @@
       "source_location": "L153",
       "_origin": "ast",
       "id": "docs_services_3_2_responsabilidades",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 178,
+      "community_name": "compilerOptions",
       "norm_label": "3.2. responsabilidades"
     },
     {
@@ -53430,8 +53309,8 @@
       "source_location": "L167",
       "_origin": "ast",
       "id": "docs_services_3_3_arquitectura_interna",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 178,
+      "community_name": "compilerOptions",
       "norm_label": "3.3. arquitectura interna"
     },
     {
@@ -53441,8 +53320,8 @@
       "source_location": "L185",
       "_origin": "ast",
       "id": "docs_services_3_4_canales_de_entrada_y_salida",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 178,
+      "community_name": "compilerOptions",
       "norm_label": "3.4. canales de entrada y salida"
     },
     {
@@ -53452,8 +53331,8 @@
       "source_location": "L194",
       "_origin": "ast",
       "id": "docs_services_3_5_variables_de_configuraci\u00f3n",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 178,
+      "community_name": "compilerOptions",
       "norm_label": "3.5. variables de configuracion"
     },
     {
@@ -53463,8 +53342,8 @@
       "source_location": "L208",
       "_origin": "ast",
       "id": "docs_services_3_6_puertos_rutas_y_health_checks",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 178,
+      "community_name": "compilerOptions",
       "norm_label": "3.6. puertos, rutas y health checks"
     },
     {
@@ -53474,8 +53353,8 @@
       "source_location": "L220",
       "_origin": "ast",
       "id": "docs_services_4_notification_service_notification_service",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 340,
+      "community_name": "eslint-plugin-prettier",
       "norm_label": "4. notification service (`notification-service`)"
     },
     {
@@ -53485,8 +53364,8 @@
       "source_location": "L222",
       "_origin": "ast",
       "id": "docs_services_4_1_prop\u00f3sito",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 340,
+      "community_name": "eslint-plugin-prettier",
       "norm_label": "4.1. proposito"
     },
     {
@@ -53496,8 +53375,8 @@
       "source_location": "L225",
       "_origin": "ast",
       "id": "docs_services_4_2_responsabilidades",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 340,
+      "community_name": "eslint-plugin-prettier",
       "norm_label": "4.2. responsabilidades"
     },
     {
@@ -53507,8 +53386,8 @@
       "source_location": "L236",
       "_origin": "ast",
       "id": "docs_services_4_3_arquitectura_interna",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 340,
+      "community_name": "eslint-plugin-prettier",
       "norm_label": "4.3. arquitectura interna"
     },
     {
@@ -53518,8 +53397,8 @@
       "source_location": "L250",
       "_origin": "ast",
       "id": "docs_services_4_4_canales_de_entrada_y_salida",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 340,
+      "community_name": "eslint-plugin-prettier",
       "norm_label": "4.4. canales de entrada y salida"
     },
     {
@@ -53529,8 +53408,8 @@
       "source_location": "L259",
       "_origin": "ast",
       "id": "docs_services_4_5_variables_de_configuraci\u00f3n",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 340,
+      "community_name": "eslint-plugin-prettier",
       "norm_label": "4.5. variables de configuracion"
     },
     {
@@ -53540,8 +53419,8 @@
       "source_location": "L273",
       "_origin": "ast",
       "id": "docs_services_4_6_puertos_rutas_y_health_checks",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 340,
+      "community_name": "eslint-plugin-prettier",
       "norm_label": "4.6. puertos, rutas y health checks"
     },
     {
@@ -72272,228 +72151,6 @@
       "_origin": "ast",
       "source": "backend_nestjs_notification_service_src_adapters_outbound_email_nodemailer_adapter_nodemaileradapter",
       "target": "backend_nestjs_notification_service_src_domain_ports_outbound_email_adapter_port_emailadapterport",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-grpc-client.module.ts",
-      "source_location": "L14",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_grpc_client_module",
-      "target": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_grpc_client_module_usergrpcclientmodule",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-grpc-client.module.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_grpc_client_module",
-      "target": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-grpc-client.module.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_grpc_client_module",
-      "target": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter_userservicegrpcadapter",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-grpc-client.module.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_grpc_client_module",
-      "target": "backend_nestjs_notification_service_src_domain_ports_outbound_user_service_client_port",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-grpc-client.module.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_grpc_client_module",
-      "target": "backend_nestjs_notification_service_src_domain_ports_outbound_user_service_client_port_user_service_client_port",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-grpc-client.module.ts",
-      "source_location": "L5",
-      "weight": 1.0,
-      "context": "decorator",
-      "_origin": "ast",
-      "source": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_grpc_client_module_usergrpcclientmodule",
-      "target": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_grpc_client_module_ts_module",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-service.grpc-adapter.ts",
-      "source_location": "L15",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter",
-      "target": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter_userservicegrpcadapter",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-service.grpc-adapter.ts",
-      "source_location": "L10",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter",
-      "target": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter_userservicegrpcclient",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-service.grpc-adapter.ts",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter",
-      "target": "backend_nestjs_notification_service_src_domain_ports_outbound_user_service_client_port",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-service.grpc-adapter.ts",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter",
-      "target": "backend_nestjs_notification_service_src_domain_ports_outbound_user_service_client_port_userprofileresponse",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-service.grpc-adapter.ts",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter",
-      "target": "backend_nestjs_notification_service_src_domain_ports_outbound_user_service_client_port_userserviceclientport",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-service.grpc-adapter.ts",
-      "source_location": "L11",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter_userservicegrpcclient",
-      "target": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter_userservicegrpcclient_getuser",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "generic_arg",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-service.grpc-adapter.ts",
-      "source_location": "L11",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter_userservicegrpcclient_getuser",
-      "target": "backend_nestjs_notification_service_src_domain_ports_outbound_user_service_client_port_userprofileresponse",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-service.grpc-adapter.ts",
-      "source_location": "L14",
-      "weight": 1.0,
-      "context": "decorator",
-      "_origin": "ast",
-      "source": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter_userservicegrpcadapter",
-      "target": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter_ts_injectable",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-service.grpc-adapter.ts",
-      "source_location": "L34",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter_userservicegrpcadapter",
-      "target": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter_userservicegrpcadapter_getuserprofile",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-service.grpc-adapter.ts",
-      "source_location": "L30",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter_userservicegrpcadapter",
-      "target": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter_userservicegrpcadapter_onmoduleinit",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "implements",
-      "context": "type",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-service.grpc-adapter.ts",
-      "source_location": "L15",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter_userservicegrpcadapter",
-      "target": "backend_nestjs_notification_service_src_domain_ports_outbound_user_service_client_port_userserviceclientport",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-service.grpc-adapter.ts",
-      "source_location": "L18",
-      "weight": 1.0,
-      "context": "decorator",
-      "_origin": "ast",
-      "source": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter_userservicegrpcadapter",
-      "target": "client",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "generic_arg",
-      "confidence": "EXTRACTED",
-      "source_file": "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-service.grpc-adapter.ts",
-      "source_location": "L34",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_nestjs_notification_service_src_adapters_outbound_grpc_user_service_grpc_adapter_userservicegrpcadapter_getuserprofile",
-      "target": "backend_nestjs_notification_service_src_domain_ports_outbound_user_service_client_port_userprofileresponse",
       "confidence_score": 1.0
     },
     {
@@ -123524,5 +123181,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "3ca7ef4d4924835553e5d83732dda6c5d4d2ebce"
+  "built_at_commit": "ed940adbce218bf3a1227fd65dac928dc64a9b49"
 }

@@ -1874,16 +1874,6 @@
     "ast_hash": "9457802b8014de1adcda39b671ade99e",
     "semantic_hash": ""
   },
-  "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-grpc-client.module.ts": {
-    "mtime": 1786110089.5927403,
-    "ast_hash": "f7a1208bf89367df35c4de0989fe6d92",
-    "semantic_hash": ""
-  },
-  "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-service.grpc-adapter.ts": {
-    "mtime": 1786110055.8697057,
-    "ast_hash": "5ae402bc4321a15d07bd937f929a7956",
-    "semantic_hash": ""
-  },
   "backend-nestjs/notification-service/src/application/notification-application.module.ts": {
     "mtime": 1786558865.8634298,
     "ast_hash": "93677d661f4f1aba14c4903d7d066877",
