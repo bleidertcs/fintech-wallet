@@ -115,7 +115,7 @@ declare -A SERVICES=(
 for svc in frontend auth-service user-service transaction-service notification-service worker-service; do
     IFS="|" read -r img path cfile <<< "${SERVICES[$svc]}"
     log "  -> [Podman Build] ${svc} (${img})..." "33"
-    podman build -f "${cfile}" -t "${img}" "${path}"
+    podman build -f "${cfile}" -t "${img}" -t "docker.io/${img}" -t "localhost/${img}" "${path}"
 done
 log "Todas las imágenes fueron construidas exitosamente con Podman." "32"
 
@@ -127,20 +127,20 @@ for svc in frontend auth-service user-service transaction-service notification-s
     if [[ "${CLUSTER_TYPE}" == "kind" ]]; then
         log "  -> Cargando ${img} en Kind cluster '${CLUSTER_NAME}'..." "33"
         export KIND_EXPERIMENTAL_PROVIDER=podman
+        kind_args=()
         if [[ -n "${CLUSTER_NAME}" ]]; then
-            kind load docker-image "${img}" --name "${CLUSTER_NAME}" || {
-                temp_tar="/tmp/${svc}.tar"
-                podman save -o "${temp_tar}" "${img}"
-                kind load image-archive "${temp_tar}" --name "${CLUSTER_NAME}"
-                rm -f "${temp_tar}"
-            }
-        else
-            kind load docker-image "${img}" || {
-                temp_tar="/tmp/${svc}.tar"
-                podman save -o "${temp_tar}" "${img}"
-                kind load image-archive "${temp_tar}"
-                rm -f "${temp_tar}"
-            }
+            kind_args+=(--name "${CLUSTER_NAME}")
+        fi
+        
+        # Intentar cargar directamente con las diferentes variantes de nombres de Podman
+        if ! kind load docker-image "${img}" "${kind_args[@]}" 2>/dev/null && \
+           ! kind load docker-image "docker.io/${img}" "${kind_args[@]}" 2>/dev/null && \
+           ! kind load docker-image "localhost/${img}" "${kind_args[@]}" 2>/dev/null; then
+            log "  -> Intentando carga alternativa vía archivo tar temporal..." "33"
+            temp_tar="/tmp/${svc}.tar"
+            podman save -o "${temp_tar}" "${img}"
+            kind load image-archive "${temp_tar}" "${kind_args[@]}"
+            rm -f "${temp_tar}"
         fi
     elif [[ "${CLUSTER_TYPE}" == "minikube" ]]; then
         log "  -> Cargando ${img} en Minikube..." "33"

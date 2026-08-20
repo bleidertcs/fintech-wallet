@@ -103,10 +103,9 @@ $services = @(
 
 foreach ($s in $services) {
     Log-Msg "  -> [Podman Build] $($s.Name) ($($s.Image))..." Yellow
-    & $podmanCmd build -f $s.File -t $s.Image $s.Path
+    & $podmanCmd build -f $s.File -t $s.Image -t "docker.io/$($s.Image)" -t "localhost/$($s.Image)" $s.Path
     if ($LASTEXITCODE -ne 0) {
-        Log-Msg "ERROR: Falló la construcción de la imagen $($s.Name)" Red
-        try { Stop-Transcript -ErrorAction SilentlyContinue } catch {}
+        Log-Msg "ERROR CRÍTICO: Falló la construcción de $($s.Name)" Red
         exit 1
     }
 }
@@ -119,10 +118,14 @@ foreach ($s in $services) {
     if ($clusterType -eq "kind") {
         Log-Msg "  -> Cargando $($s.Image) en Kind cluster '$ClusterName'..." Yellow
         $env:KIND_EXPERIMENTAL_PROVIDER = "podman"
-        if ($ClusterName) {
-            kind load docker-image $s.Image --name $ClusterName
-        } else {
-            kind load docker-image $s.Image
+        $kindArgs = @("load", "docker-image")
+        if ($ClusterName) { $kindArgs += @($s.Image, "--name", $ClusterName) } else { $kindArgs += $s.Image }
+        
+        & kind @kindArgs 2>$null
+        if ($LASTEXITCODE -ne 0) {
+            $kindArgsDocker = @("load", "docker-image")
+            if ($ClusterName) { $kindArgsDocker += @("docker.io/$($s.Image)", "--name", $ClusterName) } else { $kindArgsDocker += "docker.io/$($s.Image)" }
+            & kind @kindArgsDocker 2>$null
         }
         if ($LASTEXITCODE -ne 0) {
             Log-Msg "Aviso: Falló 'kind load docker-image'. Intentando cargar mediante archivo tar..." Yellow
