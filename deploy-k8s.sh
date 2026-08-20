@@ -104,16 +104,16 @@ fi
 log "\n[3/5] Construyendo imágenes de contenedor con Podman..." "36"
 
 declare -A SERVICES=(
-    ["frontend"]="fintech/frontend:1.0.0:./frontend:./frontend/Containerfile"
-    ["auth-service"]="fintech/auth-service:1.0.0:./backend-nestjs/auth-service:./backend-nestjs/auth-service/Containerfile"
-    ["user-service"]="fintech/user-service:1.0.0:./backend-nestjs/user-service:./backend-nestjs/user-service/Containerfile"
-    ["transaction-service"]="fintech/transaction-service:1.0.0:./backend-nestjs/transaction-service:./backend-nestjs/transaction-service/Containerfile"
-    ["notification-service"]="fintech/notification-service:1.0.0:./backend-nestjs/notification-service:./backend-nestjs/notification-service/Containerfile"
-    ["worker-service"]="fintech/worker-service:1.0.0:./backend-nestjs/worker-service:./backend-nestjs/worker-service/Containerfile"
+    ["frontend"]="fintech/frontend:1.0.0|./frontend|./frontend/Containerfile"
+    ["auth-service"]="fintech/auth-service:1.0.0|./backend-nestjs/auth-service|./backend-nestjs/auth-service/Containerfile"
+    ["user-service"]="fintech/user-service:1.0.0|./backend-nestjs/user-service|./backend-nestjs/user-service/Containerfile"
+    ["transaction-service"]="fintech/transaction-service:1.0.0|./backend-nestjs/transaction-service|./backend-nestjs/transaction-service/Containerfile"
+    ["notification-service"]="fintech/notification-service:1.0.0|./backend-nestjs/notification-service|./backend-nestjs/notification-service/Containerfile"
+    ["worker-service"]="fintech/worker-service:1.0.0|./backend-nestjs/worker-service|./backend-nestjs/worker-service/Containerfile"
 )
 
 for svc in frontend auth-service user-service transaction-service notification-service worker-service; do
-    IFS=":" read -r img path cfile <<< "${SERVICES[$svc]}"
+    IFS="|" read -r img path cfile <<< "${SERVICES[$svc]}"
     log "  -> [Podman Build] ${svc} (${img})..." "33"
     podman build -f "${cfile}" -t "${img}" "${path}"
 done
@@ -123,7 +123,7 @@ log "Todas las imágenes fueron construidas exitosamente con Podman." "32"
 log "\n[4/5] Cargando imágenes en el clúster Kubernetes (${CLUSTER_TYPE})..." "36"
 
 for svc in frontend auth-service user-service transaction-service notification-service worker-service; do
-    IFS=":" read -r img path cfile <<< "${SERVICES[$svc]}"
+    IFS="|" read -r img path cfile <<< "${SERVICES[$svc]}"
     if [[ "${CLUSTER_TYPE}" == "kind" ]]; then
         log "  -> Cargando ${img} en Kind cluster '${CLUSTER_NAME}'..." "33"
         export KIND_EXPERIMENTAL_PROVIDER=podman
@@ -145,6 +145,10 @@ for svc in frontend auth-service user-service transaction-service notification-s
     elif [[ "${CLUSTER_TYPE}" == "minikube" ]]; then
         log "  -> Cargando ${img} en Minikube..." "33"
         minikube image load "${img}"
+    elif [[ "${CLUSTER_TYPE}" == "k3s" ]] || command -v k3s &>/dev/null; then
+        log "  -> Cargando ${img} en K3s (containerd)..." "33"
+        podman save "${img}" | sudo k3s ctr images import - || podman save "${img}" | k3s ctr images import -
+        sudo k3s ctr images tag "localhost/${img}" "docker.io/${img}" 2>/dev/null || k3s ctr images tag "localhost/${img}" "docker.io/${img}" 2>/dev/null || true
     else
         log "  -> Imagen ${img} lista en el almacenamiento local de Podman." "32"
     fi
@@ -161,6 +165,8 @@ kubectl apply -f k8s/04-observability.yaml
 kubectl apply -f k8s/05-ingress.yaml
 kubectl apply -f k8s/06-networkpolicy.yaml
 kubectl apply -f k8s/07-backup-cronjob.yaml
+kubectl apply -f k8s/09-hpa.yaml
+kubectl apply -f k8s/10-pdb.yaml
 
 log "\n======================================================================" "32"
 log "¡Despliegue completado! Estado actual de los Pods en namespace 'fintech':" "32"

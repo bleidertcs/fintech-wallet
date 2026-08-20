@@ -31,11 +31,11 @@ spec:
           image: postgres:16-alpine
           args:
             - "-c"
-            - "max_connections=150"
+            - "max_connections=300"
             - "-c"
-            - "shared_buffers=128MB"
+            - "shared_buffers=256MB"
             - "-c"
-            - "work_mem=8MB"
+            - "work_mem=16MB"
           ports:
             - containerPort: 5432
               name: postgres
@@ -146,11 +146,11 @@ spec:
             - name: POOL_MODE
               value: "transaction"
             - name: MAX_CLIENT_CONN
-              value: "1000"
+              value: "2000"
             - name: DEFAULT_POOL_SIZE
-              value: "25"
+              value: "50"
             - name: RESERVE_POOL_SIZE
-              value: "5"
+              value: "10"
             - name: ADMIN_USERS
               value: "postgres"
             - name: AUTH_TYPE

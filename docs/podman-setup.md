@@ -150,25 +150,47 @@ podman compose down
 
 ### Kind con Proveedor Podman
 
-Para usar **Kind** directamente sobre Podman en Windows (WSL2) o Linux:
+Para aprovisionar y operar un clúster de **Kind** utilizando **Podman** como motor de contenedores en Windows (WSL2) o Linux:
 
-1. Establece la variable de entorno:
-   ```powershell
-   # PowerShell
-   $env:KIND_EXPERIMENTAL_PROVIDER = "podman"
-   ```
-   ```bash
-   # Bash
-   export KIND_EXPERIMENTAL_PROVIDER=podman
-   ```
-2. Crea el clúster Kind:
-   ```bash
-   kind create cluster --name fintech-wallet --config infra/k8s/kind-config.yaml
-   ```
-3. Carga imágenes construidas localmente en el clúster:
-   ```bash
-   kind load docker-image fintech/auth-service:1.0.0 --name fintech-wallet
-   ```
+#### 1. Creación del Clúster Kind
+Es necesario indicarle a Kind que use el proveedor de Podman mediante la variable de entorno `KIND_EXPERIMENTAL_PROVIDER`:
+
+```bash
+# En Bash (Linux / macOS / WSL2)
+export KIND_EXPERIMENTAL_PROVIDER=podman
+kind create cluster --name fintech
+
+# En PowerShell (Windows)
+$env:KIND_EXPERIMENTAL_PROVIDER="podman"
+kind create cluster --name fintech
+```
+
+#### 2. Carga de Imágenes en el Clúster Kind
+Debido a que el clúster Kind corre en nodos aislados dentro de contenedores de Podman, las imágenes construidas en el host mediante `podman build` deben cargarse explícitamente en el clúster para que los Pods puedan ejecutarse.
+
+Existen dos estrategias para cargar las imágenes:
+
+##### Método A: Carga Directa con `kind load`
+```bash
+export KIND_EXPERIMENTAL_PROVIDER=podman
+kind load docker-image fintech/notification-service:1.0.0 --name fintech
+```
+
+##### Método B: Carga de Contingencia mediante Archivo `.tar` (Recomendado si falla el método directo)
+Si la integración directa de `kind load docker-image` presenta incompatibilidades con la versión de Podman o la máquina WSL2, se debe exportar la imagen a un archivo `.tar` e importarla como un `image-archive`:
+
+```bash
+# 1. Exportar la imagen creada con Podman a un archivo tar temporal
+podman save -o /tmp/notification-service.tar fintech/notification-service:1.0.0
+
+# 2. Cargar el archivo tar en el clúster Kind
+kind load image-archive /tmp/notification-service.tar --name fintech
+
+# 3. Eliminar el archivo tar temporal
+rm -f /tmp/notification-service.tar
+```
+
+*(Esta lógica de respaldo está implementada automáticamente en los scripts [`deploy-k8s.sh`](file:///c:/dev/DevOps/fintech-wallet/deploy-k8s.sh) y [`deploy-k8s.ps1`](file:///c:/dev/DevOps/fintech-wallet/deploy-k8s.ps1)).*
 
 ### Minikube con Driver Podman
 

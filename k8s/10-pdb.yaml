@@ -1,0 +1,81 @@
+# ==============================================================================
+# 10-PDB.YAML - POD DISRUPTION BUDGETS (PRESUPUESTO DE INTERRUPCIÓN DE PODS)
+# Asegura disponibilidad constante durante actualizaciones y mantenimiento
+# ==============================================================================
+
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: auth-service-pdb
+  namespace: fintech
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: auth-service
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: user-service-pdb
+  namespace: fintech
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: user-service
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: transaction-service-pdb
+  namespace: fintech
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: transaction-service
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: notification-service-pdb
+  namespace: fintech
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: notification-service
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: worker-service-pdb
+  namespace: fintech
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: worker-service
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: pgbouncer-core-pdb
+  namespace: fintech
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: pgbouncer-core
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: frontend-pdb
+  namespace: fintech
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: frontend

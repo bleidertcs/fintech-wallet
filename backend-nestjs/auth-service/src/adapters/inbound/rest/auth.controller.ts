@@ -5,11 +5,14 @@ import {
   Put,
   Body,
   Query,
+  Req,
+  Res,
   Inject,
   HttpCode,
   HttpStatus,
 } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
+import { Request, Response } from 'express';
 import {
   AUTH_SERVICE_PORT,
   AuthServicePort,
@@ -95,10 +98,27 @@ export class AuthController {
   }
 
   @Get('verify-email')
-  @ApiOperation({ summary: 'Verificación de cuenta por email' })
-  async verifyEmail(@Query('token') token: string) {
-    await this.authService.verifyEmail(token);
-    return { message: 'Email verified successfully' };
+  @ApiOperation({ summary: 'Verificación de cuenta por email con redirección' })
+  async verifyEmail(
+    @Query('token') token: string,
+    @Req() req: Request,
+    @Res() res: Response,
+  ) {
+    const frontendUrl = process.env.APP_FRONTEND_URL || 'http://localhost';
+    try {
+      await this.authService.verifyEmail(token);
+      const acceptsJson = req.headers['accept']?.includes('application/json');
+      if (acceptsJson) {
+        return res.status(HttpStatus.OK).json({ message: 'Email verified successfully', verified: true });
+      }
+      return res.redirect(`${frontendUrl}/verify?token=${token}&status=success`);
+    } catch (error: any) {
+      const acceptsJson = req.headers['accept']?.includes('application/json');
+      if (acceptsJson) {
+        return res.status(HttpStatus.BAD_REQUEST).json({ message: error?.message || 'Verification failed', verified: false });
+      }
+      return res.redirect(`${frontendUrl}/verify?token=${token}&status=error`);
+    }
   }
 
   @Post('setup-totp')

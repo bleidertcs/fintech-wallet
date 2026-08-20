@@ -138,6 +138,13 @@ foreach ($s in $services) {
     } elseif ($clusterType -eq "minikube") {
         Log-Msg "  -> Cargando $($s.Image) en Minikube..." Yellow
         minikube image load $s.Image
+    } elseif ($clusterType -eq "k3s") {
+        Log-Msg "  -> Cargando $($s.Image) en K3s (containerd WSL)..." Yellow
+        $tempTar = "$env:TEMP\$($s.Name).tar"
+        & $podmanCmd save -o $tempTar $s.Image
+        $wslPath = "/mnt/" + $tempTar[0].ToString().ToLower() + ($tempTar.Substring(2) -replace '\\', '/')
+        wsl -u root -d Ubuntu bash -c "k3s ctr images import '$wslPath' 2>/dev/null; k3s ctr images tag 'localhost/$($s.Image)' 'docker.io/$($s.Image)' 2>/dev/null"
+        Remove-Item -Force $tempTar -ErrorAction SilentlyContinue
     } else {
         Log-Msg "  -> Imagen $($s.Image) disponible en almacenamiento local de Podman." Green
     }
@@ -154,6 +161,8 @@ kubectl apply -f k8s/04-observability.yaml
 kubectl apply -f k8s/05-ingress.yaml
 kubectl apply -f k8s/06-networkpolicy.yaml
 kubectl apply -f k8s/07-backup-cronjob.yaml
+kubectl apply -f k8s/09-hpa.yaml
+kubectl apply -f k8s/10-pdb.yaml
 
 Log-Msg "`n======================================================================" Green
 Log-Msg "¡Despliegue completado! Estado actual de los Pods en namespace 'fintech':" Green

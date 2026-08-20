@@ -8843,8 +8843,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_dependencies_nestjs_config",
-      "community": 371,
-      "community_name": "@nestjs/config",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": "@nestjs/config"
     },
     {
@@ -8854,8 +8854,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_nestjs_config",
-      "community": 371,
-      "community_name": "@nestjs/config",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": "@nestjs/config"
     },
     {
@@ -9305,8 +9305,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_dependencies_class_transformer",
-      "community": 341,
-      "community_name": "globals",
+      "community": 371,
+      "community_name": "@nestjs/config",
       "norm_label": "class-transformer"
     },
     {
@@ -9316,8 +9316,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_class_transformer",
-      "community": 341,
-      "community_name": "globals",
+      "community": 371,
+      "community_name": "@nestjs/config",
       "norm_label": "class-transformer"
     },
     {
@@ -9690,8 +9690,8 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_devdependencies_types_node",
-      "community": 203,
-      "community_name": "scripts",
+      "community": 152,
+      "community_name": "swarm-init.sh",
       "norm_label": "@types/node"
     },
     {
@@ -9701,8 +9701,8 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_types_node",
-      "community": 203,
-      "community_name": "scripts",
+      "community": 152,
+      "community_name": "swarm-init.sh",
       "norm_label": "@types/node"
     },
     {
@@ -9800,8 +9800,8 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_devdependencies_eslint_config_prettier",
-      "community": 152,
-      "community_name": "swarm-init.sh",
+      "community": 391,
+      "community_name": "@nestjs/common",
       "norm_label": "eslint-config-prettier"
     },
     {
@@ -9811,8 +9811,8 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_eslint_config_prettier",
-      "community": 152,
-      "community_name": "swarm-init.sh",
+      "community": 391,
+      "community_name": "@nestjs/common",
       "norm_label": "eslint-config-prettier"
     },
     {
@@ -12913,8 +12913,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_dependencies_class_transformer",
-      "community": 122,
-      "community_name": "auth-service:auth-service",
+      "community": 396,
+      "community_name": "@opentelemetry/api",
       "norm_label": "class-transformer"
     },
     {
@@ -12924,8 +12924,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_class_transformer",
-      "community": 122,
-      "community_name": "auth-service:auth-service",
+      "community": 396,
+      "community_name": "@opentelemetry/api",
       "norm_label": "class-transformer"
     },
     {
@@ -12935,8 +12935,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_dependencies_class_validator",
-      "community": 351,
-      "community_name": "@types/jest",
+      "community": 122,
+      "community_name": "auth-service:auth-service",
       "norm_label": "class-validator"
     },
     {
@@ -12946,8 +12946,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_class_validator",
-      "community": 351,
-      "community_name": "@types/jest",
+      "community": 122,
+      "community_name": "auth-service:auth-service",
       "norm_label": "class-validator"
     },
     {
@@ -13232,8 +13232,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_devdependencies_swc_core",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 398,
+      "community_name": "@opentelemetry/exporter-metrics-otlp-http",
       "norm_label": "@swc/core"
     },
     {
@@ -13243,8 +13243,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_swc_core",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 398,
+      "community_name": "@opentelemetry/exporter-metrics-otlp-http",
       "norm_label": "@swc/core"
     },
     {
@@ -13364,8 +13364,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_devdependencies_eslint",
-      "community": 391,
-      "community_name": "@nestjs/common",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": "eslint"
     },
     {
@@ -13375,8 +13375,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_eslint",
-      "community": 391,
-      "community_name": "@nestjs/common",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": "eslint"
     },
     {
@@ -17148,8 +17148,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_nestjs_common",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 399,
+      "community_name": "@opentelemetry/exporter-trace-otlp-http",
       "norm_label": "@nestjs/common"
     },
     {
@@ -17159,8 +17159,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_common",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 399,
+      "community_name": "@opentelemetry/exporter-trace-otlp-http",
       "norm_label": "@nestjs/common"
     },
     {
@@ -17214,8 +17214,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_nestjs_microservices",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 402,
+      "community_name": "@opentelemetry/instrumentation-nestjs-core",
       "norm_label": "@nestjs/microservices"
     },
     {
@@ -17225,8 +17225,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_microservices",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 402,
+      "community_name": "@opentelemetry/instrumentation-nestjs-core",
       "norm_label": "@nestjs/microservices"
     },
     {
@@ -17302,8 +17302,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_opentelemetry_api",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 417,
+      "community_name": "axios",
       "norm_label": "@opentelemetry/api"
     },
     {
@@ -17313,8 +17313,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_opentelemetry_api",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 417,
+      "community_name": "axios",
       "norm_label": "@opentelemetry/api"
     },
     {
@@ -17346,8 +17346,8 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_opentelemetry_exporter_metrics_otlp_http",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 426,
+      "community_name": "typescript",
       "norm_label": "@opentelemetry/exporter-metrics-otlp-http"
     },
     {
@@ -17357,8 +17357,8 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_opentelemetry_exporter_metrics_otlp_http",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 426,
+      "community_name": "typescript",
       "norm_label": "@opentelemetry/exporter-metrics-otlp-http"
     },
     {
@@ -17368,8 +17368,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_opentelemetry_exporter_trace_otlp_http",
-      "community": 399,
-      "community_name": "@opentelemetry/exporter-trace-otlp-http",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@opentelemetry/exporter-trace-otlp-http"
     },
     {
@@ -17379,8 +17379,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_opentelemetry_exporter_trace_otlp_http",
-      "community": 399,
-      "community_name": "@opentelemetry/exporter-trace-otlp-http",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@opentelemetry/exporter-trace-otlp-http"
     },
     {
@@ -17390,8 +17390,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_opentelemetry_instrumentation_express",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 452,
+      "community_name": "@opentelemetry/api",
       "norm_label": "@opentelemetry/instrumentation-express"
     },
     {
@@ -17401,8 +17401,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_opentelemetry_instrumentation_express",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 452,
+      "community_name": "@opentelemetry/api",
       "norm_label": "@opentelemetry/instrumentation-express"
     },
     {
@@ -17412,8 +17412,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_opentelemetry_instrumentation_http",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 460,
+      "community_name": "source-map-support",
       "norm_label": "@opentelemetry/instrumentation-http"
     },
     {
@@ -17423,8 +17423,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_opentelemetry_instrumentation_http",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 460,
+      "community_name": "source-map-support",
       "norm_label": "@opentelemetry/instrumentation-http"
     },
     {
@@ -17434,8 +17434,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_opentelemetry_instrumentation_nestjs_core",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 463,
+      "community_name": "@opentelemetry/sdk-trace-base",
       "norm_label": "@opentelemetry/instrumentation-nestjs-core"
     },
     {
@@ -17445,8 +17445,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_opentelemetry_instrumentation_nestjs_core",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 463,
+      "community_name": "@opentelemetry/sdk-trace-base",
       "norm_label": "@opentelemetry/instrumentation-nestjs-core"
     },
     {
@@ -17522,8 +17522,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_opentelemetry_sdk_trace_base",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 465,
+      "community_name": "@prisma/adapter-pg",
       "norm_label": "@opentelemetry/sdk-trace-base"
     },
     {
@@ -17533,8 +17533,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_opentelemetry_sdk_trace_base",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 465,
+      "community_name": "@prisma/adapter-pg",
       "norm_label": "@opentelemetry/sdk-trace-base"
     },
     {
@@ -17588,8 +17588,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_prisma_adapter_pg",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 482,
+      "community_name": "@opentelemetry/exporter-metrics-otlp-http",
       "norm_label": "@prisma/adapter-pg"
     },
     {
@@ -17599,8 +17599,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_prisma_adapter_pg",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 482,
+      "community_name": "@opentelemetry/exporter-metrics-otlp-http",
       "norm_label": "@prisma/adapter-pg"
     },
     {
@@ -17632,8 +17632,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_trpc_server",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 490,
+      "community_name": "@trpc/server",
       "norm_label": "@trpc/server"
     },
     {
@@ -17643,8 +17643,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_trpc_server",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 490,
+      "community_name": "@trpc/server",
       "norm_label": "@trpc/server"
     },
     {
@@ -17742,8 +17742,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_reflect_metadata",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 484,
+      "community_name": "reflect-metadata",
       "norm_label": "reflect-metadata"
     },
     {
@@ -17753,8 +17753,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_reflect_metadata",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 484,
+      "community_name": "reflect-metadata",
       "norm_label": "reflect-metadata"
     },
     {
@@ -17764,8 +17764,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_rxjs",
-      "community": 396,
-      "community_name": "@opentelemetry/api",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "rxjs"
     },
     {
@@ -17775,8 +17775,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_rxjs",
-      "community": 396,
-      "community_name": "@opentelemetry/api",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "rxjs"
     },
     {
@@ -17786,8 +17786,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_winston",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 492,
+      "community_name": "winston",
       "norm_label": "winston"
     },
     {
@@ -17797,8 +17797,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_winston",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 492,
+      "community_name": "winston",
       "norm_label": "winston"
     },
     {
@@ -17808,8 +17808,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_zod",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 496,
+      "community_name": "zod",
       "norm_label": "zod"
     },
     {
@@ -17819,8 +17819,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_zod",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 496,
+      "community_name": "zod",
       "norm_label": "zod"
     },
     {
@@ -17863,8 +17863,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_nestjs_schematics",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 505,
+      "community_name": "@nestjs/schematics",
       "norm_label": "@nestjs/schematics"
     },
     {
@@ -17874,8 +17874,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_schematics",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 505,
+      "community_name": "@nestjs/schematics",
       "norm_label": "@nestjs/schematics"
     },
     {
@@ -17885,8 +17885,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_nestjs_testing",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 517,
+      "community_name": "@nestjs/testing",
       "norm_label": "@nestjs/testing"
     },
     {
@@ -17896,8 +17896,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_testing",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 517,
+      "community_name": "@nestjs/testing",
       "norm_label": "@nestjs/testing"
     },
     {
@@ -17907,8 +17907,8 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_types_express",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 551,
+      "community_name": "@types/express",
       "norm_label": "@types/express"
     },
     {
@@ -17918,8 +17918,8 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_types_express",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 551,
+      "community_name": "@types/express",
       "norm_label": "@types/express"
     },
     {
@@ -17951,8 +17951,8 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_types_node",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 562,
+      "community_name": "@types/node",
       "norm_label": "@types/node"
     },
     {
@@ -17962,8 +17962,8 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_types_node",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 562,
+      "community_name": "@types/node",
       "norm_label": "@types/node"
     },
     {
@@ -17973,8 +17973,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_types_pg",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 570,
+      "community_name": "@types/pg",
       "norm_label": "@types/pg"
     },
     {
@@ -17984,8 +17984,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_types_pg",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 570,
+      "community_name": "@types/pg",
       "norm_label": "@types/pg"
     },
     {
@@ -17995,8 +17995,8 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_types_supertest",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 572,
+      "community_name": "@types/supertest",
       "norm_label": "@types/supertest"
     },
     {
@@ -18006,8 +18006,8 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_types_supertest",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 572,
+      "community_name": "@types/supertest",
       "norm_label": "@types/supertest"
     },
     {
@@ -18017,8 +18017,8 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_jest",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 502,
+      "community_name": "jest",
       "norm_label": "jest"
     },
     {
@@ -18028,8 +18028,8 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_jest",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 502,
+      "community_name": "jest",
       "norm_label": "jest"
     },
     {
@@ -18039,8 +18039,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_prisma",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 526,
+      "community_name": "prisma",
       "norm_label": "prisma"
     },
     {
@@ -18050,8 +18050,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_prisma",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 526,
+      "community_name": "prisma",
       "norm_label": "prisma"
     },
     {
@@ -18061,8 +18061,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_source_map_support",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 546,
+      "community_name": "source-map-support",
       "norm_label": "source-map-support"
     },
     {
@@ -18072,8 +18072,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_source_map_support",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 546,
+      "community_name": "source-map-support",
       "norm_label": "source-map-support"
     },
     {
@@ -18149,8 +18149,8 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_ts_node",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 548,
+      "community_name": "ts-node",
       "norm_label": "ts-node"
     },
     {
@@ -18160,8 +18160,8 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_ts_node",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 548,
+      "community_name": "ts-node",
       "norm_label": "ts-node"
     },
     {
@@ -18171,8 +18171,8 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_tsconfig_paths",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 549,
+      "community_name": "tsconfig-paths",
       "norm_label": "tsconfig-paths"
     },
     {
@@ -18182,8 +18182,8 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_tsconfig_paths",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 549,
+      "community_name": "tsconfig-paths",
       "norm_label": "tsconfig-paths"
     },
     {
@@ -18193,8 +18193,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_typescript",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 573,
+      "community_name": "typescript",
       "norm_label": "typescript"
     },
     {
@@ -18204,8 +18204,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_typescript",
-      "community": 8,
-      "community_name": "Fase 1: Notification Service Completo",
+      "community": 573,
+      "community_name": "typescript",
       "norm_label": "typescript"
     },
     {
@@ -20635,8 +20635,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_nestjs_common",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 580,
+      "community_name": "@nestjs/common",
       "norm_label": "@nestjs/common"
     },
     {
@@ -20646,8 +20646,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nestjs_common",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 580,
+      "community_name": "@nestjs/common",
       "norm_label": "@nestjs/common"
     },
     {
@@ -20657,8 +20657,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_nestjs_config",
-      "community": 402,
-      "community_name": "@opentelemetry/instrumentation-nestjs-core",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@nestjs/config"
     },
     {
@@ -20668,8 +20668,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nestjs_config",
-      "community": 402,
-      "community_name": "@opentelemetry/instrumentation-nestjs-core",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@nestjs/config"
     },
     {
@@ -20679,8 +20679,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_nestjs_core",
-      "community": 417,
-      "community_name": "axios",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@nestjs/core"
     },
     {
@@ -20690,8 +20690,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nestjs_core",
-      "community": 417,
-      "community_name": "axios",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@nestjs/core"
     },
     {
@@ -20723,8 +20723,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_nestjs_platform_express",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 581,
+      "community_name": "@nestjs/platform-express",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -20734,8 +20734,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nestjs_platform_express",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 581,
+      "community_name": "@nestjs/platform-express",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -20811,8 +20811,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_opentelemetry_auto_instrumentations_node",
-      "community": 426,
-      "community_name": "typescript",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@opentelemetry/auto-instrumentations-node"
     },
     {
@@ -20822,8 +20822,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_opentelemetry_auto_instrumentations_node",
-      "community": 426,
-      "community_name": "typescript",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@opentelemetry/auto-instrumentations-node"
     },
     {
@@ -20833,8 +20833,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_opentelemetry_exporter_metrics_otlp_http",
-      "community": 452,
-      "community_name": "@opentelemetry/api",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@opentelemetry/exporter-metrics-otlp-http"
     },
     {
@@ -20844,8 +20844,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_opentelemetry_exporter_metrics_otlp_http",
-      "community": 452,
-      "community_name": "@opentelemetry/api",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@opentelemetry/exporter-metrics-otlp-http"
     },
     {
@@ -21053,8 +21053,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_prisma_client",
-      "community": 463,
-      "community_name": "@opentelemetry/sdk-trace-base",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@prisma/client"
     },
     {
@@ -21064,8 +21064,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_prisma_client",
-      "community": 463,
-      "community_name": "@opentelemetry/sdk-trace-base",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@prisma/client"
     },
     {
@@ -21075,8 +21075,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_class_transformer",
-      "community": 398,
-      "community_name": "@opentelemetry/exporter-metrics-otlp-http",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "class-transformer"
     },
     {
@@ -21086,8 +21086,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_class_transformer",
-      "community": 398,
-      "community_name": "@opentelemetry/exporter-metrics-otlp-http",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "class-transformer"
     },
     {
@@ -21163,8 +21163,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_pdfkit",
-      "community": 460,
-      "community_name": "source-map-support",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "pdfkit"
     },
     {
@@ -21174,8 +21174,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "pdfkit",
-      "community": 460,
-      "community_name": "source-map-support",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "pdfkit"
     },
     {
@@ -21229,8 +21229,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_rxjs",
-      "community": 465,
-      "community_name": "@prisma/adapter-pg",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "rxjs"
     },
     {
@@ -21240,8 +21240,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_rxjs",
-      "community": 465,
-      "community_name": "@prisma/adapter-pg",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "rxjs"
     },
     {
@@ -21284,8 +21284,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_eslint_eslintrc",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 585,
+      "community_name": "@eslint/eslintrc",
       "norm_label": "@eslint/eslintrc"
     },
     {
@@ -21295,8 +21295,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_eslint_eslintrc",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 585,
+      "community_name": "@eslint/eslintrc",
       "norm_label": "@eslint/eslintrc"
     },
     {
@@ -21306,8 +21306,8 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_eslint_js",
-      "community": 482,
-      "community_name": "@opentelemetry/exporter-metrics-otlp-http",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "@eslint/js"
     },
     {
@@ -21317,8 +21317,8 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_eslint_js",
-      "community": 482,
-      "community_name": "@opentelemetry/exporter-metrics-otlp-http",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "@eslint/js"
     },
     {
@@ -21460,8 +21460,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_types_jest",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 605,
+      "community_name": "@types/jest",
       "norm_label": "@types/jest"
     },
     {
@@ -21471,8 +21471,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_types_jest",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 605,
+      "community_name": "@types/jest",
       "norm_label": "@types/jest"
     },
     {
@@ -21570,8 +21570,8 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_eslint",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 582,
+      "community_name": "eslint",
       "norm_label": "eslint"
     },
     {
@@ -21581,8 +21581,8 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_eslint",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 582,
+      "community_name": "eslint",
       "norm_label": "eslint"
     },
     {
@@ -21592,8 +21592,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_eslint_config_prettier",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 583,
+      "community_name": "eslint-config-prettier",
       "norm_label": "eslint-config-prettier"
     },
     {
@@ -21603,8 +21603,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_eslint_config_prettier",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 583,
+      "community_name": "eslint-config-prettier",
       "norm_label": "eslint-config-prettier"
     },
     {
@@ -21702,8 +21702,8 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_prisma",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 598,
+      "community_name": "prisma",
       "norm_label": "prisma"
     },
     {
@@ -21713,8 +21713,8 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_prisma",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 598,
+      "community_name": "prisma",
       "norm_label": "prisma"
     },
     {
@@ -21724,8 +21724,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_source_map_support",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 602,
+      "community_name": "source-map-support",
       "norm_label": "source-map-support"
     },
     {
@@ -21735,8 +21735,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_source_map_support",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 602,
+      "community_name": "source-map-support",
       "norm_label": "source-map-support"
     },
     {
@@ -21790,8 +21790,8 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_ts_loader",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 603,
+      "community_name": "ts-loader",
       "norm_label": "ts-loader"
     },
     {
@@ -21801,8 +21801,8 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_ts_loader",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 603,
+      "community_name": "ts-loader",
       "norm_label": "ts-loader"
     },
     {
@@ -24061,8 +24061,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "frontend_package_dependencies_axios",
-      "community": 6,
-      "community_name": "dependencies",
+      "community": 631,
+      "community_name": "axios",
       "norm_label": "axios"
     },
     {
@@ -24072,8 +24072,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "frontend_package_json_axios",
-      "community": 6,
-      "community_name": "dependencies",
+      "community": 631,
+      "community_name": "axios",
       "norm_label": "axios"
     },
     {
@@ -24237,8 +24237,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "frontend_package_dependencies_react_hot_toast",
-      "community": 635,
-      "community_name": "react-hot-toast",
+      "community": 6,
+      "community_name": "dependencies",
       "norm_label": "react-hot-toast"
     },
     {
@@ -24248,8 +24248,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "react_hot_toast",
-      "community": 635,
-      "community_name": "react-hot-toast",
+      "community": 6,
+      "community_name": "dependencies",
       "norm_label": "react-hot-toast"
     },
     {
@@ -50966,8 +50966,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_creating_a_microservice_gu\u00eda_c\u00f3mo_crear_un_nuevo_microservicio",
-      "community": 27,
-      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
+      "community": 515,
+      "community_name": "\ud83d\udcd1 Pasos del Flujo de Creaci\u00f3n",
       "norm_label": "guia: como crear un nuevo microservicio"
     },
     {
@@ -53177,8 +53177,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "docs_services_1_auth_service_auth_service",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 203,
+      "community_name": "scripts",
       "norm_label": "1. auth service (`auth-service`)"
     },
     {
@@ -53188,8 +53188,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "docs_services_1_1_prop\u00f3sito",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 203,
+      "community_name": "scripts",
       "norm_label": "1.1. proposito"
     },
     {
@@ -53199,8 +53199,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "docs_services_1_2_responsabilidades",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 203,
+      "community_name": "scripts",
       "norm_label": "1.2. responsabilidades"
     },
     {
@@ -53210,8 +53210,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "docs_services_1_3_arquitectura_interna",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 203,
+      "community_name": "scripts",
       "norm_label": "1.3. arquitectura interna"
     },
     {
@@ -53221,8 +53221,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "docs_services_1_4_canales_de_entrada_y_salida",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 203,
+      "community_name": "scripts",
       "norm_label": "1.4. canales de entrada y salida"
     },
     {
@@ -53232,8 +53232,8 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "docs_services_1_5_variables_de_configuraci\u00f3n",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 203,
+      "community_name": "scripts",
       "norm_label": "1.5. variables de configuracion"
     },
     {
@@ -53243,8 +53243,8 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "docs_services_1_6_puertos_rutas_y_health_checks",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 203,
+      "community_name": "scripts",
       "norm_label": "1.6. puertos, rutas y health checks"
     },
     {
@@ -53331,8 +53331,8 @@
       "source_location": "L148",
       "_origin": "ast",
       "id": "docs_services_3_transaction_service_transaction_service",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 341,
+      "community_name": "globals",
       "norm_label": "3. transaction service (`transaction-service`)"
     },
     {
@@ -53342,8 +53342,8 @@
       "source_location": "L150",
       "_origin": "ast",
       "id": "docs_services_3_1_prop\u00f3sito",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 341,
+      "community_name": "globals",
       "norm_label": "3.1. proposito"
     },
     {
@@ -53353,8 +53353,8 @@
       "source_location": "L153",
       "_origin": "ast",
       "id": "docs_services_3_2_responsabilidades",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 341,
+      "community_name": "globals",
       "norm_label": "3.2. responsabilidades"
     },
     {
@@ -53364,8 +53364,8 @@
       "source_location": "L167",
       "_origin": "ast",
       "id": "docs_services_3_3_arquitectura_interna",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 341,
+      "community_name": "globals",
       "norm_label": "3.3. arquitectura interna"
     },
     {
@@ -53375,8 +53375,8 @@
       "source_location": "L185",
       "_origin": "ast",
       "id": "docs_services_3_4_canales_de_entrada_y_salida",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 341,
+      "community_name": "globals",
       "norm_label": "3.4. canales de entrada y salida"
     },
     {
@@ -53386,8 +53386,8 @@
       "source_location": "L194",
       "_origin": "ast",
       "id": "docs_services_3_5_variables_de_configuraci\u00f3n",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 341,
+      "community_name": "globals",
       "norm_label": "3.5. variables de configuracion"
     },
     {
@@ -53397,8 +53397,8 @@
       "source_location": "L208",
       "_origin": "ast",
       "id": "docs_services_3_6_puertos_rutas_y_health_checks",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 341,
+      "community_name": "globals",
       "norm_label": "3.6. puertos, rutas y health checks"
     },
     {
@@ -54238,10 +54238,21 @@
       "norm_label": "5.2. error http 502 bad gateway"
     },
     {
+      "label": "5.3. Error `no matches for kind \"Middleware\" in version \"traefik.io/v1alpha1\"` al aplicar `05-ingress.yaml`",
+      "file_type": "document",
+      "source_file": "docs/troubleshooting.md",
+      "source_location": "L162",
+      "_origin": "ast",
+      "id": "docs_troubleshooting_5_3_error_no_matches_for_kind_middleware_in_version_traefik_io_v1alpha1_al_aplicar_05_ingress_yaml",
+      "community": 167,
+      "community_name": "auth.use-cases.ts",
+      "norm_label": "5.3. error `no matches for kind \"middleware\" in version \"traefik.io/v1alpha1\"` al aplicar `05-ingress.yaml`"
+    },
+    {
       "label": "6. Problemas en Observabilidad (SigNoz / ClickHouse / OTel)",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L164",
+      "source_location": "L179",
       "_origin": "ast",
       "id": "docs_troubleshooting_6_problemas_en_observabilidad_signoz_clickhouse_otel",
       "community": 167,
@@ -54252,7 +54263,7 @@
       "label": "6.1. No Aparecen Trazas ni M\u00e9tricas en SigNoz UI",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L166",
+      "source_location": "L181",
       "_origin": "ast",
       "id": "docs_troubleshooting_6_1_no_aparecen_trazas_ni_m\u00e9tricas_en_signoz_ui",
       "community": 167,
@@ -54263,7 +54274,7 @@
       "label": "7. Problemas en Microservicios NestJS",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L186",
+      "source_location": "L201",
       "_origin": "ast",
       "id": "docs_troubleshooting_7_problemas_en_microservicios_nestjs",
       "community": 167,
@@ -54274,7 +54285,7 @@
       "label": "7.1. Error al Iniciar: `Cannot find module './infrastructure/telemetry'`",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L188",
+      "source_location": "L203",
       "_origin": "ast",
       "id": "docs_troubleshooting_7_1_error_al_iniciar_cannot_find_module_infrastructure_telemetry",
       "community": 167,
@@ -54285,7 +54296,7 @@
       "label": "7.2. Fallo de CORS al Invocar APIs desde el Navegador",
       "file_type": "document",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L193",
+      "source_location": "L208",
       "_origin": "ast",
       "id": "docs_troubleshooting_7_2_fallo_de_cors_al_invocar_apis_desde_el_navegador",
       "community": 167,
@@ -120235,7 +120246,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L197",
+      "source_location": "L212",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting",
@@ -122897,7 +122908,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L164",
+      "source_location": "L179",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_gu\u00eda_de_troubleshooting_y_resoluci\u00f3n_de_fallos",
@@ -122908,7 +122919,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L186",
+      "source_location": "L201",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_gu\u00eda_de_troubleshooting_y_resoluci\u00f3n_de_fallos",
@@ -123084,7 +123095,18 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L166",
+      "source_location": "L162",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_troubleshooting_5_problemas_en_traefik_e_ingress",
+      "target": "docs_troubleshooting_5_3_error_no_matches_for_kind_middleware_in_version_traefik_io_v1alpha1_al_aplicar_05_ingress_yaml",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/troubleshooting.md",
+      "source_location": "L181",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_6_problemas_en_observabilidad_signoz_clickhouse_otel",
@@ -123095,7 +123117,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L188",
+      "source_location": "L203",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_7_problemas_en_microservicios_nestjs",
@@ -123106,7 +123128,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/troubleshooting.md",
-      "source_location": "L193",
+      "source_location": "L208",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_troubleshooting_7_problemas_en_microservicios_nestjs",

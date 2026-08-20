@@ -15,6 +15,21 @@ export class TransferRequestDto {
   @IsPositive()
   amount: number;
 
+  @ApiPropertyOptional({ description: 'Alias para fromUserId' })
+  @IsOptional()
+  @IsNumber()
+  sourceUserId?: number;
+
+  @ApiPropertyOptional({ description: 'Alias para toUserId' })
+  @IsOptional()
+  @IsNumber()
+  targetUserId?: number;
+
+  @ApiPropertyOptional({ description: 'Descripción opcional de la transferencia' })
+  @IsOptional()
+  @IsString()
+  description?: string;
+
   @ApiPropertyOptional({ description: 'Clave única para garantizar la idempotencia de la transferencia' })
   @IsOptional()
   @IsString()

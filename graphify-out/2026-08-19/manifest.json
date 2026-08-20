@@ -625,8 +625,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1787066061.9382024,
-    "ast_hash": "009ec13b7407411a3edaa3177ae9ceff",
+    "mtime": 1787153830.3483074,
+    "ast_hash": "97951d687691492316170d8b3bfba132",
     "semantic_hash": ""
   },
   "frontend/README.md": {
@@ -1874,16 +1874,6 @@
     "ast_hash": "9457802b8014de1adcda39b671ade99e",
     "semantic_hash": ""
   },
-  "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-grpc-client.module.ts": {
-    "mtime": 1786110089.5927403,
-    "ast_hash": "f7a1208bf89367df35c4de0989fe6d92",
-    "semantic_hash": ""
-  },
-  "backend-nestjs/notification-service/src/adapters/outbound/grpc/user-service.grpc-adapter.ts": {
-    "mtime": 1786110055.8697057,
-    "ast_hash": "5ae402bc4321a15d07bd937f929a7956",
-    "semantic_hash": ""
-  },
   "backend-nestjs/notification-service/src/application/notification-application.module.ts": {
     "mtime": 1786558865.8634298,
     "ast_hash": "93677d661f4f1aba14c4903d7d066877",
@@ -2225,8 +2215,8 @@
     "semantic_hash": ""
   },
   "docs/kubernetes.md": {
-    "mtime": 1786992482.539748,
-    "ast_hash": "dae972b78090bd1e675f895a817ab2f2",
+    "mtime": 1787153812.0246596,
+    "ast_hash": "b76fd4ad43989124aaa9c3b7e10de561",
     "semantic_hash": ""
   },
   "docs/redis.md": {
@@ -2705,8 +2695,8 @@
     "semantic_hash": ""
   },
   "docs/podman-setup.md": {
-    "mtime": 1787066070.0230825,
-    "ast_hash": "7a43fa6acc7a48c91db341f6d75a9c96",
+    "mtime": 1787153806.9995148,
+    "ast_hash": "408607d62fe9363ae8143901bbedecc3",
     "semantic_hash": ""
   }
 }

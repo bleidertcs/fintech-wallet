@@ -309,7 +309,11 @@ chmod +x ./deploy-k8s.sh
 Si prefieres construir y desplegar manualmente sin scripts:
 
 ```bash
-# 1. Compilar las 6 imágenes de contenedor con Podman
+# 1. Crear el clúster Kind con proveedor Podman
+export KIND_EXPERIMENTAL_PROVIDER=podman
+kind create cluster --name fintech
+
+# 2. Compilar las 6 imágenes de contenedor con Podman
 podman build -f frontend/Containerfile -t fintech/frontend:1.0.0 ./frontend
 podman build -f backend-nestjs/auth-service/Containerfile -t fintech/auth-service:1.0.0 ./backend-nestjs/auth-service
 podman build -f backend-nestjs/user-service/Containerfile -t fintech/user-service:1.0.0 ./backend-nestjs/user-service
@@ -317,11 +321,16 @@ podman build -f backend-nestjs/transaction-service/Containerfile -t fintech/tran
 podman build -f backend-nestjs/notification-service/Containerfile -t fintech/notification-service:1.0.0 ./backend-nestjs/notification-service
 podman build -f backend-nestjs/worker-service/Containerfile -t fintech/worker-service:1.0.0 ./backend-nestjs/worker-service
 
-# 2. Cargar imágenes en tu clúster (Ejemplo en Kind con Podman):
+# 3. Cargar imágenes en tu clúster Kind (Método directo):
 export KIND_EXPERIMENTAL_PROVIDER=podman
-kind load docker-image fintech/frontend:1.0.0 fintech/auth-service:1.0.0 fintech/user-service:1.0.0 fintech/transaction-service:1.0.0 fintech/notification-service:1.0.0 fintech/worker-service:1.0.0
+kind load docker-image fintech/frontend:1.0.0 fintech/auth-service:1.0.0 fintech/user-service:1.0.0 fintech/transaction-service:1.0.0 fintech/notification-service:1.0.0 fintech/worker-service:1.0.0 --name fintech
 
-# 3. Aplicar manifiestos de Kubernetes en orden secuencial
+# (Opcional) Si la carga directa falla con Podman, usar la contingencia vía archivo .tar:
+# podman save -o /tmp/notification-service.tar fintech/notification-service:1.0.0
+# kind load image-archive /tmp/notification-service.tar --name fintech
+# rm -f /tmp/notification-service.tar
+
+# 4. Aplicar manifiestos de Kubernetes en orden secuencial
 kubectl apply -f k8s/00-namespace-config.yaml
 kubectl apply -f k8s/01-infrastructure.yaml
 kubectl apply -f k8s/02-microservices.yaml

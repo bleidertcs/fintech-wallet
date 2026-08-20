@@ -106,6 +106,30 @@ Para evitar condiciones de carrera durante el despliegue, los archivos YAML est�
 | `07-backup-cronjob.yaml` | `PersistentVolumeClaim`, `ConfigMap`, `CronJob` | Programa el respaldo diario automático de bases de datos a las 02:00 AM UTC |
 | `08-restore-job-template.yaml`| `Job` (Template bajo demanda) | Plantilla para recuperación ante desastres (DR) a partir de backups |
 
+### Aprovisionamiento del Clúster y Carga de Imágenes (Kind + Podman)
+
+Antes de aplicar los manifiestos YAML, el clúster local de **Kind** debe ser creado con el proveedor de Podman y las imágenes locales deben ser cargadas en el clúster:
+
+```bash
+# 1. Indicara Kind que utilice Podman
+export KIND_EXPERIMENTAL_PROVIDER=podman
+
+# 2. Crear el clúster Kind
+kind create cluster --name fintech
+
+# 3. Construir las imágenes con Podman
+podman build -f backend-nestjs/auth-service/Containerfile -t fintech/auth-service:1.0.0 ./backend-nestjs/auth-service
+# (repetir para user-service, transaction-service, notification-service, worker-service y frontend)
+
+# 4. Cargar las imágenes en el clúster Kind (Carga directa)
+kind load docker-image fintech/auth-service:1.0.0 --name fintech
+
+# 5. Carga de contingencia mediante tar (Si el paso 4 falla con Podman)
+podman save -o /tmp/auth-service.tar fintech/auth-service:1.0.0
+kind load image-archive /tmp/auth-service.tar --name fintech
+rm -f /tmp/auth-service.tar
+```
+
 ### Comandos de Despliegue Manual Secuencial
 
 ```bash

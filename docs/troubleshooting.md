@@ -159,6 +159,21 @@ Este documento proporciona una guía de diagnóstico paso a paso y soluciones pr
 * **Causa: Traefik no puede contactar el puerto de servicio del microservicio destino**.
 * **Diagnóstico**: Comprobar que el `service.port.number` en el Ingress coincida con el puerto del `Service` en `02-microservices.yaml` (ej. `user-service` escucha en `8082`, `transaction-service` en `8083`).
 
+### 5.3. Error `no matches for kind "Middleware" in version "traefik.io/v1alpha1"` al aplicar `05-ingress.yaml`
+
+* **Causa**: Estás ejecutando en un clúster como **Kind** o **Minikube** que no incluye Traefik Ingress Controller ni sus Custom Resource Definitions (CRDs) instalados por defecto (a diferencia de K3s).
+* **Diagnóstico**: Ocurre al ejecutar `kubectl apply -f k8s/05-ingress.yaml` en un clúster sin Traefik.
+* **Solución**: Instalar las definiciones CRD de Traefik antes de aplicar el manifiesto Ingress:
+  ```bash
+  # Opción A: Instalar los CRDs de Traefik directamente
+  kubectl apply -f https://raw.githubusercontent.com/traefik/traefik/v3.1/docs/content/reference/dynamic-configuration/kubernetes-crd-definition-v1.yml
+
+  # Opción B: Instalar Traefik e Ingress Controller mediante Helm
+  helm repo add traefik https://traefik.github.io/charts
+  helm repo update
+  helm install traefik traefik/traefik --namespace kube-system --create-namespace
+  ```
+
 ---
 
 ## 6. Problemas en Observabilidad (SigNoz / ClickHouse / OTel)
