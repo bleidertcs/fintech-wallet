@@ -27,13 +27,13 @@ Antes de iniciar, asegúrate de contar con las siguientes herramientas instalada
 | **pnpm** | `v10.4.1` (o `v9.x+`) | Gestor de paquetes de alto rendimiento | `pnpm --version` |
 | **Podman / Podman Desktop** | `v4.9+` / `v5.x` | Motor de contenedores OCI daemonless y seguro | `podman --version` |
 | **kubectl** | `v1.28.0+` | CLI de administración de Kubernetes | `kubectl version --client` |
-| **Kind / Minikube / K3s** | `v0.22+` / `v1.32+` | Clúster local de Kubernetes | `kind version` o `minikube status` |
+| **Kind / K3s** | `v0.22+` / `v1.32+` | Clúster de Kubernetes (local o servidor) | `kind version` o `k3s --version` |
 | **Helm** | `v3.14.0+` | Gestor de paquetes para Kubernetes | `helm version` |
 | **Git** | `v2.40.0+` | Control de versiones | `git --version` |
 | **PowerShell / Bash** | PowerShell 7+ / Bash 5+ | Ejecución de scripts automatizados | `$PSVersionTable.PSVersion` o `bash --version` |
 
 > [!TIP]
-> **Usuarios de Windows (Podman Desktop / WSL2) y Linux**: Para una guía detallada de configuración de Podman Machine, modo Rootless, permisos SELinux y provisión de clústeres Kind/Minikube con Podman, consulta la guía dedicada [**Configuración de Podman y Kubernetes**](podman-setup.md).
+> **Usuarios de Windows (Podman Desktop / WSL2) y Linux**: Para una guía detallada de configuración de Podman Machine, modo Rootless, permisos SELinux y provisión paso a paso de clústeres **Kind** y **K3s** con Podman, consulta la guía dedicada [**Configuración de Podman y Kubernetes**](podman-setup.md).
 
 ---
 
@@ -103,11 +103,16 @@ Principales variables de entorno:
 
 ## 5. Despliegue en Kubernetes
 
+Antes de desplegar, asegúrate de tener tu clúster activo:
+* **En Windows / macOS / Linux Local**: Clúster **Kind** con `kind create cluster --name fintech --config kind-config.yaml`.
+* **En Servidores Linux / VMs**: Clúster **K3s** instalado con `curl -sfL https://get.k3s.io | sh -`.
+*(Consulta la [Guía de Configuración de Podman y Kubernetes](podman-setup.md#6-alternativas-de-clústeres-kubernetes-paso-a-paso) para instrucciones detalladas de instalación de cada uno).*
+
 El sistema puede desplegarse de dos formas: mediante el **script 100% automatizado** o mediante **comandos manuales paso a paso**.
 
 ### Opción A: Despliegue Automatizado (Script)
 
-Los scripts automatizados verifican la conexión con Podman y Kubernetes, compilan las 6 imágenes con `podman build`, las cargan en el clúster activo e inyectan los manifiestos secuencialmente:
+Los scripts automatizados verifican la conexión con Podman y Kubernetes, compilan las 6 imágenes con `podman build`, las cargan en el clúster activo (Kind o K3s) e inyectan los manifiestos secuencialmente:
 
 ```powershell
 # En Windows (PowerShell)
@@ -122,7 +127,7 @@ chmod +x ./deploy-k8s.sh
 
 1. **Verifica la conectividad** con Podman (`podman info`) y con el clúster de Kubernetes (`kubectl config current-context`).
 2. **Compila las 6 imágenes** (`frontend`, `auth-service`, `user-service`, `transaction-service`, `notification-service`, `worker-service`) a partir de sus respectivos archivos `Containerfile`.
-3. **Carga las imágenes en el clúster** (Kind, Minikube o K3s) detectando el proveedor automáticamente.
+3. **Carga las imágenes en el clúster** (Kind o K3s) detectando el proveedor automáticamente.
 4. **Verifica el Ingress Controller Traefik** nativo.
 5. **Aplica secuencialmente los manifiestos** ubicados en `k8s/`:
    - `00-namespace-config.yaml`: Namespace `fintech`, scripts SQL de inicialización y Secretos.

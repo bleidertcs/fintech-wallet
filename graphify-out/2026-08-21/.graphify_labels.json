@@ -459,6 +459,7 @@
   "457": "jest",
   "458": "@nestjs/schematics",
   "459": "eslint-plugin-prettier",
+  "460": "source-map-support",
   "461": "@opentelemetry/sdk-metrics",
   "462": "@trpc/server",
   "463": "@opentelemetry/sdk-trace-base",
@@ -637,9 +638,11 @@
   "636": "@types/supertest",
   "637": "typescript",
   "638": "@nestjs/testing",
+  "639": "source-map-support",
   "640": "@opentelemetry/auto-instrumentations-web",
   "641": "k6-stress-test.js",
   "642": "stress-test.ps1",
   "643": "class-validator",
-  "644": "tsconfig-paths"
+  "644": "tsconfig-paths",
+  "645": "axios"
 }

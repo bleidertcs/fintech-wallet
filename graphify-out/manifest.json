@@ -625,8 +625,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1787153830.3483074,
-    "ast_hash": "97951d687691492316170d8b3bfba132",
+    "mtime": 1787322345.4386175,
+    "ast_hash": "0aa89d4300beb6434e9de9bab5d2c42c",
     "semantic_hash": ""
   },
   "frontend/README.md": {
@@ -2215,8 +2215,8 @@
     "semantic_hash": ""
   },
   "docs/kubernetes.md": {
-    "mtime": 1787153812.0246596,
-    "ast_hash": "b76fd4ad43989124aaa9c3b7e10de561",
+    "mtime": 1787323169.816651,
+    "ast_hash": "e4b3c76bd34df58b8468e3bda3d4779d",
     "semantic_hash": ""
   },
   "docs/redis.md": {
@@ -2265,8 +2265,8 @@
     "semantic_hash": ""
   },
   "k8s/01-infrastructure.yaml": {
-    "mtime": 1786720662.1583762,
-    "ast_hash": "df75753ab125371c4d45eeed3bbe7f55",
+    "mtime": 1787246518.8248124,
+    "ast_hash": "b6ca09eaf30e71cd20be08558d5467e7",
     "semantic_hash": ""
   },
   "k8s/02-microservices.yaml": {
@@ -2645,8 +2645,8 @@
     "semantic_hash": ""
   },
   "docs/getting-started.md": {
-    "mtime": 1787064450.209074,
-    "ast_hash": "04119ca391ffa40096a2b7d476ec5df7",
+    "mtime": 1787323180.357288,
+    "ast_hash": "9fe958813423de02982bf927870bfb59",
     "semantic_hash": ""
   },
   "docs/observability.md": {
@@ -2675,18 +2675,18 @@
     "semantic_hash": ""
   },
   "docs/troubleshooting.md": {
-    "mtime": 1787154247.5255868,
-    "ast_hash": "6744fee60b7843bdc1c33c898bc99f4d",
+    "mtime": 1787322323.5986958,
+    "ast_hash": "395e6bd8d4bbd6688ca2d20023eade23",
     "semantic_hash": ""
   },
   "deploy-k8s.ps1": {
-    "mtime": 1787235770.741014,
-    "ast_hash": "6b12b5daf8e7de7783ad92a81dbfb584",
+    "mtime": 1787321567.5043876,
+    "ast_hash": "5644058b9c33413a5313c0c8b9811e2d",
     "semantic_hash": ""
   },
   "deploy-k8s.sh": {
-    "mtime": 1787235762.998774,
-    "ast_hash": "289c9170cbdede627dbd201621570997",
+    "mtime": 1787255552.8874319,
+    "ast_hash": "048e2d1e361c6162dac8c4f09f655e33",
     "semantic_hash": ""
   },
   "compose.yaml": {
@@ -2695,8 +2695,8 @@
     "semantic_hash": ""
   },
   "docs/podman-setup.md": {
-    "mtime": 1787153806.9995148,
-    "ast_hash": "408607d62fe9363ae8143901bbedecc3",
+    "mtime": 1787323161.908663,
+    "ast_hash": "7bf2f5036f0b972beaa33edcf566bcc8",
     "semantic_hash": ""
   },
   "scripts/concurrency-test.sh": {
@@ -2737,6 +2737,31 @@
   "k8s/kind-config.yaml": {
     "mtime": 1787165806.195654,
     "ast_hash": "8d4b5ea7916cc4c792ae154b487820a2",
+    "semantic_hash": ""
+  },
+  "scripts/k6-stress-test.js": {
+    "mtime": 1787239985.69356,
+    "ast_hash": "8f6775f2ed483e1a1ccb78e15c42a084",
+    "semantic_hash": ""
+  },
+  "scripts/stress-test.ps1": {
+    "mtime": 1787240000.1498165,
+    "ast_hash": "df6bdfc8e970db365a9055c8edce3b22",
+    "semantic_hash": ""
+  },
+  "scripts/stress-test.sh": {
+    "mtime": 1787240045.035304,
+    "ast_hash": "b7a5d7b0cd897cdaede4d96e0cab2672",
+    "semantic_hash": ""
+  },
+  "k8s/09-hpa.yaml": {
+    "mtime": 1787246507.2169416,
+    "ast_hash": "131332c9084c674e257f29a36ddf635c",
+    "semantic_hash": ""
+  },
+  "k8s/10-pdb.yaml": {
+    "mtime": 1787246511.7029564,
+    "ast_hash": "af8bfe539c1b7c71bf5fffed9674f4fc",
     "semantic_hash": ""
   }
 }

@@ -22,27 +22,51 @@ Este documento proporciona una guía de diagnóstico paso a paso y soluciones pr
 
 * **Causa 1: Volumen Persistente (PVC) no asignado o StorageClass ausente**.
   - **Diagnóstico**: `kubectl describe pod <pod-name> -n fintech` (buscar eventos `FailedScheduling` o `VolumeBindingFailed`).
-  - **Solución**: Verificar que el clúster (Kind/Minikube/K3s) tenga habilitado el proveedor de almacenamiento estándar (`kubectl get sc`).
+  - **Solución**: Verificar que el clúster (Kind / K3s) tenga habilitado el proveedor de almacenamiento estándar (`kubectl get sc`).
 * **Causa 2: Recursos de CPU o Memoria insuficientes en el nodo**.
   - **Diagnóstico**: `kubectl describe nodes` (comprobar la sección `Allocated resources`).
   - **Solución**: Aumentar la memoria asignada a la máquina virtual de Podman (`podman machine set --cpus 4 --memory 8192` o recrearla con `podman machine init --memory 8192`).
 
 ### 1.2. Pod en Estado `ImagePullBackOff` o `ErrImagePull`
 
-* **Causa: La imagen de contenedor no fue cargada al clúster local de Kubernetes**.
+* **Causa: La imagen de contenedor no fue cargada al runtime del clúster de Kubernetes**.
   - **Diagnóstico**: `kubectl describe pod <pod-name> -n fintech` (evento `Failed to pull image`).
   - **Solución**: Cargar las imágenes construidas con Podman en el clúster:
     ```bash
     # En Kind:
     export KIND_EXPERIMENTAL_PROVIDER=podman
-    kind load docker-image fintech/auth-service:1.0.0 --name <nombre-cluster>
+    podman save --format docker-archive -o /tmp/auth-service.tar docker.io/fintech/auth-service:1.0.0
+    kind load image-archive /tmp/auth-service.tar --name <nombre-cluster>
+    rm -f /tmp/auth-service.tar
 
-    # En Minikube:
-    minikube image load fintech/auth-service:1.0.0
+    # En K3s (Linux / Servidor):
+    podman save --format docker-archive -o /tmp/auth-service.tar docker.io/fintech/auth-service:1.0.0
+    sudo k3s ctr images import /tmp/auth-service.tar
+    rm -f /tmp/auth-service.tar
     ```
     O simplemente ejecuta `.\deploy-k8s.ps1` (o `./deploy-k8s.sh`), que detecta el clúster y carga todas las imágenes automáticamente.
 
-### 1.3. Pod en Estado `CrashLoopBackOff`
+### 1.3. Pods Desalojados, en Estado `Error` o `ContainerStatusUnknown` (`The node had condition: [DiskPressure]`)
+
+* **Causa: Las capas intermedias de compilación multi-stage de Podman consumen el espacio en disco de la partición raíz (`/`), activando la política de desalojo (eviction) del Kubelet**.
+  - **Diagnóstico**:
+    ```bash
+    kubectl describe node <nombre-nodo> | grep -A 5 Conditions
+    df -h /
+    ```
+  - **Solución**:
+    1. Eliminar capas intermedias de compilación en Podman:
+       ```bash
+       podman image prune -f
+       ```
+    2. Limpiar los pods terminados/desalojados en Kubernetes:
+       ```bash
+       kubectl delete pods --field-selector=status.phase=Failed -n fintech
+       kubectl delete pods --field-selector=status.phase=Succeeded -n fintech
+       ```
+    *(Los scripts `deploy-k8s.sh` y `deploy-k8s.ps1` ejecutan este mantenimiento de forma preventiva).*
+
+### 1.4. Pod en Estado `CrashLoopBackOff`
 
 * **Causa: Fallo crítico durante la inicialización del proceso Node.js o error de conexión inicial**.
   - **Diagnóstico**:
@@ -52,13 +76,13 @@ Este documento proporciona una guía de diagnóstico paso a paso y soluciones pr
     ```
   - **Solución**: Verificar que las variables de entorno `DATABASE_URL`, `REDIS_HOST` o `KAFKA_BROKERS` apunten a los servicios correctos y que la base de datos esté lista.
 
-### 1.4. Fallo en `ReadinessProbe` o `LivenessProbe`
+### 1.5. Fallo en `ReadinessProbe` o `LivenessProbe`
 
 * **Causa: El microservicio tarda más tiempo en inicializar la conexión con Prisma y Kafka que el `initialDelaySeconds`**.
   - **Diagnóstico**: `kubectl describe pod <pod-name> -n fintech` (buscar `Unhealthy readiness probe`).
   - **Solución**: En `k8s/02-microservices.yaml`, los pods incluyen un `startupProbe` con `failureThreshold: 20` y `periodSeconds: 3` (hasta 60 segundos de gracia). Si el host es lento, incrementa `failureThreshold: 30`.
 
-### 1.5. Error al Compilar o Montar con Podman: Socket o Permisos Rootless
+### 1.6. Error al Compilar o Montar con Podman: Socket o Permisos Rootless
 
 * **Causa: El servicio Podman no está activo o se presentan restricciones SELinux en volúmenes montados**.
   - **Diagnóstico**: `Error: cannot connect to the Podman socket` o `Permission denied` en carpetas locales.
@@ -161,7 +185,7 @@ Este documento proporciona una guía de diagnóstico paso a paso y soluciones pr
 
 ### 5.3. Error `no matches for kind "Middleware" in version "traefik.io/v1alpha1"` al aplicar `05-ingress.yaml`
 
-* **Causa**: Estás ejecutando en un clúster como **Kind** o **Minikube** que no incluye Traefik Ingress Controller ni sus Custom Resource Definitions (CRDs) instalados por defecto (a diferencia de K3s).
+* **Causa**: Estás ejecutando en un clúster como **Kind** que no incluye Traefik Ingress Controller ni sus Custom Resource Definitions (CRDs) instalados por defecto (a diferencia de K3s, que los incluye de serie).
 * **Diagnóstico**: Ocurre al ejecutar `kubectl apply -f k8s/05-ingress.yaml` en un clúster sin Traefik.
 * **Solución**: Instalar las definiciones CRD de Traefik antes de aplicar el manifiesto Ingress:
   ```bash

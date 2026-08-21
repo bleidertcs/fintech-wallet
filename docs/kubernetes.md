@@ -106,29 +106,44 @@ Para evitar condiciones de carrera durante el despliegue, los archivos YAML est�
 | `07-backup-cronjob.yaml` | `PersistentVolumeClaim`, `ConfigMap`, `CronJob` | Programa el respaldo diario automático de bases de datos a las 02:00 AM UTC |
 | `08-restore-job-template.yaml`| `Job` (Template bajo demanda) | Plantilla para recuperación ante desastres (DR) a partir de backups |
 
-### Aprovisionamiento del Clúster y Carga de Imágenes (Kind + Podman)
+### Aprovisionamiento del Clúster y Carga de Imágenes con Podman
 
-Antes de aplicar los manifiestos YAML, el clúster local de **Kind** debe ser creado con el proveedor de Podman y las imágenes locales deben ser cargadas en el clúster:
+FinTech Wallet soporta dos entornos de ejecución: **Kind** (desarrollo local en Windows/macOS/Linux) y **K3s** (servidores Linux y máquinas virtuales).
 
+#### Opción 1: Clúster Local con Kind (Windows / Linux)
 ```bash
-# 1. Indicara Kind que utilice Podman
-export KIND_EXPERIMENTAL_PROVIDER=podman
+# 1. Indicar a Kind que utilice Podman
+export KIND_EXPERIMENTAL_PROVIDER=podman        # En Linux / macOS / WSL2
+# $env:KIND_EXPERIMENTAL_PROVIDER="podman"      # En Windows PowerShell
 
-# 2. Crear el clúster Kind
-kind create cluster --name fintech
+# 2. Crear el clúster Kind con mapeo de puertos (HTTP 80/443 y NodePorts 30000/30301)
+kind create cluster --name fintech --config kind-config.yaml
 
-# 3. Construir las imágenes con Podman
+# 3. Compilar y cargar imágenes (formato tar archive)
 podman build -f backend-nestjs/auth-service/Containerfile -t fintech/auth-service:1.0.0 ./backend-nestjs/auth-service
-# (repetir para user-service, transaction-service, notification-service, worker-service y frontend)
-
-# 4. Cargar las imágenes en el clúster Kind (Carga directa)
-kind load docker-image fintech/auth-service:1.0.0 --name fintech
-
-# 5. Carga de contingencia mediante tar (Si el paso 4 falla con Podman)
-podman save -o /tmp/auth-service.tar fintech/auth-service:1.0.0
+podman save --format docker-archive -o /tmp/auth-service.tar docker.io/fintech/auth-service:1.0.0
 kind load image-archive /tmp/auth-service.tar --name fintech
 rm -f /tmp/auth-service.tar
 ```
+
+#### Opción 2: Clúster en Servidor Linux con K3s
+```bash
+# 1. Instalar K3s
+curl -sfL https://get.k3s.io | sh -
+
+# 2. Configurar acceso a kubectl para el usuario local
+mkdir -p ~/.kube && sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config && sudo chown -R $USER:$USER ~/.kube
+
+# 3. Compilar con Podman Rootless e importar directamente al runtime containerd de K3s
+podman build -f backend-nestjs/auth-service/Containerfile -t fintech/auth-service:1.0.0 ./backend-nestjs/auth-service
+podman save --format docker-archive -o /tmp/auth-service.tar docker.io/fintech/auth-service:1.0.0
+sudo k3s ctr images import /tmp/auth-service.tar
+rm -f /tmp/auth-service.tar
+podman image prune -f
+```
+
+> [!TIP]
+> Todo este flujo está 100% automatizado mediante `.\deploy-k8s.ps1` (en Windows) o `./deploy-k8s.sh` (en Linux).
 
 ### Comandos de Despliegue Manual Secuencial
 

@@ -1,6 +1,6 @@
 # FinTech Wallet 💳
 
-Plataforma empresarial de billetera digital distribuida, diseñada bajo **Arquitectura Hexagonal (Ports & Adapters)**, patrones de **Domain-Driven Design (DDD)** y desplegada sobre **Kubernetes (Kind / Minikube / K3s / Podman Desktop)** con orquestación mediante manifiestos nativos y **Helm**, utilizando **Podman** como motor de contenedores OCI estándar y seguro.
+Plataforma empresarial de billetera digital distribuida, diseñada bajo **Arquitectura Hexagonal (Ports & Adapters)**, patrones de **Domain-Driven Design (DDD)** y desplegada sobre **Kubernetes (Kind / K3s / Podman Desktop)** con orquestación mediante manifiestos nativos y **Helm**, utilizando **Podman** como motor de contenedores OCI estándar y seguro.
 
 El backend está compuesto por **5 microservicios independientes en NestJS y TypeScript**, persistencia segregada en **PostgreSQL 16** con connection pooling vía **PgBouncer**, caché y bloqueos distribuidos en **Redis 7**, mensajería asíncrona de eventos con **Apache Kafka (KRaft)**, enrutamiento inteligente mediante **Traefik Ingress Controller** y observabilidad integral con **OpenTelemetry, ClickHouse y SigNoz APM**.
 
@@ -266,7 +266,7 @@ fintech-wallet/
 ### 1. Requisitos Previos
 
 * **Podman** / **Podman Desktop** con soporte para contenedores OCI y máquina de Podman activa.
-* Clúster **Kubernetes** local activo (**Kind**, **Minikube**, **K3s** o Podman Desktop K8s).
+* Clúster **Kubernetes** activo (**Kind** para local, **K3s** para servidores Linux, o Podman Desktop K8s).
 * **kubectl** configurado en el contexto activo del clúster.
 * **Node.js** 20.x o superior y **pnpm** 10.x (para desarrollo local opcional).
 * **PowerShell 7+** (en Windows) o **Bash** (en Linux/macOS).
@@ -293,7 +293,7 @@ cp .env.example .env
 
 #### Opción A: Despliegue Automatizado (Recomendado)
 
-El script de despliegue compila las imágenes de contenedor mediante `podman build`, las carga automáticamente en tu clúster de Kubernetes activo (Kind / Minikube / K3s) y aplica todos los manifiestos en orden:
+El script de despliegue compila las imágenes de contenedor mediante `podman build`, las carga automáticamente en tu clúster de Kubernetes activo (Kind o K3s) y aplica todos los manifiestos en orden:
 
 ```powershell
 # En Windows (PowerShell)
@@ -395,7 +395,7 @@ kubectl get ingress -n fintech
 Para profundizar en cada uno de los aspectos de la arquitectura, configuración, operaciones y pruebas, consulta las guías dedicadas en la carpeta `docs/`:
 
 * 🏁 [**Guía de Inicio Rápido y Requisitos**](docs/getting-started.md): Requisitos detallados, configuración de herramientas, desarrollo local vs Kubernetes.
-* 🦭 [**Configuración de Podman y Kubernetes**](docs/podman-setup.md): Configuración de Podman Desktop, Podman Machine, modo Rootless, Kind/Minikube y permisos SELinux.
+* 🦭 [**Configuración de Podman y Kubernetes**](docs/podman-setup.md): Configuración de Podman Desktop, Podman Machine, modo Rootless, Kind, K3s y permisos SELinux.
 * 🏛️ [**Arquitectura General del Sistema**](docs/architecture.md): Principios DDD, arquitectura hexagonal, protocolos de comunicación síncrona (tRPC) y asíncrona (Kafka).
 * ⚙️ [**Ficha Técnica de Microservicios**](docs/services.md): Detalle exhaustivo de responsabilidades, capas internas, puertos, variables y dependencias de cada microservicio.
 * 🔐 [**Autenticación y Seguridad (2FA / JWT)**](docs/authentication.md): Flujos de registro, login, 2FA/TOTP, Blacklist en Redis y Rate Limiting.

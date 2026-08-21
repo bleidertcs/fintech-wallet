@@ -86,7 +86,10 @@ if (-not $Recreate -and -not $NonInteractive -and $Host.Name -notmatch "ServerRe
 if ($Recreate) {
     Log-Msg "`nEliminando namespace 'fintech' para recreación limpia..." Yellow
     kubectl delete namespace fintech --ignore-not-found 2>&1 | Out-Null
-    Start-Sleep -Seconds 3
+    while (kubectl get namespace fintech 2>$null) {
+        Log-Msg "  Esperando a que finalice la eliminación del namespace 'fintech'..." Yellow
+        Start-Sleep -Seconds 2
+    }
 }
 
 # 3. Construir imágenes de microservicios y frontend con Podman
@@ -111,6 +114,10 @@ foreach ($s in $services) {
 }
 Log-Msg "Todas las imágenes fueron construidas exitosamente con Podman." Green
 
+# Limpieza preventiva de capas intermedias de Podman para evitar saturación de disco
+Log-Msg "`nLimpiando capas intermedias de compilación en Podman..." Cyan
+& $podmanCmd image prune -f 2>&1 | Out-Null
+
 # 4. Cargar imágenes en el clúster de Kubernetes según el tipo
 Log-Msg "`n[4/5] Cargando imágenes en el clúster Kubernetes ($clusterType)..." Cyan
 
@@ -130,7 +137,7 @@ foreach ($s in $services) {
         if ($LASTEXITCODE -ne 0) {
             Log-Msg "Aviso: Falló 'kind load docker-image'. Intentando cargar mediante archivo tar..." Yellow
             $tempTar = "$env:TEMP\$($s.Name).tar"
-            & $podmanCmd save -o $tempTar $s.Image
+            & $podmanCmd save --format docker-archive -o $tempTar "docker.io/$($s.Image)"
             if ($ClusterName) {
                 kind load image-archive $tempTar --name $ClusterName
             } else {
@@ -144,7 +151,7 @@ foreach ($s in $services) {
     } elseif ($clusterType -eq "k3s") {
         Log-Msg "  -> Cargando $($s.Image) en K3s (containerd WSL)..." Yellow
         $tempTar = "$env:TEMP\$($s.Name).tar"
-        & $podmanCmd save -o $tempTar $s.Image
+        & $podmanCmd save --format docker-archive -o $tempTar "docker.io/$($s.Image)"
         $wslPath = "/mnt/" + $tempTar[0].ToString().ToLower() + ($tempTar.Substring(2) -replace '\\', '/')
         wsl -u root -d Ubuntu bash -c "k3s ctr images import '$wslPath' 2>/dev/null; k3s ctr images tag 'localhost/$($s.Image)' 'docker.io/$($s.Image)' 2>/dev/null"
         Remove-Item -Force $tempTar -ErrorAction SilentlyContinue
@@ -166,6 +173,10 @@ kubectl apply -f k8s/06-networkpolicy.yaml
 kubectl apply -f k8s/07-backup-cronjob.yaml
 kubectl apply -f k8s/09-hpa.yaml
 kubectl apply -f k8s/10-pdb.yaml
+
+# Limpieza preventiva de Pods finalizados o desalojados
+kubectl delete pods --field-selector=status.phase=Failed -n fintech --ignore-not-found 2>&1 | Out-Null
+kubectl delete pods --field-selector=status.phase=Succeeded -n fintech --ignore-not-found 2>&1 | Out-Null
 
 Log-Msg "`n======================================================================" Green
 Log-Msg "¡Despliegue completado! Estado actual de los Pods en namespace 'fintech':" Green

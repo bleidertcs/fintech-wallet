@@ -97,7 +97,10 @@ fi
 if [[ "${RECREATE}" == true ]]; then
     log "\nEliminando namespace 'fintech' para recreación limpia..." "33"
     kubectl delete namespace fintech --ignore-not-found || true
-    sleep 3
+    while kubectl get namespace fintech &>/dev/null; do
+        sleep 2
+    done
+    sleep 2
 fi
 
 # 3. Construir imágenes con Podman
@@ -119,6 +122,10 @@ for svc in frontend auth-service user-service transaction-service notification-s
 done
 log "Todas las imágenes fueron construidas exitosamente con Podman." "32"
 
+# Limpieza de imágenes intermedias huérfanas en Podman para preservar almacenamiento efímero
+log "\nLimpiando capas intermedias de compilación en Podman..." "33"
+podman image prune -f || true
+
 # 4. Cargar imágenes en el clúster
 log "\n[4/5] Cargando imágenes en el clúster Kubernetes (${CLUSTER_TYPE})..." "36"
 
@@ -138,7 +145,8 @@ for svc in frontend auth-service user-service transaction-service notification-s
            ! kind load docker-image "localhost/${img}" "${kind_args[@]}" 2>/dev/null; then
             log "  -> Intentando carga alternativa vía archivo tar temporal..." "33"
             temp_tar="/tmp/${svc}.tar"
-            podman save -o "${temp_tar}" "${img}"
+            rm -f "${temp_tar}"
+            podman save --format docker-archive -o "${temp_tar}" "${img}"
             kind load image-archive "${temp_tar}" "${kind_args[@]}"
             rm -f "${temp_tar}"
         fi
@@ -147,8 +155,20 @@ for svc in frontend auth-service user-service transaction-service notification-s
         minikube image load "${img}"
     elif [[ "${CLUSTER_TYPE}" == "k3s" ]] || command -v k3s &>/dev/null; then
         log "  -> Cargando ${img} en K3s (containerd)..." "33"
-        podman save "${img}" | sudo k3s ctr images import - || podman save "${img}" | k3s ctr images import -
-        sudo k3s ctr images tag "localhost/${img}" "docker.io/${img}" 2>/dev/null || k3s ctr images tag "localhost/${img}" "docker.io/${img}" 2>/dev/null || true
+        temp_tar="/tmp/${svc}.tar"
+        rm -f "${temp_tar}"
+        if podman save --format docker-archive -o "${temp_tar}" "docker.io/${img}" 2>/dev/null || \
+           podman save --format docker-archive -o "${temp_tar}" "${img}" 2>/dev/null || \
+           podman save --format docker-archive -o "${temp_tar}" "localhost/${img}"; then
+            if sudo -n true 2>/dev/null; then
+                sudo k3s ctr images import "${temp_tar}"
+            elif [[ -w "/run/k3s/containerd/containerd.sock" ]]; then
+                k3s ctr images import "${temp_tar}"
+            else
+                sudo k3s ctr images import "${temp_tar}"
+            fi
+            rm -f "${temp_tar}"
+        fi
     else
         log "  -> Imagen ${img} lista en el almacenamiento local de Podman." "32"
     fi
@@ -168,6 +188,10 @@ kubectl apply -f k8s/07-backup-cronjob.yaml
 kubectl apply -f k8s/09-hpa.yaml
 kubectl apply -f k8s/10-pdb.yaml
 
+# Limpieza preventiva de Pods finalizados o desalojados
+kubectl delete pods --field-selector=status.phase=Failed -n fintech --ignore-not-found 2>/dev/null || true
+kubectl delete pods --field-selector=status.phase=Succeeded -n fintech --ignore-not-found 2>/dev/null || true
+
 log "\n======================================================================" "32"
 log "¡Despliegue completado! Estado actual de los Pods en namespace 'fintech':" "32"
 log "======================================================================" "32"
@@ -175,3 +199,4 @@ sleep 3
 kubectl get pods -n fintech
 
 log "\nLogs del despliegue guardados en: ${LOG_FILE}" "36"
+

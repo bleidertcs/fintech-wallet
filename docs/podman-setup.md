@@ -1,22 +1,23 @@
 # 🦭 Guía Completa de Configuración de Podman y Kubernetes
 
-Esta guía detalla el aprovisionamiento, optimización y resolución de problemas para el uso de **Podman**, **Podman Desktop**, **Podman Machine**, **Rootless Containers** y clústeres locales de **Kubernetes (Kind, Minikube, K3s)** en el ecosistema **FinTech Wallet**.
+Esta guía detalla el aprovisionamiento, optimización y resolución de problemas para el uso de **Podman**, **Podman Desktop**, **Podman Machine**, **Rootless Containers** y los clústeres de **Kubernetes soportados (Kind y K3s)** en el ecosistema **FinTech Wallet**.
 
 ---
 
 ## 📑 Tabla de Contenidos
 
 1. [¿Por qué Podman en FinTech Wallet?](#-por-qué-podman-en-fintech-wallet)
-2. [Instalación y Configuración Base](#-instalación-y-configuración-base)
+2. [Instalación y Configuración Base de Podman](#-instalación-y-configuración-base-de-podman)
    - [Windows (Podman Desktop & WSL2)](#windows-podman-desktop--wsl2)
    - [Linux (Ubuntu / Debian / Fedora)](#linux-ubuntu--debian--fedora)
+   - [macOS](#macos)
 3. [Configuración de Podman Machine (Windows / macOS)](#-configuración-de-podman-machine-windows--macos)
 4. [Modo Rootless y Permisos de Volúmenes (SELinux / :Z)](#-modo-rootless-y-permisos-de-volúmenes-selinux--z)
 5. [Uso de `compose.yaml` con Podman](#-uso-de-composeyaml-con-podman)
-6. [Integración con Clústeres Kubernetes Locales](#-integración-con-clústeres-kubernetes-locales)
-   - [Kind con Proveedor Podman](#kind-con-proveedor-podman)
-   - [Minikube con Driver Podman](#minikube-con-driver-podman)
-   - [Podman Desktop con Kubernetes Embebido](#podman-desktop-con-kubernetes-embebido)
+6. [Alternativas de Clústeres Kubernetes Paso a Paso](#-alternativas-de-clústeres-kubernetes-paso-a-paso)
+   - [Alternativa A: Kind con Proveedor Podman (Desarrollo Local en Windows/Linux/macOS)](#alternativa-a-kind-con-proveedor-podman-desarrollo-local)
+   - [Alternativa B: K3s con Podman Rootless (Servidores Linux / VMs / Bare Metal)](#alternativa-b-k3s-con-podman-rootless-servidores-linux--vms)
+   - [Alternativa C: Podman Desktop con Kind Embebido (Entorno Gráfico)](#alternativa-c-podman-desktop-con-kind-embebido-entorno-gráfico)
 7. [Construcción de Imágenes con `Containerfile`](#-construcción-de-imágenes-con-containerfile)
 8. [Despliegue Automatizado con `deploy-k8s.ps1` / `deploy-k8s.sh`](#-despliegue-automatizado-con-deploy-k8sps1--deploy-k8ssh)
 9. [Diagnóstico y Resolución de Problemas Frecuentes](#-diagnóstico-y-resolución-de-problemas-frecuentes)
@@ -27,8 +28,8 @@ Esta guía detalla el aprovisionamiento, optimización y resolución de problema
 
 * 🛡️ **Seguridad Rootless**: Permite ejecutar contenedores sin privilegios de `root` ni demonios con privilegios elevados (`dockerd`), aislando el entorno de desarrollo y producción.
 * 📦 **Estándares OCI y Containerfile**: Compatibilidad nativa con imágenes OCI, `Containerfile` y especificaciones de `compose.yaml`.
-* ☸️ **Afinidad con Kubernetes**: Filosofía de Pods nativos (`podman pod`, `podman kube play`) e interoperabilidad con Kind y Minikube.
-* ⚡ **Arquitectura Fork-Exec**: Sin demonio central que represente un único punto de fallo (single point of failure).
+* ☸️ **Afinidad con Kubernetes**: Filosofía de Pods nativos (`podman pod`, `podman kube play`) e interoperabilidad nativa con Kind y K3s.
+* ⚡ **Arquitectura Fork-Exec**: Sin demonio central que represente un único punto de fallo (*single point of failure*).
 
 ---
 
@@ -146,62 +147,207 @@ podman compose down
 
 ---
 
-## ☸️ Integración con Clústeres Kubernetes Locales
+## ☸️ Alternativas de Clústeres Kubernetes Paso a Paso
 
-### Kind con Proveedor Podman
+FinTech Wallet está optimizado para funcionar con dos alternativas principales de Kubernetes utilizando Podman:
 
-Para aprovisionar y operar un clúster de **Kind** utilizando **Podman** como motor de contenedores en Windows (WSL2) o Linux:
+### 🧭 Criterio de Selección: ¿Kind o K3s?
 
-#### 1. Creación del Clúster Kind
-Es necesario indicarle a Kind que use el proveedor de Podman mediante la variable de entorno `KIND_EXPERIMENTAL_PROVIDER`:
+| Criterio | 📦 **Kind** (Kubernetes in Docker/Podman) | 🚀 **K3s** (Lightweight Kubernetes) |
+| :--- | :--- | :--- |
+| **Uso principal** | **Desarrollo local** en tu PC/Laptop. | **Servidores Linux**, VMs dedicadas o producción ligera. |
+| **¿Cómo corre?** | Cada nodo es un **contenedor OCI** dentro de Podman/Docker. | Corre como un **servicio nativo del sistema** (`systemd`). |
+| **Ingress Controller** | No incluye Ingress por defecto (se instalan CRDs de Traefik). | Incluye **Traefik Ingress Controller** de fábrica. |
+| **Almacenamiento** | `standard` (Kind host-path). | `local-path` nativo preconfigurado. |
+| **Sistemas Recomendados** | **Windows (WSL2 / Podman Desktop) y macOS**. | **Servidores Ubuntu / Debian / RHEL / CentOS**. |
 
-```bash
-# En Bash (Linux / macOS / WSL2)
-export KIND_EXPERIMENTAL_PROVIDER=podman
-kind create cluster --name fintech
+> [!TIP]
+> **Regla práctica**:
+> - Si estás en tu **computadora personal con Windows** para programar y depurar: usa **Kind**.
+> - Si estás en un **servidor remoto o máquina virtual Linux** (como un host de infraestructura): usa **K3s**.
 
-# En PowerShell (Windows)
-$env:KIND_EXPERIMENTAL_PROVIDER="podman"
-kind create cluster --name fintech
+---
+
+### Alternativa A: Kind con Proveedor Podman (Desarrollo Local)
+
+**Kind** ejecuta cada nodo de Kubernetes como un contenedor OCI dentro de Podman.
+
+#### Paso 1: Instalación de Kind y Kubectl
+
+* **En Windows**:
+  ```powershell
+  winget install Kubernetes.kind
+  winget install Kubernetes.kubectl
+  ```
+  *(O vía Chocolatey: `choco install kind kubernetes-cli`).*
+
+* **En Linux (Ubuntu / Debian / Fedora / RHEL)**:
+  ```bash
+  # Descargar binario oficial de Kind
+  curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.27.0/kind-linux-amd64
+  chmod +x ./kind
+  sudo mv ./kind /usr/local/bin/kind
+
+  # Instalar kubectl
+  sudo apt update && sudo apt install -y kubectl
+  ```
+
+* **En macOS**:
+  ```bash
+  brew install kind kubectl
+  ```
+
+#### Paso 2: Configurar el Proveedor Podman
+Es obligatorio indicarle a Kind que utilice el motor de Podman:
+* **PowerShell (Windows)**:
+  ```powershell
+  $env:KIND_EXPERIMENTAL_PROVIDER="podman"
+  ```
+* **Bash (Linux / macOS / WSL2)**:
+  ```bash
+  export KIND_EXPERIMENTAL_PROVIDER=podman
+  ```
+
+#### Paso 3: Crear el Clúster Kind con Mapeo de Puertos
+Para acceder al Frontend (NodePort 30000), SigNoz APM (NodePort 30301) y Traefik Ingress (80/443), crea un archivo `kind-config.yaml`:
+
+```yaml
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+  - role: control-plane
+    extraPortMappings:
+      - containerPort: 80
+        hostPort: 80
+        protocol: TCP
+      - containerPort: 443
+        hostPort: 443
+        protocol: TCP
+      - containerPort: 30000
+        hostPort: 30000
+        protocol: TCP
+      - containerPort: 30301
+        hostPort: 30301
+        protocol: TCP
 ```
 
-#### 2. Carga de Imágenes en el Clúster Kind
-Debido a que el clúster Kind corre en nodos aislados dentro de contenedores de Podman, las imágenes construidas en el host mediante `podman build` deben cargarse explícitamente en el clúster para que los Pods puedan ejecutarse.
-
-Existen dos estrategias para cargar las imágenes:
-
-##### Método A: Carga Directa con `kind load`
+Crea el clúster con:
 ```bash
-export KIND_EXPERIMENTAL_PROVIDER=podman
-kind load docker-image fintech/notification-service:1.0.0 --name fintech
+kind create cluster --name fintech --config kind-config.yaml
 ```
 
-##### Método B: Carga de Contingencia mediante Archivo `.tar` (Recomendado si falla el método directo)
-Si la integración directa de `kind load docker-image` presenta incompatibilidades con la versión de Podman o la máquina WSL2, se debe exportar la imagen a un archivo `.tar` e importarla como un `image-archive`:
-
+#### Paso 4: Instalar los CRDs de Traefik (si no están presentes)
 ```bash
-# 1. Exportar la imagen creada con Podman a un archivo tar temporal
-podman save -o /tmp/notification-service.tar fintech/notification-service:1.0.0
-
-# 2. Cargar el archivo tar en el clúster Kind
-kind load image-archive /tmp/notification-service.tar --name fintech
-
-# 3. Eliminar el archivo tar temporal
-rm -f /tmp/notification-service.tar
+kubectl apply -f https://raw.githubusercontent.com/traefik/traefik/v3.1/docs/content/reference/dynamic-configuration/kubernetes-crd-definition-v1.yml
 ```
 
-*(Esta lógica de respaldo está implementada automáticamente en los scripts [`deploy-k8s.sh`](file:///c:/dev/DevOps/fintech-wallet/deploy-k8s.sh) y [`deploy-k8s.ps1`](file:///c:/dev/DevOps/fintech-wallet/deploy-k8s.ps1)).*
-
-### Minikube con Driver Podman
-
+#### Paso 5: Compilar y Cargar las Imágenes en Kind
+Construye las imágenes con Podman y cárgalas en el clúster:
 ```bash
-minikube start --driver=podman --cpus=4 --memory=8192
-minikube image load fintech/auth-service:1.0.0
+# 1. Compilar microservicio
+podman build -f backend-nestjs/auth-service/Containerfile -t fintech/auth-service:1.0.0 ./backend-nestjs/auth-service
+
+# 2. Cargar en Kind mediante archivo tar (método más confiable con Podman):
+podman save --format docker-archive -o /tmp/auth-service.tar docker.io/fintech/auth-service:1.0.0
+kind load image-archive /tmp/auth-service.tar --name fintech
+rm -f /tmp/auth-service.tar
 ```
 
-### Podman Desktop con Kubernetes Embebido
+*(El script `deploy-k8s.ps1` o `deploy-k8s.sh` ejecuta todos estos pasos de compilación y carga automáticamente).*
 
-Podman Desktop incluye soporte nativo para inicializar clústeres locales de Kind desde su interfaz gráfica (Settings -> Extensions -> Kind).
+#### Paso 6: Aplicar los Manifiestos
+```bash
+kubectl apply -f k8s/00-namespace-config.yaml
+kubectl apply -f k8s/01-infrastructure.yaml
+kubectl apply -f k8s/02-microservices.yaml
+kubectl apply -f k8s/03-frontend.yaml
+kubectl delete job signoz-migrator -n fintech --ignore-not-found
+kubectl apply -f k8s/04-observability.yaml
+kubectl apply -f k8s/05-ingress.yaml
+kubectl apply -f k8s/06-networkpolicy.yaml
+kubectl apply -f k8s/07-backup-cronjob.yaml
+kubectl apply -f k8s/09-hpa.yaml
+kubectl apply -f k8s/10-pdb.yaml
+```
+
+---
+
+### Alternativa B: K3s con Podman Rootless (Servidores Linux / VMs)
+
+**K3s** es una distribución de Kubernetes certificada, ligera y altamente optimizada que incluye **Traefik Ingress Controller** y el proveedor de almacenamiento **Local Path Provisioner** de fábrica.
+
+#### Paso 1: Instalación de K3s
+
+* **En Linux (Servidor / VM / Bare Metal)** — *Recomendado*:
+  ```bash
+  curl -sfL https://get.k3s.io | sh -
+  ```
+
+* **En Windows (vía WSL2 Ubuntu)**:
+  ```bash
+  wsl -d Ubuntu
+  curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644
+  ```
+
+#### Paso 2: Configurar Acceso a Kubectl para tu Usuario
+Para administrar el clúster sin necesidad de ser `root`:
+```bash
+mkdir -p ~/.kube
+sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
+sudo chown -R $USER:$USER ~/.kube
+chmod 600 ~/.kube/config
+export KUBECONFIG=~/.kube/config
+echo "export KUBECONFIG=~/.kube/config" >> ~/.bashrc
+```
+
+#### Paso 3: Configurar Permisos de `sudo` para Carga Automática en Containerd
+En Linux con Podman Rootless:
+* Podman compila las imágenes en el espacio de usuario (`~/.local/share/containers/storage`).
+* K3s ejecuta los Pods utilizando **containerd** (`/var/lib/rancher/k3s/agent/containerd/`).
+
+Para permitir que el script importe las imágenes compiladas a containerd sin solicitar contraseña interactiva en cada imagen:
+```bash
+echo "$USER ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/$USER
+```
+
+#### Paso 4: Compilación, Exportación e Importación de Imágenes
+Las imágenes se compilan con Podman, se exportan en formato estándar `docker-archive` tar y se importan al containerd de K3s:
+
+```bash
+# 1. Compilar imagen
+podman build -f backend-nestjs/auth-service/Containerfile -t fintech/auth-service:1.0.0 ./backend-nestjs/auth-service
+
+# 2. Exportar en formato docker-archive
+podman save --format docker-archive -o /tmp/auth-service.tar docker.io/fintech/auth-service:1.0.0
+
+# 3. Importar a containerd de K3s
+sudo k3s ctr images import /tmp/auth-service.tar
+rm -f /tmp/auth-service.tar
+
+# 4. Limpiar capas intermedias de compilación para liberar espacio en disco
+podman image prune -f
+```
+
+#### Paso 5: Despliegue Automatizado
+Para ejecutar todo el flujo (compilación, poda, importación y aplicación de manifiestos) en un solo comando:
+```bash
+./deploy-k8s.sh --recreate --non-interactive
+```
+
+---
+
+### Alternativa C: Podman Desktop con Kind Embebido (Entorno Gráfico)
+
+Si prefieres administrar tu entorno mediante una interfaz gráfica en Windows o macOS:
+
+1. Abre **Podman Desktop**.
+2. Ve a **Settings (Configuración)** -> **Resources (Recursos)** y asegúrate de que la Podman Machine tenga al menos **8 GB de RAM** y **4 CPUs**.
+3. Ve a **Extensions (Extensiones)** e instala la extensión oficial de **Kind**.
+4. Haz clic en **Create Cluster** dentro de la sección Kind para inicializar el clúster.
+5. Abre una terminal y ejecuta el script automatizado:
+   ```powershell
+   .\deploy-k8s.ps1
+   ```
 
 ---
 
