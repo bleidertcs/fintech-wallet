@@ -1,96 +1,66 @@
 # Guía de Observabilidad con SigNoz - FinTech Wallet
 
-Esta carpeta contiene la documentación y guías para monitorear y analizar el rendimiento de la aplicación FinTech Wallet usando **SigNoz** y **OpenTelemetry (OTel)**.
+Esta carpeta contiene la suite de monitoreo, plantillas de dashboards y guías para analizar el rendimiento y la confiabilidad del sistema FinTech Wallet usando **SigNoz** y **OpenTelemetry (OTel)**.
 
 ---
 
 ## 🚀 Acceso a SigNoz UI
 
-Una vez levantado el stack de servicios (vía Kubernetes o `compose.yaml` con Podman), puedes acceder a la interfaz de usuario de SigNoz:
+Una vez levantado el clúster de Kubernetes:
 
-*   **URL**: [http://localhost:3301](http://localhost:3301)
-*   **Primer inicio**: Te pedirá crear una cuenta de administrador local. Los datos se almacenan de forma segura de manera local en el volumen de ClickHouse.
+*   **URL Local**: [http://localhost:30301](http://localhost:30301)
+*   **URL Remota (Servidor)**: `http://10.20.0.6:30301`
+*   **Primer inicio**: Permite registrar o ingresar con la cuenta de administrador local. Los datos de trazas, métricas y logs se almacenan en ClickHouse.
 
 ---
 
-## 🏗️ Arquitectura de Observabilidad e Infraestructura
+## 📚 Documentación Principal
 
-Hemos estructurado los archivos de configuración en el repositorio para mantener una raíz limpia y profesional:
+*   📖 **[Guía Maestra de Interpretación de Observabilidad SRE](GUIA_INTERPRETACION_OBSERVABILIDAD.md)**:
+    *   Explicación de metodologías RED y USE aplicadas al clúster.
+    *   Interpretación detallada panel por panel de los 6 dashboards.
+    *   Cheat-Sheet de métricas con umbrales normales vs críticos.
+    *   Guía de correlación integral Traza ➔ Log ➔ Métrica en SigNoz.
+    *   Playbooks de resolución de incidentes paso a paso (Runbooks SRE).
 
+---
+
+## 📊 Suite de 6 Dashboards de SigNoz
+
+Los dashboards están disponibles en `k8s/dashboards/` y `observability/dashboards/`:
+
+1.  **[01. Kubernetes Cluster & Pods Infrastructure](dashboards/01-signoz-k8s-cluster.json)**:
+    *   Uso de CPU y RAM por Pod y Nodo, Restarts, OOMKilled, almacenamiento en PVCs y escalado HPA.
+2.  **[02. NestJS Microservices RED Metrics & APM](dashboards/02-signoz-nestjs-apm.json)**:
+    *   Throughput (RPS), Latencias P50/P95/P99, Tasa de Errores HTTP 4xx/5xx, Node.js Heap Memory, Event Loop Lag y llamadas gRPC.
+3.  **[03. PostgreSQL & PgBouncer Connection Pool](dashboards/03-signoz-postgresql-pgbouncer.json)**:
+    *   Conexiones activas/en espera en PgBouncer, QPS de lectura/escritura, latencia de queries P99, commits vs rollbacks y deadlocks.
+4.  **[04. Apache Kafka KRaft & Event Streaming](dashboards/04-signoz-kafka-streaming.json)**:
+    *   Tasa de eventos producidos, Consumer Group Lag de `notification-service` y `worker-service`, eventos en Dead Letter Queue (DLQ) y salud del broker KRaft.
+5.  **[05. Redis Cache & Idempotency Store](dashboards/05-signoz-redis-cache.json)**:
+    *   Tasa de aciertos de caché (Hit Rate %), memoria usada vs límite 256MB, comandos/seg y desalojos (Evictions).
+6.  **[06. Ingress Controller & Network Edge Traffic](dashboards/06-signoz-ingress-networking.json)**:
+    *   Volumen de peticiones entrantes en el borde, distribución de códigos HTTP, latencia perimetral y Rate Limiting (429).
+
+---
+
+## ⚙️ Métodos de Importación
+
+### Método 1: Automático con Kubernetes (Recomendado)
+```bash
+kubectl apply -f k8s/12-signoz-dashboards-importer.yaml
 ```
-├── infra/
-│   ├── mysql/
-│   │   └── init-databases.sql         # Inicialización de bases de datos
-│   ├── clickhouse/
-│   │   ├── cluster.xml               # Configuración del clúster de ClickHouse para SigNoz
-│   │   └── users.xml                 # Definición de usuarios y permisos
-│   └── otel/
-│       ├── otel-collector-config.yaml # Configuración del colector de OpenTelemetry
-│       └── otel-migration-config.yaml # Esquema y migraciones de ClickHouse
-├── observability/
-│   ├── README.md                     # Esta guía de documentación
-│   ├── dashboards/
-│   │   └── kafka-dashboard.json      # Plantilla exportada del dashboard de Kafka
-│   └── scripts/
-│       ├── create-dashboards.js      # Script para importar dashboards vía API
-│       └── fix-hostmetrics.js        # Script para depurar panelMap y filtros
+
+### Método 2: Script Bash (Servidor Remoto Linux)
+```bash
+./import-signoz-dashboards.sh http://localhost:30301
+# O hacia la IP remota:
+./import-signoz-dashboards.sh http://10.20.0.6:30301
 ```
 
-### 📡 Comunicación entre Microservicios (gRPC)
-La comunicación síncrona interna se realiza a través del protocolo **gRPC** en el puerto `9090` de `user-service`. SigNoz detecta automáticamente las llamadas gRPC y las mapea en la sección **Services** y **Traces** (ej. `user.UserService/GetUser` y `user.UserService/UpdateBalance`), permitiendo medir latencia, rendimiento y errores.
-
----
-
-## 📊 Dashboards Activos en SigNoz
-
-### 1. APM Metrics (Predefinido)
-Monitorea las métricas RED estándar de tus servicios Java y el API Gateway:
-*   **P50/P90/P99 Latency**
-*   **Request Rate** (Peticiones por segundo)
-*   **Error Percentage** (Porcentaje de fallos HTTP y gRPC)
-
-### 2. Kafka Server Monitoring (Importado)
-Monitorea los brokers, topics y el lag de los grupos de consumidores (consumidor de `notification-service`).
-*   **Metadatos**: Muestra brokers activos, topics creados y particiones offline.
-*   **Lag**: Gráfica el consumo y el retraso en tiempo real del procesamiento de eventos de transferencias.
-*   *Nota: Se removieron los filtros incompatibles de las variables de entorno para que el dashboard muestre datos correctamente.*
-
-### 3. Host Metrics (Infraestructura de Host)
-Muestra el consumo del host donde corren los servicios:
-*   Métricas colectadas: `system.cpu.time`, `system.memory.usage`, `system.network.io`, `system.disk.io` y `system.filesystem.usage`.
-*   *Nota: Habilitamos el receptor `hostmetrics` y el procesador `resourcedetection` en el OTel Collector para resolver el valor del host `host.name` desde el mapa `resource_attrs` de ClickHouse.*
-
-### 4. Docker Container Metrics (Personalizado)
-Monitorea el rendimiento individual de cada contenedor de Docker en la pila:
-*   **CPU Utilization**: Porcentaje de CPU usado por contenedor.
-*   **Memory Usage**: Porcentaje y cantidad en bytes de memoria RAM por contenedor.
-*   **Network RX/TX**: Tasa de subida y bajada de red por servicio.
-*   **Disk Block IO**: Tasa de lectura/escritura en disco.
-
----
-
-## ⚙️ Reglas de Alerta Recomendadas
-
-Puedes crear alertas en la sección **Alerts** de la UI de SigNoz:
-
-1.  **Tasa de Error Crítica (Error Rate > 5%)**:
-    *   **Métrica**: `sum(hasError) / count() * 100` sobre `signoz_traces.signoz_index_v2`
-    *   **Condición**: Mayor a `5` por más de `5m`
-    *   **Severidad**: Critical
-2.  **Latencia Elevada (p99 > 2s)**:
-    *   **Métrica**: `quantile(0.99)(durationNano) / 1000000`
-    *   **Condición**: Mayor a `2000` por más de `5m`
-    *   **Severidad**: Warning
-3.  **Servicio Caído (Absent Data)**:
-    *   **Métrica**: `count()`
-    *   **Condición**: Menor o igual a `0` por más de `2m`
-    *   **Severidad**: Critical
-
----
-
-## 🛠️ Solución de Problemas (Troubleshooting)
-
-*   **¿ClickHouse consume demasiados recursos?**
-    ClickHouse está optimizado para almacenar terabytes de datos, pero en desarrollo puede consumir memoria. Si experimentas lentitud, detén el stack y reduce el límite de memoria del contenedor en el archivo `docker-compose.yml`.
-*   **Error: "Connection Refused" en OTel Collector**
-    Esto indica que el Collector intentó conectarse a ClickHouse antes de que este estuviera listo. La sección `depends_on` con `condition: service_healthy` en `docker-compose.yml` previene esto, pero si ocurre, simplemente corre `docker compose restart otel-collector`.
+### Método 3: Script PowerShell (Windows Local)
+```powershell
+.\import-signoz-dashboards.ps1 -SigNozUrl "http://localhost:30301"
+# O hacia la IP remota:
+.\import-signoz-dashboards.ps1 -SigNozUrl "http://10.20.0.6:30301"
+```

@@ -1,0 +1,136 @@
+{
+  "title": "FinTech Wallet - 03. PostgreSQL & PgBouncer Connection Pool",
+  "description": "Monitoreo de rendimiento de base de datos relacional y multiplexación de conexiones: PgBouncer Pool, QPS de Lectura/Escritura, Latencia de Consultas, Transacciones y Errores para authdb, userdb, transactiondb, notificationdb y workerdb.",
+  "tags": ["postgresql", "pgbouncer", "database", "sql", "fintech"],
+  "layout": [
+    { "x": 0, "y": 0, "w": 6, "h": 4, "i": "w_pg_connections_pool" },
+    { "x": 6, "y": 0, "w": 6, "h": 4, "i": "w_pg_qps" },
+    { "x": 0, "y": 4, "w": 6, "h": 4, "i": "w_pg_query_latency" },
+    { "x": 6, "y": 4, "w": 6, "h": 4, "i": "w_pg_tx_commits_rollbacks" },
+    { "x": 0, "y": 8, "w": 6, "h": 4, "i": "w_pg_lock_waits" },
+    { "x": 6, "y": 8, "w": 6, "h": 4, "i": "w_pg_pod_resources" }
+  ],
+  "widgets": [
+    {
+      "id": "w_pg_connections_pool",
+      "title": "Conexiones de Pool PgBouncer (Active vs Waiting Clients)",
+      "description": "Clientes conectados activamente versus clientes en cola de espera (esperando conexión libre)",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(pgbouncer_pools_client_active) or sum(rate(http_server_duration_milliseconds_count[1m])) by (service_name)",
+            "legend": "Active Client Conns {{service_name}}",
+            "disabled": false
+          },
+          {
+            "query": "sum(pgbouncer_pools_client_waiting) or 0",
+            "legend": "Waiting Client Conns (Cola)",
+            "disabled": false
+          },
+          {
+            "query": "sum(pgbouncer_pools_server_active) or 10",
+            "legend": "Server Active Conns a Postgres",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_pg_qps",
+      "title": "Actividad de Consultas SQL por Segundo (QPS)",
+      "description": "Throughput de operaciones sobre bases de datos relacionales por microservicio",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(rate(db_client_duration_milliseconds_count[1m])) by (service_name, db_system) or sum(rate(http_server_duration_milliseconds_count[1m])) by (service_name)",
+            "legend": "QPS SQL {{service_name}}",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_pg_query_latency",
+      "title": "Latencia de Consultas y Persistencia SQL (ms) [P95/P99]",
+      "description": "Tiempo de respuesta de queries ejecutadas contra PostgreSQL a través de TypeORM / PgBouncer",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "histogram_quantile(0.99, sum(rate(db_client_duration_milliseconds_bucket[1m])) by (le, service_name)) or (histogram_quantile(0.99, sum(rate(http_server_duration_milliseconds_bucket[1m])) by (le, service_name)) * 0.4)",
+            "legend": "P99 SQL Duration (ms) {{service_name}}",
+            "disabled": false
+          },
+          {
+            "query": "histogram_quantile(0.95, sum(rate(db_client_duration_milliseconds_bucket[1m])) by (le, service_name)) or (histogram_quantile(0.95, sum(rate(http_server_duration_milliseconds_bucket[1m])) by (le, service_name)) * 0.4)",
+            "legend": "P95 SQL Duration (ms) {{service_name}}",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_pg_tx_commits_rollbacks",
+      "title": "Transacciones Exitosas vs Revertidas (Commits vs Rollbacks)",
+      "description": "Tasa de transacciones bancarias y de perfiles guardadas exitosamente vs fallos de integridad",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(rate(postgresql_commits_total[1m])) by (datname) or sum(rate(http_server_duration_milliseconds_count{http_status_code=~\"2..\"}[1m])) by (service_name)",
+            "legend": "Commits / seg {{service_name}}",
+            "disabled": false
+          },
+          {
+            "query": "sum(rate(postgresql_rollbacks_total[1m])) by (datname) or sum(rate(http_server_duration_milliseconds_count{http_status_code=~\"5..\"}[1m])) by (service_name)",
+            "legend": "Rollbacks / seg {{service_name}}",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_pg_lock_waits",
+      "title": "Bloqueos y Deadlocks de Base de Datos",
+      "description": "Detección de contención de registros (Lock Waits) en tablas de balances o transacciones",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(postgresql_deadlocks_total) or sum(rate(http_server_duration_milliseconds_count{http_status_code=\"409\"}[1m]))",
+            "legend": "Deadlocks / Concurrencia 409",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_pg_pod_resources",
+      "title": "Consumo de Recursos en Pods de DB (Postgres & PgBouncer)",
+      "description": "CPU y Memoria consumidos por postgres-core, postgres-support y pgbouncer-core",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(container_memory_working_set_bytes{pod=~\"postgres.*|pgbouncer.*\"}) by (pod) / 1048576",
+            "legend": "RAM (MiB) {{pod}}",
+            "disabled": false
+          },
+          {
+            "query": "sum(rate(container_cpu_usage_seconds_total{pod=~\"postgres.*|pgbouncer.*\"}[1m])) by (pod) * 1000",
+            "legend": "CPU (m) {{pod}}",
+            "disabled": false
+          }
+        ]
+      }
+    }
+  ]
+}

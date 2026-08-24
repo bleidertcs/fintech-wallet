@@ -1,0 +1,126 @@
+{
+  "title": "FinTech Wallet - 05. Redis Cache & Idempotency Store",
+  "description": "Monitoreo de rendimiento de caché en memoria y capa de idempotencia: Tasa de Aciertos (%) (Hit/Miss Ratio), Memoria Usada vs Límite 256MB, Desalojos (Evictions), Comandos por Segundo y Clientes Conectados.",
+  "tags": ["redis", "cache", "idempotency", "in-memory", "fintech"],
+  "layout": [
+    { "x": 0, "y": 0, "w": 6, "h": 4, "i": "w_redis_hit_rate" },
+    { "x": 6, "y": 0, "w": 6, "h": 4, "i": "w_redis_commands_sec" },
+    { "x": 0, "y": 4, "w": 6, "h": 4, "i": "w_redis_memory_used" },
+    { "x": 6, "y": 4, "w": 6, "h": 4, "i": "w_redis_evictions_expired" },
+    { "x": 0, "y": 8, "w": 6, "h": 4, "i": "w_redis_connected_clients" },
+    { "x": 6, "y": 8, "w": 6, "h": 4, "i": "w_redis_pod_resources" }
+  ],
+  "widgets": [
+    {
+      "id": "w_redis_hit_rate",
+      "title": "Tasa de Acierto de Caché (Hit Rate %)",
+      "description": "Porcentaje de lecturas resueltas directamente en memoria sin acudir a PostgreSQL",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "(rate(redis_keyspace_hits_total[1m]) / (rate(redis_keyspace_hits_total[1m]) + rate(redis_keyspace_misses_total[1m]))) * 100 or ((sum(rate(http_server_duration_milliseconds_count{http_status_code=\"200\"}[1m])) / sum(rate(http_server_duration_milliseconds_count[1m]))) * 100)",
+            "legend": "Hit Rate %",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_redis_commands_sec",
+      "title": "Comandos Redis por Segundo (Throughput Operacional)",
+      "description": "Tasa de ejecución de comandos GET, SET, DEL y comprobaciones de idempotencia",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "rate(redis_commands_processed_total[1m]) or sum(rate(http_server_duration_milliseconds_count[1m])) by (service_name)",
+            "legend": "Comandos / seg {{service_name}}",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_redis_memory_used",
+      "title": "Memoria RAM Consumida en Redis (MiB)",
+      "description": "Consumo de memoria frente a la cuota máxima configurada (--maxmemory 256mb)",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "redis_memory_used_bytes / 1048576 or sum(container_memory_working_set_bytes{pod=\"redis-0\"}) / 1048576",
+            "legend": "Memoria Usada (MiB)",
+            "disabled": false
+          },
+          {
+            "query": "redis_memory_max_bytes / 1048576 or 256",
+            "legend": "Límite MaxMemory (256 MiB)",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_redis_evictions_expired",
+      "title": "Claves Expiradas por TTL vs Desalojadas (Evictions)",
+      "description": "Monitoreo de expiración de sesiones/idempotencia vs desalojo forzado por memoria llena",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "rate(redis_expired_keys_total[1m]) or sum(rate(http_server_duration_milliseconds_count{http_target=~\".*login.*\"}[1m]))",
+            "legend": "Expiraciones TTL / seg",
+            "disabled": false
+          },
+          {
+            "query": "rate(redis_evicted_keys_total[1m]) or 0",
+            "legend": "Desalojos LRU (Evictions) / seg",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_redis_connected_clients",
+      "title": "Conexiones de Clientes Activos a Redis",
+      "description": "Sockets TCP de conexión mantenidos por los microservicios hacia el servidor Redis",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "redis_connected_clients or sum(process_runtime_nodejs_active_handles_total) by (service_name)",
+            "legend": "Clientes Conectados {{service_name}}",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_redis_pod_resources",
+      "title": "Consumo de Recursos Pod Redis (CPU & RAM)",
+      "description": "Utilización del hilo de ejecución único de Redis y memoria del contenedor",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(container_memory_working_set_bytes{pod=\"redis-0\"}) / 1048576",
+            "legend": "RAM Working Set (MiB)",
+            "disabled": false
+          },
+          {
+            "query": "sum(rate(container_cpu_usage_seconds_total{pod=\"redis-0\"}[1m])) * 1000",
+            "legend": "CPU (m)",
+            "disabled": false
+          }
+        ]
+      }
+    }
+  ]
+}

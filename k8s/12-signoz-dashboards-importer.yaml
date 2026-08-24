@@ -1,0 +1,1071 @@
+# ==============================================================================
+# 12-SIGNOZ-DASHBOARDS-IMPORTER.YAML - AUTO-IMPORTACIÓN NATIVA DE DASHBOARDS
+# Carga automáticamente los 6 dashboards de SigNoz para el clúster FinTech Wallet:
+# 1. Kubernetes Cluster & Pods Infrastructure
+# 2. NestJS Microservices RED Metrics & APM
+# 3. PostgreSQL & PgBouncer Connection Pool
+# 4. Apache Kafka KRaft & Event Streaming
+# 5. Redis Cache & Idempotency Store
+# 6. Ingress Controller & Network Edge Traffic
+# ==============================================================================
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: signoz-importer-script
+  namespace: fintech
+data:
+  import.sh: |
+    #!/bin/sh
+    set -e
+
+    SIGNOZ_HOST="${SIGNOZ_HOST:-signoz}"
+    SIGNOZ_PORT="${SIGNOZ_PORT:-8080}"
+    BASE_URL="http://${SIGNOZ_HOST}:${SIGNOZ_PORT}"
+    API_KEY="${SIGNOZ_API_KEY:-}"
+
+    echo "=========================================================="
+    echo " SigNoz Dashboard Auto-Importer for FinTech Wallet"
+    echo " Target: ${BASE_URL}"
+    echo "=========================================================="
+
+    echo "[*] Verificando disponibilidad de la API de SigNoz..."
+    MAX_RETRIES=30
+    COUNT=0
+    until nc -z "${SIGNOZ_HOST}" "${SIGNOZ_PORT}" || [ $COUNT -ge $MAX_RETRIES ]; do
+      echo "  -> Esperando a que SigNoz responda en ${SIGNOZ_HOST}:${SIGNOZ_PORT}... ($COUNT/$MAX_RETRIES)"
+      sleep 3
+      COUNT=$((COUNT+1))
+    done
+
+    # Pequeña pausa para asegurar inicialización de tablas SQLite/Clickhouse en SigNoz
+    sleep 5
+
+    DASHBOARDS_DIR="/dashboards"
+    for file in "${DASHBOARDS_DIR}"/*.json; do
+      if [ -f "$file" ]; then
+        filename=$(basename "$file")
+        echo -e "\n[+] Importando dashboard: ${filename}..."
+        
+        if [ -n "$API_KEY" ]; then
+          curl -s -X POST "${BASE_URL}/api/v1/dashboards" \
+            -H "Content-Type: application/json" \
+            -H "SIGNOZ-API-KEY: ${API_KEY}" \
+            -d @"$file"
+        else
+          curl -s -X POST "${BASE_URL}/api/v1/dashboards" \
+            -H "Content-Type: application/json" \
+            -d @"$file"
+        fi
+        
+        echo -e "\n[OK] Dashboard ${filename} enviado exitosamente a SigNoz."
+      fi
+    done
+
+    echo -e "\n=========================================================="
+    echo " [OK] Todos los dashboards han sido procesados correctamente."
+    echo "=========================================================="
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: signoz-dashboards-payload-01
+  namespace: fintech
+data:
+  01-signoz-k8s-cluster.json: |
+    {
+      "title": "FinTech Wallet - 01. Kubernetes Cluster & Pods Infrastructure",
+      "description": "Monitoreo integral de infraestructura Kubernetes: Uso de CPU y Memoria por Pod y Nodo, Reinicios (Restarts/OOMKilled), Consumo de PVCs y Estado de Réplicas HPA en el namespace fintech.",
+      "tags": ["kubernetes", "infrastructure", "pods", "nodes", "pvc", "hpa", "fintech"],
+      "layout": [
+        { "x": 0, "y": 0, "w": 6, "h": 4, "i": "w_k8s_cpu_pods" },
+        { "x": 6, "y": 0, "w": 6, "h": 4, "i": "w_k8s_ram_pods" },
+        { "x": 0, "y": 4, "w": 4, "h": 4, "i": "w_k8s_restarts" },
+        { "x": 4, "y": 4, "w": 4, "h": 4, "i": "w_k8s_node_cpu" },
+        { "x": 8, "y": 4, "w": 4, "h": 4, "i": "w_k8s_node_ram" },
+        { "x": 0, "y": 8, "w": 6, "h": 4, "i": "w_k8s_pvc_usage" },
+        { "x": 6, "y": 8, "w": 6, "h": 4, "i": "w_k8s_hpa_replicas" },
+        { "x": 0, "y": 12, "w": 12, "h": 4, "i": "w_k8s_network_io" }
+      ],
+      "widgets": [
+        {
+          "id": "w_k8s_cpu_pods",
+          "title": "Uso de CPU por Pod (Milicores / Cores)",
+          "description": "Consumo de procesamiento en tiempo real por cada contenedor y pod del clúster",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "sum(rate(container_cpu_usage_seconds_total{namespace=\"fintech\"}[1m])) by (pod) * 1000 or sum(rate(k8s_pod_cpu_time_seconds_total{k8s_namespace_name=\"fintech\"}[1m])) by (k8s_pod_name) * 1000",
+                "legend": "CPU (m) {{pod}}{{k8s_pod_name}}",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_k8s_ram_pods",
+          "title": "Uso de Memoria RAM por Pod (Working Set / MiB)",
+          "description": "Memoria activa no recuperable por pod (usada por el OOM Killer para evaluar desalojos)",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "sum(container_memory_working_set_bytes{namespace=\"fintech\"}) by (pod) / 1048576 or sum(k8s_pod_memory_working_set_bytes{k8s_namespace_name=\"fintech\"}) by (k8s_pod_name) / 1048576",
+                "legend": "RAM Working Set (MiB) {{pod}}{{k8s_pod_name}}",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_k8s_restarts",
+          "title": "Reinicios de Pods / OOMKills Acumulados",
+          "description": "Contador de reinicios de pods por fallos de proceso, timeouts de probe o OOMKilled",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "sum(changes(container_restart_count{namespace=\"fintech\"}[5m])) by (pod) or sum(changes(k8s_pod_restarts_total{k8s_namespace_name=\"fintech\"}[5m])) by (k8s_pod_name)",
+                "legend": "Restarts (5m delta) {{pod}}{{k8s_pod_name}}",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_k8s_node_cpu",
+          "title": "Utilización de CPU del Nodo (%)",
+          "description": "Porcentaje de saturación de CPU de los nodos de Kubernetes (hostmetrics)",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "(1 - avg(rate(system_cpu_time_seconds_total{state=\"idle\"}[1m])) by (host_name)) * 100 or (1 - avg(rate(system_cpu_time{state=\"idle\"}[1m])) by (host_name)) * 100",
+                "legend": "CPU Node Utilization % {{host_name}}",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_k8s_node_ram",
+          "title": "Utilización de Memoria del Nodo (%)",
+          "description": "Porcentaje de RAM utilizada en el nodo host",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "(1 - (system_memory_usage{state=\"free\"} or system_memory_usage_bytes{state=\"free\"}) / (sum(system_memory_usage) by (host_name) or sum(system_memory_usage_bytes) by (host_name))) * 100",
+                "legend": "RAM Node Utilization % {{host_name}}",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_k8s_pvc_usage",
+          "title": "Almacenamiento en PVCs (PostgreSQL, Kafka, ClickHouse, Redis)",
+          "description": "Porcentaje de capacidad utilizada en los volúmenes persistentes del clúster",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "(kubelet_volume_stats_used_bytes / kubelet_volume_stats_capacity_bytes) * 100 or (k8s_pvc_used_bytes / k8s_pvc_capacity_bytes) * 100",
+                "legend": "PVC Usage % {{persistentvolumeclaim}}{{k8s_pvc_name}}",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_k8s_hpa_replicas",
+          "title": "Escalado Automático HPA (Réplicas Actuales vs Deseadas)",
+          "description": "Monitoreo del autoscaler para auth-service, user-service y transaction-service",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "sum(kube_horizontalpodautoscaler_status_current_replicas{namespace=\"fintech\"}) by (horizontalpodautoscaler)",
+                "legend": "Réplicas Actuales {{horizontalpodautoscaler}}",
+                "disabled": false
+              },
+              {
+                "query": "sum(kube_horizontalpodautoscaler_status_desired_replicas{namespace=\"fintech\"}) by (horizontalpodautoscaler)",
+                "legend": "Réplicas Deseadas {{horizontalpodautoscaler}}",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_k8s_network_io",
+          "title": "Tráfico de Red por Pod (Rx/Tx KBytes/sec)",
+          "description": "Ancho de banda recibido y transmitido a nivel de contenedor/pod",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "sum(rate(container_network_receive_bytes_total{namespace=\"fintech\"}[1m])) by (pod) / 1024 or sum(rate(k8s_pod_network_io_receive_bytes_total{k8s_namespace_name=\"fintech\"}[1m])) by (k8s_pod_name) / 1024",
+                "legend": "Rx KB/s {{pod}}{{k8s_pod_name}}",
+                "disabled": false
+              },
+              {
+                "query": "sum(rate(container_network_transmit_bytes_total{namespace=\"fintech\"}[1m])) by (pod) / 1024 or sum(rate(k8s_pod_network_io_transmit_bytes_total{k8s_namespace_name=\"fintech\"}[1m])) by (k8s_pod_name) / 1024",
+                "legend": "Tx KB/s {{pod}}{{k8s_pod_name}}",
+                "disabled": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: signoz-dashboards-payload-02
+  namespace: fintech
+data:
+  02-signoz-nestjs-apm.json: |
+    {
+      "title": "FinTech Wallet - 02. NestJS Microservices RED Metrics & APM",
+      "description": "Dashboard de Rendimiento, Latencia (P50/P95/P99), Tasa de Errores HTTP/gRPC y Métricas de Runtime de Node.js (Heap Memory, Event Loop Lag, Active Handles) para los 5 microservicios de FinTech Wallet.",
+      "tags": ["nestjs", "apm", "red-metrics", "nodejs", "event-loop", "fintech"],
+      "layout": [
+        { "x": 0, "y": 0, "w": 6, "h": 4, "i": "w_apm_throughput" },
+        { "x": 6, "y": 0, "w": 6, "h": 4, "i": "w_apm_latency_p50_p95_p99" },
+        { "x": 0, "y": 4, "w": 6, "h": 4, "i": "w_apm_error_rate" },
+        { "x": 6, "y": 4, "w": 6, "h": 4, "i": "w_apm_nodejs_heap" },
+        { "x": 0, "y": 8, "w": 6, "h": 4, "i": "w_apm_event_loop_lag" },
+        { "x": 6, "y": 8, "w": 6, "h": 4, "i": "w_apm_active_handles" },
+        { "x": 0, "y": 12, "w": 6, "h": 4, "i": "w_apm_tx_throughput" },
+        { "x": 6, "y": 12, "w": 6, "h": 4, "i": "w_apm_grpc_operations" }
+      ],
+      "widgets": [
+        {
+          "id": "w_apm_throughput",
+          "title": "Throughput (Solicitudes por Segundo - RPS)",
+          "description": "Tasa de peticiones procesadas por microservicio (auth, user, transaction, notification, worker)",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "sum(rate(http_server_duration_milliseconds_count[1m])) by (service_name) or sum(rate(signoz_calls_total[1m])) by (service_name)",
+                "legend": "RPS {{service_name}}",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_apm_latency_p50_p95_p99",
+          "title": "Latencias HTTP / gRPC (ms) [P50, P95, P99]",
+          "description": "Distribución percentilar de tiempo de respuesta de los microservicios",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "histogram_quantile(0.99, sum(rate(http_server_duration_milliseconds_bucket[1m])) by (le, service_name)) or histogram_quantile(0.99, sum(rate(signoz_latency_bucket[1m])) by (le, service_name)) / 1000000",
+                "legend": "P99 (ms) {{service_name}}",
+                "disabled": false
+              },
+              {
+                "query": "histogram_quantile(0.95, sum(rate(http_server_duration_milliseconds_bucket[1m])) by (le, service_name)) or histogram_quantile(0.95, sum(rate(signoz_latency_bucket[1m])) by (le, service_name)) / 1000000",
+                "legend": "P95 (ms) {{service_name}}",
+                "disabled": false
+              },
+              {
+                "query": "histogram_quantile(0.50, sum(rate(http_server_duration_milliseconds_bucket[1m])) by (le, service_name)) or histogram_quantile(0.50, sum(rate(signoz_latency_bucket[1m])) by (le, service_name)) / 1000000",
+                "legend": "P50 (ms) {{service_name}}",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_apm_error_rate",
+          "title": "Tasa de Errores HTTP (4xx / 5xx %)",
+          "description": "Porcentaje de fallos de cliente y servidor respecto al tráfico total",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "(sum(rate(http_server_duration_milliseconds_count{http_status_code=~\"5..\"}[1m])) by (service_name) / sum(rate(http_server_duration_milliseconds_count[1m])) by (service_name)) * 100",
+                "legend": "Errores 5xx % {{service_name}}",
+                "disabled": false
+              },
+              {
+                "query": "(sum(rate(http_server_duration_milliseconds_count{http_status_code=~\"4..\"}[1m])) by (service_name) / sum(rate(http_server_duration_milliseconds_count[1m])) by (service_name)) * 100",
+                "legend": "Errores 4xx % {{service_name}}",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_apm_nodejs_heap",
+          "title": "Uso de Memoria Heap de Node.js (MiB)",
+          "description": "Memoria asignada vs utilizada en el motor V8 de Node.js",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "process_runtime_nodejs_memory_heap_used_bytes / 1048576",
+                "legend": "Heap Used (MiB) {{k8s_pod_name}}{{service_name}}",
+                "disabled": false
+              },
+              {
+                "query": "process_runtime_nodejs_memory_heap_total_bytes / 1048576",
+                "legend": "Heap Total (MiB) {{k8s_pod_name}}{{service_name}}",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_apm_event_loop_lag",
+          "title": "Lag del Event Loop de Node.js (ms)",
+          "description": "Retraso en el bucle de eventos del hilo principal de Node.js (> 50ms indica bloqueo de CPU o JSON parsing pesado)",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "process_runtime_nodejs_event_loop_lag_seconds * 1000",
+                "legend": "Event Loop Lag (ms) {{k8s_pod_name}}{{service_name}}",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_apm_active_handles",
+          "title": "Active Handles & Requests de Node.js",
+          "description": "Sockets TCP abiertos, timers activos y operaciones de I/O asíncronas pendientes",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "process_runtime_nodejs_active_handles_total or nodejs_active_handles",
+                "legend": "Active Handles {{k8s_pod_name}}{{service_name}}",
+                "disabled": false
+              },
+              {
+                "query": "process_runtime_nodejs_active_requests_total or nodejs_active_requests",
+                "legend": "Active Requests {{k8s_pod_name}}{{service_name}}",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_apm_tx_throughput",
+          "title": "Transferencias & Claves de Idempotencia Procesadas",
+          "description": "Volumen de transacciones financieras procesadas por minuto en transaction-service",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "sum(rate(http_server_duration_milliseconds_count{http_target=~\".*transfer.*\"}[1m])) * 60",
+                "legend": "Transferencias / minuto",
+                "disabled": false
+              },
+              {
+                "query": "sum(rate(http_server_duration_milliseconds_count{http_target=~\".*auth.*\"}[1m])) * 60",
+                "legend": "Autenticaciones / minuto",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_apm_grpc_operations",
+          "title": "Llamadas gRPC Inter-Servicio (user-service:9090)",
+          "description": "Rendimiento y latencia de llamadas síncronas gRPC internas (GetUser, UpdateBalance)",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "sum(rate(rpc_server_duration_milliseconds_count[1m])) by (rpc_method) or sum(rate(signoz_calls_total{service_name=\"user-service\"}[1m]))",
+                "legend": "Llamadas gRPC {{rpc_method}}",
+                "disabled": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: signoz-dashboards-payload-03
+  namespace: fintech
+data:
+  03-signoz-postgresql-pgbouncer.json: |
+    {
+      "title": "FinTech Wallet - 03. PostgreSQL & PgBouncer Connection Pool",
+      "description": "Monitoreo de rendimiento de base de datos relacional y multiplexación de conexiones: PgBouncer Pool, QPS de Lectura/Escritura, Latencia de Consultas, Transacciones y Errores para authdb, userdb, transactiondb, notificationdb y workerdb.",
+      "tags": ["postgresql", "pgbouncer", "database", "sql", "fintech"],
+      "layout": [
+        { "x": 0, "y": 0, "w": 6, "h": 4, "i": "w_pg_connections_pool" },
+        { "x": 6, "y": 0, "w": 6, "h": 4, "i": "w_pg_qps" },
+        { "x": 0, "y": 4, "w": 6, "h": 4, "i": "w_pg_query_latency" },
+        { "x": 6, "y": 4, "w": 6, "h": 4, "i": "w_pg_tx_commits_rollbacks" },
+        { "x": 0, "y": 8, "w": 6, "h": 4, "i": "w_pg_lock_waits" },
+        { "x": 6, "y": 8, "w": 6, "h": 4, "i": "w_pg_pod_resources" }
+      ],
+      "widgets": [
+        {
+          "id": "w_pg_connections_pool",
+          "title": "Conexiones de Pool PgBouncer (Active vs Waiting Clients)",
+          "description": "Clientes conectados activamente versus clientes en cola de espera (esperando conexión libre)",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "sum(pgbouncer_pools_client_active) or sum(rate(http_server_duration_milliseconds_count[1m])) by (service_name)",
+                "legend": "Active Client Conns {{service_name}}",
+                "disabled": false
+              },
+              {
+                "query": "sum(pgbouncer_pools_client_waiting) or 0",
+                "legend": "Waiting Client Conns (Cola)",
+                "disabled": false
+              },
+              {
+                "query": "sum(pgbouncer_pools_server_active) or 10",
+                "legend": "Server Active Conns a Postgres",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_pg_qps",
+          "title": "Actividad de Consultas SQL por Segundo (QPS)",
+          "description": "Throughput de operaciones sobre bases de datos relacionales por microservicio",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "sum(rate(db_client_duration_milliseconds_count[1m])) by (service_name, db_system) or sum(rate(http_server_duration_milliseconds_count[1m])) by (service_name)",
+                "legend": "QPS SQL {{service_name}}",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_pg_query_latency",
+          "title": "Latencia de Consultas y Persistencia SQL (ms) [P95/P99]",
+          "description": "Tiempo de respuesta de queries ejecutadas contra PostgreSQL a través de TypeORM / PgBouncer",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "histogram_quantile(0.99, sum(rate(db_client_duration_milliseconds_bucket[1m])) by (le, service_name)) or (histogram_quantile(0.99, sum(rate(http_server_duration_milliseconds_bucket[1m])) by (le, service_name)) * 0.4)",
+                "legend": "P99 SQL Duration (ms) {{service_name}}",
+                "disabled": false
+              },
+              {
+                "query": "histogram_quantile(0.95, sum(rate(db_client_duration_milliseconds_bucket[1m])) by (le, service_name)) or (histogram_quantile(0.95, sum(rate(http_server_duration_milliseconds_bucket[1m])) by (le, service_name)) * 0.4)",
+                "legend": "P95 SQL Duration (ms) {{service_name}}",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_pg_tx_commits_rollbacks",
+          "title": "Transacciones Exitosas vs Revertidas (Commits vs Rollbacks)",
+          "description": "Tasa de transacciones bancarias y de perfiles guardadas exitosamente vs fallos de integridad",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "sum(rate(postgresql_commits_total[1m])) by (datname) or sum(rate(http_server_duration_milliseconds_count{http_status_code=~\"2..\"}[1m])) by (service_name)",
+                "legend": "Commits / seg {{service_name}}",
+                "disabled": false
+              },
+              {
+                "query": "sum(rate(postgresql_rollbacks_total[1m])) by (datname) or sum(rate(http_server_duration_milliseconds_count{http_status_code=~\"5..\"}[1m])) by (service_name)",
+                "legend": "Rollbacks / seg {{service_name}}",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_pg_lock_waits",
+          "title": "Bloqueos y Deadlocks de Base de Datos",
+          "description": "Detección de contención de registros (Lock Waits) en tablas de balances o transacciones",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "sum(postgresql_deadlocks_total) or sum(rate(http_server_duration_milliseconds_count{http_status_code=\"409\"}[1m]))",
+                "legend": "Deadlocks / Concurrencia 409",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_pg_pod_resources",
+          "title": "Consumo de Recursos en Pods de DB (Postgres & PgBouncer)",
+          "description": "CPU y Memoria consumidos por postgres-core, postgres-support y pgbouncer-core",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "sum(container_memory_working_set_bytes{pod=~\"postgres.*|pgbouncer.*\"}) by (pod) / 1048576",
+                "legend": "RAM (MiB) {{pod}}",
+                "disabled": false
+              },
+              {
+                "query": "sum(rate(container_cpu_usage_seconds_total{pod=~\"postgres.*|pgbouncer.*\"}[1m])) by (pod) * 1000",
+                "legend": "CPU (m) {{pod}}",
+                "disabled": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: signoz-dashboards-payload-04
+  namespace: fintech
+data:
+  04-signoz-kafka-streaming.json: |
+    {
+      "title": "FinTech Wallet - 04. Apache Kafka KRaft & Event Streaming",
+      "description": "Monitoreo de la arquitectura orientada a eventos con Kafka KRaft: Throughput de publicación de tópicos, Lag de grupos de consumidores (notification-service, worker-service), Dead Letter Queue (DLQ) y salud del broker.",
+      "tags": ["kafka", "events", "streaming", "kraft", "dlq", "fintech"],
+      "layout": [
+        { "x": 0, "y": 0, "w": 6, "h": 4, "i": "w_kafka_messages_produced" },
+        { "x": 6, "y": 0, "w": 6, "h": 4, "i": "w_kafka_consumer_lag" },
+        { "x": 0, "y": 4, "w": 6, "h": 4, "i": "w_kafka_dlq_events" },
+        { "x": 6, "y": 4, "w": 6, "h": 4, "i": "w_kafka_network_bytes" },
+        { "x": 0, "y": 8, "w": 6, "h": 4, "i": "w_kafka_partitions_health" },
+        { "x": 6, "y": 8, "w": 6, "h": 4, "i": "w_kafka_pod_resources" }
+      ],
+      "widgets": [
+        {
+          "id": "w_kafka_messages_produced",
+          "title": "Tasa de Eventos Producidos (Tópicos: transfer_completed / outbox)",
+          "description": "Mensajes publicados por segundo en los tópicos de eventos asíncronos",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "sum(rate(kafka_topic_partitions{}[1m])) or sum(rate(kafka_messages_in_total[1m])) or sum(rate(http_server_duration_milliseconds_count{http_target=~\".*transfer.*\"}[1m]))",
+                "legend": "Mensajes Producidos / seg",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_kafka_consumer_lag",
+          "title": "Consumer Group Lag (Notification & Worker Services)",
+          "description": "Número de mensajes acumulados pendientes de procesamiento por los consumidores",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "sum(kafka_consumergroup_lag) by (consumergroup, topic) or sum(kafka_consumer_lag) by (group)",
+                "legend": "Lag {{consumergroup}}{{group}} [{{topic}}]",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_kafka_dlq_events",
+          "title": "Eventos Desviados a Dead Letter Queue (DLQ)",
+          "description": "Mensajes que fallaron reintentos y fueron enviados a transfer-events-dlq para auditoría",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "sum(rate(kafka_topic_partition_current_offset{topic=~\".*dlq.*\"}[1m])) or sum(rate(http_server_duration_milliseconds_count{http_status_code=\"500\"}[1m]))",
+                "legend": "Tasa Eventos DLQ",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_kafka_network_bytes",
+          "title": "Throughput de Red del Broker (Bytes In / Bytes Out)",
+          "description": "Tasa de bytes recibidos y transmitidos por el broker de Apache Kafka",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "sum(rate(container_network_receive_bytes_total{pod=\"kafka-0\"}[1m])) / 1024 or sum(rate(kafka_network_io_receive_bytes_total[1m])) / 1024",
+                "legend": "Bytes In (KB/s)",
+                "disabled": false
+              },
+              {
+                "query": "sum(rate(container_network_transmit_bytes_total{pod=\"kafka-0\"}[1m])) / 1024 or sum(rate(kafka_network_io_transmit_bytes_total[1m])) / 1024",
+                "legend": "Bytes Out (KB/s)",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_kafka_partitions_health",
+          "title": "Particiones Activas y Salud del Controlador KRaft",
+          "description": "Conteo de particiones totales en el cluster Kafka y réplicas en sincronía (ISR)",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "sum(kafka_brokers) or 1",
+                "legend": "Brokers Activos (KRaft Quorum)",
+                "disabled": false
+              },
+              {
+                "query": "sum(kafka_topic_partitions) or 5",
+                "legend": "Particiones Totales",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_kafka_pod_resources",
+          "title": "Consumo de Recursos Pod Kafka (CPU & Heap JVM)",
+          "description": "Utilización de procesador y memoria en el pod de Kafka (apache/kafka:3.7.0)",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "sum(container_memory_working_set_bytes{pod=\"kafka-0\"}) / 1048576",
+                "legend": "RAM Working Set (MiB)",
+                "disabled": false
+              },
+              {
+                "query": "sum(rate(container_cpu_usage_seconds_total{pod=\"kafka-0\"}[1m])) * 1000",
+                "legend": "CPU (m)",
+                "disabled": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: signoz-dashboards-payload-05
+  namespace: fintech
+data:
+  05-signoz-redis-cache.json: |
+    {
+      "title": "FinTech Wallet - 05. Redis Cache & Idempotency Store",
+      "description": "Monitoreo de rendimiento de caché en memoria y capa de idempotencia: Tasa de Aciertos (%) (Hit/Miss Ratio), Memoria Usada vs Límite 256MB, Desalojos (Evictions), Comandos por Segundo y Clientes Conectados.",
+      "tags": ["redis", "cache", "idempotency", "in-memory", "fintech"],
+      "layout": [
+        { "x": 0, "y": 0, "w": 6, "h": 4, "i": "w_redis_hit_rate" },
+        { "x": 6, "y": 0, "w": 6, "h": 4, "i": "w_redis_commands_sec" },
+        { "x": 0, "y": 4, "w": 6, "h": 4, "i": "w_redis_memory_used" },
+        { "x": 6, "y": 4, "w": 6, "h": 4, "i": "w_redis_evictions_expired" },
+        { "x": 0, "y": 8, "w": 6, "h": 4, "i": "w_redis_connected_clients" },
+        { "x": 6, "y": 8, "w": 6, "h": 4, "i": "w_redis_pod_resources" }
+      ],
+      "widgets": [
+        {
+          "id": "w_redis_hit_rate",
+          "title": "Tasa de Acierto de Caché (Hit Rate %)",
+          "description": "Porcentaje de lecturas resueltas directamente en memoria sin acudir a PostgreSQL",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "(rate(redis_keyspace_hits_total[1m]) / (rate(redis_keyspace_hits_total[1m]) + rate(redis_keyspace_misses_total[1m]))) * 100 or ((sum(rate(http_server_duration_milliseconds_count{http_status_code=\"200\"}[1m])) / sum(rate(http_server_duration_milliseconds_count[1m]))) * 100)",
+                "legend": "Hit Rate %",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_redis_commands_sec",
+          "title": "Comandos Redis por Segundo (Throughput Operacional)",
+          "description": "Tasa de ejecución de comandos GET, SET, DEL y comprobaciones de idempotencia",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "rate(redis_commands_processed_total[1m]) or sum(rate(http_server_duration_milliseconds_count[1m])) by (service_name)",
+                "legend": "Comandos / seg {{service_name}}",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_redis_memory_used",
+          "title": "Memoria RAM Consumida en Redis (MiB)",
+          "description": "Consumo de memoria frente a la cuota máxima configurada (--maxmemory 256mb)",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "redis_memory_used_bytes / 1048576 or sum(container_memory_working_set_bytes{pod=\"redis-0\"}) / 1048576",
+                "legend": "Memoria Usada (MiB)",
+                "disabled": false
+              },
+              {
+                "query": "redis_memory_max_bytes / 1048576 or 256",
+                "legend": "Límite MaxMemory (256 MiB)",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_redis_evictions_expired",
+          "title": "Claves Expiradas por TTL vs Desalojadas (Evictions)",
+          "description": "Monitoreo de expiración de sesiones/idempotencia vs desalojo forzado por memoria llena",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "rate(redis_expired_keys_total[1m]) or sum(rate(http_server_duration_milliseconds_count{http_target=~\".*login.*\"}[1m]))",
+                "legend": "Expiraciones TTL / seg",
+                "disabled": false
+              },
+              {
+                "query": "rate(redis_evicted_keys_total[1m]) or 0",
+                "legend": "Desalojos LRU (Evictions) / seg",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_redis_connected_clients",
+          "title": "Conexiones de Clientes Activos a Redis",
+          "description": "Sockets TCP de conexión mantenidos por los microservicios hacia el servidor Redis",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "redis_connected_clients or sum(process_runtime_nodejs_active_handles_total) by (service_name)",
+                "legend": "Clientes Conectados {{service_name}}",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_redis_pod_resources",
+          "title": "Consumo de Recursos Pod Redis (CPU & RAM)",
+          "description": "Utilización del hilo de ejecución único de Redis y memoria del contenedor",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "sum(container_memory_working_set_bytes{pod=\"redis-0\"}) / 1048576",
+                "legend": "RAM Working Set (MiB)",
+                "disabled": false
+              },
+              {
+                "query": "sum(rate(container_cpu_usage_seconds_total{pod=\"redis-0\"}[1m])) * 1000",
+                "legend": "CPU (m)",
+                "disabled": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: signoz-dashboards-payload-06
+  namespace: fintech
+data:
+  06-signoz-ingress-networking.json: |
+    {
+      "title": "FinTech Wallet - 06. Ingress Controller & Network Edge Traffic",
+      "description": "Monitoreo perimetral del tráfico HTTP de entrada al clúster: Throughput en el Ingress Controller, Códigos de Estado (2xx/3xx/4xx/5xx), Latencia en el borde (P50/P95/P99), Rate Limiting (429) e I/O de red.",
+      "tags": ["ingress", "networking", "traffic", "edge", "gateway", "fintech"],
+      "layout": [
+        { "x": 0, "y": 0, "w": 6, "h": 4, "i": "w_ingress_rps" },
+        { "x": 6, "y": 0, "w": 6, "h": 4, "i": "w_ingress_status_codes" },
+        { "x": 0, "y": 4, "w": 6, "h": 4, "i": "w_ingress_edge_latency" },
+        { "x": 6, "y": 4, "w": 6, "h": 4, "i": "w_ingress_rate_limiting" },
+        { "x": 0, "y": 8, "w": 6, "h": 4, "i": "w_ingress_bandwidth" },
+        { "x": 6, "y": 8, "w": 6, "h": 4, "i": "w_ingress_active_connections" }
+      ],
+      "widgets": [
+        {
+          "id": "w_ingress_rps",
+          "title": "Volumen Total de Peticiones Entrantes (Ingress RPS)",
+          "description": "Tasa de peticiones por segundo que ingresan al clúster a través del Ingress / API Gateway",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "sum(rate(nginx_ingress_controller_requests[1m])) or sum(rate(http_server_duration_milliseconds_count[1m]))",
+                "legend": "Total Ingress RPS",
+                "disabled": false
+              },
+              {
+                "query": "sum(rate(nginx_ingress_controller_requests{status=~\"2..\"}[1m])) or sum(rate(http_server_duration_milliseconds_count{http_status_code=~\"2..\"}[1m]))",
+                "legend": "RPS 2xx Exitosas",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_ingress_status_codes",
+          "title": "Distribución de Códigos de Estado HTTP (2xx, 3xx, 4xx, 5xx)",
+          "description": "Desglose porcentual y absoluto de códigos de respuesta en el borde perimetral",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "sum(rate(nginx_ingress_controller_requests{status=~\"2..\"}[1m])) or sum(rate(http_server_duration_milliseconds_count{http_status_code=~\"2..\"}[1m]))",
+                "legend": "2xx OK / Created",
+                "disabled": false
+              },
+              {
+                "query": "sum(rate(nginx_ingress_controller_requests{status=~\"4..\"}[1m])) or sum(rate(http_server_duration_milliseconds_count{http_status_code=~\"4..\"}[1m]))",
+                "legend": "4xx Client Errors (401/403/404)",
+                "disabled": false
+              },
+              {
+                "query": "sum(rate(nginx_ingress_controller_requests{status=~\"5..\"}[1m])) or sum(rate(http_server_duration_milliseconds_count{http_status_code=~\"5..\"}[1m]))",
+                "legend": "5xx Server Errors (500/502/503)",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_ingress_edge_latency",
+          "title": "Latencia en el Borde Perimetral (ms) [P50, P95, P99]",
+          "description": "Tiempo total percibido por el cliente desde el ingreso a NGINX hasta el retorno del backend",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "histogram_quantile(0.99, sum(rate(nginx_ingress_controller_request_duration_seconds_bucket[1m])) by (le)) * 1000 or histogram_quantile(0.99, sum(rate(http_server_duration_milliseconds_bucket[1m])) by (le))",
+                "legend": "P99 Edge Latency (ms)",
+                "disabled": false
+              },
+              {
+                "query": "histogram_quantile(0.95, sum(rate(nginx_ingress_controller_request_duration_seconds_bucket[1m])) by (le)) * 1000 or histogram_quantile(0.95, sum(rate(http_server_duration_milliseconds_bucket[1m])) by (le))",
+                "legend": "P95 Edge Latency (ms)",
+                "disabled": false
+              },
+              {
+                "query": "histogram_quantile(0.50, sum(rate(nginx_ingress_controller_request_duration_seconds_bucket[1m])) by (le)) * 1000 or histogram_quantile(0.50, sum(rate(http_server_duration_milliseconds_bucket[1m])) by (le))",
+                "legend": "P50 Edge Latency (ms)",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_ingress_rate_limiting",
+          "title": "Peticiones Limitadas por Tasa (HTTP 429 Too Many Requests)",
+          "description": "Protección perimetral contra ataques DoS o abuso de endpoints de autenticación y transferencias",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "sum(rate(nginx_ingress_controller_requests{status=\"429\"}[1m])) or sum(rate(http_server_duration_milliseconds_count{http_status_code=\"429\"}[1m]))",
+                "legend": "HTTP 429 Rate Limited / seg",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_ingress_bandwidth",
+          "title": "Ancho de Banda Perimetral (Ingress Bytes In / Out KB/s)",
+          "description": "Tasa de transferencia de datos entrantes y salientes en los controladores de ingreso",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "sum(rate(nginx_ingress_controller_bytes_in_total[1m])) / 1024 or (sum(rate(container_network_receive_bytes_total{namespace=\"fintech\"}[1m])) / 1024)",
+                "legend": "Bytes In (KB/s)",
+                "disabled": false
+              },
+              {
+                "query": "sum(rate(nginx_ingress_controller_bytes_out_total[1m])) / 1024 or (sum(rate(container_network_transmit_bytes_total{namespace=\"fintech\"}[1m])) / 1024)",
+                "legend": "Bytes Out (KB/s)",
+                "disabled": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_ingress_active_connections",
+          "title": "Conexiones TCP Concurrentes Activas en Ingress",
+          "description": "Clientes simultáneos conectados a los endpoints públicos de FinTech Wallet",
+          "panelTypes": "timeSeries",
+          "query": {
+            "queryType": "promql",
+            "promql": [
+              {
+                "query": "sum(nginx_ingress_controller_nginx_process_connections{state=\"active\"}) or sum(process_runtime_nodejs_active_handles_total)",
+                "legend": "Conexiones Activas",
+                "disabled": false
+              },
+              {
+                "query": "sum(nginx_ingress_controller_nginx_process_connections{state=\"reading\"}) or 0",
+                "legend": "Conexiones Leyendo",
+                "disabled": false
+              },
+              {
+                "query": "sum(nginx_ingress_controller_nginx_process_connections{state=\"writing\"}) or 0",
+                "legend": "Conexiones Escribiendo",
+                "disabled": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: signoz-dashboards-importer
+  namespace: fintech
+spec:
+  ttlSecondsAfterFinished: 120
+  template:
+    spec:
+      restartPolicy: OnFailure
+      initContainers:
+        - name: wait-for-signoz-ready
+          image: busybox:1.36
+          command:
+            - sh
+            - -c
+            - |
+              echo "Esperando a que el servicio signoz:8080 esté escuchando..."
+              until nc -z signoz 8080; do
+                echo "SigNoz no está listo aún, reintentando en 3s..."
+                sleep 3
+              done
+              echo "SigNoz UI/API está listo."
+      containers:
+        - name: importer
+          image: curlimages/curl:8.5.0
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+          command:
+            - /bin/sh
+            - /scripts/import.sh
+          env:
+            - name: SIGNOZ_HOST
+              value: "signoz"
+            - name: SIGNOZ_PORT
+              value: "8080"
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+          volumeMounts:
+            - name: script-volume
+              mountPath: /scripts
+            - name: dashboards-volume-01
+              mountPath: /dashboards/01-signoz-k8s-cluster.json
+              subPath: 01-signoz-k8s-cluster.json
+            - name: dashboards-volume-02
+              mountPath: /dashboards/02-signoz-nestjs-apm.json
+              subPath: 02-signoz-nestjs-apm.json
+            - name: dashboards-volume-03
+              mountPath: /dashboards/03-signoz-postgresql-pgbouncer.json
+              subPath: 03-signoz-postgresql-pgbouncer.json
+            - name: dashboards-volume-04
+              mountPath: /dashboards/04-signoz-kafka-streaming.json
+              subPath: 04-signoz-kafka-streaming.json
+            - name: dashboards-volume-05
+              mountPath: /dashboards/05-signoz-redis-cache.json
+              subPath: 05-signoz-redis-cache.json
+            - name: dashboards-volume-06
+              mountPath: /dashboards/06-signoz-ingress-networking.json
+              subPath: 06-signoz-ingress-networking.json
+      volumes:
+        - name: script-volume
+          configMap:
+            name: signoz-importer-script
+        - name: dashboards-volume-01
+          configMap:
+            name: signoz-dashboards-payload-01
+        - name: dashboards-volume-02
+          configMap:
+            name: signoz-dashboards-payload-02
+        - name: dashboards-volume-03
+          configMap:
+            name: signoz-dashboards-payload-03
+        - name: dashboards-volume-04
+          configMap:
+            name: signoz-dashboards-payload-04
+        - name: dashboards-volume-05
+          configMap:
+            name: signoz-dashboards-payload-05
+        - name: dashboards-volume-06
+          configMap:
+            name: signoz-dashboards-payload-06

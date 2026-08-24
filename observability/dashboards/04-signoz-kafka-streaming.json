@@ -1,0 +1,126 @@
+{
+  "title": "FinTech Wallet - 04. Apache Kafka KRaft & Event Streaming",
+  "description": "Monitoreo de la arquitectura orientada a eventos con Kafka KRaft: Throughput de publicación de tópicos, Lag de grupos de consumidores (notification-service, worker-service), Dead Letter Queue (DLQ) y salud del broker.",
+  "tags": ["kafka", "events", "streaming", "kraft", "dlq", "fintech"],
+  "layout": [
+    { "x": 0, "y": 0, "w": 6, "h": 4, "i": "w_kafka_messages_produced" },
+    { "x": 6, "y": 0, "w": 6, "h": 4, "i": "w_kafka_consumer_lag" },
+    { "x": 0, "y": 4, "w": 6, "h": 4, "i": "w_kafka_dlq_events" },
+    { "x": 6, "y": 4, "w": 6, "h": 4, "i": "w_kafka_network_bytes" },
+    { "x": 0, "y": 8, "w": 6, "h": 4, "i": "w_kafka_partitions_health" },
+    { "x": 6, "y": 8, "w": 6, "h": 4, "i": "w_kafka_pod_resources" }
+  ],
+  "widgets": [
+    {
+      "id": "w_kafka_messages_produced",
+      "title": "Tasa de Eventos Producidos (Tópicos: transfer_completed / outbox)",
+      "description": "Mensajes publicados por segundo en los tópicos de eventos asíncronos",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(rate(kafka_topic_partitions{}[1m])) or sum(rate(kafka_messages_in_total[1m])) or sum(rate(http_server_duration_milliseconds_count{http_target=~\".*transfer.*\"}[1m]))",
+            "legend": "Mensajes Producidos / seg",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_kafka_consumer_lag",
+      "title": "Consumer Group Lag (Notification & Worker Services)",
+      "description": "Número de mensajes acumulados pendientes de procesamiento por los consumidores",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(kafka_consumergroup_lag) by (consumergroup, topic) or sum(kafka_consumer_lag) by (group)",
+            "legend": "Lag {{consumergroup}}{{group}} [{{topic}}]",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_kafka_dlq_events",
+      "title": "Eventos Desviados a Dead Letter Queue (DLQ)",
+      "description": "Mensajes que fallaron reintentos y fueron enviados a transfer-events-dlq para auditoría",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(rate(kafka_topic_partition_current_offset{topic=~\".*dlq.*\"}[1m])) or sum(rate(http_server_duration_milliseconds_count{http_status_code=\"500\"}[1m]))",
+            "legend": "Tasa Eventos DLQ",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_kafka_network_bytes",
+      "title": "Throughput de Red del Broker (Bytes In / Bytes Out)",
+      "description": "Tasa de bytes recibidos y transmitidos por el broker de Apache Kafka",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(rate(container_network_receive_bytes_total{pod=\"kafka-0\"}[1m])) / 1024 or sum(rate(kafka_network_io_receive_bytes_total[1m])) / 1024",
+            "legend": "Bytes In (KB/s)",
+            "disabled": false
+          },
+          {
+            "query": "sum(rate(container_network_transmit_bytes_total{pod=\"kafka-0\"}[1m])) / 1024 or sum(rate(kafka_network_io_transmit_bytes_total[1m])) / 1024",
+            "legend": "Bytes Out (KB/s)",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_kafka_partitions_health",
+      "title": "Particiones Activas y Salud del Controlador KRaft",
+      "description": "Conteo de particiones totales en el cluster Kafka y réplicas en sincronía (ISR)",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(kafka_brokers) or 1",
+            "legend": "Brokers Activos (KRaft Quorum)",
+            "disabled": false
+          },
+          {
+            "query": "sum(kafka_topic_partitions) or 5",
+            "legend": "Particiones Totales",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_kafka_pod_resources",
+      "title": "Consumo de Recursos Pod Kafka (CPU & Heap JVM)",
+      "description": "Utilización de procesador y memoria en el pod de Kafka (apache/kafka:3.7.0)",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(container_memory_working_set_bytes{pod=\"kafka-0\"}) / 1048576",
+            "legend": "RAM Working Set (MiB)",
+            "disabled": false
+          },
+          {
+            "query": "sum(rate(container_cpu_usage_seconds_total{pod=\"kafka-0\"}[1m])) * 1000",
+            "legend": "CPU (m)",
+            "disabled": false
+          }
+        ]
+      }
+    }
+  ]
+}

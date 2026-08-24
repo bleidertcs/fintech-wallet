@@ -173,6 +173,8 @@ kubectl apply -f k8s/06-networkpolicy.yaml
 kubectl apply -f k8s/07-backup-cronjob.yaml
 kubectl apply -f k8s/09-hpa.yaml
 kubectl apply -f k8s/10-pdb.yaml
+kubectl delete job signoz-dashboards-importer -n fintech --ignore-not-found 2>&1 | Out-Null
+kubectl apply -f k8s/12-signoz-dashboards-importer.yaml
 
 # Limpieza preventiva de Pods finalizados o desalojados
 kubectl delete pods --field-selector=status.phase=Failed -n fintech --ignore-not-found 2>&1 | Out-Null

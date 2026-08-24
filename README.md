@@ -407,6 +407,7 @@ Para profundizar en cada uno de los aspectos de la arquitectura, configuración,
 * ☸️ [**Kubernetes: Manifiestos y Clúster**](docs/kubernetes.md): Arquitectura de recursos, orden de despliegue, StatefulSets, NetworkPolicies y cheat sheet `kubectl`.
 * ⚓ [**Helm: Charts y Parametrización**](docs/helm.md): Despliegue con Helm, parametrización con `values.yaml`, upgrades y rollbacks.
 * 📊 [**Observabilidad: OpenTelemetry y SigNoz**](docs/observability.md): Instrumentación de trazas, correlación de logs Winston con TraceID, métricas RED y ClickHouse.
+* 📈 [**Guía Maestra de Observabilidad y Monitoreo SRE**](observability/GUIA_INTERPRETACION_OBSERVABILIDAD.md): Interpretación de los 6 dashboards de SigNoz, Cheat-Sheet SRE, correlación Traza-Log-Métrica y Playbooks de Incidentes.
 * 🧪 [**Guía de Testing y Benchmarking**](docs/testing.md): Ejecución de smoke tests, tests de integración, pruebas de concurrencia e idempotencia y pruebas de carga con K6.
 * 🛠️ [**Guía de Operaciones Day-2 y Backups**](docs/operations.md): Despliegues continuos, escalado horizontal, rotación de logs, CronJob de backups y recuperación de desastres (DR).
 * 🩺 [**Guía de Troubleshooting y Resolución de Fallos**](docs/troubleshooting.md): Diagnóstico paso a paso de problemas en Pods, Postgres, Redis, Kafka, Traefik y SigNoz.

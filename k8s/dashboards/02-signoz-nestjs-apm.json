@@ -1,0 +1,175 @@
+{
+  "title": "FinTech Wallet - 02. NestJS Microservices RED Metrics & APM",
+  "description": "Dashboard de Rendimiento, Latencia (P50/P95/P99), Tasa de Errores HTTP/gRPC y Métricas de Runtime de Node.js (Heap Memory, Event Loop Lag, Active Handles) para los 5 microservicios de FinTech Wallet.",
+  "tags": ["nestjs", "apm", "red-metrics", "nodejs", "event-loop", "fintech"],
+  "layout": [
+    { "x": 0, "y": 0, "w": 6, "h": 4, "i": "w_apm_throughput" },
+    { "x": 6, "y": 0, "w": 6, "h": 4, "i": "w_apm_latency_p50_p95_p99" },
+    { "x": 0, "y": 4, "w": 6, "h": 4, "i": "w_apm_error_rate" },
+    { "x": 6, "y": 4, "w": 6, "h": 4, "i": "w_apm_nodejs_heap" },
+    { "x": 0, "y": 8, "w": 6, "h": 4, "i": "w_apm_event_loop_lag" },
+    { "x": 6, "y": 8, "w": 6, "h": 4, "i": "w_apm_active_handles" },
+    { "x": 0, "y": 12, "w": 6, "h": 4, "i": "w_apm_tx_throughput" },
+    { "x": 6, "y": 12, "w": 6, "h": 4, "i": "w_apm_grpc_operations" }
+  ],
+  "widgets": [
+    {
+      "id": "w_apm_throughput",
+      "title": "Throughput (Solicitudes por Segundo - RPS)",
+      "description": "Tasa de peticiones procesadas por microservicio (auth, user, transaction, notification, worker)",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(rate(http_server_duration_milliseconds_count[1m])) by (service_name) or sum(rate(signoz_calls_total[1m])) by (service_name)",
+            "legend": "RPS {{service_name}}",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_apm_latency_p50_p95_p99",
+      "title": "Latencias HTTP / gRPC (ms) [P50, P95, P99]",
+      "description": "Distribución percentilar de tiempo de respuesta de los microservicios",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "histogram_quantile(0.99, sum(rate(http_server_duration_milliseconds_bucket[1m])) by (le, service_name)) or histogram_quantile(0.99, sum(rate(signoz_latency_bucket[1m])) by (le, service_name)) / 1000000",
+            "legend": "P99 (ms) {{service_name}}",
+            "disabled": false
+          },
+          {
+            "query": "histogram_quantile(0.95, sum(rate(http_server_duration_milliseconds_bucket[1m])) by (le, service_name)) or histogram_quantile(0.95, sum(rate(signoz_latency_bucket[1m])) by (le, service_name)) / 1000000",
+            "legend": "P95 (ms) {{service_name}}",
+            "disabled": false
+          },
+          {
+            "query": "histogram_quantile(0.50, sum(rate(http_server_duration_milliseconds_bucket[1m])) by (le, service_name)) or histogram_quantile(0.50, sum(rate(signoz_latency_bucket[1m])) by (le, service_name)) / 1000000",
+            "legend": "P50 (ms) {{service_name}}",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_apm_error_rate",
+      "title": "Tasa de Errores HTTP (4xx / 5xx %)",
+      "description": "Porcentaje de fallos de cliente y servidor respecto al tráfico total",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "(sum(rate(http_server_duration_milliseconds_count{http_status_code=~\"5..\"}[1m])) by (service_name) / sum(rate(http_server_duration_milliseconds_count[1m])) by (service_name)) * 100",
+            "legend": "Errores 5xx % {{service_name}}",
+            "disabled": false
+          },
+          {
+            "query": "(sum(rate(http_server_duration_milliseconds_count{http_status_code=~\"4..\"}[1m])) by (service_name) / sum(rate(http_server_duration_milliseconds_count[1m])) by (service_name)) * 100",
+            "legend": "Errores 4xx % {{service_name}}",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_apm_nodejs_heap",
+      "title": "Uso de Memoria Heap de Node.js (MiB)",
+      "description": "Memoria asignada vs utilizada en el motor V8 de Node.js",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "process_runtime_nodejs_memory_heap_used_bytes / 1048576",
+            "legend": "Heap Used (MiB) {{k8s_pod_name}}{{service_name}}",
+            "disabled": false
+          },
+          {
+            "query": "process_runtime_nodejs_memory_heap_total_bytes / 1048576",
+            "legend": "Heap Total (MiB) {{k8s_pod_name}}{{service_name}}",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_apm_event_loop_lag",
+      "title": "Lag del Event Loop de Node.js (ms)",
+      "description": "Retraso en el bucle de eventos del hilo principal de Node.js (> 50ms indica bloqueo de CPU o JSON parsing pesado)",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "process_runtime_nodejs_event_loop_lag_seconds * 1000",
+            "legend": "Event Loop Lag (ms) {{k8s_pod_name}}{{service_name}}",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_apm_active_handles",
+      "title": "Active Handles & Requests de Node.js",
+      "description": "Sockets TCP abiertos, timers activos y operaciones de I/O asíncronas pendientes",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "process_runtime_nodejs_active_handles_total or nodejs_active_handles",
+            "legend": "Active Handles {{k8s_pod_name}}{{service_name}}",
+            "disabled": false
+          },
+          {
+            "query": "process_runtime_nodejs_active_requests_total or nodejs_active_requests",
+            "legend": "Active Requests {{k8s_pod_name}}{{service_name}}",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_apm_tx_throughput",
+      "title": "Transferencias & Claves de Idempotencia Procesadas",
+      "description": "Volumen de transacciones financieras procesadas por minuto en transaction-service",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(rate(http_server_duration_milliseconds_count{http_target=~\".*transfer.*\"}[1m])) * 60",
+            "legend": "Transferencias / minuto",
+            "disabled": false
+          },
+          {
+            "query": "sum(rate(http_server_duration_milliseconds_count{http_target=~\".*auth.*\"}[1m])) * 60",
+            "legend": "Autenticaciones / minuto",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_apm_grpc_operations",
+      "title": "Llamadas gRPC Inter-Servicio (user-service:9090)",
+      "description": "Rendimiento y latencia de llamadas síncronas gRPC internas (GetUser, UpdateBalance)",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(rate(rpc_server_duration_milliseconds_count[1m])) by (rpc_method) or sum(rate(signoz_calls_total{service_name=\"user-service\"}[1m]))",
+            "legend": "Llamadas gRPC {{rpc_method}}",
+            "disabled": false
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -203,3 +203,12 @@ kubectl logs -n fintech -l app=otel-collector --tail=50
 ```
 
 Para validar el rendimiento y generar carga observable en SigNoz, consulta la [Guía de Testing y Benchmarking](testing.md).
+
+---
+
+## 8. Suite de Dashboards e Interpretación de Datos
+
+Para una guía completa de interpretación de métricas, análisis de gráficos, cheat-sheet de umbrales y playbooks de respuesta a incidentes:
+* 📖 [**Guía Maestra de Interpretación de Observabilidad SRE**](../observability/GUIA_INTERPRETACION_OBSERVABILIDAD.md)
+* 📊 [**Suite de 6 Dashboards en JSON**](../k8s/dashboards/)
+

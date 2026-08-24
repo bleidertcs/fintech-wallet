@@ -1,0 +1,155 @@
+{
+  "title": "FinTech Wallet - 01. Kubernetes Cluster & Pods Infrastructure",
+  "description": "Monitoreo integral de infraestructura Kubernetes: Uso de CPU y Memoria por Pod y Nodo, Reinicios (Restarts/OOMKilled), Consumo de PVCs y Estado de Réplicas HPA en el namespace fintech.",
+  "tags": ["kubernetes", "infrastructure", "pods", "nodes", "pvc", "hpa", "fintech"],
+  "layout": [
+    { "x": 0, "y": 0, "w": 6, "h": 4, "i": "w_k8s_cpu_pods" },
+    { "x": 6, "y": 0, "w": 6, "h": 4, "i": "w_k8s_ram_pods" },
+    { "x": 0, "y": 4, "w": 4, "h": 4, "i": "w_k8s_restarts" },
+    { "x": 4, "y": 4, "w": 4, "h": 4, "i": "w_k8s_node_cpu" },
+    { "x": 8, "y": 4, "w": 4, "h": 4, "i": "w_k8s_node_ram" },
+    { "x": 0, "y": 8, "w": 6, "h": 4, "i": "w_k8s_pvc_usage" },
+    { "x": 6, "y": 8, "w": 6, "h": 4, "i": "w_k8s_hpa_replicas" },
+    { "x": 0, "y": 12, "w": 12, "h": 4, "i": "w_k8s_network_io" }
+  ],
+  "widgets": [
+    {
+      "id": "w_k8s_cpu_pods",
+      "title": "Uso de CPU por Pod (Milicores / Cores)",
+      "description": "Consumo de procesamiento en tiempo real por cada contenedor y pod del clúster",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(rate(container_cpu_usage_seconds_total{namespace=\"fintech\"}[1m])) by (pod) * 1000 or sum(rate(k8s_pod_cpu_time_seconds_total{k8s_namespace_name=\"fintech\"}[1m])) by (k8s_pod_name) * 1000",
+            "legend": "CPU (m) {{pod}}{{k8s_pod_name}}",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_k8s_ram_pods",
+      "title": "Uso de Memoria RAM por Pod (Working Set / MiB)",
+      "description": "Memoria activa no recuperable por pod (usada por el OOM Killer para evaluar desalojos)",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(container_memory_working_set_bytes{namespace=\"fintech\"}) by (pod) / 1048576 or sum(k8s_pod_memory_working_set_bytes{k8s_namespace_name=\"fintech\"}) by (k8s_pod_name) / 1048576",
+            "legend": "RAM Working Set (MiB) {{pod}}{{k8s_pod_name}}",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_k8s_restarts",
+      "title": "Reinicios de Pods / OOMKills Acumulados",
+      "description": "Contador de reinicios de pods por fallos de proceso, timeouts de probe o OOMKilled",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(changes(container_restart_count{namespace=\"fintech\"}[5m])) by (pod) or sum(changes(k8s_pod_restarts_total{k8s_namespace_name=\"fintech\"}[5m])) by (k8s_pod_name)",
+            "legend": "Restarts (5m delta) {{pod}}{{k8s_pod_name}}",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_k8s_node_cpu",
+      "title": "Utilización de CPU del Nodo (%)",
+      "description": "Porcentaje de saturación de CPU de los nodos de Kubernetes (hostmetrics)",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "(1 - avg(rate(system_cpu_time_seconds_total{state=\"idle\"}[1m])) by (host_name)) * 100 or (1 - avg(rate(system_cpu_time{state=\"idle\"}[1m])) by (host_name)) * 100",
+            "legend": "CPU Node Utilization % {{host_name}}",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_k8s_node_ram",
+      "title": "Utilización de Memoria del Nodo (%)",
+      "description": "Porcentaje de RAM utilizada en el nodo host",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "(1 - (system_memory_usage{state=\"free\"} or system_memory_usage_bytes{state=\"free\"}) / (sum(system_memory_usage) by (host_name) or sum(system_memory_usage_bytes) by (host_name))) * 100",
+            "legend": "RAM Node Utilization % {{host_name}}",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_k8s_pvc_usage",
+      "title": "Almacenamiento en PVCs (PostgreSQL, Kafka, ClickHouse, Redis)",
+      "description": "Porcentaje de capacidad utilizada en los volúmenes persistentes del clúster",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "(kubelet_volume_stats_used_bytes / kubelet_volume_stats_capacity_bytes) * 100 or (k8s_pvc_used_bytes / k8s_pvc_capacity_bytes) * 100",
+            "legend": "PVC Usage % {{persistentvolumeclaim}}{{k8s_pvc_name}}",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_k8s_hpa_replicas",
+      "title": "Escalado Automático HPA (Réplicas Actuales vs Deseadas)",
+      "description": "Monitoreo del autoscaler para auth-service, user-service y transaction-service",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(kube_horizontalpodautoscaler_status_current_replicas{namespace=\"fintech\"}) by (horizontalpodautoscaler)",
+            "legend": "Réplicas Actuales {{horizontalpodautoscaler}}",
+            "disabled": false
+          },
+          {
+            "query": "sum(kube_horizontalpodautoscaler_status_desired_replicas{namespace=\"fintech\"}) by (horizontalpodautoscaler)",
+            "legend": "Réplicas Deseadas {{horizontalpodautoscaler}}",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_k8s_network_io",
+      "title": "Tráfico de Red por Pod (Rx/Tx KBytes/sec)",
+      "description": "Ancho de banda recibido y transmitido a nivel de contenedor/pod",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(rate(container_network_receive_bytes_total{namespace=\"fintech\"}[1m])) by (pod) / 1024 or sum(rate(k8s_pod_network_io_receive_bytes_total{k8s_namespace_name=\"fintech\"}[1m])) by (k8s_pod_name) / 1024",
+            "legend": "Rx KB/s {{pod}}{{k8s_pod_name}}",
+            "disabled": false
+          },
+          {
+            "query": "sum(rate(container_network_transmit_bytes_total{namespace=\"fintech\"}[1m])) by (pod) / 1024 or sum(rate(k8s_pod_network_io_transmit_bytes_total{k8s_namespace_name=\"fintech\"}[1m])) by (k8s_pod_name) / 1024",
+            "legend": "Tx KB/s {{pod}}{{k8s_pod_name}}",
+            "disabled": false
+          }
+        ]
+      }
+    }
+  ]
+}

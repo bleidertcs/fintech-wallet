@@ -1,0 +1,151 @@
+{
+  "title": "FinTech Wallet - 06. Ingress Controller & Network Edge Traffic",
+  "description": "Monitoreo perimetral del tráfico HTTP de entrada al clúster: Throughput en el Ingress Controller, Códigos de Estado (2xx/3xx/4xx/5xx), Latencia en el borde (P50/P95/P99), Rate Limiting (429) e I/O de red.",
+  "tags": ["ingress", "networking", "traffic", "edge", "gateway", "fintech"],
+  "layout": [
+    { "x": 0, "y": 0, "w": 6, "h": 4, "i": "w_ingress_rps" },
+    { "x": 6, "y": 0, "w": 6, "h": 4, "i": "w_ingress_status_codes" },
+    { "x": 0, "y": 4, "w": 6, "h": 4, "i": "w_ingress_edge_latency" },
+    { "x": 6, "y": 4, "w": 6, "h": 4, "i": "w_ingress_rate_limiting" },
+    { "x": 0, "y": 8, "w": 6, "h": 4, "i": "w_ingress_bandwidth" },
+    { "x": 6, "y": 8, "w": 6, "h": 4, "i": "w_ingress_active_connections" }
+  ],
+  "widgets": [
+    {
+      "id": "w_ingress_rps",
+      "title": "Volumen Total de Peticiones Entrantes (Ingress RPS)",
+      "description": "Tasa de peticiones por segundo que ingresan al clúster a través del Ingress / API Gateway",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(rate(nginx_ingress_controller_requests[1m])) or sum(rate(http_server_duration_milliseconds_count[1m]))",
+            "legend": "Total Ingress RPS",
+            "disabled": false
+          },
+          {
+            "query": "sum(rate(nginx_ingress_controller_requests{status=~\"2..\"}[1m])) or sum(rate(http_server_duration_milliseconds_count{http_status_code=~\"2..\"}[1m]))",
+            "legend": "RPS 2xx Exitosas",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_ingress_status_codes",
+      "title": "Distribución de Códigos de Estado HTTP (2xx, 3xx, 4xx, 5xx)",
+      "description": "Desglose porcentual y absoluto de códigos de respuesta en el borde perimetral",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(rate(nginx_ingress_controller_requests{status=~\"2..\"}[1m])) or sum(rate(http_server_duration_milliseconds_count{http_status_code=~\"2..\"}[1m]))",
+            "legend": "2xx OK / Created",
+            "disabled": false
+          },
+          {
+            "query": "sum(rate(nginx_ingress_controller_requests{status=~\"4..\"}[1m])) or sum(rate(http_server_duration_milliseconds_count{http_status_code=~\"4..\"}[1m]))",
+            "legend": "4xx Client Errors (401/403/404)",
+            "disabled": false
+          },
+          {
+            "query": "sum(rate(nginx_ingress_controller_requests{status=~\"5..\"}[1m])) or sum(rate(http_server_duration_milliseconds_count{http_status_code=~\"5..\"}[1m]))",
+            "legend": "5xx Server Errors (500/502/503)",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_ingress_edge_latency",
+      "title": "Latencia en el Borde Perimetral (ms) [P50, P95, P99]",
+      "description": "Tiempo total percibido por el cliente desde el ingreso a NGINX hasta el retorno del backend",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "histogram_quantile(0.99, sum(rate(nginx_ingress_controller_request_duration_seconds_bucket[1m])) by (le)) * 1000 or histogram_quantile(0.99, sum(rate(http_server_duration_milliseconds_bucket[1m])) by (le))",
+            "legend": "P99 Edge Latency (ms)",
+            "disabled": false
+          },
+          {
+            "query": "histogram_quantile(0.95, sum(rate(nginx_ingress_controller_request_duration_seconds_bucket[1m])) by (le)) * 1000 or histogram_quantile(0.95, sum(rate(http_server_duration_milliseconds_bucket[1m])) by (le))",
+            "legend": "P95 Edge Latency (ms)",
+            "disabled": false
+          },
+          {
+            "query": "histogram_quantile(0.50, sum(rate(nginx_ingress_controller_request_duration_seconds_bucket[1m])) by (le)) * 1000 or histogram_quantile(0.50, sum(rate(http_server_duration_milliseconds_bucket[1m])) by (le))",
+            "legend": "P50 Edge Latency (ms)",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_ingress_rate_limiting",
+      "title": "Peticiones Limitadas por Tasa (HTTP 429 Too Many Requests)",
+      "description": "Protección perimetral contra ataques DoS o abuso de endpoints de autenticación y transferencias",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(rate(nginx_ingress_controller_requests{status=\"429\"}[1m])) or sum(rate(http_server_duration_milliseconds_count{http_status_code=\"429\"}[1m]))",
+            "legend": "HTTP 429 Rate Limited / seg",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_ingress_bandwidth",
+      "title": "Ancho de Banda Perimetral (Ingress Bytes In / Out KB/s)",
+      "description": "Tasa de transferencia de datos entrantes y salientes en los controladores de ingreso",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(rate(nginx_ingress_controller_bytes_in_total[1m])) / 1024 or (sum(rate(container_network_receive_bytes_total{namespace=\"fintech\"}[1m])) / 1024)",
+            "legend": "Bytes In (KB/s)",
+            "disabled": false
+          },
+          {
+            "query": "sum(rate(nginx_ingress_controller_bytes_out_total[1m])) / 1024 or (sum(rate(container_network_transmit_bytes_total{namespace=\"fintech\"}[1m])) / 1024)",
+            "legend": "Bytes Out (KB/s)",
+            "disabled": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "w_ingress_active_connections",
+      "title": "Conexiones TCP Concurrentes Activas en Ingress",
+      "description": "Clientes simultáneos conectados a los endpoints públicos de FinTech Wallet",
+      "panelTypes": "timeSeries",
+      "query": {
+        "queryType": "promql",
+        "promql": [
+          {
+            "query": "sum(nginx_ingress_controller_nginx_process_connections{state=\"active\"}) or sum(process_runtime_nodejs_active_handles_total)",
+            "legend": "Conexiones Activas",
+            "disabled": false
+          },
+          {
+            "query": "sum(nginx_ingress_controller_nginx_process_connections{state=\"reading\"}) or 0",
+            "legend": "Conexiones Leyendo",
+            "disabled": false
+          },
+          {
+            "query": "sum(nginx_ingress_controller_nginx_process_connections{state=\"writing\"}) or 0",
+            "legend": "Conexiones Escribiendo",
+            "disabled": false
+          }
+        ]
+      }
+    }
+  ]
+}
