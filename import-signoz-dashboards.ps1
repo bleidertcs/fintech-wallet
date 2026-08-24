@@ -1,15 +1,19 @@
 # ==============================================================================
 # IMPORT-SIGNOZ-DASHBOARDS.PS1 - IMPORTADOR DE DASHBOARDS EN SIGNOZ (POWERSHELL)
 # ==============================================================================
-# Uso:
-#   .\import-signoz-dashboards.ps1
-#   .\import-signoz-dashboards.ps1 -SigNozUrl "http://10.20.0.6:30301"
-#   .\import-signoz-dashboards.ps1 -SigNozUrl "http://localhost:30301" -ApiKey "9rfBH23dydV7Ym8yomvY68zoxf6VWiLZIT1BO/8J3j8="
+# Métodos de autenticación soportados:
+#   1. Por API Key de SigNoz:
+#      .\import-signoz-dashboards.ps1 -SigNozUrl "http://10.20.0.6:30301" -ApiKey "tu-api-key"
+#
+#   2. Por Credenciales de Login:
+#      .\import-signoz-dashboards.ps1 -SigNozUrl "http://10.20.0.6:30301" -Email "admin@fintech.com" -Password "password123"
 # ==============================================================================
 
 param (
     [string]$SigNozUrl = "http://localhost:30301",
-    [string]$ApiKey = "9rfBH23dydV7Ym8yomvY68zoxf6VWiLZIT1BO/8J3j8="
+    [string]$ApiKey = "",
+    [string]$Email = "",
+    [string]$Password = ""
 )
 
 $SigNozUrl = $SigNozUrl.TrimEnd('/')
@@ -43,7 +47,26 @@ $headers = @{
     "Content-Type" = "application/json"
 }
 
-if (-not [string]::IsNullOrEmpty($ApiKey)) {
+# Autenticación por Login si se proporcionó Email y Password
+if (-not [string]::IsNullOrEmpty($Email) -and -not [string]::IsNullOrEmpty($Password)) {
+    Write-Host "`n[*] Autenticando con usuario $Email en SigNoz..." -ForegroundColor Yellow
+    try {
+        $loginBody = @{ email = $Email; password = $Password } | ConvertTo-Json
+        $loginResp = Invoke-RestMethod -Uri "$SigNozUrl/api/v1/login" -Method Post -Body $loginBody -ContentType "application/json" -ErrorAction Stop
+        
+        $token = $loginResp.accessJwt
+        if (-not $token) { $token = $loginResp.jwt }
+        
+        if ($token) {
+            $headers["Authorization"] = "Bearer $token"
+            Write-Host "    [OK] Autenticación exitosa. Token JWT obtenido." -ForegroundColor Green
+        }
+    }
+    catch {
+        Write-Host "    [!] Error al autenticar: $($_.Exception.Message)" -ForegroundColor Red
+    }
+}
+elseif (-not [string]::IsNullOrEmpty($ApiKey)) {
     $headers["SIGNOZ-API-KEY"] = $ApiKey
 }
 

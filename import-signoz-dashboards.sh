@@ -2,18 +2,22 @@
 # ==============================================================================
 # IMPORT-SIGNOZ-DASHBOARDS.SH - IMPORTADOR DE DASHBOARDS EN SIGNOZ
 # ==============================================================================
-# Uso:
-#   ./import-signoz-dashboards.sh [SIGNOZ_URL] [API_KEY]
+# Métodos de autenticación soportados:
+#   1. Por API Key generada en SigNoz UI (Settings -> API Keys):
+#      ./import-signoz-dashboards.sh http://localhost:30301 "tu-api-key"
 #
-# Ejemplos:
-#   ./import-signoz-dashboards.sh http://localhost:30301
-#   ./import-signoz-dashboards.sh http://10.20.0.6:30301 "9rfBH23dydV7Ym8yomvY68zoxf6VWiLZIT1BO/8J3j8="
+#   2. Por Credenciales de Login (Email y Password del administrador de SigNoz):
+#      ./import-signoz-dashboards.sh http://localhost:30301 "" "admin@fintech.com" "password123"
+#
+#   3. Por defecto (intentará con la API Key configurada o sesión anónima):
+#      ./import-signoz-dashboards.sh http://localhost:30301
 # ==============================================================================
 
 SIGNOZ_URL="${1:-http://localhost:30301}"
-API_KEY="${2:-9rfBH23dydV7Ym8yomvY68zoxf6VWiLZIT1BO/8J3j8=}"
+API_KEY="${2:-}"
+USER_EMAIL="${3:-}"
+USER_PASS="${4:-}"
 
-# Normalizar URL eliminando barra final
 SIGNOZ_URL="${SIGNOZ_URL%/}"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -32,14 +36,34 @@ echo -e "\033[0;36m  Endpoint: ${SIGNOZ_URL}/api/v1/dashboards\033[0m"
 echo -e "\033[0;36m  Directorio: ${DASHBOARDS_DIR}\033[0m"
 echo -e "\033[0;36m==========================================================\033[0m"
 
-# Verificar conectividad con SigNoz
-echo -e "\n\033[0;33m[*] Verificando conexión con SigNoz...\033[0m"
-HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --connect-timeout 5 "${SIGNOZ_URL}/api/v1/healthz" || true)
+# Si se proporcionó email y password, autenticarse para obtener el token JWT
+AUTH_TOKEN=""
+if [ -n "$USER_EMAIL" ] && [ -n "$USER_PASS" ]; then
+    echo -e "\n\033[0;33m[*] Autenticando con usuario ${USER_EMAIL} en SigNoz...\033[0m"
+    LOGIN_PAYLOAD=$(printf '{"email":"%s","password":"%s"}' "$USER_EMAIL" "$USER_PASS")
+    LOGIN_RESP=$(curl -s -X POST "${SIGNOZ_URL}/api/v1/login" \
+        -H "Content-Type: application/json" \
+        -d "$LOGIN_PAYLOAD" || true)
+    
+    # Extraer accessJwt de la respuesta JSON
+    AUTH_TOKEN=$(echo "$LOGIN_RESP" | grep -o '"accessJwt":"[^"]*' | cut -d'"' -f4)
+    if [ -z "$AUTH_TOKEN" ]; then
+        AUTH_TOKEN=$(echo "$LOGIN_RESP" | grep -o '"jwt":"[^"]*' | cut -d'"' -f4)
+    fi
 
-if [ "$HTTP_STATUS" = "200" ]; then
-    echo -e "    \033[0;32m[OK] SigNoz responde correctamente en ${SIGNOZ_URL}\033[0m"
-else
-    echo -e "    \033[0;33m[!] Advertencia: Health check devolvió status HTTP ${HTTP_STATUS} (o timeout). Intentando importar de todos modos...\033[0m"
+    if [ -n "$AUTH_TOKEN" ]; then
+        echo -e "    \033[0;32m[OK] Autenticación exitosa. Token JWT obtenido.\033[0m"
+    else
+        echo -e "    \033[0;31m[!] Error al autenticar en SigNoz: ${LOGIN_RESP}\033[0m"
+    fi
+fi
+
+# Configurar headers de autenticación
+HEADER_ARGS=(-H "Content-Type: application/json")
+if [ -n "$AUTH_TOKEN" ]; then
+    HEADER_ARGS+=(-H "Authorization: Bearer ${AUTH_TOKEN}")
+elif [ -n "$API_KEY" ]; then
+    HEADER_ARGS+=(-H "SIGNOZ-API-KEY: ${API_KEY}")
 fi
 
 SUCCESS_COUNT=0
@@ -55,11 +79,6 @@ for file in "${FILES[@]}"; do
         filename=$(basename "$file")
         TOTAL_COUNT=$((TOTAL_COUNT + 1))
         echo -e "\n\033[0;33m[+] Procesando dashboard: ${filename}...\033[0m"
-        
-        HEADER_ARGS=(-H "Content-Type: application/json")
-        if [ -n "$API_KEY" ]; then
-            HEADER_ARGS+=(-H "SIGNOZ-API-KEY: ${API_KEY}")
-        fi
 
         RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "${SIGNOZ_URL}/api/v1/dashboards" \
             "${HEADER_ARGS[@]}" \
