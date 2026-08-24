@@ -22,7 +22,7 @@ data:
     SIGNOZ_HOST="${SIGNOZ_HOST:-signoz}"
     SIGNOZ_PORT="${SIGNOZ_PORT:-8080}"
     BASE_URL="http://${SIGNOZ_HOST}:${SIGNOZ_PORT}"
-    API_KEY="${SIGNOZ_API_KEY:-}"
+    API_KEY="${SIGNOZ_API_KEY:-9rfBH23dydV7Ym8yomvY68zoxf6VWiLZIT1BO/8J3j8=}"
 
     echo "=========================================================="
     echo " SigNoz Dashboard Auto-Importer for FinTech Wallet"
@@ -47,23 +47,24 @@ data:
         filename=$(basename "$file")
         echo -e "\n[+] Importando dashboard: ${filename}..."
         
-        if [ -n "$API_KEY" ]; then
-          curl -s -X POST "${BASE_URL}/api/v1/dashboards" \
-            -H "Content-Type: application/json" \
-            -H "SIGNOZ-API-KEY: ${API_KEY}" \
-            -d @"$file"
-        else
-          curl -s -X POST "${BASE_URL}/api/v1/dashboards" \
-            -H "Content-Type: application/json" \
-            -d @"$file"
-        fi
+        RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "${BASE_URL}/api/v1/dashboards" \
+          -H "Content-Type: application/json" \
+          -H "SIGNOZ-API-KEY: ${API_KEY}" \
+          -d @"$file")
         
-        echo -e "\n[OK] Dashboard ${filename} enviado exitosamente a SigNoz."
+        HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
+        BODY=$(echo "$RESPONSE" | sed '$d')
+        
+        if [ "$HTTP_CODE" -eq 200 ] || [ "$HTTP_CODE" -eq 201 ]; then
+          echo "[OK] Dashboard ${filename} importado exitosamente (HTTP ${HTTP_CODE})."
+        else
+          echo "[!] Código HTTP ${HTTP_CODE} al importar ${filename}. Respuesta: ${BODY}"
+        fi
       fi
     done
 
     echo -e "\n=========================================================="
-    echo " [OK] Todos los dashboards han sido procesados correctamente."
+    echo " [OK] Proceso de importación finalizado."
     echo "=========================================================="
 ---
 apiVersion: v1
@@ -1022,6 +1023,8 @@ spec:
               value: "signoz"
             - name: SIGNOZ_PORT
               value: "8080"
+            - name: SIGNOZ_API_KEY
+              value: "9rfBH23dydV7Ym8yomvY68zoxf6VWiLZIT1BO/8J3j8="
           resources:
             requests:
               memory: "64Mi"

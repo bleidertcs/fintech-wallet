@@ -4,12 +4,12 @@
 # Uso:
 #   .\import-signoz-dashboards.ps1
 #   .\import-signoz-dashboards.ps1 -SigNozUrl "http://10.20.0.6:30301"
-#   .\import-signoz-dashboards.ps1 -SigNozUrl "http://localhost:30301" -ApiKey "tu-key"
+#   .\import-signoz-dashboards.ps1 -SigNozUrl "http://localhost:30301" -ApiKey "9rfBH23dydV7Ym8yomvY68zoxf6VWiLZIT1BO/8J3j8="
 # ==============================================================================
 
 param (
     [string]$SigNozUrl = "http://localhost:30301",
-    [string]$ApiKey = ""
+    [string]$ApiKey = "9rfBH23dydV7Ym8yomvY68zoxf6VWiLZIT1BO/8J3j8="
 )
 
 $SigNozUrl = $SigNozUrl.TrimEnd('/')

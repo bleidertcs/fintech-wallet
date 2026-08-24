@@ -7,11 +7,11 @@
 #
 # Ejemplos:
 #   ./import-signoz-dashboards.sh http://localhost:30301
-#   ./import-signoz-dashboards.sh http://10.20.0.6:30301 "mi-api-key"
+#   ./import-signoz-dashboards.sh http://10.20.0.6:30301 "9rfBH23dydV7Ym8yomvY68zoxf6VWiLZIT1BO/8J3j8="
 # ==============================================================================
 
 SIGNOZ_URL="${1:-http://localhost:30301}"
-API_KEY="${2:-}"
+API_KEY="${2:-9rfBH23dydV7Ym8yomvY68zoxf6VWiLZIT1BO/8J3j8=}"
 
 # Normalizar URL eliminando barra final
 SIGNOZ_URL="${SIGNOZ_URL%/}"
