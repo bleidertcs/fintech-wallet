@@ -1,0 +1,397 @@
+{
+  "schemaVersion": "v6",
+  "name": "fintech-06-ingress-networking",
+  "tags": [
+    {
+      "key": "tag",
+      "value": "ingress"
+    },
+    {
+      "key": "tag",
+      "value": "networking"
+    },
+    {
+      "key": "tag",
+      "value": "traffic"
+    },
+    {
+      "key": "tag",
+      "value": "edge"
+    },
+    {
+      "key": "tag",
+      "value": "pods"
+    },
+    {
+      "key": "tag",
+      "value": "fintech"
+    },
+    {
+      "key": "env",
+      "value": "fintech"
+    }
+  ],
+  "spec": {
+    "display": {
+      "name": "FinTech Wallet - 06. Ingress Controller & Network Edge Traffic",
+      "description": "Monitoreo perimetral y de red: Tr\u00e1fico HTTP, I/O de red, errores de paquetes, fases de pods y readiness probes."
+    },
+    "variables": [],
+    "panels": {
+      "p_edge_http_reqs": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Throughput de Peticiones HTTP por Servicio (RPS)",
+            "description": "Tasa de peticiones procesadas por microservicio en el borde"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "http.client.request.duration.count",
+                        "timeAggregation": "rate",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "service.name"
+                      }
+                    ],
+                    "legend": "HTTP RPS {{service.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_edge_http_duration": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Tiempo Total de Peticiones HTTP (ms/seg)",
+            "description": "Duraci\u00f3n acumulada de procesamiento HTTP por servicio"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "ms",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "http.client.request.duration.sum",
+                        "timeAggregation": "rate",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "service.name"
+                      }
+                    ],
+                    "legend": "Duraci\u00f3n HTTP/s {{service.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_edge_network_io": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Tr\u00e1fico de Red por Pod (Network IO Bytes)",
+            "description": "Ancho de banda recibido y transmitido por cada pod en el cl\u00faster"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "bytes",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "k8s.pod.network.io",
+                        "timeAggregation": "rate",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "k8s.pod.name"
+                      }
+                    ],
+                    "filter": {
+                      "expression": "k8s.namespace.name = 'fintech'"
+                    },
+                    "legend": "{{k8s.pod.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_edge_network_errors": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Errores de Red por Pod (Network Errors)",
+            "description": "Paquetes descartados o errores de interfaz de red por pod"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "k8s.pod.network.errors",
+                        "timeAggregation": "latest",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "k8s.pod.name"
+                      }
+                    ],
+                    "filter": {
+                      "expression": "k8s.namespace.name = 'fintech'"
+                    },
+                    "legend": "{{k8s.pod.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_edge_pod_phase": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Fase de Ejecuci\u00f3n de Pods (Running=2 / Pending=1)",
+            "description": "Estado del ciclo de vida de los pods en el namespace fintech"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "k8s.pod.phase",
+                        "timeAggregation": "latest",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "k8s.pod.name"
+                      }
+                    ],
+                    "filter": {
+                      "expression": "k8s.namespace.name = 'fintech'"
+                    },
+                    "legend": "{{k8s.pod.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_edge_container_ready": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Estado de Readiness de Contenedores (1=Ready)",
+            "description": "Pase de readiness probes de los pods de la aplicaci\u00f3n"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "k8s.container.ready",
+                        "timeAggregation": "latest",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "k8s.pod.name"
+                      }
+                    ],
+                    "filter": {
+                      "expression": "k8s.namespace.name = 'fintech'"
+                    },
+                    "legend": "{{k8s.pod.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "layouts": [
+      {
+        "kind": "Grid",
+        "spec": {
+          "display": {
+            "title": "Main"
+          },
+          "items": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 6,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_edge_http_reqs"
+              }
+            },
+            {
+              "x": 6,
+              "y": 0,
+              "width": 6,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_edge_http_duration"
+              }
+            },
+            {
+              "x": 0,
+              "y": 4,
+              "width": 6,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_edge_network_io"
+              }
+            },
+            {
+              "x": 6,
+              "y": 4,
+              "width": 6,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_edge_network_errors"
+              }
+            },
+            {
+              "x": 0,
+              "y": 8,
+              "width": 6,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_edge_pod_phase"
+              }
+            },
+            {
+              "x": 6,
+              "y": 8,
+              "width": 6,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_edge_container_ready"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

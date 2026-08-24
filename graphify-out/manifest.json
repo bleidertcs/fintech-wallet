@@ -284,46 +284,6 @@
     "ast_hash": "a4c012bdf179f7f934897c22fe53ce78",
     "semantic_hash": ""
   },
-  "observability/dashboards/apm-dashboard-fixed.json": {
-    "mtime": 1784658649.3048155,
-    "ast_hash": "66dc9d6e254bd1db138d882b32a15a7d",
-    "semantic_hash": ""
-  },
-  "observability/dashboards/kafka-dashboard.json": {
-    "mtime": 1784655032.3481731,
-    "ast_hash": "d0047cbabfa00cc610f2a58ea17ab6c2",
-    "semantic_hash": ""
-  },
-  "observability/scripts/build_apm_dashboard_from_api.py": {
-    "mtime": 1784658542.8535223,
-    "ast_hash": "0862a3f1d184ea2422a99e538c9cc185",
-    "semantic_hash": ""
-  },
-  "observability/scripts/create-apm-dashboard.js": {
-    "mtime": 1784658544.253685,
-    "ast_hash": "3f4a3f9d336188aa31684e5f7ab1b6b5",
-    "semantic_hash": ""
-  },
-  "observability/scripts/create-dashboards.js": {
-    "mtime": 1784654255.6310322,
-    "ast_hash": "3245de0a94770a83c2e7b0d065e102e7",
-    "semantic_hash": ""
-  },
-  "observability/scripts/dashboard-config.js": {
-    "mtime": 1784654253.1871855,
-    "ast_hash": "a81df2892a8ee916d0dd286f06acc685",
-    "semantic_hash": ""
-  },
-  "observability/scripts/fix-hostmetrics.js": {
-    "mtime": 1784654249.5291574,
-    "ast_hash": "2b676086190ff797641482b7ab4a1505",
-    "semantic_hash": ""
-  },
-  "observability/scripts/fix_kafka_dashboard.py": {
-    "mtime": 1784655037.9211922,
-    "ast_hash": "17b727235d523adb686a654ba736cfb8",
-    "semantic_hash": ""
-  },
   "skills-lock.json": {
     "mtime": 1786978750.2150815,
     "ast_hash": "72473958e24b0ebee14bd567dc59f35e",
@@ -625,8 +585,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1787322345.4386175,
-    "ast_hash": "0aa89d4300beb6434e9de9bab5d2c42c",
+    "mtime": 1787594200.091995,
+    "ast_hash": "a9130ec2bcbd206c6676598bce482e37",
     "semantic_hash": ""
   },
   "frontend/README.md": {
@@ -650,8 +610,8 @@
     "semantic_hash": ""
   },
   "observability/README.md": {
-    "mtime": 1787064562.7870817,
-    "ast_hash": "0f9495a9ef2a43e27830f63ea99f570a",
+    "mtime": 1787594222.0571065,
+    "ast_hash": "37ed6c92319a62390a55cc436606374d",
     "semantic_hash": ""
   },
   "frontend/public/favicon.svg": {
@@ -1050,8 +1010,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/notification-service/package.json": {
-    "mtime": 1787150203.308196,
-    "ast_hash": "d195be6b0b8b9d59daaab943b306bd91",
+    "mtime": 1787598139.2420783,
+    "ast_hash": "64997224c818d9256e6cabfa1fcca42c",
     "semantic_hash": ""
   },
   "backend-nestjs/notification-service/src/app.controller.spec.ts": {
@@ -1110,8 +1070,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/transaction-service/package.json": {
-    "mtime": 1787150198.6637921,
-    "ast_hash": "38da18a9cd8bc5c185759230f3bbc1f7",
+    "mtime": 1787598136.1603155,
+    "ast_hash": "d376458cb88607d87fb4d4dcfa075cec",
     "semantic_hash": ""
   },
   "backend-nestjs/transaction-service/src/adapters/inbound/rest/dto/money-request.dto.ts": {
@@ -1295,8 +1255,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/user-service/package.json": {
-    "mtime": 1787150194.3836079,
-    "ast_hash": "a63755b725503a5c6614fcbd9e5d6349",
+    "mtime": 1787598133.1331508,
+    "ast_hash": "36ecd55fe54bbe5324b1cba3908aebfb",
     "semantic_hash": ""
   },
   "backend-nestjs/user-service/src/adapters/inbound/grpc/user.grpc.controller.ts": {
@@ -1435,8 +1395,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/worker-service/package.json": {
-    "mtime": 1786716130.3177555,
-    "ast_hash": "24123a08993ea94d21f5a86e08d30c5c",
+    "mtime": 1787598146.7280428,
+    "ast_hash": "6fc82a14a7cfd939d00c0135c6784423",
     "semantic_hash": ""
   },
   "backend-nestjs/worker-service/src/app.controller.spec.ts": {
@@ -1830,13 +1790,13 @@
     "semantic_hash": ""
   },
   "import-signoz-dashboards.ps1": {
-    "mtime": 1786045360.2099967,
-    "ast_hash": "b5bf620a778e760f711cc6dd192dff31",
+    "mtime": 1787597277.28044,
+    "ast_hash": "d455b4de8c710fde315e3d57b5a92de4",
     "semantic_hash": ""
   },
   "import-signoz-dashboards.sh": {
-    "mtime": 1786045366.2108994,
-    "ast_hash": "04aff89be305b11e0e469a072848eeeb",
+    "mtime": 1787597281.303317,
+    "ast_hash": "e7e089b071b72dbaf04eb6b2a459bb70",
     "semantic_hash": ""
   },
   "backend-nestjs/notification-service/src/adapters/inbound/kafka/kafka-consumer.service.ts": {
@@ -2227,36 +2187,6 @@
   "docs/helm.md": {
     "mtime": 1787064535.832201,
     "ast_hash": "e9bbf338a0286fe021e9836d4d2d8d2c",
-    "semantic_hash": ""
-  },
-  "k8s/dashboards/signoz-01-nestjs-apm.json": {
-    "mtime": 1786042277.1564386,
-    "ast_hash": "3044f9b14d8fa33d944e1b3795c7180c",
-    "semantic_hash": ""
-  },
-  "k8s/dashboards/signoz-02-mysql-health.json": {
-    "mtime": 1786042283.7418876,
-    "ast_hash": "b5e83c3ada95c969348bb566293d50c8",
-    "semantic_hash": ""
-  },
-  "k8s/dashboards/signoz-03-redis-cache.json": {
-    "mtime": 1786042290.156677,
-    "ast_hash": "17314d6ff3e246cf8ea4bafc1deaa17a",
-    "semantic_hash": ""
-  },
-  "k8s/dashboards/signoz-04-kafka-streaming.json": {
-    "mtime": 1786042295.8490353,
-    "ast_hash": "615f45782426050b65fdb2242d3944a0",
-    "semantic_hash": ""
-  },
-  "k8s/dashboards/signoz-05-kubernetes-workloads.json": {
-    "mtime": 1786045921.5542195,
-    "ast_hash": "5c94ea8259f939d4bb60efc5b5067fe5",
-    "semantic_hash": ""
-  },
-  "k8s/signoz-nestjs-dashboard.json": {
-    "mtime": 1786041791.581173,
-    "ast_hash": "cfd9b7797d36e9c7c4528bdce55bbbbd",
     "semantic_hash": ""
   },
   "k8s/00-namespace-config.yaml": {
@@ -2650,8 +2580,8 @@
     "semantic_hash": ""
   },
   "docs/observability.md": {
-    "mtime": 1786990502.0947304,
-    "ast_hash": "3d516b8feeed282ccc368e941c1a5c9f",
+    "mtime": 1787594199.1427665,
+    "ast_hash": "45afcd6249d407802ebfd75a28157f9a",
     "semantic_hash": ""
   },
   "docs/operations.md": {
@@ -2680,13 +2610,13 @@
     "semantic_hash": ""
   },
   "deploy-k8s.ps1": {
-    "mtime": 1787321567.5043876,
-    "ast_hash": "5644058b9c33413a5313c0c8b9811e2d",
+    "mtime": 1787594858.2921064,
+    "ast_hash": "05bba25823382c2cfdeb8c26709ec80b",
     "semantic_hash": ""
   },
   "deploy-k8s.sh": {
-    "mtime": 1787255552.8874319,
-    "ast_hash": "048e2d1e361c6162dac8c4f09f655e33",
+    "mtime": 1787593780.3740556,
+    "ast_hash": "92c0c2b6badabaf824c533623de073de",
     "semantic_hash": ""
   },
   "compose.yaml": {
@@ -2772,6 +2702,116 @@
   "k8s/11-kubernetes-dashboard.yaml": {
     "mtime": 1787590965.3136878,
     "ast_hash": "028fab1eda48f4154d918ad497b26bf7",
+    "semantic_hash": ""
+  },
+  "k8s/dashboards/01-signoz-k8s-cluster.json": {
+    "mtime": 1787593623.3268096,
+    "ast_hash": "e5a9f48f98578993236d7ce544f8e661",
+    "semantic_hash": ""
+  },
+  "k8s/dashboards/01-signoz-k8s-cluster.v6.json": {
+    "mtime": 1787597248.8182933,
+    "ast_hash": "ae8409a302259dcb8c2f9e961ceacb33",
+    "semantic_hash": ""
+  },
+  "k8s/dashboards/02-signoz-nestjs-apm.json": {
+    "mtime": 1787593632.0038352,
+    "ast_hash": "8519dbb63faf540259116742993cdadf",
+    "semantic_hash": ""
+  },
+  "k8s/dashboards/02-signoz-nestjs-apm.v6.json": {
+    "mtime": 1787597248.8459918,
+    "ast_hash": "101ea19660065cb47ae75d7d30d13c42",
+    "semantic_hash": ""
+  },
+  "k8s/dashboards/03-signoz-postgresql-pgbouncer.json": {
+    "mtime": 1787594762.4384882,
+    "ast_hash": "706ff5722f6638faa605b96e7be4215d",
+    "semantic_hash": ""
+  },
+  "k8s/dashboards/03-signoz-postgresql-pgbouncer.v6.json": {
+    "mtime": 1787597248.8956032,
+    "ast_hash": "98555c259e8fc7cc9febe4c45ebd8313",
+    "semantic_hash": ""
+  },
+  "k8s/dashboards/04-signoz-kafka-streaming.json": {
+    "mtime": 1787594769.455533,
+    "ast_hash": "d98a0331d65a0c16a628a0621a7df8f6",
+    "semantic_hash": ""
+  },
+  "k8s/dashboards/04-signoz-kafka-streaming.v6.json": {
+    "mtime": 1787597248.926225,
+    "ast_hash": "7728fb7c3c36769b68d119ce3895dee7",
+    "semantic_hash": ""
+  },
+  "k8s/dashboards/05-signoz-redis-cache.json": {
+    "mtime": 1787594872.9235995,
+    "ast_hash": "47376cfef6a604646c08b68d09dcd561",
+    "semantic_hash": ""
+  },
+  "k8s/dashboards/05-signoz-redis-cache.v6.json": {
+    "mtime": 1787597248.9520776,
+    "ast_hash": "c49906779a0e2f58fb3406c1e498e8d8",
+    "semantic_hash": ""
+  },
+  "k8s/dashboards/06-signoz-ingress-networking.json": {
+    "mtime": 1787594878.541682,
+    "ast_hash": "9282d890b1a1055f01c3bc7a9ec6f486",
+    "semantic_hash": ""
+  },
+  "k8s/dashboards/06-signoz-ingress-networking.v6.json": {
+    "mtime": 1787597248.9776232,
+    "ast_hash": "a4781a5b396d26969ebc8e7636f55eb5",
+    "semantic_hash": ""
+  },
+  "observability/dashboards/01-signoz-k8s-cluster.json": {
+    "mtime": 1787594888.0063717,
+    "ast_hash": "819680e89c43e2a3de22a3f78c01f24a",
+    "semantic_hash": ""
+  },
+  "observability/dashboards/02-signoz-nestjs-apm.json": {
+    "mtime": 1787594888.0070097,
+    "ast_hash": "09a0bef0fdc164fed343ae1e854c5e41",
+    "semantic_hash": ""
+  },
+  "observability/dashboards/03-signoz-postgresql-pgbouncer.json": {
+    "mtime": 1787594888.0072978,
+    "ast_hash": "b6abcd6302734ed4d29ec4905a911b34",
+    "semantic_hash": ""
+  },
+  "observability/dashboards/04-signoz-kafka-streaming.json": {
+    "mtime": 1787593703.5477107,
+    "ast_hash": "d98a0331d65a0c16a628a0621a7df8f6",
+    "semantic_hash": ""
+  },
+  "observability/dashboards/05-signoz-redis-cache.json": {
+    "mtime": 1787593709.953722,
+    "ast_hash": "7e197055aed414b19f28f75625e71d74",
+    "semantic_hash": ""
+  },
+  "observability/dashboards/06-signoz-ingress-networking.json": {
+    "mtime": 1787593716.4112349,
+    "ast_hash": "38471c184664f252186000248810d0cc",
+    "semantic_hash": ""
+  },
+  "k8s/12-signoz-dashboards-importer.yaml": {
+    "mtime": 1787594808.239797,
+    "ast_hash": "c28e62394365592f6119037bf5f25c1a",
+    "semantic_hash": ""
+  },
+  "observability/GUIA_INTERPRETACION_OBSERVABILIDAD.md": {
+    "mtime": 1787594199.14183,
+    "ast_hash": "6b832d1f96d910288bbf0f4929b12016",
+    "semantic_hash": ""
+  },
+  "scripts/build_and_upload_all_dashboards.py": {
+    "mtime": 1787597235.989566,
+    "ast_hash": "b48179dc9928ce7dda3b2d273498c10b",
+    "semantic_hash": ""
+  },
+  "scripts/verify_all_dashboard_queries.py": {
+    "mtime": 1787596711.446139,
+    "ast_hash": "1bae04af5cf9b563e5e7003fd89abe47",
     "semantic_hash": ""
   }
 }

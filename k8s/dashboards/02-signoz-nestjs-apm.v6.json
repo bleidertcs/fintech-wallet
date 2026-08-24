@@ -1,0 +1,495 @@
+{
+  "schemaVersion": "v6",
+  "name": "fintech-02-nestjs-apm",
+  "tags": [
+    {
+      "key": "tag",
+      "value": "nestjs"
+    },
+    {
+      "key": "tag",
+      "value": "apm"
+    },
+    {
+      "key": "tag",
+      "value": "nodejs"
+    },
+    {
+      "key": "tag",
+      "value": "event-loop"
+    },
+    {
+      "key": "tag",
+      "value": "v8"
+    },
+    {
+      "key": "tag",
+      "value": "fintech"
+    },
+    {
+      "key": "env",
+      "value": "fintech"
+    }
+  ],
+  "spec": {
+    "display": {
+      "name": "FinTech Wallet - 02. NestJS Microservices RED Metrics & APM",
+      "description": "Dashboard de Rendimiento, Latencia, Estado de Runtime de Node.js (V8 Heap, Event Loop Lag, GC) y Operaciones de los microservicios."
+    },
+    "variables": [],
+    "panels": {
+      "p_apm_v8_heap_used": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Uso de Memoria Heap V8 por Microservicio",
+            "description": "Memoria Heap V8 utilizada en tiempo real por cada servicio NestJS"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "bytes",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "v8js.memory.heap.used",
+                        "timeAggregation": "avg",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "service.name"
+                      }
+                    ],
+                    "legend": "Heap Used {{service.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_apm_v8_heap_total": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Espacio F\u00edsico de Memoria Heap V8 Asignado",
+            "description": "Tama\u00f1o total de la memoria asignada en el motor JavaScript V8"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "bytes",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "v8js.memory.heap.space.physical_size",
+                        "timeAggregation": "avg",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "service.name"
+                      }
+                    ],
+                    "legend": "Heap Total {{service.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_apm_event_loop_p50": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Lag del Event Loop de Node.js (ms) [P50 Mediana]",
+            "description": "Retraso de ejecuci\u00f3n en el hilo principal de Node.js (P50)"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "ms",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "nodejs.eventloop.delay.p50",
+                        "timeAggregation": "avg",
+                        "spaceAggregation": "avg"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "service.name"
+                      }
+                    ],
+                    "legend": "Event Loop P50 (ms) {{service.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_apm_event_loop_p99": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Lag del Event Loop de Node.js (ms) [P99 Pico]",
+            "description": "Picos de latencia en el Event Loop (> 50ms indica bloqueo por c\u00e1lculo s\u00edncrono)"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "ms",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "nodejs.eventloop.delay.p99",
+                        "timeAggregation": "avg",
+                        "spaceAggregation": "avg"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "service.name"
+                      }
+                    ],
+                    "legend": "Event Loop P99 (ms) {{service.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_apm_active_resources": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Recursos Activos de Node.js (Handles & Sockets)",
+            "description": "Conexiones TCP abiertas, temporizadores y descriptores activos en Node.js"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "v8js.resource.active",
+                        "timeAggregation": "avg",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "service.name"
+                      }
+                    ],
+                    "legend": "Active Resources {{service.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_apm_gc_duration": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Duraci\u00f3n del Garbage Collector (V8 GC)",
+            "description": "Tiempo invertido por el recolector de basura de Node.js"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "ms",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "v8js.gc.duration.sum",
+                        "timeAggregation": "rate",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "service.name"
+                      }
+                    ],
+                    "legend": "GC Duration/s {{service.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_apm_db_ops": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Tasa de Operaciones DB por Microservicio (Ops/sec)",
+            "description": "Throughput de consultas de persistencia ejecutadas desde NestJS"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "db.client.operation.duration.count",
+                        "timeAggregation": "rate",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "service.name"
+                      }
+                    ],
+                    "legend": "DB Ops/s {{service.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_apm_http_client_reqs": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Peticiones HTTP Salientes entre Microservicios (RPS)",
+            "description": "Comunicaciones HTTP/REST entre componentes internos"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "http.client.request.duration.count",
+                        "timeAggregation": "rate",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "service.name"
+                      }
+                    ],
+                    "legend": "HTTP Client RPS {{service.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "layouts": [
+      {
+        "kind": "Grid",
+        "spec": {
+          "display": {
+            "title": "Main"
+          },
+          "items": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 6,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_apm_v8_heap_used"
+              }
+            },
+            {
+              "x": 6,
+              "y": 0,
+              "width": 6,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_apm_v8_heap_total"
+              }
+            },
+            {
+              "x": 0,
+              "y": 4,
+              "width": 6,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_apm_event_loop_p50"
+              }
+            },
+            {
+              "x": 6,
+              "y": 4,
+              "width": 6,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_apm_event_loop_p99"
+              }
+            },
+            {
+              "x": 0,
+              "y": 8,
+              "width": 6,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_apm_active_resources"
+              }
+            },
+            {
+              "x": 6,
+              "y": 8,
+              "width": 6,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_apm_gc_duration"
+              }
+            },
+            {
+              "x": 0,
+              "y": 12,
+              "width": 6,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_apm_db_ops"
+              }
+            },
+            {
+              "x": 6,
+              "y": 12,
+              "width": 6,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_apm_http_client_reqs"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

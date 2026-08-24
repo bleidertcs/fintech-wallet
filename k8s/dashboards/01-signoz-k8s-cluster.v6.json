@@ -1,0 +1,507 @@
+{
+  "schemaVersion": "v6",
+  "name": "fintech-01-k8s-cluster",
+  "tags": [
+    {
+      "key": "tag",
+      "value": "kubernetes"
+    },
+    {
+      "key": "tag",
+      "value": "infrastructure"
+    },
+    {
+      "key": "tag",
+      "value": "pods"
+    },
+    {
+      "key": "tag",
+      "value": "nodes"
+    },
+    {
+      "key": "tag",
+      "value": "pvc"
+    },
+    {
+      "key": "tag",
+      "value": "fintech"
+    },
+    {
+      "key": "env",
+      "value": "fintech"
+    }
+  ],
+  "spec": {
+    "display": {
+      "name": "FinTech Wallet - 01. Kubernetes Cluster & Pods Infrastructure",
+      "description": "Monitoreo integral de infraestructura Kubernetes: Uso de CPU y Memoria por Pod y Nodo, Reinicios, Consumo de Vol\u00famenes y R\u00e9plicas en fintech."
+    },
+    "variables": [],
+    "panels": {
+      "p_k8s_cpu_pods": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Uso de CPU por Pod (Milicores / Cores)",
+            "description": "Consumo de procesamiento en tiempo real por cada contenedor y pod del cl\u00faster"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "cores",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "k8s.pod.cpu.usage",
+                        "timeAggregation": "avg",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "k8s.pod.name"
+                      }
+                    ],
+                    "filter": {
+                      "expression": "k8s.namespace.name = 'fintech'"
+                    },
+                    "legend": "{{k8s.pod.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_k8s_ram_pods": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Uso de Memoria RAM por Pod (Working Set / MiB)",
+            "description": "Memoria activa no recuperable por pod (usada por el OOM Killer para evaluar desalojos)"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "bytes",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "k8s.pod.memory.working_set",
+                        "timeAggregation": "avg",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "k8s.pod.name"
+                      }
+                    ],
+                    "filter": {
+                      "expression": "k8s.namespace.name = 'fintech'"
+                    },
+                    "legend": "{{k8s.pod.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_k8s_restarts": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Reinicios de Pods / Contenedores",
+            "description": "Contador acumulado de reinicios por pod en el namespace fintech"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "k8s.container.restarts",
+                        "timeAggregation": "latest",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "k8s.pod.name"
+                      }
+                    ],
+                    "filter": {
+                      "expression": "k8s.namespace.name = 'fintech'"
+                    },
+                    "legend": "{{k8s.pod.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_k8s_node_cpu": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Utilizaci\u00f3n de CPU del Nodo",
+            "description": "Saturaci\u00f3n de CPU de los nodos de Kubernetes (hostmetrics)"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "cores",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "k8s.node.cpu.usage",
+                        "timeAggregation": "avg",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "k8s.node.name"
+                      }
+                    ],
+                    "legend": "Node {{k8s.node.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_k8s_node_ram": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Utilizaci\u00f3n de Memoria del Nodo",
+            "description": "Memoria utilizada en el nodo host"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "bytes",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "k8s.node.memory.usage",
+                        "timeAggregation": "avg",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "k8s.node.name"
+                      }
+                    ],
+                    "legend": "Node {{k8s.node.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_k8s_volume_usage": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Almacenamiento en Vol\u00famenes / PVCs (Capacidad Total)",
+            "description": "Capacidad total de los vol\u00famenes persistentes y monturas en el cl\u00faster"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "bytes",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "k8s.volume.capacity",
+                        "timeAggregation": "latest",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "k8s.pod.name"
+                      }
+                    ],
+                    "legend": "{{k8s.pod.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_k8s_deployments": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Estado de R\u00e9plicas de Despliegues (Available vs Desired)",
+            "description": "Monitoreo de r\u00e9plicas listas para auth-service, user-service, transaction-service, etc."
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "k8s.deployment.available",
+                        "timeAggregation": "latest",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "k8s.deployment.name"
+                      }
+                    ],
+                    "legend": "Disponibles {{k8s.deployment.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_k8s_network_io": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Tr\u00e1fico de Red por Pod (Network IO)",
+            "description": "Rendimiento de paquetes y bytes de red a nivel de contenedor/pod"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "bytes",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "k8s.pod.network.io",
+                        "timeAggregation": "rate",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "k8s.pod.name"
+                      }
+                    ],
+                    "filter": {
+                      "expression": "k8s.namespace.name = 'fintech'"
+                    },
+                    "legend": "{{k8s.pod.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "layouts": [
+      {
+        "kind": "Grid",
+        "spec": {
+          "display": {
+            "title": "Main"
+          },
+          "items": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 6,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_k8s_cpu_pods"
+              }
+            },
+            {
+              "x": 6,
+              "y": 0,
+              "width": 6,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_k8s_ram_pods"
+              }
+            },
+            {
+              "x": 0,
+              "y": 4,
+              "width": 4,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_k8s_restarts"
+              }
+            },
+            {
+              "x": 4,
+              "y": 4,
+              "width": 4,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_k8s_node_cpu"
+              }
+            },
+            {
+              "x": 8,
+              "y": 4,
+              "width": 4,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_k8s_node_ram"
+              }
+            },
+            {
+              "x": 0,
+              "y": 8,
+              "width": 6,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_k8s_volume_usage"
+              }
+            },
+            {
+              "x": 6,
+              "y": 8,
+              "width": 6,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_k8s_deployments"
+              }
+            },
+            {
+              "x": 0,
+              "y": 12,
+              "width": 12,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_k8s_network_io"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,87 +1,39 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# IMPORT-SIGNOZ-DASHBOARDS.SH - IMPORTADOR DE DASHBOARDS EN SIGNOZ
-# ==============================================================================
-# Métodos de autenticación soportados:
-#   1. Por API Key generada en SigNoz UI (Settings -> API Keys):
-#      ./import-signoz-dashboards.sh http://localhost:30301 "tu-api-key"
-#
-#   2. Por Credenciales de Login (Email y Password del administrador de SigNoz):
-#      ./import-signoz-dashboards.sh http://localhost:30301 "" "admin@fintech.com" "password123"
-#
-#   3. Por defecto (intentará con la API Key configurada o sesión anónima):
-#      ./import-signoz-dashboards.sh http://localhost:30301
+# IMPORT-SIGNOZ-DASHBOARDS.SH - IMPORTADOR DE DASHBOARDS EN SIGNOZ (V2 API / REAL METRICS)
 # ==============================================================================
 
 SIGNOZ_URL="${1:-http://localhost:30301}"
-API_KEY="${2:-}"
-USER_EMAIL="${3:-}"
-USER_PASS="${4:-}"
+API_KEY="${2:-u/qUnbL4dpx5rOobkLjAUidg9NWRddEpVZsIOUCCc9g=}"
 
 SIGNOZ_URL="${SIGNOZ_URL%/}"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-if [ -d "${SCRIPT_DIR}/k8s/dashboards" ]; then
-    DASHBOARDS_DIR="${SCRIPT_DIR}/k8s/dashboards"
-elif [ -d "${SCRIPT_DIR}/observability/dashboards" ]; then
-    DASHBOARDS_DIR="${SCRIPT_DIR}/observability/dashboards"
-else
-    echo -e "\033[0;31m[ERROR] No se encontró el directorio de dashboards (k8s/dashboards o observability/dashboards)\033[0m"
-    exit 1
-fi
+DASHBOARDS_DIR="${SCRIPT_DIR}/k8s/dashboards"
 
 echo -e "\033[0;36m==========================================================\033[0m"
-echo -e "\033[0;36m  SigNoz Dashboards Importer - FinTech Wallet System\033[0m"
-echo -e "\033[0;36m  Endpoint: ${SIGNOZ_URL}/api/v1/dashboards\033[0m"
-echo -e "\033[0;36m  Directorio: ${DASHBOARDS_DIR}\033[0m"
+echo -e "\033[0;36m  SigNoz Dashboards Importer (v2 API) - FinTech Wallet\033[0m"
+echo -e "\033[0;36m  Endpoint: ${SIGNOZ_URL}/api/v2/dashboards\033[0m"
 echo -e "\033[0;36m==========================================================\033[0m"
 
-# Si se proporcionó email y password, autenticarse para obtener el token JWT
-AUTH_TOKEN=""
-if [ -n "$USER_EMAIL" ] && [ -n "$USER_PASS" ]; then
-    echo -e "\n\033[0;33m[*] Autenticando con usuario ${USER_EMAIL} en SigNoz...\033[0m"
-    LOGIN_PAYLOAD=$(printf '{"email":"%s","password":"%s"}' "$USER_EMAIL" "$USER_PASS")
-    LOGIN_RESP=$(curl -s -X POST "${SIGNOZ_URL}/api/v1/login" \
-        -H "Content-Type: application/json" \
-        -d "$LOGIN_PAYLOAD" || true)
-    
-    # Extraer accessJwt de la respuesta JSON
-    AUTH_TOKEN=$(echo "$LOGIN_RESP" | grep -o '"accessJwt":"[^"]*' | cut -d'"' -f4)
-    if [ -z "$AUTH_TOKEN" ]; then
-        AUTH_TOKEN=$(echo "$LOGIN_RESP" | grep -o '"jwt":"[^"]*' | cut -d'"' -f4)
-    fi
-
-    if [ -n "$AUTH_TOKEN" ]; then
-        echo -e "    \033[0;32m[OK] Autenticación exitosa. Token JWT obtenido.\033[0m"
-    else
-        echo -e "    \033[0;31m[!] Error al autenticar en SigNoz: ${LOGIN_RESP}\033[0m"
-    fi
-fi
-
-# Configurar headers de autenticación
-HEADER_ARGS=(-H "Content-Type: application/json")
-if [ -n "$AUTH_TOKEN" ]; then
-    HEADER_ARGS+=(-H "Authorization: Bearer ${AUTH_TOKEN}")
-elif [ -n "$API_KEY" ]; then
-    HEADER_ARGS+=(-H "SIGNOZ-API-KEY: ${API_KEY}")
+if [ -f "${SCRIPT_DIR}/scripts/build_and_upload_all_dashboards.py" ]; then
+    python3 "${SCRIPT_DIR}/scripts/build_and_upload_all_dashboards.py"
+    exit 0
 fi
 
 SUCCESS_COUNT=0
 TOTAL_COUNT=0
 
-FILES=("$DASHBOARDS_DIR"/0[1-6]-signoz-*.json)
-if [ ! -e "${FILES[0]}" ]; then
-    FILES=("$DASHBOARDS_DIR"/*.json)
-fi
-
+FILES=("$DASHBOARDS_DIR"/*-signoz-*.v6.json)
 for file in "${FILES[@]}"; do
     if [ -f "$file" ]; then
         filename=$(basename "$file")
         TOTAL_COUNT=$((TOTAL_COUNT + 1))
-        echo -e "\n\033[0;33m[+] Procesando dashboard: ${filename}...\033[0m"
+        echo -e "\n\033[0;33m[+] Enviando dashboard v6: ${filename}...\033[0m"
 
-        RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "${SIGNOZ_URL}/api/v1/dashboards" \
-            "${HEADER_ARGS[@]}" \
+        RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "${SIGNOZ_URL}/api/v2/dashboards" \
+            -H "Content-Type: application/json" \
+            -H "SIGNOZ-API-KEY: ${API_KEY}" \
             -d @"$file")
         
         HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
@@ -98,6 +50,6 @@ for file in "${FILES[@]}"; do
 done
 
 echo -e "\n\033[0;36m==========================================================\033[0m"
-echo -e "\033[0;32m [OK] Importación finalizada: ${SUCCESS_COUNT}/${TOTAL_COUNT} dashboards importados.\033[0m"
+echo -e "\033[0;32m [OK] Importación finalizada: ${SUCCESS_COUNT}/${TOTAL_COUNT} dashboards procesados.\033[0m"
 echo -e "\033[0;36m Accede a la UI de SigNoz en: ${SIGNOZ_URL}\033[0m"
 echo -e "\033[0;36m==========================================================\033[0m"

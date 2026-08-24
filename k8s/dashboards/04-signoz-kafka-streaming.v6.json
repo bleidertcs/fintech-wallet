@@ -1,0 +1,389 @@
+{
+  "schemaVersion": "v6",
+  "name": "fintech-04-kafka-streaming",
+  "tags": [
+    {
+      "key": "tag",
+      "value": "kafka"
+    },
+    {
+      "key": "tag",
+      "value": "streaming"
+    },
+    {
+      "key": "tag",
+      "value": "events"
+    },
+    {
+      "key": "tag",
+      "value": "kraft"
+    },
+    {
+      "key": "tag",
+      "value": "broker"
+    },
+    {
+      "key": "tag",
+      "value": "fintech"
+    },
+    {
+      "key": "env",
+      "value": "fintech"
+    }
+  ],
+  "spec": {
+    "display": {
+      "name": "FinTech Wallet - 04. Apache Kafka KRaft & Event Streaming",
+      "description": "Monitoreo de brokers, offsets de particiones, consumer groups y consumo de recursos en Kafka KRaft."
+    },
+    "variables": [],
+    "panels": {
+      "p_kafka_brokers": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Brokers de Kafka Activos (KRaft Quorum Health)",
+            "description": "N\u00famero de brokers activos en el cl\u00faster Apache Kafka"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "kafka.brokers",
+                        "timeAggregation": "latest",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "legend": "Brokers Activos"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_kafka_offset": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Offset Actual de Particiones de T\u00f3picos",
+            "description": "Posici\u00f3n actual del offset de mensajes en los t\u00f3picos de Kafka"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "kafka.partition.current_offset",
+                        "timeAggregation": "latest",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "k8s.pod.name"
+                      }
+                    ],
+                    "legend": "Offset {{k8s.pod.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_kafka_groups": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Miembros de Consumer Groups (Worker & Notifications)",
+            "description": "Consumidores activos conectados a los t\u00f3picos de eventos"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "kafka.consumer_group.members",
+                        "timeAggregation": "latest",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "k8s.pod.name"
+                      }
+                    ],
+                    "legend": "Members {{k8s.pod.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_kafka_cpu": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Consumo de CPU en Pods de Kafka Broker",
+            "description": "Uso de CPU en kafka-0 / kafka broker pods"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "cores",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "k8s.pod.cpu.usage",
+                        "timeAggregation": "avg",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "k8s.pod.name"
+                      }
+                    ],
+                    "filter": {
+                      "expression": "k8s.pod.name LIKE '%kafka%'"
+                    },
+                    "legend": "CPU {{k8s.pod.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_kafka_ram": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Consumo de Memoria en Pods de Kafka (RAM Working Set)",
+            "description": "Uso de memoria por la JVM del broker Apache Kafka"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "bytes",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "k8s.pod.memory.working_set",
+                        "timeAggregation": "avg",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "k8s.pod.name"
+                      }
+                    ],
+                    "filter": {
+                      "expression": "k8s.pod.name LIKE '%kafka%'"
+                    },
+                    "legend": "RAM {{k8s.pod.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_kafka_network": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Tr\u00e1fico de Red del Broker Kafka (Network IO)",
+            "description": "Tasa de datos transmitidos y recibidos por el pod de Kafka"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "bytes",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "k8s.pod.network.io",
+                        "timeAggregation": "rate",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "k8s.pod.name"
+                      }
+                    ],
+                    "filter": {
+                      "expression": "k8s.pod.name LIKE '%kafka%'"
+                    },
+                    "legend": "Network IO {{k8s.pod.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "layouts": [
+      {
+        "kind": "Grid",
+        "spec": {
+          "display": {
+            "title": "Main"
+          },
+          "items": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 4,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_kafka_brokers"
+              }
+            },
+            {
+              "x": 4,
+              "y": 0,
+              "width": 4,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_kafka_offset"
+              }
+            },
+            {
+              "x": 8,
+              "y": 0,
+              "width": 4,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_kafka_groups"
+              }
+            },
+            {
+              "x": 0,
+              "y": 4,
+              "width": 4,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_kafka_cpu"
+              }
+            },
+            {
+              "x": 4,
+              "y": 4,
+              "width": 4,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_kafka_ram"
+              }
+            },
+            {
+              "x": 8,
+              "y": 4,
+              "width": 4,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_kafka_network"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

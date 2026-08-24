@@ -1,0 +1,391 @@
+{
+  "schemaVersion": "v6",
+  "name": "fintech-03-postgresql-pgbouncer",
+  "tags": [
+    {
+      "key": "tag",
+      "value": "postgresql"
+    },
+    {
+      "key": "tag",
+      "value": "pgbouncer"
+    },
+    {
+      "key": "tag",
+      "value": "database"
+    },
+    {
+      "key": "tag",
+      "value": "sql"
+    },
+    {
+      "key": "tag",
+      "value": "pool"
+    },
+    {
+      "key": "tag",
+      "value": "fintech"
+    },
+    {
+      "key": "env",
+      "value": "fintech"
+    }
+  ],
+  "spec": {
+    "display": {
+      "name": "FinTech Wallet - 03. PostgreSQL & PgBouncer Connection Pool",
+      "description": "Monitoreo de conexiones, throughput de operaciones SQL, cola de espera y recursos para bases de datos relacionales."
+    },
+    "variables": [],
+    "panels": {
+      "p_db_connections": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Conexiones de Clientes a Base de Datos (Active Pool)",
+            "description": "Conexiones activas mantenidas por los servicios hacia PostgreSQL / PgBouncer"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "db.client.connection.count",
+                        "timeAggregation": "latest",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "service.name"
+                      }
+                    ],
+                    "legend": "Active Conns {{service.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_db_pending": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Peticiones de Conexi\u00f3n en Espera (Pending Queue)",
+            "description": "Peticiones esperando una conexi\u00f3n libre en el pool"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "db.client.connection.pending_requests",
+                        "timeAggregation": "latest",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "service.name"
+                      }
+                    ],
+                    "legend": "Pending Reqs {{service.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_db_ops_throughput": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Throughput de Operaciones SQL (Consultas / seg)",
+            "description": "Tasa de ejecuci\u00f3n de operaciones SELECT, INSERT, UPDATE, DELETE"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "db.client.operation.duration.count",
+                        "timeAggregation": "rate",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "service.name"
+                      }
+                    ],
+                    "legend": "SQL Ops/s {{service.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_db_duration_sum": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Tiempo Total de Operaciones SQL (ms/seg)",
+            "description": "Carga acumulada de tiempo de ejecuci\u00f3n de queries en la capa de datos"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "ms",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "db.client.operation.duration.sum",
+                        "timeAggregation": "rate",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "service.name"
+                      }
+                    ],
+                    "legend": "SQL Duration/s {{service.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_db_postgres_cpu": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Consumo de CPU en Pods de Base de Datos (Postgres / PgBouncer)",
+            "description": "Uso de procesador en postgres-core y pgbouncer-core"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "cores",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "k8s.pod.cpu.usage",
+                        "timeAggregation": "avg",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "k8s.pod.name"
+                      }
+                    ],
+                    "filter": {
+                      "expression": "k8s.pod.name LIKE '%postgres%' OR k8s.pod.name LIKE '%pgbouncer%'"
+                    },
+                    "legend": "{{k8s.pod.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "p_db_postgres_ram": {
+        "kind": "Panel",
+        "spec": {
+          "display": {
+            "name": "Consumo de Memoria en Pods de Base de Datos (Postgres / PgBouncer)",
+            "description": "Memoria RAM Working Set en postgres-core y pgbouncer-core"
+          },
+          "plugin": {
+            "kind": "signoz/TimeSeriesPanel",
+            "spec": {
+              "formatting": {
+                "unit": "bytes",
+                "decimalPrecision": "2"
+              }
+            }
+          },
+          "queries": [
+            {
+              "kind": "time_series",
+              "spec": {
+                "name": "A",
+                "plugin": {
+                  "kind": "signoz/BuilderQuery",
+                  "spec": {
+                    "signal": "metrics",
+                    "name": "A",
+                    "aggregations": [
+                      {
+                        "metricName": "k8s.pod.memory.working_set",
+                        "timeAggregation": "avg",
+                        "spaceAggregation": "sum"
+                      }
+                    ],
+                    "groupBy": [
+                      {
+                        "name": "k8s.pod.name"
+                      }
+                    ],
+                    "filter": {
+                      "expression": "k8s.pod.name LIKE '%postgres%' OR k8s.pod.name LIKE '%pgbouncer%'"
+                    },
+                    "legend": "{{k8s.pod.name}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "layouts": [
+      {
+        "kind": "Grid",
+        "spec": {
+          "display": {
+            "title": "Main"
+          },
+          "items": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 6,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_db_connections"
+              }
+            },
+            {
+              "x": 6,
+              "y": 0,
+              "width": 6,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_db_pending"
+              }
+            },
+            {
+              "x": 0,
+              "y": 4,
+              "width": 6,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_db_ops_throughput"
+              }
+            },
+            {
+              "x": 6,
+              "y": 4,
+              "width": 6,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_db_duration_sum"
+              }
+            },
+            {
+              "x": 0,
+              "y": 8,
+              "width": 6,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_db_postgres_cpu"
+              }
+            },
+            {
+              "x": 6,
+              "y": 8,
+              "width": 6,
+              "height": 4,
+              "content": {
+                "$ref": "#/spec/panels/p_db_postgres_ram"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
