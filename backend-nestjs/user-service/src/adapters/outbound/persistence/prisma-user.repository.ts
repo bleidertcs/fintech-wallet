@@ -5,22 +5,60 @@ import { PrismaService } from './prisma.service';
 
 @Injectable()
 export class PrismaUserRepository implements IUserRepositoryPort {
+  private readonly cache = new Map<number, { entity: UserProfileEntity; expiresAt: number }>();
+  private readonly emailToId = new Map<string, number>();
+  private readonly TTL_MS = 15_000; // 15 segundos de caché de lectura ultrarrápida
+
   constructor(private readonly prisma: PrismaService) {}
 
+  private setCache(entity: UserProfileEntity) {
+    if (this.cache.size > 5000) {
+      const first = this.cache.keys().next().value;
+      if (first !== undefined) this.invalidateCache(first);
+    }
+    this.cache.set(entity.id, { entity, expiresAt: Date.now() + this.TTL_MS });
+    this.emailToId.set(entity.email.toLowerCase(), entity.id);
+  }
+
+  private invalidateCache(id: number) {
+    const cached = this.cache.get(id);
+    if (cached) {
+      this.emailToId.delete(cached.entity.email.toLowerCase());
+      this.cache.delete(id);
+    }
+  }
+
   async findById(id: number): Promise<UserProfileEntity | null> {
+    const cached = this.cache.get(id);
+    if (cached && cached.expiresAt > Date.now()) {
+      return cached.entity;
+    }
+
     const record = await this.prisma.userProfile.findUnique({
       where: { id: BigInt(id) },
     });
     if (!record) return null;
-    return this.mapToEntity(record);
+    const entity = this.mapToEntity(record);
+    this.setCache(entity);
+    return entity;
   }
 
   async findByEmail(email: string): Promise<UserProfileEntity | null> {
+    const id = this.emailToId.get(email.toLowerCase());
+    if (id) {
+      const cached = this.cache.get(id);
+      if (cached && cached.expiresAt > Date.now()) {
+        return cached.entity;
+      }
+    }
+
     const record = await this.prisma.userProfile.findUnique({
       where: { email },
     });
     if (!record) return null;
-    return this.mapToEntity(record);
+    const entity = this.mapToEntity(record);
+    this.setCache(entity);
+    return entity;
   }
 
   async findAll(): Promise<UserProfileEntity[]> {
@@ -45,11 +83,14 @@ export class PrismaUserRepository implements IUserRepositoryPort {
         currency: String(profile.currency || 'ARS'),
       },
     });
-    return this.mapToEntity(record);
+    const entity = this.mapToEntity(record);
+    this.setCache(entity);
+    return entity;
   }
 
   async updateBalance(id: number, amount: number): Promise<boolean> {
     try {
+      this.invalidateCache(id);
       if (amount < 0) {
         const absAmount = Math.abs(amount);
         const count = await this.prisma.$executeRaw`
@@ -76,6 +117,7 @@ export class PrismaUserRepository implements IUserRepositoryPort {
 
   async updateSettings(id: number, dailyLimit?: number, currency?: string): Promise<UserProfileEntity | null> {
     try {
+      this.invalidateCache(id);
       const data: any = {};
       if (dailyLimit !== undefined) data.dailyLimit = dailyLimit;
       if (currency !== undefined) data.currency = currency;
@@ -84,7 +126,9 @@ export class PrismaUserRepository implements IUserRepositoryPort {
         where: { id: BigInt(id) },
         data,
       });
-      return this.mapToEntity(record);
+      const entity = this.mapToEntity(record);
+      this.setCache(entity);
+      return entity;
     } catch {
       return null;
     }

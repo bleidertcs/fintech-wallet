@@ -1,6 +1,6 @@
 # ==============================================================================
 # 09-HPA.YAML - AUTOSCALADO HORIZONTAL DE PODS (HORIZONTAL POD AUTOSCALER - v2)
-# Garantiza escalabilidad elástica dinámica en producción según CPU y Memoria
+# Garantiza escalabilidad elástica controlada según CPU y Memoria
 # ==============================================================================
 
 apiVersion: autoscaling/v2
@@ -16,32 +16,32 @@ spec:
     kind: Deployment
     name: auth-service
   minReplicas: 2
-  maxReplicas: 10
+  maxReplicas: 4
   metrics:
     - type: Resource
       resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 65
+          averageUtilization: 75
     - type: Resource
       resource:
         name: memory
         target:
           type: Utilization
-          averageUtilization: 75
+          averageUtilization: 85
   behavior:
     scaleUp:
-      stabilizationWindowSeconds: 0
+      stabilizationWindowSeconds: 60
       policies:
         - type: Percent
-          value: 100
-          periodSeconds: 15
+          value: 50
+          periodSeconds: 30
     scaleDown:
       stabilizationWindowSeconds: 300
       policies:
         - type: Percent
-          value: 10
+          value: 50
           periodSeconds: 60
 ---
 apiVersion: autoscaling/v2
@@ -57,32 +57,32 @@ spec:
     kind: Deployment
     name: user-service
   minReplicas: 2
-  maxReplicas: 10
+  maxReplicas: 4
   metrics:
     - type: Resource
       resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 65
+          averageUtilization: 75
     - type: Resource
       resource:
         name: memory
         target:
           type: Utilization
-          averageUtilization: 75
+          averageUtilization: 85
   behavior:
     scaleUp:
-      stabilizationWindowSeconds: 0
+      stabilizationWindowSeconds: 60
       policies:
         - type: Percent
-          value: 100
-          periodSeconds: 15
+          value: 50
+          periodSeconds: 30
     scaleDown:
       stabilizationWindowSeconds: 300
       policies:
         - type: Percent
-          value: 10
+          value: 50
           periodSeconds: 60
 ---
 apiVersion: autoscaling/v2
@@ -98,32 +98,32 @@ spec:
     kind: Deployment
     name: transaction-service
   minReplicas: 2
-  maxReplicas: 10
+  maxReplicas: 4
   metrics:
     - type: Resource
       resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 65
+          averageUtilization: 75
     - type: Resource
       resource:
         name: memory
         target:
           type: Utilization
-          averageUtilization: 75
+          averageUtilization: 85
   behavior:
     scaleUp:
-      stabilizationWindowSeconds: 0
+      stabilizationWindowSeconds: 60
       policies:
         - type: Percent
-          value: 100
-          periodSeconds: 15
+          value: 50
+          periodSeconds: 30
     scaleDown:
       stabilizationWindowSeconds: 300
       policies:
         - type: Percent
-          value: 10
+          value: 50
           periodSeconds: 60
 ---
 apiVersion: autoscaling/v2
@@ -139,26 +139,26 @@ spec:
     kind: Deployment
     name: notification-service
   minReplicas: 2
-  maxReplicas: 8
+  maxReplicas: 3
   metrics:
     - type: Resource
       resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 70
+          averageUtilization: 75
   behavior:
     scaleUp:
-      stabilizationWindowSeconds: 0
+      stabilizationWindowSeconds: 60
       policies:
         - type: Percent
-          value: 100
-          periodSeconds: 15
+          value: 50
+          periodSeconds: 30
     scaleDown:
       stabilizationWindowSeconds: 300
       policies:
         - type: Percent
-          value: 10
+          value: 50
           periodSeconds: 60
 ---
 apiVersion: autoscaling/v2
@@ -174,26 +174,26 @@ spec:
     kind: Deployment
     name: worker-service
   minReplicas: 2
-  maxReplicas: 8
+  maxReplicas: 3
   metrics:
     - type: Resource
       resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 70
+          averageUtilization: 75
   behavior:
     scaleUp:
-      stabilizationWindowSeconds: 0
+      stabilizationWindowSeconds: 60
       policies:
         - type: Percent
-          value: 100
-          periodSeconds: 15
+          value: 50
+          periodSeconds: 30
     scaleDown:
       stabilizationWindowSeconds: 300
       policies:
         - type: Percent
-          value: 10
+          value: 50
           periodSeconds: 60
 ---
 apiVersion: autoscaling/v2
@@ -209,7 +209,7 @@ spec:
     kind: Deployment
     name: frontend
   minReplicas: 2
-  maxReplicas: 6
+  maxReplicas: 3
   metrics:
     - type: Resource
       resource:
@@ -217,3 +217,16 @@ spec:
         target:
           type: Utilization
           averageUtilization: 75
+  behavior:
+    scaleUp:
+      stabilizationWindowSeconds: 60
+      policies:
+        - type: Percent
+          value: 50
+          periodSeconds: 30
+    scaleDown:
+      stabilizationWindowSeconds: 300
+      policies:
+        - type: Percent
+          value: 50
+          periodSeconds: 60

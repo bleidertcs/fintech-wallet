@@ -4938,8 +4938,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "auth.controller.ts"
     },
     {
@@ -5235,8 +5235,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_auth_response_dto",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "auth.response.dto.ts"
     },
     {
@@ -5268,8 +5268,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_change_password_request_dto",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "change-password.request.dto.ts"
     },
     {
@@ -5279,8 +5279,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_change_password_request_dto_changepasswordrequestdto",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "changepasswordrequestdto"
     },
     {
@@ -5290,8 +5290,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_change_password_request_dto_ts_apiproperty",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "apiproperty"
     },
     {
@@ -5301,8 +5301,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_change_password_request_dto_ts_isemail",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "isemail"
     },
     {
@@ -5312,8 +5312,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_change_password_request_dto_ts_isnotempty",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "isnotempty"
     },
     {
@@ -5323,8 +5323,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_change_password_request_dto_ts_isstring",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "isstring"
     },
     {
@@ -5334,8 +5334,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_change_password_request_dto_ts_minlength",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "minlength"
     },
     {
@@ -5345,8 +5345,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_index",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "index.ts"
     },
     {
@@ -5356,8 +5356,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_login_request_dto",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "login.request.dto.ts"
     },
     {
@@ -5367,8 +5367,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_login_request_dto_loginrequestdto",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "loginrequestdto"
     },
     {
@@ -5378,8 +5378,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_login_request_dto_ts_apiproperty",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "apiproperty"
     },
     {
@@ -5389,8 +5389,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_login_request_dto_ts_isemail",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "isemail"
     },
     {
@@ -5400,8 +5400,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_login_request_dto_ts_isnotempty",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "isnotempty"
     },
     {
@@ -5411,8 +5411,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_login_request_dto_ts_isstring",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "isstring"
     },
     {
@@ -5422,8 +5422,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_register_request_dto",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "register.request.dto.ts"
     },
     {
@@ -5433,8 +5433,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_register_request_dto_registerrequestdto",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "registerrequestdto"
     },
     {
@@ -5444,8 +5444,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_register_request_dto_ts_apiproperty",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "apiproperty"
     },
     {
@@ -5455,8 +5455,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_register_request_dto_ts_isemail",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "isemail"
     },
     {
@@ -5466,8 +5466,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_register_request_dto_ts_isnotempty",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "isnotempty"
     },
     {
@@ -5477,8 +5477,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_register_request_dto_ts_isstring",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "isstring"
     },
     {
@@ -5488,8 +5488,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_register_request_dto_ts_minlength",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "minlength"
     },
     {
@@ -5499,8 +5499,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_register_request_dto_ts_isoptional",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "isoptional"
     },
     {
@@ -5543,8 +5543,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_totp_verify_request_dto",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "totp-verify.request.dto.ts"
     },
     {
@@ -5675,8 +5675,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard_jwtauthguard",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "jwtauthguard"
     },
     {
@@ -5686,8 +5686,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard_ts_injectable",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "injectable"
     },
     {
@@ -5697,8 +5697,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard_ts_inject",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "inject"
     },
     {
@@ -5708,8 +5708,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard_jwtauthguard_constructor",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": ".constructor()"
     },
     {
@@ -5719,8 +5719,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard_jwtauthguard_canactivate",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": ".canactivate()"
     },
     {
@@ -6940,8 +6940,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_entities_user_entity_user_password",
-      "community": 149,
-      "community_name": "Docker Swarm Skill",
+      "community": 3,
+      "community_name": "App.jsx",
       "norm_label": ".password()"
     },
     {
@@ -7072,8 +7072,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "auth.service.port.ts"
     },
     {
@@ -7083,8 +7083,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_auth_service_port",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 37,
+      "community_name": "AuthResponse",
       "norm_label": "auth_service_port"
     },
     {
@@ -7391,8 +7391,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "token.service.port.ts"
     },
     {
@@ -7413,8 +7413,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port_tokenpayload",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "tokenpayload"
     },
     {
@@ -7424,8 +7424,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port_tokenserviceport",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "tokenserviceport"
     },
     {
@@ -7435,8 +7435,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port_tokenserviceport_generatetoken",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": ".generatetoken()"
     },
     {
@@ -7446,8 +7446,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port_tokenserviceport_verifytoken",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": ".verifytoken()"
     },
     {
@@ -7501,8 +7501,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_user_repository_port",
-      "community": 149,
-      "community_name": "Docker Swarm Skill",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "user.repository.port.ts"
     },
     {
@@ -7512,8 +7512,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_user_repository_port_user_repository_port",
-      "community": 149,
-      "community_name": "Docker Swarm Skill",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "user_repository_port"
     },
     {
@@ -7677,8 +7677,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation",
-      "community": 94,
-      "community_name": "TransactionServiceApplicationTests.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "env.validation.ts"
     },
     {
@@ -7688,8 +7688,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation_environment",
-      "community": 94,
-      "community_name": "TransactionServiceApplicationTests.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "environment"
     },
     {
@@ -7699,8 +7699,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation_environmentvariables",
-      "community": 94,
-      "community_name": "TransactionServiceApplicationTests.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "environmentvariables"
     },
     {
@@ -7710,8 +7710,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "isenum",
-      "community": 94,
-      "community_name": "TransactionServiceApplicationTests.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "isenum"
     },
     {
@@ -7721,8 +7721,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation_ts_isoptional",
-      "community": 94,
-      "community_name": "TransactionServiceApplicationTests.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "isoptional"
     },
     {
@@ -7732,8 +7732,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation_ts_isnumber",
-      "community": 94,
-      "community_name": "TransactionServiceApplicationTests.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "isnumber"
     },
     {
@@ -7743,8 +7743,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation_ts_isstring",
-      "community": 94,
-      "community_name": "TransactionServiceApplicationTests.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "isstring"
     },
     {
@@ -7754,8 +7754,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation_validateenv",
-      "community": 94,
-      "community_name": "TransactionServiceApplicationTests.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "validateenv()"
     },
     {
@@ -7765,8 +7765,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_index",
-      "community": 94,
-      "community_name": "TransactionServiceApplicationTests.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "index.ts"
     },
     {
@@ -7776,8 +7776,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_index",
-      "community": 94,
-      "community_name": "TransactionServiceApplicationTests.java",
+      "community": 43,
+      "community_name": "JwtAuthFilter.java",
       "norm_label": "index.ts"
     },
     {
@@ -7787,8 +7787,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_index",
-      "community": 94,
-      "community_name": "TransactionServiceApplicationTests.java",
+      "community": 43,
+      "community_name": "JwtAuthFilter.java",
       "norm_label": "index.ts"
     },
     {
@@ -7798,8 +7798,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "jwt.util.ts"
     },
     {
@@ -7809,8 +7809,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_jwtutil",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "jwtutil"
     },
     {
@@ -7820,8 +7820,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_ts_injectable",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "injectable"
     },
     {
@@ -7831,8 +7831,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_ts_inject",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "inject"
     },
     {
@@ -7842,8 +7842,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_jwtutil_constructor",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": ".constructor()"
     },
     {
@@ -7853,8 +7853,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_jwtutil_generatetoken",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": ".generatetoken()"
     },
     {
@@ -7864,8 +7864,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_jwtutil_verifytoken",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": ".verifytoken()"
     },
     {
@@ -7875,8 +7875,8 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util_jwtutil_getemailfromtoken",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": ".getemailfromtoken()"
     },
     {
@@ -8865,8 +8865,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_dependencies_nestjs_config",
-      "community": 417,
-      "community_name": "axios",
+      "community": 371,
+      "community_name": "@nestjs/config",
       "norm_label": "@nestjs/config"
     },
     {
@@ -8876,8 +8876,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_nestjs_config",
-      "community": 417,
-      "community_name": "axios",
+      "community": 371,
+      "community_name": "@nestjs/config",
       "norm_label": "@nestjs/config"
     },
     {
@@ -9371,8 +9371,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_dependencies_kafkajs",
-      "community": 371,
-      "community_name": "@nestjs/config",
+      "community": 529,
+      "community_name": "tsconfig-paths",
       "norm_label": "kafkajs"
     },
     {
@@ -9382,8 +9382,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_kafkajs",
-      "community": 371,
-      "community_name": "@nestjs/config",
+      "community": 529,
+      "community_name": "tsconfig-paths",
       "norm_label": "kafkajs"
     },
     {
@@ -12693,8 +12693,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_dependencies_opentelemetry_instrumentation_express",
-      "community": 122,
-      "community_name": "auth-service:auth-service",
+      "community": 561,
+      "community_name": "@opentelemetry/instrumentation-express",
       "norm_label": "@opentelemetry/instrumentation-express"
     },
     {
@@ -12704,8 +12704,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_opentelemetry_instrumentation_express",
-      "community": 122,
-      "community_name": "auth-service:auth-service",
+      "community": 561,
+      "community_name": "@opentelemetry/instrumentation-express",
       "norm_label": "@opentelemetry/instrumentation-express"
     },
     {
@@ -12935,8 +12935,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_dependencies_class_transformer",
-      "community": 428,
-      "community_name": "@opentelemetry/auto-instrumentations-web",
+      "community": 122,
+      "community_name": "auth-service:auth-service",
       "norm_label": "class-transformer"
     },
     {
@@ -12946,8 +12946,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_class_transformer",
-      "community": 428,
-      "community_name": "@opentelemetry/auto-instrumentations-web",
+      "community": 122,
+      "community_name": "auth-service:auth-service",
       "norm_label": "class-transformer"
     },
     {
@@ -13254,8 +13254,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_devdependencies_swc_core",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 128,
+      "community_name": "WorkerController",
       "norm_label": "@swc/core"
     },
     {
@@ -13265,8 +13265,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_swc_core",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 128,
+      "community_name": "WorkerController",
       "norm_label": "@swc/core"
     },
     {
@@ -13386,8 +13386,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_devdependencies_eslint",
-      "community": 460,
-      "community_name": "Table Schemas",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": "eslint"
     },
     {
@@ -13397,8 +13397,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_eslint",
-      "community": 460,
-      "community_name": "Table Schemas",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": "eslint"
     },
     {
@@ -15179,8 +15179,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_trpc_user_trpc_client_module",
-      "community": 176,
-      "community_name": "UserServiceGrpcAdapter",
+      "community": 358,
+      "community_name": "@nestjs/schematics",
       "norm_label": "user-trpc-client.module.ts"
     },
     {
@@ -15190,8 +15190,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_trpc_user_trpc_client_module_usertrpcclientmodule",
-      "community": 176,
-      "community_name": "UserServiceGrpcAdapter",
+      "community": 56,
+      "community_name": "mvnw",
       "norm_label": "usertrpcclientmodule"
     },
     {
@@ -15201,8 +15201,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_trpc_user_trpc_client_module_ts_module",
-      "community": 176,
-      "community_name": "UserServiceGrpcAdapter",
+      "community": 56,
+      "community_name": "mvnw",
       "norm_label": "module"
     },
     {
@@ -17170,8 +17170,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_nestjs_common",
-      "community": 529,
-      "community_name": "tsconfig-paths",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@nestjs/common"
     },
     {
@@ -17181,8 +17181,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_common",
-      "community": 529,
-      "community_name": "tsconfig-paths",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@nestjs/common"
     },
     {
@@ -17236,8 +17236,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_nestjs_microservices",
-      "community": 555,
-      "community_name": "nest-winston",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@nestjs/microservices"
     },
     {
@@ -17247,8 +17247,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_microservices",
-      "community": 555,
-      "community_name": "nest-winston",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@nestjs/microservices"
     },
     {
@@ -17280,8 +17280,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_nestjs_swagger",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 555,
+      "community_name": "nest-winston",
       "norm_label": "@nestjs/swagger"
     },
     {
@@ -17291,8 +17291,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_swagger",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 555,
+      "community_name": "nest-winston",
       "norm_label": "@nestjs/swagger"
     },
     {
@@ -17324,8 +17324,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_opentelemetry_api",
-      "community": 561,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@opentelemetry/api"
     },
     {
@@ -17335,8 +17335,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_opentelemetry_api",
-      "community": 561,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@opentelemetry/api"
     },
     {
@@ -17368,8 +17368,8 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_opentelemetry_exporter_metrics_otlp_http",
-      "community": 570,
-      "community_name": "@opentelemetry/exporter-metrics-otlp-http",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@opentelemetry/exporter-metrics-otlp-http"
     },
     {
@@ -17379,8 +17379,8 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_opentelemetry_exporter_metrics_otlp_http",
-      "community": 570,
-      "community_name": "@opentelemetry/exporter-metrics-otlp-http",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@opentelemetry/exporter-metrics-otlp-http"
     },
     {
@@ -17412,8 +17412,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_opentelemetry_instrumentation_express",
-      "community": 580,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@opentelemetry/instrumentation-express"
     },
     {
@@ -17423,8 +17423,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_opentelemetry_instrumentation_express",
-      "community": 580,
-      "community_name": "@opentelemetry/instrumentation-express",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@opentelemetry/instrumentation-express"
     },
     {
@@ -17434,8 +17434,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_opentelemetry_instrumentation_http",
-      "community": 581,
-      "community_name": "@opentelemetry/instrumentation-http",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@opentelemetry/instrumentation-http"
     },
     {
@@ -17445,8 +17445,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_opentelemetry_instrumentation_http",
-      "community": 581,
-      "community_name": "@opentelemetry/instrumentation-http",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@opentelemetry/instrumentation-http"
     },
     {
@@ -17456,8 +17456,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_opentelemetry_instrumentation_nestjs_core",
-      "community": 582,
-      "community_name": "@opentelemetry/instrumentation-nestjs-core",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@opentelemetry/instrumentation-nestjs-core"
     },
     {
@@ -17467,8 +17467,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_opentelemetry_instrumentation_nestjs_core",
-      "community": 582,
-      "community_name": "@opentelemetry/instrumentation-nestjs-core",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@opentelemetry/instrumentation-nestjs-core"
     },
     {
@@ -17544,8 +17544,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_opentelemetry_sdk_trace_base",
-      "community": 583,
-      "community_name": "@opentelemetry/sdk-trace-base",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@opentelemetry/sdk-trace-base"
     },
     {
@@ -17555,8 +17555,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_opentelemetry_sdk_trace_base",
-      "community": 583,
-      "community_name": "@opentelemetry/sdk-trace-base",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@opentelemetry/sdk-trace-base"
     },
     {
@@ -17610,8 +17610,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_prisma_adapter_pg",
-      "community": 585,
-      "community_name": "@prisma/adapter-pg",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@prisma/adapter-pg"
     },
     {
@@ -17621,8 +17621,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_prisma_adapter_pg",
-      "community": 585,
-      "community_name": "@prisma/adapter-pg",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@prisma/adapter-pg"
     },
     {
@@ -17654,8 +17654,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_trpc_server",
-      "community": 593,
-      "community_name": "@trpc/server",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@trpc/server"
     },
     {
@@ -17665,8 +17665,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_trpc_server",
-      "community": 593,
-      "community_name": "@trpc/server",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@trpc/server"
     },
     {
@@ -17764,8 +17764,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_reflect_metadata",
-      "community": 590,
-      "community_name": "reflect-metadata",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "reflect-metadata"
     },
     {
@@ -17775,8 +17775,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_reflect_metadata",
-      "community": 590,
-      "community_name": "reflect-metadata",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "reflect-metadata"
     },
     {
@@ -17786,8 +17786,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_rxjs",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 570,
+      "community_name": "@opentelemetry/exporter-metrics-otlp-http",
       "norm_label": "rxjs"
     },
     {
@@ -17797,8 +17797,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_rxjs",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 570,
+      "community_name": "@opentelemetry/exporter-metrics-otlp-http",
       "norm_label": "rxjs"
     },
     {
@@ -17808,8 +17808,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_winston",
-      "community": 594,
-      "community_name": "winston",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "winston"
     },
     {
@@ -17819,8 +17819,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_winston",
-      "community": 594,
-      "community_name": "winston",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "winston"
     },
     {
@@ -17830,8 +17830,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_zod",
-      "community": 595,
-      "community_name": "zod",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "zod"
     },
     {
@@ -17841,8 +17841,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_zod",
-      "community": 595,
-      "community_name": "zod",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "zod"
     },
     {
@@ -17863,8 +17863,8 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_nestjs_cli",
-      "community": 602,
-      "community_name": "@nestjs/cli",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@nestjs/cli"
     },
     {
@@ -17874,8 +17874,8 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_cli",
-      "community": 602,
-      "community_name": "@nestjs/cli",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@nestjs/cli"
     },
     {
@@ -17885,8 +17885,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_nestjs_schematics",
-      "community": 603,
-      "community_name": "@nestjs/schematics",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@nestjs/schematics"
     },
     {
@@ -17896,8 +17896,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_schematics",
-      "community": 603,
-      "community_name": "@nestjs/schematics",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@nestjs/schematics"
     },
     {
@@ -17929,8 +17929,8 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_types_express",
-      "community": 635,
-      "community_name": "@types/express",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@types/express"
     },
     {
@@ -17940,8 +17940,8 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_types_express",
-      "community": 635,
-      "community_name": "@types/express",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@types/express"
     },
     {
@@ -17973,8 +17973,8 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_types_node",
-      "community": 636,
-      "community_name": "@types/node",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@types/node"
     },
     {
@@ -17984,8 +17984,8 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_types_node",
-      "community": 636,
-      "community_name": "@types/node",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@types/node"
     },
     {
@@ -17995,8 +17995,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_types_pg",
-      "community": 637,
-      "community_name": "@types/pg",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@types/pg"
     },
     {
@@ -18006,8 +18006,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_types_pg",
-      "community": 637,
-      "community_name": "@types/pg",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@types/pg"
     },
     {
@@ -18017,8 +18017,8 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_types_supertest",
-      "community": 638,
-      "community_name": "@types/supertest",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@types/supertest"
     },
     {
@@ -18028,8 +18028,8 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_types_supertest",
-      "community": 638,
-      "community_name": "@types/supertest",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "@types/supertest"
     },
     {
@@ -18039,8 +18039,8 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_jest",
-      "community": 598,
-      "community_name": "jest",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "jest"
     },
     {
@@ -18050,8 +18050,8 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_jest",
-      "community": 598,
-      "community_name": "jest",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "jest"
     },
     {
@@ -18061,8 +18061,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_prisma",
-      "community": 605,
-      "community_name": "prisma",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "prisma"
     },
     {
@@ -18072,8 +18072,8 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_prisma",
-      "community": 605,
-      "community_name": "prisma",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "prisma"
     },
     {
@@ -18083,8 +18083,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_source_map_support",
-      "community": 631,
-      "community_name": "source-map-support",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "source-map-support"
     },
     {
@@ -18094,8 +18094,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_source_map_support",
-      "community": 631,
-      "community_name": "source-map-support",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "source-map-support"
     },
     {
@@ -18171,8 +18171,8 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_ts_node",
-      "community": 632,
-      "community_name": "ts-node",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "ts-node"
     },
     {
@@ -18182,8 +18182,8 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_ts_node",
-      "community": 632,
-      "community_name": "ts-node",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "ts-node"
     },
     {
@@ -18193,8 +18193,8 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_tsconfig_paths",
-      "community": 633,
-      "community_name": "tsconfig-paths",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "tsconfig-paths"
     },
     {
@@ -18204,8 +18204,8 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_tsconfig_paths",
-      "community": 633,
-      "community_name": "tsconfig-paths",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "tsconfig-paths"
     },
     {
@@ -18215,8 +18215,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_devdependencies_typescript",
-      "community": 639,
-      "community_name": "typescript",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "typescript"
     },
     {
@@ -18226,8 +18226,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_typescript",
-      "community": 639,
-      "community_name": "typescript",
+      "community": 8,
+      "community_name": "Fase 1: Notification Service Completo",
       "norm_label": "typescript"
     },
     {
@@ -20723,8 +20723,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_nestjs_core",
-      "community": 645,
-      "community_name": "@nestjs/core",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@nestjs/core"
     },
     {
@@ -20734,8 +20734,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nestjs_core",
-      "community": 645,
-      "community_name": "@nestjs/core",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@nestjs/core"
     },
     {
@@ -21119,8 +21119,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_class_transformer",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 157,
+      "community_name": "RetryProxyConfig.java",
       "norm_label": "class-transformer"
     },
     {
@@ -21130,8 +21130,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_class_transformer",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 157,
+      "community_name": "RetryProxyConfig.java",
       "norm_label": "class-transformer"
     },
     {
@@ -21416,8 +21416,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_nestjs_testing",
-      "community": 646,
-      "community_name": "@nestjs/testing",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "@nestjs/testing"
     },
     {
@@ -21427,8 +21427,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nestjs_testing",
-      "community": 646,
-      "community_name": "@nestjs/testing",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "@nestjs/testing"
     },
     {
@@ -21790,8 +21790,8 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_supertest",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 341,
+      "community_name": "globals",
       "norm_label": "supertest"
     },
     {
@@ -21801,8 +21801,8 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_supertest",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 341,
+      "community_name": "globals",
       "norm_label": "supertest"
     },
     {
@@ -24226,8 +24226,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "frontend_package_dependencies_qrcode_react",
-      "community": 647,
-      "community_name": "qrcode.react",
+      "community": 6,
+      "community_name": "dependencies",
       "norm_label": "qrcode.react"
     },
     {
@@ -24237,8 +24237,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "qrcode_react",
-      "community": 647,
-      "community_name": "qrcode.react",
+      "community": 6,
+      "community_name": "dependencies",
       "norm_label": "qrcode.react"
     },
     {
@@ -24292,8 +24292,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "frontend_package_dependencies_react_hot_toast",
-      "community": 6,
-      "community_name": "dependencies",
+      "community": 428,
+      "community_name": "@opentelemetry/auto-instrumentations-web",
       "norm_label": "react-hot-toast"
     },
     {
@@ -24303,8 +24303,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "react_hot_toast",
-      "community": 6,
-      "community_name": "dependencies",
+      "community": 428,
+      "community_name": "@opentelemetry/auto-instrumentations-web",
       "norm_label": "react-hot-toast"
     },
     {
@@ -33032,8 +33032,8 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_analysis_workflow",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": "analysis workflow"
     },
     {
@@ -33043,8 +33043,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_step_1_identify_framework_and_patterns",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": "step 1: identify framework and patterns"
     },
     {
@@ -33054,8 +33054,8 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_step_2_map_code_structure_to_diagram_types",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": "step 2: map code structure to diagram types"
     },
     {
@@ -33065,8 +33065,8 @@
       "source_location": "L86",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_step_3_extract_key_information",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": "step 3: extract key information"
     },
     {
@@ -33076,8 +33076,8 @@
       "source_location": "L108",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_step_4_apply_framework_patterns",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": "step 4: apply framework patterns"
     },
     {
@@ -33087,8 +33087,8 @@
       "source_location": "L141",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_step_5_generate_and_validate",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": "step 5: generate and validate"
     },
     {
@@ -33098,8 +33098,8 @@
       "source_location": "L150",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_framework_specific_guides",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 136,
+      "community_name": "PdfGeneratorService",
       "norm_label": "framework-specific guides"
     },
     {
@@ -33109,8 +33109,8 @@
       "source_location": "L152",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_spring_boot_diagrams",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 136,
+      "community_name": "PdfGeneratorService",
       "norm_label": "spring boot \u2192 diagrams"
     },
     {
@@ -33120,8 +33120,8 @@
       "source_location": "L224",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_fastapi_diagrams",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 136,
+      "community_name": "PdfGeneratorService",
       "norm_label": "fastapi \u2192 diagrams"
     },
     {
@@ -33131,8 +33131,8 @@
       "source_location": "L291",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_react_diagrams",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 136,
+      "community_name": "PdfGeneratorService",
       "norm_label": "react \u2192 diagrams"
     },
     {
@@ -33142,8 +33142,8 @@
       "source_location": "L360",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_express_js_diagrams",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 136,
+      "community_name": "PdfGeneratorService",
       "norm_label": "express.js \u2192 diagrams"
     },
     {
@@ -33153,8 +33153,8 @@
       "source_location": "L419",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_java_servlet_diagrams",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 136,
+      "community_name": "PdfGeneratorService",
       "norm_label": "java servlet \u2192 diagrams"
     },
     {
@@ -33164,8 +33164,8 @@
       "source_location": "L476",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_python_etl_diagrams",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 136,
+      "community_name": "PdfGeneratorService",
       "norm_label": "python etl \u2192 diagrams"
     },
     {
@@ -33208,8 +33208,8 @@
       "source_location": "L589",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_pattern_recognition",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": "pattern recognition"
     },
     {
@@ -33219,8 +33219,8 @@
       "source_location": "L591",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_common_architectural_patterns",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": "common architectural patterns"
     },
     {
@@ -33230,8 +33230,8 @@
       "source_location": "L593",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_1_layered_architecture_mvc",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": "1. layered architecture (mvc)"
     },
     {
@@ -33241,8 +33241,8 @@
       "source_location": "L624",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_2_microservices",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": "2. microservices"
     },
     {
@@ -33252,8 +33252,8 @@
       "source_location": "L635",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_3_event_driven",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": "3. event-driven"
     },
     {
@@ -33263,8 +33263,8 @@
       "source_location": "L646",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_4_cqrs_command_query_responsibility_segregation",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": "4. cqrs (command query responsibility segregation)"
     },
     {
@@ -33274,8 +33274,8 @@
       "source_location": "L659",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_best_practices",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 44,
+      "community_name": "TransferCompletedEvent",
       "norm_label": "best practices"
     },
     {
@@ -33285,8 +33285,8 @@
       "source_location": "L661",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_1_start_high_level_then_zoom_in",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 44,
+      "community_name": "TransferCompletedEvent",
       "norm_label": "1. **start high-level, then zoom in**"
     },
     {
@@ -33296,8 +33296,8 @@
       "source_location": "L670",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_2_use_framework_examples_as_templates",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 44,
+      "community_name": "TransferCompletedEvent",
       "norm_label": "2. **use framework examples as templates**"
     },
     {
@@ -33307,8 +33307,8 @@
       "source_location": "L677",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_3_include_technology_stack",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 44,
+      "community_name": "TransferCompletedEvent",
       "norm_label": "3. **include technology stack**"
     },
     {
@@ -33318,8 +33318,8 @@
       "source_location": "L686",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_4_validate_diagram_syntax",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 44,
+      "community_name": "TransferCompletedEvent",
       "norm_label": "4. **validate diagram syntax**"
     },
     {
@@ -33329,8 +33329,8 @@
       "source_location": "L696",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_5_keep_diagrams_current",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 44,
+      "community_name": "TransferCompletedEvent",
       "norm_label": "5. **keep diagrams current**"
     },
     {
@@ -33340,8 +33340,8 @@
       "source_location": "L702",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_6_use_semantic_unicode_symbols",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 44,
+      "community_name": "TransferCompletedEvent",
       "norm_label": "6. **use semantic unicode symbols**"
     },
     {
@@ -33351,8 +33351,8 @@
       "source_location": "L711",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_code_to_diagram_readme_7_document_diagram_scope",
-      "community": 59,
-      "community_name": "mvnw",
+      "community": 44,
+      "community_name": "TransferCompletedEvent",
       "norm_label": "7. **document diagram scope**"
     },
     {
@@ -33516,8 +33516,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_common_patterns",
-      "community": 329,
-      "community_name": "@opentelemetry/exporter-logs-otlp-http",
+      "community": 417,
+      "community_name": "axios",
       "norm_label": "common patterns"
     },
     {
@@ -33527,8 +33527,8 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_authentication_flow",
-      "community": 329,
-      "community_name": "@opentelemetry/exporter-logs-otlp-http",
+      "community": 417,
+      "community_name": "axios",
       "norm_label": "authentication flow"
     },
     {
@@ -33538,8 +33538,8 @@
       "source_location": "L90",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_e_commerce_checkout_flow",
-      "community": 329,
-      "community_name": "@opentelemetry/exporter-logs-otlp-http",
+      "community": 417,
+      "community_name": "axios",
       "norm_label": "e-commerce checkout flow"
     },
     {
@@ -33549,8 +33549,8 @@
       "source_location": "L123",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_data_processing_pipeline",
-      "community": 329,
-      "community_name": "@opentelemetry/exporter-logs-otlp-http",
+      "community": 417,
+      "community_name": "axios",
       "norm_label": "data processing pipeline"
     },
     {
@@ -33615,8 +33615,8 @@
       "source_location": "L291",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_best_practices",
-      "community": 128,
-      "community_name": "WorkerController",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "best practices"
     },
     {
@@ -33626,8 +33626,8 @@
       "source_location": "L293",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_1_keep_flows_focused",
-      "community": 128,
-      "community_name": "WorkerController",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "1. keep flows focused"
     },
     {
@@ -33637,8 +33637,8 @@
       "source_location": "L299",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_2_use_clear_naming",
-      "community": 128,
-      "community_name": "WorkerController",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "2. use clear naming"
     },
     {
@@ -33648,8 +33648,8 @@
       "source_location": "L313",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_3_consistent_decision_logic",
-      "community": 128,
-      "community_name": "WorkerController",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "3. consistent decision logic"
     },
     {
@@ -33659,8 +33659,8 @@
       "source_location": "L325",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_4_handle_error_paths",
-      "community": 128,
-      "community_name": "WorkerController",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "4. handle error paths"
     },
     {
@@ -33670,8 +33670,8 @@
       "source_location": "L342",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_5_use_subgraphs_for_organization",
-      "community": 128,
-      "community_name": "WorkerController",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "5. use subgraphs for organization"
     },
     {
@@ -35441,8 +35441,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_cross_cutting_issues_all_diagrams",
-      "community": 141,
-      "community_name": "StatementService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "cross-cutting issues (all diagrams)"
     },
     {
@@ -35452,8 +35452,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_1_reserved_words_as_identifiers",
-      "community": 141,
-      "community_name": "StatementService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 1: reserved words as identifiers"
     },
     {
@@ -35463,8 +35463,8 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_2_unescaped_special_characters",
-      "community": 141,
-      "community_name": "StatementService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 2: unescaped special characters"
     },
     {
@@ -35474,8 +35474,8 @@
       "source_location": "L126",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_3_invalid_classdef_syntax",
-      "community": 141,
-      "community_name": "StatementService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 3: invalid classdef syntax"
     },
     {
@@ -35485,8 +35485,8 @@
       "source_location": "L162",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_4_empty_comments",
-      "community": 141,
-      "community_name": "StatementService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 4: empty comments"
     },
     {
@@ -35573,8 +35573,8 @@
       "source_location": "L364",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_sequence_diagrams",
-      "community": 136,
-      "community_name": "PdfGeneratorService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "sequence diagrams"
     },
     {
@@ -35584,8 +35584,8 @@
       "source_location": "L366",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_11_missing_colon_before_message_text",
-      "community": 136,
-      "community_name": "PdfGeneratorService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 11: missing colon before message text"
     },
     {
@@ -35595,8 +35595,8 @@
       "source_location": "L386",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_12_missing_space_in_participant_declaration",
-      "community": 136,
-      "community_name": "PdfGeneratorService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 12: missing space in participant declaration"
     },
     {
@@ -35606,8 +35606,8 @@
       "source_location": "L406",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_13_missing_end_in_alt_opt_loop_blocks",
-      "community": 136,
-      "community_name": "PdfGeneratorService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 13: missing \"end\" in alt/opt/loop blocks"
     },
     {
@@ -35617,8 +35617,8 @@
       "source_location": "L437",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_14_misplaced_activation_boxes",
-      "community": 136,
-      "community_name": "PdfGeneratorService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 14: misplaced activation boxes"
     },
     {
@@ -35628,8 +35628,8 @@
       "source_location": "L469",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_15_participant_names_starting_with_x",
-      "community": 136,
-      "community_name": "PdfGeneratorService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 15: participant names starting with 'x'"
     },
     {
@@ -35683,8 +35683,8 @@
       "source_location": "L568",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_state_diagrams",
-      "community": 341,
-      "community_name": "globals",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "state diagrams"
     },
     {
@@ -35694,8 +35694,8 @@
       "source_location": "L570",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_19_state_names_starting_with_x",
-      "community": 341,
-      "community_name": "globals",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 19: state names starting with 'x'"
     },
     {
@@ -35705,8 +35705,8 @@
       "source_location": "L592",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_20_incorrect_state_description_syntax",
-      "community": 341,
-      "community_name": "globals",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 20: incorrect state description syntax"
     },
     {
@@ -35716,8 +35716,8 @@
       "source_location": "L612",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_21_classdef_on_special_states",
-      "community": 341,
-      "community_name": "globals",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 21: classdef on special states"
     },
     {
@@ -35760,8 +35760,8 @@
       "source_location": "L690",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_gantt_charts",
-      "community": 157,
-      "community_name": "RetryProxyConfig.java",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "gantt charts"
     },
     {
@@ -35771,8 +35771,8 @@
       "source_location": "L692",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_24_reserved_words_as_task_names",
-      "community": 157,
-      "community_name": "RetryProxyConfig.java",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 24: reserved words as task names"
     },
     {
@@ -35782,8 +35782,8 @@
       "source_location": "L722",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_25_missing_comma_in_date_specification",
-      "community": 157,
-      "community_name": "RetryProxyConfig.java",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 25: missing comma in date specification"
     },
     {
@@ -35793,8 +35793,8 @@
       "source_location": "L746",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_26_special_characters_in_task_names",
-      "community": 157,
-      "community_name": "RetryProxyConfig.java",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 26: special characters in task names"
     },
     {
@@ -35804,8 +35804,8 @@
       "source_location": "L777",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_27_incorrect_after_dependency_syntax",
-      "community": 157,
-      "community_name": "RetryProxyConfig.java",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 27: incorrect after dependency syntax"
     },
     {
@@ -35837,8 +35837,8 @@
       "source_location": "L831",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_general_resources",
-      "community": 144,
-      "community_name": "SKILL.md",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "general resources"
     },
     {
@@ -35848,8 +35848,8 @@
       "source_location": "L833",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_official_documentation",
-      "community": 144,
-      "community_name": "SKILL.md",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "official documentation"
     },
     {
@@ -35859,8 +35859,8 @@
       "source_location": "L839",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_diagram_specific_guides",
-      "community": 144,
-      "community_name": "SKILL.md",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "diagram-specific guides"
     },
     {
@@ -35870,8 +35870,8 @@
       "source_location": "L847",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_validation_tools",
-      "community": 144,
-      "community_name": "SKILL.md",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "validation tools"
     },
     {
@@ -35881,8 +35881,8 @@
       "source_location": "L867",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_debugging_tips",
-      "community": 144,
-      "community_name": "SKILL.md",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "debugging tips"
     },
     {
@@ -45297,8 +45297,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_skill",
-      "community": 351,
-      "community_name": "@types/jest",
+      "community": 7,
+      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
       "norm_label": "skill.md"
     },
     {
@@ -45429,8 +45429,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_logs_reference",
-      "community": 351,
-      "community_name": "@types/jest",
+      "community": 7,
+      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
       "norm_label": "clickhouse-logs-reference.md"
     },
     {
@@ -45792,8 +45792,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_traces_reference",
-      "community": 351,
-      "community_name": "@types/jest",
+      "community": 7,
+      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
       "norm_label": "clickhouse-traces-reference.md"
     },
     {
@@ -45825,8 +45825,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_traces_reference_table_schemas",
-      "community": 7,
-      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
+      "community": 460,
+      "community_name": "Table Schemas",
       "norm_label": "table schemas"
     },
     {
@@ -45836,8 +45836,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_traces_reference_distributed_signoz_index_v3_primary_spans_table",
-      "community": 7,
-      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
+      "community": 460,
+      "community_name": "Table Schemas",
       "norm_label": "distributed_signoz_index_v3 (primary spans table)"
     },
     {
@@ -45847,8 +45847,8 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_traces_reference_distributed_traces_v3_resource_resource_lookup_table",
-      "community": 7,
-      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
+      "community": 460,
+      "community_name": "Table Schemas",
       "norm_label": "distributed_traces_v3_resource (resource lookup table)"
     },
     {
@@ -45858,8 +45858,8 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "agents_skills_signoz_writing_clickhouse_queries_references_clickhouse_traces_reference_distributed_signoz_error_index_v2_error_events",
-      "community": 7,
-      "community_name": "Writing ClickHouse Queries for SigNoz Dashboards",
+      "community": 460,
+      "community_name": "Table Schemas",
       "norm_label": "distributed_signoz_error_index_v2 (error events)"
     },
     {
@@ -53651,193 +53651,6 @@
       "norm_label": "4. inspeccion y diagnostico con `redis-cli`"
     },
     {
-      "label": "scaling-5k-rps-architecture.md",
-      "file_type": "document",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_scaling_5k_rps_architecture",
-      "community": 44,
-      "community_name": "TransferCompletedEvent",
-      "norm_label": "scaling-5k-rps-architecture.md"
-    },
-    {
-      "label": "\ud83d\ude80 Blueprint de Arquitectura de Alta Escala: 5,000 RPS (300,000 RPM)",
-      "file_type": "document",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_scaling_5k_rps_architecture_blueprint_de_arquitectura_de_alta_escala_5_000_rps_300_000_rpm",
-      "community": 44,
-      "community_name": "TransferCompletedEvent",
-      "norm_label": "\ud83d\ude80 blueprint de arquitectura de alta escala: 5,000 rps (300,000 rpm)"
-    },
-    {
-      "label": "1. Resumen Ejecutivo y Objetivos de Capacidad",
-      "file_type": "document",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "docs_scaling_5k_rps_architecture_1_resumen_ejecutivo_y_objetivos_de_capacidad",
-      "community": 44,
-      "community_name": "TransferCompletedEvent",
-      "norm_label": "1. resumen ejecutivo y objetivos de capacidad"
-    },
-    {
-      "label": "2. Diagrama de Topolog\u00eda del Cl\u00faster",
-      "file_type": "document",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L25",
-      "_origin": "ast",
-      "id": "docs_scaling_5k_rps_architecture_2_diagrama_de_topolog\u00eda_del_cl\u00faster",
-      "community": 44,
-      "community_name": "TransferCompletedEvent",
-      "norm_label": "2. diagrama de topologia del cluster"
-    },
-    {
-      "label": "3. Dimensionamiento de Hardware e Infraestructura (Multi-Nodo HA)",
-      "file_type": "document",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L70",
-      "_origin": "ast",
-      "id": "docs_scaling_5k_rps_architecture_3_dimensionamiento_de_hardware_e_infraestructura_multi_nodo_ha",
-      "community": 44,
-      "community_name": "TransferCompletedEvent",
-      "norm_label": "3. dimensionamiento de hardware e infraestructura (multi-nodo ha)"
-    },
-    {
-      "label": "A. Especificaciones de los Nodos",
-      "file_type": "document",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L74",
-      "_origin": "ast",
-      "id": "docs_scaling_5k_rps_architecture_a_especificaciones_de_los_nodos",
-      "community": 44,
-      "community_name": "TransferCompletedEvent",
-      "norm_label": "a. especificaciones de los nodos"
-    },
-    {
-      "label": "4. Ajustes del Kernel del Sistema Operativo Linux (Host Tuning)",
-      "file_type": "document",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L85",
-      "_origin": "ast",
-      "id": "docs_scaling_5k_rps_architecture_4_ajustes_del_kernel_del_sistema_operativo_linux_host_tuning",
-      "community": 44,
-      "community_name": "TransferCompletedEvent",
-      "norm_label": "4. ajustes del kernel del sistema operativo linux (host tuning)"
-    },
-    {
-      "label": "5. Capa de Microservicios y Configuraci\u00f3n de R\u00e9plicas (HPA)",
-      "file_type": "document",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L116",
-      "_origin": "ast",
-      "id": "docs_scaling_5k_rps_architecture_5_capa_de_microservicios_y_configuraci\u00f3n_de_r\u00e9plicas_hpa",
-      "community": 44,
-      "community_name": "TransferCompletedEvent",
-      "norm_label": "5. capa de microservicios y configuracion de replicas (hpa)"
-    },
-    {
-      "label": "Distribuci\u00f3n de Capacidad de Carga por Microservicio:",
-      "file_type": "document",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L118",
-      "_origin": "ast",
-      "id": "docs_scaling_5k_rps_architecture_distribuci\u00f3n_de_capacidad_de_carga_por_microservicio",
-      "community": 44,
-      "community_name": "TransferCompletedEvent",
-      "norm_label": "distribucion de capacidad de carga por microservicio:"
-    },
-    {
-      "label": "Directivas Node.js Cr\u00edticas:",
-      "file_type": "document",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L129",
-      "_origin": "ast",
-      "id": "docs_scaling_5k_rps_architecture_directivas_node_js_cr\u00edticas",
-      "community": 44,
-      "community_name": "TransferCompletedEvent",
-      "norm_label": "directivas node.js criticas:"
-    },
-    {
-      "label": "6. Arquitectura de Base de Datos (PostgreSQL + PgBouncer)",
-      "file_type": "document",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L136",
-      "_origin": "ast",
-      "id": "docs_scaling_5k_rps_architecture_6_arquitectura_de_base_de_datos_postgresql_pgbouncer",
-      "community": 44,
-      "community_name": "TransferCompletedEvent",
-      "norm_label": "6. arquitectura de base de datos (postgresql + pgbouncer)"
-    },
-    {
-      "label": "A. Configuraci\u00f3n de PgBouncer (`pgbouncer.ini`)",
-      "file_type": "document",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L150",
-      "_origin": "ast",
-      "id": "docs_scaling_5k_rps_architecture_a_configuraci\u00f3n_de_pgbouncer_pgbouncer_ini",
-      "community": 44,
-      "community_name": "TransferCompletedEvent",
-      "norm_label": "a. configuracion de pgbouncer (`pgbouncer.ini`)"
-    },
-    {
-      "label": "B. Ajustes del Motor PostgreSQL (`postgresql.conf` para 32GB RAM / 16 Cores)",
-      "file_type": "document",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L171",
-      "_origin": "ast",
-      "id": "docs_scaling_5k_rps_architecture_b_ajustes_del_motor_postgresql_postgresql_conf_para_32gb_ram_16_cores",
-      "community": 44,
-      "community_name": "TransferCompletedEvent",
-      "norm_label": "b. ajustes del motor postgresql (`postgresql.conf` para 32gb ram / 16 cores)"
-    },
-    {
-      "label": "7. Capa de Streaming As\u00edncrono (Apache Kafka KRaft)",
-      "file_type": "document",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L196",
-      "_origin": "ast",
-      "id": "docs_scaling_5k_rps_architecture_7_capa_de_streaming_as\u00edncrono_apache_kafka_kraft",
-      "community": 44,
-      "community_name": "TransferCompletedEvent",
-      "norm_label": "7. capa de streaming asincrono (apache kafka kraft)"
-    },
-    {
-      "label": "8. Capa de Cach\u00e9 e Idempotencia (Redis Cluster)",
-      "file_type": "document",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L211",
-      "_origin": "ast",
-      "id": "docs_scaling_5k_rps_architecture_8_capa_de_cach\u00e9_e_idempotencia_redis_cluster",
-      "community": 44,
-      "community_name": "TransferCompletedEvent",
-      "norm_label": "8. capa de cache e idempotencia (redis cluster)"
-    },
-    {
-      "label": "9. Observabilidad de Alta Carga (SigNoz & OpenTelemetry)",
-      "file_type": "document",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L222",
-      "_origin": "ast",
-      "id": "docs_scaling_5k_rps_architecture_9_observabilidad_de_alta_carga_signoz_opentelemetry",
-      "community": 44,
-      "community_name": "TransferCompletedEvent",
-      "norm_label": "9. observabilidad de alta carga (signoz & opentelemetry)"
-    },
-    {
-      "label": "10. Matriz de Resiliencia y Pruebas de Carga",
-      "file_type": "document",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L230",
-      "_origin": "ast",
-      "id": "docs_scaling_5k_rps_architecture_10_matriz_de_resiliencia_y_pruebas_de_carga",
-      "community": 44,
-      "community_name": "TransferCompletedEvent",
-      "norm_label": "10. matriz de resiliencia y pruebas de carga"
-    },
-    {
       "label": "services.md",
       "file_type": "document",
       "source_file": "docs/services.md",
@@ -53877,8 +53690,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "docs_services_1_auth_service_auth_service",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 94,
+      "community_name": "TransactionServiceApplicationTests.java",
       "norm_label": "1. auth service (`auth-service`)"
     },
     {
@@ -53888,8 +53701,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "docs_services_1_1_prop\u00f3sito",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 94,
+      "community_name": "TransactionServiceApplicationTests.java",
       "norm_label": "1.1. proposito"
     },
     {
@@ -53899,8 +53712,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "docs_services_1_2_responsabilidades",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 94,
+      "community_name": "TransactionServiceApplicationTests.java",
       "norm_label": "1.2. responsabilidades"
     },
     {
@@ -53910,8 +53723,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "docs_services_1_3_arquitectura_interna",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 94,
+      "community_name": "TransactionServiceApplicationTests.java",
       "norm_label": "1.3. arquitectura interna"
     },
     {
@@ -53921,8 +53734,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "docs_services_1_4_canales_de_entrada_y_salida",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 94,
+      "community_name": "TransactionServiceApplicationTests.java",
       "norm_label": "1.4. canales de entrada y salida"
     },
     {
@@ -53932,8 +53745,8 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "docs_services_1_5_variables_de_configuraci\u00f3n",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 94,
+      "community_name": "TransactionServiceApplicationTests.java",
       "norm_label": "1.5. variables de configuracion"
     },
     {
@@ -53943,8 +53756,8 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "docs_services_1_6_puertos_rutas_y_health_checks",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 94,
+      "community_name": "TransactionServiceApplicationTests.java",
       "norm_label": "1.6. puertos, rutas y health checks"
     },
     {
@@ -54108,8 +53921,8 @@
       "source_location": "L220",
       "_origin": "ast",
       "id": "docs_services_4_notification_service_notification_service",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 144,
+      "community_name": "SKILL.md",
       "norm_label": "4. notification service (`notification-service`)"
     },
     {
@@ -54119,8 +53932,8 @@
       "source_location": "L222",
       "_origin": "ast",
       "id": "docs_services_4_1_prop\u00f3sito",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 144,
+      "community_name": "SKILL.md",
       "norm_label": "4.1. proposito"
     },
     {
@@ -54130,8 +53943,8 @@
       "source_location": "L225",
       "_origin": "ast",
       "id": "docs_services_4_2_responsabilidades",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 144,
+      "community_name": "SKILL.md",
       "norm_label": "4.2. responsabilidades"
     },
     {
@@ -54141,8 +53954,8 @@
       "source_location": "L236",
       "_origin": "ast",
       "id": "docs_services_4_3_arquitectura_interna",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 144,
+      "community_name": "SKILL.md",
       "norm_label": "4.3. arquitectura interna"
     },
     {
@@ -54152,8 +53965,8 @@
       "source_location": "L250",
       "_origin": "ast",
       "id": "docs_services_4_4_canales_de_entrada_y_salida",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 144,
+      "community_name": "SKILL.md",
       "norm_label": "4.4. canales de entrada y salida"
     },
     {
@@ -54163,8 +53976,8 @@
       "source_location": "L259",
       "_origin": "ast",
       "id": "docs_services_4_5_variables_de_configuraci\u00f3n",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 144,
+      "community_name": "SKILL.md",
       "norm_label": "4.5. variables de configuracion"
     },
     {
@@ -54174,8 +53987,8 @@
       "source_location": "L273",
       "_origin": "ast",
       "id": "docs_services_4_6_puertos_rutas_y_health_checks",
-      "community": 75,
-      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
+      "community": 144,
+      "community_name": "SKILL.md",
       "norm_label": "4.6. puertos, rutas y health checks"
     },
     {
@@ -123152,182 +122965,6 @@
       "_origin": "ast",
       "source": "docs_redis_3_casos_de_uso_en_microservicios",
       "target": "docs_redis_lista_negra_de_tokens_jwt_auth_service",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_scaling_5k_rps_architecture",
-      "target": "docs_scaling_5k_rps_architecture_blueprint_de_arquitectura_de_alta_escala_5_000_rps_300_000_rpm",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L230",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_scaling_5k_rps_architecture_blueprint_de_arquitectura_de_alta_escala_5_000_rps_300_000_rpm",
-      "target": "docs_scaling_5k_rps_architecture_10_matriz_de_resiliencia_y_pruebas_de_carga",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L7",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_scaling_5k_rps_architecture_blueprint_de_arquitectura_de_alta_escala_5_000_rps_300_000_rpm",
-      "target": "docs_scaling_5k_rps_architecture_1_resumen_ejecutivo_y_objetivos_de_capacidad",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L25",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_scaling_5k_rps_architecture_blueprint_de_arquitectura_de_alta_escala_5_000_rps_300_000_rpm",
-      "target": "docs_scaling_5k_rps_architecture_2_diagrama_de_topolog\u00eda_del_cl\u00faster",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L70",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_scaling_5k_rps_architecture_blueprint_de_arquitectura_de_alta_escala_5_000_rps_300_000_rpm",
-      "target": "docs_scaling_5k_rps_architecture_3_dimensionamiento_de_hardware_e_infraestructura_multi_nodo_ha",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L85",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_scaling_5k_rps_architecture_blueprint_de_arquitectura_de_alta_escala_5_000_rps_300_000_rpm",
-      "target": "docs_scaling_5k_rps_architecture_4_ajustes_del_kernel_del_sistema_operativo_linux_host_tuning",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L116",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_scaling_5k_rps_architecture_blueprint_de_arquitectura_de_alta_escala_5_000_rps_300_000_rpm",
-      "target": "docs_scaling_5k_rps_architecture_5_capa_de_microservicios_y_configuraci\u00f3n_de_r\u00e9plicas_hpa",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L136",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_scaling_5k_rps_architecture_blueprint_de_arquitectura_de_alta_escala_5_000_rps_300_000_rpm",
-      "target": "docs_scaling_5k_rps_architecture_6_arquitectura_de_base_de_datos_postgresql_pgbouncer",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L196",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_scaling_5k_rps_architecture_blueprint_de_arquitectura_de_alta_escala_5_000_rps_300_000_rpm",
-      "target": "docs_scaling_5k_rps_architecture_7_capa_de_streaming_as\u00edncrono_apache_kafka_kraft",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L211",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_scaling_5k_rps_architecture_blueprint_de_arquitectura_de_alta_escala_5_000_rps_300_000_rpm",
-      "target": "docs_scaling_5k_rps_architecture_8_capa_de_cach\u00e9_e_idempotencia_redis_cluster",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L222",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_scaling_5k_rps_architecture_blueprint_de_arquitectura_de_alta_escala_5_000_rps_300_000_rpm",
-      "target": "docs_scaling_5k_rps_architecture_9_observabilidad_de_alta_carga_signoz_opentelemetry",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L74",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_scaling_5k_rps_architecture_3_dimensionamiento_de_hardware_e_infraestructura_multi_nodo_ha",
-      "target": "docs_scaling_5k_rps_architecture_a_especificaciones_de_los_nodos",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L129",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_scaling_5k_rps_architecture_5_capa_de_microservicios_y_configuraci\u00f3n_de_r\u00e9plicas_hpa",
-      "target": "docs_scaling_5k_rps_architecture_directivas_node_js_cr\u00edticas",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L118",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_scaling_5k_rps_architecture_5_capa_de_microservicios_y_configuraci\u00f3n_de_r\u00e9plicas_hpa",
-      "target": "docs_scaling_5k_rps_architecture_distribuci\u00f3n_de_capacidad_de_carga_por_microservicio",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L150",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_scaling_5k_rps_architecture_6_arquitectura_de_base_de_datos_postgresql_pgbouncer",
-      "target": "docs_scaling_5k_rps_architecture_a_configuraci\u00f3n_de_pgbouncer_pgbouncer_ini",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/scaling-5k-rps-architecture.md",
-      "source_location": "L171",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "docs_scaling_5k_rps_architecture_6_arquitectura_de_base_de_datos_postgresql_pgbouncer",
-      "target": "docs_scaling_5k_rps_architecture_b_ajustes_del_motor_postgresql_postgresql_conf_para_32gb_ram_16_cores",
       "confidence_score": 1.0
     },
     {

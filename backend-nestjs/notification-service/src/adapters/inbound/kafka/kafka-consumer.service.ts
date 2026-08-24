@@ -63,9 +63,9 @@ export class KafkaConsumerService implements OnModuleInit, OnModuleDestroy {
             // Execute with Retry logic
             await this.processWithRetry({ fromUser, toUser, amount }, 3);
 
-            // Mark as processed
+            // Mark as processed (bounded sliding window)
             this.processedEventIds.add(eventId);
-            if (this.processedEventIds.size > 10000) {
+            if (this.processedEventIds.size > 2000) {
               const first = this.processedEventIds.values().next().value;
               if (first) this.processedEventIds.delete(first);
             }

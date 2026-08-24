@@ -12,6 +12,20 @@ export class PdfKitAdapter implements PdfGeneratorPort {
     const dirPath = process.env.STATEMENTS_DIR || '/tmp/statements';
     if (!fs.existsSync(dirPath)) {
       fs.mkdirSync(dirPath, { recursive: true });
+    } else {
+      try {
+        const files = fs.readdirSync(dirPath);
+        const now = Date.now();
+        for (const file of files) {
+          const fp = path.join(dirPath, file);
+          const stat = fs.statSync(fp);
+          if (now - stat.mtimeMs > 7200000) {
+            fs.unlinkSync(fp);
+          }
+        }
+      } catch {
+        // Ignorar fallos no críticos
+      }
     }
 
     const fileName = `statement_job_${jobId}.pdf`;

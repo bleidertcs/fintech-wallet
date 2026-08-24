@@ -28,6 +28,7 @@ rules:
       - nodes/spec
       - nodes/stats
       - nodes/proxy
+      - nodes/metrics
       - pods
       - pods/status
       - persistentvolumeclaims
@@ -37,6 +38,7 @@ rules:
       - configmaps
       - replicationcontrollers
       - resourcequotas
+      - limitranges
     verbs: ["get", "list", "watch"]
   - apiGroups: ["apps"]
     resources:
@@ -54,6 +56,8 @@ rules:
     resources:
       - horizontalpodautoscalers
     verbs: ["get", "list", "watch"]
+  - nonResourceURLs: ["/metrics", "/stats/summary"]
+    verbs: ["get"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -177,8 +181,8 @@ data:
         collection_interval: 15s
       k8s_cluster:
         collection_interval: 10s
-        node_conditions_to_report: [Ready, MemoryPressure, DiskPressure]
-        allocatable_types_to_report: [cpu, memory]
+        node_conditions_to_report: [Ready, MemoryPressure, DiskPressure, NetworkUnavailable, PIDPressure]
+        allocatable_types_to_report: [cpu, memory, ephemeral-storage]
       k8s_events:
         auth_type: serviceAccount
       kubeletstats:
@@ -186,6 +190,11 @@ data:
         auth_type: "serviceAccount"
         endpoint: "https://${env:K8S_NODE_NAME}:10250"
         insecure_skip_verify: true
+        metric_groups:
+          - node
+          - pod
+          - container
+          - volume
       hostmetrics:
         collection_interval: 10s
         scrapers:
@@ -195,6 +204,7 @@ data:
           disk:
           filesystem:
           network:
+          processes:
       filelog:
         include:
           - /var/log/pods/*/*/*.log
@@ -215,6 +225,22 @@ data:
         check_interval: 1s
         limit_percentage: 75
         spike_limit_percentage: 15
+      resourcedetection:
+        detectors: [env, system]
+        timeout: 2s
+        system:
+          hostname_sources: ["os"]
+      resource:
+        attributes:
+          - action: upsert
+            key: host.name
+            value: "${env:K8S_NODE_NAME}"
+          - action: upsert
+            key: k8s.node.name
+            value: "${env:K8S_NODE_NAME}"
+          - action: upsert
+            key: k8s.cluster.name
+            value: "fintech-k8s-cluster"
       k8sattributes:
         auth_type: "serviceAccount"
         passthrough: false
@@ -249,15 +275,15 @@ data:
       pipelines:
         traces:
           receivers: [otlp]
-          processors: [signozspanmetrics, k8sattributes, memory_limiter, batch]
+          processors: [signozspanmetrics, resourcedetection, resource, k8sattributes, memory_limiter, batch]
           exporters: [clickhousetraces]
         metrics:
           receivers: [otlp, kubeletstats, hostmetrics, kafkametrics, redis, k8s_cluster]
-          processors: [k8sattributes, memory_limiter, batch]
+          processors: [resourcedetection, resource, k8sattributes, memory_limiter, batch]
           exporters: [signozclickhousemetrics]
         logs:
           receivers: [otlp, filelog, k8s_events]
-          processors: [k8sattributes, memory_limiter, batch]
+          processors: [resourcedetection, resource, k8sattributes, memory_limiter, batch]
           exporters: [clickhouselogsexporter]
   otel-migration-config.yaml: |
     receivers:
@@ -523,16 +549,14 @@ spec:
     spec:
       serviceAccountName: otel-collector
       initContainers:
-        - name: wait-for-clickhouse-and-migration
+        - name: wait-for-clickhouse
           image: busybox:1.36
           command:
             - sh
             - -c
             - |
               echo "Esperando ClickHouse TCP 9000..."
-              until nc -z clickhouse 9000; do sleep 3; done
-              echo "ClickHouse listo. Esperando 120s para que el migrator complete el schema..."
-              sleep 120
+              until nc -z clickhouse 9000; do sleep 2; done
               echo "Listo para iniciar otel-collector."
       containers:
         - name: otel-collector
@@ -555,6 +579,12 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: spec.nodeName
+            - name: HOST_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: "host.name=$(K8S_NODE_NAME),k8s.node.name=$(K8S_NODE_NAME),k8s.cluster.name=fintech-k8s-cluster"
           resources:
             requests:
               memory: "128Mi"

@@ -2280,8 +2280,8 @@
     "semantic_hash": ""
   },
   "k8s/04-observability.yaml": {
-    "mtime": 1787587001.145,
-    "ast_hash": "aa9a40474e5bd45684014dd3bcbd1066",
+    "mtime": 1786731235.3571343,
+    "ast_hash": "56c5081fccdd4522c2176ed087c49720",
     "semantic_hash": ""
   },
   "k8s/05-ingress.yaml": {
@@ -2762,16 +2762,6 @@
   "k8s/10-pdb.yaml": {
     "mtime": 1787246511.7029564,
     "ast_hash": "af8bfe539c1b7c71bf5fffed9674f4fc",
-    "semantic_hash": ""
-  },
-  "docs/scaling-5k-rps-architecture.md": {
-    "mtime": 1787586960.6025267,
-    "ast_hash": "876514106090c1f1928dc99478f0669b",
-    "semantic_hash": ""
-  },
-  "k8s/11-kubernetes-dashboard.yaml": {
-    "mtime": 1787590965.3136878,
-    "ast_hash": "028fab1eda48f4154d918ad497b26bf7",
     "semantic_hash": ""
   }
 }
