@@ -8,9 +8,20 @@ const nodeName = process.env.NODE_NAME || 'k8s-node';
 const clusterName = process.env.CLUSTER_NAME || 'fintech-k8s-cluster';
 const serviceName = process.env.OTEL_SERVICE_NAME || 'auth-service';
 const environment = process.env.NODE_ENV || 'production';
+const isProduction = environment === 'production';
 const otelEndpoint = process.env.OTEL_EXPORTER_OTLP_ENDPOINT || 'http://otel-collector.fintech.svc.cluster.local:4318';
 
 export const otelLogFormat = winston.format((info) => {
+  const msgStr = typeof info.message === 'string' ? info.message : JSON.stringify(info.message || '');
+  
+  // Suprimir logs de health checks 200 OK periódicos de kubelet
+  if (msgStr.includes('/health') || msgStr.includes('kube-probe') || msgStr.includes('health/live') || msgStr.includes('health/ready')) {
+    const levelStr = String(info.level || '').toLowerCase();
+    if (!levelStr.includes('error') && !levelStr.includes('warn')) {
+      return false; // Silenciar
+    }
+  }
+
   const currentSpan = trace.getSpan(context.active());
   const traceId = currentSpan?.spanContext().traceId || info.trace_id || '';
   const spanId = currentSpan?.spanContext().spanId || info.span_id || '';
@@ -21,14 +32,15 @@ export const otelLogFormat = winston.format((info) => {
     info.span_id = spanContext.spanId;
     info.trace_flags = `0${spanContext.traceFlags.toString(16)}`;
   }
-  info.k8s_pod_name = podName;
-  info.k8s_namespace_name = podNamespace;
-  info.k8s_node_name = nodeName;
-  info.k8s_deployment_name = serviceName;
-  info.k8s_container_name = serviceName;
-  info.k8s_cluster_name = clusterName;
-  info.host_name = podName;
-  info.deployment_environment = environment;
+  info['service.name'] = serviceName;
+  info['k8s.pod.name'] = podName;
+  info['k8s.namespace.name'] = podNamespace;
+  info['k8s.node.name'] = nodeName;
+  info['k8s.deployment.name'] = serviceName;
+  info['k8s.container.name'] = serviceName;
+  info['k8s.cluster.name'] = clusterName;
+  info['host.name'] = podName;
+  info['deployment.environment'] = environment;
 
   // Exportar OTLP Log directamente a SigNoz
   try {
@@ -91,18 +103,26 @@ export const otelLogFormat = winston.format((info) => {
 });
 
 export function createWinstonLogger() {
+  const consoleFormat = isProduction
+    ? winston.format.combine(
+        winston.format.timestamp(),
+        otelLogFormat(),
+        winston.format.json(),
+      )
+    : winston.format.combine(
+        winston.format.timestamp(),
+        winston.format.ms(),
+        otelLogFormat(),
+        nestWinstonModuleUtilities.format.nestLike('AuthService', {
+          colors: true,
+          prettyPrint: true,
+        }),
+      );
+
   return WinstonModule.createLogger({
     transports: [
       new winston.transports.Console({
-        format: winston.format.combine(
-          winston.format.timestamp(),
-          winston.format.ms(),
-          otelLogFormat(),
-          nestWinstonModuleUtilities.format.nestLike('AuthService', {
-            colors: true,
-            prettyPrint: true,
-          }),
-        ),
+        format: consoleFormat,
       }),
     ],
   });

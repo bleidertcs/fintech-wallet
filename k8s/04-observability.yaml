@@ -207,7 +207,7 @@ data:
           processes:
       filelog:
         include:
-          - /var/log/pods/*/*/*.log
+          - /var/log/pods/fintech_*/*/*.log
         exclude:
           - /var/log/pods/fintech_otel-collector-*/*/*.log
         start_at: end
@@ -217,6 +217,21 @@ data:
           - type: container
             id: container-parser
     processors:
+      filter/logs:
+        error_mode: ignore
+        logs:
+          exclude:
+            match_type: regexp
+            bodies:
+              - "kube-probe"
+              - "GET /health"
+              - "GET /metrics"
+      transform/logs:
+        error_mode: ignore
+        log_statements:
+          - context: log
+            statements:
+              - set(resource.attributes["service.name"], resource.attributes["k8s.container.name"]) where resource.attributes["service.name"] == nil and resource.attributes["k8s.container.name"] != nil
       batch:
         send_batch_size: 10000
         timeout: 1s
@@ -283,7 +298,7 @@ data:
           exporters: [signozclickhousemetrics]
         logs:
           receivers: [otlp, filelog, k8s_events]
-          processors: [resourcedetection, resource, k8sattributes, memory_limiter, batch]
+          processors: [filter/logs, transform/logs, resourcedetection, resource, k8sattributes, memory_limiter, batch]
           exporters: [clickhouselogsexporter]
   otel-migration-config.yaml: |
     receivers:
