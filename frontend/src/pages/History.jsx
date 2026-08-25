@@ -69,7 +69,7 @@ export default function History() {
     doc.text('Historial de Transacciones', 14, 22);
     doc.setFontSize(10);
     doc.text(`Usuario: ${profile?.name} (${profile?.email})`, 14, 30);
-    doc.text(`Generado: ${new Date().toLocaleString('es-AR')}`, 14, 36);
+    doc.text(`Generado: ${new Date().toLocaleString('es-VE')}`, 14, 36);
 
     const rows = filtered.map((tx) => {
       const isSent = tx.fromUserId === profile?.id;
@@ -77,9 +77,9 @@ export default function History() {
         `#${tx.transactionId || tx.id}`,
         isSent ? 'Enviado' : 'Recibido',
         getUserName(isSent ? tx.toUserId : tx.fromUserId),
-        `$${tx.amount?.toLocaleString('es-AR', { minimumFractionDigits: 2 })}`,
+        `Bs. ${tx.amount?.toLocaleString('es-VE', { minimumFractionDigits: 2 })}`,
         tx.status,
-        tx.createdAt ? new Date(tx.createdAt).toLocaleString('es-AR') : '-',
+        tx.createdAt ? new Date(tx.createdAt).toLocaleString('es-VE') : '-',
       ];
     });
 
@@ -103,7 +103,7 @@ export default function History() {
         Usuario: getUserName(isSent ? tx.toUserId : tx.fromUserId),
         Monto: tx.amount,
         Estado: tx.status,
-        Fecha: tx.createdAt ? new Date(tx.createdAt).toLocaleString('es-AR') : '-',
+        Fecha: tx.createdAt ? new Date(tx.createdAt).toLocaleString('es-VE') : '-',
       };
     });
 
@@ -206,13 +206,13 @@ export default function History() {
                         {isSent ? `Enviado a ${getUserName(tx.toUserId)}` : `Recibido de ${getUserName(tx.fromUserId)}`}
                       </p>
                       <p className="text-xs text-gray-400 dark:text-gray-500">
-                        {tx.createdAt ? new Date(tx.createdAt).toLocaleString('es-AR') : tx.status}
+                        {tx.createdAt ? new Date(tx.createdAt).toLocaleString('es-VE') : tx.status}
                       </p>
                     </div>
                   </div>
                   <div className="text-right">
                     <p className={`text-sm font-semibold ${isSent ? 'text-red-600 dark:text-red-400' : 'text-emerald-600 dark:text-emerald-400'}`}>
-                      {isSent ? '-' : '+'}${tx.amount?.toLocaleString('es-AR', { minimumFractionDigits: 2 })}
+                      {isSent ? '-' : '+'}Bs. {tx.amount?.toLocaleString('es-VE', { minimumFractionDigits: 2 })}
                     </p>
                     <p className="text-xs text-gray-400 dark:text-gray-500">#{tx.transactionId || tx.id}</p>
                   </div>

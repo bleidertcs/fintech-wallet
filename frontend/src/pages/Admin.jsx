@@ -134,8 +134,8 @@ export default function Admin() {
                     <td className="px-4 py-3 text-gray-900 dark:text-white">#{u.id}</td>
                     <td className="px-4 py-3 text-gray-900 dark:text-white">{u.name}</td>
                     <td className="px-4 py-3 text-gray-500">{u.email}</td>
-                    <td className="px-4 py-3 text-right text-emerald-600 dark:text-emerald-400 font-medium">${u.balance?.toLocaleString('es-AR', { minimumFractionDigits: 2 })}</td>
-                    <td className="px-4 py-3 text-center text-gray-500">{u.currency || 'ARS'}</td>
+                    <td className="px-4 py-3 text-right text-emerald-600 dark:text-emerald-400 font-medium">Bs. {u.balance?.toLocaleString('es-VE', { minimumFractionDigits: 2 })}</td>
+                    <td className="px-4 py-3 text-center text-gray-500">{u.currency || 'VES'}</td>
                     <td className="px-4 py-3 text-center">
                       <button onClick={() => handlePromote(u.email)} className="text-xs px-2 py-1 bg-purple-100 dark:bg-purple-500/10 text-purple-700 dark:text-purple-400 rounded hover:bg-purple-200 dark:hover:bg-purple-500/20">
                         Hacer Admin

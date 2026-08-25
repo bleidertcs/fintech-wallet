@@ -92,7 +92,7 @@ export default function Dashboard() {
       <div className="bg-gradient-to-br from-emerald-600 to-emerald-800 rounded-2xl p-6 sm:p-8 text-white">
         <p className="text-emerald-200 text-sm font-medium">Balance disponible</p>
         <p className="text-3xl sm:text-4xl font-bold mt-2">
-          ${profile?.balance?.toLocaleString('es-AR', { minimumFractionDigits: 2 }) || '0.00'}
+          Bs. {profile?.balance?.toLocaleString('es-VE', { minimumFractionDigits: 2 }) || '0.00'}
         </p>
         <div className="mt-4 sm:mt-6 flex flex-wrap gap-2">
           <Link
@@ -122,7 +122,7 @@ export default function Dashboard() {
             <div>
               <p className="text-sm text-gray-500 dark:text-gray-400">Recibido</p>
               <p className="text-lg font-bold text-gray-900 dark:text-white">
-                ${totalReceived.toLocaleString('es-AR', { minimumFractionDigits: 2 })}
+                Bs. {totalReceived.toLocaleString('es-VE', { minimumFractionDigits: 2 })}
               </p>
             </div>
           </div>
@@ -135,7 +135,7 @@ export default function Dashboard() {
             <div>
               <p className="text-sm text-gray-500 dark:text-gray-400">Enviado</p>
               <p className="text-lg font-bold text-gray-900 dark:text-white">
-                ${totalSent.toLocaleString('es-AR', { minimumFractionDigits: 2 })}
+                Bs. {totalSent.toLocaleString('es-VE', { minimumFractionDigits: 2 })}
               </p>
             </div>
           </div>
@@ -204,12 +204,12 @@ export default function Dashboard() {
                         {isSent ? `Enviado a #${tx.toUserId}` : `Recibido de #${tx.fromUserId}`}
                       </p>
                       <p className="text-xs text-gray-400 dark:text-gray-500">
-                        {tx.createdAt ? new Date(tx.createdAt).toLocaleString('es-AR') : tx.status}
+                        {tx.createdAt ? new Date(tx.createdAt).toLocaleString('es-VE') : tx.status}
                       </p>
                     </div>
                   </div>
                   <p className={`text-sm font-semibold ${isSent ? 'text-red-600 dark:text-red-400' : 'text-emerald-600 dark:text-emerald-400'}`}>
-                    {isSent ? '-' : '+'}${tx.amount?.toLocaleString('es-AR', { minimumFractionDigits: 2 })}
+                    {isSent ? '-' : '+'}Bs. {tx.amount?.toLocaleString('es-VE', { minimumFractionDigits: 2 })}
                   </p>
                 </div>
               );

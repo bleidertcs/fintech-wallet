@@ -80,7 +80,7 @@ export class PrismaUserRepository implements IUserRepositoryPort {
         email: profile.email || '',
         balance: profile.balance || 0,
         dailyLimit: profile.dailyLimit || 50000,
-        currency: String(profile.currency || 'ARS'),
+        currency: String(profile.currency || 'VES'),
       },
     });
     const entity = this.mapToEntity(record);

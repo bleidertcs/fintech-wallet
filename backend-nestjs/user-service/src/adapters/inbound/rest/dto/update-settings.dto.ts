@@ -7,7 +7,7 @@ export class UpdateSettingsDto {
   @IsOptional()
   dailyLimit?: number;
 
-  @ApiPropertyOptional({ example: 'ARS' })
+  @ApiPropertyOptional({ example: 'VES' })
   @IsString()
   @IsOptional()
   currency?: string;

@@ -12,7 +12,7 @@ model UserProfile {
   email      String   @unique
   balance    Decimal  @default(0.00) @db.Decimal(15, 2)
   dailyLimit Decimal  @default(50000.00) @map("daily_limit") @db.Decimal(15, 2)
-  currency   String   @default("ARS") @db.VarChar(3)
+  currency   String   @default("VES") @db.VarChar(3)
 
   @@map("user_profiles")
 }

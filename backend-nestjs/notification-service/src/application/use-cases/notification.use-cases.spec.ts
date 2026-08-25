@@ -35,7 +35,7 @@ describe('NotificationUseCases', () => {
   });
 
   describe('processTransferNotification', () => {
-    it('debe procesar la transferencia, guardar 2 notificaciones y enviar email al destinatario', async () => {
+    it('debe procesar la transferencia, guardar 2 notificaciones y enviar email a remitente y destinatario', async () => {
       const event = { fromUser: 1, toUser: 2, amount: 150.0 };
 
       mockUserServiceClient.getUserProfile
@@ -53,6 +53,12 @@ describe('NotificationUseCases', () => {
       expect(mockUserServiceClient.getUserProfile).toHaveBeenCalledWith(1);
       expect(mockUserServiceClient.getUserProfile).toHaveBeenCalledWith(2);
       expect(mockRepository.save).toHaveBeenCalledTimes(2);
+      expect(mockEmailAdapter.sendEmail).toHaveBeenCalledTimes(2);
+      expect(mockEmailAdapter.sendEmail).toHaveBeenCalledWith(
+        'alice@example.com',
+        'Enviaste una transferencia',
+        expect.stringContaining('150.00'),
+      );
       expect(mockEmailAdapter.sendEmail).toHaveBeenCalledWith(
         'bob@example.com',
         'Recibiste una transferencia',

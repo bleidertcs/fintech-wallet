@@ -70,15 +70,15 @@ export const notificationService = {
 
 // Currency utils
 export const CURRENCIES = {
-  ARS: { symbol: '$', name: 'Peso Argentino', flag: 'AR' },
-  USD: { symbol: 'US$', name: 'Dolar', flag: 'US' },
+  VES: { symbol: 'Bs.', name: 'Bolívar Venezolano', flag: 'VE' },
+  USD: { symbol: 'US$', name: 'Dólar', flag: 'US' },
   EUR: { symbol: '€', name: 'Euro', flag: 'EU' },
 };
 
 export const EXCHANGE_RATES = {
-  ARS: { ARS: 1, USD: 0.001, EUR: 0.0009 },
-  USD: { ARS: 1000, USD: 1, EUR: 0.91 },
-  EUR: { ARS: 1100, USD: 1.10, EUR: 1 },
+  VES: { VES: 1, USD: 0.025, EUR: 0.023 },
+  USD: { VES: 40, USD: 1, EUR: 0.91 },
+  EUR: { VES: 44, USD: 1.10, EUR: 1 },
 };
 
 export const convertCurrency = (amount, from, to) => {

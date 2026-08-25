@@ -36,7 +36,7 @@ export class UserUseCases implements IUserServicePort {
       email,
       balance: initialBalance,
       dailyLimit: 50000,
-      currency: 'ARS',
+      currency: 'VES',
     });
   }
 

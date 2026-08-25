@@ -87,7 +87,7 @@ export default function Wallet() {
         <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6">
           <p className="text-sm text-gray-500 dark:text-gray-400">Tu balance actual</p>
           <p className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mt-1">
-            ${profile.balance?.toLocaleString('es-AR', { minimumFractionDigits: 2 })}
+            Bs. {profile.balance?.toLocaleString('es-VE', { minimumFractionDigits: 2 })}
           </p>
         </div>
       )}

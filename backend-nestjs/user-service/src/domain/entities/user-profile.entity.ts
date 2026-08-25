@@ -5,7 +5,7 @@ export class UserProfileEntity {
     public email: string,
     public balance: number,
     public dailyLimit: number = 50000,
-    public currency: string = 'ARS',
+    public currency: string = 'VES',
   ) {}
 
   public hasSufficientBalance(amount: number): boolean {

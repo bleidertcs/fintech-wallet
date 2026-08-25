@@ -950,8 +950,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/auth-service/src/infrastructure/telemetry/logger.config.ts": {
-    "mtime": 1785985041.6168427,
-    "ast_hash": "75de90eeebc391f34edeb973ae771e86",
+    "mtime": 1787667085.6209261,
+    "ast_hash": "c31b3a727a8b8af527f1bfdfe32d041a",
     "semantic_hash": ""
   },
   "backend-nestjs/auth-service/src/infrastructure/telemetry/otlp-log.transport.ts": {
@@ -2210,8 +2210,8 @@
     "semantic_hash": ""
   },
   "k8s/04-observability.yaml": {
-    "mtime": 1787587001.145,
-    "ast_hash": "aa9a40474e5bd45684014dd3bcbd1066",
+    "mtime": 1787667124.2858336,
+    "ast_hash": "5b5045652a0cb09da18ec4760d686909",
     "semantic_hash": ""
   },
   "k8s/05-ingress.yaml": {
@@ -2365,8 +2365,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/notification-service/src/infrastructure/telemetry/logger.config.ts": {
-    "mtime": 1786717501.5381055,
-    "ast_hash": "2330726d320b1fc15167687959c060fc",
+    "mtime": 1787667105.5114546,
+    "ast_hash": "b1c0b950acb3f8d06ef1d59737bafe12",
     "semantic_hash": ""
   },
   "backend-nestjs/transaction-service/src/infrastructure/telemetry/index.ts": {
@@ -2375,8 +2375,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/transaction-service/src/infrastructure/telemetry/logger.config.ts": {
-    "mtime": 1786717473.1469777,
-    "ast_hash": "bfdc1d2b906138fd49173a6a3c9a5d09",
+    "mtime": 1787667099.4825487,
+    "ast_hash": "aa3a5e40539097098f5eebe0d20ad2cb",
     "semantic_hash": ""
   },
   "backend-nestjs/user-service/src/infrastructure/telemetry/index.ts": {
@@ -2385,8 +2385,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/user-service/src/infrastructure/telemetry/logger.config.ts": {
-    "mtime": 1786717444.9984918,
-    "ast_hash": "909a1f15fd72d450716f8eef5684e870",
+    "mtime": 1787667094.2668085,
+    "ast_hash": "45cd430c770912929ab6b9f3c5413e25",
     "semantic_hash": ""
   },
   "backend-nestjs/worker-service/src/infrastructure/telemetry/index.ts": {
@@ -2395,8 +2395,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/worker-service/src/infrastructure/telemetry/logger.config.ts": {
-    "mtime": 1786717529.952961,
-    "ast_hash": "e2a155c8b85215e77c3bba5ceb5c9bb1",
+    "mtime": 1787667113.031054,
+    "ast_hash": "f0c5bb074fedc4fd9bf06de6e90d37d6",
     "semantic_hash": ""
   },
   "docs/database.md": {
@@ -2812,6 +2812,16 @@
   "scripts/verify_all_dashboard_queries.py": {
     "mtime": 1787596711.446139,
     "ast_hash": "1bae04af5cf9b563e5e7003fd89abe47",
+    "semantic_hash": ""
+  },
+  "scripts/rebuild_affected_services.sh": {
+    "mtime": 1787600267.9838622,
+    "ast_hash": "5c10dab2b354a66d1823f119b608aca0",
+    "semantic_hash": ""
+  },
+  "scripts/ssh_build_services.py": {
+    "mtime": 1787599082.8354495,
+    "ast_hash": "d56f242e3bcd47b6f501b45ab1ad63cc",
     "semantic_hash": ""
   }
 }

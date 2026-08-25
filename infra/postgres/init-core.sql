@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS "user_profiles" (
     "email" VARCHAR(255) UNIQUE NOT NULL,
     "balance" DECIMAL(15, 2) DEFAULT 0.00 NOT NULL,
     "daily_limit" DECIMAL(15, 2) DEFAULT 50000.00 NOT NULL,
-    "currency" VARCHAR(3) DEFAULT 'ARS' NOT NULL,
+    "currency" VARCHAR(3) DEFAULT 'VES' NOT NULL,
     CONSTRAINT "check_positive_balance" CHECK ("balance" >= 0)
 );
 

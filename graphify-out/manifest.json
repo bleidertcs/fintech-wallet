@@ -200,13 +200,13 @@
     "semantic_hash": ""
   },
   "frontend/src/pages/Admin.jsx": {
-    "mtime": 1784124280.54273,
-    "ast_hash": "926ac9f35d82220ede5cf69dce0eec30",
+    "mtime": 1787672094.2765954,
+    "ast_hash": "7f9866c1c882598cdd476e7a63d90bf9",
     "semantic_hash": ""
   },
   "frontend/src/pages/Dashboard.jsx": {
-    "mtime": 1786545414.7374108,
-    "ast_hash": "87f531e12a427461a9ac1c92f17785c5",
+    "mtime": 1787672109.2466395,
+    "ast_hash": "68cdeaf6d02492f6eb4005026bf777d2",
     "semantic_hash": ""
   },
   "frontend/src/pages/Favorites.jsx": {
@@ -215,8 +215,8 @@
     "semantic_hash": ""
   },
   "frontend/src/pages/History.jsx": {
-    "mtime": 1784733156.1917396,
-    "ast_hash": "531fdffef8ba6c2bc0c30ea0f981ae19",
+    "mtime": 1787672142.4468803,
+    "ast_hash": "9f335ad9d7627ce559346316228e58e4",
     "semantic_hash": ""
   },
   "frontend/src/pages/Login.jsx": {
@@ -225,13 +225,13 @@
     "semantic_hash": ""
   },
   "frontend/src/pages/Notifications.jsx": {
-    "mtime": 1786545447.4840949,
-    "ast_hash": "887d8f5c027cb4670cfbb2e7aba9673f",
+    "mtime": 1787672156.616365,
+    "ast_hash": "d0ffe1551bbeb6a127af11c67fd54ea8",
     "semantic_hash": ""
   },
   "frontend/src/pages/Profile.jsx": {
-    "mtime": 1786545404.3856483,
-    "ast_hash": "ab76b2d56db3a4e60c517db9ccc3d709",
+    "mtime": 1787672089.7222078,
+    "ast_hash": "faf591c4428dbf70e5d9ec87c6aefa7f",
     "semantic_hash": ""
   },
   "frontend/src/pages/QRPage.jsx": {
@@ -245,13 +245,13 @@
     "semantic_hash": ""
   },
   "frontend/src/pages/RequestMoney.jsx": {
-    "mtime": 1784733115.6248555,
-    "ast_hash": "0d8563dddce0f2c6cb27fe374441121c",
+    "mtime": 1787672151.6023045,
+    "ast_hash": "dfb4dbda2ed26a0da61f2326179d02f6",
     "semantic_hash": ""
   },
   "frontend/src/pages/Transfer.jsx": {
-    "mtime": 1784732099.9562168,
-    "ast_hash": "368a3be0f4cae2136b2d495615d72e7b",
+    "mtime": 1787672117.763879,
+    "ast_hash": "82f09e77989f4ebbad9c456570351ab8",
     "semantic_hash": ""
   },
   "frontend/src/pages/VerifyEmail.jsx": {
@@ -260,13 +260,13 @@
     "semantic_hash": ""
   },
   "frontend/src/pages/Wallet.jsx": {
-    "mtime": 1786545424.1840787,
-    "ast_hash": "5de135692edf6d4a9fdf3fab6f2e88fa",
+    "mtime": 1787672127.036932,
+    "ast_hash": "7d1f2efe37826571793bd65d97e8e72a",
     "semantic_hash": ""
   },
   "frontend/src/services/api.js": {
-    "mtime": 1786545387.8548217,
-    "ast_hash": "1e5c218155020f207647a2a9f252d7d5",
+    "mtime": 1787672064.2220685,
+    "ast_hash": "fb9163f5c185cac321a3bb96355acbf6",
     "semantic_hash": ""
   },
   "frontend/src/telemetry.js": {
@@ -1115,8 +1115,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/transaction-service/src/adapters/outbound/kafka/kafka-producer.service.ts": {
-    "mtime": 1786647371.371986,
-    "ast_hash": "d3a540680ff70951658e20c4ea36b123",
+    "mtime": 1787672039.0453749,
+    "ast_hash": "efb5851ea1496c53c4d845c60cca1dc0",
     "semantic_hash": ""
   },
   "backend-nestjs/transaction-service/src/adapters/outbound/kafka/kafka.module.ts": {
@@ -1280,8 +1280,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/user-service/src/adapters/outbound/persistence/prisma-user.repository.ts": {
-    "mtime": 1787585061.484183,
-    "ast_hash": "fae31d80822b494dbe0d64d739037287",
+    "mtime": 1787672020.0839045,
+    "ast_hash": "6aa0895b7f1cff0032717253ab7a9579",
     "semantic_hash": ""
   },
   "backend-nestjs/user-service/src/adapters/outbound/persistence/prisma.module.ts": {
@@ -1315,13 +1315,13 @@
     "semantic_hash": ""
   },
   "backend-nestjs/user-service/src/application/use-cases/user.use-cases.ts": {
-    "mtime": 1786545216.6898239,
-    "ast_hash": "86d51870c1d3875d63b6531deffdeb50",
+    "mtime": 1787671998.232852,
+    "ast_hash": "e9ce9720b6dce9e57d622a0feb0e38d9",
     "semantic_hash": ""
   },
   "backend-nestjs/user-service/src/domain/entities/user-profile.entity.ts": {
-    "mtime": 1785959365.3508494,
-    "ast_hash": "3a80854005241928917bf51784e19fd2",
+    "mtime": 1787672002.411398,
+    "ast_hash": "788a3abdd7a1ce22d713127050dcb611",
     "semantic_hash": ""
   },
   "backend-nestjs/user-service/src/domain/ports/inbound/user.service.port.ts": {
@@ -1800,8 +1800,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/notification-service/src/adapters/inbound/kafka/kafka-consumer.service.ts": {
-    "mtime": 1787585064.5167408,
-    "ast_hash": "39b59882aca77814c8db7f8ee03c8014",
+    "mtime": 1787672044.3002374,
+    "ast_hash": "d7a9ff35e3e670b79fac34a9a2cdc6c7",
     "semantic_hash": ""
   },
   "backend-nestjs/notification-service/src/adapters/inbound/rest/health.controller.ts": {
@@ -1840,8 +1840,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/notification-service/src/application/use-cases/notification.use-cases.ts": {
-    "mtime": 1786110444.108079,
-    "ast_hash": "f50a8d0dbbe5ab4c9c18e3420bc4f99d",
+    "mtime": 1787672051.1691494,
+    "ast_hash": "10b45fe6f601a8d0b09d0b64ae63cf4c",
     "semantic_hash": ""
   },
   "backend-nestjs/notification-service/src/domain/entities/notification.entity.ts": {
@@ -1900,8 +1900,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/notification-service/src/application/use-cases/notification.use-cases.spec.ts": {
-    "mtime": 1786112391.3594265,
-    "ast_hash": "dfde826d0b113a29f8f74cf0b3190066",
+    "mtime": 1787672056.9111307,
+    "ast_hash": "e072490fd89161f823f6d2ea9fc72533",
     "semantic_hash": ""
   },
   "backend-nestjs/worker-service/src/adapters/inbound/kafka/kafka-consumer.service.ts": {
@@ -2045,8 +2045,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/transaction-service/src/application/commands/transfer-money.handler.ts": {
-    "mtime": 1786733982.0350542,
-    "ast_hash": "d125111953b480fb5bd924189e18ddd5",
+    "mtime": 1787672029.1324642,
+    "ast_hash": "4a9f053e60912def2633a337d53d24bf",
     "semantic_hash": ""
   },
   "backend-nestjs/transaction-service/src/application/queries/get-transaction-history.handler.ts": {
@@ -2070,8 +2070,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/transaction-service/src/domain/value-objects/money.vo.ts": {
-    "mtime": 1786559117.0712206,
-    "ast_hash": "7df8aa0b3619607de9c952636138ec24",
+    "mtime": 1787672025.0013075,
+    "ast_hash": "cea4188ee1e3fb0ae84692a255680b0d",
     "semantic_hash": ""
   },
   "backend-nestjs/transaction-service/src/domain/value-objects/user-id.vo.ts": {
@@ -2095,8 +2095,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/user-service/src/adapters/inbound/rest/dto/update-settings.dto.ts": {
-    "mtime": 1786545230.6458879,
-    "ast_hash": "6f5dc0ff9f12dbb5b2a549069253a965",
+    "mtime": 1787672015.9569745,
+    "ast_hash": "ecbdcef17a1afb81ced5338dd51fb46a",
     "semantic_hash": ""
   },
   "backend-nestjs/user-service/src/adapters/inbound/rest/health.controller.ts": {
@@ -2120,8 +2120,8 @@
     "semantic_hash": ""
   },
   "scripts/e2e-test-suite/full-ecosystem.e2e-spec.ts": {
-    "mtime": 1787239785.5959158,
-    "ast_hash": "87aff47eb015f1a86c5f3b98ca79a3b3",
+    "mtime": 1787672178.5903842,
+    "ast_hash": "a99203c9f7598d4ef3bc2246e46200e4",
     "semantic_hash": ""
   },
   "scripts/e2e-test-suite/jest.config.js": {
@@ -2190,8 +2190,8 @@
     "semantic_hash": ""
   },
   "k8s/00-namespace-config.yaml": {
-    "mtime": 1786720970.8357115,
-    "ast_hash": "7f87391cdc00e226b6918f22d4292fd8",
+    "mtime": 1787671988.4038587,
+    "ast_hash": "0689ad49abcfc37c2ee6223919559cd9",
     "semantic_hash": ""
   },
   "k8s/01-infrastructure.yaml": {
@@ -2315,8 +2315,8 @@
     "semantic_hash": ""
   },
   "infra/postgres/init-core.sql": {
-    "mtime": 1786720955.1904442,
-    "ast_hash": "414497b5d9b59cf3e8caf883c7755d5a",
+    "mtime": 1787671980.9523666,
+    "ast_hash": "8d8afc8176bf60a27061fe116622e64c",
     "semantic_hash": ""
   },
   "infra/postgres/init-support.sql": {
@@ -2812,16 +2812,6 @@
   "scripts/verify_all_dashboard_queries.py": {
     "mtime": 1787596711.446139,
     "ast_hash": "1bae04af5cf9b563e5e7003fd89abe47",
-    "semantic_hash": ""
-  },
-  "scripts/rebuild_affected_services.sh": {
-    "mtime": 1787600267.9838622,
-    "ast_hash": "5c10dab2b354a66d1823f119b608aca0",
-    "semantic_hash": ""
-  },
-  "scripts/ssh_build_services.py": {
-    "mtime": 1787599082.8354495,
-    "ast_hash": "d56f242e3bcd47b6f501b45ab1ad63cc",
     "semantic_hash": ""
   }
 }

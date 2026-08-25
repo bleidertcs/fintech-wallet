@@ -3299,8 +3299,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_nestjs_platform_express",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 136,
+      "community_name": "PdfGeneratorService",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -3310,8 +3310,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_nestjs_platform_express",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 136,
+      "community_name": "PdfGeneratorService",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -3717,8 +3717,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_class_transformer",
-      "community": 391,
-      "community_name": "@nestjs/common",
+      "community": 57,
+      "community_name": "JwtUtil",
       "norm_label": "class-transformer"
     },
     {
@@ -3728,8 +3728,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_class_transformer",
-      "community": 391,
-      "community_name": "@nestjs/common",
+      "community": 57,
+      "community_name": "JwtUtil",
       "norm_label": "class-transformer"
     },
     {
@@ -4146,8 +4146,8 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_devdependencies_swc_cli",
-      "community": 60,
-      "community_name": "mvnw",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "@swc/cli"
     },
     {
@@ -4157,8 +4157,8 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_swc_cli",
-      "community": 60,
-      "community_name": "mvnw",
+      "community": 349,
+      "community_name": "@types/bcrypt",
       "norm_label": "@swc/cli"
     },
     {
@@ -4476,8 +4476,8 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_devdependencies_jest",
-      "community": 349,
-      "community_name": "@types/bcrypt",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": "jest"
     },
     {
@@ -4487,8 +4487,8 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_jest",
-      "community": 349,
-      "community_name": "@types/bcrypt",
+      "community": 141,
+      "community_name": "StatementService",
       "norm_label": "jest"
     },
     {
@@ -7982,7 +7982,7 @@
       "label": "otelLogFormat",
       "file_type": "code",
       "source_file": "backend-nestjs/auth-service/src/infrastructure/telemetry/logger.config.ts",
-      "source_location": "L13",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_logger_config_otellogformat",
       "community": 43,
@@ -7993,7 +7993,7 @@
       "label": "createWinstonLogger()",
       "file_type": "code",
       "source_file": "backend-nestjs/auth-service/src/infrastructure/telemetry/logger.config.ts",
-      "source_location": "L93",
+      "source_location": "L105",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
       "community": 43,
@@ -9558,8 +9558,8 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_devdependencies_nestjs_schematics",
-      "community": 439,
-      "community_name": "@nestjs/microservices",
+      "community": 152,
+      "community_name": "swarm-init.sh",
       "norm_label": "@nestjs/schematics"
     },
     {
@@ -9569,8 +9569,8 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_nestjs_schematics",
-      "community": 439,
-      "community_name": "@nestjs/microservices",
+      "community": 152,
+      "community_name": "swarm-init.sh",
       "norm_label": "@nestjs/schematics"
     },
     {
@@ -9800,8 +9800,8 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_devdependencies_eslint_config_prettier",
-      "community": 152,
-      "community_name": "swarm-init.sh",
+      "community": 146,
+      "community_name": "worker-service:worker-service",
       "norm_label": "eslint-config-prettier"
     },
     {
@@ -9811,8 +9811,8 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_eslint_config_prettier",
-      "community": 152,
-      "community_name": "swarm-init.sh",
+      "community": 146,
+      "community_name": "worker-service:worker-service",
       "norm_label": "eslint-config-prettier"
     },
     {
@@ -11656,7 +11656,7 @@
       "label": "otelLogFormat",
       "file_type": "code",
       "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/logger.config.ts",
-      "source_location": "L13",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_infrastructure_telemetry_logger_config_otellogformat",
       "community": 169,
@@ -11667,7 +11667,7 @@
       "label": "createWinstonLogger()",
       "file_type": "code",
       "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/logger.config.ts",
-      "source_location": "L93",
+      "source_location": "L105",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
       "community": 169,
@@ -13122,8 +13122,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_devdependencies_nestjs_cli",
-      "community": 125,
-      "community_name": "transaction-service:transaction-service",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": "@nestjs/cli"
     },
     {
@@ -13133,8 +13133,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_nestjs_cli",
-      "community": 125,
-      "community_name": "transaction-service:transaction-service",
+      "community": 50,
+      "community_name": "MoneyRequestDto",
       "norm_label": "@nestjs/cli"
     },
     {
@@ -13562,8 +13562,8 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_devdependencies_ts_loader",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 313,
+      "community_name": "@swc/core",
       "norm_label": "ts-loader"
     },
     {
@@ -13573,8 +13573,8 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_ts_loader",
-      "community": 50,
-      "community_name": "MoneyRequestDto",
+      "community": 313,
+      "community_name": "@swc/core",
       "norm_label": "ts-loader"
     },
     {
@@ -15135,8 +15135,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_trpc_user_trpc_client_module",
-      "community": 358,
-      "community_name": "@nestjs/schematics",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": "user-trpc-client.module.ts"
     },
     {
@@ -15146,8 +15146,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_trpc_user_trpc_client_module_usertrpcclientmodule",
-      "community": 56,
-      "community_name": "mvnw",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": "usertrpcclientmodule"
     },
     {
@@ -15157,8 +15157,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_adapters_outbound_trpc_user_trpc_client_module_ts_module",
-      "community": 56,
-      "community_name": "mvnw",
+      "community": 176,
+      "community_name": "UserServiceGrpcAdapter",
       "norm_label": "module"
     },
     {
@@ -16408,7 +16408,7 @@
       "label": "otelLogFormat",
       "file_type": "code",
       "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/logger.config.ts",
-      "source_location": "L13",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_telemetry_logger_config_otellogformat",
       "community": 259,
@@ -16419,7 +16419,7 @@
       "label": "createWinstonLogger()",
       "file_type": "code",
       "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/logger.config.ts",
-      "source_location": "L93",
+      "source_location": "L105",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
       "community": 259,
@@ -17566,8 +17566,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_class_transformer",
-      "community": 425,
-      "community_name": "@types/supertest",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "class-transformer"
     },
     {
@@ -17577,8 +17577,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_class_transformer",
-      "community": 425,
-      "community_name": "@types/supertest",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "class-transformer"
     },
     {
@@ -17588,8 +17588,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_class_validator",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 341,
+      "community_name": "globals",
       "norm_label": "class-validator"
     },
     {
@@ -17599,8 +17599,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_class_validator",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 341,
+      "community_name": "globals",
       "norm_label": "class-validator"
     },
     {
@@ -19785,7 +19785,7 @@
       "label": "otelLogFormat",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/logger.config.ts",
-      "source_location": "L13",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_infrastructure_telemetry_logger_config_otellogformat",
       "community": 23,
@@ -19796,7 +19796,7 @@
       "label": "createWinstonLogger()",
       "file_type": "code",
       "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/logger.config.ts",
-      "source_location": "L93",
+      "source_location": "L105",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
       "community": 23,
@@ -20657,8 +20657,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_nestjs_platform_express",
-      "community": 452,
-      "community_name": "@opentelemetry/api",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -20668,8 +20668,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nestjs_platform_express",
-      "community": 452,
-      "community_name": "@opentelemetry/api",
+      "community": 223,
+      "community_name": "dependencies",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -20701,8 +20701,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_dependencies_nestjs_terminus",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": "@nestjs/terminus"
     },
     {
@@ -20712,8 +20712,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_nestjs_terminus",
-      "community": 223,
-      "community_name": "dependencies",
+      "community": 351,
+      "community_name": "@types/jest",
       "norm_label": "@nestjs/terminus"
     },
     {
@@ -23338,7 +23338,7 @@
       "label": "otelLogFormat",
       "file_type": "code",
       "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/logger.config.ts",
-      "source_location": "L13",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_src_infrastructure_telemetry_logger_config_otellogformat",
       "community": 260,
@@ -23349,7 +23349,7 @@
       "label": "createWinstonLogger()",
       "file_type": "code",
       "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/logger.config.ts",
-      "source_location": "L93",
+      "source_location": "L105",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
       "community": 260,
@@ -24138,8 +24138,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "frontend_package_dependencies_react_dom",
-      "community": 6,
-      "community_name": "dependencies",
+      "community": 391,
+      "community_name": "@nestjs/common",
       "norm_label": "react-dom"
     },
     {
@@ -24149,8 +24149,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "react_dom",
-      "community": 6,
-      "community_name": "dependencies",
+      "community": 391,
+      "community_name": "@nestjs/common",
       "norm_label": "react-dom"
     },
     {
@@ -24446,8 +24446,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "frontend_package_dependencies_opentelemetry_instrumentation",
-      "community": 509,
-      "community_name": "@opentelemetry/instrumentation-http",
+      "community": 6,
+      "community_name": "dependencies",
       "norm_label": "@opentelemetry/instrumentation"
     },
     {
@@ -24457,8 +24457,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "opentelemetry_instrumentation",
-      "community": 509,
-      "community_name": "@opentelemetry/instrumentation-http",
+      "community": 6,
+      "community_name": "dependencies",
       "norm_label": "@opentelemetry/instrumentation"
     },
     {
@@ -26244,6 +26244,36 @@
       "norm_label": "performance-test.sh script"
     },
     {
+      "label": "rebuild_affected_services.sh",
+      "file_type": "code",
+      "source_file": "scripts/rebuild_affected_services.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "scripts_rebuild_affected_services",
+      "community": 425,
+      "community_name": "@types/supertest",
+      "norm_label": "rebuild_affected_services.sh"
+    },
+    {
+      "label": "rebuild_affected_services.sh script",
+      "file_type": "code",
+      "source_file": "scripts/rebuild_affected_services.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "scripts_rebuild_affected_services_sh__entry",
+      "community": 425,
+      "community_name": "@types/supertest",
+      "norm_label": "rebuild_affected_services.sh script"
+    },
+    {
       "label": "restore-database.ps1",
       "file_type": "code",
       "source_file": "scripts/restore-database.ps1",
@@ -26447,6 +26477,50 @@
       "community": 399,
       "community_name": "@opentelemetry/exporter-trace-otlp-http",
       "norm_label": "endpoints"
+    },
+    {
+      "label": "ssh_build_services.py",
+      "file_type": "code",
+      "source_file": "scripts/ssh_build_services.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_ssh_build_services",
+      "community": 130,
+      "community_name": "WorkerKafkaConsumer.java",
+      "norm_label": "ssh_build_services.py"
+    },
+    {
+      "label": "get_ssh_client()",
+      "file_type": "code",
+      "source_file": "scripts/ssh_build_services.py",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "scripts_ssh_build_services_get_ssh_client",
+      "community": 130,
+      "community_name": "WorkerKafkaConsumer.java",
+      "norm_label": "get_ssh_client()"
+    },
+    {
+      "label": "exec_cmd()",
+      "file_type": "code",
+      "source_file": "scripts/ssh_build_services.py",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "scripts_ssh_build_services_exec_cmd",
+      "community": 130,
+      "community_name": "WorkerKafkaConsumer.java",
+      "norm_label": "exec_cmd()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "scripts/ssh_build_services.py",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "scripts_ssh_build_services_main",
+      "community": 130,
+      "community_name": "WorkerKafkaConsumer.java",
+      "norm_label": "main()"
     },
     {
       "label": "stress-test.ps1",
@@ -31624,8 +31698,8 @@
       "source_location": "L641",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_examples_java_webapp_readme_activity_diagram_from_filter_chain",
-      "community": 146,
-      "community_name": "worker-service:worker-service",
+      "community": 377,
+      "community_name": "@opentelemetry/instrumentation-express",
       "norm_label": "activity diagram from filter chain"
     },
     {
@@ -31635,8 +31709,8 @@
       "source_location": "L643",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_examples_java_webapp_readme_filter_chain_configuration",
-      "community": 146,
-      "community_name": "worker-service:worker-service",
+      "community": 377,
+      "community_name": "@opentelemetry/instrumentation-express",
       "norm_label": "filter chain configuration"
     },
     {
@@ -31646,8 +31720,8 @@
       "source_location": "L736",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_examples_java_webapp_readme_web_xml_filter_ordering",
-      "community": 146,
-      "community_name": "worker-service:worker-service",
+      "community": 377,
+      "community_name": "@opentelemetry/instrumentation-express",
       "norm_label": "web.xml filter ordering"
     },
     {
@@ -31657,8 +31731,8 @@
       "source_location": "L775",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_examples_java_webapp_readme_mapping_to_activity_diagram",
-      "community": 146,
-      "community_name": "worker-service:worker-service",
+      "community": 377,
+      "community_name": "@opentelemetry/instrumentation-express",
       "norm_label": "mapping to activity diagram"
     },
     {
@@ -33406,8 +33480,8 @@
       "source_location": "L291",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_best_practices",
-      "community": 119,
-      "community_name": "build_apm_dashboard_from_api.py",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "best practices"
     },
     {
@@ -33417,8 +33491,8 @@
       "source_location": "L293",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_1_keep_flows_focused",
-      "community": 119,
-      "community_name": "build_apm_dashboard_from_api.py",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "1. keep flows focused"
     },
     {
@@ -33428,8 +33502,8 @@
       "source_location": "L299",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_2_use_clear_naming",
-      "community": 119,
-      "community_name": "build_apm_dashboard_from_api.py",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "2. use clear naming"
     },
     {
@@ -33439,8 +33513,8 @@
       "source_location": "L313",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_3_consistent_decision_logic",
-      "community": 119,
-      "community_name": "build_apm_dashboard_from_api.py",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "3. consistent decision logic"
     },
     {
@@ -33450,8 +33524,8 @@
       "source_location": "L325",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_4_handle_error_paths",
-      "community": 119,
-      "community_name": "build_apm_dashboard_from_api.py",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "4. handle error paths"
     },
     {
@@ -33461,8 +33535,8 @@
       "source_location": "L342",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_5_use_subgraphs_for_organization",
-      "community": 119,
-      "community_name": "build_apm_dashboard_from_api.py",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "5. use subgraphs for organization"
     },
     {
@@ -33505,8 +33579,8 @@
       "source_location": "L428",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_anti_patterns_to_avoid",
-      "community": 313,
-      "community_name": "@swc/core",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "anti-patterns to avoid"
     },
     {
@@ -33516,8 +33590,8 @@
       "source_location": "L430",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_too_complex",
-      "community": 313,
-      "community_name": "@swc/core",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "\u274c too complex"
     },
     {
@@ -33527,8 +33601,8 @@
       "source_location": "L441",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_unclear_decisions",
-      "community": 313,
-      "community_name": "@swc/core",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "\u274c unclear decisions"
     },
     {
@@ -33538,8 +33612,8 @@
       "source_location": "L453",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_missing_error_handling",
-      "community": 313,
-      "community_name": "@swc/core",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "\u274c missing error handling"
     },
     {
@@ -33956,8 +34030,8 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_common_deployment_patterns",
-      "community": 365,
-      "community_name": "SKILL.md",
+      "community": 119,
+      "community_name": "build_apm_dashboard_from_api.py",
       "norm_label": "common deployment patterns"
     },
     {
@@ -33967,8 +34041,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_three_tier_architecture",
-      "community": 365,
-      "community_name": "SKILL.md",
+      "community": 119,
+      "community_name": "build_apm_dashboard_from_api.py",
       "norm_label": "three-tier architecture"
     },
     {
@@ -33978,8 +34052,8 @@
       "source_location": "L105",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_microservices_deployment_kubernetes",
-      "community": 365,
-      "community_name": "SKILL.md",
+      "community": 119,
+      "community_name": "build_apm_dashboard_from_api.py",
       "norm_label": "microservices deployment (kubernetes)"
     },
     {
@@ -33989,8 +34063,8 @@
       "source_location": "L182",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_serverless_architecture",
-      "community": 365,
-      "community_name": "SKILL.md",
+      "community": 119,
+      "community_name": "build_apm_dashboard_from_api.py",
       "norm_label": "serverless architecture"
     },
     {
@@ -34055,8 +34129,8 @@
       "source_location": "L456",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_best_practices",
-      "community": 120,
-      "community_name": "fix_kafka_dashboard.py",
+      "community": 365,
+      "community_name": "SKILL.md",
       "norm_label": "best practices"
     },
     {
@@ -34066,8 +34140,8 @@
       "source_location": "L458",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_1_show_resource_specifications",
-      "community": 120,
-      "community_name": "fix_kafka_dashboard.py",
+      "community": 365,
+      "community_name": "SKILL.md",
       "norm_label": "1. show resource specifications"
     },
     {
@@ -34077,8 +34151,8 @@
       "source_location": "L467",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_2_indicate_network_boundaries",
-      "community": 120,
-      "community_name": "fix_kafka_dashboard.py",
+      "community": 365,
+      "community_name": "SKILL.md",
       "norm_label": "2. indicate network boundaries"
     },
     {
@@ -34088,8 +34162,8 @@
       "source_location": "L476",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_3_show_scaling_configuration",
-      "community": 120,
-      "community_name": "fix_kafka_dashboard.py",
+      "community": 365,
+      "community_name": "SKILL.md",
       "norm_label": "3. show scaling configuration"
     },
     {
@@ -34099,8 +34173,8 @@
       "source_location": "L488",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_4_document_ports_and_protocols",
-      "community": 120,
-      "community_name": "fix_kafka_dashboard.py",
+      "community": 365,
+      "community_name": "SKILL.md",
       "norm_label": "4. document ports and protocols"
     },
     {
@@ -34110,8 +34184,8 @@
       "source_location": "L498",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_5_indicate_high_availability",
-      "community": 120,
-      "community_name": "fix_kafka_dashboard.py",
+      "community": 365,
+      "community_name": "SKILL.md",
       "norm_label": "5. indicate high availability"
     },
     {
@@ -34253,8 +34327,8 @@
       "source_location": "L119",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_rest_api_patterns",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 128,
+      "community_name": "WorkerController",
       "norm_label": "rest api patterns"
     },
     {
@@ -34264,8 +34338,8 @@
       "source_location": "L121",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_pattern_simple_crud_operation",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 128,
+      "community_name": "WorkerController",
       "norm_label": "pattern - simple crud operation"
     },
     {
@@ -34275,8 +34349,8 @@
       "source_location": "L145",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_pattern_list_with_pagination",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 128,
+      "community_name": "WorkerController",
       "norm_label": "pattern - list with pagination"
     },
     {
@@ -34286,8 +34360,8 @@
       "source_location": "L174",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_pattern_update_with_optimistic_locking",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 128,
+      "community_name": "WorkerController",
       "norm_label": "pattern - update with optimistic locking"
     },
     {
@@ -34363,8 +34437,8 @@
       "source_location": "L389",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_async_messaging_patterns",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 125,
+      "community_name": "transaction-service:transaction-service",
       "norm_label": "async messaging patterns"
     },
     {
@@ -34374,8 +34448,8 @@
       "source_location": "L391",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_pattern_event_driven_with_message_queue",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 125,
+      "community_name": "transaction-service:transaction-service",
       "norm_label": "pattern - event-driven with message queue"
     },
     {
@@ -34385,8 +34459,8 @@
       "source_location": "L424",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_pattern_saga_with_compensating_transactions",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 125,
+      "community_name": "transaction-service:transaction-service",
       "norm_label": "pattern - saga with compensating transactions"
     },
     {
@@ -34396,8 +34470,8 @@
       "source_location": "L472",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_pattern_dead_letter_queue_handling",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 125,
+      "community_name": "transaction-service:transaction-service",
       "norm_label": "pattern - dead letter queue handling"
     },
     {
@@ -34440,8 +34514,8 @@
       "source_location": "L580",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_advanced_patterns",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 120,
+      "community_name": "fix_kafka_dashboard.py",
       "norm_label": "advanced patterns"
     },
     {
@@ -34451,8 +34525,8 @@
       "source_location": "L582",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_pattern_parallel_requests",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 120,
+      "community_name": "fix_kafka_dashboard.py",
       "norm_label": "pattern - parallel requests"
     },
     {
@@ -34462,8 +34536,8 @@
       "source_location": "L613",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_pattern_request_batching",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 120,
+      "community_name": "fix_kafka_dashboard.py",
       "norm_label": "pattern - request batching"
     },
     {
@@ -34473,8 +34547,8 @@
       "source_location": "L648",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_pattern_webhook_callback",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 120,
+      "community_name": "fix_kafka_dashboard.py",
       "norm_label": "pattern - webhook callback"
     },
     {
@@ -34484,8 +34558,8 @@
       "source_location": "L692",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_best_practices",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 60,
+      "community_name": "mvnw",
       "norm_label": "best practices"
     },
     {
@@ -34495,8 +34569,8 @@
       "source_location": "L694",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_1_one_scenario_per_diagram",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 60,
+      "community_name": "mvnw",
       "norm_label": "1. **one scenario per diagram**"
     },
     {
@@ -34506,8 +34580,8 @@
       "source_location": "L721",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_2_use_clear_specific_labels",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 60,
+      "community_name": "mvnw",
       "norm_label": "2. **use clear, specific labels**"
     },
     {
@@ -34517,8 +34591,8 @@
       "source_location": "L727",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_3_include_http_status_codes",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 60,
+      "community_name": "mvnw",
       "norm_label": "3. **include http status codes**"
     },
     {
@@ -34528,8 +34602,8 @@
       "source_location": "L749",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_4_show_timing_information",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 60,
+      "community_name": "mvnw",
       "norm_label": "4. **show timing information**"
     },
     {
@@ -34539,8 +34613,8 @@
       "source_location": "L764",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_5_use_alt_opt_loop_fragments_sparingly",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 60,
+      "community_name": "mvnw",
       "norm_label": "5. **use alt/opt/loop fragments sparingly**"
     },
     {
@@ -34550,8 +34624,8 @@
       "source_location": "L785",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_6_indicate_async_vs_sync",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 60,
+      "community_name": "mvnw",
       "norm_label": "6. **indicate async vs. sync**"
     },
     {
@@ -34561,8 +34635,8 @@
       "source_location": "L804",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_7_group_related_participants",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 60,
+      "community_name": "mvnw",
       "norm_label": "7. **group related participants**"
     },
     {
@@ -34572,8 +34646,8 @@
       "source_location": "L825",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_8_use_unicode_symbols_consistently",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 60,
+      "community_name": "mvnw",
       "norm_label": "8. **use unicode symbols consistently**"
     },
     {
@@ -35232,8 +35306,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_cross_cutting_issues_all_diagrams",
-      "community": 130,
-      "community_name": "WorkerKafkaConsumer.java",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "cross-cutting issues (all diagrams)"
     },
     {
@@ -35243,8 +35317,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_1_reserved_words_as_identifiers",
-      "community": 130,
-      "community_name": "WorkerKafkaConsumer.java",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 1: reserved words as identifiers"
     },
     {
@@ -35254,8 +35328,8 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_2_unescaped_special_characters",
-      "community": 130,
-      "community_name": "WorkerKafkaConsumer.java",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 2: unescaped special characters"
     },
     {
@@ -35265,8 +35339,8 @@
       "source_location": "L126",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_3_invalid_classdef_syntax",
-      "community": 130,
-      "community_name": "WorkerKafkaConsumer.java",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 3: invalid classdef syntax"
     },
     {
@@ -35276,8 +35350,8 @@
       "source_location": "L162",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_4_empty_comments",
-      "community": 130,
-      "community_name": "WorkerKafkaConsumer.java",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 4: empty comments"
     },
     {
@@ -35364,8 +35438,8 @@
       "source_location": "L364",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_sequence_diagrams",
-      "community": 128,
-      "community_name": "WorkerController",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "sequence diagrams"
     },
     {
@@ -35375,8 +35449,8 @@
       "source_location": "L366",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_11_missing_colon_before_message_text",
-      "community": 128,
-      "community_name": "WorkerController",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 11: missing colon before message text"
     },
     {
@@ -35386,8 +35460,8 @@
       "source_location": "L386",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_12_missing_space_in_participant_declaration",
-      "community": 128,
-      "community_name": "WorkerController",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 12: missing space in participant declaration"
     },
     {
@@ -35397,8 +35471,8 @@
       "source_location": "L406",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_13_missing_end_in_alt_opt_loop_blocks",
-      "community": 128,
-      "community_name": "WorkerController",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 13: missing \"end\" in alt/opt/loop blocks"
     },
     {
@@ -35408,8 +35482,8 @@
       "source_location": "L437",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_14_misplaced_activation_boxes",
-      "community": 128,
-      "community_name": "WorkerController",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 14: misplaced activation boxes"
     },
     {
@@ -35419,8 +35493,8 @@
       "source_location": "L469",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_15_participant_names_starting_with_x",
-      "community": 128,
-      "community_name": "WorkerController",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 15: participant names starting with 'x'"
     },
     {
@@ -35430,8 +35504,8 @@
       "source_location": "L494",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_class_diagrams",
-      "community": 341,
-      "community_name": "globals",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "class diagrams"
     },
     {
@@ -35441,8 +35515,8 @@
       "source_location": "L496",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_16_missing_quotes_in_cardinality_notation",
-      "community": 341,
-      "community_name": "globals",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 16: missing quotes in cardinality notation"
     },
     {
@@ -35452,8 +35526,8 @@
       "source_location": "L516",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_17_missing_parentheses_in_method_declarations",
-      "community": 341,
-      "community_name": "globals",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 17: missing parentheses in method declarations"
     },
     {
@@ -35463,8 +35537,8 @@
       "source_location": "L542",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_18_incorrect_static_abstract_modifier_placement",
-      "community": 341,
-      "community_name": "globals",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 18: incorrect static/abstract modifier placement"
     },
     {
@@ -35474,8 +35548,8 @@
       "source_location": "L568",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_state_diagrams",
-      "community": 351,
-      "community_name": "@types/jest",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "state diagrams"
     },
     {
@@ -35485,8 +35559,8 @@
       "source_location": "L570",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_19_state_names_starting_with_x",
-      "community": 351,
-      "community_name": "@types/jest",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 19: state names starting with 'x'"
     },
     {
@@ -35496,8 +35570,8 @@
       "source_location": "L592",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_20_incorrect_state_description_syntax",
-      "community": 351,
-      "community_name": "@types/jest",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 20: incorrect state description syntax"
     },
     {
@@ -35507,8 +35581,8 @@
       "source_location": "L612",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_21_classdef_on_special_states",
-      "community": 351,
-      "community_name": "@types/jest",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 21: classdef on special states"
     },
     {
@@ -35551,8 +35625,8 @@
       "source_location": "L690",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_gantt_charts",
-      "community": 141,
-      "community_name": "StatementService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "gantt charts"
     },
     {
@@ -35562,8 +35636,8 @@
       "source_location": "L692",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_24_reserved_words_as_task_names",
-      "community": 141,
-      "community_name": "StatementService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 24: reserved words as task names"
     },
     {
@@ -35573,8 +35647,8 @@
       "source_location": "L722",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_25_missing_comma_in_date_specification",
-      "community": 141,
-      "community_name": "StatementService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 25: missing comma in date specification"
     },
     {
@@ -35584,8 +35658,8 @@
       "source_location": "L746",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_26_special_characters_in_task_names",
-      "community": 141,
-      "community_name": "StatementService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 26: special characters in task names"
     },
     {
@@ -35595,8 +35669,8 @@
       "source_location": "L777",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_27_incorrect_after_dependency_syntax",
-      "community": 141,
-      "community_name": "StatementService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 27: incorrect after dependency syntax"
     },
     {
@@ -35628,8 +35702,8 @@
       "source_location": "L831",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_general_resources",
-      "community": 136,
-      "community_name": "PdfGeneratorService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "general resources"
     },
     {
@@ -35639,8 +35713,8 @@
       "source_location": "L833",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_official_documentation",
-      "community": 136,
-      "community_name": "PdfGeneratorService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "official documentation"
     },
     {
@@ -35650,8 +35724,8 @@
       "source_location": "L839",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_diagram_specific_guides",
-      "community": 136,
-      "community_name": "PdfGeneratorService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "diagram-specific guides"
     },
     {
@@ -35661,8 +35735,8 @@
       "source_location": "L847",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_validation_tools",
-      "community": 136,
-      "community_name": "PdfGeneratorService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "validation tools"
     },
     {
@@ -35672,8 +35746,8 @@
       "source_location": "L867",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_debugging_tips",
-      "community": 136,
-      "community_name": "PdfGeneratorService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "debugging tips"
     },
     {
@@ -35727,8 +35801,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_symbol_categories",
-      "community": 367,
-      "community_name": "typescript",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "symbol categories"
     },
     {
@@ -35738,8 +35812,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_infrastructure_cloud",
-      "community": 367,
-      "community_name": "typescript",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "infrastructure & cloud (\u2601\ufe0f \ud83c\udf10 \ud83d\udd0c)"
     },
     {
@@ -35749,8 +35823,8 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_compute_processing",
-      "community": 367,
-      "community_name": "typescript",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "compute & processing (\u2699\ufe0f \u26a1 \ud83d\udd04)"
     },
     {
@@ -35760,8 +35834,8 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_data_storage",
-      "community": 367,
-      "community_name": "typescript",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "data & storage (\ud83d\udcbe \ud83d\udce6 \ud83d\udcca)"
     },
     {
@@ -35771,8 +35845,8 @@
       "source_location": "L80",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_messaging_events",
-      "community": 367,
-      "community_name": "typescript",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "messaging & events (\ud83d\udce8 \ud83d\udcec \ud83d\udc30)"
     },
     {
@@ -35782,8 +35856,8 @@
       "source_location": "L102",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_security_authentication",
-      "community": 367,
-      "community_name": "typescript",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "security & authentication (\ud83d\udd10 \ud83d\udd11 \ud83d\udee1\ufe0f)"
     },
     {
@@ -35793,8 +35867,8 @@
       "source_location": "L131",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_monitoring_operations",
-      "community": 367,
-      "community_name": "typescript",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "monitoring & operations (\ud83d\udcdd \ud83d\udcca \ud83d\udea8)"
     },
     {
@@ -35804,8 +35878,8 @@
       "source_location": "L157",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_status_state",
-      "community": 367,
-      "community_name": "typescript",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "status & state (\u2713 \u274c \u23f8\ufe0f)"
     },
     {
@@ -35815,8 +35889,8 @@
       "source_location": "L184",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_time_scheduling",
-      "community": 367,
-      "community_name": "typescript",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "time & scheduling (\u23f0 \u23f1\ufe0f \ud83d\udcc5)"
     },
     {
@@ -35826,8 +35900,8 @@
       "source_location": "L204",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_development_code",
-      "community": 367,
-      "community_name": "typescript",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "development & code (\ud83d\udcbb \ud83d\udd27 \ud83d\udc1b)"
     },
     {
@@ -35837,8 +35911,8 @@
       "source_location": "L226",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_ui_ux_frontend",
-      "community": 367,
-      "community_name": "typescript",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "ui/ux & frontend (\u269b\ufe0f \ud83c\udfa8 \ud83d\udcf1)"
     },
     {
@@ -35848,8 +35922,8 @@
       "source_location": "L247",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_business_domain",
-      "community": 367,
-      "community_name": "typescript",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "business & domain (\ud83d\udcb0 \ud83d\uded2 \ud83d\udccb)"
     },
     {
@@ -51160,8 +51234,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_creating_a_microservice_gu\u00eda_c\u00f3mo_crear_un_nuevo_microservicio",
-      "community": 27,
-      "community_name": "FinTech Wallet - Arquitectura del Proyecto",
+      "community": 515,
+      "community_name": "\ud83d\udcd1 Pasos del Flujo de Creaci\u00f3n",
       "norm_label": "guia: como crear un nuevo microservicio"
     },
     {
@@ -51314,8 +51388,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_database_bases_de_datos_relacionales_y_pgbouncer",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 104,
+      "community_name": "NotificationServiceApplication",
       "norm_label": "bases de datos relacionales y pgbouncer"
     },
     {
@@ -51325,8 +51399,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "docs_database_contenido",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 104,
+      "community_name": "NotificationServiceApplication",
       "norm_label": "\ud83d\udcd1 contenido"
     },
     {
@@ -51336,8 +51410,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "docs_database_1_topolog\u00eda_de_persistencia_y_segregaci\u00f3n",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 104,
+      "community_name": "NotificationServiceApplication",
       "norm_label": "1. topologia de persistencia y segregacion"
     },
     {
@@ -51347,8 +51421,8 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "docs_database_2_connection_pooling_con_pgbouncer_core",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 104,
+      "community_name": "NotificationServiceApplication",
       "norm_label": "2. connection pooling con pgbouncer core"
     },
     {
@@ -51534,8 +51608,8 @@
       "source_location": "L230",
       "_origin": "ast",
       "id": "docs_database_4_diagrama_entidad_relaci\u00f3n_erd_consolidado",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 104,
+      "community_name": "NotificationServiceApplication",
       "norm_label": "4. diagrama entidad-relacion (erd) consolidado"
     },
     {
@@ -51545,8 +51619,8 @@
       "source_location": "L336",
       "_origin": "ast",
       "id": "docs_database_5_gesti\u00f3n_de_esquemas_con_prisma_orm",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 104,
+      "community_name": "NotificationServiceApplication",
       "norm_label": "5. gestion de esquemas con prisma orm"
     },
     {
@@ -51556,8 +51630,8 @@
       "source_location": "L340",
       "_origin": "ast",
       "id": "docs_database_comandos_de_administraci\u00f3n_prisma",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 104,
+      "community_name": "NotificationServiceApplication",
       "norm_label": "comandos de administracion prisma:"
     },
     {
@@ -51567,8 +51641,8 @@
       "source_location": "L355",
       "_origin": "ast",
       "id": "docs_database_6_estrategia_de_copias_de_seguridad_y_recuperaci\u00f3n",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 104,
+      "community_name": "NotificationServiceApplication",
       "norm_label": "6. estrategia de copias de seguridad y recuperacion"
     },
     {
@@ -53679,8 +53753,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "docs_services_1_auth_service_auth_service",
-      "community": 24,
-      "community_name": "dashboard-config.js",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "1. auth service (`auth-service`)"
     },
     {
@@ -53690,8 +53764,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "docs_services_1_1_prop\u00f3sito",
-      "community": 24,
-      "community_name": "dashboard-config.js",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "1.1. proposito"
     },
     {
@@ -53701,8 +53775,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "docs_services_1_2_responsabilidades",
-      "community": 24,
-      "community_name": "dashboard-config.js",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "1.2. responsabilidades"
     },
     {
@@ -53712,8 +53786,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "docs_services_1_3_arquitectura_interna",
-      "community": 24,
-      "community_name": "dashboard-config.js",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "1.3. arquitectura interna"
     },
     {
@@ -53723,8 +53797,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "docs_services_1_4_canales_de_entrada_y_salida",
-      "community": 24,
-      "community_name": "dashboard-config.js",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "1.4. canales de entrada y salida"
     },
     {
@@ -53734,8 +53808,8 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "docs_services_1_5_variables_de_configuraci\u00f3n",
-      "community": 24,
-      "community_name": "dashboard-config.js",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "1.5. variables de configuracion"
     },
     {
@@ -53745,8 +53819,8 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "docs_services_1_6_puertos_rutas_y_health_checks",
-      "community": 24,
-      "community_name": "dashboard-config.js",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "1.6. puertos, rutas y health checks"
     },
     {
@@ -53910,8 +53984,8 @@
       "source_location": "L220",
       "_origin": "ast",
       "id": "docs_services_4_notification_service_notification_service",
-      "community": 104,
-      "community_name": "NotificationServiceApplication",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "4. notification service (`notification-service`)"
     },
     {
@@ -53921,8 +53995,8 @@
       "source_location": "L222",
       "_origin": "ast",
       "id": "docs_services_4_1_prop\u00f3sito",
-      "community": 104,
-      "community_name": "NotificationServiceApplication",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "4.1. proposito"
     },
     {
@@ -53932,8 +54006,8 @@
       "source_location": "L225",
       "_origin": "ast",
       "id": "docs_services_4_2_responsabilidades",
-      "community": 104,
-      "community_name": "NotificationServiceApplication",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "4.2. responsabilidades"
     },
     {
@@ -53943,8 +54017,8 @@
       "source_location": "L236",
       "_origin": "ast",
       "id": "docs_services_4_3_arquitectura_interna",
-      "community": 104,
-      "community_name": "NotificationServiceApplication",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "4.3. arquitectura interna"
     },
     {
@@ -53954,8 +54028,8 @@
       "source_location": "L250",
       "_origin": "ast",
       "id": "docs_services_4_4_canales_de_entrada_y_salida",
-      "community": 104,
-      "community_name": "NotificationServiceApplication",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "4.4. canales de entrada y salida"
     },
     {
@@ -53965,8 +54039,8 @@
       "source_location": "L259",
       "_origin": "ast",
       "id": "docs_services_4_5_variables_de_configuraci\u00f3n",
-      "community": 104,
-      "community_name": "NotificationServiceApplication",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "4.5. variables de configuracion"
     },
     {
@@ -53976,8 +54050,8 @@
       "source_location": "L273",
       "_origin": "ast",
       "id": "docs_services_4_6_puertos_rutas_y_health_checks",
-      "community": 104,
-      "community_name": "NotificationServiceApplication",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "4.6. puertos, rutas y health checks"
     },
     {
@@ -69316,7 +69390,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/auth-service/src/infrastructure/telemetry/logger.config.ts",
-      "source_location": "L93",
+      "source_location": "L105",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_auth_service_src_infrastructure_telemetry_logger_config",
@@ -69327,7 +69401,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/auth-service/src/infrastructure/telemetry/logger.config.ts",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_auth_service_src_infrastructure_telemetry_logger_config",
@@ -69339,7 +69413,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/auth-service/src/infrastructure/telemetry/logger.config.ts",
-      "source_location": "L100",
+      "source_location": "L109",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_auth_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
@@ -74563,7 +74637,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/logger.config.ts",
-      "source_location": "L93",
+      "source_location": "L105",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_notification_service_src_infrastructure_telemetry_logger_config",
@@ -74574,7 +74648,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/logger.config.ts",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_notification_service_src_infrastructure_telemetry_logger_config",
@@ -74586,7 +74660,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/notification-service/src/infrastructure/telemetry/logger.config.ts",
-      "source_location": "L100",
+      "source_location": "L109",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_notification_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
@@ -82386,7 +82460,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/logger.config.ts",
-      "source_location": "L93",
+      "source_location": "L105",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_transaction_service_src_infrastructure_telemetry_logger_config",
@@ -82397,7 +82471,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/logger.config.ts",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_transaction_service_src_infrastructure_telemetry_logger_config",
@@ -82409,7 +82483,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/transaction-service/src/infrastructure/telemetry/logger.config.ts",
-      "source_location": "L100",
+      "source_location": "L109",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_transaction_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
@@ -87531,7 +87605,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/logger.config.ts",
-      "source_location": "L93",
+      "source_location": "L105",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_src_infrastructure_telemetry_logger_config",
@@ -87542,7 +87616,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/logger.config.ts",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_src_infrastructure_telemetry_logger_config",
@@ -87554,7 +87628,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/user-service/src/infrastructure/telemetry/logger.config.ts",
-      "source_location": "L100",
+      "source_location": "L109",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_user_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
@@ -92725,7 +92799,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/logger.config.ts",
-      "source_location": "L93",
+      "source_location": "L105",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_worker_service_src_infrastructure_telemetry_logger_config",
@@ -92736,7 +92810,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/logger.config.ts",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_worker_service_src_infrastructure_telemetry_logger_config",
@@ -92748,7 +92822,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend-nestjs/worker-service/src/infrastructure/telemetry/logger.config.ts",
-      "source_location": "L100",
+      "source_location": "L109",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_nestjs_worker_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
@@ -96926,6 +97000,17 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "scripts/rebuild_affected_services.sh",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_rebuild_affected_services",
+      "target": "scripts_rebuild_affected_services_sh__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "scripts/restore-database.ps1",
       "source_location": "L69",
       "weight": 1.0,
@@ -97044,6 +97129,63 @@
       "_origin": "ast",
       "source": "scripts_smoke_test_sh_scripts_smoke_test",
       "target": "scripts_smoke_test_sh__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ssh_build_services.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_ssh_build_services",
+      "target": "scripts_ssh_build_services_exec_cmd",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ssh_build_services.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_ssh_build_services",
+      "target": "scripts_ssh_build_services_get_ssh_client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ssh_build_services.py",
+      "source_location": "L49",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_ssh_build_services",
+      "target": "scripts_ssh_build_services_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ssh_build_services.py",
+      "source_location": "L50",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_ssh_build_services_main",
+      "target": "scripts_ssh_build_services_get_ssh_client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/ssh_build_services.py",
+      "source_location": "L55",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_ssh_build_services_main",
+      "target": "scripts_ssh_build_services_exec_cmd",
       "confidence_score": 1.0
     },
     {
@@ -124923,5 +125065,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "60d2a8481c599d60996df74fa4e9045898feb740"
+  "built_at_commit": "25743ac67578d28d7bdd578ee4fadad198e9a2af"
 }

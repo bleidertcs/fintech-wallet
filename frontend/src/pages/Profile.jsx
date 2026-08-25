@@ -58,7 +58,7 @@ export default function Profile() {
       setProfile(me);
       if (me) {
         setDailyLimit(me.dailyLimit?.toString() || '50000');
-        setCurrency(me.currency || 'ARS');
+        setCurrency(me.currency || 'VES');
       }
 
       // Refresh auth status (verified, totpEnabled) from backend
@@ -172,7 +172,7 @@ export default function Profile() {
           </div>
           <div className="flex items-center gap-4 p-3 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
             <HiOutlineBanknotes className="w-5 h-5 text-gray-400 shrink-0" />
-            <div><p className="text-xs text-gray-500">Balance</p><p className="text-sm font-medium text-emerald-600 dark:text-emerald-400">{CURRENCIES[profile?.currency || 'ARS']?.symbol}{profile?.balance?.toLocaleString('es-AR', { minimumFractionDigits: 2 })}</p></div>
+            <div><p className="text-xs text-gray-500">Balance</p><p className="text-sm font-medium text-emerald-600 dark:text-emerald-400">{CURRENCIES[profile?.currency || 'VES']?.symbol}{profile?.balance?.toLocaleString('es-VE', { minimumFractionDigits: 2 })}</p></div>
           </div>
           <div className="flex items-center gap-4 p-3 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
             <HiOutlineShieldCheck className="w-5 h-5 text-gray-400 shrink-0" />

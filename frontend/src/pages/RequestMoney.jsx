@@ -196,7 +196,7 @@ export default function RequestMoney() {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm font-medium text-gray-900 dark:text-white">Usuario #{r.requesterId} te pide</p>
-                      <p className="text-lg font-bold text-emerald-600 dark:text-emerald-400">${r.amount?.toLocaleString('es-AR', { minimumFractionDigits: 2 })}</p>
+                      <p className="text-lg font-bold text-emerald-600 dark:text-emerald-400">Bs. {r.amount?.toLocaleString('es-VE', { minimumFractionDigits: 2 })}</p>
                       {r.message && <p className="text-xs text-gray-500 mt-1">"{r.message}"</p>}
                     </div>
                   </div>
@@ -225,7 +225,7 @@ export default function RequestMoney() {
                 <div key={r.id} className="px-4 py-3 flex items-center justify-between">
                   <div>
                     <p className="text-sm text-gray-900 dark:text-white">Pediste a usuario #{r.targetId}</p>
-                    <p className="text-sm font-bold text-emerald-600 dark:text-emerald-400">${r.amount?.toLocaleString('es-AR', { minimumFractionDigits: 2 })}</p>
+                    <p className="text-sm font-bold text-emerald-600 dark:text-emerald-400">Bs. {r.amount?.toLocaleString('es-VE', { minimumFractionDigits: 2 })}</p>
                   </div>
                   <span className={`px-2 py-1 rounded text-xs font-medium ${
                     r.status === 'PENDING' ? 'bg-yellow-100 dark:bg-yellow-500/10 text-yellow-700 dark:text-yellow-400' :

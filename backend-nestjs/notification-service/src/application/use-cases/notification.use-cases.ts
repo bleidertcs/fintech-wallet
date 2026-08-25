@@ -57,7 +57,7 @@ export class NotificationUseCases implements NotificationServicePort {
     const senderEmail = senderProfile?.email || null;
 
     // 1. Notificación para el remitente
-    const senderMsg = `Transferencia enviada: Enviaste $${amount.toFixed(2)} a ${receiverName}`;
+    const senderMsg = `Transferencia enviada: Enviaste Bs. ${amount.toFixed(2)} a ${receiverName}`;
     await this.repository.save({
       userId: fromUserId,
       type: 'TRANSFER_SENT',
@@ -69,7 +69,7 @@ export class NotificationUseCases implements NotificationServicePort {
     });
 
     // 2. Notificación para el destinatario
-    const receiverMsg = `Transferencia recibida: Recibiste $${amount.toFixed(2)} de ${senderName}`;
+    const receiverMsg = `Transferencia recibida: Recibiste Bs. ${amount.toFixed(2)} de ${senderName}`;
     await this.repository.save({
       userId: toUserId,
       type: 'TRANSFER_RECEIVED',
@@ -80,11 +80,18 @@ export class NotificationUseCases implements NotificationServicePort {
       createdAt: new Date(),
     });
 
-    // 3. Enviar correo electrónico al destinatario (Best effort)
+    // 3. Enviar correo electrónico al remitente (Best effort)
+    if (senderEmail) {
+      const senderSubject = 'Enviaste una transferencia';
+      const senderBody = `Hola ${senderName},\n\nTu transferencia por Bs. ${amount.toFixed(2)} a ${receiverName} (${receiverEmail || 'N/A'}) fue realizada con éxito.\n\n¡Gracias por usar FinTech Wallet!`;
+      await this.emailAdapter.sendEmail(senderEmail, senderSubject, senderBody);
+    }
+
+    // 4. Enviar correo electrónico al destinatario (Best effort)
     if (receiverEmail) {
-      const subject = 'Recibiste una transferencia';
-      const body = `Hola ${receiverName},\n\nRecibiste una transferencia de $${amount.toFixed(2)} de parte de ${senderName} (${senderEmail || 'N/A'}).\n\n¡Gracias por usar FinTech Wallet!`;
-      await this.emailAdapter.sendEmail(receiverEmail, subject, body);
+      const receiverSubject = 'Recibiste una transferencia';
+      const receiverBody = `Hola ${receiverName},\n\nRecibiste una transferencia de Bs. ${amount.toFixed(2)} de parte de ${senderName} (${senderEmail || 'N/A'}).\n\n¡Gracias por usar FinTech Wallet!`;
+      await this.emailAdapter.sendEmail(receiverEmail, receiverSubject, receiverBody);
     }
   }
 

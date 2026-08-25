@@ -57,7 +57,7 @@ export class TransferMoneyCommandHandler implements ICommandHandler<TransferMone
 
     if (senderProfile.balance < money.amount) {
       if (idempotencyKey) await this.idempotencyService.removeKey(idempotencyKey, senderId.toBigInt());
-      throw new BadRequestException(`Saldo insuficiente (${senderProfile.balance} ARS)`);
+      throw new BadRequestException(`Saldo insuficiente (${senderProfile.balance} Bs.)`);
     }
 
     const receiverProfile = await this.userServiceClient.getUser(receiverId.toNumber());

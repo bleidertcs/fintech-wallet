@@ -89,8 +89,7 @@ export class KafkaProducerService implements OnModuleInit, OnModuleDestroy {
   async sendTransferCompleted(payload: TransferCompletedEventPayload, correlationId?: string): Promise<void> {
     await this.ensureConnected();
 
-    const topic = 'fintech.transaction.transfer.completed.v1';
-    const legacyTopic = 'transfer_completed';
+    const topic = process.env.KAFKA_TOPIC_TRANSFER_COMPLETED || 'transfer_completed';
 
     const envelope: EventEnvelope<TransferCompletedEventPayload> = {
       eventId: randomUUID(),
@@ -101,7 +100,7 @@ export class KafkaProducerService implements OnModuleInit, OnModuleDestroy {
       correlationId: correlationId || randomUUID(),
       data: {
         ...payload,
-        currency: payload.currency || 'ARS',
+        currency: payload.currency || 'VES',
       },
     };
 
@@ -112,17 +111,6 @@ export class KafkaProducerService implements OnModuleInit, OnModuleDestroy {
           {
             key: String(payload.fromUser),
             value: JSON.stringify(envelope),
-          },
-        ],
-      });
-
-      // Backward compatibility for legacy topic
-      await this.producer.send({
-        topic: legacyTopic,
-        messages: [
-          {
-            key: String(payload.fromUser),
-            value: JSON.stringify(payload),
           },
         ],
       });

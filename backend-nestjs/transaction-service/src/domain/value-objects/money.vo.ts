@@ -1,7 +1,7 @@
 export class Money {
   constructor(
     public readonly amount: number,
-    public readonly currency: string = 'ARS',
+    public readonly currency: string = 'VES',
   ) {
     if (amount < 0) {
       throw new Error('El monto no puede ser negativo.');

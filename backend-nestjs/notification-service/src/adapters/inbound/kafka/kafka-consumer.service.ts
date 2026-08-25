@@ -33,10 +33,7 @@ export class KafkaConsumerService implements OnModuleInit, OnModuleDestroy {
       this.logger.log('Conectado exitosamente a Apache Kafka broker');
 
       await this.consumer.subscribe({
-        topics: [
-          'fintech.transaction.transfer.completed.v1',
-          process.env.KAFKA_TOPIC_TRANSFER_COMPLETED || 'transfer_completed',
-        ],
+        topic: process.env.KAFKA_TOPIC_TRANSFER_COMPLETED || 'transfer_completed',
         fromBeginning: true,
       });
 

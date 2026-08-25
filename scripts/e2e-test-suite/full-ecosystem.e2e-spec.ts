@@ -109,7 +109,7 @@ describe('Fintech Wallet - Complete Ecosystem E2E Integration Suite', () => {
   // STEP 4: Balance Operations
   // --------------------------------------------------------------------------
   describe('3. Account Funding in user-service', () => {
-    it('should deposit 20,000 ARS into User Alpha account', async () => {
+    it('should deposit 20,000 VES into User Alpha account', async () => {
       const depositRes = await axios.put(`${BASE_URL}/users/${userA.id}/balance`, {
         amount: 20000,
       });
