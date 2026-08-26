@@ -3299,8 +3299,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_nestjs_platform_express",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 146,
+      "community_name": "worker-service:worker-service",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -3310,8 +3310,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_nestjs_platform_express",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 146,
+      "community_name": "worker-service:worker-service",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -3717,8 +3717,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_class_transformer",
-      "community": 146,
-      "community_name": "worker-service:worker-service",
+      "community": 57,
+      "community_name": "JwtUtil",
       "norm_label": "class-transformer"
     },
     {
@@ -3728,8 +3728,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_class_transformer",
-      "community": 146,
-      "community_name": "worker-service:worker-service",
+      "community": 57,
+      "community_name": "JwtUtil",
       "norm_label": "class-transformer"
     },
     {
@@ -4927,8 +4927,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_index",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "index.ts"
     },
     {
@@ -4949,8 +4949,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "authcontroller"
     },
     {
@@ -4960,8 +4960,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_apitags",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "apitags"
     },
     {
@@ -4971,8 +4971,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_controller",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "controller"
     },
     {
@@ -4993,8 +4993,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_get",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "get"
     },
     {
@@ -5004,8 +5004,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_apioperation",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "apioperation"
     },
     {
@@ -5015,8 +5015,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_post",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "post"
     },
     {
@@ -5026,8 +5026,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_body",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "body"
     },
     {
@@ -5037,8 +5037,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_httpcode",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "httpcode"
     },
     {
@@ -5048,8 +5048,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_query",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "query"
     },
     {
@@ -5059,8 +5059,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "req",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "req"
     },
     {
@@ -5070,8 +5070,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_res",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "res"
     },
     {
@@ -5081,8 +5081,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_ts_put",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "put"
     },
     {
@@ -5103,8 +5103,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_gethealth",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": ".gethealth()"
     },
     {
@@ -5114,8 +5114,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_register",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": ".register()"
     },
     {
@@ -5125,8 +5125,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_login",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": ".login()"
     },
     {
@@ -5136,8 +5136,8 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_verifytotp",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": ".verifytotp()"
     },
     {
@@ -5147,8 +5147,8 @@
       "source_location": "L102",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_verifyemail",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": ".verifyemail()"
     },
     {
@@ -5158,8 +5158,8 @@
       "source_location": "L128",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_setuptotp",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": ".setuptotp()"
     },
     {
@@ -5169,8 +5169,8 @@
       "source_location": "L141",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_enabletotp",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": ".enabletotp()"
     },
     {
@@ -5180,8 +5180,8 @@
       "source_location": "L150",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_disabletotp",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": ".disabletotp()"
     },
     {
@@ -5191,8 +5191,8 @@
       "source_location": "L159",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_getme",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": ".getme()"
     },
     {
@@ -5202,8 +5202,8 @@
       "source_location": "L174",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_resendverification",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": ".resendverification()"
     },
     {
@@ -5213,8 +5213,8 @@
       "source_location": "L181",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_changepassword",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": ".changepassword()"
     },
     {
@@ -5224,8 +5224,8 @@
       "source_location": "L188",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_auth_controller_authcontroller_promoteadmin",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": ".promoteadmin()"
     },
     {
@@ -5246,8 +5246,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_auth_response_dto_authresponsedto",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "authresponsedto"
     },
     {
@@ -5257,8 +5257,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_dto_auth_response_dto_ts_apiproperty",
-      "community": 29,
-      "community_name": "AuthController",
+      "community": 24,
+      "community_name": "dashboard-config.js",
       "norm_label": "apiproperty"
     },
     {
@@ -5675,8 +5675,8 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard_jwtauthguard",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "jwtauthguard"
     },
     {
@@ -5686,8 +5686,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard_ts_injectable",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "injectable"
     },
     {
@@ -5697,8 +5697,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard_ts_inject",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "inject"
     },
     {
@@ -5708,8 +5708,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard_jwtauthguard_constructor",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": ".constructor()"
     },
     {
@@ -5719,8 +5719,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_guards_jwt_auth_guard_jwtauthguard_canactivate",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": ".canactivate()"
     },
     {
@@ -5840,8 +5840,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_inbound_rest_index",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "index.ts"
     },
     {
@@ -5851,8 +5851,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_index",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 29,
+      "community_name": "AuthController",
       "norm_label": "index.ts"
     },
     {
@@ -5862,8 +5862,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_outbound_email_index",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "index.ts"
     },
     {
@@ -5939,8 +5939,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_outbound_http_index",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "index.ts"
     },
     {
@@ -6016,8 +6016,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_adapters_outbound_index",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "index.ts"
     },
     {
@@ -6555,8 +6555,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_module_appmodule",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "appmodule"
     },
     {
@@ -6566,8 +6566,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_app_module_ts_module",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "module"
     },
     {
@@ -6643,8 +6643,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_application_use_cases_auth_use_cases_authusecases",
-      "community": 357,
-      "community_name": "eslint-plugin-prettier",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": "authusecases"
     },
     {
@@ -6654,8 +6654,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_application_use_cases_auth_use_cases_ts_injectable",
-      "community": 357,
-      "community_name": "eslint-plugin-prettier",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": "injectable"
     },
     {
@@ -6665,8 +6665,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_application_use_cases_auth_use_cases_ts_inject",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": "inject"
     },
     {
@@ -6676,8 +6676,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_application_use_cases_auth_use_cases_authusecases_constructor",
-      "community": 212,
-      "community_name": "AppController",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".constructor()"
     },
     {
@@ -6687,8 +6687,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_application_use_cases_auth_use_cases_authusecases_register",
-      "community": 357,
-      "community_name": "eslint-plugin-prettier",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".register()"
     },
     {
@@ -6698,8 +6698,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_application_use_cases_auth_use_cases_authusecases_login",
-      "community": 357,
-      "community_name": "eslint-plugin-prettier",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".login()"
     },
     {
@@ -6709,8 +6709,8 @@
       "source_location": "L105",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_application_use_cases_auth_use_cases_authusecases_verifyemail",
-      "community": 357,
-      "community_name": "eslint-plugin-prettier",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".verifyemail()"
     },
     {
@@ -6720,8 +6720,8 @@
       "source_location": "L116",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_application_use_cases_auth_use_cases_authusecases_getme",
-      "community": 357,
-      "community_name": "eslint-plugin-prettier",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".getme()"
     },
     {
@@ -6764,8 +6764,8 @@
       "source_location": "L173",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_application_use_cases_auth_use_cases_authusecases_disabletotp",
-      "community": 357,
-      "community_name": "eslint-plugin-prettier",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".disabletotp()"
     },
     {
@@ -6775,8 +6775,8 @@
       "source_location": "L184",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_application_use_cases_auth_use_cases_authusecases_getuserbyemail",
-      "community": 357,
-      "community_name": "eslint-plugin-prettier",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".getuserbyemail()"
     },
     {
@@ -6786,8 +6786,8 @@
       "source_location": "L192",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_application_use_cases_auth_use_cases_authusecases_resendverification",
-      "community": 357,
-      "community_name": "eslint-plugin-prettier",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".resendverification()"
     },
     {
@@ -6797,8 +6797,8 @@
       "source_location": "L203",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_application_use_cases_auth_use_cases_authusecases_changepassword",
-      "community": 357,
-      "community_name": "eslint-plugin-prettier",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".changepassword()"
     },
     {
@@ -6808,8 +6808,8 @@
       "source_location": "L223",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_application_use_cases_auth_use_cases_authusecases_promotetoadmin",
-      "community": 357,
-      "community_name": "eslint-plugin-prettier",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".promotetoadmin()"
     },
     {
@@ -6830,8 +6830,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_auth_module",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "auth.module.ts"
     },
     {
@@ -6841,8 +6841,8 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_auth_module_authmodule",
-      "community": 121,
-      "community_name": "api-gateway:api-gateway",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "authmodule"
     },
     {
@@ -6852,8 +6852,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_auth_module_ts_module",
-      "community": 121,
-      "community_name": "api-gateway:api-gateway",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "module"
     },
     {
@@ -7039,8 +7039,8 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_entities_user_entity_user_updateverificationtoken",
-      "community": 357,
-      "community_name": "eslint-plugin-prettier",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": ".updateverificationtoken()"
     },
     {
@@ -7094,8 +7094,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_auth_service_port_authresult",
-      "community": 357,
-      "community_name": "eslint-plugin-prettier",
+      "community": 149,
+      "community_name": "Docker Swarm Skill",
       "norm_label": "authresult"
     },
     {
@@ -7259,8 +7259,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_inbound_index",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "index.ts"
     },
     {
@@ -7270,8 +7270,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_index",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "index.ts"
     },
     {
@@ -7380,8 +7380,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_index",
-      "community": 13,
-      "community_name": "auth.module.ts",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "index.ts"
     },
     {
@@ -7391,8 +7391,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "token.service.port.ts"
     },
     {
@@ -7424,8 +7424,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port_tokenserviceport",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": "tokenserviceport"
     },
     {
@@ -7435,8 +7435,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port_tokenserviceport_generatetoken",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": ".generatetoken()"
     },
     {
@@ -7446,8 +7446,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_token_service_port_tokenserviceport_verifytoken",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 13,
+      "community_name": "auth.module.ts",
       "norm_label": ".verifytoken()"
     },
     {
@@ -7501,8 +7501,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_user_repository_port",
-      "community": 149,
-      "community_name": "Docker Swarm Skill",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "user.repository.port.ts"
     },
     {
@@ -7512,8 +7512,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_domain_ports_outbound_user_repository_port_user_repository_port",
-      "community": 149,
-      "community_name": "Docker Swarm Skill",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "user_repository_port"
     },
     {
@@ -7677,8 +7677,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation",
-      "community": 157,
-      "community_name": "RetryProxyConfig.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "env.validation.ts"
     },
     {
@@ -7688,8 +7688,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation_environment",
-      "community": 157,
-      "community_name": "RetryProxyConfig.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "environment"
     },
     {
@@ -7699,8 +7699,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation_environmentvariables",
-      "community": 157,
-      "community_name": "RetryProxyConfig.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "environmentvariables"
     },
     {
@@ -7710,8 +7710,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "isenum",
-      "community": 157,
-      "community_name": "RetryProxyConfig.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "isenum"
     },
     {
@@ -7721,8 +7721,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation_ts_isoptional",
-      "community": 157,
-      "community_name": "RetryProxyConfig.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "isoptional"
     },
     {
@@ -7732,8 +7732,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation_ts_isnumber",
-      "community": 157,
-      "community_name": "RetryProxyConfig.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "isnumber"
     },
     {
@@ -7743,8 +7743,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation_ts_isstring",
-      "community": 157,
-      "community_name": "RetryProxyConfig.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "isstring"
     },
     {
@@ -7754,8 +7754,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_env_validation_validateenv",
-      "community": 157,
-      "community_name": "RetryProxyConfig.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "validateenv()"
     },
     {
@@ -7765,8 +7765,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_config_index",
-      "community": 157,
-      "community_name": "RetryProxyConfig.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "index.ts"
     },
     {
@@ -7776,8 +7776,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_index",
-      "community": 157,
-      "community_name": "RetryProxyConfig.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "index.ts"
     },
     {
@@ -7787,8 +7787,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_index",
-      "community": 157,
-      "community_name": "RetryProxyConfig.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "index.ts"
     },
     {
@@ -7798,8 +7798,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_security_jwt_util",
-      "community": 37,
-      "community_name": "AuthResponse",
+      "community": 212,
+      "community_name": "AppController",
       "norm_label": "jwt.util.ts"
     },
     {
@@ -7963,8 +7963,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_index",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "index.ts"
     },
     {
@@ -7974,8 +7974,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_logger_config",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "logger.config.ts"
     },
     {
@@ -7985,8 +7985,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_logger_config_otellogformat",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "otellogformat"
     },
     {
@@ -7996,8 +7996,8 @@
       "source_location": "L105",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_logger_config_createwinstonlogger",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "createwinstonlogger()"
     },
     {
@@ -8051,8 +8051,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "tracing.ts"
     },
     {
@@ -8062,8 +8062,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing_logger",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "logger"
     },
     {
@@ -8073,8 +8073,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing_createresource",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "createresource()"
     },
     {
@@ -8084,8 +8084,8 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing_traceexporter",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "traceexporter"
     },
     {
@@ -8095,8 +8095,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing_metricexporter",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "metricexporter"
     },
     {
@@ -8106,8 +8106,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing_otelsdk",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "otelsdk"
     },
     {
@@ -8117,8 +8117,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_infrastructure_telemetry_tracing_starttelemetry",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "starttelemetry()"
     },
     {
@@ -8128,8 +8128,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_main",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "main.ts"
     },
     {
@@ -8139,8 +8139,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_src_main_bootstrap",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "bootstrap()"
     },
     {
@@ -8150,8 +8150,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_test_app_e2e_spec",
-      "community": 43,
-      "community_name": "JwtAuthFilter.java",
+      "community": 121,
+      "community_name": "api-gateway:api-gateway",
       "norm_label": "app.e2e-spec.ts"
     },
     {
@@ -8865,8 +8865,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_dependencies_nestjs_config",
-      "community": 417,
-      "community_name": "axios",
+      "community": 372,
+      "community_name": "@nestjs/core",
       "norm_label": "@nestjs/config"
     },
     {
@@ -8876,8 +8876,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_nestjs_config",
-      "community": 417,
-      "community_name": "axios",
+      "community": 372,
+      "community_name": "@nestjs/core",
       "norm_label": "@nestjs/config"
     },
     {
@@ -8931,8 +8931,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_dependencies_nestjs_platform_express",
-      "community": 372,
-      "community_name": "@nestjs/core",
+      "community": 157,
+      "community_name": "RetryProxyConfig.java",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -8942,8 +8942,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_nestjs_platform_express",
-      "community": 372,
-      "community_name": "@nestjs/core",
+      "community": 157,
+      "community_name": "RetryProxyConfig.java",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -9778,8 +9778,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_devdependencies_eslint",
-      "community": 374,
-      "community_name": "@nestjs/terminus",
+      "community": 152,
+      "community_name": "swarm-init.sh",
       "norm_label": "eslint"
     },
     {
@@ -9789,8 +9789,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_eslint",
-      "community": 374,
-      "community_name": "@nestjs/terminus",
+      "community": 152,
+      "community_name": "swarm-init.sh",
       "norm_label": "eslint"
     },
     {
@@ -9800,8 +9800,8 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_devdependencies_eslint_config_prettier",
-      "community": 152,
-      "community_name": "swarm-init.sh",
+      "community": 356,
+      "community_name": "@eslint/js",
       "norm_label": "eslint-config-prettier"
     },
     {
@@ -9811,8 +9811,8 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_eslint_config_prettier",
-      "community": 152,
-      "community_name": "swarm-init.sh",
+      "community": 356,
+      "community_name": "@eslint/js",
       "norm_label": "eslint-config-prettier"
     },
     {
@@ -12561,8 +12561,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_dependencies_nestjs_terminus",
-      "community": 122,
-      "community_name": "auth-service:auth-service",
+      "community": 374,
+      "community_name": "@nestjs/terminus",
       "norm_label": "@nestjs/terminus"
     },
     {
@@ -12572,8 +12572,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_nestjs_terminus",
-      "community": 122,
-      "community_name": "auth-service:auth-service",
+      "community": 374,
+      "community_name": "@nestjs/terminus",
       "norm_label": "@nestjs/terminus"
     },
     {
@@ -12891,8 +12891,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_dependencies_class_transformer",
-      "community": 511,
-      "community_name": "@opentelemetry/resources",
+      "community": 122,
+      "community_name": "auth-service:auth-service",
       "norm_label": "class-transformer"
     },
     {
@@ -12902,8 +12902,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_class_transformer",
-      "community": 511,
-      "community_name": "@opentelemetry/resources",
+      "community": 122,
+      "community_name": "auth-service:auth-service",
       "norm_label": "class-transformer"
     },
     {
@@ -17258,8 +17258,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_nestjs_terminus",
-      "community": 544,
-      "community_name": "eslint",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@nestjs/terminus"
     },
     {
@@ -17269,8 +17269,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_terminus",
-      "community": 544,
-      "community_name": "eslint",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@nestjs/terminus"
     },
     {
@@ -17588,8 +17588,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_class_validator",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 391,
+      "community_name": "@nestjs/common",
       "norm_label": "class-validator"
     },
     {
@@ -17599,8 +17599,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_class_validator",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 391,
+      "community_name": "@nestjs/common",
       "norm_label": "class-validator"
     },
     {
@@ -23984,8 +23984,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "frontend_package_dependencies_axios",
-      "community": 6,
-      "community_name": "dependencies",
+      "community": 404,
+      "community_name": "ioredis",
       "norm_label": "axios"
     },
     {
@@ -23995,8 +23995,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "frontend_package_json_axios",
-      "community": 6,
-      "community_name": "dependencies",
+      "community": 404,
+      "community_name": "ioredis",
       "norm_label": "axios"
     },
     {
@@ -24138,8 +24138,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "frontend_package_dependencies_react_dom",
-      "community": 391,
-      "community_name": "@nestjs/common",
+      "community": 6,
+      "community_name": "dependencies",
       "norm_label": "react-dom"
     },
     {
@@ -24149,8 +24149,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "react_dom",
-      "community": 391,
-      "community_name": "@nestjs/common",
+      "community": 6,
+      "community_name": "dependencies",
       "norm_label": "react-dom"
     },
     {
@@ -26447,6 +26447,62 @@
       "community": 399,
       "community_name": "@opentelemetry/exporter-trace-otlp-http",
       "norm_label": "endpoints"
+    },
+    {
+      "label": "stress-test-transactions.ps1",
+      "file_type": "code",
+      "source_file": "scripts/stress-test-transactions.ps1",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_stress_test_transactions_ps1_scripts_stress_test_transactions",
+      "community": 417,
+      "community_name": "axios",
+      "norm_label": "stress-test-transactions.ps1"
+    },
+    {
+      "label": "stress-test-transactions.sh",
+      "file_type": "code",
+      "source_file": "scripts/stress-test-transactions.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "_origin": "ast",
+      "id": "scripts_stress_test_transactions_sh_scripts_stress_test_transactions",
+      "community": 136,
+      "community_name": "PdfGeneratorService",
+      "norm_label": "stress-test-transactions.sh"
+    },
+    {
+      "label": "stress-test-transactions.sh script",
+      "file_type": "code",
+      "source_file": "scripts/stress-test-transactions.sh",
+      "source_location": "L1",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "_origin": "ast",
+      "id": "scripts_stress_test_transactions_sh__entry",
+      "community": 136,
+      "community_name": "PdfGeneratorService",
+      "norm_label": "stress-test-transactions.sh script"
+    },
+    {
+      "label": "run_tx_worker()",
+      "file_type": "code",
+      "source_file": "scripts/stress-test-transactions.sh",
+      "source_location": "L79",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "_origin": "ast",
+      "id": "scripts_stress_test_transactions_run_tx_worker",
+      "community": 136,
+      "community_name": "PdfGeneratorService",
+      "norm_label": "run_tx_worker()"
     },
     {
       "label": "stress-test.ps1",
@@ -31624,8 +31680,8 @@
       "source_location": "L641",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_examples_java_webapp_readme_activity_diagram_from_filter_chain",
-      "community": 356,
-      "community_name": "@eslint/js",
+      "community": 377,
+      "community_name": "@opentelemetry/instrumentation-express",
       "norm_label": "activity diagram from filter chain"
     },
     {
@@ -31635,8 +31691,8 @@
       "source_location": "L643",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_examples_java_webapp_readme_filter_chain_configuration",
-      "community": 356,
-      "community_name": "@eslint/js",
+      "community": 377,
+      "community_name": "@opentelemetry/instrumentation-express",
       "norm_label": "filter chain configuration"
     },
     {
@@ -31646,8 +31702,8 @@
       "source_location": "L736",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_examples_java_webapp_readme_web_xml_filter_ordering",
-      "community": 356,
-      "community_name": "@eslint/js",
+      "community": 377,
+      "community_name": "@opentelemetry/instrumentation-express",
       "norm_label": "web.xml filter ordering"
     },
     {
@@ -31657,8 +31713,8 @@
       "source_location": "L775",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_examples_java_webapp_readme_mapping_to_activity_diagram",
-      "community": 356,
-      "community_name": "@eslint/js",
+      "community": 377,
+      "community_name": "@opentelemetry/instrumentation-express",
       "norm_label": "mapping to activity diagram"
     },
     {
@@ -33505,8 +33561,8 @@
       "source_location": "L428",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_anti_patterns_to_avoid",
-      "community": 104,
-      "community_name": "NotificationServiceApplication",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "anti-patterns to avoid"
     },
     {
@@ -33516,8 +33572,8 @@
       "source_location": "L430",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_too_complex",
-      "community": 104,
-      "community_name": "NotificationServiceApplication",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "\u274c too complex"
     },
     {
@@ -33527,8 +33583,8 @@
       "source_location": "L441",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_unclear_decisions",
-      "community": 104,
-      "community_name": "NotificationServiceApplication",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "\u274c unclear decisions"
     },
     {
@@ -33538,8 +33594,8 @@
       "source_location": "L453",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_missing_error_handling",
-      "community": 104,
-      "community_name": "NotificationServiceApplication",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "\u274c missing error handling"
     },
     {
@@ -33956,8 +34012,8 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_common_deployment_patterns",
-      "community": 365,
-      "community_name": "SKILL.md",
+      "community": 120,
+      "community_name": "fix_kafka_dashboard.py",
       "norm_label": "common deployment patterns"
     },
     {
@@ -33967,8 +34023,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_three_tier_architecture",
-      "community": 365,
-      "community_name": "SKILL.md",
+      "community": 120,
+      "community_name": "fix_kafka_dashboard.py",
       "norm_label": "three-tier architecture"
     },
     {
@@ -33978,8 +34034,8 @@
       "source_location": "L105",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_microservices_deployment_kubernetes",
-      "community": 365,
-      "community_name": "SKILL.md",
+      "community": 120,
+      "community_name": "fix_kafka_dashboard.py",
       "norm_label": "microservices deployment (kubernetes)"
     },
     {
@@ -33989,8 +34045,8 @@
       "source_location": "L182",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_serverless_architecture",
-      "community": 365,
-      "community_name": "SKILL.md",
+      "community": 120,
+      "community_name": "fix_kafka_dashboard.py",
       "norm_label": "serverless architecture"
     },
     {
@@ -34055,8 +34111,8 @@
       "source_location": "L456",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_best_practices",
-      "community": 119,
-      "community_name": "build_apm_dashboard_from_api.py",
+      "community": 365,
+      "community_name": "SKILL.md",
       "norm_label": "best practices"
     },
     {
@@ -34066,8 +34122,8 @@
       "source_location": "L458",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_1_show_resource_specifications",
-      "community": 119,
-      "community_name": "build_apm_dashboard_from_api.py",
+      "community": 365,
+      "community_name": "SKILL.md",
       "norm_label": "1. show resource specifications"
     },
     {
@@ -34077,8 +34133,8 @@
       "source_location": "L467",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_2_indicate_network_boundaries",
-      "community": 119,
-      "community_name": "build_apm_dashboard_from_api.py",
+      "community": 365,
+      "community_name": "SKILL.md",
       "norm_label": "2. indicate network boundaries"
     },
     {
@@ -34088,8 +34144,8 @@
       "source_location": "L476",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_3_show_scaling_configuration",
-      "community": 119,
-      "community_name": "build_apm_dashboard_from_api.py",
+      "community": 365,
+      "community_name": "SKILL.md",
       "norm_label": "3. show scaling configuration"
     },
     {
@@ -34099,8 +34155,8 @@
       "source_location": "L488",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_4_document_ports_and_protocols",
-      "community": 119,
-      "community_name": "build_apm_dashboard_from_api.py",
+      "community": 365,
+      "community_name": "SKILL.md",
       "norm_label": "4. document ports and protocols"
     },
     {
@@ -34110,8 +34166,8 @@
       "source_location": "L498",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_deployment_diagrams_5_indicate_high_availability",
-      "community": 119,
-      "community_name": "build_apm_dashboard_from_api.py",
+      "community": 365,
+      "community_name": "SKILL.md",
       "norm_label": "5. indicate high availability"
     },
     {
@@ -34209,8 +34265,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_basic_elements",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 125,
+      "community_name": "transaction-service:transaction-service",
       "norm_label": "basic elements"
     },
     {
@@ -34220,8 +34276,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_participants",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 125,
+      "community_name": "transaction-service:transaction-service",
       "norm_label": "participants"
     },
     {
@@ -34231,8 +34287,8 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_message_types",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 125,
+      "community_name": "transaction-service:transaction-service",
       "norm_label": "message types"
     },
     {
@@ -34242,8 +34298,8 @@
       "source_location": "L97",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_activation_boxes",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 125,
+      "community_name": "transaction-service:transaction-service",
       "norm_label": "activation boxes"
     },
     {
@@ -34253,8 +34309,8 @@
       "source_location": "L119",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_rest_api_patterns",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 130,
+      "community_name": "WorkerKafkaConsumer.java",
       "norm_label": "rest api patterns"
     },
     {
@@ -34264,8 +34320,8 @@
       "source_location": "L121",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_pattern_simple_crud_operation",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 130,
+      "community_name": "WorkerKafkaConsumer.java",
       "norm_label": "pattern - simple crud operation"
     },
     {
@@ -34275,8 +34331,8 @@
       "source_location": "L145",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_pattern_list_with_pagination",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 130,
+      "community_name": "WorkerKafkaConsumer.java",
       "norm_label": "pattern - list with pagination"
     },
     {
@@ -34286,8 +34342,8 @@
       "source_location": "L174",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_pattern_update_with_optimistic_locking",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 130,
+      "community_name": "WorkerKafkaConsumer.java",
       "norm_label": "pattern - update with optimistic locking"
     },
     {
@@ -34440,8 +34496,8 @@
       "source_location": "L580",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_advanced_patterns",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 128,
+      "community_name": "WorkerController",
       "norm_label": "advanced patterns"
     },
     {
@@ -34451,8 +34507,8 @@
       "source_location": "L582",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_pattern_parallel_requests",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 128,
+      "community_name": "WorkerController",
       "norm_label": "pattern - parallel requests"
     },
     {
@@ -34462,8 +34518,8 @@
       "source_location": "L613",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_pattern_request_batching",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 128,
+      "community_name": "WorkerController",
       "norm_label": "pattern - request batching"
     },
     {
@@ -34473,8 +34529,8 @@
       "source_location": "L648",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_pattern_webhook_callback",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 128,
+      "community_name": "WorkerController",
       "norm_label": "pattern - webhook callback"
     },
     {
@@ -34484,8 +34540,8 @@
       "source_location": "L692",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_best_practices",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 60,
+      "community_name": "mvnw",
       "norm_label": "best practices"
     },
     {
@@ -34495,8 +34551,8 @@
       "source_location": "L694",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_1_one_scenario_per_diagram",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 60,
+      "community_name": "mvnw",
       "norm_label": "1. **one scenario per diagram**"
     },
     {
@@ -34506,8 +34562,8 @@
       "source_location": "L721",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_2_use_clear_specific_labels",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 60,
+      "community_name": "mvnw",
       "norm_label": "2. **use clear, specific labels**"
     },
     {
@@ -34517,8 +34573,8 @@
       "source_location": "L727",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_3_include_http_status_codes",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 60,
+      "community_name": "mvnw",
       "norm_label": "3. **include http status codes**"
     },
     {
@@ -34528,8 +34584,8 @@
       "source_location": "L749",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_4_show_timing_information",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 60,
+      "community_name": "mvnw",
       "norm_label": "4. **show timing information**"
     },
     {
@@ -34539,8 +34595,8 @@
       "source_location": "L764",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_5_use_alt_opt_loop_fragments_sparingly",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 60,
+      "community_name": "mvnw",
       "norm_label": "5. **use alt/opt/loop fragments sparingly**"
     },
     {
@@ -34550,8 +34606,8 @@
       "source_location": "L785",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_6_indicate_async_vs_sync",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 60,
+      "community_name": "mvnw",
       "norm_label": "6. **indicate async vs. sync**"
     },
     {
@@ -34561,8 +34617,8 @@
       "source_location": "L804",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_7_group_related_participants",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 60,
+      "community_name": "mvnw",
       "norm_label": "7. **group related participants**"
     },
     {
@@ -34572,8 +34628,8 @@
       "source_location": "L825",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_sequence_diagrams_8_use_unicode_symbols_consistently",
-      "community": 74,
-      "community_name": "TransferResponse",
+      "community": 60,
+      "community_name": "mvnw",
       "norm_label": "8. **use unicode symbols consistently**"
     },
     {
@@ -35232,8 +35288,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_cross_cutting_issues_all_diagrams",
-      "community": 125,
-      "community_name": "transaction-service:transaction-service",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "cross-cutting issues (all diagrams)"
     },
     {
@@ -35243,8 +35299,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_1_reserved_words_as_identifiers",
-      "community": 125,
-      "community_name": "transaction-service:transaction-service",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 1: reserved words as identifiers"
     },
     {
@@ -35254,8 +35310,8 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_2_unescaped_special_characters",
-      "community": 125,
-      "community_name": "transaction-service:transaction-service",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 2: unescaped special characters"
     },
     {
@@ -35265,8 +35321,8 @@
       "source_location": "L126",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_3_invalid_classdef_syntax",
-      "community": 125,
-      "community_name": "transaction-service:transaction-service",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 3: invalid classdef syntax"
     },
     {
@@ -35276,8 +35332,8 @@
       "source_location": "L162",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_4_empty_comments",
-      "community": 125,
-      "community_name": "transaction-service:transaction-service",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 4: empty comments"
     },
     {
@@ -35364,8 +35420,8 @@
       "source_location": "L364",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_sequence_diagrams",
-      "community": 120,
-      "community_name": "fix_kafka_dashboard.py",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "sequence diagrams"
     },
     {
@@ -35375,8 +35431,8 @@
       "source_location": "L366",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_11_missing_colon_before_message_text",
-      "community": 120,
-      "community_name": "fix_kafka_dashboard.py",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 11: missing colon before message text"
     },
     {
@@ -35386,8 +35442,8 @@
       "source_location": "L386",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_12_missing_space_in_participant_declaration",
-      "community": 120,
-      "community_name": "fix_kafka_dashboard.py",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 12: missing space in participant declaration"
     },
     {
@@ -35397,8 +35453,8 @@
       "source_location": "L406",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_13_missing_end_in_alt_opt_loop_blocks",
-      "community": 120,
-      "community_name": "fix_kafka_dashboard.py",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 13: missing \"end\" in alt/opt/loop blocks"
     },
     {
@@ -35408,8 +35464,8 @@
       "source_location": "L437",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_14_misplaced_activation_boxes",
-      "community": 120,
-      "community_name": "fix_kafka_dashboard.py",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 14: misplaced activation boxes"
     },
     {
@@ -35419,8 +35475,8 @@
       "source_location": "L469",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_15_participant_names_starting_with_x",
-      "community": 120,
-      "community_name": "fix_kafka_dashboard.py",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 15: participant names starting with 'x'"
     },
     {
@@ -35430,8 +35486,8 @@
       "source_location": "L494",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_class_diagrams",
-      "community": 136,
-      "community_name": "PdfGeneratorService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "class diagrams"
     },
     {
@@ -35441,8 +35497,8 @@
       "source_location": "L496",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_16_missing_quotes_in_cardinality_notation",
-      "community": 136,
-      "community_name": "PdfGeneratorService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 16: missing quotes in cardinality notation"
     },
     {
@@ -35452,8 +35508,8 @@
       "source_location": "L516",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_17_missing_parentheses_in_method_declarations",
-      "community": 136,
-      "community_name": "PdfGeneratorService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 17: missing parentheses in method declarations"
     },
     {
@@ -35463,8 +35519,8 @@
       "source_location": "L542",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_18_incorrect_static_abstract_modifier_placement",
-      "community": 136,
-      "community_name": "PdfGeneratorService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 18: incorrect static/abstract modifier placement"
     },
     {
@@ -35474,8 +35530,8 @@
       "source_location": "L568",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_state_diagrams",
-      "community": 404,
-      "community_name": "ioredis",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "state diagrams"
     },
     {
@@ -35485,8 +35541,8 @@
       "source_location": "L570",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_19_state_names_starting_with_x",
-      "community": 404,
-      "community_name": "ioredis",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 19: state names starting with 'x'"
     },
     {
@@ -35496,8 +35552,8 @@
       "source_location": "L592",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_20_incorrect_state_description_syntax",
-      "community": 404,
-      "community_name": "ioredis",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 20: incorrect state description syntax"
     },
     {
@@ -35507,8 +35563,8 @@
       "source_location": "L612",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_21_classdef_on_special_states",
-      "community": 404,
-      "community_name": "ioredis",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 21: classdef on special states"
     },
     {
@@ -35551,8 +35607,8 @@
       "source_location": "L690",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_gantt_charts",
-      "community": 130,
-      "community_name": "WorkerKafkaConsumer.java",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "gantt charts"
     },
     {
@@ -35562,8 +35618,8 @@
       "source_location": "L692",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_24_reserved_words_as_task_names",
-      "community": 130,
-      "community_name": "WorkerKafkaConsumer.java",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 24: reserved words as task names"
     },
     {
@@ -35573,8 +35629,8 @@
       "source_location": "L722",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_25_missing_comma_in_date_specification",
-      "community": 130,
-      "community_name": "WorkerKafkaConsumer.java",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 25: missing comma in date specification"
     },
     {
@@ -35584,8 +35640,8 @@
       "source_location": "L746",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_26_special_characters_in_task_names",
-      "community": 130,
-      "community_name": "WorkerKafkaConsumer.java",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 26: special characters in task names"
     },
     {
@@ -35595,8 +35651,8 @@
       "source_location": "L777",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_27_incorrect_after_dependency_syntax",
-      "community": 130,
-      "community_name": "WorkerKafkaConsumer.java",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 27: incorrect after dependency syntax"
     },
     {
@@ -35628,8 +35684,8 @@
       "source_location": "L831",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_general_resources",
-      "community": 128,
-      "community_name": "WorkerController",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "general resources"
     },
     {
@@ -35639,8 +35695,8 @@
       "source_location": "L833",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_official_documentation",
-      "community": 128,
-      "community_name": "WorkerController",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "official documentation"
     },
     {
@@ -35650,8 +35706,8 @@
       "source_location": "L839",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_diagram_specific_guides",
-      "community": 128,
-      "community_name": "WorkerController",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "diagram-specific guides"
     },
     {
@@ -35661,8 +35717,8 @@
       "source_location": "L847",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_validation_tools",
-      "community": 128,
-      "community_name": "WorkerController",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "validation tools"
     },
     {
@@ -35672,8 +35728,8 @@
       "source_location": "L867",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_debugging_tips",
-      "community": 128,
-      "community_name": "WorkerController",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "debugging tips"
     },
     {
@@ -35727,8 +35783,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_symbol_categories",
-      "community": 367,
-      "community_name": "typescript",
+      "community": 43,
+      "community_name": "JwtAuthFilter.java",
       "norm_label": "symbol categories"
     },
     {
@@ -35738,8 +35794,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_infrastructure_cloud",
-      "community": 367,
-      "community_name": "typescript",
+      "community": 43,
+      "community_name": "JwtAuthFilter.java",
       "norm_label": "infrastructure & cloud (\u2601\ufe0f \ud83c\udf10 \ud83d\udd0c)"
     },
     {
@@ -35749,8 +35805,8 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_compute_processing",
-      "community": 367,
-      "community_name": "typescript",
+      "community": 43,
+      "community_name": "JwtAuthFilter.java",
       "norm_label": "compute & processing (\u2699\ufe0f \u26a1 \ud83d\udd04)"
     },
     {
@@ -35760,8 +35816,8 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_data_storage",
-      "community": 367,
-      "community_name": "typescript",
+      "community": 43,
+      "community_name": "JwtAuthFilter.java",
       "norm_label": "data & storage (\ud83d\udcbe \ud83d\udce6 \ud83d\udcca)"
     },
     {
@@ -35771,8 +35827,8 @@
       "source_location": "L80",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_messaging_events",
-      "community": 367,
-      "community_name": "typescript",
+      "community": 43,
+      "community_name": "JwtAuthFilter.java",
       "norm_label": "messaging & events (\ud83d\udce8 \ud83d\udcec \ud83d\udc30)"
     },
     {
@@ -35782,8 +35838,8 @@
       "source_location": "L102",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_security_authentication",
-      "community": 367,
-      "community_name": "typescript",
+      "community": 43,
+      "community_name": "JwtAuthFilter.java",
       "norm_label": "security & authentication (\ud83d\udd10 \ud83d\udd11 \ud83d\udee1\ufe0f)"
     },
     {
@@ -35793,8 +35849,8 @@
       "source_location": "L131",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_monitoring_operations",
-      "community": 367,
-      "community_name": "typescript",
+      "community": 43,
+      "community_name": "JwtAuthFilter.java",
       "norm_label": "monitoring & operations (\ud83d\udcdd \ud83d\udcca \ud83d\udea8)"
     },
     {
@@ -35804,8 +35860,8 @@
       "source_location": "L157",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_status_state",
-      "community": 367,
-      "community_name": "typescript",
+      "community": 43,
+      "community_name": "JwtAuthFilter.java",
       "norm_label": "status & state (\u2713 \u274c \u23f8\ufe0f)"
     },
     {
@@ -35815,8 +35871,8 @@
       "source_location": "L184",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_time_scheduling",
-      "community": 367,
-      "community_name": "typescript",
+      "community": 43,
+      "community_name": "JwtAuthFilter.java",
       "norm_label": "time & scheduling (\u23f0 \u23f1\ufe0f \ud83d\udcc5)"
     },
     {
@@ -35826,8 +35882,8 @@
       "source_location": "L204",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_development_code",
-      "community": 367,
-      "community_name": "typescript",
+      "community": 43,
+      "community_name": "JwtAuthFilter.java",
       "norm_label": "development & code (\ud83d\udcbb \ud83d\udd27 \ud83d\udc1b)"
     },
     {
@@ -35837,8 +35893,8 @@
       "source_location": "L226",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_ui_ux_frontend",
-      "community": 367,
-      "community_name": "typescript",
+      "community": 43,
+      "community_name": "JwtAuthFilter.java",
       "norm_label": "ui/ux & frontend (\u269b\ufe0f \ud83c\udfa8 \ud83d\udcf1)"
     },
     {
@@ -35848,8 +35904,8 @@
       "source_location": "L247",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_unicode_symbols_guide_business_domain",
-      "community": 367,
-      "community_name": "typescript",
+      "community": 43,
+      "community_name": "JwtAuthFilter.java",
       "norm_label": "business & domain (\ud83d\udcb0 \ud83d\uded2 \ud83d\udccb)"
     },
     {
@@ -51314,8 +51370,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_database_bases_de_datos_relacionales_y_pgbouncer",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 104,
+      "community_name": "NotificationServiceApplication",
       "norm_label": "bases de datos relacionales y pgbouncer"
     },
     {
@@ -51325,8 +51381,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "docs_database_contenido",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 104,
+      "community_name": "NotificationServiceApplication",
       "norm_label": "\ud83d\udcd1 contenido"
     },
     {
@@ -51336,8 +51392,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "docs_database_1_topolog\u00eda_de_persistencia_y_segregaci\u00f3n",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 104,
+      "community_name": "NotificationServiceApplication",
       "norm_label": "1. topologia de persistencia y segregacion"
     },
     {
@@ -51347,8 +51403,8 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "docs_database_2_connection_pooling_con_pgbouncer_core",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 104,
+      "community_name": "NotificationServiceApplication",
       "norm_label": "2. connection pooling con pgbouncer core"
     },
     {
@@ -51534,8 +51590,8 @@
       "source_location": "L230",
       "_origin": "ast",
       "id": "docs_database_4_diagrama_entidad_relaci\u00f3n_erd_consolidado",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 104,
+      "community_name": "NotificationServiceApplication",
       "norm_label": "4. diagrama entidad-relacion (erd) consolidado"
     },
     {
@@ -51545,8 +51601,8 @@
       "source_location": "L336",
       "_origin": "ast",
       "id": "docs_database_5_gesti\u00f3n_de_esquemas_con_prisma_orm",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 104,
+      "community_name": "NotificationServiceApplication",
       "norm_label": "5. gestion de esquemas con prisma orm"
     },
     {
@@ -51556,8 +51612,8 @@
       "source_location": "L340",
       "_origin": "ast",
       "id": "docs_database_comandos_de_administraci\u00f3n_prisma",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 104,
+      "community_name": "NotificationServiceApplication",
       "norm_label": "comandos de administracion prisma:"
     },
     {
@@ -51567,8 +51623,8 @@
       "source_location": "L355",
       "_origin": "ast",
       "id": "docs_database_6_estrategia_de_copias_de_seguridad_y_recuperaci\u00f3n",
-      "community": 168,
-      "community_name": "transaction.use-cases.ts",
+      "community": 104,
+      "community_name": "NotificationServiceApplication",
       "norm_label": "6. estrategia de copias de seguridad y recuperacion"
     },
     {
@@ -53756,8 +53812,8 @@
       "source_location": "L87",
       "_origin": "ast",
       "id": "docs_services_2_user_service_user_service",
-      "community": 24,
-      "community_name": "dashboard-config.js",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "2. user service (`user-service`)"
     },
     {
@@ -53767,8 +53823,8 @@
       "source_location": "L89",
       "_origin": "ast",
       "id": "docs_services_2_1_prop\u00f3sito",
-      "community": 24,
-      "community_name": "dashboard-config.js",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "2.1. proposito"
     },
     {
@@ -53778,8 +53834,8 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "docs_services_2_2_responsabilidades",
-      "community": 24,
-      "community_name": "dashboard-config.js",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "2.2. responsabilidades"
     },
     {
@@ -53789,8 +53845,8 @@
       "source_location": "L103",
       "_origin": "ast",
       "id": "docs_services_2_3_arquitectura_interna",
-      "community": 24,
-      "community_name": "dashboard-config.js",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "2.3. arquitectura interna"
     },
     {
@@ -53800,8 +53856,8 @@
       "source_location": "L118",
       "_origin": "ast",
       "id": "docs_services_2_4_canales_de_entrada_y_salida",
-      "community": 24,
-      "community_name": "dashboard-config.js",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "2.4. canales de entrada y salida"
     },
     {
@@ -53811,8 +53867,8 @@
       "source_location": "L126",
       "_origin": "ast",
       "id": "docs_services_2_5_variables_de_configuraci\u00f3n",
-      "community": 24,
-      "community_name": "dashboard-config.js",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "2.5. variables de configuracion"
     },
     {
@@ -53822,8 +53878,8 @@
       "source_location": "L136",
       "_origin": "ast",
       "id": "docs_services_2_6_puertos_rutas_y_health_checks",
-      "community": 24,
-      "community_name": "dashboard-config.js",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "2.6. puertos, rutas y health checks"
     },
     {
@@ -53910,8 +53966,8 @@
       "source_location": "L220",
       "_origin": "ast",
       "id": "docs_services_4_notification_service_notification_service",
-      "community": 60,
-      "community_name": "mvnw",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "4. notification service (`notification-service`)"
     },
     {
@@ -53921,8 +53977,8 @@
       "source_location": "L222",
       "_origin": "ast",
       "id": "docs_services_4_1_prop\u00f3sito",
-      "community": 60,
-      "community_name": "mvnw",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "4.1. proposito"
     },
     {
@@ -53932,8 +53988,8 @@
       "source_location": "L225",
       "_origin": "ast",
       "id": "docs_services_4_2_responsabilidades",
-      "community": 60,
-      "community_name": "mvnw",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "4.2. responsabilidades"
     },
     {
@@ -53943,8 +53999,8 @@
       "source_location": "L236",
       "_origin": "ast",
       "id": "docs_services_4_3_arquitectura_interna",
-      "community": 60,
-      "community_name": "mvnw",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "4.3. arquitectura interna"
     },
     {
@@ -53954,8 +54010,8 @@
       "source_location": "L250",
       "_origin": "ast",
       "id": "docs_services_4_4_canales_de_entrada_y_salida",
-      "community": 60,
-      "community_name": "mvnw",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "4.4. canales de entrada y salida"
     },
     {
@@ -53965,8 +54021,8 @@
       "source_location": "L259",
       "_origin": "ast",
       "id": "docs_services_4_5_variables_de_configuraci\u00f3n",
-      "community": 60,
-      "community_name": "mvnw",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "4.5. variables de configuracion"
     },
     {
@@ -53976,8 +54032,8 @@
       "source_location": "L273",
       "_origin": "ast",
       "id": "docs_services_4_6_puertos_rutas_y_health_checks",
-      "community": 60,
-      "community_name": "mvnw",
+      "community": 75,
+      "community_name": "Reporte de Error en SigNoz: \"Request failed with status code 500\"",
       "norm_label": "4.6. puertos, rutas y health checks"
     },
     {
@@ -54537,8 +54593,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "docs_troubleshooting_1_problemas_en_kubernetes",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 119,
+      "community_name": "build_apm_dashboard_from_api.py",
       "norm_label": "1. problemas en kubernetes"
     },
     {
@@ -54548,8 +54604,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "docs_troubleshooting_1_1_pod_en_estado_pending",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 119,
+      "community_name": "build_apm_dashboard_from_api.py",
       "norm_label": "1.1. pod en estado `pending`"
     },
     {
@@ -54559,8 +54615,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "docs_troubleshooting_1_2_pod_en_estado_imagepullbackoff_o_errimagepull",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 119,
+      "community_name": "build_apm_dashboard_from_api.py",
       "norm_label": "1.2. pod en estado `imagepullbackoff` o `errimagepull`"
     },
     {
@@ -54570,8 +54626,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "docs_troubleshooting_1_3_pods_desalojados_en_estado_error_o_containerstatusunknown_the_node_had_condition_diskpressure",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 119,
+      "community_name": "build_apm_dashboard_from_api.py",
       "norm_label": "1.3. pods desalojados, en estado `error` o `containerstatusunknown` (`the node had condition: [diskpressure]`)"
     },
     {
@@ -54581,8 +54637,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "docs_troubleshooting_1_4_pod_en_estado_crashloopbackoff",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 119,
+      "community_name": "build_apm_dashboard_from_api.py",
       "norm_label": "1.4. pod en estado `crashloopbackoff`"
     },
     {
@@ -54592,8 +54648,8 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "docs_troubleshooting_1_5_fallo_en_readinessprobe_o_livenessprobe",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 119,
+      "community_name": "build_apm_dashboard_from_api.py",
       "norm_label": "1.5. fallo en `readinessprobe` o `livenessprobe`"
     },
     {
@@ -54603,8 +54659,8 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "docs_troubleshooting_1_6_error_al_compilar_o_montar_con_podman_socket_o_permisos_rootless",
-      "community": 167,
-      "community_name": "auth.use-cases.ts",
+      "community": 119,
+      "community_name": "build_apm_dashboard_from_api.py",
       "norm_label": "1.6. error al compilar o montar con podman: socket o permisos rootless"
     },
     {
@@ -97049,6 +97105,40 @@
     {
       "relation": "defines",
       "confidence": "EXTRACTED",
+      "source_file": "scripts/stress-test-transactions.sh",
+      "source_location": "L79",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_stress_test_transactions_sh_scripts_stress_test_transactions",
+      "target": "scripts_stress_test_transactions_run_tx_worker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/stress-test-transactions.sh",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_stress_test_transactions_sh_scripts_stress_test_transactions",
+      "target": "scripts_stress_test_transactions_sh__entry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/stress-test-transactions.sh",
+      "source_location": "L102",
+      "weight": 1.0,
+      "context": "call",
+      "_origin": "ast",
+      "source": "scripts_stress_test_transactions_sh__entry",
+      "target": "scripts_stress_test_transactions_run_tx_worker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
       "source_file": "scripts/stress-test.sh",
       "source_location": "L43",
       "weight": 1.0,
@@ -124923,5 +125013,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "32867eb92e04d564651bba3410a489f9fdb0306d"
+  "built_at_commit": "6f181237e69a9585e6e96b3d83739cec24084e5f"
 }

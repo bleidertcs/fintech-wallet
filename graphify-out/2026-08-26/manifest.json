@@ -2175,8 +2175,8 @@
     "semantic_hash": ""
   },
   "docs/kubernetes.md": {
-    "mtime": 1787323169.816651,
-    "ast_hash": "e4b3c76bd34df58b8468e3bda3d4779d",
+    "mtime": 1787754574.3314788,
+    "ast_hash": "8ce6c78bc42d187e696e8d9af813a863",
     "semantic_hash": ""
   },
   "docs/redis.md": {
@@ -2812,6 +2812,11 @@
   "scripts/verify_all_dashboard_queries.py": {
     "mtime": 1787596711.446139,
     "ast_hash": "1bae04af5cf9b563e5e7003fd89abe47",
+    "semantic_hash": ""
+  },
+  "k8s/13-pgadmin.yaml": {
+    "mtime": 1787755618.4015632,
+    "ast_hash": "6424b7b324bb6dca0aa46c853f379b29",
     "semantic_hash": ""
   }
 }
