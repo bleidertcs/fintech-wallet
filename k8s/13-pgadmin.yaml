@@ -1,0 +1,184 @@
+# ==============================================================================
+# 13-PGADMIN.YAML - PGADMIN 4 WEB UI PARA GESTIÓN DE BASES DE DATOS EN K8S
+# Despliega pgAdmin 4 preconfigurado con conexiones a postgres-core y postgres-support
+# Acceso Web:
+#   - NodePort: http://<IP_SERVIDOR>:30543
+#   - Ingress:  http://pgadmin.localhost (o http://localhost/pgadmin)
+#   - Port-Fwd: kubectl port-forward svc/pgadmin 5050:80 -n fintech -> http://localhost:5050
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. CONFIGMAP: Conexiones de Servidores Preconfiguradas (servers.json)
+# ------------------------------------------------------------------------------
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pgadmin-servers-config
+  namespace: fintech
+  labels:
+    app: pgadmin
+data:
+  servers.json: |
+    {
+      "Servers": {
+        "1": {
+          "Name": "postgres-core (authdb, userdb, txdb)",
+          "Group": "Fintech Wallet",
+          "Host": "postgres-core",
+          "Port": 5432,
+          "MaintenanceDB": "authdb",
+          "Username": "postgres",
+          "SSLMode": "prefer"
+        },
+        "2": {
+          "Name": "postgres-support (notificationdb, workerdb)",
+          "Group": "Fintech Wallet",
+          "Host": "postgres-support",
+          "Port": 5432,
+          "MaintenanceDB": "notificationdb",
+          "Username": "postgres",
+          "SSLMode": "prefer"
+        },
+        "3": {
+          "Name": "pgbouncer-core (Connection Pooler)",
+          "Group": "Fintech Wallet",
+          "Host": "pgbouncer-core",
+          "Port": 6432,
+          "MaintenanceDB": "authdb",
+          "Username": "postgres",
+          "SSLMode": "prefer"
+        }
+      }
+    }
+---
+# ------------------------------------------------------------------------------
+# 2. PERSISTENTVOLUMECLAIM: Almacenamiento persistente para sesiones de pgAdmin
+# ------------------------------------------------------------------------------
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pgadmin-data
+  namespace: fintech
+  labels:
+    app: pgadmin
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: "local-path"
+  resources:
+    requests:
+      storage: 1Gi
+---
+# ------------------------------------------------------------------------------
+# 3. DEPLOYMENT: pgAdmin 4
+# ------------------------------------------------------------------------------
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pgadmin
+  namespace: fintech
+  labels:
+    app: pgadmin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pgadmin
+  template:
+    metadata:
+      labels:
+        app: pgadmin
+    spec:
+      securityContext:
+        fsGroup: 5050
+        runAsUser: 5050
+        runAsGroup: 5050
+      containers:
+        - name: pgadmin
+          image: dpage/pgadmin4:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: PGADMIN_DEFAULT_EMAIL
+              value: "admin@fintech.local"
+            - name: PGADMIN_DEFAULT_PASSWORD
+              value: "admin12345"
+            - name: PGADMIN_CONFIG_SERVER_MODE
+              value: "True"
+            - name: PGADMIN_SERVER_JSON_FILE
+              value: "/etc/pgadmin/servers.json"
+          ports:
+            - containerPort: 80
+              name: http
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "50m"
+            limits:
+              memory: "512Mi"
+              cpu: "300m"
+          volumeMounts:
+            - name: pgadmin-data
+              mountPath: /var/lib/pgadmin
+            - name: pgadmin-servers
+              mountPath: /etc/pgadmin/servers.json
+              subPath: servers.json
+      volumes:
+        - name: pgadmin-data
+          persistentVolumeClaim:
+            claimName: pgadmin-data
+        - name: pgadmin-servers
+          configMap:
+            name: pgadmin-servers-config
+---
+# ------------------------------------------------------------------------------
+# 4. SERVICIO: pgadmin (NodePort 30543 + ClusterIP)
+# ------------------------------------------------------------------------------
+apiVersion: v1
+kind: Service
+metadata:
+  name: pgadmin
+  namespace: fintech
+  labels:
+    app: pgadmin
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30543
+      name: http
+  selector:
+    app: pgadmin
+---
+# ------------------------------------------------------------------------------
+# 5. INGRESS: pgadmin-ingress (Acceso vía dominio Traefik)
+# ------------------------------------------------------------------------------
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pgadmin-ingress
+  namespace: fintech
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: pgadmin.localhost
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: pgadmin
+                port:
+                  number: 80
+    - http:
+        paths:
+          - path: /pgadmin
+            pathType: Prefix
+            backend:
+              service:
+                name: pgadmin
+                port:
+                  number: 80

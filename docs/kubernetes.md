@@ -105,6 +105,7 @@ Para evitar condiciones de carrera durante el despliegue, los archivos YAML est�
 | `06-networkpolicy.yaml` | `NetworkPolicy` | Define reglas de aislamiento y tráfico permitido dentro del namespace |
 | `07-backup-cronjob.yaml` | `PersistentVolumeClaim`, `ConfigMap`, `CronJob` | Programa el respaldo diario automático de bases de datos a las 02:00 AM UTC |
 | `08-restore-job-template.yaml`| `Job` (Template bajo demanda) | Plantilla para recuperación ante desastres (DR) a partir de backups |
+| `13-pgadmin.yaml` | `ConfigMap`, `PersistentVolumeClaim`, `Deployment`, `Service`, `Ingress` | Despliega pgAdmin 4 Web preconfigurado para gestión visual de bases de datos |
 
 ### Aprovisionamiento del Clúster y Carga de Imágenes con Podman
 
@@ -195,6 +196,7 @@ kubectl apply -f k8s/07-backup-cronjob.yaml
 | `clickhouse` | StatefulSet | 1 | `9000` (TCP), `8123` (HTTP) | `200m` / `512Mi` | N/A | PVC: 5Gi (`local-path`)| Almacén APM |
 | `signoz` | Deployment | 1 | `8080` (NodePort: `30301`) | `50m` / `128Mi` | N/A | N/A | Dashboard UI SigNoz |
 | `otel-collector` | Deployment | 1 | `4317` (gRPC), `4318` (HTTP) | `50m` / `128Mi` | N/A | N/A | Recolector OpenTelemetry |
+| `pgadmin` | Deployment | 1 | `80` (NodePort: `30543`) | `50m` / `128Mi` | `300m` / `512Mi` | PVC: 1Gi (`local-path`)| Consola Web pgAdmin 4 |
 | `postgres-backup` | CronJob | Programado | N/A | `50m` / `64Mi` | N/A | PVC: 10Gi | Respaldo diario 02:00 AM |
 
 ---

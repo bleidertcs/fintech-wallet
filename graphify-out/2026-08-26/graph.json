@@ -3299,8 +3299,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_nestjs_platform_express",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 136,
+      "community_name": "PdfGeneratorService",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -3310,8 +3310,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_nestjs_platform_express",
-      "community": 57,
-      "community_name": "JwtUtil",
+      "community": 136,
+      "community_name": "PdfGeneratorService",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -3717,8 +3717,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_dependencies_class_transformer",
-      "community": 146,
-      "community_name": "worker-service:worker-service",
+      "community": 57,
+      "community_name": "JwtUtil",
       "norm_label": "class-transformer"
     },
     {
@@ -3728,8 +3728,8 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_nestjs_auth_service_package_json_class_transformer",
-      "community": 146,
-      "community_name": "worker-service:worker-service",
+      "community": 57,
+      "community_name": "JwtUtil",
       "norm_label": "class-transformer"
     },
     {
@@ -8887,8 +8887,8 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_dependencies_nestjs_core",
-      "community": 341,
-      "community_name": "globals",
+      "community": 372,
+      "community_name": "@nestjs/core",
       "norm_label": "@nestjs/core"
     },
     {
@@ -8898,8 +8898,8 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_nestjs_core",
-      "community": 341,
-      "community_name": "globals",
+      "community": 372,
+      "community_name": "@nestjs/core",
       "norm_label": "@nestjs/core"
     },
     {
@@ -8931,8 +8931,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_dependencies_nestjs_platform_express",
-      "community": 372,
-      "community_name": "@nestjs/core",
+      "community": 425,
+      "community_name": "@types/supertest",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -8942,8 +8942,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_nestjs_platform_express",
-      "community": 372,
-      "community_name": "@nestjs/core",
+      "community": 425,
+      "community_name": "@types/supertest",
       "norm_label": "@nestjs/platform-express"
     },
     {
@@ -9778,8 +9778,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_devdependencies_eslint",
-      "community": 374,
-      "community_name": "@nestjs/terminus",
+      "community": 152,
+      "community_name": "swarm-init.sh",
       "norm_label": "eslint"
     },
     {
@@ -9789,8 +9789,8 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_eslint",
-      "community": 374,
-      "community_name": "@nestjs/terminus",
+      "community": 152,
+      "community_name": "swarm-init.sh",
       "norm_label": "eslint"
     },
     {
@@ -9800,8 +9800,8 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_devdependencies_eslint_config_prettier",
-      "community": 152,
-      "community_name": "swarm-init.sh",
+      "community": 146,
+      "community_name": "worker-service:worker-service",
       "norm_label": "eslint-config-prettier"
     },
     {
@@ -9811,8 +9811,8 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "backend_nestjs_notification_service_package_json_eslint_config_prettier",
-      "community": 152,
-      "community_name": "swarm-init.sh",
+      "community": 146,
+      "community_name": "worker-service:worker-service",
       "norm_label": "eslint-config-prettier"
     },
     {
@@ -12473,8 +12473,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_dependencies_nestjs_cqrs",
-      "community": 425,
-      "community_name": "@types/supertest",
+      "community": 122,
+      "community_name": "auth-service:auth-service",
       "norm_label": "@nestjs/cqrs"
     },
     {
@@ -12484,8 +12484,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "nestjs_cqrs",
-      "community": 425,
-      "community_name": "@types/supertest",
+      "community": 122,
+      "community_name": "auth-service:auth-service",
       "norm_label": "@nestjs/cqrs"
     },
     {
@@ -12561,8 +12561,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_dependencies_nestjs_terminus",
-      "community": 122,
-      "community_name": "auth-service:auth-service",
+      "community": 374,
+      "community_name": "@nestjs/terminus",
       "norm_label": "@nestjs/terminus"
     },
     {
@@ -12572,8 +12572,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "backend_nestjs_transaction_service_package_json_nestjs_terminus",
-      "community": 122,
-      "community_name": "auth-service:auth-service",
+      "community": 374,
+      "community_name": "@nestjs/terminus",
       "norm_label": "@nestjs/terminus"
     },
     {
@@ -17258,8 +17258,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_nestjs_terminus",
-      "community": 544,
-      "community_name": "eslint",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@nestjs/terminus"
     },
     {
@@ -17269,8 +17269,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_nestjs_terminus",
-      "community": 544,
-      "community_name": "eslint",
+      "community": 394,
+      "community_name": "@nestjs/microservices",
       "norm_label": "@nestjs/terminus"
     },
     {
@@ -17588,8 +17588,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_dependencies_class_validator",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 341,
+      "community_name": "globals",
       "norm_label": "class-validator"
     },
     {
@@ -17599,8 +17599,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "backend_nestjs_user_service_package_json_class_validator",
-      "community": 394,
-      "community_name": "@nestjs/microservices",
+      "community": 341,
+      "community_name": "globals",
       "norm_label": "class-validator"
     },
     {
@@ -21306,8 +21306,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_swc_cli",
-      "community": 554,
-      "community_name": "@swc/cli",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "@swc/cli"
     },
     {
@@ -21317,8 +21317,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_swc_cli",
-      "community": 554,
-      "community_name": "@swc/cli",
+      "community": 155,
+      "community_name": "Funcionalidades",
       "norm_label": "@swc/cli"
     },
     {
@@ -21548,8 +21548,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_devdependencies_globals",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 544,
+      "community_name": "eslint",
       "norm_label": "globals"
     },
     {
@@ -21559,8 +21559,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "backend_nestjs_worker_service_package_json_globals",
-      "community": 155,
-      "community_name": "Funcionalidades",
+      "community": 544,
+      "community_name": "eslint",
       "norm_label": "globals"
     },
     {
@@ -33406,8 +33406,8 @@
       "source_location": "L291",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_best_practices",
-      "community": 329,
-      "community_name": "@opentelemetry/exporter-logs-otlp-http",
+      "community": 104,
+      "community_name": "NotificationServiceApplication",
       "norm_label": "best practices"
     },
     {
@@ -33417,8 +33417,8 @@
       "source_location": "L293",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_1_keep_flows_focused",
-      "community": 329,
-      "community_name": "@opentelemetry/exporter-logs-otlp-http",
+      "community": 104,
+      "community_name": "NotificationServiceApplication",
       "norm_label": "1. keep flows focused"
     },
     {
@@ -33428,8 +33428,8 @@
       "source_location": "L299",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_2_use_clear_naming",
-      "community": 329,
-      "community_name": "@opentelemetry/exporter-logs-otlp-http",
+      "community": 104,
+      "community_name": "NotificationServiceApplication",
       "norm_label": "2. use clear naming"
     },
     {
@@ -33439,8 +33439,8 @@
       "source_location": "L313",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_3_consistent_decision_logic",
-      "community": 329,
-      "community_name": "@opentelemetry/exporter-logs-otlp-http",
+      "community": 104,
+      "community_name": "NotificationServiceApplication",
       "norm_label": "3. consistent decision logic"
     },
     {
@@ -33450,8 +33450,8 @@
       "source_location": "L325",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_4_handle_error_paths",
-      "community": 329,
-      "community_name": "@opentelemetry/exporter-logs-otlp-http",
+      "community": 104,
+      "community_name": "NotificationServiceApplication",
       "norm_label": "4. handle error paths"
     },
     {
@@ -33461,8 +33461,8 @@
       "source_location": "L342",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_5_use_subgraphs_for_organization",
-      "community": 329,
-      "community_name": "@opentelemetry/exporter-logs-otlp-http",
+      "community": 104,
+      "community_name": "NotificationServiceApplication",
       "norm_label": "5. use subgraphs for organization"
     },
     {
@@ -33505,8 +33505,8 @@
       "source_location": "L428",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_anti_patterns_to_avoid",
-      "community": 104,
-      "community_name": "NotificationServiceApplication",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "anti-patterns to avoid"
     },
     {
@@ -33516,8 +33516,8 @@
       "source_location": "L430",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_too_complex",
-      "community": 104,
-      "community_name": "NotificationServiceApplication",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "\u274c too complex"
     },
     {
@@ -33527,8 +33527,8 @@
       "source_location": "L441",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_unclear_decisions",
-      "community": 104,
-      "community_name": "NotificationServiceApplication",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "\u274c unclear decisions"
     },
     {
@@ -33538,8 +33538,8 @@
       "source_location": "L453",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_diagrams_activity_diagrams_missing_error_handling",
-      "community": 104,
-      "community_name": "NotificationServiceApplication",
+      "community": 329,
+      "community_name": "@opentelemetry/exporter-logs-otlp-http",
       "norm_label": "\u274c missing error handling"
     },
     {
@@ -35430,8 +35430,8 @@
       "source_location": "L494",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_class_diagrams",
-      "community": 136,
-      "community_name": "PdfGeneratorService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "class diagrams"
     },
     {
@@ -35441,8 +35441,8 @@
       "source_location": "L496",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_16_missing_quotes_in_cardinality_notation",
-      "community": 136,
-      "community_name": "PdfGeneratorService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 16: missing quotes in cardinality notation"
     },
     {
@@ -35452,8 +35452,8 @@
       "source_location": "L516",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_17_missing_parentheses_in_method_declarations",
-      "community": 136,
-      "community_name": "PdfGeneratorService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 17: missing parentheses in method declarations"
     },
     {
@@ -35463,8 +35463,8 @@
       "source_location": "L542",
       "_origin": "ast",
       "id": "agents_skills_design_doc_mermaid_references_guides_troubleshooting_error_18_incorrect_static_abstract_modifier_placement",
-      "community": 136,
-      "community_name": "PdfGeneratorService",
+      "community": 54,
+      "community_name": "mvnw",
       "norm_label": "\u274c error 18: incorrect static/abstract modifier placement"
     },
     {
@@ -52378,7 +52378,7 @@
       "label": "Aprovisionamiento del Cl\u00faster y Carga de Im\u00e1genes con Podman",
       "file_type": "document",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L110",
+      "source_location": "L109",
       "_origin": "ast",
       "id": "docs_kubernetes_aprovisionamiento_del_cl\u00faster_y_carga_de_im\u00e1genes_con_podman",
       "community": 469,
@@ -52389,7 +52389,7 @@
       "label": "Opci\u00f3n 1: Cl\u00faster Local con Kind (Windows / Linux)",
       "file_type": "document",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L114",
+      "source_location": "L113",
       "_origin": "ast",
       "id": "docs_kubernetes_opci\u00f3n_1_cl\u00faster_local_con_kind_windows_linux",
       "community": 469,
@@ -52400,7 +52400,7 @@
       "label": "Opci\u00f3n 2: Cl\u00faster en Servidor Linux con K3s",
       "file_type": "document",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L130",
+      "source_location": "L129",
       "_origin": "ast",
       "id": "docs_kubernetes_opci\u00f3n_2_cl\u00faster_en_servidor_linux_con_k3s",
       "community": 469,
@@ -52411,7 +52411,7 @@
       "label": "Comandos de Despliegue Manual Secuencial",
       "file_type": "document",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L149",
+      "source_location": "L148",
       "_origin": "ast",
       "id": "docs_kubernetes_comandos_de_despliegue_manual_secuencial",
       "community": 469,
@@ -52422,7 +52422,7 @@
       "label": "3. Matriz Exhaustiva de Componentes Kubernetes",
       "file_type": "document",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L180",
+      "source_location": "L179",
       "_origin": "ast",
       "id": "docs_kubernetes_3_matriz_exhaustiva_de_componentes_kubernetes",
       "community": 469,
@@ -52433,7 +52433,7 @@
       "label": "4. Estrategia de Recursos y Scheduler QoS",
       "file_type": "document",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L204",
+      "source_location": "L202",
       "_origin": "ast",
       "id": "docs_kubernetes_4_estrategia_de_recursos_y_scheduler_qos",
       "community": 469,
@@ -52444,7 +52444,7 @@
       "label": "5. Pol\u00edticas de Seguridad y Aislamiento de Red",
       "file_type": "document",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L214",
+      "source_location": "L212",
       "_origin": "ast",
       "id": "docs_kubernetes_5_pol\u00edticas_de_seguridad_y_aislamiento_de_red",
       "community": 469,
@@ -52455,7 +52455,7 @@
       "label": "6. Gu\u00eda de Operaciones con `kubectl` (Cheat Sheet)",
       "file_type": "document",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L223",
+      "source_location": "L221",
       "_origin": "ast",
       "id": "docs_kubernetes_6_gu\u00eda_de_operaciones_con_kubectl_cheat_sheet",
       "community": 469,
@@ -52466,7 +52466,7 @@
       "label": "1. Inspecci\u00f3n de Recursos",
       "file_type": "document",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L225",
+      "source_location": "L223",
       "_origin": "ast",
       "id": "docs_kubernetes_1_inspecci\u00f3n_de_recursos",
       "community": 469,
@@ -52477,7 +52477,7 @@
       "label": "2. Inspecci\u00f3n de Logs en Tiempo Real",
       "file_type": "document",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L241",
+      "source_location": "L239",
       "_origin": "ast",
       "id": "docs_kubernetes_2_inspecci\u00f3n_de_logs_en_tiempo_real",
       "community": 469,
@@ -52488,7 +52488,7 @@
       "label": "3. Ejecuci\u00f3n de Comandos dentro de Pods",
       "file_type": "document",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L254",
+      "source_location": "L252",
       "_origin": "ast",
       "id": "docs_kubernetes_3_ejecuci\u00f3n_de_comandos_dentro_de_pods",
       "community": 469,
@@ -52499,7 +52499,7 @@
       "label": "4. Reinicio Controlado (Rolling Restart)",
       "file_type": "document",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L267",
+      "source_location": "L265",
       "_origin": "ast",
       "id": "docs_kubernetes_4_reinicio_controlado_rolling_restart",
       "community": 469,
@@ -52510,7 +52510,7 @@
       "label": "5. Escalado de R\u00e9plicas",
       "file_type": "document",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L277",
+      "source_location": "L275",
       "_origin": "ast",
       "id": "docs_kubernetes_5_escalado_de_r\u00e9plicas",
       "community": 469,
@@ -52521,7 +52521,7 @@
       "label": "6. Eliminaci\u00f3n y Limpieza del Namespace",
       "file_type": "document",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L284",
+      "source_location": "L282",
       "_origin": "ast",
       "id": "docs_kubernetes_6_eliminaci\u00f3n_y_limpieza_del_namespace",
       "community": 469,
@@ -121713,7 +121713,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L291",
+      "source_location": "L289",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_kubernetes",
@@ -122065,7 +122065,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L180",
+      "source_location": "L179",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_kubernetes_kubernetes_manifiestos_cl\u00faster_y_operaci\u00f3n",
@@ -122076,7 +122076,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L204",
+      "source_location": "L202",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_kubernetes_kubernetes_manifiestos_cl\u00faster_y_operaci\u00f3n",
@@ -122087,7 +122087,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L214",
+      "source_location": "L212",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_kubernetes_kubernetes_manifiestos_cl\u00faster_y_operaci\u00f3n",
@@ -122098,7 +122098,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L223",
+      "source_location": "L221",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_kubernetes_kubernetes_manifiestos_cl\u00faster_y_operaci\u00f3n",
@@ -122120,7 +122120,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L110",
+      "source_location": "L109",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_kubernetes_2_estructura_y_orden_de_los_manifiestos_k8s",
@@ -122131,7 +122131,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L149",
+      "source_location": "L148",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_kubernetes_2_estructura_y_orden_de_los_manifiestos_k8s",
@@ -122142,7 +122142,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L114",
+      "source_location": "L113",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_kubernetes_aprovisionamiento_del_cl\u00faster_y_carga_de_im\u00e1genes_con_podman",
@@ -122153,7 +122153,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L130",
+      "source_location": "L129",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_kubernetes_aprovisionamiento_del_cl\u00faster_y_carga_de_im\u00e1genes_con_podman",
@@ -122164,7 +122164,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L225",
+      "source_location": "L223",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_kubernetes_6_gu\u00eda_de_operaciones_con_kubectl_cheat_sheet",
@@ -122175,7 +122175,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L241",
+      "source_location": "L239",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_kubernetes_6_gu\u00eda_de_operaciones_con_kubectl_cheat_sheet",
@@ -122186,7 +122186,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L254",
+      "source_location": "L252",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_kubernetes_6_gu\u00eda_de_operaciones_con_kubectl_cheat_sheet",
@@ -122197,7 +122197,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L267",
+      "source_location": "L265",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_kubernetes_6_gu\u00eda_de_operaciones_con_kubectl_cheat_sheet",
@@ -122208,7 +122208,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L277",
+      "source_location": "L275",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_kubernetes_6_gu\u00eda_de_operaciones_con_kubectl_cheat_sheet",
@@ -122219,7 +122219,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/kubernetes.md",
-      "source_location": "L284",
+      "source_location": "L282",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_kubernetes_6_gu\u00eda_de_operaciones_con_kubectl_cheat_sheet",
@@ -124923,5 +124923,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "32867eb92e04d564651bba3410a489f9fdb0306d"
+  "built_at_commit": "b1b27860b7b85a3e2c09cec0799ca75b5a7afcda"
 }

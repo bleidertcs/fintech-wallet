@@ -1,16 +1,16 @@
-# Graph Report - fintech-wallet  (2026-08-26)
+# Graph Report - fintech-wallet  (2026-08-25)
 
 ## Corpus Check
-- 512 files · ~273,586 words
+- 512 files · ~273,138 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 5013 nodes · 6133 edges · 623 communities (350 shown, 273 thin omitted)
+- 5013 nodes · 6133 edges · 622 communities (349 shown, 273 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 16 edges (avg confidence: 0.78)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `32867eb9`
+- Built from commit: `b1b27860`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -543,7 +543,6 @@
 - Redis: Caché en Memoria, Idempotencia y Sesiones
 - @nestjs/core
 - zod
-- @swc/cli
 - nest-winston
 - @nestjs/common
 - Manual Fallback Workflow
@@ -635,7 +634,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (623 total, 273 thin omitted)
+## Communities (622 total, 273 thin omitted)
 
 ### Community 0 - "UserDto"
 Cohesion: 0.05
@@ -838,8 +837,8 @@ Cohesion: 0.42
 Nodes (7): SecurityConfig, Bean, Configuration, EnableWebSecurity, HttpSecurity, Profile, SecurityFilterChain
 
 ### Community 54 - "mvnw"
-Cohesion: 0.12
-Nodes (16): ER Diagrams, ❌ Error 10: Nested Subgraph Linking Error, ❌ Error 22: Wrong Attribute Order, ❌ Error 23: Invalid Relationship Syntax, ❌ Error 28: Non-Positive Values, ❌ Error 5: Reserved Word "end" in Node Names, ❌ Error 6: Node IDs Starting with "o" or "x", ❌ Error 7: Incorrect Arrow/Link Syntax (+8 more)
+Cohesion: 0.10
+Nodes (20): Class Diagrams, ER Diagrams, ❌ Error 10: Nested Subgraph Linking Error, ❌ Error 16: Missing Quotes in Cardinality Notation, ❌ Error 17: Missing Parentheses in Method Declarations, ❌ Error 18: Incorrect Static/Abstract Modifier Placement, ❌ Error 22: Wrong Attribute Order, ❌ Error 23: Invalid Relationship Syntax (+12 more)
 
 ### Community 55 - "GatewayConfig"
 Cohesion: 0.29
@@ -851,7 +850,7 @@ Nodes (17): TransactionController, ApiTags, Controller, KafkaModule, Module, Pri
 
 ### Community 57 - "JwtUtil"
 Cohesion: 0.22
-Nodes (9): dependencies, bcrypt, jsonwebtoken, @nestjs/platform-express, @nestjs/terminus, @nestjs/platform-express, @nestjs/terminus, bcrypt (+1 more)
+Nodes (9): dependencies, bcrypt, class-transformer, jsonwebtoken, @nestjs/terminus, class-transformer, @nestjs/terminus, bcrypt (+1 more)
 
 ### Community 58 - "SecurityConfig.java"
 Cohesion: 0.05
@@ -990,8 +989,8 @@ Cohesion: 0.50
 Nodes (4): Full Stack, Quick Start, With Docker, Without Docker
 
 ### Community 104 - "NotificationServiceApplication"
-Cohesion: 0.50
-Nodes (4): Anti-Patterns to Avoid, ❌ Missing Error Handling, ❌ Too Complex, ❌ Unclear Decisions
+Cohesion: 0.33
+Nodes (6): 1. Keep Flows Focused, 2. Use Clear Naming, 3. Consistent Decision Logic, 4. Handle Error Paths, 5. Use Subgraphs for Organization, Best Practices
 
 ### Community 107 - "React + Vite"
 Cohesion: 0.33
@@ -1011,7 +1010,7 @@ Nodes (9): GlobalExceptionFilter, AppController, Controller, Get, AppService, In
 
 ### Community 122 - "auth-service:auth-service"
 Cohesion: 0.22
-Nodes (9): dependencies, @nestjs/terminus, @opentelemetry/resources, reflect-metadata, rxjs, @nestjs/terminus, @opentelemetry/resources, reflect-metadata (+1 more)
+Nodes (9): dependencies, @nestjs/cqrs, @opentelemetry/resources, reflect-metadata, rxjs, @opentelemetry/resources, reflect-metadata, rxjs (+1 more)
 
 ### Community 124 - "notification-service:notification-service"
 Cohesion: 0.29
@@ -1040,10 +1039,6 @@ Nodes (11): Key Variables by Signal, Logs, Query Attribution, Quick Reference, R
 ### Community 134 - "TransactionController"
 Cohesion: 0.08
 Nodes (25): ApiHeader, MoneyRequestDto, ApiProperty, IsNumber, IsOptional, IsPositive, IsString, TransferRequestDto (+17 more)
-
-### Community 136 - "PdfGeneratorService"
-Cohesion: 0.50
-Nodes (4): Class Diagrams, ❌ Error 16: Missing Quotes in Cardinality Notation, ❌ Error 17: Missing Parentheses in Method Declarations, ❌ Error 18: Incorrect Static/Abstract Modifier Placement
 
 ### Community 137 - "Attribute Access Syntax"
 Cohesion: 0.33
@@ -1091,7 +1086,7 @@ Nodes (35): Activity Flow with States, Available Guides and Resources, Best Prac
 
 ### Community 152 - "swarm-init.sh"
 Cohesion: 0.09
-Nodes (23): devDependencies, eslint-config-prettier, eslint-plugin-prettier, globals, jest, @nestjs/cli, prettier, source-map-support (+15 more)
+Nodes (23): devDependencies, eslint, eslint-plugin-prettier, globals, jest, @nestjs/cli, prettier, source-map-support (+15 more)
 
 ### Community 153 - "Microservicios"
 Cohesion: 0.50
@@ -1103,7 +1098,7 @@ Nodes (4): Integration Tests, Test Naming, Testing Guidelines, Unit Tests
 
 ### Community 155 - "Funcionalidades"
 Cohesion: 0.22
-Nodes (9): devDependencies, @eslint/js, globals, @nestjs/schematics, typescript-eslint, @eslint/js, globals, @nestjs/schematics (+1 more)
+Nodes (9): devDependencies, @eslint/js, @nestjs/schematics, @swc/cli, typescript-eslint, @eslint/js, @nestjs/schematics, @swc/cli (+1 more)
 
 ### Community 156 - "Helm Charts"
 Cohesion: 0.08
@@ -1474,8 +1469,8 @@ Cohesion: 0.25
 Nodes (7): Injectable, UserServiceTrpcAdapter, Module, UserTrpcClientModule, USER_SERVICE_CLIENT_PORT, UserProfileResponse, UserServiceClientPort
 
 ### Community 329 - "@opentelemetry/exporter-logs-otlp-http"
-Cohesion: 0.08
-Nodes (24): 1. Keep Flows Focused, 2. Use Clear Naming, 3. Consistent Decision Logic, 4. Handle Error Paths, 5. Use Subgraphs for Organization, Activity Diagram Guide, Activity Diagram Templates, Authentication Flow (+16 more)
+Cohesion: 0.09
+Nodes (22): Activity Diagram Guide, Activity Diagram Templates, Anti-Patterns to Avoid, Authentication Flow, Basic Syntax, Common Patterns, Common Unicode Symbols for Activities, Data Processing Pipeline (+14 more)
 
 ### Community 331 - "@opentelemetry/resources"
 Cohesion: 0.39
@@ -1551,7 +1546,7 @@ Nodes (19): 1. Arquitectura del Pipeline de Telemetría, 1. Ejecutar Script de D
 
 ### Community 372 - "@nestjs/core"
 Cohesion: 0.22
-Nodes (9): dependencies, class-transformer, @nestjs/platform-express, @nestjs/swagger, rxjs, class-transformer, @nestjs/platform-express, @nestjs/swagger (+1 more)
+Nodes (9): dependencies, class-transformer, @nestjs/core, @nestjs/swagger, rxjs, class-transformer, @nestjs/core, @nestjs/swagger (+1 more)
 
 ### Community 373 - "@nestjs/platform-express"
 Cohesion: 0.24
@@ -1587,7 +1582,7 @@ Nodes (6): Arquitectura Objetivo, Decisiones de Diseño Validadas, Estado Actual
 
 ### Community 394 - "@nestjs/microservices"
 Cohesion: 0.07
-Nodes (29): dependencies, class-validator, nest-winston, @nestjs/common, @nestjs/microservices, @nestjs/platform-express, @nestjs/swagger, @opentelemetry/exporter-logs-otlp-http (+21 more)
+Nodes (29): dependencies, nest-winston, @nestjs/common, @nestjs/microservices, @nestjs/platform-express, @nestjs/swagger, @nestjs/terminus, @opentelemetry/exporter-logs-otlp-http (+21 more)
 
 ### Community 395 - "@nestjs/terminus"
 Cohesion: 0.13

@@ -553,7 +553,6 @@
   "551": "@types/express",
   "552": "architecture-diagrams.md",
   "553": "zod",
-  "554": "@swc/cli",
   "555": "nest-winston",
   "556": "@nestjs/common",
   "558": "Manual Fallback Workflow",
