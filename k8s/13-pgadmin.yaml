@@ -99,7 +99,7 @@ spec:
           imagePullPolicy: IfNotPresent
           env:
             - name: PGADMIN_DEFAULT_EMAIL
-              value: "admin@fintech.local"
+              value: "admin@fintech.com"
             - name: PGADMIN_DEFAULT_PASSWORD
               value: "admin12345"
             - name: PGADMIN_CONFIG_SERVER_MODE
