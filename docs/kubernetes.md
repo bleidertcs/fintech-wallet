@@ -111,7 +111,21 @@ Para evitar condiciones de carrera durante el despliegue, los archivos YAML est�
 
 FinTech Wallet soporta dos entornos de ejecución: **Kind** (desarrollo local en Windows/macOS/Linux) y **K3s** (servidores Linux y máquinas virtuales).
 
-#### Opción 1: Clúster Local con Kind (Windows / Linux)
+#### Opción 1: Publicación en Docker Hub (Recomendado para servidores y multi-nodo)
+```bash
+# 1. Iniciar sesión en Docker Hub
+podman login docker.io -u bleiderc
+
+# 2. Compilar y subir todas las imágenes con un solo comando
+./scripts/push-images.sh bleiderc       # En Linux / WSL
+# .\scripts\push-images.ps1 -HubUser "bleiderc" # En PowerShell
+
+# 3. Desplegar en el clúster (descarga directa desde Docker Hub)
+kubectl apply -f k8s/02-microservices.yaml
+kubectl apply -f k8s/03-frontend.yaml
+```
+
+#### Opción 2: Clúster Local con Kind (Windows / Linux)
 ```bash
 # 1. Indicar a Kind que utilice Podman
 export KIND_EXPERIMENTAL_PROVIDER=podman        # En Linux / macOS / WSL2
@@ -120,14 +134,12 @@ export KIND_EXPERIMENTAL_PROVIDER=podman        # En Linux / macOS / WSL2
 # 2. Crear el clúster Kind con mapeo de puertos (HTTP 80/443 y NodePorts 30000/30301)
 kind create cluster --name fintech --config kind-config.yaml
 
-# 3. Compilar y cargar imágenes (formato tar archive)
-podman build -f backend-nestjs/auth-service/Containerfile -t fintech/auth-service:1.0.0 ./backend-nestjs/auth-service
-podman save --format docker-archive -o /tmp/auth-service.tar docker.io/fintech/auth-service:1.0.0
-kind load image-archive /tmp/auth-service.tar --name fintech
-rm -f /tmp/auth-service.tar
+# 3. Compilar y cargar imágenes
+podman build -f backend-nestjs/auth-service/Containerfile -t bleiderc/fintech-wallet:auth-service-1.0.0 ./backend-nestjs/auth-service
+kind load docker-image bleiderc/fintech-wallet:auth-service-1.0.0 --name fintech
 ```
 
-#### Opción 2: Clúster en Servidor Linux con K3s
+#### Opción 3: Clúster en Servidor Linux con K3s
 ```bash
 # 1. Instalar K3s
 curl -sfL https://get.k3s.io | sh -
@@ -136,15 +148,15 @@ curl -sfL https://get.k3s.io | sh -
 mkdir -p ~/.kube && sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config && sudo chown -R $USER:$USER ~/.kube
 
 # 3. Compilar con Podman Rootless e importar directamente al runtime containerd de K3s
-podman build -f backend-nestjs/auth-service/Containerfile -t fintech/auth-service:1.0.0 ./backend-nestjs/auth-service
-podman save --format docker-archive -o /tmp/auth-service.tar docker.io/fintech/auth-service:1.0.0
+podman build -f backend-nestjs/auth-service/Containerfile -t bleiderc/fintech-wallet:auth-service-1.0.0 ./backend-nestjs/auth-service
+podman save --format docker-archive -o /tmp/auth-service.tar docker.io/bleiderc/fintech-wallet:auth-service-1.0.0
 sudo k3s ctr images import /tmp/auth-service.tar
 rm -f /tmp/auth-service.tar
 podman image prune -f
 ```
 
 > [!TIP]
-> Todo este flujo está 100% automatizado mediante `.\deploy-k8s.ps1` (en Windows) o `./deploy-k8s.sh` (en Linux).
+> Todo este flujo está 100% automatizado mediante `.\deploy-k8s.ps1 -Push` (en Windows) o `./deploy-k8s.sh --push` (en Linux).
 
 ### Comandos de Despliegue Manual Secuencial
 

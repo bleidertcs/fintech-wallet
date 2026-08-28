@@ -5,6 +5,10 @@ allowBuilds:
   bcrypt: true
   prisma: true
   protobufjs: true
+minimumReleaseAgeExclude:
+  - file-type@21.3.2
+  - js-yaml@5.2.2
+  - deepmerge-ts@8.0.0
 onlyBuiltDependencies:
   - '@prisma/engines'
   - '@scarf/scarf'

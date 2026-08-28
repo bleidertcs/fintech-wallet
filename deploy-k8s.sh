@@ -10,6 +10,8 @@ exec > >(tee -a "${LOG_FILE}") 2>&1
 RECREATE=false
 NON_INTERACTIVE=false
 CLUSTER_NAME=""
+PUSH_IMAGES=false
+HUB_USER="${DOCKER_HUB_USER:-bleiderc}"
 
 while [[ $# -gt 0 ]]; do
     case "$1" in
@@ -20,6 +22,14 @@ while [[ $# -gt 0 ]]; do
         --non-interactive|-y)
             NON_INTERACTIVE=true
             shift
+            ;;
+        --push|-p)
+            PUSH_IMAGES=true
+            shift
+            ;;
+        --hub-user|-u)
+            HUB_USER="$2"
+            shift 2
             ;;
         --cluster-name|-c)
             CLUSTER_NAME="$2"
@@ -107,18 +117,23 @@ fi
 log "\n[3/5] Construyendo imágenes de contenedor con Podman..." "36"
 
 declare -A SERVICES=(
-    ["frontend"]="fintech/frontend:1.0.0|./frontend|./frontend/Containerfile"
-    ["auth-service"]="fintech/auth-service:1.0.0|./backend-nestjs/auth-service|./backend-nestjs/auth-service/Containerfile"
-    ["user-service"]="fintech/user-service:1.0.0|./backend-nestjs/user-service|./backend-nestjs/user-service/Containerfile"
-    ["transaction-service"]="fintech/transaction-service:1.0.0|./backend-nestjs/transaction-service|./backend-nestjs/transaction-service/Containerfile"
-    ["notification-service"]="fintech/notification-service:1.0.0|./backend-nestjs/notification-service|./backend-nestjs/notification-service/Containerfile"
-    ["worker-service"]="fintech/worker-service:1.0.0|./backend-nestjs/worker-service|./backend-nestjs/worker-service/Containerfile"
+    ["frontend"]="${HUB_USER}/fintech-wallet:frontend-1.0.0|./frontend|./frontend/Containerfile"
+    ["auth-service"]="${HUB_USER}/fintech-wallet:auth-service-1.0.0|./backend-nestjs/auth-service|./backend-nestjs/auth-service/Containerfile"
+    ["user-service"]="${HUB_USER}/fintech-wallet:user-service-1.0.0|./backend-nestjs/user-service|./backend-nestjs/user-service/Containerfile"
+    ["transaction-service"]="${HUB_USER}/fintech-wallet:transaction-service-1.0.0|./backend-nestjs/transaction-service|./backend-nestjs/transaction-service/Containerfile"
+    ["notification-service"]="${HUB_USER}/fintech-wallet:notification-service-1.0.0|./backend-nestjs/notification-service|./backend-nestjs/notification-service/Containerfile"
+    ["worker-service"]="${HUB_USER}/fintech-wallet:worker-service-1.0.0|./backend-nestjs/worker-service|./backend-nestjs/worker-service/Containerfile"
 )
 
 for svc in frontend auth-service user-service transaction-service notification-service worker-service; do
     IFS="|" read -r img path cfile <<< "${SERVICES[$svc]}"
     log "  -> [Podman Build] ${svc} (${img})..." "33"
     podman build -f "${cfile}" -t "${img}" -t "docker.io/${img}" -t "localhost/${img}" "${path}"
+    
+    if [[ "${PUSH_IMAGES}" == true ]]; then
+        log "  -> [Docker Hub Push] Subiendo ${img} a Docker Hub..." "36"
+        podman push "${img}"
+    fi
 done
 log "Todas las imágenes fueron construidas exitosamente con Podman." "32"
 
@@ -127,7 +142,7 @@ log "\nLimpiando capas intermedias de compilación en Podman..." "33"
 podman image prune -f || true
 
 # 4. Cargar imágenes en el clúster
-log "\n[4/5] Cargando imágenes en el clúster Kubernetes (${CLUSTER_TYPE})..." "36"
+log "\n[4/5] Cargando / Verificando imágenes en el clúster Kubernetes (${CLUSTER_TYPE})..." "36"
 
 for svc in frontend auth-service user-service transaction-service notification-service worker-service; do
     IFS="|" read -r img path cfile <<< "${SERVICES[$svc]}"
@@ -170,7 +185,7 @@ for svc in frontend auth-service user-service transaction-service notification-s
             rm -f "${temp_tar}"
         fi
     else
-        log "  -> Imagen ${img} lista en el almacenamiento local de Podman." "32"
+        log "  -> Imagen ${img} lista para el clúster." "32"
     fi
 done
 

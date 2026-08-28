@@ -212,19 +212,23 @@ bootstrap();
 Crea `Containerfile` con compilación multi-etapa:
 
 ```dockerfile
-FROM node:22-alpine AS builder
+FROM node:24-alpine AS builder
 WORKDIR /app
-RUN corepack enable && corepack prepare pnpm@latest --activate
+RUN apk update && apk upgrade --no-cache
+ENV PNPM_HOME="/root/.local/share/pnpm"
+ENV PATH="$PNPM_HOME:$PNPM_HOME/bin:$PATH"
+RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.shrc" SHELL="$(which sh)" sh -
 COPY package.json pnpm-workspace.yaml pnpm-lock.yaml* ./
 COPY prisma ./prisma/
-RUN pnpm install --frozen-lockfile --ignore-scripts || pnpm install --ignore-scripts
+RUN pnpm install --no-frozen-lockfile --ignore-scripts
 COPY . .
 RUN pnpm exec prisma generate
 RUN pnpm run build
 RUN pnpm prune --prod --ignore-scripts
 
-FROM node:22-alpine AS runner
+FROM node:24-alpine AS runner
 WORKDIR /app
+RUN apk update && apk upgrade --no-cache
 ENV NODE_ENV=production
 ENV PORT=3006
 COPY package.json ./

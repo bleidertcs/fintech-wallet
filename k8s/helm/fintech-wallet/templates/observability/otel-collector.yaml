@@ -225,7 +225,7 @@ spec:
       serviceAccountName: otel-collector
       initContainers:
         - name: wait-for-clickhouse-and-migration
-          image: busybox:1.36
+          image: busybox:1.37.0
           command:
             - sh
             - -c

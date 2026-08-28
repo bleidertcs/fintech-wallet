@@ -20,10 +20,9 @@ Este documento describe el flujo de trabajo para desarrolladores que desean modi
 ## 1. Prerrequisitos de Desarrollo Local
 
 * **Node.js**: `v20.18.0` o superior.
-* **pnpm**: `v10.4.1` (o `v9.x+`). Se recomienda habilitar Corepack:
+* **pnpm**: `v10.x` (o `v9.x+`):
   ```bash
-  corepack enable
-  corepack prepare pnpm@latest --activate
+  npm install -g pnpm
   ```
 * **Docker / Docker Compose**: Para levantar las bases de datos y brokers de apoyo local.
 

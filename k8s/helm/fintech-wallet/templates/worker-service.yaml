@@ -18,7 +18,7 @@ spec:
       containers:
         - name: worker-service
           image: "{{ .Values.workerService.image.repository }}:{{ .Values.workerService.image.tag }}"
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:

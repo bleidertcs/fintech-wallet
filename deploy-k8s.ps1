@@ -4,6 +4,8 @@
 param(
     [switch]$Recreate,
     [switch]$NonInteractive,
+    [switch]$Push,
+    [string]$HubUser = "bleiderc",
     [string]$ClusterName = ""
 )
 
@@ -96,20 +98,24 @@ if ($Recreate) {
 Log-Msg "`n[3/5] Construyendo imágenes de contenedor con Podman..." Cyan
 
 $services = @(
-    @{ Name = "frontend"; Path = "./frontend"; Image = "fintech/frontend:1.0.0"; File = "./frontend/Containerfile" },
-    @{ Name = "auth-service"; Path = "./backend-nestjs/auth-service"; Image = "fintech/auth-service:1.0.0"; File = "./backend-nestjs/auth-service/Containerfile" },
-    @{ Name = "user-service"; Path = "./backend-nestjs/user-service"; Image = "fintech/user-service:1.0.0"; File = "./backend-nestjs/user-service/Containerfile" },
-    @{ Name = "transaction-service"; Path = "./backend-nestjs/transaction-service"; Image = "fintech/transaction-service:1.0.0"; File = "./backend-nestjs/transaction-service/Containerfile" },
-    @{ Name = "notification-service"; Path = "./backend-nestjs/notification-service"; Image = "fintech/notification-service:1.0.0"; File = "./backend-nestjs/notification-service/Containerfile" },
-    @{ Name = "worker-service"; Path = "./backend-nestjs/worker-service"; Image = "fintech/worker-service:1.0.0"; File = "./backend-nestjs/worker-service/Containerfile" }
+    @{ Name = "frontend"; Path = "./frontend"; Image = "$HubUser/fintech-wallet:frontend-1.0.1"; File = "./frontend/Containerfile" },
+    @{ Name = "auth-service"; Path = "./backend-nestjs/auth-service"; Image = "$HubUser/fintech-wallet:auth-service-1.0.1"; File = "./backend-nestjs/auth-service/Containerfile" },
+    @{ Name = "user-service"; Path = "./backend-nestjs/user-service"; Image = "$HubUser/fintech-wallet:user-service-1.0.1"; File = "./backend-nestjs/user-service/Containerfile" },
+    @{ Name = "transaction-service"; Path = "./backend-nestjs/transaction-service"; Image = "$HubUser/fintech-wallet:transaction-service-1.0.1"; File = "./backend-nestjs/transaction-service/Containerfile" },
+    @{ Name = "notification-service"; Path = "./backend-nestjs/notification-service"; Image = "$HubUser/fintech-wallet:notification-service-1.0.1"; File = "./backend-nestjs/notification-service/Containerfile" },
+    @{ Name = "worker-service"; Path = "./backend-nestjs/worker-service"; Image = "$HubUser/fintech-wallet:worker-service-1.0.1"; File = "./backend-nestjs/worker-service/Containerfile" }
 )
 
 foreach ($s in $services) {
     Log-Msg "  -> [Podman Build] $($s.Name) ($($s.Image))..." Yellow
-    & $podmanCmd build -f $s.File -t $s.Image -t "docker.io/$($s.Image)" -t "localhost/$($s.Image)" $s.Path
+    & $podmanCmd build -f $s.File -t $s.Image -t "docker.io/$($s.Image)" -t "$($s.Image)" $s.Path
     if ($LASTEXITCODE -ne 0) {
         Log-Msg "ERROR CRÍTICO: Falló la construcción de $($s.Name)" Red
         exit 1
+    }
+    if ($Push) {
+        Log-Msg "  -> [Docker Hub Push] Subiendo $($s.Image) a Docker Hub..." Cyan
+        & $podmanCmd push $s.Image
     }
 }
 Log-Msg "Todas las imágenes fueron construidas exitosamente con Podman." Green
@@ -153,7 +159,7 @@ foreach ($s in $services) {
         $tempTar = "$env:TEMP\$($s.Name).tar"
         & $podmanCmd save --format docker-archive -o $tempTar "docker.io/$($s.Image)"
         $wslPath = "/mnt/" + $tempTar[0].ToString().ToLower() + ($tempTar.Substring(2) -replace '\\', '/')
-        wsl -u root -d Ubuntu bash -c "k3s ctr images import '$wslPath' 2>/dev/null; k3s ctr images tag 'localhost/$($s.Image)' 'docker.io/$($s.Image)' 2>/dev/null"
+        wsl -u root -d Ubuntu bash -c "k3s ctr images import '$wslPath' 2>/dev/null; k3s ctr images tag '$($s.Image)' 'docker.io/$($s.Image)' 2>/dev/null"
         Remove-Item -Force $tempTar -ErrorAction SilentlyContinue
     } else {
         Log-Msg "  -> Imagen $($s.Image) disponible en almacenamiento local de Podman." Green
