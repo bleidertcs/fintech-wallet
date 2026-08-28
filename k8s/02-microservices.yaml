@@ -296,6 +296,8 @@ spec:
               value: "http://user-service:8082"
             - name: KAFKA_BROKERS
               value: "kafka:29092"
+            - name: KAFKAJS_NO_PARTITIONER_WARNING
+              value: "1"
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
               value: "http://otel-collector.fintech.svc.cluster.local:4318"
           resources:
@@ -397,6 +399,8 @@ spec:
               value: "postgresql://postgres:12345@postgres-support:5432/notificationdb?schema=public"
             - name: KAFKA_BROKERS
               value: "kafka:29092"
+            - name: KAFKAJS_NO_PARTITIONER_WARNING
+              value: "1"
             - name: MAIL_HOST
               value: "maildev"
             - name: MAIL_PORT
@@ -506,6 +510,8 @@ spec:
               value: "postgresql://postgres:12345@postgres-support:5432/workerdb?schema=public"
             - name: KAFKA_BROKERS
               value: "kafka:29092"
+            - name: KAFKAJS_NO_PARTITIONER_WARNING
+              value: "1"
             - name: STATEMENTS_DIR
               value: "/tmp/statements"
             - name: OTEL_EXPORTER_OTLP_ENDPOINT

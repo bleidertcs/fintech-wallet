@@ -1,6 +1,6 @@
 import { Injectable, Logger, OnModuleInit, OnModuleDestroy } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { Kafka, Producer } from 'kafkajs';
+import { Kafka, Producer, Partitioners } from 'kafkajs';
 import { randomUUID } from 'crypto';
 
 export interface EventEnvelope<T = any> {
@@ -45,6 +45,7 @@ export class KafkaProducerService implements OnModuleInit, OnModuleDestroy {
 
     this.producer = this.kafka.producer({
       allowAutoTopicCreation: true,
+      createPartitioner: Partitioners.DefaultPartitioner,
     });
 
     await this.connectWithRetry(brokers);

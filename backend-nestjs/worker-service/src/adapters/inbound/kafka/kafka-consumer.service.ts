@@ -1,5 +1,5 @@
 import { Injectable, OnModuleInit, OnModuleDestroy, Logger, Inject } from '@nestjs/common';
-import { Kafka, Consumer, Producer } from 'kafkajs';
+import { Kafka, Consumer, Producer, Partitioners } from 'kafkajs';
 import { WORKER_SERVICE_PORT, WorkerServicePort } from '../../../domain/ports/worker-service.port';
 import { TransferCompletedEventDto } from '../../../domain/entities/transfer-event.dto';
 
@@ -20,7 +20,9 @@ export class KafkaWorkerConsumer implements OnModuleInit, OnModuleDestroy {
       brokers,
     });
     this.consumer = this.kafka.consumer({ groupId: 'worker-group' });
-    this.producer = this.kafka.producer();
+    this.producer = this.kafka.producer({
+      createPartitioner: Partitioners.DefaultPartitioner,
+    });
   }
 
   async onModuleInit() {
