@@ -47,21 +47,121 @@ if (-not $podmanOk) {
     exit 1
 }
 
-# 2. Verificar conectividad con Kubernetes
-Log-Msg "`n[2/5] Verificando conexión con el clúster de Kubernetes..." Yellow
-$currentCtx = (kubectl config current-context 2>&1).Trim()
-if ($LASTEXITCODE -ne 0 -or -not $currentCtx) {
-    Log-Msg "ERROR CRÍTICO: No se pudo obtener el contexto activo de kubectl. Asegúrate de que un clúster Kubernetes esté iniciado." Red
-    try { Stop-Transcript -ErrorAction SilentlyContinue } catch {}
-    exit 1
+# Función para asegurar el puente de red en Windows con Podman Machine (WSL2)
+function Setup-KindPodmanBridge {
+    param([string]$TargetCluster = "fintech")
+    
+    Log-Msg "Configurando puente de red para Kind sobre Podman (WSL2)..." Cyan
+    $env:KIND_EXPERIMENTAL_PROVIDER = "podman"
+    
+    # 1. Verificar si el contenedor del nodo de Kind está corriendo
+    $containerName = "$TargetCluster-control-plane"
+    $nodeInspect = & $podmanCmd inspect $containerName 2>$null | ConvertFrom-Json
+    if (-not $nodeInspect) {
+        return $false
+    }
+    
+    # Obtener IP interna del contenedor y puerto publicado del apiserver
+    $controlPlaneIp = ""
+    if ($nodeInspect[0].NetworkSettings.Networks) {
+        foreach ($net in $nodeInspect[0].NetworkSettings.Networks.PSObject.Properties) {
+            if ($net.Value.IPAddress) {
+                $controlPlaneIp = $net.Value.IPAddress
+                break
+            }
+        }
+    }
+    if (-not $controlPlaneIp) {
+        $controlPlaneIp = $nodeInspect[0].NetworkSettings.IPAddress
+    }
+    if (-not $controlPlaneIp) {
+        $controlPlaneIp = "10.89.0.2"
+    }
+
+    $portInfo = & $podmanCmd port $containerName "6443/tcp" 2>$null
+    if ($portInfo -match ":(\d+)") {
+        $hostPort = [int]$matches[1]
+    } else {
+        $hostPort = 6443
+    }
+
+    # 2. Agregar regla nftables en el kernel de WSL2 para permitir tráfico hacia el apiserver
+    try {
+        wsl -d podman-machine-default -u root nft add rule inet netavark PREROUTING tcp dport $hostPort dnat ip to "$controlPlaneIp:6443" 2>$null
+    } catch {}
+
+    # 3. Obtener IP de la máquina WSL2 (vEthernet WSL)
+    $wslIpOutput = wsl -d podman-machine-default -u root ip -4 addr show eth0 2>$null
+    $wslIp = ""
+    $wslText = ($wslIpOutput | Out-String)
+    if ($wslText -match "inet\s+(\d+\.\d+\.\d+\.\d+)") {
+        $wslIp = $matches[1]
+    }
+
+    if ($wslIp -and $hostPort) {
+        # 4. Configurar endpoint directo de WSL en kubeconfig (comunicación directa a nivel de red sin depender de procesos proxy)
+        & kubectl config set-cluster "kind-$TargetCluster" --server="https://${wslIp}:${hostPort}" --insecure-skip-tls-verify=true 2>$null | Out-Null
+    }
+    return $true
 }
 
-$k8sCheck = kubectl cluster-info 2>&1
-if ($LASTEXITCODE -ne 0) {
+# 2. Verificar conectividad con Kubernetes
+Log-Msg "`n[2/5] Verificando conexión con el clúster de Kubernetes..." Yellow
+$currentCtx = ""
+try {
+    $currentCtx = ([string](kubectl config current-context 2>$null)).Trim()
+} catch {}
+
+$targetCluster = if ($ClusterName) { $ClusterName } else { "fintech" }
+$env:KIND_EXPERIMENTAL_PROVIDER = "podman"
+
+# Si el contexto actual es Kind o existe el contenedor del nodo, activar puente previo a la verificación
+if ($currentCtx -match "^kind-" -or (& $podmanCmd ps -a --filter "name=$targetCluster-control-plane" --format "{{.Names}}" 2>$null)) {
+    Setup-KindPodmanBridge -TargetCluster $targetCluster | Out-Null
+}
+
+$k8sOk = $false
+if ($currentCtx) {
+    $k8sCheck = kubectl cluster-info 2>&1
+    if ($LASTEXITCODE -eq 0) {
+        $k8sOk = $true
+    }
+}
+
+if (-not $k8sOk) {
+    Log-Msg "Contexto no encontrado o clúster no responde. Diagnosticando..." Yellow
+    
+    $nodeExists = (& $podmanCmd ps -a --filter "name=$targetCluster-control-plane" --format "{{.Names}}" 2>$null)
+    if ($nodeExists) {
+        Log-Msg "Nodo Kind '$targetCluster' detectado. Exportando kubeconfig..." Cyan
+        & kind export kubeconfig --name $targetCluster 2>&1 | Out-Null
+    } else {
+        Log-Msg "Clúster Kind '$targetCluster' no encontrado. Creando clúster automáticamente con Podman..." Cyan
+        & kind create cluster --name $targetCluster --config k8s/kind-config.yaml
+        if ($LASTEXITCODE -ne 0) {
+            Log-Msg "ERROR CRÍTICO: Falló la creación del clúster Kind '$targetCluster'." Red
+            try { Stop-Transcript -ErrorAction SilentlyContinue } catch {}
+            exit 1
+        }
+    }
+    
+    # Configurar bridge en caso de Windows + WSL2 Podman
+    Setup-KindPodmanBridge -TargetCluster $targetCluster | Out-Null
+    Start-Sleep -Seconds 2
+    
+    $k8sCheck = kubectl cluster-info 2>&1
+    if ($LASTEXITCODE -eq 0) {
+        $k8sOk = $true
+        try { $currentCtx = ([string](kubectl config current-context 2>$null)).Trim() } catch {}
+    }
+}
+
+if (-not $k8sOk) {
     Log-Msg "ERROR CRÍTICO: No se pudo contactar al clúster de Kubernetes en el contexto '$currentCtx'." Red
     try { Stop-Transcript -ErrorAction SilentlyContinue } catch {}
     exit 1
 }
+
 Log-Msg "Conexión con Kubernetes exitosa (Contexto activo: '$currentCtx')." Green
 
 # Detectar tipo de clúster
@@ -75,6 +175,26 @@ if ($currentCtx -match "^kind-") {
     $clusterType = "k3s"
 }
 Log-Msg "Tipo de clúster detectado: $clusterType $(if($ClusterName){"($ClusterName)"})" Cyan
+
+# Asegurar CRDs e Ingress Controller de Traefik en el clúster
+Log-Msg "Verificando Custom Resource Definitions (CRDs) e Ingress Controller de Traefik..." Cyan
+$crdCheck = kubectl get crd middlewares.traefik.io 2>&1
+if ($LASTEXITCODE -ne 0) {
+    Log-Msg "Instalando CRDs de Traefik v3..." Yellow
+    kubectl apply -f https://raw.githubusercontent.com/traefik/traefik/v3.1/docs/content/reference/dynamic-configuration/kubernetes-crd-definition-v1.yml 2>&1 | Out-Null
+}
+
+if ($clusterType -eq "kind") {
+    $traefikCheck = kubectl get deployment traefik -n kube-system 2>&1
+    if ($LASTEXITCODE -ne 0) {
+        if (Get-Command helm -ErrorAction SilentlyContinue) {
+            Log-Msg "Instalando Ingress Controller Traefik en Kind (kube-system) vía Helm..." Cyan
+            & helm repo add traefik https://traefik.github.io/charts 2>$null | Out-Null
+            & helm repo update traefik 2>$null | Out-Null
+            & helm upgrade --install traefik traefik/traefik --namespace kube-system --skip-crds --set "ports.web.port=80" --set "ports.websecure.port=443" --set "ports.web.hostPort=80" --set "ports.websecure.hostPort=443" --set "ingressClass.enabled=true" --set "ingressClass.isDefaultClass=true" 2>&1 | Out-Null
+        }
+    }
+}
 
 # Preguntar al usuario si desea recrear los despliegues si es interactivo
 if (-not $Recreate -and -not $NonInteractive -and $Host.Name -notmatch "ServerRemoteHost") {
@@ -98,17 +218,17 @@ if ($Recreate) {
 Log-Msg "`n[3/5] Construyendo imágenes de contenedor con Podman..." Cyan
 
 $services = @(
-    @{ Name = "frontend"; Path = "./frontend"; Image = "$HubUser/fintech-wallet:frontend-1.0.1"; File = "./frontend/Containerfile" },
-    @{ Name = "auth-service"; Path = "./backend-nestjs/auth-service"; Image = "$HubUser/fintech-wallet:auth-service-1.0.1"; File = "./backend-nestjs/auth-service/Containerfile" },
-    @{ Name = "user-service"; Path = "./backend-nestjs/user-service"; Image = "$HubUser/fintech-wallet:user-service-1.0.1"; File = "./backend-nestjs/user-service/Containerfile" },
-    @{ Name = "transaction-service"; Path = "./backend-nestjs/transaction-service"; Image = "$HubUser/fintech-wallet:transaction-service-1.0.1"; File = "./backend-nestjs/transaction-service/Containerfile" },
-    @{ Name = "notification-service"; Path = "./backend-nestjs/notification-service"; Image = "$HubUser/fintech-wallet:notification-service-1.0.1"; File = "./backend-nestjs/notification-service/Containerfile" },
-    @{ Name = "worker-service"; Path = "./backend-nestjs/worker-service"; Image = "$HubUser/fintech-wallet:worker-service-1.0.1"; File = "./backend-nestjs/worker-service/Containerfile" }
+    @{ Name = "frontend"; Path = "./frontend"; Image = "$HubUser/fintech-wallet:frontend-1.0.0"; File = "./frontend/Containerfile" },
+    @{ Name = "auth-service"; Path = "./backend-nestjs/auth-service"; Image = "$HubUser/fintech-wallet:auth-service-1.0.0"; File = "./backend-nestjs/auth-service/Containerfile" },
+    @{ Name = "user-service"; Path = "./backend-nestjs/user-service"; Image = "$HubUser/fintech-wallet:user-service-1.0.0"; File = "./backend-nestjs/user-service/Containerfile" },
+    @{ Name = "transaction-service"; Path = "./backend-nestjs/transaction-service"; Image = "$HubUser/fintech-wallet:transaction-service-1.0.0"; File = "./backend-nestjs/transaction-service/Containerfile" },
+    @{ Name = "notification-service"; Path = "./backend-nestjs/notification-service"; Image = "$HubUser/fintech-wallet:notification-service-1.0.0"; File = "./backend-nestjs/notification-service/Containerfile" },
+    @{ Name = "worker-service"; Path = "./backend-nestjs/worker-service"; Image = "$HubUser/fintech-wallet:worker-service-1.0.0"; File = "./backend-nestjs/worker-service/Containerfile" }
 )
 
 foreach ($s in $services) {
     Log-Msg "  -> [Podman Build] $($s.Name) ($($s.Image))..." Yellow
-    & $podmanCmd build -f $s.File -t $s.Image -t "docker.io/$($s.Image)" -t "$($s.Image)" $s.Path
+    & $podmanCmd build -f $s.File -t $s.Image -t "docker.io/$($s.Image)" -t "localhost/$($s.Image)" $s.Path
     if ($LASTEXITCODE -ne 0) {
         Log-Msg "ERROR CRÍTICO: Falló la construcción de $($s.Name)" Red
         exit 1
@@ -141,13 +261,23 @@ foreach ($s in $services) {
             & kind @kindArgsDocker 2>$null
         }
         if ($LASTEXITCODE -ne 0) {
-            Log-Msg "Aviso: Falló 'kind load docker-image'. Intentando cargar mediante archivo tar..." Yellow
+            Log-Msg "Aviso: Falló 'kind load docker-image'. Cargando mediante archivo tar optimizado..." Yellow
             $tempTar = "$env:TEMP\$($s.Name).tar"
             & $podmanCmd save --format docker-archive -o $tempTar "docker.io/$($s.Image)"
+            $loaded = $false
             if ($ClusterName) {
-                kind load image-archive $tempTar --name $ClusterName
+                & kind load image-archive $tempTar --name $ClusterName 2>$null
+                if ($LASTEXITCODE -eq 0) { $loaded = $true }
             } else {
-                kind load image-archive $tempTar
+                & kind load image-archive $tempTar 2>$null
+                if ($LASTEXITCODE -eq 0) { $loaded = $true }
+            }
+            if (-not $loaded) {
+                Log-Msg "Importando imagen directamente en containerd del nodo Kind..." Yellow
+                $nodeName = if ($ClusterName) { "$ClusterName-control-plane" } else { "fintech-control-plane" }
+                & $podmanCmd cp $tempTar "${nodeName}:/tmp/$($s.Name).tar" 2>$null
+                & $podmanCmd exec $nodeName ctr --namespace=k8s.io images import "/tmp/$($s.Name).tar" 2>$null
+                & $podmanCmd exec $nodeName rm -f "/tmp/$($s.Name).tar" 2>$null
             }
             Remove-Item -Force $tempTar -ErrorAction SilentlyContinue
         }

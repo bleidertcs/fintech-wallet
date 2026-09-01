@@ -1,9 +1,20 @@
 # ==============================================================================
 # 00-NAMESPACE-CONFIG.YAML - CONFIGURACIÓN INICIAL DE KUBERNETES
-# Define el espacio de nombres (Namespace), scripts de inicialización SQL (ConfigMap)
+# Define el espacio de nombres (Namespace), StorageClass, scripts de inicialización SQL (ConfigMap)
 # y credenciales sensibles codificadas (Secrets).
 # ==============================================================================
 
+# ------------------------------------------------------------------------------
+# 0. STORAGECLASS: local-path (Compatibilidad cruzada K3s / Kind)
+# ------------------------------------------------------------------------------
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: local-path
+provisioner: rancher.io/local-path
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer
+---
 # ------------------------------------------------------------------------------
 # 1. NAMESPACE: fintech
 # Aislamiento lógico de recursos dentro del clúster de Kubernetes para todo el sistema

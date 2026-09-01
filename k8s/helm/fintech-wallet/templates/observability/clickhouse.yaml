@@ -86,6 +86,17 @@ spec:
       labels:
         app: clickhouse
     spec:
+      securityContext:
+        fsGroup: 101
+      initContainers:
+        - name: init-clickhouse-volume
+          image: {{ .Values.observability.clickhouse.image | quote }}
+          securityContext:
+            runAsUser: 0
+          command: ["sh", "-c", "chown -R clickhouse:clickhouse /var/lib/clickhouse /var/log/clickhouse-server 2>/dev/null || true; chmod -R 775 /var/lib/clickhouse 2>/dev/null || true"]
+          volumeMounts:
+            - name: clickhouse-data
+              mountPath: /var/lib/clickhouse
       containers:
         - name: clickhouse
           image: {{ .Values.observability.clickhouse.image | quote }}

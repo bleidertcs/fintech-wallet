@@ -1,3 +1,6 @@
+# ==============================================================================
+# INGRESS.YAML - TRAEFIK MIDDLEWARES, INGRESSES & INGRESSROUTES
+# ==============================================================================
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
@@ -28,6 +31,44 @@ spec:
     average: 100
     burst: 50
 ---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: strip-otlp-prefix
+  namespace: {{ .Release.Namespace }}
+spec:
+  stripPrefixRegex:
+    regex:
+      - "^/otlp"
+---
+# ------------------------------------------------------------------------------
+# INGRESS: OTLP Web Tracing Browser
+# ------------------------------------------------------------------------------
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: otlp-ingress
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "false"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+    traefik.ingress.kubernetes.io/router.middlewares: {{ .Release.Namespace }}-strip-otlp-prefix@kubernetescrd
+spec:
+  ingressClassName: traefik
+  rules:
+    - http:
+        paths:
+          - path: /otlp
+            pathType: Prefix
+            backend:
+              service:
+                name: otel-collector
+                port:
+                  number: 4318
+---
+# ------------------------------------------------------------------------------
+# INGRESSES: Swagger Docs por Microservicio
+# ------------------------------------------------------------------------------
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -35,19 +76,20 @@ metadata:
   namespace: {{ .Release.Namespace }}
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
     traefik.ingress.kubernetes.io/router.middlewares: {{ .Release.Namespace }}-auth-ratelimit@kubernetescrd
 spec:
   ingressClassName: traefik
   rules:
-  - http:
-      paths:
-      - path: /auth
-        pathType: Prefix
-        backend:
-          service:
-            name: auth-service
-            port:
-              number: 3001
+    - http:
+        paths:
+          - path: /auth
+            pathType: Prefix
+            backend:
+              service:
+                name: auth-service
+                port:
+                  number: 3001
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -56,18 +98,19 @@ metadata:
   namespace: {{ .Release.Namespace }}
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   ingressClassName: traefik
   rules:
-  - http:
-      paths:
-      - path: /users
-        pathType: Prefix
-        backend:
-          service:
-            name: user-service
-            port:
-              number: 8082
+    - http:
+        paths:
+          - path: /users
+            pathType: Prefix
+            backend:
+              service:
+                name: user-service
+                port:
+                  number: 8082
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -76,18 +119,19 @@ metadata:
   namespace: {{ .Release.Namespace }}
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   ingressClassName: traefik
   rules:
-  - http:
-      paths:
-      - path: /transactions
-        pathType: Prefix
-        backend:
-          service:
-            name: transaction-service
-            port:
-              number: 8083
+    - http:
+        paths:
+          - path: /transactions
+            pathType: Prefix
+            backend:
+              service:
+                name: transaction-service
+                port:
+                  number: 8083
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -96,18 +140,19 @@ metadata:
   namespace: {{ .Release.Namespace }}
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   ingressClassName: traefik
   rules:
-  - http:
-      paths:
-      - path: /notifications
-        pathType: Prefix
-        backend:
-          service:
-            name: notification-service
-            port:
-              number: 8084
+    - http:
+        paths:
+          - path: /notifications
+            pathType: Prefix
+            backend:
+              service:
+                name: notification-service
+                port:
+                  number: 8084
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -116,19 +161,23 @@ metadata:
   namespace: {{ .Release.Namespace }}
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   ingressClassName: traefik
   rules:
-  - http:
-      paths:
-      - path: /worker
-        pathType: Prefix
-        backend:
-          service:
-            name: worker-service
-            port:
-              number: 8085
+    - http:
+        paths:
+          - path: /worker
+            pathType: Prefix
+            backend:
+              service:
+                name: worker-service
+                port:
+                  number: 8085
 ---
+# ------------------------------------------------------------------------------
+# INGRESS PRINCIPAL: Frontend SPA y Router de APIs (/api/*)
+# ------------------------------------------------------------------------------
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -136,55 +185,59 @@ metadata:
   namespace: {{ .Release.Namespace }}
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
     traefik.ingress.kubernetes.io/router.middlewares: {{ .Release.Namespace }}-strip-api-prefix@kubernetescrd
 spec:
   ingressClassName: traefik
   rules:
-  - http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: frontend
-            port:
-              number: 80
-      - path: /api/auth
-        pathType: Prefix
-        backend:
-          service:
-            name: auth-service
-            port:
-              number: 3001
-      - path: /api/users
-        pathType: Prefix
-        backend:
-          service:
-            name: user-service
-            port:
-              number: 8082
-      - path: /api/transactions
-        pathType: Prefix
-        backend:
-          service:
-            name: transaction-service
-            port:
-              number: 8083
-      - path: /api/notifications
-        pathType: Prefix
-        backend:
-          service:
-            name: notification-service
-            port:
-              number: 8084
-      - path: /api/worker
-        pathType: Prefix
-        backend:
-          service:
-            name: worker-service
-            port:
-              number: 8085
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend
+                port:
+                  number: 80
+          - path: /api/auth
+            pathType: Prefix
+            backend:
+              service:
+                name: auth-service
+                port:
+                  number: 3001
+          - path: /api/users
+            pathType: Prefix
+            backend:
+              service:
+                name: user-service
+                port:
+                  number: 8082
+          - path: /api/transactions
+            pathType: Prefix
+            backend:
+              service:
+                name: transaction-service
+                port:
+                  number: 8083
+          - path: /api/notifications
+            pathType: Prefix
+            backend:
+              service:
+                name: notification-service
+                port:
+                  number: 8084
+          - path: /api/worker
+            pathType: Prefix
+            backend:
+              service:
+                name: worker-service
+                port:
+                  number: 8085
 ---
+# ------------------------------------------------------------------------------
+# INGRESS: MailDev Web UI en ruta /maildev
+# ------------------------------------------------------------------------------
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -192,16 +245,94 @@ metadata:
   namespace: {{ .Release.Namespace }}
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
-    traefik.ingress.kubernetes.io/router.middlewares: {{ .Release.Namespace }}-strip-maildev-prefix@kubernetescrd
+    traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   ingressClassName: traefik
   rules:
-  - http:
-      paths:
-      - path: /maildev
-        pathType: Prefix
-        backend:
-          service:
-            name: maildev
-            port:
-              number: 1080
+    - host: maildev.localhost
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: maildev
+                port:
+                  number: 1080
+    - host: mail.localhost
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: maildev
+                port:
+                  number: 1080
+    - http:
+        paths:
+          - path: /maildev
+            pathType: Prefix
+            backend:
+              service:
+                name: maildev
+                port:
+                  number: 1080
+---
+# ------------------------------------------------------------------------------
+# INGRESS: SigNoz en VirtualHost signoz.localhost
+# ------------------------------------------------------------------------------
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: signoz-ingress
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "false"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: signoz.localhost
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: signoz
+                port:
+                  number: 8080
+---
+# ------------------------------------------------------------------------------
+# INGRESSROUTES: Enrutamiento Dedicado para SigNoz (:3301) y MailDev (:1080)
+# ------------------------------------------------------------------------------
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: signoz-web
+  namespace: {{ .Release.Namespace }}
+spec:
+  entryPoints:
+    - signoz
+  routes:
+    - match: PathPrefix(`/`)
+      kind: Rule
+      services:
+        - name: signoz
+          port: 8080
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: maildev-web
+  namespace: {{ .Release.Namespace }}
+spec:
+  entryPoints:
+    - maildev
+  routes:
+    - match: PathPrefix(`/`)
+      kind: Rule
+      services:
+        - name: maildev
+          port: 1080

@@ -6,6 +6,7 @@ RUN apk update && apk upgrade --no-cache
 
 ENV PNPM_HOME="/root/.local/share/pnpm"
 ENV PATH="$PNPM_HOME:$PNPM_HOME/bin:$PATH"
+ENV CI=true
 RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.shrc" SHELL="$(which sh)" sh -
 
 COPY package.json pnpm-lock.yaml* ./
@@ -15,8 +16,9 @@ RUN pnpm install --no-frozen-lockfile --ignore-scripts
 
 COPY . .
 
-RUN pnpm exec prisma generate
-RUN pnpm build
+RUN npx prisma generate
+RUN npx nest build
+RUN CI=false pnpm prune --prod --ignore-scripts
 
 FROM docker.io/library/node:24-alpine AS runner
 

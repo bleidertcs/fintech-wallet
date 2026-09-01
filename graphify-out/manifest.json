@@ -165,8 +165,8 @@
     "semantic_hash": ""
   },
   "frontend/package.json": {
-    "mtime": 1784133149.1364877,
-    "ast_hash": "23f82a32aeed71cc0567b96bafc04ed3",
+    "mtime": 1787857413.9305005,
+    "ast_hash": "f68f24533fea4c7130889bb30a9da1b4",
     "semantic_hash": ""
   },
   "frontend/src/App.jsx": {
@@ -660,8 +660,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/auth-service/package.json": {
-    "mtime": 1787150189.9451158,
-    "ast_hash": "498ad86fceb9e71ba3024da0c8a59f11",
+    "mtime": 1787856762.073315,
+    "ast_hash": "c195d17b6ff0ab5f4c29e0e4d507e34b",
     "semantic_hash": ""
   },
   "backend-nestjs/auth-service/skills-lock.json": {
@@ -1010,8 +1010,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/notification-service/package.json": {
-    "mtime": 1787598139.2420783,
-    "ast_hash": "64997224c818d9256e6cabfa1fcca42c",
+    "mtime": 1787857396.961746,
+    "ast_hash": "56e87f04d01c128e8af3c1562dd2f3d8",
     "semantic_hash": ""
   },
   "backend-nestjs/notification-service/src/app.controller.spec.ts": {
@@ -1070,8 +1070,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/transaction-service/package.json": {
-    "mtime": 1787598136.1603155,
-    "ast_hash": "d376458cb88607d87fb4d4dcfa075cec",
+    "mtime": 1787858985.5541136,
+    "ast_hash": "236354faa5071741ec3e32df574765c2",
     "semantic_hash": ""
   },
   "backend-nestjs/transaction-service/src/adapters/inbound/rest/dto/money-request.dto.ts": {
@@ -1115,8 +1115,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/transaction-service/src/adapters/outbound/kafka/kafka-producer.service.ts": {
-    "mtime": 1787672039.0453749,
-    "ast_hash": "efb5851ea1496c53c4d845c60cca1dc0",
+    "mtime": 1787931194.4474335,
+    "ast_hash": "bf6db098895d2b844fd42f6f61876a45",
     "semantic_hash": ""
   },
   "backend-nestjs/transaction-service/src/adapters/outbound/kafka/kafka.module.ts": {
@@ -1255,8 +1255,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/user-service/package.json": {
-    "mtime": 1787598133.1331508,
-    "ast_hash": "36ecd55fe54bbe5324b1cba3908aebfb",
+    "mtime": 1787857380.202408,
+    "ast_hash": "63e66398df9c1093987fa4e9a78a5f30",
     "semantic_hash": ""
   },
   "backend-nestjs/user-service/src/adapters/inbound/grpc/user.grpc.controller.ts": {
@@ -1395,8 +1395,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/worker-service/package.json": {
-    "mtime": 1787598146.7280428,
-    "ast_hash": "6fc82a14a7cfd939d00c0135c6784423",
+    "mtime": 1787857404.5588608,
+    "ast_hash": "4f2f4a41a685987fb7e7d17e88988c17",
     "semantic_hash": ""
   },
   "backend-nestjs/worker-service/src/app.controller.spec.ts": {
@@ -1745,8 +1745,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/auth-service/pnpm-workspace.yaml": {
-    "mtime": 1785954242.0348003,
-    "ast_hash": "bda3af8d3563a036e91bac2e38a36ea1",
+    "mtime": 1787856528.3544116,
+    "ast_hash": "eb0e1ea0bc1ae1938d9315ce6890aa3b",
     "semantic_hash": ""
   },
   "backend-nestjs/notification-service/README.md": {
@@ -1905,8 +1905,8 @@
     "semantic_hash": ""
   },
   "backend-nestjs/worker-service/src/adapters/inbound/kafka/kafka-consumer.service.ts": {
-    "mtime": 1786129555.590418,
-    "ast_hash": "cd9fd53fa9370a13f93f827d09345901",
+    "mtime": 1787931202.1611683,
+    "ast_hash": "636d3cc1d81d4464029210b9fb40b9f2",
     "semantic_hash": ""
   },
   "backend-nestjs/worker-service/src/adapters/inbound/rest/health.controller.spec.ts": {
@@ -2185,13 +2185,13 @@
     "semantic_hash": ""
   },
   "docs/helm.md": {
-    "mtime": 1787064535.832201,
-    "ast_hash": "e9bbf338a0286fe021e9836d4d2d8d2c",
+    "mtime": 1788289906.7056367,
+    "ast_hash": "e7299e7570389fd28e262d9db65b8d73",
     "semantic_hash": ""
   },
   "k8s/00-namespace-config.yaml": {
-    "mtime": 1787671988.4038587,
-    "ast_hash": "0689ad49abcfc37c2ee6223919559cd9",
+    "mtime": 1788199502.6608553,
+    "ast_hash": "14d8b05af48ffc2f73e25c5d9d4ade29",
     "semantic_hash": ""
   },
   "k8s/01-infrastructure.yaml": {
@@ -2200,23 +2200,23 @@
     "semantic_hash": ""
   },
   "k8s/02-microservices.yaml": {
-    "mtime": 1787842165.5675776,
-    "ast_hash": "4b9d586413eee2d3621cbc6160616c29",
+    "mtime": 1788196734.7653341,
+    "ast_hash": "a58da4d3f046fd5ac51d63db50806531",
     "semantic_hash": ""
   },
   "k8s/03-frontend.yaml": {
-    "mtime": 1787842171.1958299,
+    "mtime": 1788196731.3058822,
     "ast_hash": "4c1bdc77632b3ff8d34bb58cead02a0f",
     "semantic_hash": ""
   },
   "k8s/04-observability.yaml": {
-    "mtime": 1787667124.2858336,
-    "ast_hash": "5b5045652a0cb09da18ec4760d686909",
+    "mtime": 1788203305.542331,
+    "ast_hash": "2ad16079ec19599be5d36e70a8ae753f",
     "semantic_hash": ""
   },
   "k8s/05-ingress.yaml": {
-    "mtime": 1786731835.6037676,
-    "ast_hash": "bbdaa3f16dd4c7d835eee27095064035",
+    "mtime": 1788288279.0651937,
+    "ast_hash": "519a12907789620b700f3ff6131e1a4a",
     "semantic_hash": ""
   },
   "k8s/06-networkpolicy.yaml": {
@@ -2230,18 +2230,18 @@
     "semantic_hash": ""
   },
   "k8s/helm/fintech-wallet/templates/auth-service.yaml": {
-    "mtime": 1786545276.2463675,
-    "ast_hash": "446c1bfdf66731571d135920f5c699d6",
+    "mtime": 1788289668.4944546,
+    "ast_hash": "2ce9c848859e10c1e2330b6f024d7d2d",
     "semantic_hash": ""
   },
   "k8s/helm/fintech-wallet/templates/frontend.yaml": {
-    "mtime": 1786460858.4889734,
-    "ast_hash": "6a048278bb2614c69e0f10ebcd5e8a47",
+    "mtime": 1788289702.5786927,
+    "ast_hash": "d4e05139a863dda105c7c28e3ec7ee3d",
     "semantic_hash": ""
   },
   "k8s/helm/fintech-wallet/templates/ingress.yaml": {
-    "mtime": 1786463090.7488983,
-    "ast_hash": "c27ac356af2e7da2ca5c010ae42306fd",
+    "mtime": 1788289724.0509117,
+    "ast_hash": "988a6eb61777b24f05928bdd144cd789",
     "semantic_hash": ""
   },
   "k8s/helm/fintech-wallet/templates/kafka.yaml": {
@@ -2250,13 +2250,8 @@
     "semantic_hash": ""
   },
   "k8s/helm/fintech-wallet/templates/maildev.yaml": {
-    "mtime": 1786463073.3193324,
-    "ast_hash": "cb6cb4672498478ee8ab4eda39e0db2c",
-    "semantic_hash": ""
-  },
-  "k8s/helm/fintech-wallet/templates/mysql.yaml": {
-    "mtime": 1786460831.4536014,
-    "ast_hash": "b9e5e0e13a11a78b8b7c462adf113161",
+    "mtime": 1788289710.905639,
+    "ast_hash": "c78295565f14615e29eecab76b6da562",
     "semantic_hash": ""
   },
   "k8s/helm/fintech-wallet/templates/networkpolicy.yaml": {
@@ -2265,18 +2260,18 @@
     "semantic_hash": ""
   },
   "k8s/helm/fintech-wallet/templates/notification-service.yaml": {
-    "mtime": 1786463100.7679021,
-    "ast_hash": "6860f28b6af01a1391b6be8f19d7eba4",
+    "mtime": 1788289688.585433,
+    "ast_hash": "d1e992b8af42e3bd9c99cfaa10d4b3ad",
     "semantic_hash": ""
   },
   "k8s/helm/fintech-wallet/templates/observability/clickhouse.yaml": {
-    "mtime": 1786460894.4344187,
-    "ast_hash": "a4ba4d1aa2e5fc88a30d753c015353ba",
+    "mtime": 1788289732.4008412,
+    "ast_hash": "ce035ec99e495677411bfae498534062",
     "semantic_hash": ""
   },
   "k8s/helm/fintech-wallet/templates/observability/otel-collector.yaml": {
-    "mtime": 1786460925.8495982,
-    "ast_hash": "fa1021df5994b0586468067f3623af07",
+    "mtime": 1787857442.6869936,
+    "ast_hash": "5c1eece1c3f468c24931242b37647f58",
     "semantic_hash": ""
   },
   "k8s/helm/fintech-wallet/templates/observability/signoz-migrator.yaml": {
@@ -2295,23 +2290,23 @@
     "semantic_hash": ""
   },
   "k8s/helm/fintech-wallet/templates/transaction-service.yaml": {
-    "mtime": 1786460876.294047,
-    "ast_hash": "6f93aab8a2c9bf9ae76e4f3f80a58da5",
+    "mtime": 1788289681.8280518,
+    "ast_hash": "9798ae21e23bab65244c731d8c3a71c3",
     "semantic_hash": ""
   },
   "k8s/helm/fintech-wallet/templates/user-service.yaml": {
-    "mtime": 1786460870.4594834,
-    "ast_hash": "273d844af330a10a8a3179810521aa41",
+    "mtime": 1788289675.428338,
+    "ast_hash": "b135c4caf3ae0f66eec0f28ffbfdc423",
     "semantic_hash": ""
   },
   "k8s/helm/fintech-wallet/templates/worker-service.yaml": {
-    "mtime": 1786460888.0887592,
-    "ast_hash": "13342f533ec086bc230c0271f7bff1dc",
+    "mtime": 1788289695.9986231,
+    "ast_hash": "08efd254ef063023bf4658a50001a051",
     "semantic_hash": ""
   },
   "k8s/helm/fintech-wallet/values.yaml": {
-    "mtime": 1787066037.3301027,
-    "ast_hash": "788804c44cc1edcf5aab436c9b1ef1e5",
+    "mtime": 1788289741.0697906,
+    "ast_hash": "eef1de66a5bf19f545ac1a2faf35d52c",
     "semantic_hash": ""
   },
   "infra/postgres/init-core.sql": {
@@ -2560,13 +2555,13 @@
     "semantic_hash": ""
   },
   "docs/creating-a-microservice.md": {
-    "mtime": 1787066096.7700806,
-    "ast_hash": "094599d49b62ef8a91324d799b80436e",
+    "mtime": 1787860134.4572468,
+    "ast_hash": "0983011e9c20965a2992b031ad52b5ca",
     "semantic_hash": ""
   },
   "docs/development.md": {
-    "mtime": 1786982282.7504876,
-    "ast_hash": "e96cf729f33a41eef25214ce47f1f183",
+    "mtime": 1787859138.2333646,
+    "ast_hash": "03229f12b2889910f96f8933f36d61a8",
     "semantic_hash": ""
   },
   "docs/documentation-gaps.md": {
@@ -2610,8 +2605,8 @@
     "semantic_hash": ""
   },
   "deploy-k8s.ps1": {
-    "mtime": 1787842201.0577486,
-    "ast_hash": "fdd4fdf10af45813c53fb0605321a9a2",
+    "mtime": 1788280257.580468,
+    "ast_hash": "266fc6f214ba9222b2a75ac105f49ba6",
     "semantic_hash": ""
   },
   "deploy-k8s.sh": {
@@ -2620,7 +2615,7 @@
     "semantic_hash": ""
   },
   "compose.yaml": {
-    "mtime": 1787063740.0745077,
+    "mtime": 1788203310.9559603,
     "ast_hash": "77c3124e77d131b0c4bd44cdf2cee3d0",
     "semantic_hash": ""
   },
@@ -2665,8 +2660,8 @@
     "semantic_hash": ""
   },
   "k8s/kind-config.yaml": {
-    "mtime": 1787165806.195654,
-    "ast_hash": "8d4b5ea7916cc4c792ae154b487820a2",
+    "mtime": 1788196727.1652234,
+    "ast_hash": "08549571eb04000dadf3e2d7e3b319a0",
     "semantic_hash": ""
   },
   "scripts/k6-stress-test.js": {
@@ -2685,8 +2680,8 @@
     "semantic_hash": ""
   },
   "k8s/09-hpa.yaml": {
-    "mtime": 1787582494.7526753,
-    "ast_hash": "d1566657bb49c599d771550806bb0085",
+    "mtime": 1787927337.8408396,
+    "ast_hash": "0b19899dfc135c56b551eabe3c11da43",
     "semantic_hash": ""
   },
   "k8s/10-pdb.yaml": {
@@ -2795,8 +2790,8 @@
     "semantic_hash": ""
   },
   "k8s/12-signoz-dashboards-importer.yaml": {
-    "mtime": 1787594808.239797,
-    "ast_hash": "c28e62394365592f6119037bf5f25c1a",
+    "mtime": 1787857422.286681,
+    "ast_hash": "0224266aa2b9e1c97a22657c5d70c6fc",
     "semantic_hash": ""
   },
   "observability/GUIA_INTERPRETACION_OBSERVABILIDAD.md": {
@@ -2830,13 +2825,53 @@
     "semantic_hash": ""
   },
   "scripts/push-images.ps1": {
-    "mtime": 1787845052.1686566,
-    "ast_hash": "b2588740ad6537e37ee539f98a41a526",
+    "mtime": 1787845199.6973295,
+    "ast_hash": "80de6bdb43e3dec82f007a763986c822",
     "semantic_hash": ""
   },
   "scripts/push-images.sh": {
     "mtime": 1787845062.8593948,
     "ast_hash": "b7b05baa5a733b390ecf52d54f4c20cf",
+    "semantic_hash": ""
+  },
+  "scripts/kind-port-forwarder.ps1": {
+    "mtime": 1788275845.961912,
+    "ast_hash": "67c5b1fb3d7f22db8a0cf3ef2afcfd4c",
+    "semantic_hash": ""
+  },
+  "scripts/start-kind-proxy.ps1": {
+    "mtime": 1788277698.2106986,
+    "ast_hash": "db31e5c859662a85158a74d104f4c7e2",
+    "semantic_hash": ""
+  },
+  "scripts/start-cluster.ps1": {
+    "mtime": 1788287280.042693,
+    "ast_hash": "042185813eeb7aa54371dd17a81a2277",
+    "semantic_hash": ""
+  },
+  "docs/explicacion-red-cluster-podman.md": {
+    "mtime": 1788288087.3557892,
+    "ast_hash": "ee22463cca4f8f349304682113c0cc4c",
+    "semantic_hash": ""
+  },
+  "deploy-helm.ps1": {
+    "mtime": 1788289890.8869207,
+    "ast_hash": "d770d0d5319ebcc2087d7857a8c75524",
+    "semantic_hash": ""
+  },
+  "deploy-helm.sh": {
+    "mtime": 1788289897.1892264,
+    "ast_hash": "e25d5a9f8ac2092ac1a40e51c61dcdef",
+    "semantic_hash": ""
+  },
+  "k8s/helm/fintech-wallet/templates/pgbouncer.yaml": {
+    "mtime": 1788288566.080612,
+    "ast_hash": "50b56dfe3ba4531edbbffb7ba42ddbb9",
+    "semantic_hash": ""
+  },
+  "k8s/helm/fintech-wallet/templates/postgres.yaml": {
+    "mtime": 1788288558.6257343,
+    "ast_hash": "cf6b2c657d14530efe3d1fe05fb40284",
     "semantic_hash": ""
   }
 }

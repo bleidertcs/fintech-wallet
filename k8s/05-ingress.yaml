@@ -45,7 +45,7 @@ metadata:
 spec:
   rateLimit:
     average: 100 # Tasa promedio sostenida
-    burst: 50    # Ráfaga máxima permitida
+    burst: 50 # Ráfaga máxima permitida
 ---
 # ------------------------------------------------------------------------------
 # 4. MIDDLEWARE TRAEFIK: strip-otlp-prefix
@@ -71,6 +71,7 @@ metadata:
   namespace: fintech
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
     traefik.ingress.kubernetes.io/router.middlewares: fintech-strip-otlp-prefix@kubernetescrd
 spec:
   ingressClassName: traefik
@@ -95,6 +96,7 @@ metadata:
   namespace: fintech
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
     traefik.ingress.kubernetes.io/router.middlewares: fintech-auth-ratelimit@kubernetescrd
 spec:
   ingressClassName: traefik # Utiliza el Ingress Controller nativo Traefik de K3s
@@ -116,6 +118,7 @@ metadata:
   namespace: fintech
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   ingressClassName: traefik
   rules:
@@ -136,6 +139,7 @@ metadata:
   namespace: fintech
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   ingressClassName: traefik
   rules:
@@ -156,6 +160,7 @@ metadata:
   namespace: fintech
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   ingressClassName: traefik
   rules:
@@ -176,6 +181,7 @@ metadata:
   namespace: fintech
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   ingressClassName: traefik
   rules:
@@ -200,6 +206,7 @@ metadata:
   namespace: fintech
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
     traefik.ingress.kubernetes.io/router.middlewares: fintech-strip-api-prefix@kubernetescrd
 spec:
   ingressClassName: traefik
@@ -259,6 +266,7 @@ metadata:
   namespace: fintech
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   ingressClassName: traefik
   rules:
@@ -293,6 +301,31 @@ spec:
                   number: 1080
 ---
 # ------------------------------------------------------------------------------
+# 7. INGRESS SIGNOZ: signoz-ingress (signoz.localhost)
+# ------------------------------------------------------------------------------
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: signoz-ingress
+  namespace: fintech
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "false"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: signoz.localhost
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: signoz
+                port:
+                  number: 8080
+---
+# ------------------------------------------------------------------------------
 # 7. INGRESS ROUTE CRD: Dashboard de Traefik (traefik.localhost)
 # ------------------------------------------------------------------------------
 apiVersion: traefik.io/v1alpha1
@@ -309,3 +342,39 @@ spec:
       services:
         - name: api@internal
           kind: TraefikService
+---
+# ------------------------------------------------------------------------------
+# 8. INGRESS ROUTE: SigNoz UI en Puerto 3301 (:3301/ sin colisión de base-path)
+# ------------------------------------------------------------------------------
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: signoz-web
+  namespace: fintech
+spec:
+  entryPoints:
+    - signoz
+  routes:
+    - match: PathPrefix(`/`)
+      kind: Rule
+      services:
+        - name: signoz
+          port: 8080
+---
+# ------------------------------------------------------------------------------
+# 9. INGRESS ROUTE: MailDev UI en Puerto 1080 (:1080/)
+# ------------------------------------------------------------------------------
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: maildev-web
+  namespace: fintech
+spec:
+  entryPoints:
+    - maildev
+  routes:
+    - match: PathPrefix(`/`)
+      kind: Rule
+      services:
+        - name: maildev
+          port: 1080

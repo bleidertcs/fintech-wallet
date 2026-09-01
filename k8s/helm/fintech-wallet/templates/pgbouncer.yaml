@@ -1,0 +1,102 @@
+# ==============================================================================
+# PGBOUNCER.YAML - CONNECTION POOLER DE ALTO RENDIMIENTO (TRANSACTION POOLING)
+# ==============================================================================
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pgbouncer-core-config
+  namespace: {{ .Release.Namespace }}
+data:
+  pgbouncer.ini: |
+    [databases]
+    authdb = host=postgres-core port=5432 dbname=authdb auth_user=postgres
+    userdb = host=postgres-core port=5432 dbname=userdb auth_user=postgres
+    transactiondb = host=postgres-core port=5432 dbname=transactiondb auth_user=postgres
+
+    [pgbouncer]
+    logfile = /tmp/pgbouncer.log
+    pidfile = /tmp/pgbouncer.pid
+    listen_addr = 0.0.0.0
+    listen_port = 6432
+    auth_type = md5
+    auth_file = /etc/pgbouncer/userlist.txt
+    admin_users = postgres
+    stats_users = postgres
+    pool_mode = transaction
+    max_client_conn = 5000
+    default_pool_size = 50
+    min_pool_size = 10
+    reserve_pool_size = 10
+    reserve_pool_timeout = 5
+    max_db_connections = 100
+    server_idle_timeout = 60
+    server_connect_timeout = 15
+    server_login_retry = 3
+    query_timeout = 30
+    client_idle_timeout = 0
+    client_login_timeout = 30
+    server_round_robin = 1
+    ignore_startup_parameters = extra_float_digits
+  userlist.txt: |
+    "postgres" "12345"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pgbouncer-core
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: pgbouncer-core
+spec:
+  replicas: {{ .Values.pgbouncer.replicaCount | default 1 }}
+  selector:
+    matchLabels:
+      app: pgbouncer-core
+  template:
+    metadata:
+      labels:
+        app: pgbouncer-core
+    spec:
+      containers:
+        - name: pgbouncer
+          image: {{ .Values.pgbouncer.image | quote }}
+          ports:
+            - containerPort: 6432
+              name: pgbouncer
+          resources:
+            {{- toYaml .Values.pgbouncer.resources | nindent 12 }}
+          livenessProbe:
+            tcpSocket:
+              port: 6432
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          readinessProbe:
+            tcpSocket:
+              port: 6432
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          volumeMounts:
+            - name: pgbouncer-config
+              mountPath: /etc/pgbouncer/pgbouncer.ini
+              subPath: pgbouncer.ini
+            - name: pgbouncer-config
+              mountPath: /etc/pgbouncer/userlist.txt
+              subPath: userlist.txt
+      volumes:
+        - name: pgbouncer-config
+          configMap:
+            name: pgbouncer-core-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pgbouncer-core
+  namespace: {{ .Release.Namespace }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: 6432
+      targetPort: 6432
+      name: pgbouncer
+  selector:
+    app: pgbouncer-core

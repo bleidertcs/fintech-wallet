@@ -35,7 +35,7 @@ spec:
       containers:
         - name: auth-service
           image: bleiderc/fintech-wallet:auth-service-1.0.0
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
@@ -153,7 +153,7 @@ spec:
       containers:
         - name: user-service
           image: bleiderc/fintech-wallet:user-service-1.0.0
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
@@ -252,7 +252,7 @@ spec:
       containers:
         - name: transaction-service
           image: bleiderc/fintech-wallet:transaction-service-1.0.0
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
@@ -361,7 +361,7 @@ spec:
       containers:
         - name: notification-service
           image: bleiderc/fintech-wallet:notification-service-1.0.0
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
@@ -472,7 +472,7 @@ spec:
       containers:
         - name: worker-service
           image: bleiderc/fintech-wallet:worker-service-1.0.0
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:

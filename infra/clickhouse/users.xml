@@ -2,7 +2,6 @@
     <profiles>
         <default>
             <allow_experimental_object_type>1</allow_experimental_object_type>
-            <allow_experimental_json_type>1</allow_experimental_json_type>
             <!-- Single-node: deshabilitar espera de DDL distribuido (evita timeout de 180s) -->
             <distributed_ddl_task_timeout>0</distributed_ddl_task_timeout>
         </default>

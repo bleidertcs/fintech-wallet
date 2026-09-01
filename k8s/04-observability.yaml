@@ -84,6 +84,16 @@ metadata:
 data:
   cluster.xml: |
     <clickhouse>
+        <logger>
+            <level>information</level>
+            <console>1</console>
+        </logger>
+        <listen_host>::</listen_host>
+        <background_schedule_pool_size>16</background_schedule_pool_size>
+        <background_pool_size>16</background_pool_size>
+        <background_fetches_pool_size>8</background_fetches_pool_size>
+        <background_common_pool_size>8</background_common_pool_size>
+        <max_thread_pool_size>10000</max_thread_pool_size>
         <distributed_ddl>
             <profile>default</profile>
             <task_max_lifetime>0</task_max_lifetime>
@@ -356,6 +366,17 @@ spec:
       labels:
         app: clickhouse
     spec:
+      securityContext:
+        fsGroup: 101
+      initContainers:
+        - name: init-clickhouse-volume
+          image: clickhouse/clickhouse-server:25.12.5
+          securityContext:
+            runAsUser: 0
+          command: ["sh", "-c", "chown -R clickhouse:clickhouse /var/lib/clickhouse /var/log/clickhouse-server 2>/dev/null || true; chmod -R 775 /var/lib/clickhouse 2>/dev/null || true"]
+          volumeMounts:
+            - name: clickhouse-data
+              mountPath: /var/lib/clickhouse
       containers:
         - name: clickhouse
           image: clickhouse/clickhouse-server:25.12.5
@@ -384,18 +405,22 @@ spec:
             - name: clickhouse-data
               mountPath: /var/lib/clickhouse
             - name: cluster-config
-              mountPath: /etc/clickhouse-server/config.d/cluster.xml
-              subPath: cluster.xml
+              mountPath: /etc/clickhouse-server/config.d
             - name: users-config
-              mountPath: /etc/clickhouse-server/users.d/experimental.xml
-              subPath: users.xml
+              mountPath: /etc/clickhouse-server/users.d
       volumes:
         - name: cluster-config
           configMap:
             name: clickhouse-config
+            items:
+              - key: cluster.xml
+                path: cluster.xml
         - name: users-config
           configMap:
             name: clickhouse-config
+            items:
+              - key: users.xml
+                path: experimental.xml
   volumeClaimTemplates:
     - metadata:
         name: clickhouse-data

@@ -18,7 +18,7 @@ spec:
       containers:
         - name: worker-service
           image: "{{ .Values.workerService.image.repository }}:{{ .Values.workerService.image.tag }}"
-          imagePullPolicy: Always
+          imagePullPolicy: {{ .Values.workerService.image.pullPolicy | default "IfNotPresent" }}
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
@@ -33,7 +33,9 @@ spec:
             - name: NODE_ENV
               value: {{ .Values.global.environment | quote }}
             - name: NODE_OPTIONS
-              value: "--max-old-space-size=200"
+              value: "--max-old-space-size=256"
+            - name: UV_THREADPOOL_SIZE
+              value: "8"
             - name: POD_NAME
               valueFrom:
                 fieldRef:
@@ -48,16 +50,27 @@ spec:
                   fieldPath: spec.nodeName
             - name: CLUSTER_NAME
               value: {{ .Values.global.clusterName | quote }}
-            - name: OTEL_SERVICE_NAME
-              value: "worker-service"
             - name: DATABASE_URL
-              value: "mysql://{{ .Values.global.dbUsername }}:{{ .Values.global.dbPassword }}@mysql:3306/workerdb?allowPublicKeyRetrieval=true"
+              value: "postgresql://{{ .Values.global.dbUsername }}:{{ .Values.global.dbPassword }}@postgres-support:5432/workerdb?schema=public"
             - name: KAFKA_BROKERS
               value: "kafka:29092"
-            - name: STATEMENTS_DIR
-              value: "/tmp/statements"
+            - name: REDIS_HOST
+              value: "redis"
+            - name: REDIS_PORT
+              value: "6379"
+            - name: USER_SERVICE_URL
+              value: "http://user-service:8082"
+            - name: TRANSACTION_SERVICE_URL
+              value: "http://transaction-service:8083"
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: fintech-secrets
+                  key: JWT_SECRET
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
               value: {{ tpl .Values.global.otelEndpoint . | quote }}
+            - name: OTEL_SERVICE_NAME
+              value: "worker-service"
           resources:
             {{- toYaml .Values.workerService.resources | nindent 12 }}
           startupProbe:

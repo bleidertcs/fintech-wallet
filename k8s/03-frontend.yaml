@@ -29,7 +29,7 @@ spec:
       containers:
         - name: frontend
           image: bleiderc/fintech-wallet:frontend-1.0.0
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: false
           ports:

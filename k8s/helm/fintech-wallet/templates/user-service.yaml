@@ -18,7 +18,7 @@ spec:
       containers:
         - name: user-service
           image: "{{ .Values.userService.image.repository }}:{{ .Values.userService.image.tag }}"
-          imagePullPolicy: Always
+          imagePullPolicy: {{ .Values.userService.image.pullPolicy | default "IfNotPresent" }}
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
@@ -27,17 +27,15 @@ spec:
           ports:
             - containerPort: 3002
               name: http
-            - containerPort: 50051
-              name: grpc
           env:
             - name: PORT
               value: "3002"
-            - name: GRPC_PORT
-              value: "50051"
             - name: NODE_ENV
               value: {{ .Values.global.environment | quote }}
             - name: NODE_OPTIONS
-              value: "--max-old-space-size=200"
+              value: "--max-old-space-size=256"
+            - name: UV_THREADPOOL_SIZE
+              value: "8"
             - name: POD_NAME
               valueFrom:
                 fieldRef:
@@ -52,12 +50,23 @@ spec:
                   fieldPath: spec.nodeName
             - name: CLUSTER_NAME
               value: {{ .Values.global.clusterName | quote }}
-            - name: OTEL_SERVICE_NAME
-              value: "user-service"
             - name: DATABASE_URL
-              value: "mysql://{{ .Values.global.dbUsername }}:{{ .Values.global.dbPassword }}@mysql:3306/userdb?allowPublicKeyRetrieval=true"
+              value: "postgresql://{{ .Values.global.dbUsername }}:{{ .Values.global.dbPassword }}@pgbouncer-core:6432/userdb?schema=public&pgbouncer=true"
+            - name: REDIS_HOST
+              value: "redis"
+            - name: REDIS_PORT
+              value: "6379"
+            - name: KAFKA_BROKERS
+              value: "kafka:29092"
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: fintech-secrets
+                  key: JWT_SECRET
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
               value: {{ tpl .Values.global.otelEndpoint . | quote }}
+            - name: OTEL_SERVICE_NAME
+              value: "user-service"
           resources:
             {{- toYaml .Values.userService.resources | nindent 12 }}
           startupProbe:
@@ -91,8 +100,5 @@ spec:
     - port: 8082
       targetPort: 3002
       name: http
-    - port: 9090
-      targetPort: 50051
-      name: grpc
   selector:
     app: user-service

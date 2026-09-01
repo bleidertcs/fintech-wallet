@@ -18,7 +18,7 @@ spec:
       containers:
         - name: auth-service
           image: "{{ .Values.authService.image.repository }}:{{ .Values.authService.image.tag }}"
-          imagePullPolicy: Always
+          imagePullPolicy: {{ .Values.authService.image.pullPolicy | default "IfNotPresent" }}
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
@@ -33,7 +33,9 @@ spec:
             - name: NODE_ENV
               value: {{ .Values.global.environment | quote }}
             - name: NODE_OPTIONS
-              value: "--max-old-space-size=200"
+              value: "--max-old-space-size=256"
+            - name: UV_THREADPOOL_SIZE
+              value: "8"
             - name: POD_NAME
               valueFrom:
                 fieldRef:
@@ -49,7 +51,7 @@ spec:
             - name: CLUSTER_NAME
               value: {{ .Values.global.clusterName | quote }}
             - name: DATABASE_URL
-              value: "mysql://{{ .Values.global.dbUsername }}:{{ .Values.global.dbPassword }}@mysql:3306/authdb?allowPublicKeyRetrieval=true"
+              value: "postgresql://{{ .Values.global.dbUsername }}:{{ .Values.global.dbPassword }}@pgbouncer-core:6432/authdb?schema=public&pgbouncer=true"
             - name: REDIS_HOST
               value: "redis"
             - name: REDIS_PORT

@@ -1,0 +1,334 @@
+# ==============================================================================
+# POSTGRES.YAML - CONFIGMAPS, STATEFULSETS Y SERVICIOS POSTGRESQL (CORE Y SUPPORT)
+# ==============================================================================
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-core-init-sql
+  namespace: {{ .Release.Namespace }}
+data:
+  init-core.sql: |
+    SELECT 'CREATE DATABASE authdb' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'authdb')\gexec
+    SELECT 'CREATE DATABASE userdb' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'userdb')\gexec
+    SELECT 'CREATE DATABASE transactiondb' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'transactiondb')\gexec
+    GRANT ALL PRIVILEGES ON DATABASE authdb TO postgres;
+    GRANT ALL PRIVILEGES ON DATABASE userdb TO postgres;
+    GRANT ALL PRIVILEGES ON DATABASE transactiondb TO postgres;
+
+    \c authdb;
+    CREATE TABLE IF NOT EXISTS "users" (
+        "id" BIGSERIAL PRIMARY KEY,
+        "email" VARCHAR(255) UNIQUE NOT NULL,
+        "password" VARCHAR(255) NOT NULL,
+        "role" VARCHAR(50) DEFAULT 'USER' NOT NULL,
+        "verified" BOOLEAN DEFAULT false NOT NULL,
+        "verification_token" VARCHAR(255),
+        "totp_secret" VARCHAR(255),
+        "totp_enabled" BOOLEAN DEFAULT false NOT NULL
+    );
+    CREATE TABLE IF NOT EXISTS "outbox_events" (
+        "id" VARCHAR(36) PRIMARY KEY,
+        "aggregate_type" VARCHAR(100) NOT NULL,
+        "aggregate_id" VARCHAR(100) NOT NULL,
+        "event_type" VARCHAR(100) NOT NULL,
+        "payload" JSONB NOT NULL,
+        "status" VARCHAR(50) DEFAULT 'PENDING' NOT NULL,
+        "created_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+        "processed_at" TIMESTAMP WITH TIME ZONE
+    );
+    CREATE INDEX IF NOT EXISTS "idx_outbox_events_status_created" ON "outbox_events" ("status", "created_at");
+
+    \c userdb;
+    CREATE TABLE IF NOT EXISTS "user_profiles" (
+        "id" BIGSERIAL PRIMARY KEY,
+        "name" VARCHAR(255) NOT NULL,
+        "email" VARCHAR(255) UNIQUE NOT NULL,
+        "balance" DECIMAL(15, 2) DEFAULT 0.00 NOT NULL,
+        "daily_limit" DECIMAL(15, 2) DEFAULT 50000.00 NOT NULL,
+        "currency" VARCHAR(3) DEFAULT 'VES' NOT NULL,
+        CONSTRAINT "check_positive_balance" CHECK ("balance" >= 0)
+    );
+    CREATE TABLE IF NOT EXISTS "outbox_events" (
+        "id" VARCHAR(36) PRIMARY KEY,
+        "aggregate_type" VARCHAR(100) NOT NULL,
+        "aggregate_id" VARCHAR(100) NOT NULL,
+        "event_type" VARCHAR(100) NOT NULL,
+        "payload" JSONB NOT NULL,
+        "status" VARCHAR(50) DEFAULT 'PENDING' NOT NULL,
+        "created_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+        "processed_at" TIMESTAMP WITH TIME ZONE
+    );
+    CREATE INDEX IF NOT EXISTS "idx_user_outbox_status_created" ON "outbox_events" ("status", "created_at");
+
+    \c transactiondb;
+    CREATE TABLE IF NOT EXISTS "transactions" (
+        "id" BIGSERIAL PRIMARY KEY,
+        "from_user_id" BIGINT NOT NULL,
+        "to_user_id" BIGINT NOT NULL,
+        "amount" DECIMAL(15, 2) NOT NULL,
+        "status" VARCHAR(50) DEFAULT 'SUCCESS' NOT NULL,
+        "created_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL
+    );
+    CREATE TABLE IF NOT EXISTS "money_requests" (
+        "id" BIGSERIAL PRIMARY KEY,
+        "requester_id" BIGINT NOT NULL,
+        "target_id" BIGINT NOT NULL,
+        "amount" DECIMAL(15, 2) NOT NULL,
+        "message" VARCHAR(255),
+        "status" VARCHAR(50) DEFAULT 'PENDING' NOT NULL,
+        "created_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL
+    );
+    CREATE TABLE IF NOT EXISTS "outbox_events" (
+        "id" VARCHAR(36) PRIMARY KEY,
+        "aggregate_type" VARCHAR(100) NOT NULL,
+        "aggregate_id" VARCHAR(100) NOT NULL,
+        "event_type" VARCHAR(100) NOT NULL,
+        "payload" JSONB NOT NULL,
+        "status" VARCHAR(50) DEFAULT 'PENDING' NOT NULL,
+        "created_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+        "processed_at" TIMESTAMP WITH TIME ZONE
+    );
+    CREATE TABLE IF NOT EXISTS "idempotency_records" (
+        "id" VARCHAR(36) PRIMARY KEY,
+        "user_id" BIGINT NOT NULL,
+        "key" VARCHAR(255) NOT NULL,
+        "request_hash" VARCHAR(255),
+        "response" JSONB,
+        "status" VARCHAR(50) DEFAULT 'COMPLETED' NOT NULL,
+        "created_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+        CONSTRAINT "user_key_unique" UNIQUE ("user_id", "key")
+    );
+    CREATE INDEX IF NOT EXISTS "idx_tx_outbox_status_created" ON "outbox_events" ("status", "created_at");
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-support-init-sql
+  namespace: {{ .Release.Namespace }}
+data:
+  init-support.sql: |
+    SELECT 'CREATE DATABASE notificationdb' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'notificationdb')\gexec
+    SELECT 'CREATE DATABASE workerdb' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'workerdb')\gexec
+    GRANT ALL PRIVILEGES ON DATABASE notificationdb TO postgres;
+    GRANT ALL PRIVILEGES ON DATABASE workerdb TO postgres;
+
+    \c notificationdb;
+    CREATE TABLE IF NOT EXISTS "notifications" (
+        "id" BIGSERIAL PRIMARY KEY,
+        "user_id" BIGINT NOT NULL,
+        "type" VARCHAR(50) NOT NULL,
+        "message" TEXT NOT NULL,
+        "amount" DECIMAL(15, 2) NOT NULL,
+        "from_user_id" BIGINT,
+        "is_read" BOOLEAN DEFAULT false NOT NULL,
+        "created_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL
+    );
+    CREATE INDEX IF NOT EXISTS "idx_notifications_user_id" ON "notifications" ("user_id");
+
+    \c workerdb;
+    CREATE TABLE IF NOT EXISTS "statement_jobs" (
+        "id" BIGSERIAL PRIMARY KEY,
+        "user_id" BIGINT NOT NULL,
+        "status" VARCHAR(50) DEFAULT 'PENDING' NOT NULL,
+        "pdf_path" VARCHAR(255),
+        "error_message" TEXT,
+        "created_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+        "completed_at" TIMESTAMP WITH TIME ZONE
+    );
+    CREATE TABLE IF NOT EXISTS "audit_logs" (
+        "id" BIGSERIAL PRIMARY KEY,
+        "from_user_id" BIGINT,
+        "to_user_id" BIGINT,
+        "amount" DECIMAL(15, 2) DEFAULT 0.00 NOT NULL,
+        "event_type" VARCHAR(100) NOT NULL,
+        "details" TEXT,
+        "timestamp" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL
+    );
+    CREATE INDEX IF NOT EXISTS "idx_statement_jobs_user_status" ON "statement_jobs" ("user_id", "status");
+    CREATE INDEX IF NOT EXISTS "idx_audit_logs_timestamp" ON "audit_logs" ("timestamp");
+---
+# ------------------------------------------------------------------------------
+# STATEFULSET: postgres-core (Auth, Users, Transactions)
+# ------------------------------------------------------------------------------
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres-core
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: postgres-core
+spec:
+  serviceName: postgres-core
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres-core
+  template:
+    metadata:
+      labels:
+        app: postgres-core
+    spec:
+      securityContext:
+        fsGroup: 999
+      containers:
+        - name: postgres
+          image: {{ .Values.postgresCore.image | quote }}
+          args:
+            - "-c"
+            - "max_connections=300"
+            - "-c"
+            - "shared_buffers=128MB"
+          ports:
+            - containerPort: 5432
+              name: postgres
+          env:
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: fintech-secrets
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: fintech-secrets
+                  key: POSTGRES_PASSWORD
+          resources:
+            {{- toYaml .Values.postgresCore.resources | nindent 12 }}
+          livenessProbe:
+            exec:
+              command: ["pg_isready", "-U", "postgres"]
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            timeoutSeconds: 5
+          readinessProbe:
+            exec:
+              command: ["pg_isready", "-U", "postgres"]
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+          volumeMounts:
+            - name: postgres-core-data
+              mountPath: /var/lib/postgresql/data
+            - name: postgres-core-init-volume
+              mountPath: /docker-entrypoint-initdb.d/init.sql
+              subPath: init-core.sql
+      volumes:
+        - name: postgres-core-init-volume
+          configMap:
+            name: postgres-core-init-sql
+  volumeClaimTemplates:
+    - metadata:
+        name: postgres-core-data
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        storageClassName: {{ .Values.global.storageClass | quote }}
+        resources:
+          requests:
+            storage: {{ .Values.postgresCore.storage | quote }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-core
+  namespace: {{ .Release.Namespace }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: 5432
+      targetPort: 5432
+      name: postgres
+  selector:
+    app: postgres-core
+---
+# ------------------------------------------------------------------------------
+# STATEFULSET: postgres-support (Notifications, Worker, Audit)
+# ------------------------------------------------------------------------------
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres-support
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: postgres-support
+spec:
+  serviceName: postgres-support
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres-support
+  template:
+    metadata:
+      labels:
+        app: postgres-support
+    spec:
+      securityContext:
+        fsGroup: 999
+      containers:
+        - name: postgres
+          image: {{ .Values.postgresSupport.image | quote }}
+          args:
+            - "-c"
+            - "max_connections=150"
+            - "-c"
+            - "shared_buffers=64MB"
+          ports:
+            - containerPort: 5432
+              name: postgres
+          env:
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: fintech-secrets
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: fintech-secrets
+                  key: POSTGRES_PASSWORD
+          resources:
+            {{- toYaml .Values.postgresSupport.resources | nindent 12 }}
+          livenessProbe:
+            exec:
+              command: ["pg_isready", "-U", "postgres"]
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            timeoutSeconds: 5
+          readinessProbe:
+            exec:
+              command: ["pg_isready", "-U", "postgres"]
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+          volumeMounts:
+            - name: postgres-support-data
+              mountPath: /var/lib/postgresql/data
+            - name: postgres-support-init-volume
+              mountPath: /docker-entrypoint-initdb.d/init.sql
+              subPath: init-support.sql
+      volumes:
+        - name: postgres-support-init-volume
+          configMap:
+            name: postgres-support-init-sql
+  volumeClaimTemplates:
+    - metadata:
+        name: postgres-support-data
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        storageClassName: {{ .Values.global.storageClass | quote }}
+        resources:
+          requests:
+            storage: {{ .Values.postgresSupport.storage | quote }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-support
+  namespace: {{ .Release.Namespace }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: 5432
+      targetPort: 5432
+      name: postgres
+  selector:
+    app: postgres-support
